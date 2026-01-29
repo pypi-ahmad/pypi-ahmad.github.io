@@ -1,10 +1,11 @@
 {
   "private": true,
   "name": "ahmad-mujtaba-portfolio",
-  "homepage": "https://pypi-ahmad.github.io",
+  "homepage": ".",
   "version": "2.0.0",
   "scripts": {
     "predeploy": "npm run build",
+    "postbuild": "node -e \"require('fs').closeSync(require('fs').openSync('build/.nojekyll','w'))\"",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build"
