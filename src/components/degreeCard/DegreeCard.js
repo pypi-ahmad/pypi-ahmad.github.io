@@ -1,74 +1,74 @@
 import React from "react";
 import "./DegreeCard.css";
 import { Fade, Flip } from "react-reveal";
-import { style } from "glamor";
+import styled from "styled-components";
+
+const DegreeImageDiv = styled.div`
+  width: 220px;
+  height: auto;
+  border-radius: 50%;
+  padding: 10px;
+  border: 1px solid ${props => props.theme.text};
+  margin-right: 50px;
+  box-shadow: 0px 0px 2px ${props => props.theme.text};
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 2px 10px ${props => props.theme.text};
+  }
+  @media (max-width: 768px) {
+    margin-left: 50px;
+    margin-bottom: 15px;
+    width: 175px;
+  }
+`;
+
+const DegreeCardBody = styled.div`
+  border: 1px solid ${props => props.theme.text};
+  border-radius: 7px;
+  width: 90%;
+  margin: 10px;
+  box-shadow: 0px 0px 1px ${props => props.theme.text};
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 2px 10px ${props => props.theme.text};
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+const VisitButton = styled.p`
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  background: ${props => props.theme.accentColor};
+  padding: 15px 15px;
+  margin-top: 25px;
+  border-radius: 4px;
+  border-width: 0px;
+  margin-bottom: 20px;
+  width: 200px;
+  height: 50px;
+  font-weight: bold;
+  font-family: Google Sans Regular;
+  font-size: 17px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 2px 10px ${props => props.theme.accentColor};
+  }
+`;
 
 function DegreeCard(props) {
   const degree = props.degree;
   const theme = props.theme;
 
-  const style_img = style({
-    width: "220px",
-    height: "auto",
-    borderRadius: " 50%",
-    padding: "10px",
-    border: `1px solid ${theme.text}`,
-    marginRight: "50px",
-    boxShadow: `0px 0px 2px ${theme.text}`,
-    transition: "all 0.2s ease-in-out",
-    ":hover": {
-      color: "rgba(255, 255, 255, 1)",
-      boxShadow: `0 2px 10px ${theme.text}`,
-    },
-    "@media (max-width: 768px)": {
-      marginLeft: "50px",
-      marginBottom: "15px",
-      width: "175px",
-    },
-  });
-
-  const card_body = style({
-    border: `1px solid ${theme.text}`,
-    borderRadius: "7px",
-    width: "90%",
-    margin: "10px",
-    boxShadow: `0px 0px 1px ${theme.text}`,
-    transition: "all 0.2s ease-in-out",
-    ":hover": {
-      color: "rgba(255, 255, 255, 1)",
-      boxShadow: `0 2px 10px ${theme.text}`,
-    },
-    "@media (max-width: 768px)": {
-      width: "100%",
-    },
-  });
-
-  const button_visit = style({
-    textDecoration: "none",
-    color: "rgba(255, 255, 255, 1)",
-    background: `${theme.accentColor}`,
-    padding: "15px 15px",
-    marginTop: "25px",
-    borderRadius: "4px",
-    borderWidth: "0px",
-    marginBottom: "20px",
-    width: "200px",
-    height: "50px",
-    fontWeight: "bold",
-    fontFamily: "Google Sans Regular",
-    fontSize: "17px",
-    transition: "all 0.2s ease-in-out",
-    cursor: "pointer",
-    ":hover": {
-      color: "rgba(255, 255, 255, 1)",
-      boxShadow: `0 2px 10px ${theme.accentColor}`,
-    },
-  });
-
   return (
     <div className="degree-card">
       <Flip left duration={2000}>
-        <div {...style_img}>
+        <DegreeImageDiv theme={theme}>
           <img
             style={{
               maxWidth: "100%",
@@ -78,14 +78,11 @@ function DegreeCard(props) {
             src={require(`../../assests/images/${degree.logo_path}`)}
             alt={degree.alt_name}
           />
-        </div>
+        </DegreeImageDiv>
       </Flip>
       <Fade right duration={2000} distance="40px">
-        <div {...card_body}>
-          <div
-            className="body-header"
-            // style={{ backgroundColor: theme.accentColor }}
-          >
+        <DegreeCardBody theme={theme}>
+          <div className="body-header">
             <div className="body-header-title">
               <h2 className="card-title" style={{ color: theme.text }}>
                 {degree.title}
@@ -118,8 +115,8 @@ function DegreeCard(props) {
               rel="noopener noreferrer"
               style={{ textDecoration: "none", textAlign: "center" }}
             >
-              <p
-                {...button_visit}
+              <VisitButton
+                theme={theme}
                 style={{
                   marginRight: "23px",
                   textDecoration: "none",
@@ -128,10 +125,10 @@ function DegreeCard(props) {
                 }}
               >
                 Visit Website
-              </p>
+              </VisitButton>
             </a>
           </div>
-        </div>
+        </DegreeCardBody>
       </Fade>
     </div>
   );

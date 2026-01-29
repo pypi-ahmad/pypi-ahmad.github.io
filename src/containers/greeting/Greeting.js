@@ -1,22 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Greeting.css";
-import SocialMedia from "../../components/socialMedia/SocialMedia";
 import { greeting } from "../../portfolio";
 import { Fade } from "react-reveal";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import FeelingProud from "./FeelingProud";
-import { style } from "glamor";
 
 export default function Greeting(props) {
   const theme = props.theme;
-  const history = useHistory();
+  const navigate = useNavigate();
+  const [docError, setDocError] = useState("");
+  const resumeUrl = greeting.resumeLink
+    ? `${process.env.PUBLIC_URL}/${greeting.resumeLink}`
+    : "";
+  const coverUrl = greeting.coverLetterLink
+    ? `${process.env.PUBLIC_URL}/${greeting.coverLetterLink}`
+    : "";
 
-  const styles = style({
-    backgroundColor: `${theme.accentBright}`,
-    ":hover": {
-      boxShadow: `0 5px 15px ${theme.accentBright}`,
-    },
-  });
+  const handleDocOpen = async (event, url, label) => {
+    event.preventDefault();
+    if (!url) {
+      setDocError(`${label} is unavailable right now.`);
+      return;
+    }
+
+    try {
+      const response = await fetch(url, { method: "HEAD" });
+      if (!response.ok) {
+        throw new Error("missing");
+      }
+      setDocError("");
+      window.open(url, "_blank", "noopener,noreferrer");
+    } catch (error) {
+      setDocError(`${label} is unavailable right now.`);
+    }
+  };
 
   return (
     <Fade bottom duration={2000} distance="40px">
@@ -35,18 +52,75 @@ export default function Greeting(props) {
                 </span>
                 {greeting.subTitle}
               </p>
-              <SocialMedia />
               <div className="portfolio-repo-btn-div">
                 <button
-                  {...styles}
                   className="button"
                   onClick={() => {
-                    history.push("/contact");
+                    navigate("/contact");
+                  }}
+                  style={{
+                    backgroundColor: theme.accentBright,
+                    color: "#fff",
+                    transition: "all 0.2s ease-in-out",
+                    marginRight: "15px",
                   }}
                 >
                   Contact Me
                 </button>
+                {greeting.resumeLink && (
+                  <a
+                    href={resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button"
+                    onClick={event =>
+                      handleDocOpen(event, resumeUrl, "Resume")
+                    }
+                    style={{
+                      backgroundColor: theme.accentBright,
+                      color: "#fff",
+                      transition: "all 0.2s ease-in-out",
+                      marginRight: "15px",
+                      display: "inline-flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Download Resume
+                  </a>
+                )}
+                {greeting.coverLetterLink && (
+                  <a
+                    href={coverUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button"
+                    onClick={event =>
+                      handleDocOpen(event, coverUrl, "Cover letter")
+                    }
+                    style={{
+                      backgroundColor: theme.accentBright,
+                      color: "#fff",
+                      transition: "all 0.2s ease-in-out",
+                      display: "inline-flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      textDecoration: "none",
+                    }}
+                  >
+                    View Cover Letter
+                  </a>
+                )}
               </div>
+              {docError && (
+                <p
+                  className="doc-fallback-text"
+                  style={{ color: theme.secondaryText }}
+                >
+                  {docError}
+                </p>
+              )}
             </div>
           </div>
           <div className="greeting-image-div">

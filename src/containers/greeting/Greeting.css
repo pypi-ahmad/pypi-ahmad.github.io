@@ -70,6 +70,12 @@
   cursor: pointer;
 }
 
+.doc-fallback-text {
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: "Google Sans Medium";
+}
+
 /* Media Query */
 @media (max-width: 1380px) {
   .greeting-text {

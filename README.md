@@ -1,37 +1,65 @@
-# opPortfolio
+# Ahmad Mujtaba | Portfolio
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/afea2508-00ca-464f-8f63-a4283928fc0f/deploy-status)](https://app.netlify.com/sites/hriship/deploys)
-![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2FHrishi1999%2FopPortfolio)
+![Ahmad Mujtaba Portfolio](/images/portfolio.gif)
 
-![opPortfolio](/images/portfolio.gif)
+A clean, modern, and responsive developer portfolio, updated to **React 18**, **React Router v6**, and optional **Google Analytics 4**.
 
-### A clean portfolio template. (Readme will be updated soon)
+## 🚀 Technology Stack
+- **React 18** (Hooks & Functional Components)
+- **React Router v6** (Modern Routing)
+- **Styled Components** (CSS-in-JS)
+- **Google Analytics 4** (Integration ready)
+- **PWA Support**
 
-# Sections
+## 🛠 Installation & Setup
 
-- Home
-- Education and Certificates
-- Experience
-- Projects
-- Contact and Resume
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/<your-username>/<your-repo>.git
+   cd <your-repo>
+   ```
 
-# How To Use
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-- Clone this repository (or fork, then clone your fork :) )
-- Run `npm i`
-- Check it out using `npm start`
+3. **Start Development Server**
+   ```bash
+   npm start
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-# How Do I Customize
+## 🎨 Customization
 
-- Replace `homepage` in package.json to your domain name or `https://<username>.github.io`
-- In `src/portfolio.js` you can add your personal portfolio details.
-- In `src/theme.js` you can change the theme colors. You can change between Light and Dark theme with the theme switch on the header.
+### 1. Personal Data
+Edit **`src/portfolio.js`**. This is the single source of truth for:
+- Name, Bio, Social Links
+- Experience, Education, Certifications
+- Projects, Skills, Contact Info
 
-# How to Deploy
+### 2. Analytics (GA4)
+Set a GA4 Measurement ID (format `G-XXXXXXXXXX`) in `settings.googleTrackingID` inside `src/portfolio.js`.
 
-I have used Netlify to host my portfolio. If you want to use GitHub Pages, just run `npm run build` and publish all the files in the `/build` folder to your repository.
+### 2. Branding & Themes
+Edit **`src/theme.js`** to customize the Light and Dark mode color palettes.
 
-# References
+### 3. Deployment (GitHub Pages)
+1. Open `package.json` and change the `"homepage"` field:
+   ```json
+   "homepage": "https://yourusername.github.io/repo-name"
+   ```
+2. Deploy:
+   ```bash
+   npm run deploy
+   ```
 
-Based on https://github.com/ashutosh1919/masterPortfolio/ and https://github.com/saadpasta/developerFolio
-Illustrations: https://undraw.co/
+## 📂 Project Structure
+- `src/portfolio.js`: **Main Configuration File**
+- `src/theme.js`: Color themes
+- `src/containers`: Logical Page Sections
+- `src/components`: Reusable UI Components
+- `src/pages`: Main Route Pages
+
+## Note for Windows Users
+If you encounter build errors related to `node-sass` or `openssl`, ensure you are using the commands above. This project has been migrated away from legacy build tools to standard `react-scripts` v5.
