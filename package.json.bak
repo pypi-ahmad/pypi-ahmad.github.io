@@ -15,7 +15,6 @@
     "baseui": "^12.2.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.0",
-    "react-cursor-custom": "^1.2.4",
     "react-dom": "^18.2.0",
     "react-ga4": "^2.1.0",
     "react-icons": "^4.12.0",
