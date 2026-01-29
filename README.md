@@ -30,6 +30,13 @@ A clean, modern, and responsive developer portfolio, updated to **React 18**, **
    ```
    Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+4. **(Optional) Preview the production build locally**
+   ```bash
+   npm run build
+   npx serve -s build
+   ```
+   Then open the URL printed by `serve`.
+
 ## 🎨 Customization
 
 ### 1. Personal Data
@@ -53,6 +60,17 @@ Edit **`src/theme.js`** to customize the Light and Dark mode color palettes.
    ```bash
    npm run deploy
    ```
+
+### Deployment note: “`index.html` must be at the project root”
+Some hosting platforms only look for an `index.html` in the *publish root* (often the repository root). For Create React App projects like this one:
+
+- The production entry file is generated at `build/index.html`.
+- `npm run deploy` (GitHub Pages) publishes the *contents of* `build/` to the site root, so the hosted site **does** have an `index.html` at its root.
+
+If your platform deploys from the repository root (and you can’t change it), you must either:
+
+- Configure the platform’s **publish directory** to `build/` (preferred when available), or
+- Build and then upload/copy the contents of `build/` so they become the deployed root.
 
 ## 📂 Project Structure
 - `src/portfolio.js`: **Main Configuration File**
