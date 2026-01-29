@@ -70,13 +70,57 @@ body {
 }
 /* Rainbow Cursor Animation */
 @keyframes cursorRainbow {
-  0%   { background-color: #ff0000; }
-  16%  { background-color: #ffff00; }
-  33%  { background-color: #00ff00; }
-  50%  { background-color: #00ffff; }
-  66%  { background-color: #0000ff; }
-  83%  { background-color: #ff00ff; }
-  100% { background-color: #ff0000; }
+  0%   { background-color: #ff0000; } /* Red */
+  2%   { background-color: #ff2a00; }
+  4%   { background-color: #ff5500; }
+  6%   { background-color: #ff7f00; } /* Orange */
+  8%   { background-color: #ffaa00; }
+  10%  { background-color: #ffd400; }
+  12%  { background-color: #ffff00; } /* Yellow */
+  14%  { background-color: #d4ff00; }
+  16%  { background-color: #aaff00; }
+  18%  { background-color: #7fff00; } /* Chartreuse */
+  20%  { background-color: #55ff00; }
+  22%  { background-color: #2aff00; }
+  24%  { background-color: #00ff00; } /* Green */
+  26%  { background-color: #00ff2a; }
+  28%  { background-color: #00ff55; }
+  30%  { background-color: #00ff7f; } /* Spring Green */
+  32%  { background-color: #00ffaa; }
+  34%  { background-color: #00ffd4; }
+  36%  { background-color: #00ffff; } /* Cyan */
+  38%  { background-color: #00d4ff; }
+  40%  { background-color: #00aaff; }
+  42%  { background-color: #007fff; } /* Azure */
+  44%  { background-color: #0055ff; }
+  46%  { background-color: #002aff; }
+  48%  { background-color: #0000ff; } /* Blue */
+  50%  { background-color: #2a00ff; }
+  52%  { background-color: #5500ff; }
+  54%  { background-color: #7f00ff; } /* Violet */
+  56%  { background-color: #aa00ff; }
+  58%  { background-color: #d400ff; }
+  60%  { background-color: #ff00ff; } /* Magenta */
+  62%  { background-color: #ff00d4; }
+  64%  { background-color: #ff00aa; }
+  66%  { background-color: #ff007f; } /* Rose */
+  68%  { background-color: #ff0055; }
+  70%  { background-color: #ff002a; }
+  72%  { background-color: #ff0000; } /* Red (Cycle Reset) */
+  74%  { background-color: #ff1493; } /* Deep Pink */
+  76%  { background-color: #ff69b4; }
+  78%  { background-color: #db7093; }
+  80%  { background-color: #b03060; } /* Maroon */
+  82%  { background-color: #c71585; }
+  84%  { background-color: #d02090; }
+  86%  { background-color: #da70d6; } /* Orchid */
+  88%  { background-color: #ee82ee; }
+  90%  { background-color: #dda0dd; } /* Plum */
+  92%  { background-color: #ffc0cb; } /* Pink */
+  94%  { background-color: #ffb6c1; }
+  96%  { background-color: #fa8072; } /* Salmon */
+  98%  { background-color: #ff6347; } /* Tomato */
+  100% { background-color: #ff0000; } /* Final Red */
 }
 
 /* Media Query */
