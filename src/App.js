@@ -34,13 +34,14 @@ function App() {
             innerStyle={{
               zIndex: 9999,
               backgroundColor: "transparent",
-              animation: "cursorRainbow 2s linear infinite",
+              animation: "cursorRainbow 6s linear infinite",
             }}
             outerStyle={{
               zIndex: 9999,
               backgroundColor: "transparent",
               border: "2px solid",
-              animation: "cursorRainbow 2s linear infinite",
+              animation: "cursorRainbow 8s ease-in-out infinite",
+              animationDelay: "-2s",
             }}
             clickables={[
               "a",
