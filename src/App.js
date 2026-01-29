@@ -6,6 +6,7 @@ import { themes } from "./theme";
 import { GlobalStyles } from "./global";
 import { settings } from "./portfolio";
 import ReactGA from "react-ga4";
+import AnimatedCursor from "react-animated-cursor";
 
 function App() {
   useEffect(() => {
@@ -21,18 +22,18 @@ function App() {
     <ThemeProvider theme={themes[theme]}>
       <>
         <GlobalStyles />
+        {useCursor && (
+          <AnimatedCursor
+            color={themes[theme].secondaryText}
+            innerSize={8}
+            outerSize={25}
+            outerScale={2}
+            innerScale={0.7}
+            trailingSpeed={8}
+          />
+        )}
         <div>
-          {useCursor ? (
-            <CursorProvider
-              color={themes[theme].secondaryText}
-              ringSize={25}
-              transitionTime={75}
-            >
-              <Main theme={themes[theme]} setTheme={setTheme} />
-            </CursorProvider>
-          ) : (
-            <Main theme={themes[theme]} setTheme={setTheme} />
-          )}
+          <Main theme={themes[theme]} setTheme={setTheme} />
         </div>
       </>
     </ThemeProvider>
