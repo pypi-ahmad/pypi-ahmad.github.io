@@ -53,12 +53,17 @@ function ExperienceCard(props) {
             </p>
           </div>
         </div>
-        <p
-          className="experience-card-description"
-          style={{ color: theme.text }}
-        >
-          {experience["description"]}
-        </p>
+        <div className="experience-card-description" style={{ color: theme.text }}>
+          {experience["descriptions"] ? (
+            <ul>
+              {experience["descriptions"].map((desc, index) => (
+                <li key={index}>{desc}</li>
+              ))}
+            </ul>
+          ) : (
+             <p>{experience["description"]}</p>
+          )}
+        </div>
       </div>
     </div>
   );

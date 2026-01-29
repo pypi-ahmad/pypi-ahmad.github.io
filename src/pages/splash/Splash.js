@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Splash.css";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function AnimatedSplash(props) {
   return (
     <div className="logo_wrapper">
       <div className="loading">
-        <div class="ball"></div>
-        <div class="ball"></div>
-        <div class="ball"></div>
-        <div class="ball"></div>
-        <div class="ball"></div>
-        <div class="ball"></div>
-        <div class="ball"></div>
+        <div className="ball"></div>
+        <div className="ball"></div>
+        <div className="ball"></div>
+        <div className="ball"></div>
+        <div className="ball"></div>
+        <div className="ball"></div>
+        <div className="ball"></div>
       </div>
     </div>
   );
@@ -20,10 +20,14 @@ function AnimatedSplash(props) {
 
 function Splash(props) {
   const [redirect, setRedirect] = useState(false);
-  setTimeout(() => setRedirect(true), 2000);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setRedirect(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return redirect ? (
-    <Redirect to="/home" />
+    <Navigate to="/home" replace />
   ) : (
     <AnimatedSplash theme={props.theme} />
   );

@@ -6,17 +6,17 @@ import { Fade } from "react-reveal";
 import { projectsHeader, projects, socialMediaLinks } from "../../portfolio.js";
 import "./Projects.css";
 import ProjectsImg from "./ProjectsImg";
-import { style } from "glamor";
+import styled from "styled-components";
+
+const ProjectsButton = styled.a`
+  background-color: ${props => props.theme.accentBright};
+  &:hover {
+    box-shadow: 0 5px 15px ${props => props.theme.accentBright};
+  }
+`;
 
 function Projects(props) {
   const theme = props.theme;
-
-  const styles = style({
-    backgroundColor: `${theme.accentBright}`,
-    ":hover": {
-      boxShadow: `0 5px 15px ${theme.accentBright}`,
-    },
-  });
 
   return (
     <div className="projects-main">
@@ -52,15 +52,15 @@ function Projects(props) {
       <br />
       <br />
       <br />
-      <a
-        {...styles}
+      <ProjectsButton
+        theme={theme}
         className="general-btn"
         href={socialMediaLinks.github}
         target="_blank"
         rel="noopener noreferrer"
       >
         More Projects (Github)
-      </a>
+      </ProjectsButton>
       <br />
       <br />
       <Footer theme={props.theme} onToggle={props.onToggle} />

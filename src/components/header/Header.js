@@ -5,31 +5,9 @@ import { NavLink, Link } from "react-router-dom";
 import { greeting, settings } from "../../portfolio.js";
 import { CgSun } from "react-icons/cg/";
 import { HiMoon } from "react-icons/hi";
-import { style } from "glamor";
 
 function Header(props) {
   const theme = props.theme;
-
-  const styles = style({
-    cursor: "pointer",
-    height: "45px",
-    width: "45px",
-    marginRight: "5px",
-    marginLeft: "15px",
-    paddingTop: "5px",
-    borderRadius: "50%",
-    border: "none",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: props.theme.name === "light" ? "#7CD1F7" : "#292C3F",
-    outline: "none",
-    transition: "all 0.2s ease-in-out",
-    ":hover": {
-      boxShadow: `0 3px 8px ${
-        props.theme.name === "light" ? "#F7D774" : "#646464"
-      }`,
-    },
-  });
 
   const link = settings.isSplash ? "/splash" : "home";
 
@@ -66,7 +44,7 @@ function Header(props) {
     <Fade top duration={1000} distance="20px">
       <div>
         <header className="header">
-          <NavLink to={link} tag={Link} className="logo">
+          <NavLink to={link} as={Link} className="logo">
             <span style={{ color: theme.text }}></span>
             <span className="logo-name" style={{ color: theme.text }}>
               {greeting.logo_name}
@@ -82,9 +60,12 @@ function Header(props) {
               <NavLink
                 className="homei"
                 to="/home"
-                tag={Link}
-                activeStyle={{ fontWeight: "bold" }}
-                style={{ borderRadius: 5, color: theme.text }}
+                as={Link}
+                style={({ isActive }) => ({
+                  fontWeight: isActive ? "bold" : "normal",
+                  borderRadius: 5,
+                  color: theme.text,
+                })}
               >
                 Home
               </NavLink>
@@ -93,9 +74,12 @@ function Header(props) {
               <NavLink
                 className="ec"
                 to="/education"
-                tag={Link}
-                activeStyle={{ fontWeight: "bold" }}
-                style={{ borderRadius: 5, color: theme.text }}
+                as={Link}
+                style={({ isActive }) => ({
+                  fontWeight: isActive ? "bold" : "normal",
+                  borderRadius: 5,
+                  color: theme.text,
+                })}
               >
                 Education and Certifications
               </NavLink>
@@ -104,20 +88,40 @@ function Header(props) {
               <NavLink
                 className="xp"
                 to="/experience"
-                tag={Link}
-                activeStyle={{ fontWeight: "bold" }}
-                style={{ borderRadius: 5, color: theme.text }}
+                as={Link}
+                style={({ isActive }) => ({
+                  fontWeight: isActive ? "bold" : "normal",
+                  borderRadius: 5,
+                  color: theme.text,
+                })}
               >
                 Experience
               </NavLink>
             </li>
             <li>
               <NavLink
+                className="skills"
+                to="/skills"
+                as={Link}
+                style={({ isActive }) => ({
+                  fontWeight: isActive ? "bold" : "normal",
+                  borderRadius: 5,
+                  color: theme.text,
+                })}
+              >
+                Skills
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 className="projects"
                 to="/projects"
-                tag={Link}
-                activeStyle={{ fontWeight: "bold" }}
-                style={{ borderRadius: 5, color: theme.text }}
+                as={Link}
+                style={({ isActive }) => ({
+                  fontWeight: isActive ? "bold" : "normal",
+                  borderRadius: 5,
+                  color: theme.text,
+                })}
               >
                 Projects
               </NavLink>
@@ -126,27 +130,36 @@ function Header(props) {
               <NavLink
                 className="cr"
                 to="/contact"
-                tag={Link}
-                activeStyle={{ fontWeight: "bold" }}
-                style={{ borderRadius: 5, color: theme.text }}
+                as={Link}
+                style={({ isActive }) => ({
+                  fontWeight: isActive ? "bold" : "normal",
+                  borderRadius: 5,
+                  color: theme.text,
+                })}
               >
-                Contact and Resume
+                Contact Me
               </NavLink>
             </li>
-            <li>
-              <a
-                className="cr"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://apifi.io"
-                tag={Link}
-                activeStyle={{ fontWeight: "bold" }}
-                style={{ borderRadius: 5, color: theme.text }}
-              >
-                Apifi
-              </a>
-            </li>
-            <button {...styles} onClick={changeTheme}>
+            <button
+              className="change-theme-btn"
+              onClick={changeTheme}
+              style={{
+                cursor: "pointer",
+                height: "45px",
+                width: "45px",
+                marginRight: "5px",
+                marginLeft: "15px",
+                paddingTop: "5px",
+                borderRadius: "50%",
+                border: "none",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: props.theme.name === "light" ? "#7CD1F7" : "#292C3F",
+                outline: "none",
+                transition: "all 0.2s ease-in-out",
+              }}
+              aria-label="Toggle Theme"
+            >
               {icon}
             </button>
           </ul>
