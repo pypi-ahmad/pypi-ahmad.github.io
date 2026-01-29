@@ -7,14 +7,6 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html, body {
-    cursor: none;
-  }
-
-  a, button, input, textarea, select, [role="button"] {
-    cursor: none;
-  }
-
   body {
     align-items: center;
     background: ${({ theme }) => theme.body};
