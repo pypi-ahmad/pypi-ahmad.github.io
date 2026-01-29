@@ -1,6 +1,5 @@
 import React from "react";
 import "./Contact.css";
-import SocialMedia from "../../components/socialMedia/SocialMedia";
 import { contactInfo } from "../../portfolio";
 
 export default function Contact() {
@@ -25,7 +24,6 @@ export default function Contact() {
             </a>
             <br />
             <br />
-            <SocialMedia />
           </div>
         </div>
         <div className="contact-image-div">

@@ -1,25 +1,28 @@
 import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import SocialMedia from "../../components/socialMedia/SocialMedia";
+import ContactLinksList from "../../components/socialMedia/ContactLinksList";
 import BlogsImg from "./BlogsImg";
 import { Fade } from "react-reveal";
 import "./ContactComponent.css";
 import { greeting, contactPageData } from "../../portfolio.js";
-import { style } from "glamor";
+import styled from "styled-components";
 
 const ContactData = contactPageData.contactSection;
 const blogSection = contactPageData.blogSection;
 
+const ContactButton = styled.a`
+  background-color: ${props => props.theme.accentBright};
+  &:hover {
+    box-shadow: 0 5px 15px ${props => props.theme.accentBright};
+  }
+`;
+
 function Contact(props) {
   const theme = props.theme;
-
-  const styles = style({
-    backgroundColor: `${theme.accentBright}`,
-    ":hover": {
-      boxShadow: `0 5px 15px ${theme.accentBright}`,
-    },
-  });
+  const resumeUrl = greeting.resumeLink
+    ? `${process.env.PUBLIC_URL}/${greeting.resumeLink}`
+    : "";
 
   return (
     <div className="contact-main">
@@ -28,11 +31,11 @@ function Contact(props) {
         <Fade bottom duration={1000} distance="40px">
           <div className="contact-heading-div">
             <div className="contact-heading-img-div">
-              <img
+              {/* <img
                 className="profile-pic"
                 src={require(`../../assests/images/${ContactData["profile_image_path"]}`)}
                 alt=""
-              />
+              /> */}
             </div>
             <div className="contact-heading-text-div">
               <h1
@@ -47,12 +50,17 @@ function Contact(props) {
               >
                 {ContactData["description"]}
               </p>
-              <SocialMedia />
+              <ContactLinksList theme={theme} />
               <br />
-              <br />
-              <a {...styles} className="general-btn" href={greeting.resumeLink}>
+              <ContactButton
+                theme={theme}
+                className="general-btn"
+                href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 See my Resume
-              </a>
+              </ContactButton>
             </div>
           </div>
         </Fade>
@@ -69,9 +77,13 @@ function Contact(props) {
                 {blogSection["subtitle"]}
               </p>
               <div className="blogsite-btn-div">
-                <a {...styles} className="general-btn" href={blogSection.link}>
+                <ContactButton
+                  theme={theme}
+                  className="general-btn"
+                  href={blogSection.link}
+                >
                   My Medium Profile
-                </a>
+                </ContactButton>
               </div>
             </div>
             <div className="blog-heading-img-div">

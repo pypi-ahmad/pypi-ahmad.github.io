@@ -1,16 +1,18 @@
 {
   "private": true,
-  "name": "ahmad-mujtaba-portfolio",
+  "name": "opportfolio",
   "version": "2.0.0",
-  "homepage": "https://pypi-ahmad.github.io/portfolio",
+  "homepage": "http://hrishi.tech/",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b gh-pages -d build"
   },
   "dependencies": {
-    "baseui": "^10.9.2",
+    "baseui": "^12.2.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.0",
     "react-cursor-custom": "^1.2.4",
@@ -26,7 +28,6 @@
     "web-vitals": "^3.5.1"
   },
   "devDependencies": {
-    "ajv": "^8.17.1",
     "gh-pages": "^6.1.1",
     "prettier": "^3.1.0",
     "prettier-package-json": "^2.8.0"

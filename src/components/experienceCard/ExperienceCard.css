@@ -75,6 +75,15 @@
   font-family: "Google Sans Regular";
 }
 
+.experience-card-description ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.experience-card-description li {
+  margin-bottom: 6px;
+}
+
 .experience-card-company > a {
   position: relative;
   color: #8c8c8c;
