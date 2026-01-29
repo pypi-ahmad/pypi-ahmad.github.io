@@ -4,7 +4,6 @@ import Main from "./containers/Main";
 import { ThemeProvider } from "styled-components";
 import { themes } from "./theme";
 import { GlobalStyles } from "./global";
-import { CursorProvider } from "react-cursor-custom";
 import { settings } from "./portfolio";
 import ReactGA from "react-ga4";
 
