@@ -50,34 +50,50 @@
 }
 @media (max-width: 768px) {
   .skills-heading {
-    font-size: 30px;
+    font-size: 1.5rem;
     text-align: center;
   }
+
   .skills-header {
-    font-size: 30px;
+    font-size: 1.5rem;
+    padding: 0 15px;
   }
+
   .greeting-text-p {
-    font-size: 16px;
-    line-height: normal;
+    font-size: 1rem;
+    line-height: 1.5;
   }
+
   .skills-main-div {
     flex-direction: column;
+    padding: 0 15px;
   }
+
   .skills-text-div {
     margin-left: 0px;
-    margin: 20px;
-  }
-  .skills-text {
-    font-size: 16px;
-  }
-  .skills-text-subtitle {
-    font-size: 16px;
+    margin: 15px;
+    padding-top: 20px;
     text-align: center;
   }
+
+  .skills-text {
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .skills-text-subtitle {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
   .skills-image-div {
     order: 2;
+    padding: 0 20px;
   }
+
   .skills-image-div > * {
     margin-top: 0px;
+    max-width: 100%;
   }
 }
