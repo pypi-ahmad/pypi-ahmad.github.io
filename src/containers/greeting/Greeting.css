@@ -91,32 +91,70 @@
   }
 }
 @media (max-width: 768px) {
-  .button-greeting-div {
-    justify-content: space-around;
+  .main {
+    width: 95%;
+    padding: 0 15px;
   }
+
+  .greet-main {
+    max-width: 100%;
+    width: 95%;
+    padding: 10px 15px;
+    margin-top: 1rem;
+  }
+
+  .button-greeting-div {
+    justify-content: center;
+  }
+
   .greeting-text {
-    font-size: 30px;
+    font-size: 1.75rem;
     margin-top: 0px;
     text-align: center;
+    line-height: 1.2;
   }
+
   .greeting-nickname {
-    font-size: 25px;
+    font-size: 1.25rem;
     text-align: center;
   }
+
   .greeting-text-p {
-    font-size: 16px;
+    font-size: 1rem;
     margin-right: 0px;
-    line-height: normal;
+    line-height: 1.5;
     text-align: center;
+    padding: 0 10px;
   }
+
   .greeting-main {
-    display: block;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .greeting-text-div {
+    order: 1;
+    padding: 0 10px;
+  }
+
+  .greeting-image-div {
+    order: 2;
+    margin-top: 20px;
   }
 
   .portfolio-repo-btn-div {
     width: 100%;
     display: flex;
-    justify-content: center;
-    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .button {
+    width: 80%;
+    max-width: 250px;
+    margin: 5px auto;
+    padding: 12px 10px;
+    font-size: 15px;
   }
 }

@@ -213,20 +213,47 @@
 }
 
 @media (max-width: 768px) {
+  .header {
+    max-width: 100%;
+    width: 95%;
+    padding: 10px 15px;
+    text-align: center;
+  }
+
   .header .logo {
     display: block;
     float: left;
-    font-size: 1.25em;
+    font-size: 1.1em;
     text-decoration: none;
     margin-top: 15px;
     line-height: normal;
   }
 
-  .header {
-    padding-top: 10px;
+  .header .menu {
+    background: inherit;
+    width: 100%;
+  }
+
+  .header li a {
+    padding: 12px 15px;
     text-align: center;
   }
+
+  .header ul {
+    padding: 5px;
+  }
+
+  .homei,
+  .ec,
+  .xp,
+  .projects,
+  .skills,
+  .cr {
+    margin: 5px 0;
+    display: block;
+  }
 }
+
 @media (max-width: 960px) and (min-width: 768px) {
   .header {
     font-size: 12px;
