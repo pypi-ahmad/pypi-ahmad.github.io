@@ -131,3 +131,16 @@ body {
     line-height: normal;
   }
 }
+
+@media (max-width: 768px) {
+  html,
+  body {
+    font-size: 15px;
+    line-height: 1.4;
+    overflow-x: hidden;
+  }
+
+  body {
+    font: 16px / 22px Montserrat, "Montserrat", sans-serif;
+  }
+}
