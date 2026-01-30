@@ -24,24 +24,19 @@ function App() {
         <GlobalStyles />
         {useCursor && (
           <AnimatedCursor
-            color="255, 255, 255"
+            color="255, 64, 129"
             innerSize={8}
-            outerSize={35}
-            innerScale={0.7}
-            outerScale={1.5}
+            outerSize={8}
+            innerScale={1.2}
+            outerScale={1}
             outerAlpha={0}
             trailingSpeed={8}
             innerStyle={{
               zIndex: 9999,
-              backgroundColor: "transparent",
-              animation: "cursorRainbow 6s linear infinite",
             }}
             outerStyle={{
               zIndex: 9999,
-              backgroundColor: "transparent",
-              border: "2px solid",
-              animation: "cursorRainbow 8s ease-in-out infinite",
-              animationDelay: "-2s",
+              display: "none",
             }}
             clickables={[
               "a",
