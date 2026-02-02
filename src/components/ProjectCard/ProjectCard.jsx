@@ -9,7 +9,6 @@ const CardContainer = styled.div`
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 30px -15px;
   padding: 2rem;
-  cursor: pointer;
   border-radius: 5px;
   height: 100%;
   transition: all 0.2s ease-in-out;
@@ -19,17 +18,11 @@ const CardContainer = styled.div`
 `;
 
 export default function ProjectCard({ repo: project, theme }) {
-  function openRepoinNewTab(url) {
-    var win = window.open(url, "_blank");
-    win.focus();
-  }
-
   return (
     <div>
       <Fade bottom duration={2000} distance="40px">
         <CardContainer
           key={project.name}
-          onClick={() => openRepoinNewTab(project.url)}
           theme={theme}
           style={{ backgroundColor: theme.projectCard }}
         >

@@ -22,12 +22,21 @@ function ProjectLanguages(props) {
                   className="software-skill-inline-languages"
                   name={logo.skillName}
                 >
-                  <span
-                    className="iconify"
-                    data-icon={logo.iconifyClass}
-                    style={logo.color ? { color: logo.color } : {}}
-                    data-inline="false"
-                  ></span>
+                  <a
+                    href={logo.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                  >
+                    <span
+                      className="iconify"
+                      data-icon={logo.iconifyClass}
+                      style={logo.color ? { color: logo.color } : {}}
+                      data-inline="false"
+                    ></span>
+                  </a>
                 </li>
               </OverlayTrigger>
             );

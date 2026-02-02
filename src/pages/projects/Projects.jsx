@@ -11,7 +11,7 @@ import styled from "styled-components";
 const ProjectsButton = styled.a`
   background-color: ${props => props.theme.accentBright};
   &:hover {
-    box-shadow: 0 5px 15px ${props => props.theme.accentBright};
+    color: white;
   }
 `;
 

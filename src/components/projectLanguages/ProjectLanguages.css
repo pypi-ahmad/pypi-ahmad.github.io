@@ -4,14 +4,22 @@
   font-size: 2rem;
   margin-bottom: 0px;
   margin-top: 0px;
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .software-skill-inline-languages {
-  display: inline-block;
-  margin-right: 20px;
   margin-bottom: 0px;
   font-family: "Google Sans Regular";
+  cursor: pointer;
+}
+
+.software-skill-inline-languages a {
+  color: inherit;
+  text-decoration: none;
 }
 
 #tooltip-top > .tooltip-inner {
