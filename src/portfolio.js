@@ -262,14 +262,17 @@ const projects = {
         {
           name: "Python",
           iconifyClass: "logos-python",
+          link: "https://www.python.org/",
         },
         {
           name: "PaddleOCR",
           iconifyClass: "simple-icons:paddlepaddle",
+          link: "https://github.com/PaddlePaddle/PaddleOCR",
         },
         {
           name: "Gemini",
           iconifyClass: "simple-icons:google",
+          link: "https://deepmind.google/technologies/gemini/",
         },
       ],
     },
@@ -282,14 +285,17 @@ const projects = {
         {
           name: "OpenAI",
           iconifyClass: "simple-icons:openai",
+          link: "https://openai.com/",
         },
         {
           name: "Milvus",
           iconifyClass: "simple-icons:milvus",
+          link: "https://milvus.io/",
         },
         {
           name: "Docker",
           iconifyClass: "simple-icons:docker",
+          link: "https://www.docker.com/",
         },
       ],
     },
@@ -302,10 +308,12 @@ const projects = {
         {
           name: "PySpark",
           iconifyClass: "simple-icons:apachespark",
+          link: "https://spark.apache.org/docs/latest/api/python/",
         },
         {
           name: "Databricks",
           iconifyClass: "simple-icons:databricks",
+          link: "https://www.databricks.com/",
         },
       ],
     },
@@ -318,10 +326,12 @@ const projects = {
         {
           name: "AWS Lex",
           iconifyClass: "simple-icons:amazonaws",
+          link: "https://aws.amazon.com/lex/",
         },
         {
           name: "Azure OpenAI",
           iconifyClass: "simple-icons:microsoftazure",
+          link: "https://azure.microsoft.com/en-us/products/ai-services/openai-service",
         },
       ],
     },
@@ -334,10 +344,12 @@ const projects = {
         {
           name: "Python",
           iconifyClass: "logos-python",
+          link: "https://www.python.org/",
         },
         {
           name: "Scikit-learn",
           iconifyClass: "simple-icons:scikitlearn",
+          link: "https://scikit-learn.org/",
         },
       ],
     },

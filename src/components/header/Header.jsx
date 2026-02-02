@@ -9,7 +9,7 @@ import { HiMoon } from "react-icons/hi";
 function Header(props) {
   const theme = props.theme;
 
-  const link = settings.isSplash ? "/splash" : "home";
+  const link = settings.isSplash ? "/splash" : "/home";
 
   const [currTheme, setCurrTheme] = useState(props.theme);
 
