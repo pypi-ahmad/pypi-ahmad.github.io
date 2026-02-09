@@ -52,8 +52,8 @@ Make sure you have the following installed:
 
 2. **Clone your forked repo:**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-   cd YOUR_REPO_NAME
+   git clone https://github.com/pypi-ahmad/pypi-ahmad.github.io.git
+   cd pypi-ahmad.github.io
    ```
 
 3. **Install dependencies:**
