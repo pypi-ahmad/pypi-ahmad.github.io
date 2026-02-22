@@ -83,15 +83,30 @@ function SkillSection(props) {
           return (
             <div key={skill.title} className="skills-main-div">
               <div className="skills-text-div">
-                <Fade left duration={1000}>
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 1 }}
+                  viewport={{ once: true }}
+                >
                   <h1 className="skills-heading" style={{ color: theme.accentColor }}>
                     {skill.title}
                   </h1>
-                </Fade>
-                <Fade left duration={1500}>
+                </motion.div>
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 1.5 }}
+                  viewport={{ once: true }}
+                >
                   <SoftwareSkill logos={skill.softwareSkills} />
-                </Fade>
-                <Fade left duration={2000}>
+                </motion.div>
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 2 }}
+                  viewport={{ once: true }}
+                >
                   <div>
                     {skill.skills.map((skillSentence) => {
                       return (
@@ -105,13 +120,18 @@ function SkillSection(props) {
                       );
                     })}
                   </div>
-                </Fade>
+                </motion.div>
               </div>
-              <Fade right duration={2000}>
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 2 }}
+                viewport={{ once: true }}
+              >
                 <div className="skills-image-div">
                   <GetSkillSvg fileName={skill.fileName} theme={theme} />
                 </div>
-              </Fade>
+              </motion.div>
             </div>
           );
         }
