@@ -52,6 +52,26 @@ function CertificationCard(props) {
           >
             {certificate.subtitle}
           </h3>
+          {certificate.pdfLink && (
+            <a
+              href={certificate.pdfLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                marginTop: "10px",
+                display: "inline-block",
+                padding: "5px 10px",
+                color: theme.text,
+                backgroundColor: certificate.colorCode,
+                borderRadius: "5px",
+                textDecoration: "none",
+                fontWeight: "bold",
+                fontSize: "0.9em",
+              }}
+            >
+              View Certificate PDF
+            </a>
+          )}
         </div>
       </CertCardDiv>
     </motion.div>
