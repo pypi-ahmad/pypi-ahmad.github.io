@@ -1,0 +1,22 @@
+[    3052ms] [ERROR] ReferenceError: Fade is not defined
+    at https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:79:80761
+    at Array.map (<anonymous>)
+    at sC (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:79:79685)
+    at Ic (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:38:17317)
+    at Ah (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:40:44479)
+    at Th (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:40:40099)
+    at q6 (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:40:40027)
+    at ja (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:40:39880)
+    at lu (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:40:36193)
+    at Ch (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:40:35141) @ https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:39
+[    3057ms] ReferenceError: Fade is not defined
+    at https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:79:80761
+    at Array.map (<anonymous>)
+    at sC (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:79:79685)
+    at Ic (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:38:17317)
+    at Ah (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:40:44479)
+    at Th (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:40:40099)
+    at q6 (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:40:40027)
+    at ja (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:40:39880)
+    at lu (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:40:36193)
+    at Ch (https://pypi-ahmad.github.io/assets/index-BOUcAzMv.js:40:35141)
