@@ -14,13 +14,13 @@ function ExperienceCard(props) {
     >
       <div className="experience-card-logo-div">
         <a
-          href={experience["company_url"]}
+          href={experience["companyUrl"]}
           target="_blank"
           rel="noopener noreferrer"
         >
           <img
             className="experience-card-logo"
-            src={`/images/${experience["logo_path"]}`}
+            src={`/images/${experience["logoPath"]}`}
             alt=""
           />
         </a>
@@ -36,7 +36,7 @@ function ExperienceCard(props) {
               style={{ color: theme.secondaryText }}
             >
               <a
-                href={experience["company_url"]}
+                href={experience["companyUrl"]}
                 target="_blank"
                 rel="noopener noreferrer"
               >

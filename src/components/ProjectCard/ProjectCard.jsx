@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectLanguages from "../projectLanguages/ProjectLanguages";
 import "./ProjectCard.css";
-import { Fade } from "react-reveal";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const CardContainer = styled.div`
@@ -19,10 +19,14 @@ const CardContainer = styled.div`
 
 export default function ProjectCard({ repo: project, theme }) {
   return (
-    <div>
-      <Fade bottom duration={2000} distance="40px">
-        <CardContainer
-          key={project.name}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <CardContainer
+        key={project.name}
           theme={theme}
           style={{ backgroundColor: theme.projectCard }}
         >
@@ -37,8 +41,26 @@ export default function ProjectCard({ repo: project, theme }) {
           <div className="repo-details">
             <ProjectLanguages logos={project.languages} />
           </div>
-        </CardContainer>
-      </Fade>
-    </div>
+          {project.metrics && (
+            <div style={{ marginTop: "1rem", display: "flex", gap: "10px", flexWrap: "wrap" }}>
+              {project.metrics.map((metric, i) => (
+                <span
+                  key={i}
+                  style={{
+                    backgroundColor: theme.accentColor,
+                    color: "#fff",
+                    padding: "5px 10px",
+                    borderRadius: "15px",
+                    fontSize: "0.8rem",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {metric}
+                </span>
+              ))}
+            </div>
+          )}
+      </CardContainer>
+    </motion.div>
   );
 }
