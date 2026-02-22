@@ -4,7 +4,7 @@ import Footer from "../../components/footer/Footer";
 import ExperienceAccordion from "../../containers/experienceAccordion/ExperienceAccordion";
 import "./Experience.css";
 import { experience } from "../../portfolio.js";
-import { Fade } from "react-reveal";
+import { motion } from "framer-motion";
 import ExperienceImg from "./ExperienceImg";
 
 function Experience(props) {
@@ -14,7 +14,12 @@ function Experience(props) {
     <div className="experience-main">
       <Header theme={theme} setTheme={props.setTheme} />
       <div className="basic-experience">
-        <Fade bottom duration={2000} distance="40px">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
           <div className="experience-heading-div">
             <div className="experience-heading-img-div">
               <ExperienceImg theme={theme} />
@@ -40,7 +45,7 @@ function Experience(props) {
               </p>
             </div>
           </div>
-        </Fade>
+        </motion.div>
       </div>
       <ExperienceAccordion sections={experience["sections"]} theme={theme} />
       <Footer theme={props.theme} onToggle={props.onToggle} />

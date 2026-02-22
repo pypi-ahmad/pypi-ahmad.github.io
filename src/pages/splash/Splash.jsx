@@ -22,8 +22,25 @@ function Splash(props) {
   const [redirect, setRedirect] = useState(false);
   
   useEffect(() => {
-    const timer = setTimeout(() => setRedirect(true), 2000);
-    return () => clearTimeout(timer);
+    let timeoutId;
+    
+    const handleLoad = () => {
+      // Small delay for smooth transition
+      timeoutId = setTimeout(() => setRedirect(true), 1000); 
+    };
+
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+      // Fallback timeout in case load event doesn't fire or takes too long
+      timeoutId = setTimeout(() => setRedirect(true), 3000);
+    }
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return redirect ? (

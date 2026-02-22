@@ -3,7 +3,7 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import ContactLinksList from "../../components/socialMedia/ContactLinksList";
 import BlogsImg from "./BlogsImg";
-import { Fade } from "react-reveal";
+import { motion } from "framer-motion";
 import "./ContactComponent.css";
 import { greeting, contactPageData } from "../../portfolio.js";
 import styled from "styled-components";
@@ -28,7 +28,12 @@ function Contact(props) {
     <div className="contact-main">
       <Header theme={theme} setTheme={props.setTheme} />
       <div className="basic-contact">
-        <Fade bottom duration={1000} distance="40px">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
           <div className="contact-heading-div">
             <div className="contact-resume-div">
               <h2
@@ -75,8 +80,13 @@ function Contact(props) {
               <ContactLinksList theme={theme} />
             </div>
           </div>
-        </Fade>
-        <Fade bottom duration={1000} distance="40px">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
           <div className="blog-heading-div">
             <div className="blog-heading-text-div">
               <h1 className="blog-heading-text" style={{ color: theme.text }}>
@@ -102,7 +112,7 @@ function Contact(props) {
               <BlogsImg theme={theme} />
             </div>
           </div>
-        </Fade>
+        </motion.div>
       </div>
       <Footer theme={props.theme} onToggle={props.onToggle} />
     </div>

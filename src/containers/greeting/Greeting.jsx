@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Greeting.css";
 import { greeting } from "../../portfolio";
-import { Fade } from "react-reveal";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import FeelingProud from "./FeelingProud";
 
@@ -36,7 +36,11 @@ export default function Greeting(props) {
   };
 
   return (
-    <Fade bottom duration={2000} distance="40px">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
       <div className="greet-main" id="greeting">
         <div className="greeting-main">
           <div className="greeting-text-div">
@@ -48,10 +52,53 @@ export default function Greeting(props) {
               >
                 <span>I'm </span>
                 <span style={{ color: theme.accentColor }}>
-                  {greeting.full_name}.{" "}
+                  {greeting.fullName}.{" "}
                 </span>
                 {greeting.subTitle}
               </p>
+
+              {/* Hero Bullets */}
+              {greeting.heroBullets && greeting.heroBullets.length > 0 && (
+                <ul className="hero-bullets" style={{
+                  listStyle: "none",
+                  padding: 0,
+                  margin: "1rem 0",
+                }}>
+                  {greeting.heroBullets.map((bullet, i) => (
+                    <li key={i} style={{
+                      fontSize: "0.95rem",
+                      color: theme.secondaryText,
+                      marginBottom: "0.4rem",
+                      paddingLeft: "1.2rem",
+                      position: "relative",
+                    }}>
+                      <span style={{
+                        position: "absolute",
+                        left: 0,
+                        color: theme.accentColor || "#64ffda",
+                      }}>▸</span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {/* Philosophy */}
+              {greeting.philosophy && (
+                <p className="greeting-philosophy" style={{
+                  fontSize: "0.9rem",
+                  fontStyle: "italic",
+                  color: theme.secondaryText,
+                  borderLeft: `3px solid ${theme.accentColor || "#64ffda"}`,
+                  paddingLeft: "1rem",
+                  marginTop: "0.8rem",
+                  marginBottom: "1.2rem",
+                  lineHeight: "1.5",
+                }}>
+                  {greeting.philosophy}
+                </p>
+              )}
+
               <div className="portfolio-repo-btn-div">
                 <button
                   className="button"
@@ -128,6 +175,6 @@ export default function Greeting(props) {
           </div>
         </div>
       </div>
-    </Fade>
+    </motion.div>
   );
 }

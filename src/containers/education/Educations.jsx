@@ -2,7 +2,7 @@ import React from "react";
 import "./Educations.css";
 import DegreeCard from "../../components/degreeCard/DegreeCard";
 import { degrees } from "../../portfolio";
-import { Fade } from "react-reveal";
+import { motion } from "framer-motion";
 
 function Educations(props) {
   const theme = props.theme;
@@ -10,11 +10,16 @@ function Educations(props) {
   return (
     <div className="main" id="educations">
       <div className="educations-header-div">
-        <Fade bottom duration={2000} distance="20px">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
           <h1 className="educations-header" style={{ color: theme.text }}>
             Degrees Received
           </h1>
-        </Fade>
+        </motion.div>
       </div>
       <div className="educations-body-div">
         {degrees.degrees.map((degree) => {

@@ -2,41 +2,49 @@
   font-family: "Agustina Regular";
   font-style: normal;
   font-weight: normal;
+  font-display: swap;
   src: local("Agustina Regular"),
     url("./assests/fonts/Agustina.woff") format("woff");
 }
 @font-face {
   font-family: "Montserrat";
+  font-display: swap;
   src: local("Montserrat"),
     url("./assests/fonts/Montserrat-Regular.ttf") format("woff");
 }
 @font-face {
   font-family: "Google Sans Bold";
+  font-display: swap;
   src: local("Google Sans Bold"),
     url("./assests/fonts/GoogleSans-Bold.ttf") format("woff");
 }
 @font-face {
   font-family: "Google Sans Bold Italic";
+  font-display: swap;
   src: local("Google Sans Bold Italic"),
     url("./assests/fonts/GoogleSans-BoldItalic.ttf") format("woff");
 }
 @font-face {
   font-family: "Google Sans Italic";
+  font-display: swap;
   src: local("Google Sans Italic"),
     url("./assests/fonts/GoogleSans-Italic.ttf") format("woff");
 }
 @font-face {
   font-family: "Google Sans Medium";
+  font-display: swap;
   src: local("Google Sans Medium"),
     url("./assests/fonts/GoogleSans-Medium.ttf") format("woff");
 }
 @font-face {
   font-family: "Google Sans Medium Italic";
+  font-display: swap;
   src: local("Google Sans Medium Italic"),
     url("./assests/fonts/GoogleSans-MediumItalic.ttf") format("woff");
 }
 @font-face {
   font-family: "Google Sans Regular";
+  font-display: swap;
   src: local("Google Sans Regular"),
     url("./assests/fonts/GoogleSans-Regular.ttf") format("woff");
 }

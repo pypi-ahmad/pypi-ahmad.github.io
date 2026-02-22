@@ -7,6 +7,7 @@ import { GlobalStyles } from "./global";
 import { settings } from "./portfolio";
 import ReactGA from "react-ga4";
 import AnimatedCursor from "react-animated-cursor";
+import { MotionConfig } from "framer-motion";
 
 function App() {
   useEffect(() => {
@@ -17,12 +18,17 @@ function App() {
 
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
   const useCursor = settings.useCustomCursor;
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  useEffect(() => {
+    setIsDesktop(window.matchMedia("(pointer: fine)").matches);
+  }, []);
 
   return (
     <ThemeProvider theme={themes[theme]}>
-      <>
+      <MotionConfig reducedMotion="user">
         <GlobalStyles />
-        {useCursor && (
+        {useCursor && isDesktop && (
           <AnimatedCursor
             color="255, 64, 129"
             innerSize={8}
@@ -56,7 +62,7 @@ function App() {
         <div>
           <Main theme={themes[theme]} setTheme={setTheme} />
         </div>
-      </>
+      </MotionConfig>
     </ThemeProvider>
   );
 }

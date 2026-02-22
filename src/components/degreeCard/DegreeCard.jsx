@@ -1,6 +1,6 @@
 import React from "react";
 import "./DegreeCard.css";
-import { Fade, Flip } from "react-reveal";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const DegreeImageDiv = styled.div`
@@ -67,7 +67,12 @@ function DegreeCard(props) {
 
   return (
     <div className="degree-card">
-      <Flip left duration={2000}>
+      <motion.div
+        initial={{ rotateY: 90, opacity: 0 }}
+        whileInView={{ rotateY: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
         <DegreeImageDiv theme={theme}>
           <img
             style={{
@@ -75,12 +80,18 @@ function DegreeCard(props) {
               maxHeight: "100%",
               transform: "scale(50%, 50%)",
             }}
-            src={`/images/${degree.logo_path}`}
-            alt={degree.alt_name}
+            src={`/images/${degree.logoPath}`}
+            alt={degree.altName}
           />
         </DegreeImageDiv>
-      </Flip>
-      <Fade right duration={2000} distance="40px">
+      </motion.div>
+      <motion.div
+        initial={{ x: 50, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        style={{ width: "100%" }}
+      >
         <DegreeCardBody theme={theme}>
           <div className="body-header">
             <div className="body-header-title">
@@ -110,7 +121,7 @@ function DegreeCard(props) {
               );
             })}
             <a
-              href={degree.website_link}
+              href={degree.websiteLink}
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: "none", textAlign: "center" }}
@@ -129,7 +140,7 @@ function DegreeCard(props) {
             </a>
           </div>
         </DegreeCardBody>
-      </Fade>
+      </motion.div>
     </div>
   );
 }
