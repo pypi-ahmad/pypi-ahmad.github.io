@@ -1,0 +1,294 @@
+/* src/components/SystemDesign/systems.css */
+
+.system-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 30px 0;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 170, 0.15);
+  transition: 0.3s ease;
+  color: #fff;
+}
+
+.system-card:hover {
+  transform: translateY(-6px);
+  border: 1px solid rgba(0, 255, 170, 0.4);
+}
+
+.system-header {
+  margin-bottom: 1rem;
+}
+
+.system-header h2 {
+  color: #00ffaa;
+  margin-bottom: 5px;
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.system-tagline {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.system-category {
+  font-size: 12px;
+  background: rgba(26, 26, 46, 0.8);
+  padding: 4px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  color: #00ffaa;
+  border: 1px solid rgba(0, 255, 170, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.system-description {
+  margin: 15px 0;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* TECH ICONS */
+.system-tech {
+  margin: 15px 0 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-icon {
+  height: 35px;
+  transition: 0.3s;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.tech-icon:hover {
+  transform: scale(1.2);
+}
+
+/* DIAGRAM */
+.diagram-wrapper {
+  background: rgba(22, 33, 62, 0.5);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid rgba(54, 188, 247, 0.1);
+}
+
+.diagram-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.diagram-step {
+  display: flex;
+  align-items: center;
+}
+
+.diagram-box {
+  background: #16213e;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #fff;
+  border: 1px solid rgba(54, 188, 247, 0.3);
+  font-family: monospace;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-weight: bold;
+}
+
+.diagram-arrow {
+  margin: 0 8px;
+  color: #00ffaa;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* IMPACT */
+.system-impact {
+  margin-top: 1.5rem;
+}
+
+.system-impact h4 {
+  margin-bottom: 12px;
+  color: #36bcf7;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(54, 188, 247, 0.2);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.system-impact ul {
+  padding-left: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.system-impact li {
+  margin-bottom: 6px;
+  color: #ddd;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Light Mode Overrides */
+.light-mode .system-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #333;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.light-mode .system-header h2 {
+  color: #0055aa;
+}
+
+.light-mode .system-tagline {
+  color: #666;
+}
+
+.light-mode .system-category {
+  background: rgba(0, 85, 170, 0.1);
+  color: #0055aa;
+  border-color: rgba(0, 85, 170, 0.2);
+}
+
+.light-mode .system-description {
+  color: #444;
+}
+
+.light-mode .diagram-wrapper {
+  background: rgba(240, 245, 255, 0.5);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .diagram-box {
+  background: #fff;
+  color: #333;
+  border-color: rgba(0, 85, 170, 0.2);
+}
+
+.light-mode .diagram-arrow {
+  color: #0055aa;
+}
+
+.light-mode .system-impact h4 {
+  color: #0055aa;
+  border-color: rgba(0, 85, 170, 0.2);
+}
+
+.light-mode .system-impact li {
+  color: #444;
+}
+/* EXPAND BUTTON */
+.expand-btn {
+  margin-top: 15px;
+  cursor: pointer;
+  color: #00ffaa;
+  font-weight: 500;
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid rgba(0, 255, 170, 0.1);
+  transition: 0.2s;
+  user-select: none;
+}
+
+.expand-btn:hover {
+  background: rgba(0, 255, 170, 0.05);
+  letter-spacing: 0.5px;
+}
+
+/* DEEP DIVE PANEL */
+.deep-dive {
+  overflow: hidden;
+  margin-top: 10px;
+  padding: 0 15px;
+  background: rgba(0, 255, 170, 0.02);
+  border-radius: 10px;
+  border: 1px dashed rgba(0, 255, 170, 0.15);
+}
+
+.deep-dive h4 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: #36bcf7;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.deep-dive ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.deep-dive li {
+  margin-bottom: 8px;
+  color: #eee;
+  font-size: 0.95rem;
+  padding-left: 10px;
+  border-left: 2px solid rgba(54, 188, 247, 0.3);
+}
+
+.deep-dive strong {
+  color: #00ffaa;
+}
+
+/* HOVER INTELLIGENCE */
+.system-card:hover .diagram-box {
+  opacity: 0.7;
+}
+
+.system-card:hover .diagram-box:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  background: #1f4068;
+  border-color: #00ffaa;
+  z-index: 10;
+  cursor: default;
+}
+
+/* Light Mode Overrides for Deep Dive */
+.light-mode .expand-btn {
+  color: #0055aa;
+  border-color: rgba(0, 85, 170, 0.1);
+}
+
+.light-mode .expand-btn:hover {
+  background: rgba(0, 85, 170, 0.05);
+}
+
+.light-mode .deep-dive {
+  background: rgba(0, 85, 170, 0.02);
+  border-color: rgba(0, 85, 170, 0.15);
+}
+
+.light-mode .deep-dive h4 {
+  color: #0055aa;
+}
+
+.light-mode .deep-dive li {
+  color: #444;
+  border-color: rgba(0, 85, 170, 0.3);
+}
+
+.light-mode .deep-dive strong {
+  color: #0055aa;
+}
+
+/* Light Mode Hover Intelligence */
+.light-mode.system-card:hover .diagram-box:hover {
+  background: #fff;
+  border-color: #0055aa;
+  color: #0055aa;
+}

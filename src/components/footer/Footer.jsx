@@ -1,16 +1,20 @@
 import React from "react";
 import "./Footer.css";
-import { Fade } from "react-reveal";
+import { motion } from "framer-motion";
 import { greeting } from "../../portfolio.js";
 
 export default function Footer(props) {
   return (
     <div className="footer-div">
-      <Fade>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <p className="footer-text" style={{ color: props.theme.secondaryText }}>
           Made with <span role="img" aria-label="love">❤️</span> by {greeting.title2}
         </p>
-      </Fade>
+      </motion.div>
     </div>
   );
 }

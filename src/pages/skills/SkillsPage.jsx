@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import { Fade } from "react-reveal";
+import { motion } from "framer-motion";
 import { skillsPageData } from "../../portfolio";
 import "./SkillsPage.css";
 
@@ -39,7 +39,12 @@ function SkillsPage(props) {
     <div className="skills-main">
       <Header theme={theme} setTheme={props.setTheme} />
       <div className="basic-skills">
-        <Fade bottom duration={2000} distance="40px">
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
           <div className="skills-heading-div">
             <div className="skills-heading-text-div">
               <h1 className="skills-heading-text" style={{ color: theme.text }}>
@@ -53,13 +58,19 @@ function SkillsPage(props) {
               </p>
             </div>
           </div>
-        </Fade>
+        </motion.div>
 
         <div className="skills-card-div">
             {skillsPageData.skills.map((section, index) => (
-                <Fade bottom duration={2000} distance="40px" key={index}>
+                <motion.div
+                  initial={{ y: 40, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 1 }}
+                  viewport={{ once: true }}
+                  key={index}
+                >
                     <SkillSection section={section} theme={theme} />
-                </Fade>
+                </motion.div>
             ))}
         </div>
       </div>

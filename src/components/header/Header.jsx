@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
-import { Fade } from "react-reveal";
+import { motion } from "framer-motion";
 import { NavLink, Link } from "react-router-dom";
 import { greeting, settings } from "../../portfolio.js";
 import { CgSun } from "react-icons/cg/";
@@ -41,13 +41,17 @@ function Header(props) {
     );
 
   return (
-    <Fade top duration={1000} distance="20px">
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
       <div>
         <header className="header">
           <NavLink to={link} as={Link} className="logo">
             <span style={{ color: theme.text }}></span>
             <span className="logo-name" style={{ color: theme.text }}>
-              {greeting.logo_name}
+              {greeting.logoName}
             </span>
             <span style={{ color: theme.text }}></span>
           </NavLink>
@@ -165,7 +169,7 @@ function Header(props) {
           </ul>
         </header>
       </div>
-    </Fade>
+    </motion.div>
   );
 }
 
