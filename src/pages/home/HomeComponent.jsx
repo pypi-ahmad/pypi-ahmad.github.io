@@ -1,3 +1,11 @@
+/**
+ * Home Page
+ *
+ * Composes the landing page from container sections:
+ * Header → Greeting hero → SystemShowcase → SystemThinking → Skills → Footer
+ *
+ * Props: { theme, setTheme }
+ */
 import React from "react";
 import Header from "../../components/header/Header";
 import Greeting from "../../containers/greeting/Greeting";

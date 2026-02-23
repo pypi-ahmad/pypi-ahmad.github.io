@@ -1,3 +1,14 @@
+/**
+ * Header — Site-wide navigation bar
+ *
+ * Features:
+ *  - Logo link (routes to /home or /splash based on settings)
+ *  - Six NavLinks with active-state bold styling
+ *  - Light/dark theme toggle button (persists choice to localStorage)
+ *  - Responsive hamburger menu for mobile viewports
+ *
+ * Props: { theme, setTheme }
+ */
 import React, { useState } from "react";
 import "./Header.css";
 import { motion } from "framer-motion";

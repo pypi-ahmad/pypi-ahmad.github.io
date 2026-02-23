@@ -1,3 +1,12 @@
+/**
+ * index.css — Global font declarations, scrollbar styles, and base typography
+ *
+ * Loaded once at the entry point (index.jsx).
+ * Custom fonts are stored in src/assests/fonts/.
+ */
+
+/* ── @font-face Declarations ────────────────────────────────────────── */
+
 @font-face {
   font-family: "Agustina Regular";
   font-style: normal;
@@ -48,6 +57,9 @@
   src: local("Google Sans Regular"),
     url("./assests/fonts/GoogleSans-Regular.ttf") format("woff");
 }
+
+/* ── Base Typography ────────────────────────────────────────────────── */
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -62,6 +74,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* ── Custom Scrollbar ───────────────────────────────────────────────── */
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -76,7 +91,9 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-/* Rainbow Cursor Animation */
+
+/* ── Rainbow Cursor Keyframes ───────────────────────────────────────── */
+/* Used by the AnimatedCursor component (see App.jsx) */
 @keyframes cursorRainbow {
   0%   { background-color: #ff0000; } /* Red */
   2%   { background-color: #ff2a00; }
@@ -130,6 +147,8 @@ body {
   98%  { background-color: #ff6347; } /* Tomato */
   100% { background-color: #ff0000; } /* Final Red */
 }
+
+/* ── Responsive Breakpoints ──────────────────────────────────────────── */
 
 /* Media Query */
 @media (max-width: 1380px) {

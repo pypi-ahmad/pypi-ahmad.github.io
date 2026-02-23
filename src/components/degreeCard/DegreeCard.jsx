@@ -1,3 +1,12 @@
+/**
+ * DegreeCard — Academic degree display card.
+ *
+ * Shows a circular institution logo on the left and a bordered card body
+ * on the right with title, subtitle, duration, descriptions, and a
+ * "Visit Website" button.  Uses styled-components for theme-aware styling.
+ *
+ * Props: { degree, theme }
+ */
 import React from "react";
 import "./DegreeCard.css";
 import { motion } from "framer-motion";

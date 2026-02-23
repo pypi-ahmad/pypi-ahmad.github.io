@@ -1,3 +1,6 @@
+/**
+ * ProjectCard.css — Open-source project card grid.
+ */
 .repo-stats {
   display: flex;
   -webkit-box-pack: justify;

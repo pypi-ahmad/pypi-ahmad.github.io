@@ -1,3 +1,11 @@
+/**
+ * Skills — "Here's what I do" header + SkillSection grid.
+ *
+ * Wrapper used on the Home page.  For the full skills page, see
+ * pages/skills/SkillsPage.jsx.
+ *
+ * Props: { theme }
+ */
 import React from "react";
 import "./Skills.css";
 import SkillSection from "./SkillSection";

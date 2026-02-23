@@ -1,3 +1,8 @@
+/**
+ * Footer — Simple site-wide footer with attribution.
+ *
+ * Props: { theme }
+ */
 import React from "react";
 import "./Footer.css";
 import { motion } from "framer-motion";

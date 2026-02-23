@@ -1,3 +1,11 @@
+/**
+ * ProjectCard — Styled card for open-source project entries.
+ *
+ * Displays project name, description, language icons, and optional
+ * metric badges. Animates in on scroll via Framer Motion.
+ *
+ * Props: { repo (project object), theme }
+ */
 import React from "react";
 import ProjectLanguages from "../projectLanguages/ProjectLanguages";
 import "./ProjectCard.css";

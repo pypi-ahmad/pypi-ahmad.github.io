@@ -1,7 +1,16 @@
+/**
+ * ContactLinksList — Structured contact links with descriptions.
+ *
+ * Builds a list of available contact channels from socialMediaLinks data,
+ * each showing an icon, label, and description. Used on the /contact page.
+ *
+ * Props: { theme }
+ */
 import React from "react";
 import "./ContactLinksList.css";
 import { socialMediaLinks } from "../../portfolio";
 
+/** Assemble enabled contact items from the social-media data. */
 const buildContactItems = () => {
   const items = [];
 

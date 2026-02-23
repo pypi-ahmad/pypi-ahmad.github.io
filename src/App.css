@@ -1,25 +1,12 @@
-.App {
-  text-align: center;
-}
+/**
+ * App.css — Global utility classes and keyframe animations
+ *
+ * These classes are used across multiple pages/components.
+ * Theme-specific colors are handled by styled-components; the values
+ * here serve as static fallbacks for non-themed contexts.
+ */
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
-}
+/* ── Typography Utilities ───────────────────────────────────────────── */
 
 .heading {
   color: black;
@@ -29,7 +16,8 @@
   color: #868e96;
 }
 
-/* Animations */
+/* ── Entrance Animations ────────────────────────────────────────────── */
+
 @keyframes fade_down {
   0% {
     opacity: 0.01;

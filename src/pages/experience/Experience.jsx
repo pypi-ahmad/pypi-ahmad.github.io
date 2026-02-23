@@ -1,3 +1,11 @@
+/**
+ * Experience Page (/experience)
+ *
+ * Displays professional work history with an SVG illustration header
+ * and the ExperienceAccordion of role cards.
+ *
+ * Props: { theme, setTheme }
+ */
 import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
@@ -9,7 +17,6 @@ import ExperienceImg from "./ExperienceImg";
 
 function Experience(props) {
   const theme = props.theme;
-  console.log(props.setTheme);
   return (
     <div className="experience-main">
       <Header theme={theme} setTheme={props.setTheme} />

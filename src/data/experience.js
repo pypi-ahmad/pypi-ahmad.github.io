@@ -1,3 +1,12 @@
+/**
+ * Experience Data
+ *
+ * Professional work history rendered by ExperienceAccordion.jsx.
+ * Each section (e.g. "Work") contains an array of experience entries
+ * with descriptions displayed as bullet lists.
+ *
+ * Logo SVGs are resolved from src/assests/images/.
+ */
 export const experience = {
   title: "Experience",
   subtitle: "Systems Built · Impact Delivered",
@@ -16,11 +25,17 @@ export const experience = {
           duration: "July 2025 – Present",
           location: "Gurugram, India",
           descriptions: [
-            "Architected an Intelligent Document Processing pipeline for insurance policies — 2-stage OCR + LLM extraction with canonical validation, improving accuracy from ~90% to ~99% across complex multi-column, table-heavy scanned documents.",
-            "Designed a RAG-grounded Computer-Using Agent with SOP-based procedural planning, improving UI automation task success rate from ~38% to ~80% for enterprise workflows.",
-            "Built scalable data ingestion pipelines on Databricks using PySpark — unified fragmented multi-source datasets into consolidated analytics-ready tables with schema normalization.",
-            "Implemented validation frameworks treating LLM outputs as unverified signals — canonical comparison loops, confidence thresholds, and Pydantic schema enforcement for production trustworthiness.",
-            "Deployed containerized agentic systems on AWS with Docker — FastAPI serving layer, execution telemetry, and reproducible deployment pipelines."
+            "Built a high-precision Intelligent Document Processing (IDP) system for scanned insurance policies — transforming noisy, multi-page, layout-heavy PDFs into structured, schema-aligned outputs using OCR + LLM reasoning.",
+            "Improved extraction accuracy from ~90% to ~99% by redesigning the pipeline into a 2-stage architecture: initial LLM extraction followed by canonical document comparison and reconciliation — eliminating silent errors and making outputs enterprise-trustworthy.",
+            "Engineered layout-aware document understanding by combining PaddleOCR (with bounding boxes) and LLM-based reasoning — enabling reliable extraction across multi-column formats, tables, and cross-page clauses.",
+            "Designed a RAG-grounded Computer-Using Agent (CUA) system to automate business workflows — introducing a planning layer that converts ambiguous user prompts into structured, step-by-step execution plans using SOP retrieval (Milvus).",
+            "Increased automation success rate from ~38% to ~80% by shifting from direct prompting to retrieval-grounded procedural planning — significantly improving reliability of UI-based task execution.",
+            "Deployed the agent system on AWS with Docker, building a reproducible execution environment and a live demo interface for end-to-end workflow visibility.",
+            "Optimized LLM-driven UI automation by integrating Model Context Protocol (MCP) with Playwright — replacing raw DOM parsing with accessibility (AX) tree representations, reducing token usage by ~40% while improving element detection accuracy.",
+            "Built Databricks-based data ingestion and consolidation pipelines using PySpark and Pandas — merging multi-source datasets via schema normalization, key-based joins, and transformation logic into analytics-ready tables.",
+            "Developing healthcare document intelligence systems on Azure — processing medical fax documents using OCR + layout-aware parsing (Azure Document Intelligence) to extract structured clinical and insurance data and automate downstream workflows.",
+            "Established a validation-first engineering approach — treating LLM outputs as untrusted signals and enforcing correctness via structured schemas (Pydantic), comparison loops, and feedback-driven iteration.",
+            "Building healthcare document intelligence pipelines for medical fax parsing using Azure Document Intelligence — extracting structured clinical and insurance data from noisy scanned inputs.",
           ],
           color: "#000000",
         },

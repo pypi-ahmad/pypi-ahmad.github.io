@@ -1,3 +1,6 @@
+/**
+ * DegreeCard.css — Academic degree card (circular logo + info body).
+ */
 .degree-card {
   display: flex;
   width: 100%;

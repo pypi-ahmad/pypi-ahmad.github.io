@@ -1,3 +1,16 @@
+/**
+ * Header.css — Navigation bar styles
+ *
+ * Desktop:  Horizontal nav with logo left, links right, theme toggle.
+ * Mobile:   Hamburger menu with full-width stacked links.
+ * Breakpoint: 768px (48em)
+ *
+ * Each NavLink class (.homei, .ec, .xp, .skills, .projects, .cr)
+ * has its own accent hover color.
+ */
+
+/* ── Base Layout ──────────────────────────────────────────────────────────── */
+
 /* header */
 
 .header {

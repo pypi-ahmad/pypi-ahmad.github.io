@@ -1,3 +1,7 @@
+/**
+ * ExperienceAccordion.css — Legacy accordion styles (mostly superseded
+ * by styled-components in ExperienceAccordion.jsx).
+ */
 .experience-accord {
   margin: 50px;
   border-radius: 5px;

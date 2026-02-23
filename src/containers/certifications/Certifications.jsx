@@ -1,3 +1,11 @@
+/**
+ * Certifications — Professional certifications grid.
+ *
+ * Maps `certifications.certifications` to CertificationCard components.
+ * Used inside the Education page.
+ *
+ * Props: { theme }
+ */
 import React from "react";
 import "./Certifications.css";
 import { motion } from "framer-motion";

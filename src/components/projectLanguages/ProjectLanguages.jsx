@@ -1,3 +1,11 @@
+/**
+ * ProjectLanguages — Iconify language/tech icons with tooltips.
+ *
+ * Similar to SoftwareSkill but uses `iconifyClass` and `name` keys
+ * (project-specific data shape).
+ *
+ * Props: { logos: Array<{ name, iconifyClass, color?, link }> }
+ */
 import React from "react";
 import "./ProjectLanguages.css";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
