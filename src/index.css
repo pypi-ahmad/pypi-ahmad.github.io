@@ -60,6 +60,12 @@
 
 /* ── Base Typography ────────────────────────────────────────────────── */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -73,6 +79,30 @@ body {
   font: 19px / 23px Montserrat, "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Mobile Base Adjustments ────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+    line-height: 21px;
+  }
 }
 
 /* ── Custom Scrollbar ───────────────────────────────────────────────── */

@@ -299,6 +299,136 @@
   border-color: rgba(0, 85, 170, 0.3);
 }
 
+/* ── Responsive: Tablet ─────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .system-card {
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  .system-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .system-impact ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Responsive: Mobile ─────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .system-card {
+    padding: 16px;
+    margin: 15px 0;
+    border-radius: 12px;
+  }
+
+  .system-card:hover {
+    transform: none;
+  }
+
+  .system-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .system-tagline {
+    font-size: 13px;
+  }
+
+  .system-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .system-tech {
+    gap: 8px;
+    margin: 10px 0 15px;
+  }
+
+  .tech-icon {
+    height: 28px;
+  }
+
+  .diagram-wrapper {
+    padding: 12px;
+    margin: 12px 0;
+  }
+
+  .diagram-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .diagram-step {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .diagram-box {
+    width: 100%;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .diagram-arrow {
+    margin: 4px 0;
+    transform: rotate(90deg);
+  }
+
+  .system-impact h4 {
+    font-size: 1rem;
+  }
+
+  .system-impact ul {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .system-impact li {
+    font-size: 0.85rem;
+  }
+
+  .expand-btn {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .deep-dive {
+    padding: 0 10px;
+  }
+
+  .deep-dive li {
+    font-size: 0.85rem;
+  }
+}
+
+/* ── Responsive: Small Mobile ──────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .system-card {
+    padding: 12px;
+    margin: 10px 0;
+  }
+
+  .system-header h2 {
+    font-size: 1.15rem;
+  }
+
+  .system-category {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .diagram-box {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+}
+
 .light-mode .deep-dive strong {
   color: #0055aa;
 }
