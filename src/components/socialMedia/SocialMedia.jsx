@@ -1,3 +1,9 @@
+/**
+ * SocialMedia — Icon-button row of social links (Font Awesome icons).
+ *
+ * Renders only platforms whose link is truthy and not a single space.
+ * Used in the Greeting/hero section.
+ */
 import React from "react";
 import "./SocialMedia.css";
 import { socialMediaLinks } from "../../portfolio";

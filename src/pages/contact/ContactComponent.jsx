@@ -1,3 +1,12 @@
+/**
+ * Contact Page (/contact)
+ *
+ * Two sections:
+ *  1. Resume CTA + contact channel list (ContactLinksList)
+ *  2. Blog section with Medium profile link
+ *
+ * Props: { theme, setTheme }
+ */
 import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";

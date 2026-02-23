@@ -1,3 +1,10 @@
+/**
+ * Greeting.css — Hero section layout and responsive rules.
+ *
+ * Desktop: side-by-side (text left, SVG illustration right).
+ * Mobile:  stacked vertical with centered text.
+ */
+
 .main {
   width: 90%;
   padding: 0px 10px;

@@ -1,291 +1,231 @@
-# 🚀 Developer Portfolio 2.0
+# Developer Portfolio 2.0
 
 [![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
-[![GitHub Pages](https://img.shields.io/badge/Deployed%20on-GitHub%20Pages-222?logo=github&logoColor=white)](https://pages.github.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Pages](https://img.shields.io/badge/Deployed%20on-GitHub%20Pages-222?logo=github&logoColor=white)](https://pypi-ahmad.github.io)
 
-A modern, blazing-fast developer portfolio built with **React** and **Vite**. Showcase your skills, projects, certifications, and experience — all in one beautiful, customizable template.
+A modern, performance-first developer portfolio built with **React 18** and **Vite**. Features enterprise system case-study showcases, professional certifications, work experience, and a full skills grid — all driving from a single data layer.
 
-> 🎉 **Recently migrated from Create-React-App to Vite** for lightning-fast development and optimized builds!
-
----
-
-## 📸 Preview
-
-<!-- Replace this placeholder with your own screenshot -->
-![Portfolio Preview](./src/assests/images/portfolio-preview.png)
-
-> *Add your own screenshot by replacing the image above!*
+> Migrated from Create React App to **Vite 6** for faster dev-server startup and optimized production builds.
 
 ---
 
-## ⚡ Tech Stack
+## Tech Stack
 
-| Technology | Description |
-|------------|-------------|
-| **[React 18](https://reactjs.org/)** | Modern UI library with hooks and concurrent features |
-| **[Vite](https://vitejs.dev/)** | Next-generation frontend build tool — super fast HMR |
-| **[React Router DOM](https://reactrouter.com/)** | Declarative routing for React applications |
-| **[React Bootstrap](https://react-bootstrap.github.io/)** | Bootstrap components rebuilt for React |
-| **[Styled Components](https://styled-components.com/)** | CSS-in-JS for component-level styling |
-| **[React Icons](https://react-icons.github.io/react-icons/)** | Popular icon packs as React components |
-| **[BaseUI](https://baseweb.design/)** | Modern React UI framework |
-| **[React Reveal](https://www.react-reveal.com/)** | Scroll animations and effects |
-| **[React GA4](https://github.com/codler/react-ga4)** | Google Analytics 4 integration |
-| **[gh-pages](https://www.npmjs.com/package/gh-pages)** | Deploy to GitHub Pages with ease |
+| Technology | Version | Purpose |
+|---|---|---|
+| [React](https://reactjs.org/) | 18.3 | UI library (hooks, createRoot) |
+| [Vite](https://vitejs.dev/) | 6.0 | Build tool, dev server, HMR |
+| [React Router DOM](https://reactrouter.com/) | 6.30 | Client-side routing (8 routes) |
+| [Styled Components](https://styled-components.com/) | 6.3 | CSS-in-JS theming & component styles |
+| [Framer Motion](https://www.framer.com/motion/) | 12.34 | Scroll-triggered & entrance animations |
+| [React Bootstrap](https://react-bootstrap.github.io/) | 2.10 | Tooltip overlays for skill icons |
+| [React Icons](https://react-icons.github.io/react-icons/) | 4.12 | Theme toggle icons (sun/moon) |
+| [React Animated Cursor](https://github.com/stephenscaff/react-animated-cursor) | 2.11 | Custom cursor effect (desktop only) |
+| [React GA4](https://github.com/codler/react-ga4) | 2.1 | Google Analytics 4 integration |
+| [Iconify](https://iconify.design/) | 1.0.4 | Skill icons via CDN (`data-icon` attributes) |
+| [Font Awesome](https://fontawesome.com/) | 5.15 | Social media icons |
+| [gh-pages](https://www.npmjs.com/package/gh-pages) | 6.3 | One-command deploy to GitHub Pages |
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-Make sure you have the following installed:
+- **[Node.js](https://nodejs.org/)** v18+ (npm included)
 
-- **[Node.js](https://nodejs.org/)** (v18 or higher recommended)
-- **npm** (comes bundled with Node.js)
-
-### Installation
-
-1. **Fork this repository** — Click the "Fork" button at the top right of this page.
-
-2. **Clone your forked repo:**
-   ```bash
-   git clone https://github.com/pypi-ahmad/pypi-ahmad.github.io.git
-   cd pypi-ahmad.github.io
-   ```
-
-3. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-### Run Locally
-
-Start the development server:
+### Install & Run
 
 ```bash
+git clone https://github.com/pypi-ahmad/pypi-ahmad.github.io.git
+cd pypi-ahmad.github.io
+npm install
 npm run dev
 ```
 
-🎉 Open your browser and navigate to **[http://localhost:5173](http://localhost:5173)** to see your portfolio in action!
+Open **http://localhost:3000** — the dev server auto-opens the browser.
 
-> **Note:** Vite uses port `5173` by default. If it's in use, it will automatically pick the next available port.
+### Scripts
 
-### Build for Production
+| Command | Description |
+|---|---|
+| `npm run dev` | Start Vite dev server (port 3000, hot reload) |
+| `npm run build` | Production build to `build/` + copy `index.html` to `404.html` for SPA routing |
+| `npm run preview` | Serve production build locally |
+| `npm run deploy` | Build + push `build/` to `gh-pages` branch |
 
-Create an optimized production build:
+---
 
-```bash
-npm run build
+## Architecture
+
+```
+src/
+├── index.jsx              # React 18 createRoot entry point
+├── App.jsx                # Root: ThemeProvider + MotionConfig + AnimatedCursor + Router
+├── global.js              # GlobalStyles (styled-components CSS reset)
+├── theme.js               # Light/dark theme token definitions
+├── portfolio.js           # Barrel export — re-exports all data modules
+│
+├── data/                  # ← ALL portfolio content lives here
+│   ├── settings.js        #   Splash toggle, cursor toggle, GA4 ID
+│   ├── greeting.js        #   Hero text, bullets, philosophy, resume link
+│   ├── socialMedia.js     #   Social platform URLs & descriptions
+│   ├── skills.js          #   Skills page grid + home-page skill cards
+│   ├── education.js       #   Degrees, certifications (with PDF links)
+│   ├── experience.js      #   Work history (accordion sections)
+│   ├── projects.js        #   Open-source project cards
+│   ├── contact.js         #   Contact section & blog link
+│   ├── achievements.js    #   Impact metrics
+│   └── systems.js         #   Enterprise system case studies (featured + supporting)
+│
+├── components/            # Reusable presentational components
+│   ├── header/            #   Nav bar with theme toggle & hamburger menu
+│   ├── footer/            #   Attribution footer
+│   ├── socialMedia/       #   Icon-button row + structured contact list
+│   ├── softwareSkills/    #   Iconify skill icons with tooltips
+│   ├── ProjectCard/       #   Open-source project card
+│   ├── projectLanguages/  #   Language/tech icons for project cards
+│   ├── degreeCard/        #   Academic degree card
+│   ├── certificationCard/ #   Certification card with PDF link
+│   ├── experienceCard/    #   Work experience entry
+│   └── SystemDesign/      #   SystemCard (card + modal deep-dive) & SystemDiagram
+│
+├── containers/            # Section-level containers (compose components + data)
+│   ├── Main.jsx           #   BrowserRouter with all Route definitions
+│   ├── greeting/          #   Hero section + SVG avatar illustration
+│   ├── skills/            #   "Here's what I do" + alternating skill cards
+│   ├── education/         #   Degrees list
+│   ├── certifications/    #   Certifications grid
+│   ├── experienceAccordion/ # Styled accordion of experience cards
+│   ├── SystemShowcase/    #   Featured system on home page
+│   ├── SystemThinking/    #   Methodology visualization
+│   └── contact/           #   (Legacy — unused in current routing)
+│
+├── pages/                 # Full-page compositions (Header + containers + Footer)
+│   ├── home/              #   / and /home — landing page
+│   ├── skills/            #   /skills — full skills grid
+│   ├── education/         #   /education — degrees + certifications
+│   ├── experience/        #   /experience — work history
+│   ├── projects/          #   /projects — systems showcase + project cards
+│   ├── contact/           #   /contact — resume CTA + social links + blog
+│   └── splash/            #   /splash — loading animation (optional)
+│
+└── assests/               # Static assets (note: folder named "assests")
+    ├── fonts/             #   Agustina, Montserrat, Google Sans variants
+    ├── images/            #   Logos, certifications, etc.
+    └── font-awesome/      #   Local FA 5.15 distribution
 ```
 
-Preview the production build locally:
+### Data Flow
 
-```bash
-npm run preview
+All portfolio content is centralized in `src/data/*.js` files, barrel-exported through `src/portfolio.js`. Components import from `../../portfolio` and never hardcode content. To update the site, edit the data files — no component changes needed.
+
+### Theme System
+
+Two theme objects (`lightTheme`, `darkTheme`) in `src/theme.js` provide design tokens. The active theme is:
+- Stored in `localStorage` (key: `"theme"`, default: `"dark"`)
+- Passed down via styled-components `<ThemeProvider>`
+- Toggled by the sun/moon button in the Header
+
+### Routing
+
+React Router v6 with `<BrowserRouter>`. The build script copies `index.html` to `404.html` so SPA client-side routing works on GitHub Pages (which serves 404.html for unknown paths).
+
+---
+
+## Customization Guide
+
+### 1. Portfolio Content — `src/data/`
+
+Edit the files in `src/data/` to make the portfolio yours. Key files:
+
+| File | What to edit |
+|---|---|
+| `greeting.js` | Name, title, subtitle, hero bullets, philosophy, resume link |
+| `socialMedia.js` | Social platform URLs (set to `" "` to hide) |
+| `skills.js` | Skill categories, Iconify icon IDs, bullet descriptions |
+| `education.js` | Degrees and certifications |
+| `experience.js` | Work history entries |
+| `projects.js` | Open-source project cards |
+| `systems.js` | Enterprise system case studies |
+| `contact.js` | Contact page text and blog link |
+| `settings.js` | Splash screen, custom cursor, GA4 tracking ID |
+
+### 2. Theme Colors — `src/theme.js`
+
+Modify the color tokens in `lightTheme` and `darkTheme`:
+
+```js
+const darkTheme = {
+  body: "#1D1D1D",       // Page background
+  text: "#FFFFFF",        // Primary text
+  accentColor: "#E3405F", // Brand accent (buttons, highlights)
+  accentBright: "#FC1056", // Bright accent variant
+  // ... see theme.js for all tokens
+};
 ```
 
-### Deployment to GitHub Pages
+### 3. Images & Assets
 
-This project is pre-configured for seamless deployment to GitHub Pages:
+- Institution logos: `src/assests/images/`
+- Certification images: `src/assests/images/certifications/`
+- Certification PDFs: `public/certifications/`
+- Resume/Cover Letter: place PDFs in `public/` and update paths in `greeting.js`
+
+### 4. Skill Icons
+
+Icons use [Iconify](https://iconify.design/) format: `"simple-icons:python"`. Browse available icons at [icon-sets.iconify.design](https://icon-sets.iconify.design/).
+
+### 5. Google Analytics
+
+Set your GA4 Measurement ID in `src/data/settings.js`:
+
+```js
+export const settings = {
+  googleTrackingID: "G-XXXXXXXXXX",
+};
+```
+
+---
+
+## Deployment
+
+### GitHub Pages (pre-configured)
 
 ```bash
 npm run deploy
 ```
 
-**What happens:**
-1. `npm run build` is automatically triggered (via `predeploy` script)
-2. The `build` folder is pushed to the `gh-pages` branch
-3. Your portfolio goes live at `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME`
+This runs `vite build`, then pushes the `build/` folder to the `gh-pages` branch. The site goes live at the URL defined in `package.json` `homepage` field.
 
-> **Tip:** Make sure you've configured the `homepage` field in `package.json` if deploying to a custom path.
-
----
-
-## 🎨 How to Customize
-
-### 1. Personal Information — `src/portfolio.js`
-
-This is **the main configuration file**. Edit it to make the portfolio yours:
-
-```javascript
-// Update your greeting
-const greeting = {
-  title: "Hello.",
-  title2: "YourName",
-  logo_name: "yourname.dev()",
-  full_name: "Your Full Name",
-  subTitle: "Your Tagline | Your Role",
-  resumeLink: "your-resume.pdf",
-  mail: "mailto:your@email.com",
-};
-
-// Add your social links
-const socialMediaLinks = {
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
-  gmail: "your@email.com",
-  // ... more options available
-};
-
-// Showcase your skills, experience, education, projects, etc.
-```
-
-### 2. Analytics (GA4)
-
-Set a GA4 Measurement ID (format `G-XXXXXXXXXX`) in `settings.googleTrackingID` inside `src/portfolio.js`:
-
-```javascript
-const settings = {
-  isSplash: false,
-  useCustomCursor: true,
-  googleTrackingID: "G-XXXXXXXXXX", // Your GA4 ID here
-};
-```
-
-### 3. Color Theme — `src/theme.js`
-
-Customize the look and feel by editing the color schemes:
-
-```javascript
-const lightTheme = {
-  name: "light",
-  body: "#FFFFFF",
-  text: "#343434",
-  accentColor: "#E3405F",    // Your brand color
-  accentBright: "#FC1056",
-  projectCard: "#DCE4F2",
-  // ... more customizable properties
-};
-
-const darkTheme = {
-  name: "dark",
-  body: "#1D1D1D",
-  text: "#FFFFFF",
-  accentColor: "#E3405F",
-  // ... matches light theme structure
-};
-```
-
-### 4. Images & Assets — `src/assests/images/`
-
-Replace the default images with your own:
-
-- **Profile picture**
-- **Project screenshots**
-- **Custom icons or logos**
-
-> **Note:** The folder is named `assests` (not `assets`) — keep this in mind when adding new images.
+For a **User site** (`username.github.io`), ensure:
+- Repository name matches `username.github.io`
+- `homepage` in `package.json` is `"https://username.github.io"`
+- `base` in `vite.config.js` is `"/"`
 
 ---
 
-## 📁 Project Structure
+## Features
 
-```
-MyPortfolio/
-├── public/                    # Static files
-│   ├── index.html             # HTML template
-│   ├── manifest.json          # PWA manifest
-│   └── images/                # Public images
-│
-├── src/
-│   ├── portfolio.js           # 📝 YOUR DATA GOES HERE
-│   ├── theme.js               # 🎨 Color customization
-│   ├── global.js              # Global settings
-│   ├── App.jsx                # Main App component
-│   ├── index.jsx              # Entry point
-│   │
-│   ├── components/            # Reusable UI components
-│   │   ├── header/            # Navigation header
-│   │   ├── footer/            # Page footer
-│   │   ├── ProjectCard/       # Project display cards
-│   │   ├── certificationCard/ # Certification cards
-│   │   ├── degreeCard/        # Education cards
-│   │   ├── experienceCard/    # Work experience cards
-│   │   ├── socialMedia/       # Social links
-│   │   └── softwareSkills/    # Skill icons
-│   │
-│   ├── containers/            # Section containers
-│   │   ├── greeting/          # Hero section
-│   │   ├── skills/            # Skills showcase
-│   │   ├── education/         # Education timeline
-│   │   ├── certifications/    # Certifications grid
-│   │   ├── experienceAccordion/ # Work experience
-│   │   └── contact/           # Contact section
-│   │
-│   ├── pages/                 # Route pages
-│   │   ├── home/
-│   │   ├── skills/
-│   │   ├── education/
-│   │   ├── experience/
-│   │   ├── projects/
-│   │   └── contact/
-│   │
-│   └── assests/               # Static assets
-│       ├── images/            # Image files
-│       ├── fonts/             # Custom fonts
-│       └── font-awesome/      # Icon library
-│
-├── build/                     # Production build output
-├── package.json               # Dependencies & scripts
-├── vite.config.js             # Vite configuration
-└── README.md                  # You are here! 👋
-```
+- **Fast** — Vite-powered dev server and optimized production builds
+- **Responsive** — Mobile-first layout with breakpoints at 768px and 1380px
+- **Dark/Light Mode** — Theme toggle persisted to localStorage
+- **Animations** — Framer Motion scroll-triggered entrances (respects `prefers-reduced-motion`)
+- **System Case Studies** — Expandable cards with architecture diagrams, problem/solution framing, and impact metrics
+- **SEO** — Open Graph meta tags, semantic HTML, canonical URL
+- **PWA Ready** — Web manifest and mobile icon support
+- **Custom Cursor** — Rainbow animated cursor on desktop (toggleable)
+- **SPA Routing** — GitHub Pages compatible with 404.html fallback
 
 ---
 
-## 🛠️ Available Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server (hot reload) |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build locally |
-| `npm run deploy` | Deploy to GitHub Pages |
-
----
-
-## 🌟 Features
-
-- ✅ **Blazing Fast** — Powered by Vite for instant HMR
-- ✅ **Responsive Design** — Looks great on all devices
-- ✅ **Dark/Light Mode** — Built-in theme toggle
-- ✅ **Smooth Animations** — Scroll-triggered reveals
-- ✅ **SEO Optimized** — Meta tags and semantic HTML
-- ✅ **Analytics Ready** — Google Analytics 4 integration
-- ✅ **Easy Deployment** — One command to GitHub Pages
-- ✅ **Customizable** — Change colors, content, and layout easily
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-## 💖 Acknowledgements
-
-- Built with love and lots of ☕
-- Inspired by the developer community
-- Thanks to all contributors and forkers!
-
----
-
 <p align="center">
-  <b>If you found this helpful, please ⭐ star this repository!</b>
+  <b>If you found this helpful, please star this repository!</b>
 </p>

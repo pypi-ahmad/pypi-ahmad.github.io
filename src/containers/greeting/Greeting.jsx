@@ -1,3 +1,13 @@
+/**
+ * Greeting — Home-page hero section.
+ *
+ * Displays the intro text, accent-colored name, subtitle, hero bullet
+ * points, engineering philosophy quote, and CTA buttons (Contact Me,
+ * Download Resume, View Cover Letter).  Document links verified via
+ * HEAD request before opening.
+ *
+ * Props: { theme }
+ */
 import React, { useState } from "react";
 import "./Greeting.css";
 import { greeting } from "../../portfolio";

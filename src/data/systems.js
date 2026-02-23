@@ -1,3 +1,22 @@
+/**
+ * Systems Architecture Data
+ *
+ * Detailed case-study data for enterprise AI systems.
+ * Each entry includes problem/solution framing, architecture flow,
+ * tech stack, implementation details, challenges, and impact metrics.
+ *
+ * Rendering:
+ *  - SystemCard.jsx      — Card with expandable modal for deep-dives
+ *  - SystemDiagram.jsx   — Step-by-step architecture flow visualization
+ *  - SystemShowcase.jsx  — Featured system on the home page
+ *  - Projects page       — Full list of all systems
+ *
+ * Structure:
+ *  featured[]   — Top-tier systems (shown prominently)
+ *  supporting[] — Secondary systems (still valuable)
+ *  get data()   — Combined accessor for backward compatibility
+ */
+
 // ─────────────────────────────────────────────────────────
 // SYSTEMS — FAANG-optimized, signal-dense, recruiter-ready
 // Ordered by: system complexity × enterprise impact × metrics
@@ -294,6 +313,21 @@ export const systems = {
 
   // ── SUPPORTING SYSTEMS (still valuable, lower priority) ──
   supporting: [
+    {
+      id: "healthcare_fax_pipeline",
+      name: "Healthcare Document Intelligence Pipeline",
+      tagline: "Medical fax parsing and insurance workflow automation on Azure",
+      category: "Healthcare AI · Enterprise",
+      tier: "supporting",
+      metrics: ["Azure-based pipeline", "OCR + LLM reasoning", "Workflow automation"],
+      description:
+        "Building a healthcare document intelligence system to process medical fax documents, extract structured clinical and insurance data, and automate downstream workflows using Azure-native services.",
+      tech: ["Azure Databricks", "Azure Document Intelligence", "Python", "LLMs"],
+      impact: [
+        "Automating manual fax-based healthcare workflows",
+        "Improving turnaround time for insurance processing",
+      ]
+    },
     {
       id: "text_to_sql_agent",
       name: "NL-to-SQL Data Analyst Agent",

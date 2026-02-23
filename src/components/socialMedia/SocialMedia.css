@@ -1,3 +1,10 @@
+/**
+ * SocialMedia.css — Circular icon-button styles for social links.
+ *
+ * Each platform class (.github, .linkedin, .google, etc.) defines
+ * its brand background color on the <i> icon element.
+ */
+
 .social-media-div {
   font-size: 2em;
 }

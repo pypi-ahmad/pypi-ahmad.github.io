@@ -1,3 +1,6 @@
+/**
+ * Skills.css — Home-page skill section and alternating card layout.
+ */
 .skills-main-div {
   display: flex;
 }

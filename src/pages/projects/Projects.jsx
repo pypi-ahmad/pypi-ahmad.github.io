@@ -1,3 +1,14 @@
+/**
+ * Projects Page (/projects)
+ *
+ * Two sections:
+ *  1. Enterprise Systems — SystemCard showcase of production systems
+ *  2. Open Source Projects — ProjectCard grid (shown only if data exists)
+ *
+ * Includes a "More Projects" button linking to the GitHub profile.
+ *
+ * Props: { theme, setTheme }
+ */
 import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";

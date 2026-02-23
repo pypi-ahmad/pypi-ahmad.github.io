@@ -1,3 +1,12 @@
+/**
+ * Education & Certifications Data
+ *
+ * `degrees`         — Academic qualifications rendered by DegreeCard.jsx
+ * `certifications`  — Professional certifications rendered by CertificationCard.jsx
+ *
+ * Certification logo images live in src/assests/images/certifications/.
+ * PDF files are served from the public/certifications/ directory.
+ */
 export const degrees = {
   degrees: [
     {

@@ -1,3 +1,11 @@
+/**
+ * SystemShowcase — Featured system architecture card on the home page.
+ *
+ * Pulls the first entry from `systems` data and renders it as a
+ * prominent SystemCard.  Returns null if no systems are available.
+ *
+ * Props: { theme }
+ */
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";

@@ -1,3 +1,11 @@
+/**
+ * SystemThinking — Animated system-thinking methodology visualization.
+ *
+ * Displays a horizontal flow: LLM → Tools → Memory → Verification → Observability
+ * with staggered entrance animations.  Uses styled-components for theming.
+ *
+ * Props: { theme }
+ */
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";

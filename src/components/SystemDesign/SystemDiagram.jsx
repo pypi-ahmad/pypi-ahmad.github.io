@@ -1,3 +1,11 @@
+/**
+ * SystemDiagram — Step-by-step architecture flow visualization.
+ *
+ * Renders each architecture step as an animated box with connecting
+ * arrows between them.  Supports both light and dark themes.
+ *
+ * Props: { architecture: string[], theme }
+ */
 // src/components/SystemDesign/SystemDiagram.jsx
 
 import React from "react";

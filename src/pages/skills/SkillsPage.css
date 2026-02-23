@@ -1,3 +1,6 @@
+/**
+ * SkillsPage.css — Full skills page grid layout.
+ */
 .skills-main {
   width: 100%;
 }
@@ -9,17 +12,16 @@
 
 .skills-heading-div {
   display: flex;
-  align-items: center;
   justify-content: center;
   margin-bottom: 40px;
   text-align: center;
-  margin-top: 80px;
 }
 
 .skills-heading-text {
   font-size: 50px;
   font-weight: 700;
   margin-bottom: 20px;
+  margin-top: 100px;
 }
 
 .skills-header-detail-text {

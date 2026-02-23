@@ -1,3 +1,12 @@
+/**
+ * ExperienceCard — Work experience entry card.
+ *
+ * Displays company logo, job title, company link, duration, location,
+ * and a bullet list of role descriptions.  Falls back to a single
+ * paragraph if `descriptions` array is absent.
+ *
+ * Props: { experience, theme }
+ */
 import React from "react";
 import "./ExperienceCard.css";
 

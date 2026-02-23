@@ -1,3 +1,15 @@
+/**
+ * SystemCard — Enterprise system case-study card with expandable modal.
+ *
+ * Card view: system name, featured badge, category, tagline, description,
+ *            metric highlights, tech-stack badges, and a "View Deep Dive" CTA.
+ *
+ * Modal view (on click): full case-study — problem statement, solution overview,
+ *                        architecture diagram (SystemDiagram), key features,
+ *                        implementation details, challenges/solutions, and impact.
+ *
+ * Props: { system, theme }
+ */
 // src/components/SystemDesign/SystemCard.jsx
 
 import React, { useState } from "react";
