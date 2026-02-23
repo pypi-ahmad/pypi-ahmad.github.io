@@ -2,7 +2,7 @@ export const experience = {
   title: "Experience",
   subtitle: "Systems Built · Impact Delivered",
   description:
-    "Designing and deploying production-grade GenAI systems in US Healthcare & Insurance — document intelligence, agentic automation, and data engineering at enterprise scale.",
+    "Designing and deploying production-grade GenAI systems at Deloitte US-India Offices — document intelligence, agentic automation, and data engineering at enterprise scale.",
   headerImagePath: "experience.svg",
   sections: [
     {
