@@ -21,3 +21,15 @@
 .software-skill-inline > i:hover {
   color: #645beb;
 }
+
+.skill-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.skill-link:hover {
+  transform: scale(1.2);
+  filter: brightness(1.3);
+}

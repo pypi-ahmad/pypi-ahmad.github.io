@@ -7,26 +7,42 @@ import "./SkillsPage.css";
 
 const SkillSection = ({ section, theme }) => {
   return (
-    <div 
-        className="skill-section" 
-        style={{ 
-            backgroundColor: theme.imageDark, 
-            boxShadow: `0 5px 15px ${theme.imageDark === "#333" ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"}`
-        }}
+    <div
+      className="skill-section"
+      style={{
+        backgroundColor: theme.imageDark,
+        boxShadow: `0 5px 15px ${
+          theme.imageDark === "#333"
+            ? "rgba(255,255,255,0.1)"
+            : "rgba(0,0,0,0.1)"
+        }`,
+      }}
     >
-      <h3 className="skill-section-title" style={{ color: theme.text }}>{section.title}</h3>
-      <div className="skills-list">
-        {section.skills.map((skill, index) => (
-           <div 
-                key={index} 
-                className="skill-tag" 
-                style={{ 
-                    border: `1px solid ${theme.text}`, 
-                    color: theme.secondaryText 
-                }}
+      <h3 className="skill-section-title" style={{ color: theme.text }}>
+        {section.title}
+      </h3>
+      <div className="skills-icon-grid">
+        {section.softwareSkills.map((skill, index) => (
+          <a
+            key={index}
+            href={skill.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="skill-icon-item"
+          >
+            <span
+              className="iconify skill-page-icon"
+              data-icon={skill.fontAwesomeClassname}
+              style={skill.style}
+              data-inline="false"
+            ></span>
+            <span
+              className="skill-icon-name"
+              style={{ color: theme.secondaryText }}
             >
-             {skill}
-           </div>
+              {skill.skillName}
+            </span>
+          </a>
         ))}
       </div>
     </div>

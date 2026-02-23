@@ -8,6 +8,14 @@ function SoftwareSkill(props) {
       <div className="software-skills-main-div">
         <ul className="dev-icons">
           {props.logos.map((logo) => {
+            const icon = (
+              <span
+                className="iconify"
+                data-icon={logo.fontAwesomeClassname}
+                style={logo.style}
+                data-inline="false"
+              ></span>
+            );
             return (
               <OverlayTrigger
                 key={logo.skillName}
@@ -19,12 +27,18 @@ function SoftwareSkill(props) {
                 }
               >
                 <li className="software-skill-inline" name={logo.skillName}>
-                  <span
-                    className="iconify"
-                    data-icon={logo.fontAwesomeClassname}
-                    style={logo.style}
-                    data-inline="false"
-                  ></span>
+                  {logo.link ? (
+                    <a
+                      href={logo.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="skill-link"
+                    >
+                      {icon}
+                    </a>
+                  ) : (
+                    icon
+                  )}
                 </li>
               </OverlayTrigger>
             );
