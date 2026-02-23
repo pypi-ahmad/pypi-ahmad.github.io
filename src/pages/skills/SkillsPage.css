@@ -77,6 +77,42 @@
   background-color: rgba(128, 128, 128, 0.1);
 }
 
+.skills-icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.skill-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  padding: 14px 10px;
+  border-radius: 10px;
+  width: 90px;
+}
+
+.skill-icon-item:hover {
+  transform: translateY(-5px);
+  background-color: rgba(128, 128, 128, 0.12);
+}
+
+.skill-page-icon {
+  font-size: 2.6rem;
+}
+
+.skill-icon-name {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+}
+
 @media (max-width: 768px) {
   .skills-heading-text {
     font-size: 30px;
