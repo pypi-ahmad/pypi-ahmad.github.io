@@ -47,11 +47,17 @@
 }
 
 /* Media Query */
-@media (max-width: 1380px), (max-width: 768px) {
+@media (max-width: 1380px) {
   .contact-title {
     font-size: 56px;
     font-weight: 400;
     text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-div-main {
+    flex-direction: column;
   }
 
   .contact-title {
@@ -74,5 +80,18 @@
   }
   .contact-image-div {
     display: none;
+  }
+  .contact-margin-top {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 30px;
+  }
+  .contact-detail,
+  .contact-detail-email {
+    font-size: 16px;
   }
 }
