@@ -21,30 +21,41 @@ const SkillSection = ({ section, theme }) => {
       <h3 className="skill-section-title" style={{ color: theme.text }}>
         {section.title}
       </h3>
-      <div className="skills-icon-grid">
-        {section.softwareSkills.map((skill, index) => (
-          <a
-            key={index}
-            href={skill.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="skill-icon-item"
-          >
-            <span
-              className="iconify skill-page-icon"
-              data-icon={skill.fontAwesomeClassname}
-              style={skill.style}
-              data-inline="false"
-            ></span>
-            <span
-              className="skill-icon-name"
-              style={{ color: theme.secondaryText }}
+      {section.softwareSkills.length > 0 && (
+        <div className="skills-icon-grid">
+          {section.softwareSkills.map((skill, index) => (
+            <a
+              key={index}
+              href={skill.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="skill-icon-item"
             >
-              {skill.skillName}
-            </span>
-          </a>
-        ))}
-      </div>
+              <span
+                className="iconify skill-page-icon"
+                data-icon={skill.fontAwesomeClassname}
+                style={skill.style}
+                data-inline="false"
+              ></span>
+              <span
+                className="skill-icon-name"
+                style={{ color: theme.secondaryText }}
+              >
+                {skill.skillName}
+              </span>
+            </a>
+          ))}
+        </div>
+      )}
+      {section.skills && section.skills.length > 0 && (
+        <ul className="skill-text-list">
+          {section.skills.map((s, i) => (
+            <li key={i} className="skill-text-item" style={{ color: theme.secondaryText }}>
+              {s}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
