@@ -6,9 +6,9 @@
 }
 
 .certs-body-div {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
 @media (max-width: 1380px) {
@@ -17,9 +17,15 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .certs-body-div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .certs-body-div {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
   .certs-header {
     font-size: 30px;
