@@ -1,3 +1,6 @@
+/**
+ * CertificationCard.css — Certification card with color-coded border.
+ */
 .cert-card {
   width: 100%;
   display: flex;

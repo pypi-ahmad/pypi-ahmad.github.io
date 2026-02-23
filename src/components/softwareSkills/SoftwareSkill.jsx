@@ -1,3 +1,11 @@
+/**
+ * SoftwareSkill — Iconify-based skill icon row with Bootstrap tooltips.
+ *
+ * Each icon is rendered by the Iconify CDN via `data-icon` attributes.
+ * If a skill has a `link`, the icon wraps in an anchor.
+ *
+ * Props: { logos: Array<{ skillName, fontAwesomeClassname, style, link? }> }
+ */
 import React from "react";
 import "./SoftwareSkill.css";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";

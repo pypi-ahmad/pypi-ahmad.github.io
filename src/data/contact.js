@@ -1,3 +1,11 @@
+/**
+ * Contact Page Data
+ *
+ * `contactSection`  — Heading and description for the contact area.
+ * `blogSection`     — Blog CTA with a link to the Medium profile.
+ *
+ * Rendered by pages/contact/ContactComponent.jsx.
+ */
 export const contactPageData = {
   contactSection: {
     title: "Contact Me",

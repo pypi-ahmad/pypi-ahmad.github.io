@@ -1,3 +1,10 @@
+/**
+ * Greeting / Hero Section Data
+ *
+ * Populates the home-page hero (Greeting.jsx).
+ * Includes personal info, positioning statement, hero bullets,
+ * engineering philosophy, and downloadable document links.
+ */
 const greeting = {
   title: "Hello.",
   title2: "Ahmad",
@@ -12,6 +19,7 @@ const greeting = {
     "Built enterprise IDP pipeline achieving 99% extraction accuracy across complex insurance documents",
     "Designed RAG-grounded Computer-Using Agent, improving task automation success rate from 38% to 80%",
     "Architected multi-agent research system with critic-refiner loops and quality-scored evaluation — 3–5x faster research workflows",
+    "Built MCP-based UI automation system with AX Tree parsing — reducing token cost by ~40% while improving action accuracy",
   ],
   // PHILOSOPHY — engineering mindset signal
   philosophy:

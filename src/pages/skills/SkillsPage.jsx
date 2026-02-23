@@ -1,3 +1,12 @@
+/**
+ * Skills Page (/skills)
+ *
+ * Full technical skills grid organized by domain. Each section shows
+ * Iconify skill icons linking to official docs and an optional text
+ * bullet list.  Driven by `skillsPageData` from the data layer.
+ *
+ * Props: { theme, setTheme }
+ */
 import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
@@ -5,6 +14,7 @@ import { motion } from "framer-motion";
 import { skillsPageData } from "../../portfolio";
 import "./SkillsPage.css";
 
+/** Individual skill category section within the page grid. */
 const SkillSection = ({ section, theme }) => {
   return (
     <div

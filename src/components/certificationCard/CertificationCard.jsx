@@ -1,3 +1,11 @@
+/**
+ * CertificationCard — Professional certification display card.
+ *
+ * Renders a card with a color-coded border (from `certificate.colorCode`),
+ * header logo image, title, subtitle, and an optional PDF link button.
+ *
+ * Props: { certificate, theme }
+ */
 import React from "react";
 import "./CertificationCard.css";
 import { motion } from "framer-motion";

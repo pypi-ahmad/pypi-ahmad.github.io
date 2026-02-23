@@ -1,3 +1,11 @@
+/**
+ * Education Page (/education)
+ *
+ * Displays academic background with an SVG illustration header,
+ * followed by the Educations (degrees) and Certifications containers.
+ *
+ * Props: { theme, setTheme }
+ */
 import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";

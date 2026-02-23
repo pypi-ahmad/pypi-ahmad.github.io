@@ -1,3 +1,11 @@
+/**
+ * Educations — "Degrees Received" section.
+ *
+ * Maps `degrees.degrees` to DegreeCard components.
+ * Used inside the Education page.
+ *
+ * Props: { theme }
+ */
 import React from "react";
 import "./Educations.css";
 import DegreeCard from "../../components/degreeCard/DegreeCard";

@@ -1,3 +1,12 @@
+/**
+ * ExperienceAccordion — Collapsible work-experience sections.
+ *
+ * Uses native `<details>/<summary>` elements styled with styled-components.
+ * The first panel opens by default.  Each panel contains ExperienceCard
+ * components for its experiences.
+ *
+ * Props: { sections, theme }
+ */
 import React, { useState } from "react";
 import ExperienceCard from "../../components/experienceCard/ExperienceCard";
 import "./ExperienceAccordion.css";

@@ -1,3 +1,22 @@
+/**
+ * Main — Application Router
+ *
+ * Defines all client-side routes using React Router v6.
+ * The root path "/" conditionally shows the Splash screen or Home page
+ * based on `settings.isSplash`.
+ *
+ * Route map:
+ *  /            — Splash or Home (configurable)
+ *  /home        — Home page
+ *  /experience  — Work experience
+ *  /education   — Degrees & certifications
+ *  /contact     — Contact information & blog
+ *  /splash      — Loading splash screen
+ *  /projects    — Enterprise systems & open-source projects
+ *  /skills      — Full skills grid
+ *
+ * Props: { theme, setTheme }
+ */
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "../pages/home/HomeComponent";

@@ -1,4 +1,17 @@
-// Theme Presets
+/**
+ * Theme Definitions
+ *
+ * Each theme is a flat object of design tokens consumed by styled-components
+ * via <ThemeProvider>.  Components access tokens as `${({ theme }) => theme.text}`.
+ *
+ * Token overview:
+ *  body / text / dark       — page background, primary text, darkest shade
+ *  secondaryText            — muted text for descriptions
+ *  accentColor / accentBright — brand accent (buttons, highlights)
+ *  projectCard / imageDark  — card & image container backgrounds
+ *  skinColor / skinColor2   — avatar SVG skin tones
+ *  imageClothes / avatarMisc / avatarShoes — avatar SVG details
+ */
 
 const lightTheme = {
   name: "light",
