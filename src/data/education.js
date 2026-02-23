@@ -1,4 +1,3 @@
-
 export const degrees = {
   degrees: [
     {
@@ -141,4 +140,3 @@ export const certifications = {
     }
   ],
 };
-
