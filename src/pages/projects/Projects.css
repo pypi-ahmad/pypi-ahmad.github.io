@@ -77,6 +77,14 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .repo-cards-div-main {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .projects-heading-text {
     font-size: 30px;
@@ -100,9 +108,24 @@
   }
 
   .repo-cards-div-main {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .repo-cards-div-main {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .projects-heading-text {
+    font-size: 24px;
+  }
+
+  .projects-heading-sub-text {
+    font-size: 16px;
   }
 }

@@ -36,8 +36,14 @@
 }
 
 @media (max-width: 768px) {
+  .dev-icons-languages {
+    justify-content: center;
+    gap: 12px;
+    font-size: 1.6rem;
+  }
+
   .software-skill-inline-languages {
-    margin-right: 10px;
+    margin-right: 0;
     margin-bottom: 0px;
   }
 }
