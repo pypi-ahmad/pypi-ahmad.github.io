@@ -9,7 +9,7 @@
     "deploy": "gh-pages -d build",
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node -e \"require('fs').copyFileSync('build/index.html','build/404.html')\"",
     "preview": "vite preview"
   },
   "dependencies": {
