@@ -61,6 +61,8 @@
 @media (max-width: 768px) {
   .degree-card {
     flex-direction: column;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .body-header {

@@ -17,6 +17,7 @@ export default function socialMedia() {
           className="icon-button github"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="GitHub profile"
         >
           <i className="fab fa-github"></i>
           <span></span>
@@ -29,6 +30,7 @@ export default function socialMedia() {
           className="icon-button linkedin"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
         >
           <i className="fab fa-linkedin-in"></i>
           <span></span>
@@ -41,6 +43,7 @@ export default function socialMedia() {
           className="icon-button google"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Send email"
         >
           <i className="fab fa-google"></i>
           <span></span>
@@ -53,6 +56,7 @@ export default function socialMedia() {
           className="icon-button twitter"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Twitter profile"
         >
           <i className="fab fa-twitter"></i>
           <span></span>
@@ -65,6 +69,7 @@ export default function socialMedia() {
           className="icon-button instagram"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Instagram profile"
         >
           <i className="fab fa-instagram"></i>
           <span></span>
@@ -77,6 +82,7 @@ export default function socialMedia() {
           className="icon-button telegram"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Telegram"
           style={{ backgroundColor: "#0088cc" }}
         >
           <i className="fab fa-telegram-plane"></i>
@@ -90,6 +96,7 @@ export default function socialMedia() {
           className="icon-button discord"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Discord"
           style={{ backgroundColor: "#7289da" }}
         >
           <i className="fab fa-discord"></i>

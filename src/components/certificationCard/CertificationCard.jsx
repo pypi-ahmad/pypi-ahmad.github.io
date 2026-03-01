@@ -68,13 +68,15 @@ function CertificationCard(props) {
               style={{
                 marginTop: "10px",
                 display: "inline-block",
-                padding: "5px 10px",
+                padding: "8px 14px",
+                minHeight: "44px",
                 color: theme.text,
                 backgroundColor: certificate.colorCode,
                 borderRadius: "5px",
                 textDecoration: "none",
                 fontWeight: "bold",
                 fontSize: "0.9em",
+                lineHeight: "1.6",
               }}
             >
               View Certificate PDF
