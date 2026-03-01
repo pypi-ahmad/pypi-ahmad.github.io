@@ -28,7 +28,7 @@ export default function Contact() {
         </div>
         <div className="contact-image-div">
           <img
-            alt=""
+            alt="Contact illustration"
             src="/images/contactMail.png"
           ></img>
         </div>

@@ -30,7 +30,7 @@ function ExperienceCard(props) {
           <img
             className="experience-card-logo"
             src={`/images/${experience["logoPath"]}`}
-            alt=""
+            alt={`${experience["company"]} logo`}
           />
         </a>
       </div>

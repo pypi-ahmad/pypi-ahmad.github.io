@@ -22,7 +22,7 @@ function Header(props) {
 
   const link = settings.isSplash ? "/splash" : "/home";
 
-  const [currTheme, setCurrTheme] = useState(props.theme);
+  const [currTheme, setCurrTheme] = useState(props.theme?.name || "dark");
 
   function changeTheme() {
     if (currTheme === "light") {
@@ -67,7 +67,7 @@ function Header(props) {
             <span style={{ color: theme.text }}></span>
           </NavLink>
           <input className="menu-btn" type="checkbox" id="menu-btn" />
-          <label className="menu-icon" htmlFor="menu-btn">
+          <label className="menu-icon" htmlFor="menu-btn" aria-label="Toggle navigation menu">
             <span className="navicon"></span>
           </label>
           <ul className="menu">
@@ -155,28 +155,30 @@ function Header(props) {
                 Contact Me
               </NavLink>
             </li>
-            <button
-              className="change-theme-btn"
-              onClick={changeTheme}
-              style={{
-                cursor: "pointer",
-                height: "45px",
-                width: "45px",
-                marginRight: "5px",
-                marginLeft: "15px",
-                paddingTop: "5px",
-                borderRadius: "50%",
-                border: "none",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: props.theme.name === "light" ? "#7CD1F7" : "#292C3F",
-                outline: "none",
-                transition: "all 0.2s ease-in-out",
-              }}
-              aria-label="Toggle Theme"
-            >
-              {icon}
-            </button>
+            <li style={{ listStyle: "none" }}>
+              <button
+                className="change-theme-btn"
+                onClick={changeTheme}
+                style={{
+                  cursor: "pointer",
+                  height: "45px",
+                  width: "45px",
+                  marginRight: "5px",
+                  marginLeft: "15px",
+                  paddingTop: "5px",
+                  borderRadius: "50%",
+                  border: "none",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: props.theme.name === "light" ? "#7CD1F7" : "#292C3F",
+                  outline: "none",
+                  transition: "all 0.2s ease-in-out",
+                }}
+                aria-label="Toggle Theme"
+              >
+                {icon}
+              </button>
+            </li>
           </ul>
         </header>
       </div>

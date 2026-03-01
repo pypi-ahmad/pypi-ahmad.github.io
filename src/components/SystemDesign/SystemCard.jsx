@@ -38,7 +38,7 @@ function SystemCard({ system, theme }) {
                 <h2>{system.name}</h2>
                 {system.tier === "featured" && (
                   <span style={{
-                    fontSize: "0.65rem",
+                    fontSize: "0.75rem",
                     fontWeight: "700",
                     textTransform: "uppercase",
                     letterSpacing: "0.08em",
@@ -93,13 +93,14 @@ function SystemCard({ system, theme }) {
           {/* <SystemDiagram architecture={system.architecture} theme={theme} /> */}
 
           {/* EXPAND BUTTON */}
-          <div 
+          <button 
             className="expand-btn"
             onClick={() => setIsModalOpen(true)}
             style={{ marginTop: "15px" }}
+            type="button"
           >
             View Deep Dive & Architecture ▼
-          </div>
+          </button>
 
         </div>
       </motion.div>
@@ -113,6 +114,9 @@ function SystemCard({ system, theme }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsModalOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${system.name} deep dive`}
             style={{
               position: "fixed",
               top: 0,
@@ -148,6 +152,7 @@ function SystemCard({ system, theme }) {
             >
               <button 
                 onClick={() => setIsModalOpen(false)}
+                aria-label="Close dialog"
                 style={{
                   position: "absolute",
                   top: "15px",

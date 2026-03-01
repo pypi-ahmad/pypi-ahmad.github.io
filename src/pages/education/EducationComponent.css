@@ -8,6 +8,8 @@
 .basic-education {
   margin-left: 5%;
   margin-right: 5%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .heading-div {
