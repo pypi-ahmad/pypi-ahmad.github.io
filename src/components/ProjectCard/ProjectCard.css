@@ -1,99 +1,160 @@
 /**
- * ProjectCard.css — Open-source project card grid.
+ * ProjectCard.css — Open-source project card, matching SystemCard design.
+ *
+ * Default theme: dark (light backgrounds via .light-mode overrides).
+ * Accent color: #00ffaa (dark) / #0055aa (light).
  */
-.repo-stats {
+
+/* ── Card layout & hover ──────────────────────────────────────── */
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 170, 0.15);
+  transition: 0.3s ease;
+  color: #fff;
+  height: 100%;
   display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  font-size: 13px;
-  color: rgb(106, 115, 125);
+  flex-direction: column;
 }
 
-.repo-left-stat {
-  -webkit-box-flex: 1;
-  flex-grow: 1;
+.project-card:hover {
+  transform: translateY(-6px);
+  border: 1px solid rgba(0, 255, 170, 0.4);
+}
+
+/* ── Header & metadata ────────────────────────────────────────── */
+
+.project-header {
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  color: #00ffaa;
+  margin-bottom: 5px;
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.project-title-link {
+  text-decoration: none;
+}
+
+.project-title-link:hover .project-title {
+  text-decoration: underline;
+}
+
+.project-tagline {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.project-category {
+  font-size: 12px;
+  background: rgba(26, 26, 46, 0.8);
+  padding: 4px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  color: #00ffaa;
+  border: 1px solid rgba(0, 255, 170, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── Description ──────────────────────────────────────────────── */
+
+.project-description {
+  margin: 15px 0;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* ── Metrics (⚡ highlights) ──────────────────────────────────── */
+
+.project-metrics {
+  margin-bottom: 1rem;
+}
+
+.project-metric {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #64ffda;
+}
+
+/* ── Tech stack (icons) ───────────────────────────────────────── */
+
+.project-tech {
+  margin: 15px 0 25px;
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.language-color {
-  width: 10px;
-  height: 10px;
-  background-color: blue;
-  margin-right: 0.25rem;
-  border-radius: 100%;
+/* ── Light mode overrides ─────────────────────────────────────── */
+
+.light-mode.project-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #333;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.repo-left-stat span {
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  margin-right: 0.75rem;
+.light-mode .project-title {
+  color: #0055aa;
 }
 
-.repo-name-div {
-  display: flex;
-  align-items: center;
+.light-mode .project-tagline {
+  color: #666;
 }
 
-.repo-svg {
-  margin-right: 0.5rem;
-  min-width: 16px;
+.light-mode .project-category {
+  background: rgba(0, 85, 170, 0.1);
+  color: #0055aa;
+  border-color: rgba(0, 85, 170, 0.2);
 }
 
-.repo-name {
-  white-space: nowrap;
-  line-height: 1.1;
-  text-overflow: ellipsis;
-  color: rgb(36, 41, 46);
-  font-family: "Google Sans Regular";
-  margin-bottom: 0.75rem;
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  overflow: hidden;
-  margin: 0px;
+.light-mode .project-description {
+  color: #444;
 }
 
-.repo-star-svg {
-  margin-right: 0.3rem;
-}
+/* ── Responsive ───────────────────────────────────────────────── */
 
-.repo-description {
-  word-wrap: break-word;
-  text-align: left;
-  display: -webkit-box;
-  font-family: "Google Sans Regular";
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-}
+@media (max-width: 1024px) {
+  .project-card {
+    padding: 20px;
+  }
 
-.repo-details {
-  display: flex;
-  flex-direction: row;
-}
-
-.repo-creation-date {
-  margin: 0;
-  font-family: "Google Sans Regular";
-  font-weight: 400;
-  margin-left: 0px;
-  margin-right: auto;
+  .project-title {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .repo-name {
-    font-size: 16px;
+  .project-card {
+    padding: 16px;
+    border-radius: 12px;
   }
 
-  .repo-description {
-    font-size: 14px;
+  .project-card:hover {
+    transform: none;
   }
 
-  .repo-details {
-    flex-direction: column;
+  .project-title {
+    font-size: 1.3rem;
   }
 
-  .repo-creation-date {
-    font-size: 14px;
+  .project-tagline {
+    font-size: 13px;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 }
