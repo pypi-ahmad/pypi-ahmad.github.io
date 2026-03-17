@@ -396,6 +396,116 @@ export const systems = {
         "Improved query accuracy via iterative self-correction",
         "Zero destructive operations via security validation gate"
       ]
+    },
+    {
+      id: "computer_using_agent",
+      name: "Computer-Using Agent",
+      tagline: "Native CU protocols from Gemini, Claude, and OpenAI in a sandboxed desktop",
+      category: "Agentic AI · Open Source",
+      tier: "supporting",
+      metrics: ["Gemini + Claude + OpenAI", "Native CU Protocols", "Live Desktop Streaming"],
+      description:
+        "Built a sandboxed agent platform where vision-language models autonomously operate a full Linux desktop inside Docker using native Computer Use protocols — structured action dispatch, real-time streaming, and explicit safety confirmation gates.",
+      problem_statement:
+        "Computer Use protocols from Gemini, Claude, and OpenAI each define different tool schemas, coordinate systems, and screenshot handling. No unified local environment existed to run, observe, and compare these providers in a safe sandbox.",
+      solution_overview:
+        "Designed a three-process architecture: React frontend for session management and live desktop streaming, FastAPI backend for orchestration and provider routing, and a Dockerized Ubuntu desktop with XFCE where all agent actions execute. The engine normalizes each provider's native CU protocol into a shared perceive–think–act loop.",
+      architecture: [
+        "User task input via React workbench UI",
+        "FastAPI backend: provider/model validation + session lifecycle",
+        "Docker container start (Ubuntu 24.04 + XFCE + Xvfb)",
+        "Screenshot capture via agent service HTTP API",
+        "Screenshot + task sent to selected LLM provider",
+        "Native CU tool response: structured action (click, type, scroll, etc.)",
+        "Action execution inside sandbox via xdotool",
+        "New screenshot captured → loop or terminate",
+        "WebSocket broadcast: screenshots, logs, step records to UI"
+      ],
+      tech: ["Python", "FastAPI", "React 19", "Docker", "Vite"],
+      key_features: [
+        "Multi-provider native Computer Use: Gemini, Claude, OpenAI",
+        "Sandboxed Docker desktop with resource limits and no-new-privileges",
+        "Real-time desktop streaming via WebSocket + interactive noVNC",
+        "Safety confirmation gates surfaced to UI for explicit user approval",
+        "Context pruning to prevent unbounded token growth",
+        "Hermetic test suite — no running container or network required"
+      ],
+      implementation_details:
+        "Engine dispatches to provider-specific adapters: google-genai for Gemini (normalized 0–999 coordinates), anthropic SDK with beta endpoint for Claude (pixel coordinates with screenshot resizing), and OpenAI Responses API for GPT-5.4 (previous_response_id continuation). All providers map to 15 shared desktop actions executed via xdotool inside the container. Rate limiting, concurrent session caps, and model allowlist enforced at the API layer.",
+      challenges_solutions: [
+        {
+          challenge: "Three providers with incompatible coordinate systems",
+          solution: "Engine-level denormalization: Gemini 0–999 grid mapped to pixels; Claude and OpenAI use native pixel values"
+        },
+        {
+          challenge: "Unbounded context growth from screenshot history",
+          solution: "Automatic pruning: old screenshots replaced with text placeholders after N turns"
+        },
+        {
+          challenge: "Sensitive actions executed without user consent",
+          solution: "Safety confirmation flow: engine pauses, UI prompts user, 60s timeout defaults to deny"
+        }
+      ],
+      impact: [
+        "Unified three native CU protocols behind a single execution engine",
+        "Provided a safe, observable sandbox for CUA research and development",
+        "Open-source: github.com/pypi-ahmad/computer-use"
+      ]
+    },
+    {
+      id: "cua_workbench",
+      name: "CUA Workbench",
+      tagline: "Browser, accessibility, and pixel-level agent automation from one workbench",
+      category: "Agentic AI · Open Source",
+      tier: "supporting",
+      metrics: ["3 Execution Engines", "Playwright MCP", "Explicit Engine Routing"],
+      description:
+        "Built a multi-engine observability workbench for computer-using agents with three execution paths — Playwright MCP for browser-semantic automation, platform accessibility APIs for desktop control, and native Computer Use — each selected per session with no silent fallback.",
+      problem_statement:
+        "Browser automation, desktop accessibility, and pixel-level Computer Use are fundamentally different execution paradigms. No single tool let developers compare them side-by-side in the same sandbox with the same observability surface.",
+      solution_overview:
+        "Designed an engine-router architecture: the user selects an engine per session, and the backend routes all actions through that engine without silent substitution. Three engines share a unified action schema but maintain isolated execution paths. A React workbench streams screenshots, logs, and step history in real time.",
+      architecture: [
+        "User selects engine, provider, model, and execution target in UI",
+        "FastAPI backend validates request against engine + model allowlists",
+        "Docker container started with XFCE + Playwright MCP + AT-SPI",
+        "Engine router dispatches to selected engine for full session",
+        "Playwright MCP: browser-semantic actions via MCP tool calls",
+        "Omni Accessibility: platform accessibility API actions (AT-SPI / UIA / JXA)",
+        "Computer Use: native CU protocol via Gemini or Claude",
+        "Action normalization through unified schema",
+        "WebSocket broadcast: screenshots, logs, step records to UI"
+      ],
+      tech: ["Python", "FastAPI", "React 19", "Playwright", "Docker"],
+      key_features: [
+        "Three isolated automation engines selectable per session",
+        "Playwright MCP for browser-semantic control via accessibility snapshots",
+        "Cross-platform accessibility: Linux AT-SPI, Windows UIA, macOS JXA",
+        "Explicit engine routing with no silent fallback or auto-switching",
+        "Unified action schema normalized across all engines",
+        "Optional WebRTC streaming alongside noVNC"
+      ],
+      implementation_details:
+        "Engine router is intentionally simple: user-selected engine used for full session. Playwright MCP engine communicates with in-container MCP server on port 8931 for browser-semantic actions. Accessibility engine queries AT-SPI registry for desktop-semantic control. Computer Use engine delegates to provider-specific native CU adapters. All engines normalize output through a shared action schema validated per-engine. Backend enforces strict allowlists for engines and models at the API layer.",
+      challenges_solutions: [
+        {
+          challenge: "Three engines with different action models and capabilities",
+          solution: "Unified action schema with per-engine validation — normalized format, engine-specific constraints"
+        },
+        {
+          challenge: "Risk of silent engine substitution masking failures",
+          solution: "Explicit routing: selected engine is the only engine used, no fallback"
+        },
+        {
+          challenge: "AT-SPI, UIA, and JXA have incompatible APIs",
+          solution: "Provider abstraction layer: common interface with platform-specific implementations"
+        }
+      ],
+      impact: [
+        "Enabled side-by-side comparison of three agent automation paradigms",
+        "Demonstrated that explicit engine selection outperforms silent fallback",
+        "Open-source: github.com/pypi-ahmad/cua-workbench"
+      ]
     }
   ],
 
