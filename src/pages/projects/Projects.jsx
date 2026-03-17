@@ -92,12 +92,11 @@ function Projects(props) {
 
       {/* Projects Section */}
       {projects.data.length > 0 && (
-        <>
+        <div className="systems-div-main" style={{ padding: "2rem 5%" }}>
           <h2
             style={{
               color: theme.text,
               textAlign: "center",
-              marginTop: "4rem",
               marginBottom: "2rem",
               fontSize: "2.5rem",
             }}
@@ -107,10 +106,10 @@ function Projects(props) {
 
           <div className="repo-cards-div-main">
             {projects.data.map((repo) => {
-              return <ProjectCard repo={repo} theme={theme} />;
+              return <ProjectCard key={repo.name} repo={repo} theme={theme} />;
             })}
           </div>
-        </>
+        </div>
       )}
       <br />
       <br />
