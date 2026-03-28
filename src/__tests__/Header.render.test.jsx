@@ -8,20 +8,19 @@
  */
 import React from "react";
 import { screen } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import userEvent from "@testing-library/user-event";
+import { describe, it, expect } from "vitest";
 import Header from "../components/header/Header";
-import { renderWithProviders, darkTheme, lightTheme } from "../test/testUtils";
+import { renderWithProviders } from "../test/testUtils";
 
 describe("Header — UI Rendering", () => {
-  const defaultProps = { theme: darkTheme, setTheme: vi.fn() };
-
   it("renders the logo text 'ahmad.m()'", () => {
-    renderWithProviders(<Header {...defaultProps} />);
+    renderWithProviders(<Header />);
     expect(screen.getByText("ahmad.m()")).toBeInTheDocument();
   });
 
   it("renders all 6 navigation links", () => {
-    renderWithProviders(<Header {...defaultProps} />);
+    renderWithProviders(<Header />);
     const navLabels = [
       "Home",
       "Education and Certifications",
@@ -36,7 +35,7 @@ describe("Header — UI Rendering", () => {
   });
 
   it("renders navigation links with correct href paths", () => {
-    renderWithProviders(<Header {...defaultProps} />);
+    renderWithProviders(<Header />);
     expect(screen.getByText("Home").closest("a")).toHaveAttribute("href", "/home");
     expect(screen.getByText("Education and Certifications").closest("a")).toHaveAttribute("href", "/education");
     expect(screen.getByText("Experience").closest("a")).toHaveAttribute("href", "/experience");
@@ -46,35 +45,81 @@ describe("Header — UI Rendering", () => {
   });
 
   it("renders the theme toggle button with aria-label", () => {
-    renderWithProviders(<Header {...defaultProps} />);
+    renderWithProviders(<Header />);
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     expect(toggleBtn).toBeInTheDocument();
   });
 
+  it("renders the theme family selector", () => {
+    renderWithProviders(<Header />);
+    const selector = screen.getByRole("combobox", { name: "Theme Family" });
+    expect(selector).toBeInTheDocument();
+    expect(selector).toHaveValue("default");
+  });
+
+  it("lists the new high-identity themes in the selector", () => {
+    renderWithProviders(<Header />);
+
+    [
+      "Terminal",
+      "Midnight Ops",
+      "Paper Notebook",
+      "Synthwave",
+      "Arctic Frost",
+      "Arctic",
+      "Ember Forge",
+      "Ember",
+      "Coffee House",
+      "Coffee",
+      "Matrix Amber",
+      "Blueprint",
+      "Deep Space",
+      "Sunset Gradient",
+      "Luxury Gold",
+      "Black Gold",
+    ].forEach((label) => {
+      expect(screen.getByRole("option", { name: label })).toBeInTheDocument();
+    });
+  });
+
+  it("renders the theme gallery trigger", () => {
+    renderWithProviders(<Header />);
+    const galleryToggle = screen.getByRole("button", { name: /Theme Gallery/i });
+    expect(galleryToggle).toBeInTheDocument();
+    expect(galleryToggle).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("marks the default preview chip as active", async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<Header />);
+
+    await user.click(screen.getByRole("button", { name: /Theme Gallery/i }));
+
+    const defaultPreview = screen.getByRole("button", { name: "Select Default theme" });
+    expect(defaultPreview).toHaveAttribute("aria-pressed", "true");
+  });
+
   it("renders the hamburger menu checkbox input", () => {
-    renderWithProviders(<Header {...defaultProps} />);
+    renderWithProviders(<Header />);
     const menuCheckbox = document.getElementById("menu-btn");
     expect(menuCheckbox).toBeInTheDocument();
     expect(menuCheckbox.type).toBe("checkbox");
   });
 
   it("renders the logo as a link to /home when isSplash is false", () => {
-    renderWithProviders(<Header {...defaultProps} />);
+    renderWithProviders(<Header />);
     const logoLink = screen.getByText("ahmad.m()").closest("a");
     expect(logoLink).toHaveAttribute("href", "/home");
   });
 
   it("applies dark theme background color on toggle button in dark mode", () => {
-    renderWithProviders(<Header {...defaultProps} />);
+    renderWithProviders(<Header />);
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     expect(toggleBtn).toHaveStyle({ backgroundColor: "#292C3F" });
   });
 
   it("applies light theme background color on toggle button in light mode", () => {
-    renderWithProviders(
-      <Header theme={lightTheme} setTheme={vi.fn()} />,
-      { theme: "light" }
-    );
+    renderWithProviders(<Header />, { theme: "light" });
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     expect(toggleBtn).toHaveStyle({ backgroundColor: "#7CD1F7" });
   });

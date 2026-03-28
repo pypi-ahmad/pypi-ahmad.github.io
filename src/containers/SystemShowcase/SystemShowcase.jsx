@@ -15,12 +15,25 @@ import { systems } from "../../portfolio";
 const Container = styled.div`
   padding: 2rem 1rem;
   text-align: center;
+
+  @media (max-width: 480px) {
+    padding: 1.5rem 0.75rem;
+  }
 `;
 
 const Title = styled(motion.h1)`
   font-size: 2.5rem;
   margin-bottom: 2rem;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export default function SystemShowcase({ theme }) {

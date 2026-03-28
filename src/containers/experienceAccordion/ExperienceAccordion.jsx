@@ -19,7 +19,11 @@ const AccordionContainer = styled.div`
   overflow: hidden;
 
   @media (max-width: 768px) {
-    margin: 20px;
+    margin: 16px;
+  }
+
+  @media (max-width: 480px) {
+    margin: 12px 10px;
   }
 `;
 
@@ -60,11 +64,20 @@ const AccordionSummary = styled.summary`
   ${AccordionPanel}[open] &::after {
     content: '-';
   }
+
+  @media (max-width: 768px) {
+    padding: 16px;
+    font-size: 1.05rem;
+  }
 `;
 
 const AccordionContent = styled.div`
   padding: 20px;
   background-color: ${({ theme }) => theme.body};
+
+  @media (max-width: 768px) {
+    padding: 14px;
+  }
 `;
 
 function ExperienceAccordion(props) {

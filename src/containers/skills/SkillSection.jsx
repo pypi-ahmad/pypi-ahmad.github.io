@@ -47,7 +47,14 @@ function SkillSection(props) {
                 </div>
               </motion.div>
 
-              <div className="skills-text-div">
+              <div
+                className="skills-text-div"
+                style={{
+                  background: theme.cardBackgroundAlt,
+                  border: `1px solid ${theme.borderSoft}`,
+                  boxShadow: `0 20px 48px ${theme.shadowColor}`,
+                }}
+              >
                 <motion.div
                   initial={{ x: 20, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
@@ -92,7 +99,14 @@ function SkillSection(props) {
         } else {
           return (
             <div key={skill.title} className="skills-main-div">
-              <div className="skills-text-div">
+              <div
+                className="skills-text-div"
+                style={{
+                  background: theme.cardBackgroundAlt,
+                  border: `1px solid ${theme.borderSoft}`,
+                  boxShadow: `0 20px 48px ${theme.shadowColor}`,
+                }}
+              >
                 <motion.div
                   initial={{ x: -20, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}

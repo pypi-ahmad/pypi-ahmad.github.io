@@ -7,47 +7,56 @@
  *  - Light/dark theme toggle button (persists choice to localStorage)
  *  - Responsive hamburger menu for mobile viewports
  *
- * Props: { theme, setTheme }
+ * Theme state comes from the global theme controller.
  */
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import { motion } from "framer-motion";
 import { NavLink, Link } from "react-router-dom";
 import { greeting, settings } from "../../portfolio.js";
 import { CgSun } from "react-icons/cg/";
 import { HiMoon } from "react-icons/hi";
+import { useThemeController } from "../../themeController";
+import {
+  buildThemeBackground,
+  buildThemeShadow,
+  themeSurfaceTransition,
+  themeElevatedSurfaceTransition,
+} from "../../themeMotion";
 
-function Header(props) {
-  const theme = props.theme;
+const navigationLinkStyle = (theme) => ({ isActive }) => ({
+  fontWeight: isActive ? "bold" : "normal",
+  borderRadius: theme.controlRadius,
+  color: theme.text,
+  backgroundColor: isActive ? theme.accentSoft : "transparent",
+  boxShadow: isActive
+    ? buildThemeShadow(`0 12px 30px ${theme.shadowColor}`, theme.buttonGlow)
+    : "none",
+  transition: themeSurfaceTransition,
+});
+
+function Header() {
+  const {
+    resolvedTheme,
+    themeMode,
+    toggleMode,
+  } = useThemeController();
+  const theme = resolvedTheme;
 
   const link = settings.isSplash ? "/splash" : "/home";
 
-  const [currTheme, setCurrTheme] = useState(props.theme?.name || "dark");
-
-  function changeTheme() {
-    if (currTheme === "light") {
-      props.setTheme("dark");
-      localStorage.setItem("theme", "dark");
-      setCurrTheme("dark");
-    } else {
-      props.setTheme("light");
-      localStorage.setItem("theme", "light");
-      setCurrTheme("light");
-    }
-  }
-
   const icon =
-    props.theme.name === "dark" ? (
+    themeMode === "dark" ? (
       <HiMoon
         strokeWidth={1}
         size={20}
-        color={props.theme.name === "light" ? "#F9D784" : "#A7A7A7"}
+        color={themeMode === "light" ? "#F9D784" : "#A7A7A7"}
       />
     ) : (
       <CgSun
         strokeWidth={1}
         size={20}
-        color={props.theme.name === "light" ? "#F9D784" : "#A7A7A7"}
+        color={themeMode === "light" ? "#F9D784" : "#A7A7A7"}
       />
     );
 
@@ -58,10 +67,28 @@ function Header(props) {
       transition={{ duration: 1 }}
     >
       <div>
-        <header className="header">
+        <header
+          className="header"
+          style={{
+            background: buildThemeBackground(theme.headerSurface, theme.headerPattern),
+            borderColor: theme.borderSoft,
+            borderWidth: theme.panelBorderWidth,
+            borderStyle: theme.panelBorderStyle,
+            borderRadius: theme.surfaceRadius,
+            boxShadow: buildThemeShadow(`0 18px 42px ${theme.shadowColor}`, theme.panelGlow),
+            transition: themeElevatedSurfaceTransition,
+          }}
+        >
           <NavLink to={link} as={Link} className="logo">
             <span style={{ color: theme.text }}></span>
-            <span className="logo-name" style={{ color: theme.text }}>
+            <span
+              className="logo-name"
+              style={{
+                color: theme.text,
+                fontFamily: theme.accentFontFamily,
+                letterSpacing: theme.accentLetterSpacing,
+              }}
+            >
               {greeting.logoName}
             </span>
             <span style={{ color: theme.text }}></span>
@@ -76,11 +103,7 @@ function Header(props) {
                 className="homei"
                 to="/home"
                 as={Link}
-                style={({ isActive }) => ({
-                  fontWeight: isActive ? "bold" : "normal",
-                  borderRadius: 5,
-                  color: theme.text,
-                })}
+                style={navigationLinkStyle(theme)}
               >
                 Home
               </NavLink>
@@ -90,11 +113,7 @@ function Header(props) {
                 className="ec"
                 to="/education"
                 as={Link}
-                style={({ isActive }) => ({
-                  fontWeight: isActive ? "bold" : "normal",
-                  borderRadius: 5,
-                  color: theme.text,
-                })}
+                style={navigationLinkStyle(theme)}
               >
                 Education and Certifications
               </NavLink>
@@ -104,11 +123,7 @@ function Header(props) {
                 className="xp"
                 to="/experience"
                 as={Link}
-                style={({ isActive }) => ({
-                  fontWeight: isActive ? "bold" : "normal",
-                  borderRadius: 5,
-                  color: theme.text,
-                })}
+                style={navigationLinkStyle(theme)}
               >
                 Experience
               </NavLink>
@@ -118,11 +133,7 @@ function Header(props) {
                 className="skills"
                 to="/skills"
                 as={Link}
-                style={({ isActive }) => ({
-                  fontWeight: isActive ? "bold" : "normal",
-                  borderRadius: 5,
-                  color: theme.text,
-                })}
+                style={navigationLinkStyle(theme)}
               >
                 Skills
               </NavLink>
@@ -132,11 +143,7 @@ function Header(props) {
                 className="projects"
                 to="/projects"
                 as={Link}
-                style={({ isActive }) => ({
-                  fontWeight: isActive ? "bold" : "normal",
-                  borderRadius: 5,
-                  color: theme.text,
-                })}
+                style={navigationLinkStyle(theme)}
               >
                 Projects
               </NavLink>
@@ -146,33 +153,47 @@ function Header(props) {
                 className="cr"
                 to="/contact"
                 as={Link}
-                style={({ isActive }) => ({
-                  fontWeight: isActive ? "bold" : "normal",
-                  borderRadius: 5,
-                  color: theme.text,
-                })}
+                style={navigationLinkStyle(theme)}
               >
                 Contact Me
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className="themei"
+                to="/theme"
+                as={Link}
+                style={navigationLinkStyle(theme)}
+              >
+                Theme
               </NavLink>
             </li>
             <li style={{ listStyle: "none" }}>
               <button
                 className="change-theme-btn"
-                onClick={changeTheme}
+                onClick={toggleMode}
+                type="button"
                 style={{
                   cursor: "pointer",
                   height: "45px",
                   width: "45px",
                   marginRight: "5px",
-                  marginLeft: "15px",
+                  marginLeft: "10px",
                   paddingTop: "5px",
                   borderRadius: "50%",
-                  border: "none",
+                  borderColor: theme.borderColor,
+                  borderWidth: theme.panelBorderWidth,
+                  borderStyle: theme.panelBorderStyle,
                   alignItems: "center",
                   justifyContent: "center",
-                  backgroundColor: props.theme.name === "light" ? "#7CD1F7" : "#292C3F",
+                  background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
+                  color: theme.selectorText,
                   outline: "none",
-                  transition: "all 0.2s ease-in-out",
+                  transition: themeSurfaceTransition,
+                  boxShadow:
+                    themeMode === "light"
+                      ? buildThemeShadow("0 6px 16px rgba(31, 41, 55, 0.08)", theme.buttonGlow)
+                      : buildThemeShadow("0 8px 20px rgba(0, 0, 0, 0.28)", theme.buttonGlow),
                 }}
                 aria-label="Toggle Theme"
               >

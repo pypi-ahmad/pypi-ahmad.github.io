@@ -23,7 +23,7 @@ import { renderWithProviders, darkTheme } from "../test/testUtils";
 
 describe("Responsiveness — Hamburger Menu Structure", () => {
   it("renders the hamburger checkbox input for mobile toggle", () => {
-    renderWithProviders(<Header theme={darkTheme} setTheme={vi.fn()} />);
+    renderWithProviders(<Header />);
     const checkbox = document.getElementById("menu-btn");
     expect(checkbox).toBeInTheDocument();
     expect(checkbox).toHaveAttribute("type", "checkbox");
@@ -31,43 +31,85 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
   });
 
   it("renders the hamburger label targeting the menu-btn", () => {
-    renderWithProviders(<Header theme={darkTheme} setTheme={vi.fn()} />);
+    renderWithProviders(<Header />);
     const label = document.querySelector('label[for="menu-btn"]');
     expect(label).toBeInTheDocument();
     expect(label).toHaveClass("menu-icon");
   });
 
   it("renders the navicon span inside the hamburger label", () => {
-    renderWithProviders(<Header theme={darkTheme} setTheme={vi.fn()} />);
+    renderWithProviders(<Header />);
     const navicon = document.querySelector(".navicon");
     expect(navicon).toBeInTheDocument();
     expect(navicon.tagName.toLowerCase()).toBe("span");
   });
 
   it("hamburger checkbox is unchecked by default (menu closed)", () => {
-    renderWithProviders(<Header theme={darkTheme} setTheme={vi.fn()} />);
+    renderWithProviders(<Header />);
     const checkbox = document.getElementById("menu-btn");
     expect(checkbox.checked).toBe(false);
   });
 
   it("menu <ul> has the 'menu' class for CSS-based responsive toggle", () => {
-    renderWithProviders(<Header theme={darkTheme} setTheme={vi.fn()} />);
+    renderWithProviders(<Header />);
     const menu = document.querySelector("ul.menu");
     expect(menu).toBeInTheDocument();
   });
 
   it("all 6 nav links are inside the menu <ul>", () => {
-    renderWithProviders(<Header theme={darkTheme} setTheme={vi.fn()} />);
+    renderWithProviders(<Header />);
     const menu = document.querySelector("ul.menu");
     const links = menu.querySelectorAll("a");
     expect(links.length).toBe(6);
   });
 
   it("theme toggle button is inside the menu <ul>", () => {
-    renderWithProviders(<Header theme={darkTheme} setTheme={vi.fn()} />);
+    renderWithProviders(<Header />);
     const menu = document.querySelector("ul.menu");
     const toggleBtn = menu.querySelector('button[aria-label="Toggle Theme"]');
     expect(toggleBtn).toBeInTheDocument();
+  });
+
+  it("theme family selector is inside the menu <ul>", () => {
+    renderWithProviders(<Header />);
+    const menu = document.querySelector("ul.menu");
+    const selector = menu.querySelector('select[aria-label="Theme Family"]');
+    expect(selector).toBeInTheDocument();
+  });
+
+  it("theme gallery toggle is inside the menu <ul>", () => {
+    renderWithProviders(<Header />);
+    const menu = document.querySelector("ul.menu");
+    const galleryToggle = menu.querySelector('button[aria-controls="theme-family-preview-panel"]');
+    expect(galleryToggle).toBeInTheDocument();
+  });
+
+  it("keeps Contact Me, theme selector, and toggle in the correct final order", () => {
+    renderWithProviders(<Header />);
+    const menu = document.querySelector("ul.menu");
+    const menuItems = Array.from(menu.children).map((item) => {
+      if (item.querySelector('a[href="/contact"]')) {
+        return "contact";
+      }
+
+      if (item.querySelector('select[aria-label="Theme Family"]')) {
+        return "selector";
+      }
+
+      if (item.querySelector('button[aria-label="Toggle Theme"]')) {
+        return "toggle";
+      }
+
+      return item.textContent.trim();
+    });
+
+    expect(menuItems.slice(-3)).toEqual(["contact", "selector", "toggle"]);
+  });
+
+  it("renders theme preview buttons for the visual picker", () => {
+    renderWithProviders(<Header />);
+    const previewButtons = document.querySelectorAll(".theme-preview-chip");
+    expect(previewButtons.length).toBeGreaterThanOrEqual(26);
   });
 });
 
@@ -85,13 +127,13 @@ describe("Responsiveness — Viewport matchMedia", () => {
 
 describe("Responsiveness — Layout Structure Assertions", () => {
   it("Header renders inside a <header> semantic element", () => {
-    renderWithProviders(<Header theme={darkTheme} setTheme={vi.fn()} />);
+    renderWithProviders(<Header />);
     const headerEl = document.querySelector("header.header");
     expect(headerEl).toBeInTheDocument();
   });
 
   it("Header logo is a clickable link", () => {
-    renderWithProviders(<Header theme={darkTheme} setTheme={vi.fn()} />);
+    renderWithProviders(<Header />);
     const logo = screen.getByText("ahmad.m()");
     expect(logo.closest("a")).toBeTruthy();
   });

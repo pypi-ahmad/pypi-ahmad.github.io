@@ -4,7 +4,7 @@
  * Displays professional work history with an SVG illustration header
  * and the ExperienceAccordion of role cards.
  *
- * Props: { theme, setTheme }
+ * Props: { theme }
  */
 import React from "react";
 import Header from "../../components/header/Header";
@@ -19,7 +19,7 @@ function Experience(props) {
   const theme = props.theme;
   return (
     <div className="experience-main">
-      <Header theme={theme} setTheme={props.setTheme} />
+      <Header />
       <div className="basic-experience">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

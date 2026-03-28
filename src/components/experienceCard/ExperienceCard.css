@@ -172,3 +172,31 @@
     text-align: justify;
   }
 }
+
+@media (max-width: 480px) {
+  .experience-card-logo-div {
+    margin: 10px auto 0;
+  }
+
+  .experience-card-logo {
+    width: 84px;
+  }
+
+  .experience-card-title,
+  .experience-card-company,
+  .experience-card-duration,
+  .experience-card-location {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .experience-card-description {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  .experience-card-description ul {
+    padding-left: 16px;
+  }
+}

@@ -19,8 +19,9 @@
 .skills-text-div {
   margin-left: 50px;
   margin-top: 3%;
-  padding-top: 80px;
+  padding: 60px 34px 34px;
   font-family: "Google Sans Regular";
+  border-radius: 28px;
 }
 
 .skills-main-div > * {
@@ -75,7 +76,7 @@
   .skills-text-div {
     margin-left: 0px;
     margin: 15px;
-    padding-top: 20px;
+    padding: 24px 18px;
     text-align: center;
   }
 
@@ -98,5 +99,25 @@
   .skills-image-div > * {
     margin-top: 0px;
     max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-main-div {
+    padding: 0 8px;
+  }
+
+  .skills-text-div {
+    margin: 10px 0;
+    padding: 18px 14px;
+  }
+
+  .skills-text,
+  .skills-text-subtitle {
+    padding: 0;
+  }
+
+  .skills-image-div {
+    padding: 0 8px;
   }
 }

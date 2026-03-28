@@ -9,8 +9,11 @@
 import React from "react";
 import "./ProjectLanguages.css";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
 
 function ProjectLanguages(props) {
+  const { theme } = props;
+
   return (
     <div>
       <div className="software-skills-main-div">
@@ -37,6 +40,17 @@ function ProjectLanguages(props) {
                     onClick={(e) => {
                       e.stopPropagation();
                     }}
+                    style={
+                      theme
+                        ? {
+                            color: theme.text,
+                            background: buildThemeBackground(theme.bodyAlt, theme.surfacePattern),
+                            border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+                            borderRadius: theme.controlRadius,
+                            boxShadow: buildThemeShadow(`0 12px 22px ${theme.shadowColor}`, theme.buttonGlow),
+                          }
+                        : undefined
+                    }
                   >
                     <span
                       className="iconify"
