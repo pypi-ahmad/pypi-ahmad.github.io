@@ -1,0 +1,53 @@
+[     623ms] TypeError: Cannot read properties of undefined (reading 'borderSoft')
+    at Footer (http://127.0.0.1:3001/src/components/footer/Footer.jsx:17:40)
+    at renderWithHooks (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:9624:19)
+    at mountIndeterminateComponent (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:12366:12)
+    at beginWork (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:13093:41)
+    at HTMLUnknownElement.callCallback (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:3144:11)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:3164:14)
+    at invokeGuardedCallback (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:3203:32)
+    at beginWork$1 (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:15994:5)
+    at performUnitOfWork (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:15572:12)
+    at workLoopSync (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:15521:36)
+[     639ms] TypeError: Cannot read properties of undefined (reading 'borderSoft')
+    at Footer (http://127.0.0.1:3001/src/components/footer/Footer.jsx:17:40)
+    at renderWithHooks (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:9624:19)
+    at mountIndeterminateComponent (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:12366:12)
+    at beginWork (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:13093:41)
+    at HTMLUnknownElement.callCallback (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:3144:11)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:3164:14)
+    at invokeGuardedCallback (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:3203:32)
+    at beginWork$1 (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:15994:5)
+    at performUnitOfWork (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:15572:12)
+    at workLoopSync (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:15521:36)
+[     641ms] [ERROR] The above error occurred in the <Footer> component:
+
+    at Footer (http://127.0.0.1:3001/src/components/footer/Footer.jsx:17:34)
+    at div
+    at ThemePage (http://127.0.0.1:3001/src/pages/theme/ThemePage.jsx:16:80)
+    at RenderedRoute (http://127.0.0.1:3001/node_modules/.vite/deps/react-router-dom.js?v=42da28eb:3332:8)
+    at Routes (http://127.0.0.1:3001/node_modules/.vite/deps/react-router-dom.js?v=42da28eb:3775:8)
+    at Router (http://127.0.0.1:3001/node_modules/.vite/deps/react-router-dom.js?v=42da28eb:3723:18)
+    at BrowserRouter (http://127.0.0.1:3001/node_modules/.vite/deps/react-router-dom.js?v=42da28eb:4402:8)
+    at div
+    at Main (http://127.0.0.1:3001/src/containers/Main.jsx:48:19)
+    at div
+    at MotionConfig (http://127.0.0.1:3001/node_modules/.vite/deps/framer-motion.js?v=42da28eb:9124:25)
+    at AppContent (http://127.0.0.1:3001/src/App.jsx:27:2)
+    at Qe (http://127.0.0.1:3001/node_modules/.vite/deps/styled-components.js?v=42da28eb:1514:23)
+    at ThemeControllerProvider (http://127.0.0.1:3001/src/themeController.jsx:44:43)
+    at App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:11722
+[     642ms] TypeError: Cannot read properties of undefined (reading 'borderSoft')
+    at Footer (http://127.0.0.1:3001/src/components/footer/Footer.jsx:17:40)
+    at renderWithHooks (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:9624:19)
+    at mountIndeterminateComponent (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:12366:12)
+    at beginWork (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:13093:41)
+    at beginWork$1 (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:15986:12)
+    at performUnitOfWork (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:15572:12)
+    at workLoopSync (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:15521:36)
+    at renderRootSync (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:15504:6)
+    at recoverFromConcurrentError (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:15197:21)
+    at performConcurrentWorkOnRoot (http://127.0.0.1:3001/node_modules/.vite/deps/react-dom-BxEVyh8D.js?v=42da28eb:15150:20)

@@ -212,7 +212,7 @@ function ThemePage() {
           </div>
         </div>
       </motion.div>
-      <Footer />
+      <Footer theme={theme} />
     </div>
   );
 }
