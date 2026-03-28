@@ -55,7 +55,7 @@ function Experience(props) {
         </motion.div>
       </div>
       <ExperienceAccordion sections={experience["sections"]} theme={theme} />
-      <Footer theme={props.theme} onToggle={props.onToggle} />
+      <Footer theme={props.theme} />
     </div>
   );
 }

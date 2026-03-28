@@ -1,5 +1,3 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
-
-Sitemap: https://pypi-ahmad.github.io/sitemap.xml
