@@ -37,7 +37,7 @@ const Title = styled(motion.h1)`
 `;
 
 export default function SystemShowcase({ theme }) {
-  const featured = systems[0];
+  const featured = systems.featured[0];
   if (!featured) return null;
 
   return (
