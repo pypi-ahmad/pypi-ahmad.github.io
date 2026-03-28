@@ -7,9 +7,8 @@
  *
  * Props: { sections, theme }
  */
-import React, { useState } from "react";
+import React from "react";
 import ExperienceCard from "../../components/experienceCard/ExperienceCard";
-import "./ExperienceAccordion.css";
 import styled from "styled-components";
 
 const AccordionContainer = styled.div`

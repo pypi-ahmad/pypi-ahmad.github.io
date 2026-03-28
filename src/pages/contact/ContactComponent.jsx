@@ -123,7 +123,7 @@ function Contact(props) {
           </div>
         </motion.div>
       </div>
-      <Footer theme={props.theme} onToggle={props.onToggle} />
+      <Footer theme={props.theme} />
     </div>
   );
 }
