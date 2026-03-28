@@ -39,6 +39,8 @@ export default defineConfig({
   },
 
   build: {
+    // Preserve the Vite 6 browser target instead of inheriting newer major-version defaults.
+    target: ['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14'],
     outDir: 'build', // gh-pages deploys from this folder
   },
 
