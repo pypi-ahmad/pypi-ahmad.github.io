@@ -8,6 +8,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+  :root {
+    --theme-transition-fast: 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    --theme-transition-medium: 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    --theme-transition-slow: 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
   *,
   *::after,
   *::before {
@@ -19,7 +25,21 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     display: block;
     font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    transition: all 0.25s linear;
+    transition:
+      background-color var(--theme-transition-medium),
+      color var(--theme-transition-fast);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --theme-transition-fast: 1ms linear;
+      --theme-transition-medium: 1ms linear;
+      --theme-transition-slow: 1ms linear;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   /* Mobile-only global fixes */

@@ -7,7 +7,7 @@
  *
  * Includes a "More Projects" button linking to the GitHub profile.
  *
- * Props: { theme, setTheme }
+ * Props: { theme }
  */
 import React, { useState } from "react";
 import Header from "../../components/header/Header";
@@ -19,11 +19,25 @@ import { projectsHeader, projects, socialMediaLinks, systems } from "../../portf
 import "./Projects.css";
 import ProjectsImg from "./ProjectsImg";
 import styled from "styled-components";
+import {
+  buildThemeBackground,
+  buildThemeShadow,
+  themeElevatedSurfaceTransition,
+  themeTextTransition,
+} from "../../themeMotion";
 
 const ProjectsButton = styled.a`
-  background-color: ${props => props.theme.accentBright};
+  background: ${props => buildThemeBackground(props.theme.buttonColor, props.theme.buttonPattern)};
+  color: ${props => props.theme.buttonText};
+  border: ${props => `${props.theme.panelBorderWidth} ${props.theme.panelBorderStyle} ${props.theme.borderColor}`};
+  border-radius: ${props => props.theme.controlRadius};
+  box-shadow: ${props => buildThemeShadow(`0 18px 44px ${props.theme.shadowColor}`, props.theme.buttonGlow)};
+  font-family: ${props => props.theme.accentFontFamily};
+  letter-spacing: ${props => props.theme.accentLetterSpacing};
+  transition: transform 0.2s ease, background-color var(--theme-transition-medium), color var(--theme-transition-fast), border-color var(--theme-transition-fast), box-shadow var(--theme-transition-slow);
   &:hover {
-    color: white;
+    color: ${props => props.theme.buttonText};
+    transform: translateY(-2px);
   }
 `;
 
@@ -33,7 +47,7 @@ function Projects(props) {
 
   return (
     <div className="projects-main">
-      <Header theme={theme} setTheme={props.setTheme} />
+      <Header />
       <div className="basic-projects">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -48,13 +62,13 @@ function Projects(props) {
             <div className="projects-heading-text-div">
               <h1
                 className="projects-heading-text"
-                style={{ color: theme.text }}
+                style={{ color: theme.text, transition: themeTextTransition }}
               >
                 {projectsHeader.title}
               </h1>
               <p
                 className="projects-header-detail-text subTitle"
-                style={{ color: theme.secondaryText }}
+                style={{ color: theme.secondaryText, transition: themeTextTransition }}
               >
                 {projectsHeader["description"]}
               </p>
@@ -64,10 +78,24 @@ function Projects(props) {
       </div>
 
       {/* Systems Showcase Section */}
-      <div className="systems-div-main" style={{ padding: "2rem 5%" }}>
+      <div
+        className="systems-div-main"
+        style={{
+          padding: "2rem 5%",
+          background: buildThemeBackground(theme.bodyAlt, theme.surfacePattern),
+          borderTop: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+          borderBottom: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+          borderRadius: theme.surfaceRadius,
+          boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.panelGlow),
+          transition: themeElevatedSurfaceTransition,
+        }}
+      >
         <h2
           style={{
             color: theme.text,
+            fontFamily: theme.accentFontFamily,
+            letterSpacing: theme.accentLetterSpacing,
+            transition: themeTextTransition,
             textAlign: "center",
             marginBottom: "2rem",
             fontSize: "2.5rem",
@@ -92,10 +120,24 @@ function Projects(props) {
 
       {/* Projects Section */}
       {projects.data.length > 0 && (
-        <div className="systems-div-main" style={{ padding: "2rem 5%" }}>
+        <div
+          className="systems-div-main"
+          style={{
+            padding: "2rem 5%",
+            background: buildThemeBackground(theme.bodyAlt, theme.surfacePattern),
+            borderTop: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+            borderBottom: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+            borderRadius: theme.surfaceRadius,
+            boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.panelGlow),
+            transition: themeElevatedSurfaceTransition,
+          }}
+        >
           <h2
             style={{
               color: theme.text,
+              fontFamily: theme.accentFontFamily,
+              letterSpacing: theme.accentLetterSpacing,
+              transition: themeTextTransition,
               textAlign: "center",
               marginBottom: "2rem",
               fontSize: "2.5rem",

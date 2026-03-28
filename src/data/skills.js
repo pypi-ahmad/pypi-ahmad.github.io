@@ -9,7 +9,8 @@
  *  skills          — Compact 3-category display on the home page (SkillSection.jsx).
  *                     Each entry has a `fileName` mapping to an SVG illustration component.
  *
- * Icon format: "simple-icons:<name>" — rendered at runtime by the Iconify CDN script.
+ * Icon format: Iconify icon IDs for standard entries, with optional
+ * `customIcon` keys for curated fallback SVG components.
  */
 
 // ─────────────────────────────────────────────────────────
@@ -28,13 +29,13 @@ export const skillsPageData = {
         { skillName: "Python", fontAwesomeClassname: "simple-icons:python", style: { color: "#3776AB" }, link: "https://www.python.org/" },
         { skillName: "OpenAI", fontAwesomeClassname: "simple-icons:openai", style: { color: "#74AA9C" }, link: "https://openai.com/" },
         { skillName: "LangChain", fontAwesomeClassname: "simple-icons:langchain", style: { color: "#1C3C3C" }, link: "https://www.langchain.com/" },
-        { skillName: "LangGraph", fontAwesomeClassname: "simple-icons:langchain", style: { color: "#1C3C3C" }, link: "https://langchain-ai.github.io/langgraph/" },
+        { skillName: "LangGraph", fontAwesomeClassname: "simple-icons:langgraph", style: { color: "#1C3C3C" }, link: "https://langchain-ai.github.io/langgraph/" },
         { skillName: "HuggingFace", fontAwesomeClassname: "simple-icons:huggingface", style: { color: "#FFD21E" }, link: "https://huggingface.co/" },
         { skillName: "Google Gemini", fontAwesomeClassname: "simple-icons:googlegemini", style: { color: "#4285F4" }, link: "https://deepmind.google/technologies/gemini/" },
         { skillName: "FastAPI", fontAwesomeClassname: "simple-icons:fastapi", style: { color: "#009688" }, link: "https://fastapi.tiangolo.com/" },
         { skillName: "Pydantic", fontAwesomeClassname: "simple-icons:pydantic", style: { color: "#E92063" }, link: "https://docs.pydantic.dev/" },
         { skillName: "Streamlit", fontAwesomeClassname: "simple-icons:streamlit", style: { color: "#FF4B4B" }, link: "https://streamlit.io/" },
-        { skillName: "Model Context Protocol (MCP)", fontAwesomeClassname: "simple-icons:openai", style: { color: "#412991" }, link: "https://modelcontextprotocol.io/" },
+        { skillName: "Model Context Protocol (MCP)", fontAwesomeClassname: "simple-icons:modelcontextprotocol", style: { color: "#412991" }, link: "https://modelcontextprotocol.io/" },
       ],
       skills: [
         "⚡ Designing multi-stage LLM pipelines with structured outputs, validation gates, and retry loops",
@@ -46,13 +47,13 @@ export const skillsPageData = {
     {
       title: "Agentic AI & RAG Systems",
       softwareSkills: [
-        { skillName: "LangGraph", fontAwesomeClassname: "simple-icons:langchain", style: { color: "#1C3C3C" }, link: "https://langchain-ai.github.io/langgraph/" },
+        { skillName: "LangGraph", fontAwesomeClassname: "simple-icons:langgraph", style: { color: "#1C3C3C" }, link: "https://langchain-ai.github.io/langgraph/" },
         { skillName: "Milvus", fontAwesomeClassname: "simple-icons:milvus", style: { color: "#00A1EA" }, link: "https://milvus.io/" },
         { skillName: "FAISS", fontAwesomeClassname: "simple-icons:meta", style: { color: "#0467DF" }, link: "https://github.com/facebookresearch/faiss" },
         { skillName: "Playwright", fontAwesomeClassname: "simple-icons:playwright", style: { color: "#2EAD33" }, link: "https://playwright.dev/" },
         { skillName: "HuggingFace", fontAwesomeClassname: "simple-icons:huggingface", style: { color: "#FFD21E" }, link: "https://huggingface.co/" },
-        { skillName: "CrewAI", fontAwesomeClassname: "simple-icons:openai", style: { color: "#FF6B6B" }, link: "https://www.crewai.com/" },
-        { skillName: "Model Context Protocol (MCP)", fontAwesomeClassname: "simple-icons:openai", style: { color: "#412991" }, link: "https://modelcontextprotocol.io/" },
+        { skillName: "CrewAI", fontAwesomeClassname: "simple-icons:crewai", style: { color: "#FF6B6B" }, link: "https://www.crewai.com/" },
+        { skillName: "Model Context Protocol (MCP)", fontAwesomeClassname: "simple-icons:modelcontextprotocol", style: { color: "#412991" }, link: "https://modelcontextprotocol.io/" },
       ],
       skills: [
         "⚡ Designing SOP-grounded RAG pipelines for procedural task execution",
@@ -68,7 +69,7 @@ export const skillsPageData = {
         { skillName: "PyTorch", fontAwesomeClassname: "simple-icons:pytorch", style: { color: "#EE4C2C" }, link: "https://pytorch.org/" },
         { skillName: "Scikit-Learn", fontAwesomeClassname: "simple-icons:scikitlearn", style: { color: "#F7931E" }, link: "https://scikit-learn.org/" },
         { skillName: "HuggingFace Transformers", fontAwesomeClassname: "simple-icons:huggingface", style: { color: "#FFD21E" }, link: "https://huggingface.co/docs/transformers" },
-        { skillName: "PaddleOCR", fontAwesomeClassname: "simple-icons:opencv", style: { color: "#5C3EE8" }, link: "https://github.com/PaddlePaddle/PaddleOCR" },
+        { skillName: "PaddleOCR", fontAwesomeClassname: "simple-icons:paddlepaddle", style: { color: "#D81E06" }, link: "https://github.com/PaddlePaddle/PaddleOCR" },
         { skillName: "Pandas", fontAwesomeClassname: "simple-icons:pandas", style: { color: "#6366F1" }, link: "https://pandas.pydata.org/" },
         { skillName: "NumPy", fontAwesomeClassname: "simple-icons:numpy", style: { color: "#4DABCF" }, link: "https://numpy.org/" },
         { skillName: "OpenCV", fontAwesomeClassname: "simple-icons:opencv", style: { color: "#5C3EE8" }, link: "https://opencv.org/" },
@@ -82,14 +83,14 @@ export const skillsPageData = {
         { skillName: "Databricks", fontAwesomeClassname: "simple-icons:databricks", style: { color: "#FF3621" }, link: "https://www.databricks.com/" },
         { skillName: "Apache Spark", fontAwesomeClassname: "simple-icons:apachespark", style: { color: "#E25A1C" }, link: "https://spark.apache.org/" },
         { skillName: "PySpark", fontAwesomeClassname: "simple-icons:apachespark", style: { color: "#E25A1C" }, link: "https://spark.apache.org/docs/latest/api/python/" },
-        { skillName: "Delta Lake", fontAwesomeClassname: "simple-icons:databricks", style: { color: "#FF3621" }, link: "https://delta.io/" },
+        { skillName: "Delta Lake", fontAwesomeClassname: "mdi:waves", customIcon: "DeltaLakeIcon", style: { color: "#0EA5E9" }, link: "https://delta.io/" },
         { skillName: "Docker", fontAwesomeClassname: "simple-icons:docker", style: { color: "#2496ED" }, link: "https://www.docker.com/" },
         { skillName: "PostgreSQL", fontAwesomeClassname: "simple-icons:postgresql", style: { color: "#4169E1" }, link: "https://www.postgresql.org/" },
         { skillName: "MongoDB", fontAwesomeClassname: "simple-icons:mongodb", style: { color: "#47A248" }, link: "https://www.mongodb.com/" },
         { skillName: "Redis", fontAwesomeClassname: "simple-icons:redis", style: { color: "#DC382D" }, link: "https://redis.io/" },
-        { skillName: "Azure Cognitive Services", fontAwesomeClassname: "simple-icons:microsoftazure", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/en-us/products/cognitive-services/" },
-        { skillName: "Azure Key Vault", fontAwesomeClassname: "simple-icons:microsoftazure", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/en-us/products/key-vault/" },
-        { skillName: "Azure Document Intelligence", fontAwesomeClassname: "simple-icons:microsoftazure", style: { color: "#0078D4" }, link: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/" },
+        { skillName: "Azure Cognitive Services", fontAwesomeClassname: "mdi:brain", customIcon: "AzureCognitiveServicesIcon", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/en-us/products/cognitive-services/" },
+        { skillName: "Azure Key Vault", fontAwesomeClassname: "material-symbols:key-vertical-rounded", customIcon: "AzureKeyVaultIcon", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/en-us/products/key-vault/" },
+        { skillName: "Azure Document Intelligence", fontAwesomeClassname: "material-symbols:find-in-page-outline-rounded", customIcon: "AzureDocumentIntelligenceIcon", style: { color: "#0078D4" }, link: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/" },
       ],
       skills: [
         "⚡ Implementing Medallion Architecture (Silver/Gold layers) in Databricks pipelines",
@@ -102,7 +103,7 @@ export const skillsPageData = {
       softwareSkills: [
         { skillName: "FastAPI", fontAwesomeClassname: "simple-icons:fastapi", style: { color: "#009688" }, link: "https://fastapi.tiangolo.com/" },
         { skillName: "Flask", fontAwesomeClassname: "simple-icons:flask", style: { color: "#61DAFB" }, link: "https://flask.palletsprojects.com/" },
-        { skillName: "REST APIs", fontAwesomeClassname: "simple-icons:fastapi", style: { color: "#009688" }, link: "https://restfulapi.net/" },
+        { skillName: "REST APIs", fontAwesomeClassname: "material-symbols:api", customIcon: "RestApisIcon", style: { color: "#0F766E" }, link: "https://restfulapi.net/" },
         { skillName: "Git", fontAwesomeClassname: "simple-icons:git", style: { color: "#F05032" }, link: "https://git-scm.com/" },
         { skillName: "GitHub Actions", fontAwesomeClassname: "simple-icons:githubactions", style: { color: "#2088FF" }, link: "https://github.com/features/actions" },
         { skillName: "Linux", fontAwesomeClassname: "simple-icons:linux", style: { color: "#FCC624" }, link: "https://www.kernel.org/" },
@@ -153,7 +154,7 @@ export const skills = {
         { skillName: "Python", fontAwesomeClassname: "simple-icons:python", style: { color: "#3776AB" }, link: "https://www.python.org/" },
         { skillName: "OpenAI", fontAwesomeClassname: "simple-icons:openai", style: { color: "#74AA9C" }, link: "https://openai.com/" },
         { skillName: "LangChain", fontAwesomeClassname: "simple-icons:langchain", style: { color: "#1C3C3C" }, link: "https://www.langchain.com/" },
-        { skillName: "LangGraph", fontAwesomeClassname: "simple-icons:langchain", style: { color: "#1C3C3C" }, link: "https://langchain-ai.github.io/langgraph/" },
+        { skillName: "LangGraph", fontAwesomeClassname: "simple-icons:langgraph", style: { color: "#1C3C3C" }, link: "https://langchain-ai.github.io/langgraph/" },
         { skillName: "HuggingFace", fontAwesomeClassname: "simple-icons:huggingface", style: { color: "#FFD21E" }, link: "https://huggingface.co/" },
         { skillName: "Google Gemini", fontAwesomeClassname: "simple-icons:googlegemini", style: { color: "#4285F4" }, link: "https://deepmind.google/technologies/gemini/" },
         { skillName: "Pydantic", fontAwesomeClassname: "simple-icons:pydantic", style: { color: "#E92063" }, link: "https://docs.pydantic.dev/" },
@@ -178,20 +179,20 @@ export const skills = {
         { skillName: "AWS", fontAwesomeClassname: "simple-icons:amazonaws", style: { color: "#FF9900" }, link: "https://aws.amazon.com/" },
         { skillName: "Databricks", fontAwesomeClassname: "simple-icons:databricks", style: { color: "#FF3621" }, link: "https://www.databricks.com/" },
         { skillName: "PySpark", fontAwesomeClassname: "simple-icons:apachespark", style: { color: "#E25A1C" }, link: "https://spark.apache.org/docs/latest/api/python/" },
-        { skillName: "Delta Lake", fontAwesomeClassname: "simple-icons:databricks", style: { color: "#FF3621" }, link: "https://delta.io/" },
+        { skillName: "Delta Lake", fontAwesomeClassname: "mdi:waves", customIcon: "DeltaLakeIcon", style: { color: "#0EA5E9" }, link: "https://delta.io/" },
         { skillName: "Docker", fontAwesomeClassname: "simple-icons:docker", style: { color: "#2496ED" }, link: "https://www.docker.com/" },
         { skillName: "MongoDB", fontAwesomeClassname: "simple-icons:mongodb", style: { color: "#47A248" }, link: "https://www.mongodb.com/" },
         { skillName: "Azure", fontAwesomeClassname: "simple-icons:microsoftazure", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/" },
         { skillName: "Azure Databricks", fontAwesomeClassname: "simple-icons:databricks", style: { color: "#FF3621" }, link: "https://learn.microsoft.com/en-us/azure/databricks/" },
-        { skillName: "Amazon S3", fontAwesomeClassname: "simple-icons:amazonaws", style: { color: "#FF9900" }, link: "https://aws.amazon.com/s3/" },
-        { skillName: "AWS Lambda", fontAwesomeClassname: "simple-icons:amazonaws", style: { color: "#FF9900" }, link: "https://aws.amazon.com/lambda/" },
-        { skillName: "Azure Machine Learning", fontAwesomeClassname: "simple-icons:microsoftazure", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/en-in/products/machine-learning/" },
-        { skillName: "Azure Blob Storage", fontAwesomeClassname: "simple-icons:microsoftazure", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/en-us/products/storage/blobs/" },
-        { skillName: "AWS CloudWatch", fontAwesomeClassname: "simple-icons:amazonaws", style: { color: "#FF9900" }, link: "https://aws.amazon.com/cloudwatch/" },
-        { skillName: "Amazon SageMaker", fontAwesomeClassname: "simple-icons:amazonaws", style: { color: "#FF9900" }, link: "https://aws.amazon.com/sagemaker/" },
-        { skillName: "Azure Cognitive Services", fontAwesomeClassname: "simple-icons:microsoftazure", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/en-us/products/cognitive-services/" },
-        { skillName: "Azure Key Vault", fontAwesomeClassname: "simple-icons:microsoftazure", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/en-us/products/key-vault/" },
-        { skillName: "Azure Document Intelligence", fontAwesomeClassname: "simple-icons:microsoftazure", style: { color: "#0078D4" }, link: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/" },
+        { skillName: "Amazon S3", fontAwesomeClassname: "simple-icons:amazons3", style: { color: "#FF9900" }, link: "https://aws.amazon.com/s3/" },
+        { skillName: "AWS Lambda", fontAwesomeClassname: "simple-icons:awslambda", style: { color: "#FF9900" }, link: "https://aws.amazon.com/lambda/" },
+        { skillName: "Azure Machine Learning", fontAwesomeClassname: "carbon:machine-learning-model", customIcon: "AzureMachineLearningIcon", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/en-in/products/machine-learning/" },
+        { skillName: "Azure Blob Storage", fontAwesomeClassname: "carbon:object-storage", customIcon: "AzureBlobStorageIcon", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/en-us/products/storage/blobs/" },
+        { skillName: "AWS CloudWatch", fontAwesomeClassname: "simple-icons:amazoncloudwatch", style: { color: "#FF9900" }, link: "https://aws.amazon.com/cloudwatch/" },
+        { skillName: "Amazon SageMaker", fontAwesomeClassname: "material-symbols:model-training-outline-rounded", customIcon: "AmazonSageMakerIcon", style: { color: "#FF9900" }, link: "https://aws.amazon.com/sagemaker/" },
+        { skillName: "Azure Cognitive Services", fontAwesomeClassname: "mdi:brain", customIcon: "AzureCognitiveServicesIcon", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/en-us/products/cognitive-services/" },
+        { skillName: "Azure Key Vault", fontAwesomeClassname: "material-symbols:key-vertical-rounded", customIcon: "AzureKeyVaultIcon", style: { color: "#0078D4" }, link: "https://azure.microsoft.com/en-us/products/key-vault/" },
+        { skillName: "Azure Document Intelligence", fontAwesomeClassname: "material-symbols:find-in-page-outline-rounded", customIcon: "AzureDocumentIntelligenceIcon", style: { color: "#0078D4" }, link: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/" },
       ],
     },
     {
@@ -210,7 +211,7 @@ export const skills = {
         { skillName: "PyTorch", fontAwesomeClassname: "simple-icons:pytorch", style: { color: "#EE4C2C" }, link: "https://pytorch.org/" },
         { skillName: "Scikit-Learn", fontAwesomeClassname: "simple-icons:scikitlearn", style: { color: "#F7931E" }, link: "https://scikit-learn.org/" },
         { skillName: "HuggingFace", fontAwesomeClassname: "simple-icons:huggingface", style: { color: "#FFD21E" }, link: "https://huggingface.co/" },
-        { skillName: "PaddleOCR", fontAwesomeClassname: "simple-icons:opencv", style: { color: "#5C3EE8" }, link: "https://github.com/PaddlePaddle/PaddleOCR" },
+        { skillName: "PaddleOCR", fontAwesomeClassname: "simple-icons:paddlepaddle", style: { color: "#D81E06" }, link: "https://github.com/PaddlePaddle/PaddleOCR" },
         { skillName: "Pandas", fontAwesomeClassname: "simple-icons:pandas", style: { color: "#6366F1" }, link: "https://pandas.pydata.org/" },
         { skillName: "NumPy", fontAwesomeClassname: "simple-icons:numpy", style: { color: "#4DABCF" }, link: "https://numpy.org/" },
         { skillName: "Jupyter", fontAwesomeClassname: "simple-icons:jupyter", style: { color: "#F37626" }, link: "https://jupyter.org/" },

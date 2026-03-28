@@ -15,6 +15,9 @@ import styled from "styled-components";
 const DegreeImageDiv = styled.div`
   width: 220px;
   height: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
   border-radius: 50%;
   padding: 10px;
   border: 1px solid ${props => props.theme.text};
@@ -26,17 +29,21 @@ const DegreeImageDiv = styled.div`
     box-shadow: 0 2px 10px ${props => props.theme.text};
   }
   @media (max-width: 768px) {
-    margin-left: 50px;
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 15px;
     width: 175px;
+    padding: 8px;
   }
 `;
 
 const DegreeCardBody = styled.div`
   border: 1px solid ${props => props.theme.text};
   border-radius: 7px;
-  width: 90%;
-  margin: 10px;
+  width: 100%;
+  margin: 10px 0;
+  box-sizing: border-box;
+  overflow: hidden;
   box-shadow: 0px 0px 1px ${props => props.theme.text};
   transition: all 0.2s ease-in-out;
   &:hover {
@@ -45,6 +52,7 @@ const DegreeCardBody = styled.div`
   }
   @media (max-width: 768px) {
     width: 100%;
+    margin: 0;
   }
 `;
 
@@ -52,21 +60,29 @@ const VisitButton = styled.p`
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
   background: ${props => props.theme.accentColor};
-  padding: 15px 15px;
+  padding: 15px;
   margin-top: 25px;
   border-radius: 4px;
   border-width: 0px;
   margin-bottom: 20px;
-  width: 200px;
-  height: 50px;
+  min-width: 200px;
+  min-height: 50px;
   font-weight: bold;
   font-family: Google Sans Regular;
   font-size: 17px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   &:hover {
     color: rgba(255, 255, 255, 1);
     box-shadow: 0 2px 10px ${props => props.theme.accentColor};
+  }
+  @media (max-width: 480px) {
+    width: 100%;
+    min-width: 0;
   }
 `;
 
@@ -130,19 +146,15 @@ function DegreeCard(props) {
               );
             })}
             <a
+              className="degree-visit-link"
               href={degree.websiteLink}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: "none", textAlign: "center" }}
+              style={{ textDecoration: "none" }}
             >
               <VisitButton
                 theme={theme}
-                style={{
-                  marginRight: "23px",
-                  textDecoration: "none",
-                  float: "right",
-                  backgroundColor: theme.accentColor,
-                }}
+                style={{ textDecoration: "none", backgroundColor: theme.accentColor }}
               >
                 Visit Website
               </VisitButton>

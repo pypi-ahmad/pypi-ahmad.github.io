@@ -5,14 +5,16 @@
  * Iconify skill icons linking to official docs and an optional text
  * bullet list.  Driven by `skillsPageData` from the data layer.
  *
- * Props: { theme, setTheme }
+ * Props: { theme }
  */
 import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { motion } from "framer-motion";
 import { skillsPageData } from "../../portfolio";
+import SkillIcon from "../../components/icons/SkillIcon";
 import "./SkillsPage.css";
+import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
 
 /** Individual skill category section within the page grid. */
 const SkillSection = ({ section, theme }) => {
@@ -20,15 +22,20 @@ const SkillSection = ({ section, theme }) => {
     <div
       className="skill-section"
       style={{
-        backgroundColor: theme.imageDark,
-        boxShadow: `0 5px 15px ${
-          theme.imageDark === "#333"
-            ? "rgba(255,255,255,0.1)"
-            : "rgba(0,0,0,0.1)"
-        }`,
+        background: buildThemeBackground(theme.cardBackgroundAlt, theme.surfacePattern),
+        border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+        borderRadius: theme.surfaceRadius,
+        boxShadow: buildThemeShadow(`0 20px 44px ${theme.shadowColor}`, theme.panelGlow),
       }}
     >
-      <h3 className="skill-section-title" style={{ color: theme.text }}>
+      <h3
+        className="skill-section-title"
+        style={{
+          color: theme.text,
+          fontFamily: theme.accentFontFamily,
+          letterSpacing: theme.accentLetterSpacing,
+        }}
+      >
         {section.title}
       </h3>
       {section.softwareSkills.length > 0 && (
@@ -40,13 +47,15 @@ const SkillSection = ({ section, theme }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="skill-icon-item"
+              style={{
+                background: buildThemeBackground(theme.accentSoft, theme.buttonPattern),
+                border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+                borderRadius: theme.controlRadius,
+                boxShadow: buildThemeShadow(`0 16px 30px ${theme.shadowColor}`, theme.buttonGlow),
+                color: theme.text,
+              }}
             >
-              <span
-                className="iconify skill-page-icon"
-                data-icon={skill.fontAwesomeClassname}
-                style={skill.style}
-                data-inline="false"
-              ></span>
+              <SkillIcon skill={skill} className="iconify skill-page-icon" />
               <span
                 className="skill-icon-name"
                 style={{ color: theme.secondaryText }}
@@ -74,7 +83,7 @@ function SkillsPage(props) {
   const theme = props.theme;
   return (
     <div className="skills-main">
-      <Header theme={theme} setTheme={props.setTheme} />
+      <Header />
       <div className="basic-skills">
         <motion.div
           initial={{ y: 40, opacity: 0 }}

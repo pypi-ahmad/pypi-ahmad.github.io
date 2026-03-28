@@ -25,18 +25,24 @@ expect.extend(toHaveNoViolations);
 // ────────────────────────────────────────────────────────
 describe("Accessibility — Semantic HTML & ARIA", () => {
   it("Header uses a <header> element", () => {
-    renderWithProviders(<Header theme={darkTheme} setTheme={vi.fn()} />);
+    renderWithProviders(<Header />);
     expect(document.querySelector("header")).toBeInTheDocument();
   });
 
   it("Theme toggle button has an aria-label", () => {
-    renderWithProviders(<Header theme={darkTheme} setTheme={vi.fn()} />);
+    renderWithProviders(<Header />);
     const btn = screen.getByRole("button", { name: "Toggle Theme" });
     expect(btn).toHaveAttribute("aria-label", "Toggle Theme");
   });
 
+  it("Theme family selector has an accessible name", () => {
+    renderWithProviders(<Header />);
+    const selector = screen.getByRole("combobox", { name: "Theme Family" });
+    expect(selector).toBeInTheDocument();
+  });
+
   it("Navigation links are accessible (rendered as <a> tags)", () => {
-    renderWithProviders(<Header theme={darkTheme} setTheme={vi.fn()} />);
+    renderWithProviders(<Header />);
     const links = screen.getAllByRole("link");
     // 6 nav links + 1 logo link = 7
     expect(links.length).toBeGreaterThanOrEqual(7);
@@ -101,9 +107,7 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
 // ────────────────────────────────────────────────────────
 describe("Accessibility — axe-core Scans", () => {
   it("Header has no critical accessibility violations", async () => {
-    const { container } = renderWithProviders(
-      <Header theme={darkTheme} setTheme={vi.fn()} />
-    );
+    const { container } = renderWithProviders(<Header />);
     const results = await axe(container, {
       rules: {
         // Disable rules that fire on partials (no full page structure)

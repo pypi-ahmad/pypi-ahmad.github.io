@@ -5,7 +5,7 @@
  *  1. Resume CTA + contact channel list (ContactLinksList)
  *  2. Blog section with Medium profile link
  *
- * Props: { theme, setTheme }
+ * Props: { theme }
  */
 import React from "react";
 import Header from "../../components/header/Header";
@@ -35,7 +35,7 @@ function Contact(props) {
 
   return (
     <div className="contact-main">
-      <Header theme={theme} setTheme={props.setTheme} />
+      <Header />
       <div className="basic-contact">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
