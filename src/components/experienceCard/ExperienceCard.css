@@ -129,9 +129,6 @@
     width: 100px;
   }
 
-  .experience-card-body-div {
-  }
-
   .experience-card-heading-left {
     float: center;
     margin-left: auto;
@@ -150,6 +147,14 @@
 
   .experience-card-company {
     text-align: center;
+  }
+
+  .experience-card-company > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 4px 0;
   }
 
   .experience-card-duration {

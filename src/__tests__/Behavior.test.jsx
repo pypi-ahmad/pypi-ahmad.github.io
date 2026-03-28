@@ -15,6 +15,7 @@ import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, beforeEach } from "vitest";
 import Header from "../components/header/Header";
+import ThemePage from "../pages/theme/ThemePage";
 import SystemCard from "../components/SystemDesign/SystemCard";
 import Greeting from "../containers/greeting/Greeting";
 import ExperienceAccordion from "../containers/experienceAccordion/ExperienceAccordion";
@@ -96,9 +97,9 @@ describe("Header — Theme Toggle Behavior", () => {
     });
   });
 
-  it("persists the selected theme family", async () => {
+  it("persists the selected theme family via the Theme page", async () => {
     const user = userEvent.setup();
-    renderWithProviders(<Header />);
+    renderWithProviders(<ThemePage />, { initialEntries: ["/theme"] });
 
     const selector = screen.getByRole("combobox", { name: "Theme Family" });
     await user.selectOptions(selector, "ocean");
@@ -109,12 +110,9 @@ describe("Header — Theme Toggle Behavior", () => {
     });
   });
 
-  it("updates the selected theme family from the preview gallery", async () => {
+  it("updates the selected theme family from the Theme page gallery", async () => {
     const user = userEvent.setup();
-    renderWithProviders(<Header />);
-
-    const galleryToggle = screen.getByRole("button", { name: /Theme Gallery/i });
-    await user.click(galleryToggle);
+    renderWithProviders(<ThemePage />, { initialEntries: ["/theme"] });
 
     const sunsetPreview = screen.getByRole("button", { name: "Select Sunset theme" });
     await user.click(sunsetPreview);
@@ -126,13 +124,9 @@ describe("Header — Theme Toggle Behavior", () => {
     expect(sunsetPreview).toHaveAttribute("aria-pressed", "true");
   });
 
-  it("supports keyboard activation from the preview gallery", async () => {
+  it("supports keyboard activation from the Theme page gallery", async () => {
     const user = userEvent.setup();
-    renderWithProviders(<Header />);
-
-    const galleryToggle = screen.getByRole("button", { name: /Theme Gallery/i });
-    galleryToggle.focus();
-    await user.keyboard("{Enter}");
+    renderWithProviders(<ThemePage />, { initialEntries: ["/theme"] });
 
     const defaultPreview = screen.getByRole("button", { name: "Select Default theme" });
     defaultPreview.focus();
@@ -145,14 +139,14 @@ describe("Header — Theme Toggle Behavior", () => {
     expect(defaultPreview).toHaveFocus();
   });
 
-  it("keeps the selected family when toggling mode", async () => {
+  it("keeps the selected family when toggling mode on the Theme page", async () => {
     const user = userEvent.setup();
-    renderWithProviders(<Header />);
+    renderWithProviders(<ThemePage />, { initialEntries: ["/theme"] });
 
     const selector = screen.getByRole("combobox", { name: "Theme Family" });
     await user.selectOptions(selector, "violet");
 
-    const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
+    const toggleBtn = screen.getAllByRole("button", { name: "Toggle Theme" })[0];
     await user.click(toggleBtn);
 
     expect(JSON.parse(localStorage.getItem("theme"))).toEqual({

@@ -56,11 +56,11 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     expect(menu).toBeInTheDocument();
   });
 
-  it("all 6 nav links are inside the menu <ul>", () => {
+  it("all 7 nav links (including Theme) are inside the menu <ul>", () => {
     renderWithProviders(<Header />);
     const menu = document.querySelector("ul.menu");
     const links = menu.querySelectorAll("a");
-    expect(links.length).toBe(6);
+    expect(links.length).toBe(7);
   });
 
   it("theme toggle button is inside the menu <ul>", () => {
@@ -70,21 +70,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     expect(toggleBtn).toBeInTheDocument();
   });
 
-  it("theme family selector is inside the menu <ul>", () => {
-    renderWithProviders(<Header />);
-    const menu = document.querySelector("ul.menu");
-    const selector = menu.querySelector('select[aria-label="Theme Family"]');
-    expect(selector).toBeInTheDocument();
-  });
-
-  it("theme gallery toggle is inside the menu <ul>", () => {
-    renderWithProviders(<Header />);
-    const menu = document.querySelector("ul.menu");
-    const galleryToggle = menu.querySelector('button[aria-controls="theme-family-preview-panel"]');
-    expect(galleryToggle).toBeInTheDocument();
-  });
-
-  it("keeps Contact Me, theme selector, and toggle in the correct final order", () => {
+  it("keeps Contact Me, Theme link, and toggle in the correct final order", () => {
     renderWithProviders(<Header />);
     const menu = document.querySelector("ul.menu");
     const menuItems = Array.from(menu.children).map((item) => {
@@ -92,8 +78,8 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
         return "contact";
       }
 
-      if (item.querySelector('select[aria-label="Theme Family"]')) {
-        return "selector";
+      if (item.querySelector('a[href="/theme"]')) {
+        return "theme-link";
       }
 
       if (item.querySelector('button[aria-label="Toggle Theme"]')) {
@@ -103,13 +89,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
       return item.textContent.trim();
     });
 
-    expect(menuItems.slice(-3)).toEqual(["contact", "selector", "toggle"]);
-  });
-
-  it("renders theme preview buttons for the visual picker", () => {
-    renderWithProviders(<Header />);
-    const previewButtons = document.querySelectorAll(".theme-preview-chip");
-    expect(previewButtons.length).toBeGreaterThanOrEqual(26);
+    expect(menuItems.slice(-3)).toEqual(["contact", "theme-link", "toggle"]);
   });
 });
 
