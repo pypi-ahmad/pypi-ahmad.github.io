@@ -13,7 +13,7 @@
 import React from "react";
 import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach } from "vitest";
 import Header from "../components/header/Header";
 import SystemCard from "../components/SystemDesign/SystemCard";
 import Greeting from "../containers/greeting/Greeting";
@@ -28,58 +28,137 @@ describe("Header — Theme Toggle Behavior", () => {
     localStorage.clear();
   });
 
-  it("calls setTheme with 'light' when current theme is dark", async () => {
+  it("switches from dark mode to light mode when toggled", async () => {
     const user = userEvent.setup();
-    const setTheme = vi.fn();
-    renderWithProviders(<Header theme={darkTheme} setTheme={setTheme} />);
+    renderWithProviders(<Header />);
 
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     await user.click(toggleBtn);
 
-    expect(setTheme).toHaveBeenCalledWith("light");
-  });
-
-  it("calls setTheme with 'dark' when current theme is light (bug fixed: currTheme now initialized from theme.name)", async () => {
-    // FIXED: Header.jsx now initializes currTheme from props.theme.name (string)
-    // instead of props.theme (object). The comparison currTheme === "light"
-    // now works correctly, toggling to "dark" when already light.
-    const user = userEvent.setup();
-    const setTheme = vi.fn();
-    renderWithProviders(
-      <Header theme={lightTheme} setTheme={setTheme} />,
-      { theme: "light" }
+    expect(localStorage.getItem("theme")).toBe(
+      JSON.stringify({ family: "default", mode: "light" })
     );
-
-    const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
-    await user.click(toggleBtn);
-
-    expect(setTheme).toHaveBeenCalledWith("dark");
   });
 
-  it("persists theme choice to localStorage", async () => {
+  it("switches from light mode to dark mode when toggled", async () => {
     const user = userEvent.setup();
-    const setTheme = vi.fn();
-    renderWithProviders(<Header theme={darkTheme} setTheme={setTheme} />);
+    renderWithProviders(<Header />, { theme: "light" });
 
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     await user.click(toggleBtn);
 
-    expect(localStorage.getItem("theme")).toBe("light");
+    expect(localStorage.getItem("theme")).toBe(
+      JSON.stringify({ family: "default", mode: "dark" })
+    );
+  });
+
+  it("persists theme choice to localStorage using the new object shape", async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<Header />);
+
+    const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
+    await user.click(toggleBtn);
+
+    expect(JSON.parse(localStorage.getItem("theme"))).toEqual({
+      family: "default",
+      mode: "light",
+    });
   });
 
   it("toggles back to dark after toggling to light", async () => {
     const user = userEvent.setup();
-    const setTheme = vi.fn();
-    renderWithProviders(<Header theme={darkTheme} setTheme={setTheme} />);
+    renderWithProviders(<Header />);
 
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     // First click → light
     await user.click(toggleBtn);
-    expect(localStorage.getItem("theme")).toBe("light");
+    expect(JSON.parse(localStorage.getItem("theme"))).toEqual({
+      family: "default",
+      mode: "light",
+    });
 
     // Second click → dark
     await user.click(toggleBtn);
-    expect(localStorage.getItem("theme")).toBe("dark");
+    expect(JSON.parse(localStorage.getItem("theme"))).toEqual({
+      family: "default",
+      mode: "dark",
+    });
+  });
+
+  it("migrates legacy string storage to the new object shape", () => {
+    localStorage.setItem("theme", "light");
+
+    renderWithProviders(<Header />, { useStoredTheme: true });
+
+    expect(JSON.parse(localStorage.getItem("theme"))).toEqual({
+      family: "default",
+      mode: "light",
+    });
+  });
+
+  it("persists the selected theme family", async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<Header />);
+
+    const selector = screen.getByRole("combobox", { name: "Theme Family" });
+    await user.selectOptions(selector, "ocean");
+
+    expect(JSON.parse(localStorage.getItem("theme"))).toEqual({
+      family: "ocean",
+      mode: "dark",
+    });
+  });
+
+  it("updates the selected theme family from the preview gallery", async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<Header />);
+
+    const galleryToggle = screen.getByRole("button", { name: /Theme Gallery/i });
+    await user.click(galleryToggle);
+
+    const sunsetPreview = screen.getByRole("button", { name: "Select Sunset theme" });
+    await user.click(sunsetPreview);
+
+    expect(JSON.parse(localStorage.getItem("theme"))).toEqual({
+      family: "sunset",
+      mode: "dark",
+    });
+    expect(sunsetPreview).toHaveAttribute("aria-pressed", "true");
+  });
+
+  it("supports keyboard activation from the preview gallery", async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<Header />);
+
+    const galleryToggle = screen.getByRole("button", { name: /Theme Gallery/i });
+    galleryToggle.focus();
+    await user.keyboard("{Enter}");
+
+    const defaultPreview = screen.getByRole("button", { name: "Select Default theme" });
+    defaultPreview.focus();
+    await user.keyboard("{Enter}");
+
+    expect(JSON.parse(localStorage.getItem("theme"))).toEqual({
+      family: "default",
+      mode: "dark",
+    });
+    expect(defaultPreview).toHaveFocus();
+  });
+
+  it("keeps the selected family when toggling mode", async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<Header />);
+
+    const selector = screen.getByRole("combobox", { name: "Theme Family" });
+    await user.selectOptions(selector, "violet");
+
+    const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
+    await user.click(toggleBtn);
+
+    expect(JSON.parse(localStorage.getItem("theme"))).toEqual({
+      family: "violet",
+      mode: "light",
+    });
   });
 });
 

@@ -2,41 +2,54 @@
  * Test Utilities
  *
  * Shared render wrappers that provide the same context the real app does:
- * BrowserRouter, ThemeProvider, and MotionConfig. Every test that renders
+ * BrowserRouter, ThemeControllerProvider, and MotionConfig. Every test that renders
  * a component through the app's provider tree should use `renderWithProviders`.
  */
 import React from "react";
 import { render } from "@testing-library/react";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
 import { MotionConfig } from "framer-motion";
-import { themes } from "../theme";
+import { darkTheme, lightTheme } from "../theme";
+import { ThemeControllerProvider } from "../themeController";
 
 /**
- * Renders a component wrapped in ThemeProvider + BrowserRouter + MotionConfig.
+ * Renders a component wrapped in ThemeControllerProvider + BrowserRouter + MotionConfig.
  * Mirrors the provider tree from App.jsx → Main.jsx.
  *
  * @param {React.ReactElement} ui - The component to render
  * @param {object} options
  * @param {string} options.theme - "light" or "dark" (default: "dark")
+ * @param {string} options.themeFamily - active theme family (default: "default")
+ * @param {boolean} options.useStoredTheme - when true, use localStorage instead of an explicit initial theme
  * @param {string[]} options.initialEntries - MemoryRouter initial entries
  * @param {object} options.renderOptions - Extra RTL render options
  */
 export function renderWithProviders(
   ui,
-  { theme = "dark", initialEntries, ...renderOptions } = {}
+  {
+    theme = "dark",
+    themeFamily = "default",
+    useStoredTheme = false,
+    initialEntries,
+    ...renderOptions
+  } = {}
 ) {
-  const themeObj = themes[theme];
   const RouterComponent = initialEntries ? MemoryRouter : BrowserRouter;
   const routerProps = initialEntries ? { initialEntries } : {};
 
   function Wrapper({ children }) {
     return (
-      <ThemeProvider theme={themeObj}>
+      <ThemeControllerProvider
+        initialThemeSelection={
+          useStoredTheme
+            ? undefined
+            : { family: themeFamily, mode: theme }
+        }
+      >
         <MotionConfig reducedMotion="always">
           <RouterComponent {...routerProps}>{children}</RouterComponent>
         </MotionConfig>
-      </ThemeProvider>
+      </ThemeControllerProvider>
     );
   }
 
@@ -44,7 +57,7 @@ export function renderWithProviders(
 }
 
 /** Dark theme object for direct prop passing in unit tests */
-export const darkTheme = themes.dark;
+export { darkTheme };
 
 /** Light theme object for direct prop passing in unit tests */
-export const lightTheme = themes.light;
+export { lightTheme };

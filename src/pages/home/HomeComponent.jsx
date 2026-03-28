@@ -4,7 +4,7 @@
  * Composes the landing page from container sections:
  * Header → Greeting hero → SystemShowcase → SystemThinking → Skills → Footer
  *
- * Props: { theme, setTheme }
+ * Props: { theme }
  */
 import React from "react";
 import Header from "../../components/header/Header";
@@ -17,7 +17,7 @@ import Footer from "../../components/footer/Footer";
 function Home(props) {
   return (
     <div>
-      <Header theme={props.theme} setTheme={props.setTheme} />
+      <Header />
       <Greeting theme={props.theme} />
       <SystemShowcase theme={props.theme} />
       <SystemThinking theme={props.theme} />

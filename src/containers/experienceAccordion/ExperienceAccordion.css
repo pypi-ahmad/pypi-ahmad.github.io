@@ -24,6 +24,12 @@
 
 @media (max-width: 768px) {
   .experience-accord {
-    margin: 20px;
+    margin: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-accord {
+    margin: 12px 10px;
   }
 }

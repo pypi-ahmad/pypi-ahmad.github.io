@@ -13,9 +13,9 @@ import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi } from "vitest";
 import { render } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
 import { MotionConfig } from "framer-motion";
-import { themes } from "../theme";
+import { ThemeControllerProvider } from "../themeController";
+import { darkTheme } from "../theme";
 
 import Home from "../pages/home/HomeComponent";
 import Experience from "../pages/experience/Experience";
@@ -24,7 +24,7 @@ import Contact from "../pages/contact/ContactComponent";
 import Projects from "../pages/projects/Projects";
 import SkillsPage from "../pages/skills/SkillsPage";
 
-const theme = themes.dark;
+const theme = darkTheme;
 const setTheme = vi.fn();
 const routeProps = { theme, setTheme };
 
@@ -33,7 +33,9 @@ const routeProps = { theme, setTheme };
  */
 function renderAtRoute(initialPath) {
   return render(
-    <ThemeProvider theme={theme}>
+    <ThemeControllerProvider
+      initialThemeSelection={{ family: "default", mode: "dark" }}
+    >
       <MotionConfig reducedMotion="always">
         <MemoryRouter initialEntries={[initialPath]}>
           <Routes>
@@ -47,7 +49,7 @@ function renderAtRoute(initialPath) {
           </Routes>
         </MemoryRouter>
       </MotionConfig>
-    </ThemeProvider>
+    </ThemeControllerProvider>
   );
 }
 

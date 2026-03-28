@@ -15,7 +15,7 @@
  *  /projects    — Enterprise systems & open-source projects
  *  /skills      — Full skills grid
  *
- * Props: { theme, setTheme }
+ * Props: { theme }
  */
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
@@ -26,6 +26,7 @@ import Experience from "../pages/experience/Experience";
 import Contact from "../pages/contact/ContactComponent";
 import Projects from "../pages/projects/Projects";
 import SkillsPage from "../pages/skills/SkillsPage";
+import ThemePage from "../pages/theme/ThemePage";
 import { settings } from "../portfolio.js";
 
 export default function Main(props) {
@@ -37,39 +38,43 @@ export default function Main(props) {
             path="/"
             element={
               settings.isSplash ? (
-                <Splash {...props} theme={props.theme} setTheme={props.setTheme} />
+                <Splash {...props} theme={props.theme} />
               ) : (
-                <Home {...props} theme={props.theme} setTheme={props.setTheme} />
+                <Home {...props} theme={props.theme} />
               )
             }
           />
           <Route
             path="/home"
-            element={<Home {...props} theme={props.theme} setTheme={props.setTheme} />}
+            element={<Home {...props} theme={props.theme} />}
           />
           <Route
             path="/experience"
-            element={<Experience {...props} theme={props.theme} setTheme={props.setTheme} />}
+            element={<Experience {...props} theme={props.theme} />}
           />
           <Route
             path="/education"
-            element={<Education {...props} theme={props.theme} setTheme={props.setTheme} />}
+            element={<Education {...props} theme={props.theme} />}
           />
           <Route
             path="/contact"
-            element={<Contact {...props} theme={props.theme} setTheme={props.setTheme} />}
+            element={<Contact {...props} theme={props.theme} />}
           />
           <Route
             path="/splash"
-            element={<Splash {...props} theme={props.theme} setTheme={props.setTheme} />}
+            element={<Splash {...props} theme={props.theme} />}
           />
           <Route
             path="/projects"
-            element={<Projects {...props} theme={props.theme} setTheme={props.setTheme} />}
+            element={<Projects {...props} theme={props.theme} />}
           />
           <Route
             path="/skills"
-            element={<SkillsPage {...props} theme={props.theme} setTheme={props.setTheme} />}
+            element={<SkillsPage {...props} theme={props.theme} />}
+          />
+          <Route
+            path="/theme"
+            element={<ThemePage {...props} theme={props.theme} />}
           />
         </Routes>
       </BrowserRouter>

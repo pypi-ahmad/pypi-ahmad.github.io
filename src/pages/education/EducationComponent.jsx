@@ -4,7 +4,7 @@
  * Displays academic background with an SVG illustration header,
  * followed by the Educations (degrees) and Certifications containers.
  *
- * Props: { theme, setTheme }
+ * Props: { theme }
  */
 import React from "react";
 import Header from "../../components/header/Header";
@@ -19,7 +19,7 @@ function Education(props) {
   const theme = props.theme;
   return (
     <div className="education-main">
-      <Header theme={props.theme} setTheme={props.setTheme} />
+      <Header />
       <div className="basic-education">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
