@@ -89,6 +89,7 @@ const VisitButton = styled.p`
 function DegreeCard(props) {
   const degree = props.degree;
   const theme = props.theme;
+  const isCompactScreen = typeof window !== "undefined" && window.innerWidth <= 768;
 
   return (
     <div className="degree-card">
@@ -111,8 +112,8 @@ function DegreeCard(props) {
         </DegreeImageDiv>
       </motion.div>
       <motion.div
-        initial={{ x: 50, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
+        initial={isCompactScreen ? { y: 30, opacity: 0 } : { x: 50, opacity: 0 }}
+        whileInView={{ x: 0, y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
         style={{ width: "100%" }}

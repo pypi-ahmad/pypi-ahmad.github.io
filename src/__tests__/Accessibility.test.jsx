@@ -15,6 +15,7 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Greeting from "../containers/greeting/Greeting";
 import ExperienceCard from "../components/experienceCard/ExperienceCard";
+import ThemePage from "../pages/theme/ThemePage";
 import { renderWithProviders, darkTheme } from "../test/testUtils";
 
 // Extend expect with axe matchers
@@ -35,8 +36,8 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
     expect(btn).toHaveAttribute("aria-label", "Toggle Theme");
   });
 
-  it("Theme family selector has an accessible name", () => {
-    renderWithProviders(<Header />);
+  it("Theme family selector has an accessible name on the Theme page", () => {
+    renderWithProviders(<ThemePage />, { initialEntries: ["/theme"] });
     const selector = screen.getByRole("combobox", { name: "Theme Family" });
     expect(selector).toBeInTheDocument();
   });

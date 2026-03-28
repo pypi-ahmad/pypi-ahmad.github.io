@@ -8,7 +8,6 @@
  */
 import React from "react";
 import { screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { describe, it, expect } from "vitest";
 import Header from "../components/header/Header";
 import { renderWithProviders } from "../test/testUtils";
@@ -50,53 +49,26 @@ describe("Header — UI Rendering", () => {
     expect(toggleBtn).toBeInTheDocument();
   });
 
-  it("renders the theme family selector", () => {
+  it("renders the Theme nav link pointing to /theme", () => {
     renderWithProviders(<Header />);
-    const selector = screen.getByRole("combobox", { name: "Theme Family" });
-    expect(selector).toBeInTheDocument();
-    expect(selector).toHaveValue("default");
+    const themeLink = screen.getByText("Theme").closest("a");
+    expect(themeLink).toHaveAttribute("href", "/theme");
   });
 
-  it("lists the new high-identity themes in the selector", () => {
+  it("renders all 7 navigation links including Theme", () => {
     renderWithProviders(<Header />);
-
-    [
-      "Terminal",
-      "Midnight Ops",
-      "Paper Notebook",
-      "Synthwave",
-      "Arctic Frost",
-      "Arctic",
-      "Ember Forge",
-      "Ember",
-      "Coffee House",
-      "Coffee",
-      "Matrix Amber",
-      "Blueprint",
-      "Deep Space",
-      "Sunset Gradient",
-      "Luxury Gold",
-      "Black Gold",
-    ].forEach((label) => {
-      expect(screen.getByRole("option", { name: label })).toBeInTheDocument();
+    const navLabels = [
+      "Home",
+      "Education and Certifications",
+      "Experience",
+      "Skills",
+      "Projects",
+      "Contact Me",
+      "Theme",
+    ];
+    navLabels.forEach((label) => {
+      expect(screen.getByText(label)).toBeInTheDocument();
     });
-  });
-
-  it("renders the theme gallery trigger", () => {
-    renderWithProviders(<Header />);
-    const galleryToggle = screen.getByRole("button", { name: /Theme Gallery/i });
-    expect(galleryToggle).toBeInTheDocument();
-    expect(galleryToggle).toHaveAttribute("aria-expanded", "false");
-  });
-
-  it("marks the default preview chip as active", async () => {
-    const user = userEvent.setup();
-    renderWithProviders(<Header />);
-
-    await user.click(screen.getByRole("button", { name: /Theme Gallery/i }));
-
-    const defaultPreview = screen.getByRole("button", { name: "Select Default theme" });
-    expect(defaultPreview).toHaveAttribute("aria-pressed", "true");
   });
 
   it("renders the hamburger menu checkbox input", () => {
