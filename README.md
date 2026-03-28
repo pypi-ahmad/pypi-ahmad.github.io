@@ -1,12 +1,12 @@
 # Ahmad Mujtaba — Developer Portfolio
 
-[![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
-[![Tests](https://img.shields.io/badge/Tests-106%20passing-brightgreen?logo=vitest&logoColor=white)](#testing)
+[![Tests](https://img.shields.io/badge/Tests-145%20passing-brightgreen?logo=vitest&logoColor=white)](#testing)
 [![a11y](https://img.shields.io/badge/a11y-axe--core%20WCAG-blue?logo=accessibility&logoColor=white)](#accessibility)
 [![GitHub Pages](https://img.shields.io/badge/Live-pypi--ahmad.github.io-222?logo=github&logoColor=white)](https://pypi-ahmad.github.io)
 
-> A data-driven, single-page developer portfolio built with **React 18** and **Vite 6**. All visible content is decoupled from component logic and lives in a centralized data layer — to make the site yours, edit the data files and redeploy.
+> A data-driven, single-page developer portfolio built with **React 18** and **Vite 8**. All visible content is decoupled from component logic and lives in a centralized data layer — to make the site yours, edit the data files and redeploy.
 
 ---
 
@@ -32,29 +32,30 @@
 
 ## Project Overview
 
-This is a **React 18 single-page application** bundled with **Vite 6**, deployed to **GitHub Pages** at [pypi-ahmad.github.io](https://pypi-ahmad.github.io). The portfolio showcases enterprise system case studies, professional certifications, work experience, and a skills grid.
+This is a **React 18 single-page application** bundled with **Vite 8**, deployed to **GitHub Pages** at [pypi-ahmad.github.io](https://pypi-ahmad.github.io). The portfolio showcases enterprise system case studies, professional certifications, work experience, a dedicated theme gallery, and a mobile-responsive skills grid.
 
 ### Key Characteristics
 
 | Characteristic | Detail | Source |
 |---|---|---|
 | Framework | React 18.3.1 (`createRoot` API) | `package.json` → `react: ^18.3.1` |
-| Build tool | Vite 6 (migrated from CRA) | `vite.config.js` → `defineConfig` |
+| Build tool | Vite 8 (migrated from CRA) | `vite.config.js` → `defineConfig` |
 | Module system | ESM | `package.json` → `"type": "module"` |
-| Routing | React Router DOM 6.30, 8 client-side routes | `src/containers/Main.jsx` |
+| Routing | React Router DOM 6.30, 9 client-side routes | `src/containers/Main.jsx` |
 | Styling | styled-components 6.3 + CSS files | `src/global.js`, `src/theme.js` |
 | Animations | Framer Motion 12.34, `reducedMotion="user"` | `src/App.jsx` → `<MotionConfig>` |
-| Theme | Light/dark, 14 design tokens, persisted to `localStorage` | `src/theme.js` |
-| Data layer | 10 JS modules barrel-exported via `src/portfolio.js` | `src/data/*.js` |
-| Tests | 106 tests, 11 files (Vitest + Testing Library + jest-axe) | `src/__tests__/`, `vitest.config.js` |
+| Theme | 32 theme families with light/dark modes, resolved through a theme controller and persisted to `localStorage` | `src/theme.js`, `src/themeController.jsx` |
+| Data layer | 9 JS modules barrel-exported via `src/portfolio.js` | `src/data/*.js` |
+| Tests | 145 tests, 12 files (Vitest + Testing Library + jest-axe) | `src/__tests__/`, `src/App.test.jsx`, `vitest.config.js` |
 | Deployment | `gh-pages` package → GitHub Pages | `package.json` → `"deploy"` script |
+| Responsive validation | Audited at 320, 360, 390, 412, 430 px plus tablet and desktop widths | `src/**/*.css`, `src/**/*.jsx` |
 
 ### Tech Stack
 
 | Category | Dependencies | Versions |
 |---|---|---|
 | **Core** | React, React DOM | 18.3.1 |
-| **Build** | Vite, @vitejs/plugin-react, vite-plugin-svgr, vite-plugin-env-compatible | 6.0.7, 4.3.4, 4.3.0, 2.0.1 |
+| **Build** | Vite, @vitejs/plugin-react, vite-plugin-svgr, vite-plugin-env-compatible | 8.0.3, 6.0.0, 4.3.0, 2.0.1 |
 | **Routing** | react-router-dom | 6.30.3 |
 | **Styling** | styled-components | 6.3.8 |
 | **Animation** | framer-motion | 12.34.3 |
@@ -86,11 +87,11 @@ The application follows a layered architecture: **Entry → Providers → Router
                                │
 ┌──────────────────────────────▼──────────────────────────────────┐
 │  src/App.jsx  — Root Component                                  │
-│  ├── ThemeProvider (styled-components, themes[theme])            │
-│  ├── MotionConfig (reducedMotion: "user")                       │
+│  ├── ThemeControllerProvider (selection + persistence)          │
+│  ├── MotionConfig (reducedMotion: "user")                      │
 │  ├── GlobalStyles (CSS reset, body theming)                     │
 │  ├── AnimatedCursor (desktop + pointer:fine only)               │
-│  └── <Main theme={themes[theme]} setTheme={setTheme} />         │
+│  └── <Main theme={resolvedTheme} />                             │
 └──────────────────────────────┬──────────────────────────────────┘
                                │
 ┌──────────────────────────────▼──────────────────────────────────┐
@@ -102,7 +103,8 @@ The application follows a layered architecture: **Entry → Providers → Router
 │  ├── /contact     → Contact                                     │
 │  ├── /splash      → Splash                                      │
 │  ├── /projects    → Projects                                    │
-│  └── /skills      → SkillsPage                                  │
+│  ├── /skills      → SkillsPage                                  │
+│  └── /theme       → ThemePage                                   │
 └──────────────────────────────┬──────────────────────────────────┘
                                │
 ┌──────────────────────────────▼──────────────────────────────────┐
@@ -110,7 +112,7 @@ The application follows a layered architecture: **Entry → Providers → Router
 │  Each page composes: Header + [Container sections] + Footer     │
 │                                                                  │
 │  Example: HomeComponent                                          │
-│  ├── Header (nav + theme toggle)                                │
+│  ├── Header (nav, theme link, mode toggle)                      │
 │  ├── Greeting (hero section)                                    │
 │  ├── SystemShowcase (featured system card)                      │
 │  ├── SystemThinking (methodology visualization)                 │
@@ -128,7 +130,7 @@ The application follows a layered architecture: **Entry → Providers → Router
 ┌────────┴───────────────────────┴────────────────────────┴───────┐
 │  src/data/*.js → barrel-exported via src/portfolio.js           │
 │  greeting, skills, education, experience, systems, contact,     │
-│  socialMedia, projects, achievements, settings                  │
+│  socialMedia, projects, settings                                │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -140,11 +142,12 @@ src/
 ├── App.jsx                   # Provider tree root
 ├── App.css                   # App-level styles
 ├── global.js                 # GlobalStyles (styled-components createGlobalStyle)
-├── theme.js                  # lightTheme + darkTheme token objects
+├── theme.js                  # Theme family registry, defaults, and resolveTheme()
+├── themeController.jsx       # ThemeControllerProvider + persisted theme selection state
 ├── portfolio.js              # Barrel re-export of all src/data/ modules
 ├── index.css                 # @font-face declarations, scrollbar, responsive rules
 │
-├── data/                     # Content layer (10 modules)
+├── data/                     # Content layer (9 modules)
 │   ├── settings.js           #   { isSplash, useCustomCursor, googleTrackingID }
 │   ├── greeting.js           #   { title, fullName, subTitle, heroBullets[], philosophy, resumeLink }
 │   ├── socialMedia.js        #   { github, linkedin, gmail, telegram, discord, ... }
@@ -153,11 +156,10 @@ src/
 │   ├── experience.js         #   { header, sections[{ title, experiences[] }] }
 │   ├── projects.js           #   { projectsHeader, data[] }
 │   ├── contact.js            #   { contactSection, blogSection }
-│   ├── achievements.js       #   string[] (9 impact metrics)
 │   └── systems.js            #   { featured[] (4), supporting[] (2), get data() }
 │
 ├── components/               # Reusable presentational components
-│   ├── header/               #   Header.jsx — nav bar, theme toggle, hamburger menu
+│   ├── header/               #   Header.jsx — nav bar, Theme link, mode toggle, hamburger menu
 │   ├── footer/               #   Footer.jsx — "Made with ❤️" attribution
 │   ├── socialMedia/          #   SocialMedia.jsx — icon-button row of social links
 │   ├── softwareSkills/       #   SoftwareSkill.jsx — Iconify icons with tooltips
@@ -169,15 +171,14 @@ src/
 │   └── SystemDesign/         #   SystemCard.jsx (card + modal), SystemDiagram.jsx
 │
 ├── containers/               # Section-level composers (data → components)
-│   ├── Main.jsx              #   BrowserRouter + 8 Route definitions
+│   ├── Main.jsx              #   BrowserRouter + 9 Route definitions
 │   ├── greeting/             #   Greeting.jsx — hero section + SVG illustration
 │   ├── skills/               #   Skills.jsx, SkillSection.jsx — skill category grid
 │   ├── certifications/       #   Certifications.jsx — certification grid
 │   ├── education/            #   Educations.jsx — degree list
 │   ├── experienceAccordion/  #   ExperienceAccordion.jsx — <details>/<summary> accordion
 │   ├── SystemShowcase/       #   SystemShowcase.jsx — featured system on home page
-│   ├── SystemThinking/       #   SystemThinking.jsx — methodology flow visualization
-│   └── contact/              #   Contact.jsx — social links + blog
+│   └── SystemThinking/       #   SystemThinking.jsx — methodology flow visualization
 │
 ├── pages/                    # Full-page layouts (Header + containers + Footer)
 │   ├── home/                 #   HomeComponent → Greeting + SystemShowcase + SystemThinking + Skills
@@ -186,13 +187,14 @@ src/
 │   ├── skills/               #   SkillsPage → 6-category skills grid
 │   ├── projects/             #   Projects → system cards + project cards
 │   ├── contact/              #   ContactComponent → social links + blog
-│   └── splash/               #   Splash → animated loading screen (optional)
+│   ├── splash/               #   Splash → animated loading screen (optional)
+│   └── theme/                #   ThemePage → theme family gallery and selector
 │
 ├── test/                     # Test infrastructure
 │   ├── setup.js              #   Mocks: IntersectionObserver, matchMedia, ResizeObserver, scrollTo
-│   └── testUtils.jsx         #   renderWithProviders (ThemeProvider + Router + MotionConfig)
+│   └── testUtils.jsx         #   renderWithProviders (ThemeControllerProvider + Router + MotionConfig)
 │
-├── __tests__/                # Test suites (11 files, 106 tests)
+├── __tests__/                # 11 colocated test suites (plus src/App.test.jsx)
 │   ├── Accessibility.test.jsx
 │   ├── Behavior.test.jsx
 │   ├── Navigation.test.jsx
@@ -202,12 +204,12 @@ src/
 │   ├── Greeting.render.test.jsx
 │   ├── Footer.render.test.jsx
 │   ├── ExperienceCard.render.test.jsx
-│   └── SystemCard.render.test.jsx
+│   ├── SystemCard.render.test.jsx
+│   └── ThemeRegistry.test.jsx
 │
 └── assests/                  # Static assets (legacy folder name)
-    ├── fonts/                #   Agustina, Montserrat, Google Sans variants
-    ├── images/               #   Logos, profile photos, certification images
-    └── font-awesome/         #   Local Font Awesome 5.15 distribution
+  ├── fonts/                #   Agustina, Montserrat, Google Sans variants
+  └── font-awesome/         #   Local Font Awesome 5.15 distribution (css/, svgs/, webfonts/)
 ```
 
 ---
@@ -230,13 +232,14 @@ sequenceDiagram
     index.html->>index.jsx: script type="module" src="/src/index.jsx"
     index.jsx->>index.jsx: Import index.css (@font-face) + FA local CSS
     index.jsx->>App: createRoot(#root).render(App)
-    App->>App: useState("theme") from localStorage || "dark"
+    App->>App: ThemeControllerProvider parses stored theme selection
     App->>App: useEffect → matchMedia("pointer: fine") → isDesktop
     App->>App: useEffect → ReactGA.initialize (if tracking ID set)
-    App->>Main: ThemeProvider + MotionConfig + GlobalStyles + AnimatedCursor
+    App->>App: resolveTheme({ family, mode }) → styled-components theme
+    App->>Main: MotionConfig + GlobalStyles + AnimatedCursor
     Main->>Main: BrowserRouter basename="/"
     Main->>Main: Match route "/" → settings.isSplash ? Splash : Home
-    Main->>Page: Render matched page with {theme, setTheme} props
+    Main->>Page: Render matched page with {theme} prop
     Page->>Browser: Compose Header + Containers + Footer → DOM
 ```
 
@@ -244,7 +247,7 @@ sequenceDiagram
 
 ```mermaid
 flowchart LR
-    subgraph Data["src/data/ (10 modules)"]
+    subgraph Data["src/data/ (9 modules)"]
         greeting.js
         skills.js
         education.js
@@ -253,7 +256,6 @@ flowchart LR
         contact.js
         socialMedia.js
         projects.js
-        achievements.js
         settings.js
     end
 
@@ -273,16 +275,16 @@ flowchart LR
     Barrel --> Containers
 ```
 
-### Theme Toggle Flow
+### Theme Selection Flow
 
 ```mermaid
 flowchart TD
-    A["User clicks sun/moon button in Header"] --> B["Header.changeTheme()"]
-    B --> C["props.setTheme('light' or 'dark')"]
-    C --> D["App.jsx useState updates"]
-    D --> E["localStorage.setItem('theme', newTheme)"]
-    D --> F["ThemeProvider receives themes[newTheme]"]
-    F --> G["All styled-components re-render with new tokens"]
+    A["User picks a family on /theme or toggles mode in Header"] --> B["ThemeControllerProvider updates themeSelection"]
+    B --> C["normalizeThemeSelection({ family, mode })"]
+    C --> D["localStorage.setItem('theme', JSON.stringify(selection))"]
+    C --> E["resolveTheme(selection)"]
+    E --> F["ThemeProvider receives the resolved token object"]
+    F --> G["All styled-components re-render with the active family + mode"]
     F --> H["GlobalStyles updates body background/color"]
 ```
 
@@ -317,36 +319,61 @@ flowchart TD
 
 ### Application State
 
-The app manages two pieces of React state:
+The app manages two runtime state domains:
 
 | State | Location | Type | Default | Persistence |
 |---|---|---|---|---|
-| `theme` | `App.jsx` → `useState` | `"light"` or `"dark"` | `"dark"` | `localStorage` key `"theme"` |
+| `themeSelection` | `themeController.jsx` → `useState` | `{ family: string, mode: "light" | "dark" }` | `{ family: "default", mode: "dark" }` | `localStorage` key `"theme"` |
 | `isDesktop` | `App.jsx` → `useState` | `boolean` | `true` | None (from `matchMedia`) |
 
 All other "state" is static data imported at build time from `src/data/*.js`.
 
-### Theme Token Schema
+### Theme Model
 
-Defined in `src/theme.js`. Both `lightTheme` and `darkTheme` share the same 14-token shape:
+Defined across `src/theme.js` and `src/themeController.jsx`.
+
+- `themeFamilyOptions` exposes 32 selectable theme families.
+- `DEFAULT_THEME_FAMILY` is `"default"`.
+- `DEFAULT_THEME_MODE` is `"dark"`.
+- `resolveTheme(selection)` maps `{ family, mode }` to the semantic token object consumed by styled-components.
+- Legacy stored values of `"light"` or `"dark"` are normalized into the new `{ family, mode }` shape for backward compatibility.
+
+Example persisted value:
+
+```json
+{"family":"default","mode":"dark"}
+```
+
+Representative theme API:
 
 ```typescript
-// TypeScript-style description (actual code is plain JS)
-interface ThemeTokens {
-  name: "light" | "dark";
-  body: string;           // Page background (#FFFFFF / #1D1D1D)
-  text: string;           // Primary text color
-  dark: string;           // Darkest shade (#000000)
-  secondaryText: string;  // Muted text for descriptions
-  accentColor: string;    // Brand accent (#E3405F)
-  accentBright: string;   // Bright accent variant (#FC1056)
-  projectCard: string;    // Card background color
-  skinColor: string;      // Avatar SVG skin tone
-  skinColor2: string;     // Avatar SVG secondary skin tone
-  imageDark: string;      // Image container background
-  imageClothes: string;   // Avatar SVG clothes color
-  avatarMisc: string;     // Avatar SVG miscellaneous
-  avatarShoes: string;    // Avatar SVG shoes color
+interface ThemeSelection {
+  family: string;
+  mode: "light" | "dark";
+}
+
+interface ThemeFamilyOption {
+  value: string;
+  label: string;
+}
+
+interface ResolvedTheme {
+  body: string;
+  text: string;
+  accentColor: string;
+  accentSoft: string;
+  borderColor: string;
+  borderSoft: string;
+  shadowColor: string;
+  headerSurface: string;
+  buttonColor: string;
+  controlRadius: string | number;
+  surfaceRadius: string | number;
+  panelBorderWidth: string | number;
+  panelBorderStyle: string;
+  accentFontFamily: string;
+  accentLetterSpacing: string;
+  // ... additional semantic tokens used by components and motion helpers
 }
 ```
 
@@ -480,13 +507,13 @@ const systems = {
 
 | Provider | Library | Responsibility |
 |---|---|---|
-| `<ThemeProvider>` | styled-components | Injects `themes[theme]` tokens into all styled-components and `GlobalStyles` |
+| `<ThemeControllerProvider>` | local context + styled-components | Owns `{ family, mode }` selection, persists it, resolves the active theme, and renders the underlying `ThemeProvider` |
 | `<MotionConfig reducedMotion="user">` | Framer Motion | Respects `prefers-reduced-motion` OS setting globally |
 | `<GlobalStyles />` | styled-components | CSS reset (`box-sizing`), body `background`/`color` from theme, system font stack, 0.25s transition |
 | `<AnimatedCursor>` | react-animated-cursor | Custom cursor (conditional: `settings.useCustomCursor && isDesktop`) |
 
 **State management:**
-- `theme`: `useState(localStorage.getItem("theme") || "dark")`
+- `themeSelection`: owned by `ThemeControllerProvider`, normalized from `localStorage`
 - `isDesktop`: `useState(true)` — set on mount via `window.matchMedia("(pointer: fine)").matches`
 
 **Side effects:**
@@ -499,7 +526,7 @@ const systems = {
 
 **Purpose:** Define all client-side routes.
 
-**Implementation:** React Router v6 `<BrowserRouter basename="/">` with 8 `<Route>` elements.
+**Implementation:** React Router v6 `<BrowserRouter basename="/">` with 9 `<Route>` elements.
 
 | Path | Component | Note |
 |---|---|---|
@@ -511,24 +538,25 @@ const systems = {
 | `/splash` | `Splash` | Animated loading screen |
 | `/projects` | `Projects` | System case studies |
 | `/skills` | `SkillsPage` | Full 6-category skills grid |
+| `/theme` | `ThemePage` | Theme family gallery and selector |
 
-All route elements receive `{theme, setTheme}` as props.
+All route elements receive the resolved `theme` object as props.
 
 ---
 
 ### `src/components/header/Header.jsx` — Navigation Bar
 
-**Purpose:** Site-wide navigation with theme toggle and responsive hamburger menu.
+**Purpose:** Site-wide navigation with mode toggle, Theme page entry point, and responsive hamburger menu.
 
 **Features:**
 - Logo (`greeting.logoName`): links to `/home` or `/splash` based on `settings.isSplash`
-- 6 `<NavLink>` elements with active-state bold styling: Home, Education and Certifications, Experience, Skills, Projects, Contact Me
-- Theme toggle button: sun icon (`CgSun`) in dark mode, moon icon (`HiMoon`) in light mode
+- 7 `<NavLink>` elements with active-state styling: Home, Education and Certifications, Experience, Skills, Projects, Contact Me, Theme
+- Mode toggle button powered by `useThemeController().toggleMode()`
 - Mobile hamburger: CSS-driven via hidden checkbox (`#menu-btn`) + `<label>` with `aria-label="Toggle navigation menu"`
 
-**Theme toggle implementation:**
+**Theme mode toggle implementation:**
 ```
-changeTheme() → props.setTheme("light"/"dark") → localStorage.setItem("theme", ...) → setCurrTheme(...)
+toggleMode() → ThemeControllerProvider updates { family, mode } → localStorage sync → resolved theme re-renders
 ```
 
 ---
@@ -720,7 +748,7 @@ From `vitest.config.js`:
 
 - **Environment:** jsdom
 - **Setup file:** `src/test/setup.js` — mocks `IntersectionObserver`, `matchMedia`, `ResizeObserver`, `scrollTo`
-- **Test utilities:** `src/test/testUtils.jsx` provides `renderWithProviders()` — wraps components in `ThemeProvider` + `BrowserRouter`/`MemoryRouter` + `MotionConfig`, mirroring the real app provider tree
+- **Test utilities:** `src/test/testUtils.jsx` provides `renderWithProviders()` — wraps components in `ThemeControllerProvider` + `BrowserRouter`/`MemoryRouter` + `MotionConfig`, mirroring the real app provider tree
 - **CSS processing:** Enabled (`css: true`)
 - **Timeout:** 15,000 ms (accommodates axe-core scans)
 - **Include pattern:** `src/**/*.{test,spec}.{js,jsx}`
@@ -735,21 +763,22 @@ npm run test:coverage # Generates coverage report
 
 ### Test Summary
 
-**106 tests** across **11 test files**. All passing.
+**145 tests** across **12 test files**. All passing.
 
 | Test File | Tests | Category | What is Verified |
 |---|---|---|---|
 | `App.test.jsx` | 2 | Smoke | App renders, hero title present |
-| `Accessibility.test.jsx` | 12 | a11y | axe-core WCAG scans on all pages, ARIA landmarks and labels |
-| `Behavior.test.jsx` | 17 | Interaction | Theme toggle, SystemCard modal open/close, Greeting CTAs, accordion |
-| `Navigation.test.jsx` | 13 | Routing | All 8 routes resolve correctly, NavLink clicks navigate |
-| `Responsive.test.jsx` | 13 | Layout | Hamburger menu structure, `matchMedia` integration, viewport adaptation |
+| `Accessibility.test.jsx` | 13 | a11y | axe-core WCAG scans on all pages, ARIA landmarks and labels |
+| `Behavior.test.jsx` | 22 | Interaction | Theme toggle, SystemCard modal open/close, Greeting CTAs, accordion |
+| `Navigation.test.jsx` | 13 | Routing | All 9 routes resolve correctly, NavLink clicks navigate |
+| `Responsive.test.jsx` | 14 | Layout | Hamburger menu structure, `matchMedia` integration, viewport adaptation |
 | `Pages.render.test.jsx` | 13 | Smoke | Every page component renders without crashing |
-| `Header.render.test.jsx` | 8 | Render | Nav links present, logo text, toggle button, hamburger element |
+| `Header.render.test.jsx` | 10 | Render | Nav links present, logo text, toggle button, hamburger element |
 | `Greeting.render.test.jsx` | 10 | Render | Hero content: name, subtitle, bullets, philosophy, CTA buttons |
 | `Footer.render.test.jsx` | 4 | Render | Attribution text, heart emoji, theme-based color |
 | `ExperienceCard.render.test.jsx` | 5 | Render | Job title, company, duration, description bullets |
 | `SystemCard.render.test.jsx` | 9 | Render | System name, tagline, tech badges, featured badge |
+| `ThemeRegistry.test.jsx` | 30 | Theme | Theme family registry, resolution, fallback behavior |
 
 ---
 
@@ -768,6 +797,7 @@ All pages are scanned with **axe-core** via `jest-axe` in `Accessibility.test.js
 | `<header>` landmark | `Header.jsx` | Navigation bar wrapped in `<header>` element |
 | `aria-label` on hamburger | `Header.jsx` | `<label aria-label="Toggle navigation menu">` |
 | `aria-label` on theme toggle | `Header.jsx` | `<button aria-label="Toggle Theme">` |
+| `aria-label` on theme family selector | `ThemePage.jsx` | Theme family buttons and previews expose descriptive labels for switching palettes |
 | `role="dialog"` + `aria-modal` | `SystemCard.jsx` | Modal with `aria-label="{system.name} deep dive"` |
 | `aria-label="Close dialog"` | `SystemCard.jsx` | Modal close button |
 | `aria-label` on social links | `SocialMedia.jsx` | "GitHub profile", "LinkedIn profile", "Send email", etc. |
@@ -783,9 +813,9 @@ All pages are scanned with **axe-core** via `jest-axe` in `Accessibility.test.js
 
 | Asset | Raw | Gzipped |
 |---|---|---|
-| JavaScript | 587 KB | 191 KB |
-| CSS | 94 KB | 20 KB |
-| Modules processed | 841 | — |
+| JavaScript | 674 KB | 210 KB |
+| CSS | 98 KB | 21 KB |
+| Modules processed | 821 | — |
 
 The build emits a **single JS chunk** and a **single CSS chunk** — no code splitting.
 
@@ -824,7 +854,7 @@ Both CDNs have `<link rel="preconnect" crossorigin>` hints in `index.html`.
 
 ### Responsive Breakpoints
 
-Defined across `src/index.css` and `src/global.js`:
+Defined across `src/index.css`, `src/global.js`, and component-level styles. In addition to CSS breakpoints, the layout was regression-tested at 320, 360, 390, 412, and 430 px, plus tablet and desktop widths.
 
 | Breakpoint | Source | Adjustments |
 |---|---|---|
@@ -850,31 +880,39 @@ Edit the files in `src/data/` to personalize the portfolio. The barrel export in
 | `systems.js` | Enterprise system case studies (add to `featured` or `supporting` arrays) |
 | `projects.js` | Open-source project cards |
 | `contact.js` | Contact page text and blog link |
-| `achievements.js` | Impact metric strings |
 | `settings.js` | Splash screen toggle, custom cursor toggle, GA4 tracking ID |
 
-### 2. Theme Colors — `src/theme.js`
+### 2. Theme Families — `src/theme.js`, `src/themeController.jsx`
 
-Modify the 14 design tokens in `lightTheme` and/or `darkTheme`:
+The app no longer uses a single light/dark token pair. Instead, it exposes 32 theme families, each with light and dark variants, and resolves the active theme from `{ family, mode }`.
+
+To customize theming:
+
+- Add or edit a theme family in `src/theme.js`
+- Update `themeFamilyOptions` so the family appears on `/theme`
+- Keep both `light` and `dark` variants for each family
+- Use `DEFAULT_THEME_FAMILY` and `DEFAULT_THEME_MODE` to change the initial experience
+
+Example family registration:
 
 ```javascript
-const darkTheme = {
-  name: "dark",
-  body: "#1D1D1D",         // Page background
-  text: "#FFFFFF",          // Primary text
-  accentColor: "#E3405F",   // Brand accent
-  accentBright: "#FC1056",  // Bright accent (CTA buttons)
-  projectCard: "#292A2D",   // Card backgrounds
-  // ... see src/theme.js for all 14 tokens
-};
+export const themeFamilyOptions = [
+  { value: "default", label: "Default" },
+  { value: "ocean", label: "Ocean" },
+  { value: "emerald", label: "Emerald" },
+  // ... 29 more families
+];
+
+export const DEFAULT_THEME_FAMILY = "default";
+export const DEFAULT_THEME_MODE = "dark";
 ```
 
 ### 3. Images & Assets
 
 | Asset Type | Location |
 |---|---|
-| Institution/company logos | `src/assests/images/` |
-| Certification images | `src/assests/images/certifications/` |
+| Institution/company logos | `public/images/` |
+| Certification images | `public/certifications/` and `public/images/certifications/` |
 | Certification PDFs | `public/certifications/` |
 | Resume / Cover Letter | `public/` (update paths in `greeting.js`) |
 
@@ -915,7 +953,7 @@ No source changes required — both auto-detect Vite.
 |---|---|
 | Build command | `npm run build` |
 | Output directory | `build` |
-| Node version | 18+ |
+| Node version | 20.19.x |
 
 **SPA routing redirect:**
 - Vercel: `vercel.json` → `{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }`
@@ -927,16 +965,14 @@ No source changes required — both auto-detect Vite.
 
 | # | Limitation | Evidence | Impact |
 |---|---|---|---|
-| 1 | **Single JS chunk** — no code splitting | `vite build` output: 1 JS file, 587 KB | All route code loads on initial page visit |
+| 1 | **Single JS chunk** — no code splitting | Latest `vite build` output: 1 JS file, ~674 KB | All route code loads on initial page visit |
 | 2 | **Font format mismatch** | `src/index.css` line 34: `format("woff")` for `GoogleSans-BoldItalic.ttf` | Incorrect format hint for TTF file |
 | 3 | **TTF fonts not optimized** | 7 of 9 fonts are TTF format | WOFF2 would save 30–50% per font file |
 | 4 | **CDN icon dependency** | FA 5.15 CSS + Iconify 1.0.4 JS from external CDNs | Icons fail silently if CDN is unavailable |
-| 5 | **Missing `sitemap.xml`** | `robots.txt` references sitemap but file does not exist | Crawlers receive 404 for sitemap |
-| 6 | **Unused npm dependencies** | `web-vitals`, `@axe-core/react`, `ajv` in `package.json` | Not imported in any source file |
-| 7 | **`.bak` files in repository** | 7 `.bak` files across root, `build/`, `public/` | Repository clutter |
-| 8 | **Asset folder typo** | `src/assests/` (should be `assets`) | Functional but unconventional |
-| 9 | **No Content Security Policy** | No CSP meta tag in `index.html` | External scripts unrestricted |
-| 10 | **react-bootstrap for tooltips only** | `SoftwareSkill.jsx` uses `<OverlayTrigger>` + `<Tooltip>` | ~40 KB for a single UI primitive |
+| 5 | **Unused npm dependencies** | `web-vitals`, `@axe-core/react`, `ajv` in `package.json` | Not imported in any source file |
+| 6 | **Asset folder typo** | `src/assests/` (should be `assets`) | Functional but unconventional |
+| 7 | **No Content Security Policy** | No CSP meta tag in `index.html` | External scripts unrestricted |
+| 8 | **react-bootstrap for tooltips only** | `SoftwareSkill.jsx` uses `<OverlayTrigger>` + `<Tooltip>` | ~40 KB for a single UI primitive |
 
 ---
 
@@ -946,16 +982,15 @@ Implied by current architecture and the limitations above — no external roadma
 
 | # | Improvement | Rationale |
 |---|---|---|
-| 1 | **Route-level code splitting** via `React.lazy()` + `<Suspense>` | Reduce initial JS from 587 KB to ~200 KB |
+| 1 | **Route-level code splitting** via `React.lazy()` + `<Suspense>` | Reduce initial JS from ~674 KB to a smaller route-scoped bundle |
 | 2 | **Convert TTF fonts to WOFF2** | 30–50% file size savings per font |
 | 3 | **Fix `format("woff")` → `format("truetype")`** in `index.css` line 34 | Correct font format metadata |
-| 4 | **Generate and serve `sitemap.xml`** | Fulfill `robots.txt` reference, improve SEO |
-| 5 | **Remove unused dependencies** | Clean `web-vitals`, `@axe-core/react`, `ajv` from `package.json` |
-| 6 | **Delete `.bak` files, add to `.gitignore`** | Repository hygiene |
-| 7 | **Self-host icon libraries** | Eliminate CDN dependency; bundle FA/Iconify locally |
-| 8 | **Add Content Security Policy** | Restrict script/style sources via CSP meta tag |
-| 9 | **Replace react-bootstrap with lightweight tooltip** | Save ~40 KB from bundle |
-| 10 | **Add `<Suspense>` fallback UI** | Loading indicators during lazy route transitions |
+| 4 | **Remove unused dependencies** | Clean `web-vitals`, `@axe-core/react`, `ajv` from `package.json` |
+| 5 | **Add `build/` to `.gitignore`** | Keep generated output out of version control |
+| 6 | **Self-host icon libraries** | Eliminate CDN dependency; bundle FA/Iconify locally |
+| 7 | **Add Content Security Policy** | Restrict script/style sources via CSP meta tag |
+| 8 | **Replace react-bootstrap with lightweight tooltip** | Save ~40 KB from bundle |
+| 9 | **Add `<Suspense>` fallback UI** | Loading indicators during lazy route transitions |
 
 ---
 
