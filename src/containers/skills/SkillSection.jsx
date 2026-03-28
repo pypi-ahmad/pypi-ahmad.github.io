@@ -30,6 +30,10 @@ function GetSkillSvg(props) {
 
 function SkillSection(props) {
   const theme = props.theme;
+  const isCompactScreen = typeof window !== "undefined" && window.innerWidth <= 768;
+  const leftEntrance = isCompactScreen ? { y: 20, opacity: 0 } : { x: -20, opacity: 0 };
+  const rightEntrance = isCompactScreen ? { y: 20, opacity: 0 } : { x: 20, opacity: 0 };
+
   return (
     <div>
       {skills.data.map((skill, index) => {
@@ -37,8 +41,8 @@ function SkillSection(props) {
           return (
             <div key={skill.title} className="skills-main-div">
               <motion.div
-                initial={{ x: -20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
+                initial={leftEntrance}
+                whileInView={{ x: 0, y: 0, opacity: 1 }}
                 transition={{ duration: 1 }}
                 viewport={{ once: true }}
               >
@@ -56,8 +60,8 @@ function SkillSection(props) {
                 }}
               >
                 <motion.div
-                  initial={{ x: 20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
+                  initial={rightEntrance}
+                  whileInView={{ x: 0, y: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
                   viewport={{ once: true }}
                 >
@@ -66,16 +70,16 @@ function SkillSection(props) {
                   </h1>
                 </motion.div>
                 <motion.div
-                  initial={{ x: 20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
+                  initial={rightEntrance}
+                  whileInView={{ x: 0, y: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
                   viewport={{ once: true }}
                 >
                   <SoftwareSkill logos={skill.softwareSkills} />
                 </motion.div>
                 <motion.div
-                  initial={{ x: 20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
+                  initial={rightEntrance}
+                  whileInView={{ x: 0, y: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
                   viewport={{ once: true }}
                 >
@@ -108,8 +112,8 @@ function SkillSection(props) {
                 }}
               >
                 <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
+                  initial={leftEntrance}
+                  whileInView={{ x: 0, y: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
                   viewport={{ once: true }}
                 >
@@ -118,16 +122,16 @@ function SkillSection(props) {
                   </h1>
                 </motion.div>
                 <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
+                  initial={leftEntrance}
+                  whileInView={{ x: 0, y: 0, opacity: 1 }}
                   transition={{ duration: 1.5 }}
                   viewport={{ once: true }}
                 >
                   <SoftwareSkill logos={skill.softwareSkills} />
                 </motion.div>
                 <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
+                  initial={leftEntrance}
+                  whileInView={{ x: 0, y: 0, opacity: 1 }}
                   transition={{ duration: 2 }}
                   viewport={{ once: true }}
                 >
@@ -147,8 +151,8 @@ function SkillSection(props) {
                 </motion.div>
               </div>
               <motion.div
-                initial={{ x: 20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
+                initial={rightEntrance}
+                whileInView={{ x: 0, y: 0, opacity: 1 }}
                 transition={{ duration: 2 }}
                 viewport={{ once: true }}
               >

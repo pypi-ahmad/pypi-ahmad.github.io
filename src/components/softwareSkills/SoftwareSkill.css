@@ -29,6 +29,8 @@
   color: inherit;
   text-decoration: none;
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
@@ -46,6 +48,13 @@
     margin-right: 12px;
     margin-bottom: 12px;
   }
+
+  .skill-link {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 6px;
+    border-radius: 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -56,5 +65,11 @@
   .software-skill-inline {
     margin-right: 8px;
     margin-bottom: 8px;
+  }
+
+  .skill-link {
+    min-width: 46px;
+    min-height: 46px;
+    padding: 8px;
   }
 }
