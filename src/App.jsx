@@ -12,6 +12,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Main from "./containers/Main";
+import ErrorBoundary from "./components/ErrorBoundary";
 import { GlobalStyles } from "./global";
 import { settings } from "./portfolio";
 import ReactGA from "react-ga4";
@@ -80,9 +81,11 @@ function AppContent() {
 
 function App() {
   return (
-    <ThemeControllerProvider>
-      <AppContent />
-    </ThemeControllerProvider>
+    <ErrorBoundary>
+      <ThemeControllerProvider>
+        <AppContent />
+      </ThemeControllerProvider>
+    </ErrorBoundary>
   );
 }
 
