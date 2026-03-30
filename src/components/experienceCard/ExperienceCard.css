@@ -29,7 +29,7 @@
 .experience-card-title {
   font-family: "Google Sans Regular";
   margin-top: 10px;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
   margin-left: 0px;
   margin-right: 7px;
   text-align: left;
@@ -44,7 +44,7 @@
 .experience-card-duration {
   font-family: "Google Sans Regular";
   margin-top: 10px;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
   margin-left: 0px;
   margin-right: 0px;
   text-align: right;
@@ -71,10 +71,10 @@
 }
 
 .experience-card-description {
-  margin-top: 5px;
+  margin-top: 8px;
   margin-left: 10px;
   text-align: justify;
-  margin-right: 20px;
+  margin-right: 10px;
   font-family: "Google Sans Regular";
 }
 
