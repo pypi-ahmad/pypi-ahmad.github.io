@@ -5,21 +5,30 @@
  * using React Testing Library.
  */
 import React from "react";
-import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { render, screen, cleanup, act } from "@testing-library/react";
+import { describe, it, expect, afterEach, beforeEach } from "vitest";
 import App from "./App";
 
+beforeEach(() => {
+  // Reset URL so BrowserRouter matches "/" correctly after other test files
+  window.history.pushState({}, "", "/");
+});
+
+afterEach(cleanup);
+
 describe("App — Root Component", () => {
-  it("renders without crashing", () => {
-    const { unmount } = render(<App />);
-    // The app should render the logo text from the Header
-    expect(screen.getByText("ahmad.m()")).toBeInTheDocument();
-    unmount();
+  it("renders without crashing", async () => {
+    await act(async () => {
+      render(<App />);
+    });
+    // The app should render the logo text from the Header (lazy-loaded)
+    expect(await screen.findByText("ahmad.m()", {}, { timeout: 5000 })).toBeInTheDocument();
   });
 
-  it("renders the hero title on the home page", () => {
-    const { unmount } = render(<App />);
-    expect(screen.getByRole("heading", { level: 1, name: "Hello." })).toBeInTheDocument();
-    unmount();
+  it("renders the hero title on the home page", async () => {
+    await act(async () => {
+      render(<App />);
+    });
+    expect(await screen.findByRole("heading", { level: 1, name: "Hello." }, { timeout: 5000 })).toBeInTheDocument();
   });
 });
