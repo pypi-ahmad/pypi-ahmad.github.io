@@ -14,8 +14,9 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import SystemCard from "../../components/SystemDesign/SystemCard";
+import ProductTile from "../../components/SystemDesign/ProductTile";
 import { motion } from "framer-motion";
-import { projectsHeader, projects, socialMediaLinks, systems } from "../../portfolio.js";
+import { projectsHeader, projects, socialMediaLinks, systems, platformHeader, platformInfrastructure, platformCategories } from "../../portfolio.js";
 import "./Projects.css";
 import ProjectsImg from "./ProjectsImg";
 import styled from "styled-components";
@@ -77,6 +78,160 @@ function Projects(props) {
         </motion.div>
       </div>
 
+      {/* Agentic AI Platform Section */}
+      <div
+        className="systems-div-main"
+        style={{
+          padding: "2rem 5%",
+          background: buildThemeBackground(theme.bodyAlt, theme.surfacePattern),
+          borderTop: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+          borderBottom: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+          borderRadius: theme.surfaceRadius,
+          boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.panelGlow),
+          transition: themeElevatedSurfaceTransition,
+        }}
+      >
+        <h2
+          style={{
+            color: theme.text,
+            fontFamily: theme.accentFontFamily,
+            letterSpacing: theme.accentLetterSpacing,
+            transition: themeTextTransition,
+            textAlign: "center",
+            marginBottom: "0.75rem",
+            fontSize: "2.5rem",
+          }}
+        >
+          {platformHeader.title}
+        </h2>
+        <p
+          className="platform-subtitle"
+          style={{
+            color: theme.secondaryText,
+            transition: themeTextTransition,
+            textAlign: "center",
+            marginBottom: "1.25rem",
+            fontSize: "1.1rem",
+            lineHeight: "1.6",
+            maxWidth: "900px",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          {platformHeader.subtitle}
+        </p>
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.5rem" }}>
+          <ProjectsButton
+            theme={theme}
+            className="general-btn"
+            href={platformHeader.repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: "0.95rem", padding: "0.6rem 1.5rem" }}
+          >
+            View on GitHub
+          </ProjectsButton>
+        </div>
+
+        {/* Shared Infrastructure */}
+        <div
+          className="platform-infra-card"
+          style={{
+            background: buildThemeBackground(theme.body, theme.surfacePattern),
+            border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderColor}`,
+            borderRadius: theme.controlRadius,
+            padding: "1.5rem 2rem",
+            marginBottom: "2rem",
+            textAlign: "left",
+            maxWidth: "900px",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <h3
+            style={{
+              color: theme.text,
+              fontFamily: theme.accentFontFamily,
+              letterSpacing: theme.accentLetterSpacing,
+              transition: themeTextTransition,
+              marginBottom: "0.75rem",
+              fontSize: "1.25rem",
+            }}
+          >
+            Shared Platform Layer
+          </h3>
+          <p
+            style={{
+              color: theme.secondaryText,
+              transition: themeTextTransition,
+              fontSize: "0.95rem",
+              lineHeight: "1.5",
+              marginBottom: "1rem",
+            }}
+          >
+            {platformInfrastructure.description}
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+            {platformInfrastructure.tech.map((t) => (
+              <span
+                key={t}
+                className="platform-tech-badge"
+                style={{
+                  background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
+                  color: theme.buttonText,
+                  padding: "0.25rem 0.75rem",
+                  borderRadius: theme.controlRadius,
+                  fontSize: "0.8rem",
+                  fontFamily: theme.accentFontFamily,
+                  letterSpacing: theme.accentLetterSpacing,
+                }}
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Category groups */}
+        {platformCategories.map((category) => (
+          <div key={category.name} className="platform-category-group" style={{ marginBottom: "2rem" }}>
+            <h3
+              className="platform-category-heading"
+              style={{
+                color: theme.text,
+                fontFamily: theme.accentFontFamily,
+                letterSpacing: theme.accentLetterSpacing,
+                transition: themeTextTransition,
+                textAlign: "center",
+                marginBottom: "0.75rem",
+                fontSize: "1.75rem",
+              }}
+            >
+              {category.name}
+            </h3>
+            <p
+              style={{
+                color: theme.secondaryText,
+                transition: themeTextTransition,
+                textAlign: "center",
+                marginBottom: "1.5rem",
+                fontSize: "0.95rem",
+                maxWidth: "800px",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              {category.description}
+            </p>
+            <div className="product-tile-grid">
+              {category.systems.map((sys) => (
+                <ProductTile key={sys.id} system={sys} theme={theme} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
       {/* Systems Showcase Section */}
       <div
         className="systems-div-main"
@@ -103,19 +258,11 @@ function Projects(props) {
         >
           Enterprise Systems
         </h2>
-        {systems.data.map((sys, index) => (
-          <div
-            key={index}
-            onMouseEnter={() => setActiveSystem(sys.id)}
-            onMouseLeave={() => setActiveSystem(null)}
-            style={{
-              transition: "opacity 0.3s ease",
-              opacity: activeSystem && activeSystem !== sys.id ? 0.4 : 1,
-            }}
-          >
-            <SystemCard system={sys} theme={theme} />
-          </div>
-        ))}
+        <div className="product-tile-grid">
+          {systems.data.map((sys, index) => (
+            <ProductTile key={index} system={sys} theme={theme} />
+          ))}
+        </div>
       </div>
 
       {/* Projects Section */}
@@ -156,15 +303,17 @@ function Projects(props) {
       <br />
       <br />
       <br />
-      <ProjectsButton
-        theme={theme}
-        className="general-btn"
-        href={socialMediaLinks.github}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        More Projects (Github)
-      </ProjectsButton>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <ProjectsButton
+          theme={theme}
+          className="general-btn"
+          href={socialMediaLinks.github}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          More Projects (Github)
+        </ProjectsButton>
+      </div>
       <br />
       <br />
       <Footer theme={props.theme} />

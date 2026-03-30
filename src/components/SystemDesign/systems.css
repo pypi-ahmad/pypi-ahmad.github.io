@@ -71,7 +71,7 @@
 
 /* TECH ICONS */
 .system-tech {
-  margin: 15px 0 25px;
+  margin: 16px 0;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -130,7 +130,7 @@
 
 /* IMPACT */
 .system-impact {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .system-impact h4 {
@@ -239,15 +239,15 @@
 /* DEEP DIVE PANEL */
 .deep-dive {
   overflow: hidden;
-  margin-top: 10px;
-  padding: 0 15px;
+  margin-top: 12px;
+  padding: 4px 16px 8px;
   background: rgba(0, 255, 170, 0.02);
   border-radius: 10px;
   border: 1px dashed rgba(0, 255, 170, 0.15);
 }
 
 .deep-dive h4 {
-  margin-top: 15px;
+  margin-top: 16px;
   margin-bottom: 10px;
   color: #36bcf7;
   font-size: 1rem;

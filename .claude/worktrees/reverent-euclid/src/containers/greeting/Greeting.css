@@ -1,0 +1,228 @@
+/**
+ * Greeting.css — Hero section layout and responsive rules.
+ *
+ * Desktop: side-by-side (text left, SVG illustration right).
+ * Mobile:  stacked vertical with centered text.
+ */
+
+.main {
+  width: 90%;
+  padding: 0px 10px;
+  margin: 0px auto;
+  margin-top: 4rem;
+}
+
+.greet-main {
+  max-width: 75%;
+  padding: 18px 22px;
+  margin: 0px auto;
+  margin-top: 2rem;
+  display: block;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--theme-transition-fast), box-shadow var(--theme-transition-slow);
+}
+
+.greeting-main {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.greeting-main > * {
+  flex: 1;
+  margin-bottom: 30px;
+}
+
+.button-greeting-div {
+  display: flex;
+  margin-top: 20px;
+}
+
+.greeting-text {
+  margin-top: 110px;
+  font-size: 70px;
+  line-height: 5px;
+  font-family: "Google Sans Bold";
+  transition: color var(--theme-transition-fast);
+}
+
+.greeting-nickname {
+  font-size: 30px;
+  line-height: 0px;
+  font-family: "Google Sans Bold Italic";
+}
+
+.greeting-text-p {
+  font-size: 30px;
+  line-height: 40px;
+  margin-right: 40px;
+  font-family: "Google Sans Medium";
+  transition: color var(--theme-transition-fast);
+}
+
+.greeting-image-div > * {
+  max-width: 100%;
+  height: auto;
+}
+
+.greeting-image-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.greeting-image-div svg {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+}
+
+.button {
+  text-decoration: none;
+  color: inherit;
+  padding: 15px 15px;
+  margin-top: 25px;
+  border-radius: 16px;
+  border-width: 1px;
+  border-style: solid;
+  margin-bottom: 20px;
+  width: 200px;
+  height: 50px;
+  font-weight: bold;
+  font-family: "Google Sans Regular";
+  font-size: 17px;
+  transition: transform 0.2s ease-in-out, background-color var(--theme-transition-medium), color var(--theme-transition-fast), border-color var(--theme-transition-fast), box-shadow var(--theme-transition-slow);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.doc-fallback-text {
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: "Google Sans Medium";
+  transition: color var(--theme-transition-fast);
+}
+
+/* Media Query */
+@media (max-width: 1380px) {
+  .greeting-text {
+    font-size: 50px;
+  }
+
+  .greeting-text-p {
+    font-size: 20px;
+  }
+
+  .greet-main {
+    max-width: 900px;
+  }
+}
+@media (max-width: 768px) {
+  .main {
+    width: 95%;
+    padding: 0 15px;
+  }
+
+  .greet-main {
+    max-width: 100%;
+    width: 100%;
+    padding: 16px 18px;
+    margin-top: 1rem;
+    box-sizing: border-box;
+  }
+
+  .button-greeting-div {
+    justify-content: center;
+  }
+
+  .greeting-text {
+    font-size: 1.75rem;
+    margin-top: 0px;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .greeting-nickname {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .greeting-text-p {
+    font-size: 1rem;
+    margin-right: 0px;
+    line-height: 1.5;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .greeting-main {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .greeting-text-div {
+    order: 1;
+    padding: 0 10px;
+  }
+
+  .greeting-image-div {
+    order: 2;
+    margin-top: 8px;
+    padding: 0 4px;
+  }
+
+  .greeting-image-div svg {
+    max-width: 320px;
+  }
+
+  .portfolio-repo-btn-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 280px;
+    margin: 5px auto;
+    padding: 12px 10px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  .greet-main {
+    padding: 14px 12px;
+  }
+
+  .greeting-text {
+    font-size: 1.55rem;
+  }
+
+  .greeting-nickname {
+    font-size: 1.05rem;
+  }
+
+  .greeting-text-p {
+    font-size: 0.95rem;
+    padding: 0 4px;
+  }
+
+  .greeting-image-div svg {
+    max-width: 260px;
+  }
+}

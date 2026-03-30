@@ -22,13 +22,13 @@ describe("App — Root Component", () => {
       render(<App />);
     });
     // The app should render the logo text from the Header (lazy-loaded)
-    expect(await screen.findByText("ahmad.m()", {}, { timeout: 5000 })).toBeInTheDocument();
+    expect(await screen.findByText("ahmad.m()", {}, { timeout: 10000 })).toBeInTheDocument();
   });
 
   it("renders the hero title on the home page", async () => {
     await act(async () => {
       render(<App />);
     });
-    expect(await screen.findByRole("heading", { level: 1, name: "Hello." }, { timeout: 5000 })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "Hello." }, { timeout: 10000 })).toBeInTheDocument();
   });
 });

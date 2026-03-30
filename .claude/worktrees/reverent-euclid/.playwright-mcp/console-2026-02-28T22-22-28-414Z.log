@@ -1,0 +1,10 @@
+[ 2601148ms] [ERROR] Error: <polygon> attribute points: Unexpected end of attribute. Expected number, "….5 320.5 240 321". @ http://localhost:4173/assets/index-B1dc6mvO.js:32
+[ 2602077ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4173/assets/fa-brands-400-UEZeU8cs.woff2:0
+[ 2602362ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4173/assets/fa-solid-900-C19_HPqg.woff2:0
+[ 2603555ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4173/assets/fa-brands-400-CwMhTPFj.woff:0
+[ 2603555ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4173/assets/fa-solid-900-BiAi1MSV.woff:0
+[ 2603557ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4173/images/deloitte_logo.svg:0
+[ 2604561ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4173/assets/fa-brands-400-BMj94tJl.ttf:0
+[ 2604729ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4173/assets/fa-solid-900-CWs4lwq8.ttf:0
+[ 2606088ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4173/images/cognizant_logo.svg:0
+[ 2606088ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4173/images/aiensured_logo.svg:0

@@ -42,8 +42,8 @@ function SystemCard({ system, theme }) {
                     fontWeight: "700",
                     textTransform: "uppercase",
                     letterSpacing: "0.08em",
-                    padding: "2px 8px",
-                    borderRadius: "3px",
+                    padding: "4px 10px",
+                    borderRadius: "4px",
                     background: isLight ? "#2a9d8f" : "#64ffda",
                     color: isLight ? "#fff" : "#0a192f",
                   }}>Featured</span>
@@ -58,7 +58,7 @@ function SystemCard({ system, theme }) {
           <p className="system-description">{system.description}</p>
 
           {/* IMPACT PREVIEW (Metrics) */}
-           <div className="system-impact-preview" style={{ marginBottom: "1rem" }}>
+           <div className="system-impact-preview" style={{ marginBottom: "1rem", marginTop: "0.25rem" }}>
             {(system.metrics || system.impact.slice(0, 3)).map((item, i) => (
               <span key={i} style={{ 
                 display: "inline-block", 
@@ -77,11 +77,9 @@ function SystemCard({ system, theme }) {
             {system.tech.map((tech, i) => (
               <span key={i} className="tech-badge" style={{
                 background: isLight ? "#eee" : "#333",
-                padding: "4px 8px",
+                padding: "4px 10px",
                 borderRadius: "4px",
                 fontSize: "0.8rem",
-                marginRight: "5px",
-                marginBottom: "5px",
                 display: "inline-block"
               }}>
                 {tech}
@@ -168,24 +166,24 @@ function SystemCard({ system, theme }) {
               </button>
 
               <h2 style={{ marginTop: 0 }}>{system.name}</h2>
-              <p style={{ fontStyle: "italic", color: isLight ? "#555" : "#aaa" }}>{system.tagline}</p>
+              <p style={{ fontStyle: "italic", color: isLight ? "#555" : "#aaa", marginBottom: "0.5rem" }}>{system.tagline}</p>
               
-              <div style={{ marginTop: "20px" }}>
+              <div style={{ marginTop: "24px" }}>
                 <h3>Problem Statement</h3>
                 <p>{system.problem_statement}</p>
               </div>
 
-              <div style={{ marginTop: "20px" }}>
+              <div style={{ marginTop: "24px" }}>
                 <h3>Solution Overview</h3>
                 <p>{system.solution_overview}</p>
               </div>
 
-              <div style={{ marginTop: "20px" }}>
+              <div style={{ marginTop: "24px" }}>
                 <h3>Architecture Workflow</h3>
                 <SystemDiagram architecture={system.architecture} theme={theme} />
               </div>
 
-              <div style={{ marginTop: "20px" }}>
+              <div style={{ marginTop: "24px" }}>
                 <h3>Key Features</h3>
                 <ul>
                   {system.key_features && system.key_features.map((feature, i) => (
@@ -194,22 +192,22 @@ function SystemCard({ system, theme }) {
                 </ul>
               </div>
 
-               <div style={{ marginTop: "20px" }}>
+               <div style={{ marginTop: "24px" }}>
                 <h3>Implementation Details</h3>
                 <p>{system.implementation_details}</p>
               </div>
 
-              <div style={{ marginTop: "20px" }}>
+              <div style={{ marginTop: "24px" }}>
                 <h3>Challenges & Solutions</h3>
                 {system.challenges_solutions && system.challenges_solutions.map((cs, i) => (
-                  <div key={i} style={{ marginBottom: "10px" }}>
+                  <div key={i} style={{ marginBottom: "12px" }}>
                     <strong>Challenge:</strong> {cs.challenge}<br/>
                     <strong>Solution:</strong> {cs.solution}
                   </div>
                 ))}
               </div>
 
-              <div style={{ marginTop: "20px" }}>
+              <div style={{ marginTop: "24px" }}>
                 <h3>Impact</h3>
                 <ul>
                   {system.impact.map((item, i) => (
