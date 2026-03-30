@@ -6,7 +6,7 @@
  *
  * Side-effect imports:
  *  - index.css    — global @font-face declarations, scrollbar styles, responsive rules
- *  - all.css      — local Font Awesome 5 icon stylesheet
+ *  - all.css      — Font Awesome 5 icon stylesheet (sole source, bundled by Vite)
  */
 import React from "react";
 import { createRoot } from "react-dom/client";
