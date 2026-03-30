@@ -1,0 +1,17 @@
+/**
+ * Footer.css — Site-wide footer styles.
+ */
+.footer-text {
+  text-align: center;
+  font-weight: bold;
+  font-family: "Google Sans Regular";
+  margin: 0;
+  padding: 1.5rem 1rem;
+  transition: color var(--theme-transition-fast);
+}
+
+.footer-div {
+  margin-top: 2rem;
+  border-radius: 24px 24px 0 0;
+  transition: background-color var(--theme-transition-medium), border-color var(--theme-transition-fast), box-shadow var(--theme-transition-slow);
+}
