@@ -6,8 +6,8 @@
 }
 
 .basic-education {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -40,7 +40,7 @@
   font-family: "Google Sans Medium";
   line-height: 1.1;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 0;
 }
 
 .heading-sub-text {
@@ -52,7 +52,7 @@
 @media (max-width: 1380px) {
   .heading-text {
     font-size: 50px;
-    margin-top: 80px;
+    margin-top: 0;
   }
   .heading-sub-text {
     font-size: 25px;
@@ -62,7 +62,7 @@
 @media (max-width: 768px) {
   .heading-text {
     font-size: 30px;
-    margin-top: 20px;
+    margin-top: 0;
   }
 
   .heading-sub-text {

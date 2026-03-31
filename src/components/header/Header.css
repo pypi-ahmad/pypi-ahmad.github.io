@@ -1,23 +1,19 @@
 /**
- * Header.css — Navigation bar styles
+ * Header.css — Always-dropdown navigation styles.
  *
- * Desktop:  Horizontal nav with logo left, links right, theme toggle.
- * Mobile:   Hamburger menu with full-width stacked links.
- * Breakpoint: 768px (48em)
- *
- * Each NavLink class (.homei, .ec, .xp, .skills, .projects, .cr)
- * has its own accent hover color.
+ * The header now shows a single hamburger button in the top-right.
+ * All navigation items, including the site label, live inside the
+ * dropdown panel opened by that button.
  */
 
-/* ── Base Layout ──────────────────────────────────────────────────────────── */
-
-/* header */
-
 .header {
-  display: block;
-  max-width: 95%;
-  padding: 20px 10px;
-  margin: -10px auto;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
+  padding: 12px;
+  margin: -10px auto 0;
   border: 1px solid transparent;
   border-radius: 28px;
   box-sizing: border-box;
@@ -25,64 +21,80 @@
 
 .header ul {
   margin: 0;
-  padding: 10px;
+  padding: 0;
   list-style: none;
-  overflow: hidden;
 }
 
 .header li {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .grey-color {
-  color: #868e96;
+  color: var(--text-secondary);
 }
 
 .header li a {
-  display: block;
-  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 16px;
   min-height: 44px;
   text-decoration: none;
+  box-sizing: border-box;
   transition: transform 0.2s ease, color var(--theme-transition-fast), background-color var(--theme-transition-medium), border-color var(--theme-transition-fast), box-shadow var(--theme-transition-medium);
 }
 
-.header .logo {
-  display: block;
-  float: left;
-  font-size: 1.5em;
-  text-decoration: none;
-  margin-top: -12px;
-  line-height: normal;
-  min-height: 44px;
+.header .menu-brand {
   display: flex;
   align-items: center;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: normal;
+  min-height: 44px;
 }
 
-.header .logo-name {
-  font-family: "Google Sans Regular";
-  font-weight: bold;
-  padding: 0 10px;
-  letter-spacing: 3px;
-  transition: color var(--theme-transition-fast);
+.header .menu-brand-item {
+  margin-bottom: 4px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-soft, rgba(148, 163, 184, 0.2));
 }
-
-/* menu */
 
 .menu {
   font-family: "Google Sans Regular";
 }
 
 .header .menu {
-  margin-top: 10px;
-  clear: both;
-  max-height: 0;
-  transition: max-height 0.2s ease-out;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: min(360px, calc(100vw - 32px));
+  padding: 12px;
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 30;
+  overflow: hidden;
 }
 
-.header li a:hover,
-.change-theme-btn:hover {
+.header .menu.menu--open {
+  display: flex;
+}
+
+.header li a:hover {
   transform: translateY(-1px);
+}
+
+.header .menu-icon:hover {
+  transform: translateY(-1px);
+}
+
+.change-theme-btn:hover {
+  transform: translateY(-1px) scale(1.05);
 }
 
 .change-theme-btn:focus-visible {
@@ -94,15 +106,27 @@
   display: inline-flex;
 }
 
-/* menu icon */
+.menu-theme-toggle-item {
+  margin-top: 6px;
+  justify-content: flex-start;
+}
 
 .header .menu-icon {
   cursor: pointer;
-  display: block;
-  float: right;
-  padding: 28px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
   position: relative;
   user-select: none;
+  appearance: none;
+}
+
+.header .menu-icon:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .header .menu-icon .navicon {
@@ -133,200 +157,106 @@
   top: -5px;
 }
 
-/* menu btn */
-
-.header .menu-btn {
-  display: none;
-}
-
-.header .menu-btn:checked ~ .menu {
-  max-height: 640px;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon {
+.header .menu-icon.is-open .navicon {
   background: transparent;
 }
 
-.header .menu-btn:checked ~ .menu-icon .navicon:before {
+.header .menu-icon.is-open .navicon:before {
   transform: rotate(-45deg);
+  top: 0;
 }
 
-.header .menu-btn:checked ~ .menu-icon .navicon:after {
+.header .menu-icon.is-open .navicon:after {
   transform: rotate(45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
   top: 0;
 }
 
 .homei {
-  margin: 2px 5px 20px 10px;
+  margin: 0;
   color: inherit;
 }
 
 .homei:hover {
-  background-color: rgba(42, 176, 238, 0.14);
+  background-color: var(--accent-hover, rgba(42, 176, 238, 0.14));
 }
 
 .ec {
-  margin: 2px 5px 20px;
+  margin: 0;
   color: inherit;
 }
 
 .ec:hover {
-  background-color: rgba(235, 101, 89, 0.14);
+  background-color: var(--accent-hover, rgba(235, 101, 89, 0.14));
 }
 
 .xp {
-  margin: 2px 5px 20px;
+  margin: 0;
   color: inherit;
 }
 
 .xp:hover {
-  background-color: rgba(247, 185, 8, 0.14);
+  background-color: var(--accent-hover, rgba(247, 185, 8, 0.14));
 }
 
 .projects {
-  margin: 2px 5px 20px;
+  margin: 0;
   color: inherit;
 }
 
 .projects:hover {
-  background-color: rgba(228, 65, 96, 0.14);
+  background-color: var(--accent-hover, rgba(228, 65, 96, 0.14));
 }
 
 .skills {
-  margin: 2px 5px 20px;
+  margin: 0;
   color: inherit;
 }
 
 .skills:hover {
-  background-color: rgba(108, 99, 255, 0.14);
+  background-color: var(--accent-hover, rgba(108, 99, 255, 0.14));
 }
 
 .cr {
-  margin: 2px 5px 20px;
+  margin: 0;
   color: inherit;
 }
 
 .cr:hover {
-  background-color: rgba(71, 161, 72, 0.14);
+  background-color: var(--accent-hover, rgba(71, 161, 72, 0.14));
 }
 
 .themei {
-  margin: 2px 5px 20px;
+  margin: 0;
   color: inherit;
 }
 
 .themei:hover {
-  background-color: rgba(156, 136, 255, 0.14);
-}
-
-/* 48em = 768px */
-
-@media (min-width: 48em) {
-  .header li {
-    float: left;
-  }
-
-  .theme-picker-item {
-    float: left;
-  }
-
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .header .menu {
-    max-height: none;
-  }
-  .header .menu-icon {
-    display: none;
-  }
+  background-color: var(--accent-hover, rgba(156, 136, 255, 0.14));
 }
 
 @media (max-width: 768px) {
   .header {
-    max-width: none;
     width: calc(100% - 24px);
-    padding: 10px 12px 14px;
-    text-align: center;
-  }
-
-  .header .logo {
-    display: flex;
-    align-items: center;
-    float: left;
-    font-size: 1.1em;
-    text-decoration: none;
-    margin-top: 8px;
-    line-height: normal;
-    min-height: 44px;
-  }
-
-  .header .menu-icon {
-    padding: 20px 12px;
+    padding: 10px 12px;
   }
 
   .header .menu {
-    background: inherit;
-    width: 100%;
-    margin-top: 12px;
-  }
-
-  .header li a {
-    padding: 12px 15px;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    line-height: 1.35;
-  }
-
-  .header li {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .header ul {
-    padding: 5px;
-  }
-
-  .homei,
-  .ec,
-  .xp,
-  .projects,
-  .skills,
-  .cr,
-  .themei {
-    margin: 5px 0;
-    display: block;
-  }
-
-  .change-theme-btn {
-    margin: 8px auto 4px !important;
-    display: inline-flex;
+    width: min(320px, calc(100vw - 24px));
   }
 }
 
 @media (max-width: 480px) {
   .header {
     width: calc(100% - 16px);
-    padding: 8px 10px 12px;
+    padding: 8px 10px;
   }
 
-  .header .logo-name {
-    letter-spacing: 1.5px;
+  .header .menu {
+    width: calc(100vw - 16px);
   }
 
   .header li a {
     padding: 12px;
     font-size: 0.95rem;
-  }
-}
-@media (max-width: 960px) and (min-width: 768px) {
-  .header {
-    font-size: 12px;
   }
 }

@@ -21,9 +21,10 @@ const ContactData = contactPageData.contactSection;
 const blogSection = contactPageData.blogSection;
 
 const ContactButton = styled.a`
-  background-color: ${props => props.theme.accentBright};
+  background: ${props => props.theme.accentGradient};
+  color: ${props => props.theme.accentText};
   &:hover {
-    color: white;
+    color: ${props => props.theme.accentText};
   }
 `;
 

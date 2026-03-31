@@ -7,8 +7,37 @@
 }
 
 .basic-projects {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.systems-div-main {
+  width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
+  margin: 0 auto var(--section-spacing);
+  position: relative;
+}
+
+.section-accent-glow {
+  overflow: hidden;
+}
+
+.section-accent-glow::before {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(circle, var(--glow-accent) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.section-accent-glow > * {
+  position: relative;
+  z-index: 1;
 }
 
 .projects-heading-div {
@@ -39,7 +68,7 @@
   font-family: "Google Sans Medium";
   line-height: 1.1;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 0;
 }
 
 .projects-heading-sub-text {
@@ -52,25 +81,23 @@
 .projects-header-detail-text {
   font-size: 20px;
   line-height: 30px;
-  margin-top: 0px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
   font-family: "Google Sans Medium";
 }
 
 .repo-cards-div-main {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1rem 1rem;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 60px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--section-gap-tight);
+  margin: var(--section-spacing-tight) 0 0;
 }
 
 @media (max-width: 1380px) {
   .projects-heading-text {
     font-size: 50px;
-    margin-top: 80px;
+    margin-top: 0;
   }
   .projects-heading-sub-text {
     font-size: 25px;
@@ -79,16 +106,14 @@
 
 @media (max-width: 1024px) {
   .repo-cards-div-main {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    margin-left: 20px;
-    margin-right: 20px;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .projects-heading-text {
     font-size: 30px;
-    margin-top: 20px;
+    margin-top: 0;
   }
 
   .projects-heading-sub-text {
@@ -109,18 +134,11 @@
 
   .repo-cards-div-main {
     grid-template-columns: 1fr;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 30px;
+    margin: var(--section-spacing-tight) 0 0;
   }
 }
 
 @media (max-width: 480px) {
-  .repo-cards-div-main {
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-
   .projects-heading-text {
     font-size: 24px;
   }

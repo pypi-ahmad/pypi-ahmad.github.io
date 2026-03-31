@@ -65,7 +65,7 @@ function SkillSection(props) {
                   transition={{ duration: 1 }}
                   viewport={{ once: true }}
                 >
-                  <h1 className="skills-heading" style={{ color: theme.accentColor }}>
+                  <h1 className="skills-heading" style={{ color: theme.accentSolid }}>
                     {skill.title}
                   </h1>
                 </motion.div>
@@ -117,7 +117,7 @@ function SkillSection(props) {
                   transition={{ duration: 1 }}
                   viewport={{ once: true }}
                 >
-                  <h1 className="skills-heading" style={{ color: theme.accentColor }}>
+                  <h1 className="skills-heading" style={{ color: theme.accentSolid }}>
                     {skill.title}
                   </h1>
                 </motion.div>

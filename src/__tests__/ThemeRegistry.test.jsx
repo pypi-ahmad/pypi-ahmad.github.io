@@ -1,7 +1,79 @@
 import { describe, expect, it } from "vitest";
-import { resolveTheme, themeFamilyOptions } from "../theme";
+import { resolveTheme, themeFamilyOptions, themes } from "../theme";
+
+function hexToRgb(hex) {
+  const normalizedHex = hex.replace("#", "");
+  const fullHex =
+    normalizedHex.length === 3
+      ? normalizedHex
+          .split("")
+          .map((character) => `${character}${character}`)
+          .join("")
+      : normalizedHex;
+  const numericHex = Number.parseInt(fullHex, 16);
+
+  return {
+    r: (numericHex >> 16) & 255,
+    g: (numericHex >> 8) & 255,
+    b: numericHex & 255,
+  };
+}
+
+function getRelativeLuminance(hex) {
+  const { r, g, b } = hexToRgb(hex);
+
+  const transformChannel = (channel) => {
+    const normalizedChannel = channel / 255;
+
+    return normalizedChannel <= 0.03928
+      ? normalizedChannel / 12.92
+      : ((normalizedChannel + 0.055) / 1.055) ** 2.4;
+  };
+
+  return (
+    0.2126 * transformChannel(r) +
+    0.7152 * transformChannel(g) +
+    0.0722 * transformChannel(b)
+  );
+}
+
+function getContrastRatio(foregroundHex, backgroundHex) {
+  const foregroundLuminance = getRelativeLuminance(foregroundHex);
+  const backgroundLuminance = getRelativeLuminance(backgroundHex);
+  const [lighter, darker] =
+    foregroundLuminance > backgroundLuminance
+      ? [foregroundLuminance, backgroundLuminance]
+      : [backgroundLuminance, foregroundLuminance];
+
+  return (lighter + 0.05) / (darker + 0.05);
+}
 
 describe("Theme registry — terminal family", () => {
+  it("keeps primary and secondary text readable across every registered theme", () => {
+    const failures = [];
+
+    for (const [family, modes] of Object.entries(themes)) {
+      for (const [mode, theme] of Object.entries(modes)) {
+        const textContrast = getContrastRatio(theme.text, theme.body);
+        const secondaryContrast = getContrastRatio(
+          theme.secondaryText,
+          theme.body
+        );
+
+        if (textContrast < 7 || secondaryContrast < 4.5) {
+          failures.push({
+            family,
+            mode,
+            text: Number(textContrast.toFixed(2)),
+            secondary: Number(secondaryContrast.toFixed(2)),
+          });
+        }
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
   it("registers terminal in the selector options", () => {
     expect(themeFamilyOptions.some((family) => family.value === "terminal")).toBe(true);
   });
@@ -24,6 +96,15 @@ describe("Theme registry — terminal family", () => {
     expect(theme.text).toBe("#173020");
     expect(theme.accentBright).toBe("#00FF88");
     expect(theme.buttonText).toBe("#173020");
+  });
+
+  it("derives the premium accent gradient contract", () => {
+    const theme = resolveTheme({ family: "terminal", mode: "dark" });
+
+    expect(theme.accentSolid).toMatch(/^#[0-9A-F]{6}$/);
+    expect(theme.accentGradient).toContain("linear-gradient");
+    expect(theme.accentStart).toBe("#DC143C");
+    expect(theme.accentEnd).toBe("#FF69B4");
   });
 
   it("matrix-amber is available in the theme picker", () => {

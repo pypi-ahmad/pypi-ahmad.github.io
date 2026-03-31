@@ -21,6 +21,10 @@ import Greeting from "../containers/greeting/Greeting";
 import ExperienceAccordion from "../containers/experienceAccordion/ExperienceAccordion";
 import { renderWithProviders, darkTheme, lightTheme } from "../test/testUtils";
 
+async function openHeaderMenu(user) {
+  await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
+}
+
 // ────────────────────────────────────────────────────────
 // Theme Toggle Behavior
 // ────────────────────────────────────────────────────────
@@ -33,6 +37,7 @@ describe("Header — Theme Toggle Behavior", () => {
     const user = userEvent.setup();
     renderWithProviders(<Header />);
 
+    await openHeaderMenu(user);
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     await user.click(toggleBtn);
 
@@ -45,6 +50,7 @@ describe("Header — Theme Toggle Behavior", () => {
     const user = userEvent.setup();
     renderWithProviders(<Header />, { theme: "light" });
 
+    await openHeaderMenu(user);
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     await user.click(toggleBtn);
 
@@ -57,6 +63,7 @@ describe("Header — Theme Toggle Behavior", () => {
     const user = userEvent.setup();
     renderWithProviders(<Header />);
 
+    await openHeaderMenu(user);
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     await user.click(toggleBtn);
 
@@ -70,7 +77,8 @@ describe("Header — Theme Toggle Behavior", () => {
     const user = userEvent.setup();
     renderWithProviders(<Header />);
 
-    const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
+    await openHeaderMenu(user);
+    let toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     // First click → light
     await user.click(toggleBtn);
     expect(JSON.parse(localStorage.getItem("theme"))).toEqual({
@@ -79,6 +87,8 @@ describe("Header — Theme Toggle Behavior", () => {
     });
 
     // Second click → dark
+    await openHeaderMenu(user);
+    toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     await user.click(toggleBtn);
     expect(JSON.parse(localStorage.getItem("theme"))).toEqual({
       family: "default",

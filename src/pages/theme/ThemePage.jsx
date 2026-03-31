@@ -21,9 +21,9 @@ function ThemePage() {
 
   const icon =
     themeMode === "dark" ? (
-      <HiMoon strokeWidth={1} size={20} color={themeMode === "light" ? "#F9D784" : "#A7A7A7"} />
+      <HiMoon strokeWidth={1} size={20} color={theme.secondaryText} />
     ) : (
-      <CgSun strokeWidth={1} size={20} color={themeMode === "light" ? "#F9D784" : "#A7A7A7"} />
+      <CgSun strokeWidth={1} size={20} color={theme.accentSolid} />
     );
 
   const previewThemes = themeFamilyOptions.map((familyOption) => {
@@ -91,9 +91,6 @@ function ThemePage() {
                 onChange={(event) => setThemeFamily(event.target.value)}
                 aria-label="Theme Family"
                 style={{
-                  color: theme.selectorText,
-                  backgroundColor: theme.selectorBackground,
-                  borderColor: theme.borderColor,
                   borderWidth: theme.panelBorderWidth,
                   borderStyle: theme.panelBorderStyle,
                   borderRadius: theme.controlRadius,
@@ -136,7 +133,7 @@ function ThemePage() {
                       ),
                       color: familyOption.current.text,
                       borderColor: isActiveFamily
-                        ? familyOption.current.accentBright
+                        ? familyOption.current.accentSolid
                         : familyOption.current.borderSoft,
                       transition: themeElevatedSurfaceTransition,
                       borderWidth: familyOption.current.panelBorderWidth,
@@ -167,10 +164,10 @@ function ThemePage() {
                     </span>
                     <span className="theme-preview-chip-swatches" aria-hidden="true">
                       {[
-                        familyOption.light.accentBright,
-                        familyOption.light.buttonColor,
-                        familyOption.dark.accentBright,
-                        familyOption.dark.buttonColor,
+                        familyOption.light.accentStart,
+                        familyOption.light.accentEnd,
+                        familyOption.dark.accentStart,
+                        familyOption.dark.accentEnd,
                       ].map((color, index) => (
                         <span
                           key={`${familyOption.value}-${index}`}

@@ -13,11 +13,15 @@ import "./ExperienceCard.css";
 function ExperienceCard(props) {
   const experience = props.experience;
   const theme = props.theme;
+  const experienceBorderColor = /^#([0-9a-f]{6})$/i.test(experience.color)
+    ? `${experience.color}55`
+    : experience.color;
+
   return (
     <div
-      className="experience-card"
+      className="experience-card shadow-sm hover-shadow-lg hover-translate-y-1 transition-all duration-200 layer-card"
       style={{
-        border: `1px solid ${experience["color"]}`,
+        border: `1px solid ${experienceBorderColor}`,
         backgroundColor: theme.imageDark,
       }}
     >
@@ -68,7 +72,7 @@ function ExperienceCard(props) {
             </p>
           </div>
         </div>
-        <div className="experience-card-description" style={{ color: theme.text }}>
+        <div className="experience-card-description" style={{ color: theme.secondaryText }}>
           {experience["descriptions"] ? (
             <ul>
               {experience["descriptions"].map((desc, index) => (

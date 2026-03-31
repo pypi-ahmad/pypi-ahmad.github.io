@@ -1,130 +1,40 @@
 /**
- * ProjectCard — Styled card for open-source project entries.
+ * ProjectCard — Compact product-tile card for open-source projects.
  *
- * Matches the SystemCard visual language: glass background, accent border,
- * accent-colored title, ⚡ metric highlights, tech icons, and lift hover.
+ * Shows: name (accent link), category badge, short description (3-line clamp).
+ * Entire card is clickable, linking to the project URL.
  *
  * Props: { repo (project object), theme }
  */
 import React from "react";
-import ProjectLanguages from "../projectLanguages/ProjectLanguages";
 import "./ProjectCard.css";
 import { motion } from "framer-motion";
-import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
 
-export default function ProjectCard({ repo: project, theme }) {
+export default function ProjectCard({ repo: project }) {
+  const CardWrapper = project.url ? "a" : "div";
+  const wrapperProps = project.url
+    ? { href: project.url, target: "_blank", rel: "noopener noreferrer" }
+    : {};
+
   return (
     <motion.div
-      initial={{ y: 50, opacity: 0 }}
+      initial={{ y: 30, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.35 }}
       viewport={{ once: true }}
     >
-      <div
-        className="project-card"
-        style={{
-          background: buildThemeBackground(theme.cardBackgroundAlt, theme.surfacePattern),
-          borderColor: theme.borderSoft,
-          borderWidth: theme.panelBorderWidth,
-          borderStyle: theme.panelBorderStyle,
-          borderRadius: theme.surfaceRadius,
-          boxShadow: buildThemeShadow(`0 24px 56px ${theme.shadowColor}`, theme.panelGlow),
-          color: theme.text,
-        }}
+      <CardWrapper
+        {...wrapperProps}
+        className="project-card shadow-sm hover-shadow-lg layer-card"
       >
-
-        {/* HEADER */}
-        <div className="project-header">
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              {project.url ? (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-title-link"
-                  style={{
-                    color: theme.accentColor,
-                    fontFamily: theme.accentFontFamily,
-                    letterSpacing: theme.accentLetterSpacing,
-                  }}
-                >
-                  <h2 className="project-title">{project.name}</h2>
-                </a>
-              ) : (
-                <h2
-                  className="project-title"
-                  style={{
-                    color: theme.accentColor,
-                    fontFamily: theme.accentFontFamily,
-                    letterSpacing: theme.accentLetterSpacing,
-                  }}
-                >
-                  {project.name}
-                </h2>
-              )}
-            </div>
-            {project.category && (
-              <span
-                className="project-category"
-                style={{
-                  background: buildThemeBackground(theme.accentSoft, theme.buttonPattern),
-                  color: theme.accentColor,
-                  borderColor: theme.borderSoft,
-                  borderWidth: theme.panelBorderWidth,
-                  borderStyle: theme.panelBorderStyle,
-                  borderRadius: theme.pillRadius,
-                  fontFamily: theme.accentFontFamily,
-                  letterSpacing: theme.accentLetterSpacing,
-                }}
-              >
-                {project.category}
-              </span>
-            )}
-          </div>
-          {project.tagline && (
-            <p className="project-tagline" style={{ color: theme.secondaryText }}>
-              {project.tagline}
-            </p>
+        <div className="project-card__header">
+          <h3 className="project-card__name">{project.name}</h3>
+          {project.category && (
+            <span className="project-card__category">{project.category}</span>
           )}
         </div>
-
-        {/* DESCRIPTION */}
-        <p className="project-description" style={{ color: theme.secondaryText }}>
-          {project.description}
-        </p>
-
-        {/* METRICS */}
-        {project.metrics && (
-          <div className="project-metrics">
-            {project.metrics.map((metric, i) => (
-              <span
-                key={i}
-                className="project-metric"
-                style={{
-                  color: theme.accentColor,
-                  background: buildThemeBackground(theme.accentSoft, theme.buttonPattern),
-                  borderColor: theme.borderSoft,
-                  borderWidth: theme.panelBorderWidth,
-                  borderStyle: theme.panelBorderStyle,
-                  borderRadius: theme.pillRadius,
-                  boxShadow: buildThemeShadow(`0 14px 28px ${theme.shadowColor}`, theme.buttonGlow),
-                  fontFamily: theme.accentFontFamily,
-                  letterSpacing: theme.accentLetterSpacing,
-                }}
-              >
-                ⚡ {metric}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* TECH STACK (icons) */}
-        <div className="project-tech">
-          <ProjectLanguages logos={project.languages} theme={theme} />
-        </div>
-
-      </div>
+        <p className="project-card__desc">{project.description}</p>
+      </CardWrapper>
     </motion.div>
   );
 }

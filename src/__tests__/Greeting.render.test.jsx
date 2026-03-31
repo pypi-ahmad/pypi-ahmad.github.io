@@ -64,7 +64,7 @@ describe("Greeting — UI Rendering", () => {
   it("applies accent color to the full name", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
     const nameSpan = screen.getByText(/Ahmad Mujtaba\./);
-    expect(nameSpan).toHaveStyle({ color: darkTheme.accentColor });
+    expect(nameSpan).toHaveStyle({ color: darkTheme.accentSolid });
   });
 
   it("renders hero bullets as list items", () => {

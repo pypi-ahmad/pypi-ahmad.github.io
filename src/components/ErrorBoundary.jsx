@@ -29,7 +29,7 @@ export default class ErrorBoundary extends React.Component {
           <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
             Something went wrong
           </h1>
-          <p style={{ marginBottom: "1.5rem", color: "#888" }}>
+          <p style={{ marginBottom: "1.5rem", color: "inherit", opacity: 0.7 }}>
             An unexpected error occurred. Please try refreshing the page.
           </p>
           <button
@@ -37,7 +37,7 @@ export default class ErrorBoundary extends React.Component {
             style={{
               padding: "10px 24px",
               fontSize: "1rem",
-              border: "1px solid #555",
+              border: "1px solid currentColor",
               borderRadius: "8px",
               background: "transparent",
               cursor: "pointer",

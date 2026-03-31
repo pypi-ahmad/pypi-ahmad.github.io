@@ -12,17 +12,17 @@
 
 .software-skill-inline {
   display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
   font-family: "Google Sans Regular";
 }
 
 .software-skill-inline > i {
-  color: #868e96;
+  color: var(--text-secondary);
 }
 
 .software-skill-inline > i:hover {
-  color: #645beb;
+  color: var(--accent-solid);
 }
 
 .skill-link {
