@@ -9,6 +9,7 @@
  */
 import React from "react";
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi } from "vitest";
 import { axe, toHaveNoViolations } from "jest-axe";
 import Header from "../components/header/Header";
@@ -30,8 +31,10 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
     expect(document.querySelector("header")).toBeInTheDocument();
   });
 
-  it("Theme toggle button has an aria-label", () => {
+  it("Theme toggle button has an aria-label", async () => {
     renderWithProviders(<Header />);
+    const user = userEvent.setup();
+    await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const btn = screen.getByRole("button", { name: "Toggle Theme" });
     expect(btn).toHaveAttribute("aria-label", "Toggle Theme");
   });
@@ -42,11 +45,12 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
     expect(selector).toBeInTheDocument();
   });
 
-  it("Navigation links are accessible (rendered as <a> tags)", () => {
+  it("Navigation links are accessible (rendered as <a> tags)", async () => {
     renderWithProviders(<Header />);
+    const user = userEvent.setup();
+    await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const links = screen.getAllByRole("link");
-    // 6 nav links + 1 logo link = 7
-    expect(links.length).toBeGreaterThanOrEqual(7);
+    expect(links.length).toBeGreaterThanOrEqual(8);
   });
 
   it("Footer heart emoji has role='img' and aria-label='love'", () => {
@@ -116,9 +120,6 @@ describe("Accessibility — axe-core Scans", () => {
         "page-has-heading-one": { enabled: false },
         // Disable color contrast since jsdom doesn't compute styles
         "color-contrast": { enabled: false },
-        // Known bug (Phase 4 finding): <button> is a direct child of <ul class="menu">
-        // instead of being wrapped in <li>. Documented for fix.
-        list: { enabled: false },
       },
     });
     expect(results).toHaveNoViolations();

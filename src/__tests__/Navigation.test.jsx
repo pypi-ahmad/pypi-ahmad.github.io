@@ -95,6 +95,7 @@ describe("Navigation — NavLink Click Flow", () => {
     const user = userEvent.setup();
     renderAtRoute("/home");
 
+    await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const experienceLink = screen.getByText("Experience", { selector: "a" });
     await user.click(experienceLink);
     expect(screen.getByText("Systems Built · Impact Delivered")).toBeInTheDocument();
@@ -104,6 +105,7 @@ describe("Navigation — NavLink Click Flow", () => {
     const user = userEvent.setup();
     renderAtRoute("/home");
 
+    await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const educationLink = screen.getByText("Education and Certifications");
     await user.click(educationLink);
     expect(screen.getByRole("heading", { level: 1, name: "Education" })).toBeInTheDocument();
@@ -113,9 +115,8 @@ describe("Navigation — NavLink Click Flow", () => {
     const user = userEvent.setup();
     renderAtRoute("/home");
 
-    // Get the nav link (not the CTA button)
-    const contactLinks = screen.getAllByText("Contact Me");
-    const navLink = contactLinks.find((el) => el.closest("a")?.getAttribute("href") === "/contact");
+    await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
+    const navLink = screen.getByRole("link", { name: "Contact Me" });
     await user.click(navLink);
     expect(screen.getByText("Want to know more?")).toBeInTheDocument();
   });
@@ -124,6 +125,7 @@ describe("Navigation — NavLink Click Flow", () => {
     const user = userEvent.setup();
     renderAtRoute("/home");
 
+    await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const projectsLink = screen.getByText("Projects", { selector: "a" });
     await user.click(projectsLink);
     expect(screen.getByText("Enterprise Systems")).toBeInTheDocument();
@@ -133,6 +135,7 @@ describe("Navigation — NavLink Click Flow", () => {
     const user = userEvent.setup();
     renderAtRoute("/home");
 
+    await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const skillsLink = screen.getByText("Skills", { selector: "a" });
     await user.click(skillsLink);
     expect(screen.getByRole("heading", { level: 1, name: "Technical Skills" })).toBeInTheDocument();
@@ -142,6 +145,7 @@ describe("Navigation — NavLink Click Flow", () => {
     const user = userEvent.setup();
     renderAtRoute("/experience");
 
+    await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const logo = screen.getByText("ahmad.m()");
     await user.click(logo);
     expect(screen.getByRole("heading", { level: 1, name: "Hello." })).toBeInTheDocument();

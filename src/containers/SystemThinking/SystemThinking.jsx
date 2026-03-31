@@ -11,16 +11,18 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const Container = styled.div`
-  padding: 4rem 1rem;
+  width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
+  margin: 0 auto;
+  padding: var(--section-spacing) 0;
   text-align: center;
   background-color: ${props => props.theme.body};
 
   @media (max-width: 768px) {
-    padding: 3rem 1rem;
+    padding: 3rem 0;
   }
 
   @media (max-width: 480px) {
-    padding: 2.5rem 0.75rem;
+    padding: var(--section-spacing-tight) 0;
   }
 `;
 
@@ -44,11 +46,11 @@ const StepsContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--section-gap-tight);
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
   }
 `;
 
@@ -57,12 +59,21 @@ const Step = styled(motion.div)`
   color: ${props => props.theme.text};
   padding: 1.5rem 2rem;
   border-radius: 12px;
+  border: 1px solid var(--border);
   font-weight: bold;
   font-size: 1.2rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: var(--layer-card);
+  transition: all 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
 
   @media (max-width: 768px) {
     width: min(100%, 280px);
@@ -77,7 +88,7 @@ const Step = styled(motion.div)`
 
 const Arrow = styled(motion.div)`
   font-size: 2rem;
-  color: ${props => props.theme.accentColor};
+  color: ${props => props.theme.accentSolid};
 
   @media (max-width: 768px) {
     transform: rotate(90deg);

@@ -20,13 +20,15 @@ const DegreeImageDiv = styled.div`
   flex-shrink: 0;
   border-radius: 50%;
   padding: 10px;
-  border: 1px solid ${props => props.theme.text};
+  border: 1px solid var(--border);
   margin-right: 50px;
-  box-shadow: 0px 0px 2px ${props => props.theme.text};
-  transition: all 0.2s ease-in-out;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: var(--layer-card);
+  transition: all 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
   &:hover {
-    color: rgba(255, 255, 255, 1);
-    box-shadow: 0 2px 10px ${props => props.theme.text};
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
   }
   @media (max-width: 768px) {
     margin-left: 0;
@@ -38,17 +40,20 @@ const DegreeImageDiv = styled.div`
 `;
 
 const DegreeCardBody = styled.div`
-  border: 1px solid ${props => props.theme.text};
-  border-radius: 7px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
   width: 100%;
   margin: 10px 0;
   box-sizing: border-box;
   overflow: hidden;
-  box-shadow: 0px 0px 1px ${props => props.theme.text};
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    color: rgba(255, 255, 255, 1);
-    box-shadow: 0 2px 10px ${props => props.theme.text};
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: var(--layer-card);
+  transition: all 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  &:hover,
+  &:focus-within {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
   }
   @media (max-width: 768px) {
     width: 100%;
@@ -58,8 +63,8 @@ const DegreeCardBody = styled.div`
 
 const VisitButton = styled.p`
   text-decoration: none;
-  color: rgba(255, 255, 255, 1);
-  background: ${props => props.theme.accentColor};
+  color: ${props => props.theme.accentText};
+  background: ${props => props.theme.accentGradient};
   padding: 15px;
   margin-top: 25px;
   border-radius: 4px;
@@ -70,15 +75,16 @@ const VisitButton = styled.p`
   font-weight: bold;
   font-family: Google Sans Regular;
   font-size: 17px;
-  transition: all 0.2s ease-in-out;
+  transition: transform var(--theme-transition-fast), background-color var(--theme-transition-medium), color var(--theme-transition-fast), box-shadow var(--theme-transition-medium);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   &:hover {
-    color: rgba(255, 255, 255, 1);
-    box-shadow: 0 2px 10px ${props => props.theme.accentColor};
+    color: ${props => props.theme.accentText};
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 2px 10px ${props => props.theme.accentSolid};
   }
   @media (max-width: 480px) {
     width: 100%;
@@ -124,7 +130,7 @@ function DegreeCard(props) {
               <h2 className="card-title" style={{ color: theme.text }}>
                 {degree.title}
               </h2>
-              <h3 className="card-subtitle" style={{ color: theme.text }}>
+              <h3 className="card-subtitle" style={{ color: theme.secondaryText }}>
                 {degree.subtitle}
               </h3>
             </div>
@@ -140,7 +146,7 @@ function DegreeCard(props) {
                 <p
                   key={sentence}
                   className="content-list"
-                  style={{ color: theme.text }}
+                  style={{ color: theme.secondaryText }}
                 >
                   {sentence}
                 </p>
@@ -155,7 +161,7 @@ function DegreeCard(props) {
             >
               <VisitButton
                 theme={theme}
-                style={{ textDecoration: "none", backgroundColor: theme.accentColor }}
+                style={{ textDecoration: "none", background: theme.accentGradient }}
               >
                 Visit Website
               </VisitButton>

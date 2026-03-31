@@ -12,17 +12,18 @@ import ExperienceCard from "../../components/experienceCard/ExperienceCard";
 import styled from "styled-components";
 
 const AccordionContainer = styled.div`
-  margin: 50px;
+  width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
+  margin: 0 auto var(--section-spacing);
   border-radius: 5px;
-  border: 1px solid ${({ theme }) => theme.secondaryText};
+  border: 1px solid ${({ theme }) => theme.borderSoft ?? theme.secondaryText};
   overflow: hidden;
 
   @media (max-width: 768px) {
-    margin: 16px;
+    margin: 0 auto var(--section-spacing-tight);
   }
 
   @media (max-width: 480px) {
-    margin: 12px 10px;
+    margin: 0 auto var(--section-spacing-tight);
   }
 `;
 
@@ -73,6 +74,8 @@ const AccordionSummary = styled.summary`
 const AccordionContent = styled.div`
   padding: 20px;
   background-color: ${({ theme }) => theme.body};
+  display: grid;
+  gap: var(--section-gap-tight);
 
   @media (max-width: 768px) {
     padding: 14px;

@@ -91,7 +91,7 @@ export default function Greeting(props) {
                 <span>I'm </span>
                 <span
                   style={{
-                    color: theme.accentColor,
+                    color: theme.accentSolid,
                     fontFamily: theme.accentFontFamily,
                     letterSpacing: theme.accentLetterSpacing,
                     transition: themeTextTransition,
@@ -128,7 +128,7 @@ export default function Greeting(props) {
                       <span style={{
                         position: "absolute",
                         left: 0,
-                        color: theme.accentColor,
+                        color: theme.accentSolid,
                         transition: themeTextTransition,
                       }}>▸</span>
                       {bullet}
@@ -143,7 +143,7 @@ export default function Greeting(props) {
                   fontSize: "0.9rem",
                   fontStyle: "italic",
                   color: theme.secondaryText,
-                  borderLeft: `3px solid ${theme.accentColor}`,
+                  borderLeft: `3px solid ${theme.accentSolid}`,
                   transition:
                     `background-color var(--theme-transition-medium), color var(--theme-transition-fast), border-left-color var(--theme-transition-fast), box-shadow var(--theme-transition-medium)`,
                   paddingLeft: "1rem",
@@ -169,9 +169,8 @@ export default function Greeting(props) {
                     navigate("/contact");
                   }}
                   style={{
-                    background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
-                    color: theme.buttonText,
-                    marginRight: "15px",
+                    background: theme.accentGradient,
+                    color: theme.accentText,
                     border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderColor}`,
                     borderRadius: theme.controlRadius,
                     boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.buttonGlow),
@@ -192,9 +191,8 @@ export default function Greeting(props) {
                       handleDocOpen(event, resumeUrl, "Resume")
                     }
                     style={{
-                      background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
-                      color: theme.buttonText,
-                      marginRight: "15px",
+                      background: theme.accentGradient,
+                      color: theme.accentText,
                       display: "inline-flex",
                       justifyContent: "center",
                       alignItems: "center",
@@ -220,8 +218,8 @@ export default function Greeting(props) {
                       handleDocOpen(event, coverUrl, "Cover letter")
                     }
                     style={{
-                      background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
-                      color: theme.buttonText,
+                      background: theme.accentGradient,
+                      color: theme.accentText,
                       display: "inline-flex",
                       justifyContent: "center",
                       alignItems: "center",

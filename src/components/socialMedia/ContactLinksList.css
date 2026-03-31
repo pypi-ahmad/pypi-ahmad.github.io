@@ -23,12 +23,16 @@
   justify-content: flex-start;
   gap: 15px;
   padding: 10px 12px;
+  border: 1px solid transparent;
   border-radius: 10px;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color var(--theme-transition-medium), border-color var(--theme-transition-fast), transform var(--theme-transition-fast);
 }
 
-.contact-links-anchor:hover {
-  background-color: rgba(127, 127, 127, 0.12);
+.contact-links-anchor:hover,
+.contact-links-anchor:focus-visible {
+  background-color: var(--focus-shadow);
+  border-color: var(--border);
+  transform: translateY(-1px);
 }
 
 .contact-links-bullet {

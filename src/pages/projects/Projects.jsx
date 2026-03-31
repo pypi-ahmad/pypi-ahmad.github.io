@@ -28,23 +28,59 @@ import {
 } from "../../themeMotion";
 
 const ProjectsButton = styled.a`
-  background: ${props => buildThemeBackground(props.theme.buttonColor, props.theme.buttonPattern)};
-  color: ${props => props.theme.buttonText};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.5rem;
+  min-height: 50px;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  background: ${props => props.theme.accentGradient};
+  color: ${props => props.theme.accentText};
   border: ${props => `${props.theme.panelBorderWidth} ${props.theme.panelBorderStyle} ${props.theme.borderColor}`};
   border-radius: ${props => props.theme.controlRadius};
   box-shadow: ${props => buildThemeShadow(`0 18px 44px ${props.theme.shadowColor}`, props.theme.buttonGlow)};
   font-family: ${props => props.theme.accentFontFamily};
   letter-spacing: ${props => props.theme.accentLetterSpacing};
-  transition: transform 0.2s ease, background-color var(--theme-transition-medium), color var(--theme-transition-fast), border-color var(--theme-transition-fast), box-shadow var(--theme-transition-slow);
+  filter: brightness(1);
+  transition:
+    transform 200ms ease-in-out,
+    filter 200ms ease-in-out,
+    background-color 200ms ease-in-out,
+    color 200ms ease-in-out,
+    border-color 200ms ease-in-out,
+    box-shadow 200ms ease-in-out;
   &:hover {
-    color: ${props => props.theme.buttonText};
+    color: ${props => props.theme.accentText};
+    filter: brightness(1.04);
     transform: translateY(-2px);
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    white-space: normal;
   }
 `;
 
 function Projects(props) {
   const theme = props.theme;
   const [activeSystem, setActiveSystem] = useState(null);
+  const sectionShellStyle = {
+    padding: "var(--section-spacing) var(--page-gutter)",
+    background: buildThemeBackground(theme.bodyAlt, theme.surfacePattern),
+    borderTop: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+    borderBottom: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+    borderRadius: theme.surfaceRadius,
+    boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.panelGlow),
+    transition: themeElevatedSurfaceTransition,
+  };
 
   return (
     <div className="projects-main">
@@ -80,16 +116,8 @@ function Projects(props) {
 
       {/* Agentic AI Platform Section */}
       <div
-        className="systems-div-main"
-        style={{
-          padding: "2rem 5%",
-          background: buildThemeBackground(theme.bodyAlt, theme.surfacePattern),
-          borderTop: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-          borderBottom: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-          borderRadius: theme.surfaceRadius,
-          boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.panelGlow),
-          transition: themeElevatedSurfaceTransition,
-        }}
+        className="systems-div-main section-accent-glow"
+        style={sectionShellStyle}
       >
         <h2
           style={{
@@ -113,7 +141,7 @@ function Projects(props) {
             marginBottom: "1.25rem",
             fontSize: "1.1rem",
             lineHeight: "1.6",
-            maxWidth: "900px",
+            maxWidth: "56rem",
             marginLeft: "auto",
             marginRight: "auto",
           }}
@@ -123,7 +151,6 @@ function Projects(props) {
         <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.5rem" }}>
           <ProjectsButton
             theme={theme}
-            className="general-btn"
             href={platformHeader.repoUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -135,15 +162,15 @@ function Projects(props) {
 
         {/* Shared Infrastructure */}
         <div
-          className="platform-infra-card"
+          className="platform-infra-card shadow-sm hover-shadow-lg hover-translate-y-1 transition-all duration-200 layer-card"
           style={{
-            background: buildThemeBackground(theme.body, theme.surfacePattern),
+            background: buildThemeBackground(theme.cardBackgroundAlt, theme.surfacePattern),
             border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderColor}`,
-            borderRadius: theme.controlRadius,
-            padding: "1.5rem 2rem",
+            borderRadius: "12px",
+            padding: "24px 32px",
             marginBottom: "2rem",
             textAlign: "left",
-            maxWidth: "900px",
+            maxWidth: "56rem",
             marginLeft: "auto",
             marginRight: "auto",
           }}
@@ -216,7 +243,7 @@ function Projects(props) {
                 textAlign: "center",
                 marginBottom: "1.5rem",
                 fontSize: "0.95rem",
-                maxWidth: "800px",
+                maxWidth: "50rem",
                 marginLeft: "auto",
                 marginRight: "auto",
               }}
@@ -235,15 +262,7 @@ function Projects(props) {
       {/* Systems Showcase Section */}
       <div
         className="systems-div-main"
-        style={{
-          padding: "2rem 5%",
-          background: buildThemeBackground(theme.bodyAlt, theme.surfacePattern),
-          borderTop: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-          borderBottom: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-          borderRadius: theme.surfaceRadius,
-          boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.panelGlow),
-          transition: themeElevatedSurfaceTransition,
-        }}
+        style={sectionShellStyle}
       >
         <h2
           style={{
@@ -269,15 +288,7 @@ function Projects(props) {
       {projects.data.length > 0 && (
         <div
           className="systems-div-main"
-          style={{
-            padding: "2rem 5%",
-            background: buildThemeBackground(theme.bodyAlt, theme.surfacePattern),
-            borderTop: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-            borderBottom: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-            borderRadius: theme.surfaceRadius,
-            boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.panelGlow),
-            transition: themeElevatedSurfaceTransition,
-          }}
+          style={sectionShellStyle}
         >
           <h2
             style={{
@@ -295,18 +306,20 @@ function Projects(props) {
 
           <div className="repo-cards-div-main">
             {projects.data.map((repo) => {
-              return <ProjectCard key={repo.name} repo={repo} theme={theme} />;
+              return <ProjectCard key={repo.name} repo={repo} />;
             })}
           </div>
         </div>
       )}
-      <br />
-      <br />
-      <br />
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          padding: `0 var(--page-gutter) var(--section-spacing)`,
+        }}
+      >
         <ProjectsButton
           theme={theme}
-          className="general-btn"
           href={socialMediaLinks.github}
           target="_blank"
           rel="noopener noreferrer"
@@ -314,8 +327,6 @@ function Projects(props) {
           More Projects (Github)
         </ProjectsButton>
       </div>
-      <br />
-      <br />
       <Footer theme={props.theme} />
     </div>
   );

@@ -20,12 +20,10 @@ import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
 const SkillSection = ({ section, theme }) => {
   return (
     <div
-      className="skill-section"
+      className="skill-section shadow-sm hover-shadow-lg hover-translate-y-1 transition-all duration-200 layer-card"
       style={{
         background: buildThemeBackground(theme.cardBackgroundAlt, theme.surfacePattern),
         border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-        borderRadius: theme.surfaceRadius,
-        boxShadow: buildThemeShadow(`0 20px 44px ${theme.shadowColor}`, theme.panelGlow),
       }}
     >
       <h3

@@ -7,14 +7,15 @@
  * Token overview:
  *  body / text / dark       — page background, primary text, darkest shade
  *  secondaryText            — muted text for descriptions
- *  accentColor / accentBright — brand accent (buttons, highlights)
+ *  accentColor / accentBright — family identity colors retained for previews
  *  projectCard / imageDark  — card & image container backgrounds
  *  skinColor / skinColor2   — avatar SVG skin tones
  *  imageClothes / avatarMisc / avatarShoes — avatar SVG details
  *
  * Additional semantic tokens prepared for later UI refinement:
  *  bodyAlt / cardBackgroundAlt — alternate surface backgrounds
- *  accentSoft / glowColor      — softer accent fills and ambient glow
+ *  accentSolid / accentGradient — shared premium accent surfaces
+ *  accentSoft / glowColor       — softer accent fills and ambient glow
  *  borderSoft                  — low-emphasis separators
  *  buttonText                  — readable text/icon color on buttons
  *  shadowColor                 — shared elevated surface shadow tone
@@ -67,6 +68,61 @@ function mixHex(hexA, hexB, ratio) {
   )}`.toUpperCase();
 }
 
+function getRelativeLuminance(hex) {
+  const { r, g, b } = hexToRgb(hex);
+
+  const transformChannel = (channel) => {
+    const normalizedChannel = channel / 255;
+
+    return normalizedChannel <= 0.03928
+      ? normalizedChannel / 12.92
+      : ((normalizedChannel + 0.055) / 1.055) ** 2.4;
+  };
+
+  return (
+    0.2126 * transformChannel(r) +
+    0.7152 * transformChannel(g) +
+    0.0722 * transformChannel(b)
+  );
+}
+
+function getContrastRatio(foregroundHex, backgroundHex) {
+  const foregroundLuminance = getRelativeLuminance(foregroundHex);
+  const backgroundLuminance = getRelativeLuminance(backgroundHex);
+  const [lighter, darker] =
+    foregroundLuminance > backgroundLuminance
+      ? [foregroundLuminance, backgroundLuminance]
+      : [backgroundLuminance, foregroundLuminance];
+
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
+function ensureContrast(
+  foregroundHex,
+  backgroundHex,
+  { minimumRatio = 4.5, fallbackHex } = {}
+) {
+  const normalizedForeground = expandHex(foregroundHex).toUpperCase();
+
+  if (getContrastRatio(normalizedForeground, backgroundHex) >= minimumRatio) {
+    return normalizedForeground;
+  }
+
+  const readableFallback = expandHex(
+    fallbackHex ?? getReadableTextColor(backgroundHex)
+  ).toUpperCase();
+
+  for (let ratio = 0.08; ratio <= 1; ratio += 0.04) {
+    const candidate = mixHex(normalizedForeground, readableFallback, ratio);
+
+    if (getContrastRatio(candidate, backgroundHex) >= minimumRatio) {
+      return candidate;
+    }
+  }
+
+  return readableFallback;
+}
+
 function getReadableTextColor(backgroundHex) {
   const { r, g, b } = hexToRgb(backgroundHex);
   const brightness = (r * 299 + g * 587 + b * 114) / 1000;
@@ -76,6 +132,10 @@ function getReadableTextColor(backgroundHex) {
 
 function createThemeTokens(family, mode, tokens) {
   const isLightMode = mode === "light";
+  const secondaryText = ensureContrast(tokens.secondaryText, tokens.body, {
+    minimumRatio: 4.5,
+    fallbackHex: tokens.text,
+  });
   const bodyAlt =
     tokens.bodyAlt ??
     mixHex(tokens.body, tokens.projectCard, isLightMode ? 0.42 : 0.58);
@@ -85,19 +145,28 @@ function createThemeTokens(family, mode, tokens) {
   const borderSoft =
     tokens.borderSoft ??
     withAlpha(tokens.borderColor, isLightMode ? 0.55 : 0.78);
+  const accentStart = tokens.accentStart ?? "#DC143C";
+  const accentEnd = tokens.accentEnd ?? "#FF69B4";
+  const accentSolid =
+    tokens.accentSolid ?? mixHex(accentStart, accentEnd, 0.45);
+  const accentGradient =
+    tokens.accentGradient ??
+    `linear-gradient(135deg, ${accentStart} 0%, ${accentEnd} 100%)`;
+  const accentText =
+    tokens.accentText ?? getReadableTextColor(accentSolid);
   const accentSoft =
     tokens.accentSoft ??
-    withAlpha(tokens.accentColor, isLightMode ? 0.14 : 0.22);
+    withAlpha(accentSolid, isLightMode ? 0.14 : 0.22);
   const shadowColor =
     tokens.shadowColor ??
     (isLightMode ? withAlpha(tokens.text, 0.1) : "rgba(0, 0, 0, 0.34)");
   const glowColor =
     tokens.glowColor ??
-    withAlpha(tokens.accentBright, isLightMode ? 0.24 : 0.34);
+    withAlpha(accentSolid, isLightMode ? 0.24 : 0.34);
   const heroGradient =
     tokens.heroGradient ??
     `linear-gradient(135deg, ${tokens.body} 0%, ${bodyAlt} 58%, ${withAlpha(
-      tokens.accentBright,
+      accentSolid,
       isLightMode ? 0.12 : 0.18
     )} 100%)`;
 
@@ -107,9 +176,14 @@ function createThemeTokens(family, mode, tokens) {
     body: tokens.body,
     text: tokens.text,
     dark: tokens.dark ?? "#000000",
-    secondaryText: tokens.secondaryText,
+    secondaryText,
     accentColor: tokens.accentColor,
     accentBright: tokens.accentBright,
+    accentStart,
+    accentEnd,
+    accentSolid,
+    accentGradient,
+    accentText,
     projectCard: tokens.projectCard,
     skinColor: tokens.skinColor ?? "#F7B799",
     skinColor2: tokens.skinColor2 ?? "#FCB696",

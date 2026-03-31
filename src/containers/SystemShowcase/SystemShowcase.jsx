@@ -13,11 +13,13 @@ import SystemCard from "../../components/SystemDesign/SystemCard";
 import { systems } from "../../portfolio";
 
 const Container = styled.div`
-  padding: 2rem 1rem;
+  width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
+  margin: 0 auto;
+  padding: var(--section-spacing) 0;
   text-align: center;
 
   @media (max-width: 480px) {
-    padding: 1.5rem 0.75rem;
+    padding: var(--section-spacing-tight) 0;
   }
 `;
 

@@ -44,6 +44,9 @@
   height: 45px;
   margin: 0;
   padding: 0 38px 0 14px;
+  color: var(--text);
+  background-color: var(--card);
+  border-color: var(--border);
   border-width: 1px;
   border-style: solid;
   border-radius: 999px;
@@ -60,14 +63,17 @@
   transition: transform 0.2s ease, color var(--theme-transition-fast), box-shadow var(--theme-transition-medium), border-color var(--theme-transition-fast), background-color var(--theme-transition-medium);
 }
 
-.theme-family-select:hover,
-.change-theme-btn:hover {
+.theme-family-select:hover {
   transform: translateY(-1px);
+}
+
+.change-theme-btn:hover {
+  transform: translateY(-1px) scale(1.05);
 }
 
 .theme-family-select:focus-visible,
 .change-theme-btn:focus-visible {
-  outline: 2px solid currentColor;
+  outline: 2px solid var(--accent-solid);
   outline-offset: 2px;
 }
 
