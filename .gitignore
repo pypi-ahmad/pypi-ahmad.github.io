@@ -21,3 +21,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 package - Copy.json
+
+# local editor and automation artifacts
+.vscode/
+.playwright-mcp/
