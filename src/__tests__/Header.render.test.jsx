@@ -8,18 +8,26 @@
  */
 import React from "react";
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, it, expect } from "vitest";
 import Header from "../components/header/Header";
 import { renderWithProviders } from "../test/testUtils";
 
+async function openMenu() {
+  const user = userEvent.setup();
+  await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
+}
+
 describe("Header — UI Rendering", () => {
-  it("renders the logo text 'ahmad.m()'", () => {
+  it("renders the logo text 'ahmad.m()' inside the dropdown menu", async () => {
     renderWithProviders(<Header />);
+    await openMenu();
     expect(screen.getByText("ahmad.m()")).toBeInTheDocument();
   });
 
-  it("renders all 6 navigation links", () => {
+  it("renders all 6 main navigation links inside the dropdown menu", async () => {
     renderWithProviders(<Header />);
+    await openMenu();
     const navLabels = [
       "Home",
       "Education and Certifications",
@@ -33,8 +41,9 @@ describe("Header — UI Rendering", () => {
     });
   });
 
-  it("renders navigation links with correct href paths", () => {
+  it("renders navigation links with correct href paths", async () => {
     renderWithProviders(<Header />);
+    await openMenu();
     expect(screen.getByText("Home").closest("a")).toHaveAttribute("href", "/home");
     expect(screen.getByText("Education and Certifications").closest("a")).toHaveAttribute("href", "/education");
     expect(screen.getByText("Experience").closest("a")).toHaveAttribute("href", "/experience");
@@ -43,20 +52,23 @@ describe("Header — UI Rendering", () => {
     expect(screen.getByText("Contact Me").closest("a")).toHaveAttribute("href", "/contact");
   });
 
-  it("renders the theme toggle button with aria-label", () => {
+  it("renders the theme toggle button with aria-label", async () => {
     renderWithProviders(<Header />);
+    await openMenu();
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     expect(toggleBtn).toBeInTheDocument();
   });
 
-  it("renders the Theme nav link pointing to /theme", () => {
+  it("renders the Theme nav link pointing to /theme", async () => {
     renderWithProviders(<Header />);
+    await openMenu();
     const themeLink = screen.getByText("Theme").closest("a");
     expect(themeLink).toHaveAttribute("href", "/theme");
   });
 
-  it("renders all 7 navigation links including Theme", () => {
+  it("renders all 7 navigation links including Theme", async () => {
     renderWithProviders(<Header />);
+    await openMenu();
     const navLabels = [
       "Home",
       "Education and Certifications",
@@ -71,27 +83,30 @@ describe("Header — UI Rendering", () => {
     });
   });
 
-  it("renders the hamburger menu checkbox input", () => {
+  it("renders the hamburger menu button", () => {
     renderWithProviders(<Header />);
-    const menuCheckbox = document.getElementById("menu-btn");
-    expect(menuCheckbox).toBeInTheDocument();
-    expect(menuCheckbox.type).toBe("checkbox");
+    const menuButton = screen.getByRole("button", { name: "Toggle navigation menu" });
+    expect(menuButton).toBeInTheDocument();
+    expect(menuButton).toHaveAttribute("aria-controls", "site-menu");
   });
 
-  it("renders the logo as a link to /home when isSplash is false", () => {
+  it("renders the logo as a link to /home when isSplash is false", async () => {
     renderWithProviders(<Header />);
+    await openMenu();
     const logoLink = screen.getByText("ahmad.m()").closest("a");
     expect(logoLink).toHaveAttribute("href", "/home");
   });
 
-  it("applies dark theme background color on toggle button in dark mode", () => {
+  it("applies dark theme background color on toggle button in dark mode", async () => {
     renderWithProviders(<Header />);
+    await openMenu();
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     expect(toggleBtn).toHaveStyle({ backgroundColor: "#292C3F" });
   });
 
-  it("applies light theme background color on toggle button in light mode", () => {
+  it("applies light theme background color on toggle button in light mode", async () => {
     renderWithProviders(<Header />, { theme: "light" });
+    await openMenu();
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     expect(toggleBtn).toHaveStyle({ backgroundColor: "#7CD1F7" });
   });

@@ -1,11 +1,11 @@
 export const themeTextTransition =
-  "color var(--theme-transition-fast), fill var(--theme-transition-fast), stroke var(--theme-transition-fast)";
+  "color var(--theme-transition-colors), fill var(--theme-transition-colors), stroke var(--theme-transition-colors)";
 
 export const themeSurfaceTransition =
-  "background-color var(--theme-transition-medium), color var(--theme-transition-fast), border-color var(--theme-transition-fast), box-shadow var(--theme-transition-medium)";
+  "background-color var(--theme-transition-colors), color var(--theme-transition-colors), border-color var(--theme-transition-colors), box-shadow var(--theme-transition-medium), transform var(--theme-transition-fast), filter var(--theme-transition-fast)";
 
 export const themeElevatedSurfaceTransition =
-  "background-color var(--theme-transition-medium), color var(--theme-transition-fast), border-color var(--theme-transition-fast), box-shadow var(--theme-transition-slow)";
+  "background-color var(--theme-transition-colors), color var(--theme-transition-colors), border-color var(--theme-transition-colors), box-shadow var(--theme-transition-slow), transform var(--theme-transition-fast), filter var(--theme-transition-fast)";
 
 export function buildThemeBackground(surface, pattern = "none") {
   if (!pattern || pattern === "none") {

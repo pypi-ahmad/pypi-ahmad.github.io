@@ -1,8 +1,10 @@
 import React, {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import { ThemeProvider } from "styled-components";
@@ -68,6 +70,19 @@ export function ThemeControllerProvider({ children, initialThemeSelection }) {
   );
 
   const resolvedTheme = resolveTheme(themeSelection);
+  const fadeTimer = useRef(null);
+
+  const fadeAndApply = useCallback((updater) => {
+    const root = typeof document !== "undefined" ? document.getElementById("root") : null;
+    if (root) {
+      clearTimeout(fadeTimer.current);
+      root.classList.add("theme-fading");
+      fadeTimer.current = setTimeout(() => {
+        root.classList.remove("theme-fading");
+      }, 300);
+    }
+    setThemeSelection(updater);
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -82,7 +97,7 @@ export function ThemeControllerProvider({ children, initialThemeSelection }) {
 
   const value = useMemo(() => {
     function setThemeFamily(family) {
-      setThemeSelection((currentSelection) =>
+      fadeAndApply((currentSelection) =>
         normalizeThemeSelection({
           family,
           mode: currentSelection.mode,
@@ -91,7 +106,7 @@ export function ThemeControllerProvider({ children, initialThemeSelection }) {
     }
 
     function setMode(mode) {
-      setThemeSelection((currentSelection) =>
+      fadeAndApply((currentSelection) =>
         normalizeThemeSelection({
           family: currentSelection.family,
           mode,
@@ -100,7 +115,7 @@ export function ThemeControllerProvider({ children, initialThemeSelection }) {
     }
 
     function toggleMode() {
-      setThemeSelection((currentSelection) =>
+      fadeAndApply((currentSelection) =>
         normalizeThemeSelection({
           family: currentSelection.family,
           mode: currentSelection.mode === "light" ? "dark" : "light",
@@ -117,7 +132,7 @@ export function ThemeControllerProvider({ children, initialThemeSelection }) {
       setMode,
       toggleMode,
     };
-  }, [resolvedTheme, themeSelection]);
+  }, [fadeAndApply, resolvedTheme, themeSelection]);
 
   return (
     <ThemeControllerContext.Provider value={value}>

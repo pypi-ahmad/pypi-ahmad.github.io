@@ -26,7 +26,7 @@ function ProductTile({ system, theme }) {
       >
         <button
           type="button"
-          className={`product-tile ${isLight ? "product-tile--light" : ""}`}
+          className="product-tile shadow-sm hover-shadow-lg layer-card"
           onClick={() => setIsModalOpen(true)}
           aria-label={`View ${system.name} deep dive`}
         >
@@ -42,7 +42,7 @@ function ProductTile({ system, theme }) {
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
-            className="system-modal-overlay"
+            className="system-modal-overlay layer-overlay transition-all"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -53,8 +53,8 @@ function ProductTile({ system, theme }) {
             style={{
               position: "fixed",
               top: 0, left: 0, right: 0, bottom: 0,
-              background: "rgba(0,0,0,0.8)",
-              zIndex: 1000,
+              background: "var(--surface-overlay)",
+              zIndex: "var(--layer-overlay)",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -63,21 +63,23 @@ function ProductTile({ system, theme }) {
             }}
           >
             <motion.div
-              className={`system-modal-content ${isLight ? "light-mode" : ""}`}
+              className={`system-modal-content shadow-sm transition-all duration-200 layer-card ${isLight ? "light-mode" : ""}`}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
               style={{
-                background: isLight ? "#fff" : "#1e1e1e",
+                background: "var(--surface-card)",
                 padding: "2rem",
                 borderRadius: "12px",
+                border: "1px solid var(--border)",
                 maxWidth: "800px",
                 width: "100%",
                 maxHeight: "90vh",
                 overflowY: "auto",
                 position: "relative",
-                color: isLight ? "#333" : "#fff",
+                color: theme.text,
+                boxShadow: "var(--shadow-lg)",
               }}
             >
               <button
@@ -93,7 +95,7 @@ function ProductTile({ system, theme }) {
               </button>
 
               <h2 style={{ marginTop: 0 }}>{system.name}</h2>
-              <p style={{ fontStyle: "italic", color: isLight ? "#555" : "#aaa", marginBottom: "0.5rem" }}>
+              <p style={{ fontStyle: "italic", color: theme.secondaryText, marginBottom: "0.5rem" }}>
                 {system.tagline}
               </p>
 

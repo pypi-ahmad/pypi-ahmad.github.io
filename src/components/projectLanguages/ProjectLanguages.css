@@ -31,20 +31,20 @@
 
 .software-skill-inline-languages a:hover {
   transform: translateY(-2px);
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--focus-shadow);
 }
 
 #tooltip-top > .tooltip-inner {
-  background-color: #fff;
-  color: #000;
-  border: 1px solid #062e56;
+  background-color: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: 5px;
   padding: 2.5px;
   margin-bottom: 2px;
 }
 
 #tooltip-top > .tooltip-arrow {
-  border-top: 5px solid #062e56;
+  border-top: 5px solid var(--border);
 }
 
 @media (max-width: 768px) {

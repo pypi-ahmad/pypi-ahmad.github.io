@@ -18,19 +18,18 @@
 /* src/components/SystemDesign/systems.css */
 
 .system-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
+  background: var(--card);
+  border-radius: 12px;
   padding: 24px;
   margin: 30px 0;
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 255, 170, 0.15);
-  transition: 0.3s ease;
-  color: #fff;
+  border: 1px solid var(--border);
+  color: var(--text);
 }
 
-.system-card:hover {
-  transform: translateY(-6px);
-  border: 1px solid rgba(0, 255, 170, 0.4);
+.system-card:hover,
+.system-card:focus-within {
+  border-color: var(--accent-solid);
 }
 
 .system-header {
@@ -38,14 +37,14 @@
 }
 
 .system-header h2 {
-  color: #00ffaa;
+  color: var(--accent-solid);
   margin-bottom: 5px;
   margin-top: 0;
   font-size: 1.8rem;
 }
 
 .system-tagline {
-  color: #aaa;
+  color: var(--text-secondary);
   font-size: 14px;
   margin-bottom: 8px;
   font-style: italic;
@@ -53,19 +52,19 @@
 
 .system-category {
   font-size: 12px;
-  background: rgba(26, 26, 46, 0.8);
+  background: var(--accent);
   padding: 4px 10px;
   border-radius: 8px;
   display: inline-block;
-  color: #00ffaa;
-  border: 1px solid rgba(0, 255, 170, 0.2);
+  color: var(--accent-text);
+  border: 1px solid transparent;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .system-description {
   margin: 15px 0;
-  color: #ddd;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -89,11 +88,11 @@
 
 /* DIAGRAM */
 .diagram-wrapper {
-  background: rgba(22, 33, 62, 0.5);
+  background: var(--card);
   border-radius: 12px;
   padding: 20px;
   margin: 20px 0;
-  border: 1px solid rgba(54, 188, 247, 0.1);
+  border: 1px solid var(--border);
 }
 
 .diagram-container {
@@ -110,20 +109,20 @@
 }
 
 .diagram-box {
-  background: #16213e;
+  background: var(--card);
   padding: 10px 14px;
   border-radius: 8px;
   font-size: 0.85rem;
-  color: #fff;
-  border: 1px solid rgba(54, 188, 247, 0.3);
+  color: var(--text);
+  border: 1px solid var(--border);
   font-family: monospace;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-sm);
   font-weight: bold;
 }
 
 .diagram-arrow {
   margin: 0 8px;
-  color: #00ffaa;
+  color: var(--accent-solid);
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -135,9 +134,9 @@
 
 .system-impact h4 {
   margin-bottom: 12px;
-  color: #36bcf7;
+  color: var(--accent-solid);
   font-size: 1.1rem;
-  border-bottom: 1px solid rgba(54, 188, 247, 0.2);
+  border-bottom: 1px solid var(--border);
   padding-bottom: 5px;
   display: inline-block;
 }
@@ -152,66 +151,18 @@
 
 .system-impact li {
   margin-bottom: 6px;
-  color: #ddd;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   display: flex;
   align-items: center;
 }
 
-/* Light Mode Overrides */
-.light-mode .system-card {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #333;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-}
-
-.light-mode .system-header h2 {
-  color: #0055aa;
-}
-
-.light-mode .system-tagline {
-  color: #666;
-}
-
-.light-mode .system-category {
-  background: rgba(0, 85, 170, 0.1);
-  color: #0055aa;
-  border-color: rgba(0, 85, 170, 0.2);
-}
-
-.light-mode .system-description {
-  color: #444;
-}
-
-.light-mode .diagram-wrapper {
-  background: rgba(240, 245, 255, 0.5);
-  border-color: rgba(0, 0, 0, 0.05);
-}
-
-.light-mode .diagram-box {
-  background: #fff;
-  color: #333;
-  border-color: rgba(0, 85, 170, 0.2);
-}
-
-.light-mode .diagram-arrow {
-  color: #0055aa;
-}
-
-.light-mode .system-impact h4 {
-  color: #0055aa;
-  border-color: rgba(0, 85, 170, 0.2);
-}
-
-.light-mode .system-impact li {
-  color: #444;
-}
+/* Light Mode Overrides — no longer needed; colors come from CSS variables */
 /* EXPAND BUTTON */
 .expand-btn {
   margin-top: 15px;
   cursor: pointer;
-  color: #00ffaa;
+  color: var(--accent-solid);
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -219,7 +170,7 @@
   text-align: center;
   padding: 10px;
   min-height: 48px;
-  border-top: 1px solid rgba(0, 255, 170, 0.1);
+  border-top: 1px solid var(--border);
   transition: 0.2s;
   user-select: none;
   background: transparent;
@@ -232,7 +183,7 @@
 }
 
 .expand-btn:hover {
-  background: rgba(0, 255, 170, 0.05);
+  background: var(--focus-shadow);
   letter-spacing: 0.5px;
 }
 
@@ -241,15 +192,15 @@
   overflow: hidden;
   margin-top: 12px;
   padding: 4px 16px 8px;
-  background: rgba(0, 255, 170, 0.02);
+  background: var(--focus-shadow);
   border-radius: 10px;
-  border: 1px dashed rgba(0, 255, 170, 0.15);
+  border: 1px dashed var(--border);
 }
 
 .deep-dive h4 {
   margin-top: 16px;
   margin-bottom: 10px;
-  color: #36bcf7;
+  color: var(--accent-solid);
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -262,14 +213,14 @@
 
 .deep-dive li {
   margin-bottom: 8px;
-  color: #eee;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   padding-left: 10px;
-  border-left: 2px solid rgba(54, 188, 247, 0.3);
+  border-left: 2px solid var(--border);
 }
 
 .deep-dive strong {
-  color: #00ffaa;
+  color: var(--accent-solid);
 }
 
 /* HOVER INTELLIGENCE */
@@ -280,35 +231,13 @@
 .system-card:hover .diagram-box:hover {
   opacity: 1;
   transform: scale(1.1);
-  background: #1f4068;
-  border-color: #00ffaa;
+  background: var(--card);
+  border-color: var(--accent-solid);
   z-index: 10;
   cursor: default;
 }
 
-/* Light Mode Overrides for Deep Dive */
-.light-mode .expand-btn {
-  color: #0055aa;
-  border-color: rgba(0, 85, 170, 0.1);
-}
-
-.light-mode .expand-btn:hover {
-  background: rgba(0, 85, 170, 0.05);
-}
-
-.light-mode .deep-dive {
-  background: rgba(0, 85, 170, 0.02);
-  border-color: rgba(0, 85, 170, 0.15);
-}
-
-.light-mode .deep-dive h4 {
-  color: #0055aa;
-}
-
-.light-mode .deep-dive li {
-  color: #444;
-  border-color: rgba(0, 85, 170, 0.3);
-}
+/* Light Mode Deep Dive — no longer needed; colors come from CSS variables */
 
 /* ── Responsive: Tablet ─────────────────────────────────────────────── */
 
@@ -334,10 +263,6 @@
     padding: 16px;
     margin: 15px 0;
     border-radius: 12px;
-  }
-
-  .system-card:hover {
-    transform: none;
   }
 
   .system-header h2 {
@@ -448,13 +373,6 @@
   }
 }
 
-.light-mode .deep-dive strong {
-  color: #0055aa;
-}
+/* Light Mode Strong — no longer needed */
 
-/* Light Mode Hover Intelligence */
-.light-mode.system-card:hover .diagram-box:hover {
-  background: #fff;
-  border-color: #0055aa;
-  color: #0055aa;
-}
+/* Light Mode Hover Intelligence — no longer needed */

@@ -9,11 +9,13 @@
 /* ── Typography Utilities ───────────────────────────────────────────── */
 
 .heading {
-  color: black;
+  color: var(--text-primary, #111827);
 }
 
 .subTitle {
-  color: #868e96;
+  color: var(--text-secondary, #5f6b7a);
+  line-height: 1.7;
+  text-wrap: pretty;
 }
 
 /* ── Entrance Animations ────────────────────────────────────────────── */

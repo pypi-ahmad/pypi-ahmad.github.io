@@ -12,11 +12,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const CertCardDiv = styled.div`
-  box-shadow: 0px 2px 5px ${props => props.certificate.colorCode};
   border: 1px solid ${props => props.certificate.colorCode};
-  &:hover {
-    box-shadow: 0 5px 15px ${props => props.certificate.colorCode};
-  }
 `;
 
 function CertificationCard(props) {
@@ -30,7 +26,10 @@ function CertificationCard(props) {
       transition={{ duration: 1 }}
       viewport={{ once: true }}
     >
-      <CertCardDiv className="cert-card" certificate={certificate}>
+      <CertCardDiv
+        className="cert-card shadow-sm hover-shadow-lg hover-translate-y-1 transition-all duration-200 layer-card"
+        certificate={certificate}
+      >
         <div className="content">
           <a
             href={certificate.certificateLink}

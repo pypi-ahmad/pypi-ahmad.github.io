@@ -6,8 +6,8 @@
 }
 
 .basic-contact {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-heading-div {
@@ -20,7 +20,7 @@
 
 .address-heading-div {
   display: flex;
-  margin-top: 80px;
+  margin-top: var(--section-spacing);
 }
 
 .blog-heading-div > * {
@@ -41,7 +41,7 @@
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
-  margin-top: 60px;
+  margin-top: 0;
 }
 
 .contact-cta-text {
@@ -76,7 +76,7 @@
 }
 
 .profile-pic {
-  box-shadow: 0 5px 15px #353535;
+  box-shadow: 0 5px 15px var(--border);
   border-radius: 4px;
 }
 
@@ -113,7 +113,7 @@
   font-family: "Google Sans Medium";
   line-height: 1.1;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 0;
 }
 
 .blog-heading-text {
@@ -122,7 +122,7 @@
   font-family: "Google Sans Medium";
   line-height: 1.1;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 .address-heading-text {
@@ -135,18 +135,18 @@
 .contact-header-detail-text {
   font-size: 20px;
   line-height: 30px;
-  margin-top: 0px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
   font-family: "Google Sans Medium";
 }
 
 .blog-header-detail-text {
   font-size: 20px;
   line-height: 30px;
-  margin-top: 0px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
   font-family: "Google Sans Medium";
 }
 
@@ -172,32 +172,40 @@
 .general-btn {
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
-  padding: 15px 15px;
+  padding: 15px 24px;
   margin-top: 25px;
   border-radius: 4px;
   border-width: 0px;
-  width: 200px;
+  min-width: 200px;
+  width: auto;
   height: 50px;
   font-weight: bold;
   font-family: "Google Sans Regular";
   font-size: 17px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.general-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  filter: brightness(1.08);
 }
 
 @media (max-width: 1380px) {
   .contact-heading-text {
     font-size: 50px;
-    margin-top: 60px;
+    margin-top: 0;
   }
 
   .blog-heading-text {
     font-size: 50px;
-    margin-top: 40px;
+    margin-top: 0;
   }
 }
 
@@ -223,20 +231,20 @@
 
   .blog-heading-div {
     flex-direction: column-reverse;
-    margin-top: 60px;
+    margin-top: var(--section-spacing);
   }
 
   .address-heading-div {
     flex-direction: column;
-    margin-top: 60px;
+    margin-top: var(--section-spacing);
   }
 
   .blog-heading-text-div {
-    margin-top: 40px;
+    margin-top: 0;
   }
 
   .address-heading-text-div {
-    margin-top: 40px;
+    margin-top: 0;
   }
 
   .contact-heading-div {
@@ -244,7 +252,7 @@
   }
 
   .contact-resume-div {
-    margin-top: 20px;
+    margin-top: var(--section-gap-tight);
     padding: 20px 15px;
   }
 

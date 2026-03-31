@@ -31,7 +31,7 @@
   font-family: "Google Sans Bold Italic";
   font-display: swap;
   src: local("Google Sans Bold Italic"),
-    url("./assests/fonts/GoogleSans-BoldItalic.ttf") format("woff");
+    url("./assests/fonts/GoogleSans-BoldItalic.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Italic";
@@ -112,14 +112,14 @@ video {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #292a2d;
+  background: var(--card, #292a2d);
 }
 ::-webkit-scrollbar-thumb {
-  background: #636363;
+  background: var(--border, #636363);
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--text-secondary, #555);
 }
 
 /* ── Rainbow Cursor Keyframes ───────────────────────────────────────── */

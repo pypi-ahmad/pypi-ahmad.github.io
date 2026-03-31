@@ -29,7 +29,7 @@ function SystemCard({ system, theme }) {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className={`system-card ${isLight ? "light-mode" : ""}`}>
+          <div className={`system-card shadow-sm hover-shadow-lg hover-translate-y-1 transition-all duration-200 layer-card ${isLight ? "light-mode" : ""}`}>
 
           {/* HEADER */}
           <div className="system-header">
@@ -44,8 +44,8 @@ function SystemCard({ system, theme }) {
                     letterSpacing: "0.08em",
                     padding: "4px 10px",
                     borderRadius: "4px",
-                    background: isLight ? "#2a9d8f" : "#64ffda",
-                    color: isLight ? "#fff" : "#0a192f",
+                    background: theme.accentGradient,
+                    color: theme.accentText,
                   }}>Featured</span>
                 )}
               </div>
@@ -65,7 +65,7 @@ function SystemCard({ system, theme }) {
                 marginRight: "10px", 
                 fontSize: "0.85rem", 
                 fontWeight: "bold", 
-                color: isLight ? "#2a9d8f" : "#64ffda" 
+                color: theme.accentSolid
               }}>
                 ⚡ {item}
               </span>
@@ -76,7 +76,7 @@ function SystemCard({ system, theme }) {
           <div className="system-tech">
             {system.tech.map((tech, i) => (
               <span key={i} className="tech-badge" style={{
-                background: isLight ? "#eee" : "#333",
+                background: theme.cardBackgroundAlt,
                 padding: "4px 10px",
                 borderRadius: "4px",
                 fontSize: "0.8rem",
@@ -107,7 +107,7 @@ function SystemCard({ system, theme }) {
       <AnimatePresence>
         {isModalOpen && (
           <motion.div 
-            className="system-modal-overlay"
+            className="system-modal-overlay layer-overlay transition-all"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -121,8 +121,8 @@ function SystemCard({ system, theme }) {
               left: 0,
               right: 0,
               bottom: 0,
-              background: "rgba(0,0,0,0.8)",
-              zIndex: 1000,
+              background: "var(--surface-overlay)",
+              zIndex: "var(--layer-overlay)",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -131,21 +131,23 @@ function SystemCard({ system, theme }) {
             }}
           >
             <motion.div 
-              className={`system-modal-content ${isLight ? "light-mode" : ""}`}
+              className={`system-modal-content shadow-sm transition-all duration-200 layer-card ${isLight ? "light-mode" : ""}`}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
               style={{
-                background: isLight ? "#fff" : "#1e1e1e",
+                background: "var(--surface-card)",
                 padding: "2rem",
-                borderRadius: "10px",
+                borderRadius: "12px",
+                border: "1px solid var(--border)",
                 maxWidth: "800px",
                 width: "100%",
                 maxHeight: "90vh",
                 overflowY: "auto",
                 position: "relative",
-                color: isLight ? "#333" : "#fff"
+                color: theme.text,
+                boxShadow: "var(--shadow-lg)"
               }}
             >
               <button 
@@ -166,7 +168,7 @@ function SystemCard({ system, theme }) {
               </button>
 
               <h2 style={{ marginTop: 0 }}>{system.name}</h2>
-              <p style={{ fontStyle: "italic", color: isLight ? "#555" : "#aaa", marginBottom: "0.5rem" }}>{system.tagline}</p>
+              <p style={{ fontStyle: "italic", color: theme.secondaryText, marginBottom: "0.5rem" }}>{system.tagline}</p>
               
               <div style={{ marginTop: "24px" }}>
                 <h3>Problem Statement</h3>

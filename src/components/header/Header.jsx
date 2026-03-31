@@ -9,10 +9,10 @@
  *
  * Theme state comes from the global theme controller.
  */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { motion } from "framer-motion";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { greeting, settings } from "../../portfolio.js";
 import { CgSun } from "react-icons/cg/";
 import { HiMoon } from "react-icons/hi";
@@ -36,28 +36,48 @@ const navigationLinkStyle = (theme) => ({ isActive }) => ({
 });
 
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {
     resolvedTheme,
     themeMode,
     toggleMode,
   } = useThemeController();
+  const location = useLocation();
   const theme = resolvedTheme;
 
   const link = settings.isSplash ? "/splash" : "/home";
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  const navItems = [
+    { className: "homei", to: "/home", label: "Home" },
+    {
+      className: "ec",
+      to: "/education",
+      label: "Education and Certifications",
+    },
+    { className: "xp", to: "/experience", label: "Experience" },
+    { className: "skills", to: "/skills", label: "Skills" },
+    { className: "projects", to: "/projects", label: "Projects" },
+    { className: "cr", to: "/contact", label: "Contact Me" },
+    { className: "themei", to: "/theme", label: "Theme" },
+  ];
+
+  const toggleMenu = () => {
+    setIsMenuOpen((currentOpen) => !currentOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   const icon =
     themeMode === "dark" ? (
-      <HiMoon
-        strokeWidth={1}
-        size={20}
-        color={themeMode === "light" ? "#F9D784" : "#A7A7A7"}
-      />
+      <HiMoon strokeWidth={1} size={20} color={theme.secondaryText} />
     ) : (
-      <CgSun
-        strokeWidth={1}
-        size={20}
-        color={themeMode === "light" ? "#F9D784" : "#A7A7A7"}
-      />
+      <CgSun strokeWidth={1} size={20} color={theme.accentSolid} />
     );
 
   return (
@@ -79,106 +99,80 @@ function Header() {
             transition: themeElevatedSurfaceTransition,
           }}
         >
-          <NavLink to={link} as={Link} className="logo">
-            <span style={{ color: theme.text }}></span>
-            <span
-              className="logo-name"
-              style={{
-                color: theme.text,
-                fontFamily: theme.accentFontFamily,
-                letterSpacing: theme.accentLetterSpacing,
-              }}
-            >
-              {greeting.logoName}
-            </span>
-            <span style={{ color: theme.text }}></span>
-          </NavLink>
-          <input className="menu-btn" type="checkbox" id="menu-btn" />
-          <label className="menu-icon" htmlFor="menu-btn" aria-label="Toggle navigation menu">
+          <button
+            className={`menu-icon${isMenuOpen ? " is-open" : ""}`}
+            type="button"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="site-menu"
+            onClick={toggleMenu}
+            style={{
+              background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
+              color: theme.text,
+              borderColor: theme.borderColor,
+              borderWidth: theme.panelBorderWidth,
+              borderStyle: theme.panelBorderStyle,
+              borderRadius: theme.controlRadius,
+              boxShadow: buildThemeShadow(`0 12px 28px ${theme.shadowColor}`, theme.buttonGlow),
+              transition: themeSurfaceTransition,
+            }}
+          >
             <span className="navicon"></span>
-          </label>
-          <ul className="menu">
-            <li>
+          </button>
+          <ul
+            id="site-menu"
+            className={`menu${isMenuOpen ? " menu--open" : ""}`}
+            hidden={!isMenuOpen}
+            style={{
+              background: buildThemeBackground(theme.cardBackgroundAlt, theme.surfacePattern),
+              borderColor: theme.borderSoft,
+              borderWidth: theme.panelBorderWidth,
+              borderStyle: theme.panelBorderStyle,
+              borderRadius: theme.surfaceRadius,
+              boxShadow: buildThemeShadow(`0 18px 42px ${theme.shadowColor}`, theme.panelGlow),
+              transition: themeElevatedSurfaceTransition,
+            }}
+          >
+            <li className="menu-brand-item">
               <NavLink
-                className="homei"
-                to="/home"
-                as={Link}
-                style={navigationLinkStyle(theme)}
+                to={link}
+                className="menu-brand"
+                onClick={closeMenu}
+                style={{
+                  color: theme.text,
+                  fontFamily: theme.accentFontFamily,
+                  letterSpacing: theme.accentLetterSpacing,
+                  transition: themeSurfaceTransition,
+                }}
               >
-                Home
+                {greeting.logoName}
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                className="ec"
-                to="/education"
-                as={Link}
-                style={navigationLinkStyle(theme)}
-              >
-                Education and Certifications
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="xp"
-                to="/experience"
-                as={Link}
-                style={navigationLinkStyle(theme)}
-              >
-                Experience
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="skills"
-                to="/skills"
-                as={Link}
-                style={navigationLinkStyle(theme)}
-              >
-                Skills
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="projects"
-                to="/projects"
-                as={Link}
-                style={navigationLinkStyle(theme)}
-              >
-                Projects
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="cr"
-                to="/contact"
-                as={Link}
-                style={navigationLinkStyle(theme)}
-              >
-                Contact Me
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="themei"
-                to="/theme"
-                as={Link}
-                style={navigationLinkStyle(theme)}
-              >
-                Theme
-              </NavLink>
-            </li>
-            <li style={{ listStyle: "none" }}>
+            {navItems.map((item) => (
+              <li key={item.to}>
+                <NavLink
+                  className={item.className}
+                  to={item.to}
+                  style={navigationLinkStyle(theme)}
+                  onClick={closeMenu}
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+            <li className="menu-theme-toggle-item">
               <button
                 className="change-theme-btn"
-                onClick={toggleMode}
+                onClick={() => {
+                  toggleMode();
+                  closeMenu();
+                }}
                 type="button"
                 style={{
                   cursor: "pointer",
                   height: "45px",
                   width: "45px",
-                  marginRight: "5px",
-                  marginLeft: "10px",
+                  margin: 0,
                   paddingTop: "5px",
                   borderRadius: "50%",
                   borderColor: theme.borderColor,

@@ -11,7 +11,7 @@
 .certs-body-div {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: var(--section-gap-tight);
 }
 
 @media (max-width: 1380px) {

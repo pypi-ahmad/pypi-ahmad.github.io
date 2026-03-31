@@ -6,7 +6,7 @@
 .product-tile-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: var(--section-gap-tight);
 }
 
 /* ── Tile ────────────────────────────────────────────────────────────── */
@@ -16,32 +16,31 @@
   align-items: flex-start;
   text-align: left;
   width: 100%;
-  padding: 20px 22px;
+  padding: 24px;
   border-radius: 12px;
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
 
-  /* dark default */
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #fff;
-
-  transition: transform 0.2s ease,
-              border-color 0.2s ease,
-              box-shadow 0.2s ease,
-              background 0.2s ease;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition:
+    transform 200ms ease-in-out,
+    background-color 200ms ease-in-out,
+    border-color 200ms ease-in-out,
+    box-shadow 200ms ease-in-out,
+    filter 200ms ease-in-out;
 }
 
 .product-tile:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0, 255, 170, 0.45);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--accent-solid);
+  background: var(--focus-shadow);
+  transform: translateY(-4px) scale(1.02);
 }
 
 .product-tile:focus-visible {
-  outline: 2px solid #64ffda;
+  outline: 2px solid var(--accent-solid);
   outline-offset: 2px;
 }
 
@@ -59,7 +58,7 @@
   margin: 0;
   font-size: 1.05rem;
   font-weight: 600;
-  color: #00ffaa;
+  color: var(--accent-solid);
   line-height: 1.3;
 }
 
@@ -70,9 +69,9 @@
   padding: 2px 8px;
   border-radius: 6px;
   white-space: nowrap;
-  background: rgba(0, 255, 170, 0.1);
-  color: #00ffaa;
-  border: 1px solid rgba(0, 255, 170, 0.2);
+  background: var(--accent);
+  color: var(--accent-text);
+  border: 1px solid transparent;
 }
 
 /* ── Description ────────────────────────────────────────────────────── */
@@ -80,43 +79,13 @@
   margin: 0;
   font-size: 0.85rem;
   line-height: 1.5;
-  color: #bbb;
+  color: var(--text-secondary);
   /* 3-line clamp */
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-/* ── Light mode ─────────────────────────────────────────────────────── */
-.product-tile--light {
-  background: rgba(0, 0, 0, 0.02);
-  border-color: rgba(0, 0, 0, 0.1);
-  color: #333;
-}
-
-.product-tile--light:hover {
-  border-color: rgba(0, 85, 170, 0.45);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  background: rgba(0, 0, 0, 0.03);
-}
-
-.product-tile--light:focus-visible {
-  outline-color: #0055aa;
-}
-
-.product-tile--light .product-tile__name {
-  color: #0055aa;
-}
-
-.product-tile--light .product-tile__category {
-  background: rgba(0, 85, 170, 0.08);
-  color: #0055aa;
-  border-color: rgba(0, 85, 170, 0.2);
-}
-
-.product-tile--light .product-tile__desc {
-  color: #555;
 }
 
 /* ── Responsive ─────────────────────────────────────────────────────── */
@@ -129,11 +98,12 @@
 @media (max-width: 768px) {
   .product-tile-grid {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
   .product-tile {
     padding: 16px 18px;
+    border-radius: 12px;
   }
 
   .product-tile:hover {

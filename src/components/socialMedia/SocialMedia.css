@@ -14,6 +14,8 @@
 }
 .icon-button {
   margin-bottom: 10px;
+  display: inline-flex;
+  border-radius: 999px;
 }
 
 .icon-button i {
@@ -34,6 +36,7 @@
   margin-bottom: 10px;
   min-width: 44px;
   min-height: 44px;
+  transition: transform var(--theme-transition-fast), box-shadow var(--theme-transition-medium), color var(--theme-transition-fast);
 }
 
 .linkedin i {
@@ -79,6 +82,11 @@
 
 .instagram i:hover {
   color: rgba(255, 255, 255, 1);
+}
+
+.icon-button:hover i,
+.icon-button:focus-visible i {
+  transform: translateY(-1px) scale(1.05);
 }
 
 /* Media Query */

@@ -16,62 +16,76 @@
  */
 import React from "react";
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import Header from "../components/header/Header";
 import Greeting from "../containers/greeting/Greeting";
 import { renderWithProviders, darkTheme } from "../test/testUtils";
 
 describe("Responsiveness — Hamburger Menu Structure", () => {
-  it("renders the hamburger checkbox input for mobile toggle", () => {
+  it("renders the hamburger menu button", () => {
     renderWithProviders(<Header />);
-    const checkbox = document.getElementById("menu-btn");
-    expect(checkbox).toBeInTheDocument();
-    expect(checkbox).toHaveAttribute("type", "checkbox");
-    expect(checkbox).toHaveClass("menu-btn");
+    const menuButton = screen.getByRole("button", { name: "Toggle navigation menu" });
+    expect(menuButton).toBeInTheDocument();
+    expect(menuButton).toHaveClass("menu-icon");
   });
 
-  it("renders the hamburger label targeting the menu-btn", () => {
+  it("links the hamburger button to the dropdown menu", () => {
     renderWithProviders(<Header />);
-    const label = document.querySelector('label[for="menu-btn"]');
-    expect(label).toBeInTheDocument();
-    expect(label).toHaveClass("menu-icon");
+    const menuButton = screen.getByRole("button", { name: "Toggle navigation menu" });
+    expect(menuButton).toHaveAttribute("aria-controls", "site-menu");
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
   });
 
-  it("renders the navicon span inside the hamburger label", () => {
+  it("renders the navicon span inside the hamburger button", () => {
     renderWithProviders(<Header />);
     const navicon = document.querySelector(".navicon");
     expect(navicon).toBeInTheDocument();
     expect(navicon.tagName.toLowerCase()).toBe("span");
   });
 
-  it("hamburger checkbox is unchecked by default (menu closed)", () => {
+  it("menu is collapsed by default", () => {
     renderWithProviders(<Header />);
-    const checkbox = document.getElementById("menu-btn");
-    expect(checkbox.checked).toBe(false);
+    const menuButton = screen.getByRole("button", { name: "Toggle navigation menu" });
+    const menu = document.getElementById("site-menu");
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
+    expect(menu).toHaveAttribute("hidden");
   });
 
-  it("menu <ul> has the 'menu' class for CSS-based responsive toggle", () => {
+  it("menu opens when the hamburger button is clicked", async () => {
     renderWithProviders(<Header />);
-    const menu = document.querySelector("ul.menu");
-    expect(menu).toBeInTheDocument();
+    const user = userEvent.setup();
+    const menuButton = screen.getByRole("button", { name: "Toggle navigation menu" });
+    const menu = document.getElementById("site-menu");
+
+    await user.click(menuButton);
+
+    expect(menuButton).toHaveAttribute("aria-expanded", "true");
+    expect(menu).not.toHaveAttribute("hidden");
   });
 
-  it("all 7 nav links (including Theme) are inside the menu <ul>", () => {
+  it("all 8 links including the site label are inside the menu <ul>", async () => {
     renderWithProviders(<Header />);
+    const user = userEvent.setup();
+    await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const menu = document.querySelector("ul.menu");
     const links = menu.querySelectorAll("a");
-    expect(links.length).toBe(7);
+    expect(links.length).toBe(8);
   });
 
-  it("theme toggle button is inside the menu <ul>", () => {
+  it("theme toggle button is inside the menu <ul>", async () => {
     renderWithProviders(<Header />);
+    const user = userEvent.setup();
+    await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const menu = document.querySelector("ul.menu");
     const toggleBtn = menu.querySelector('button[aria-label="Toggle Theme"]');
     expect(toggleBtn).toBeInTheDocument();
   });
 
-  it("keeps Contact Me, Theme link, and toggle in the correct final order", () => {
+  it("keeps Contact Me, Theme link, and toggle in the correct final order", async () => {
     renderWithProviders(<Header />);
+    const user = userEvent.setup();
+    await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const menu = document.querySelector("ul.menu");
     const menuItems = Array.from(menu.children).map((item) => {
       if (item.querySelector('a[href="/contact"]')) {
@@ -112,8 +126,10 @@ describe("Responsiveness — Layout Structure Assertions", () => {
     expect(headerEl).toBeInTheDocument();
   });
 
-  it("Header logo is a clickable link", () => {
+  it("Header logo is a clickable link", async () => {
     renderWithProviders(<Header />);
+    const user = userEvent.setup();
+    await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const logo = screen.getByText("ahmad.m()");
     expect(logo.closest("a")).toBeTruthy();
   });
