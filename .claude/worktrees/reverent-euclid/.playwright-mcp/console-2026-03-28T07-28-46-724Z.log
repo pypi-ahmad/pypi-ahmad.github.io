@@ -1,6 +1,0 @@
-[  131853ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/assets/fa-brands-400-UEZeU8cs.woff2:0
-[  131963ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/assets/fa-solid-900-C19_HPqg.woff2:0
-[  132119ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/assets/fa-brands-400-CwMhTPFj.woff:0
-[  133905ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/assets/fa-solid-900-BiAi1MSV.woff:0
-[  134005ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/assets/fa-brands-400-BMj94tJl.ttf:0
-[  134170ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/assets/fa-solid-900-CWs4lwq8.ttf:0
