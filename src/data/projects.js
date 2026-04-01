@@ -15,6 +15,13 @@ export const projectsHeader = {
 export const projects = {
   data: [
     {
+      name: "GenAI Systems Lab",
+      url: "https://github.com/pypi-ahmad/genai-systems-lab",
+      description:
+        "Shared execution and evaluation platform for 20 AI systems across GenAI pipelines, LangGraph state machines, and CrewAI teams — with live streaming, BYOK model access, session memory, and benchmark leaderboards.",
+      category: "AI Platform",
+    },
+    {
       name: "pypi-ahmad.github.io",
       url: "https://github.com/pypi-ahmad/pypi-ahmad.github.io",
       description:

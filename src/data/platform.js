@@ -11,39 +11,44 @@
  */
 
 export const platformHeader = {
-  title: "Agentic AI Platform",
+  title: "GenAI Systems Lab",
   subtitle:
-    "20 production-grade AI systems built across three agent paradigms — GenAI, LangGraph, and CrewAI — sharing a unified platform layer for API delivery, UI access, evaluation, logging, and model access.",
+    "20 production-grade AI systems across three agent paradigms — GenAI pipelines, LangGraph state machines, and CrewAI teams — running on a shared execution and evaluation platform with live streaming, session memory, BYOK model access, and benchmark leaderboards.",
   repoUrl: "https://github.com/pypi-ahmad/genai-systems-lab",
+  liveUrl: "https://genai-systems-lab.vercel.app/",
 };
 
 export const platformInfrastructure = {
   description:
-    "Each project is independently runnable while sharing a common platform layer for execution, evaluation, and operational concerns. The shared layer provides an LLM wrapper built on Gemini, evaluation and benchmarking infrastructure, caching support, structured logging with request tracing, and reusable schemas.",
+    "Each project implements a standard execution contract so the shared runner can dynamically discover, load, and invoke any system uniformly. The platform layer handles JWT auth, input validation, BYOK API-key binding, SSE streaming, run persistence, session memory, confidence scoring, benchmark evaluation, explainability, and metrics — so project code stays focused on domain logic.",
   architecture: [
-    "UI (Streamlit) — operator interface for project selection, input, and result inspection",
-    "FastAPI Backend — routing, input validation, structured logging, timing, error normalization",
-    "Project Modules — standardized run(input) → dict interface for all 20 systems",
-    "Shared Platform Layer — LLM access, evaluation, caching, configuration",
+    "Next.js 16 Frontend — interactive control plane with live streaming, execution graphs, memory traces, timeline replay, and leaderboards",
+    "FastAPI Backend — auth, validation, BYOK key binding, SSE streaming, run persistence, session memory, and evaluation",
+    "Dynamic Project Runner — auto-discovers and imports project modules at runtime via standardized run() contract",
+    "Shared AI Layer — Gemini LLM access, confidence scoring, explainability, caching, and benchmark evaluation",
   ],
   tech: [
-    "Python",
+    "Next.js 16",
+    "React 19",
+    "TypeScript",
+    "Tailwind v4",
+    "Python 3.13",
     "FastAPI",
-    "Streamlit",
     "Gemini",
     "LangGraph",
     "CrewAI",
-    "DuckDB",
+    "SQLite",
     "Playwright",
-    "Docker",
     "Pydantic",
   ],
   features: [
-    "Centralized LLM wrapper with retry logic, timeout handling, and fallback behavior",
-    "Evaluation framework measuring success rate, latency, retries, and per-case results",
-    "Deterministic prompt-keyed caching for LLM responses and embeddings",
-    "Structured logging with request IDs, project context, and latency tracking",
-    "Dynamic project discovery and execution via shared runner",
+    "Dynamic project discovery and execution via shared runner contract",
+    "BYOK model access — user-supplied Gemini API key bound per request, never persisted",
+    "SSE streaming of step events and output tokens to the frontend in real time",
+    "Run history, session memory, timeline replay, and public sharing",
+    "Confidence scoring combining execution success, output structure, retries, and latency",
+    "Benchmark evaluation and leaderboard ranking across 15 registered systems",
+    "Post-run explainability constrained by saved artifacts",
   ],
 };
 
