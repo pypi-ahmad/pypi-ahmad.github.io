@@ -148,7 +148,18 @@ function Projects(props) {
         >
           {platformHeader.subtitle}
         </p>
-        <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.5rem" }}>
+        <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
+          {platformHeader.liveUrl && (
+            <ProjectsButton
+              theme={theme}
+              href={platformHeader.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: "0.95rem", padding: "0.6rem 1.5rem" }}
+            >
+              Live Demo
+            </ProjectsButton>
+          )}
           <ProjectsButton
             theme={theme}
             href={platformHeader.repoUrl}
