@@ -3,7 +3,7 @@
  *
  * Two sections:
  *  1. Resume CTA + contact channel list (ContactLinksList)
- *  2. Blog section with Medium profile link
+ *  2. Featured work CTA
  *
  * Props: { theme }
  */
@@ -18,7 +18,7 @@ import { greeting, contactPageData } from "../../portfolio.js";
 import styled from "styled-components";
 
 const ContactData = contactPageData.contactSection;
-const blogSection = contactPageData.blogSection;
+const featuredSection = contactPageData.featuredSection;
 
 const ContactButton = styled.a`
   background: ${props => props.theme.accentGradient};
@@ -100,21 +100,23 @@ function Contact(props) {
           <div className="blog-heading-div">
             <div className="blog-heading-text-div">
               <h1 className="blog-heading-text" style={{ color: theme.text }}>
-                {blogSection["title"]}
+                {featuredSection["title"]}
               </h1>
               <p
                 className="blog-header-detail-text subTitle"
                 style={{ color: theme.secondaryText }}
               >
-                {blogSection["subtitle"]}
+                {featuredSection["subtitle"]}
               </p>
               <div className="blogsite-btn-div">
                 <ContactButton
                   theme={theme}
                   className="general-btn"
-                  href={blogSection.link}
+                  href={featuredSection.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  My Medium Profile
+                  {featuredSection.ctaLabel || "Learn More"}
                 </ContactButton>
               </div>
             </div>

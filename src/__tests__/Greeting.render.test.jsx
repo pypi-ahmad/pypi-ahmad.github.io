@@ -26,20 +26,20 @@ describe("Greeting — UI Rendering", () => {
 
   it("renders the subtitle text", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByText(/production-grade AI systems/)).toBeInTheDocument();
+    expect(screen.getByText(/3\+ years building LLM, agentic, and document intelligence systems/i)).toBeInTheDocument();
   });
 
   it("renders all 4 hero bullet points", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByText(/99% extraction accuracy/)).toBeInTheDocument();
-    expect(screen.getByText(/RAG-grounded Computer-Using Agent/)).toBeInTheDocument();
-    expect(screen.getByText(/multi-agent research system/)).toBeInTheDocument();
-    expect(screen.getByText(/MCP-based UI automation/)).toBeInTheDocument();
+    expect(screen.getByText(/entity extraction to 99%/i)).toBeInTheDocument();
+    expect(screen.getByText(/task completion from 38% to ~80%/i)).toBeInTheDocument();
+    expect(screen.getByText(/prompt-token usage by ~40%/i)).toBeInTheDocument();
+    expect(screen.getByText(/prior-authorization and insurance document intelligence/i)).toBeInTheDocument();
   });
 
   it("renders the engineering philosophy quote", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByText(/LLMs are powerful but unreliable/)).toBeInTheDocument();
+    expect(screen.getByText(/LLMs are useful but never self-validating/i)).toBeInTheDocument();
   });
 
   it("renders the 'Contact Me' button", () => {

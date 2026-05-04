@@ -21,6 +21,7 @@ const buildContactItems = () => {
       href: socialMediaLinks.github,
       description: socialMediaLinks.githubDesc || "",
       iconClass: "fab fa-github",
+      openInNewTab: true,
     });
   }
 
@@ -31,6 +32,7 @@ const buildContactItems = () => {
       href: socialMediaLinks.linkedin,
       description: socialMediaLinks.linkedinDesc || "",
       iconClass: "fab fa-linkedin-in",
+      openInNewTab: true,
     });
   }
 
@@ -41,6 +43,19 @@ const buildContactItems = () => {
       href: `mailto:${socialMediaLinks.gmail}`,
       description: socialMediaLinks.gmailDesc || "",
       iconClass: "fas fa-envelope",
+      openInNewTab: false,
+    });
+  }
+
+  if (socialMediaLinks.phone && socialMediaLinks.phone !== " ") {
+    items.push({
+      key: "phone",
+      label: "Phone",
+      href: `tel:${socialMediaLinks.phone.replace(/[^+\d]/g, "")}`,
+      description: socialMediaLinks.phoneDesc || "",
+      iconClass: "fas fa-phone",
+      displayValue: socialMediaLinks.phone,
+      openInNewTab: false,
     });
   }
 
@@ -51,6 +66,7 @@ const buildContactItems = () => {
       href: socialMediaLinks.telegram,
       description: socialMediaLinks.telegramDesc || "",
       iconClass: "fab fa-telegram-plane",
+      openInNewTab: true,
     });
   }
 
@@ -61,6 +77,7 @@ const buildContactItems = () => {
       href: socialMediaLinks.discord,
       description: socialMediaLinks.discordDesc || "",
       iconClass: "fab fa-discord",
+      openInNewTab: true,
     });
   }
 
@@ -81,8 +98,8 @@ export default function ContactLinksList({ theme }) {
           <a
             className="contact-links-anchor"
             href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={item.openInNewTab ? "_blank" : undefined}
+            rel={item.openInNewTab ? "noopener noreferrer" : undefined}
             aria-label={item.label}
           >
             <span
@@ -94,7 +111,7 @@ export default function ContactLinksList({ theme }) {
             </span>
             <div className="contact-links-content">
               <span className="contact-links-label" style={{ color: theme.text }}>
-                {item.label}
+                {item.displayValue ? `${item.label} · ${item.displayValue}` : item.label}
               </span>
               {item.description && (
                 <span className="contact-links-desc" style={{ color: theme.secondaryText }}>

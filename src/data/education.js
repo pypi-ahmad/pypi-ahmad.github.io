@@ -16,7 +16,7 @@ export const degrees = {
       altName: "IIIT Kurnool",
       duration: "Oct 2020 - Jun 2022",
       descriptions: [
-        "⚡ Focus: Machine Learning, Deep Learning, NLP, Computer Vision, Statistical Modeling",
+        "⚡ Coursework: Machine Learning, Deep Learning, NLP, Computer Vision, Statistics",
       ],
       websiteLink: "http://iiitk.ac.in/",
     },
@@ -27,7 +27,7 @@ export const degrees = {
       altName: "MANUU",
       duration: "Aug 2015 - Jun 2019",
       descriptions: [
-        "⚡ Focus: Data Structures & Algorithms, Engineering Mathematics, Software Engineering",
+        "⚡ Coursework: Data Structures & Algorithms, Engineering Mathematics, Web Development",
       ],
       websiteLink: "https://manuu.edu.in/",
     },
