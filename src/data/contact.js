@@ -10,7 +10,7 @@ export const contactPageData = {
   contactSection: {
     title: "Contact Me",
     description:
-      "I am open to Generative AI engineering roles, consulting, and collaborations. Reach out by email, phone, or LinkedIn if you want to discuss LLM systems, document intelligence, or agentic automation.",
+      "I am open to Generative AI engineering roles, consulting, and collaborations. Reach out by email or LinkedIn if you want to discuss LLM systems, document intelligence, or agentic automation.",
   },
   featuredSection: {
     title: "Featured Open Source",
