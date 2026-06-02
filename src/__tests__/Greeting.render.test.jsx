@@ -31,10 +31,10 @@ describe("Greeting — UI Rendering", () => {
 
   it("renders all 4 hero bullet points", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByText(/entity extraction to 99%/i)).toBeInTheDocument();
-    expect(screen.getByText(/task completion from 38% to ~80%/i)).toBeInTheDocument();
+    expect(screen.getByText(/prior-authorization fax extraction from ~80-81% to 90%\+/i)).toBeInTheDocument();
+    expect(screen.getByText(/health-policy entity extraction from 90% to 99%/i)).toBeInTheDocument();
+    expect(screen.getByText(/task completion from 38% to 80%/i)).toBeInTheDocument();
     expect(screen.getByText(/prompt-token usage by ~40%/i)).toBeInTheDocument();
-    expect(screen.getByText(/prior-authorization and insurance document intelligence/i)).toBeInTheDocument();
   });
 
   it("renders the engineering philosophy quote", () => {

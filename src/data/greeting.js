@@ -13,17 +13,17 @@ const greeting = {
   fullName: "Ahmad Mujtaba",
   // HERO — 1-line positioning
   subTitle:
-    "I'm a Generative AI Engineer with 3+ years building LLM, agentic, and document intelligence systems for healthcare and automotive teams on Azure, AWS, and Databricks.",
+    "I'm a Generative AI Engineer with 3+ years building LLM, agentic, and document intelligence systems for healthcare workflows on Azure, AWS, and Databricks.",
   // HERO — 3 signal bullets (rendered by Greeting component)
   heroBullets: [
-    "Improved health-policy entity extraction to 99% on internal evaluations using Gemini-3-Pro with a canonical validation loop",
-    "Raised SOP-grounded Computer-Using Agent task completion from 38% to ~80% with Milvus-backed RAG planning",
-    "Reduced prompt-token usage by ~40% in browser automation by using accessibility-tree snapshots instead of raw DOM context",
-    "Delivered prior-authorization and insurance document intelligence workflows across Azure Databricks, Azure Content Understanding, and AWS-hosted agent systems",
+    "Improved scanned prior-authorization fax extraction from ~80-81% to 90%+ with a 4-pass, confidence-aware pipeline",
+    "Improved health-policy entity extraction from 90% to 99% through model migration, prompt refinement, and canonical validation",
+    "Raised Milvus-backed multi-agent task completion from 38% to 80% by strengthening retrieval and orchestration",
+    "Reduced browser-agent prompt-token usage by ~40% with Playwright MCP, accessibility-tree snapshots, and JPEG-compressed observations",
   ],
   // PHILOSOPHY — engineering mindset signal
   philosophy:
-    "LLMs are useful but never self-validating. I treat model outputs as untrusted signals, then add retrieval, schema checks, comparison loops, and human oversight until the system is reliable enough for real workflows.",
+    "LLMs are useful but never self-validating. I treat model outputs as untrusted signals, then add retrieval, schema checks, comparison loops, confidence logic, and human oversight until the system is reliable enough for real workflows.",
   resumeLink: "Resume.pdf",
   coverLetterLink: "Cover.pdf",
   mail: "mailto:ahmad.iiitk@gmail.com",
