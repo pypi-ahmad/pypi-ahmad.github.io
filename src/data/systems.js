@@ -26,132 +26,131 @@ export const systems = {
   // ── FEATURED (top 4 — hero section worthy) ──────────────
   featured: [
     {
-      id: "idp_insurance_pipeline",
-      name: "Intelligent Document Processing Pipeline",
-      tagline: "OCR + LLM extraction with canonical validation for insurance policies",
-      category: "Document AI · Enterprise",
+      id: "prior_auth_fax_pipeline",
+      name: "Prior-Authorization Fax Extraction Pipeline",
+      tagline: "4-pass confidence-aware extraction for scanned healthcare intake faxes",
+      category: "Healthcare AI · Enterprise",
       tier: "featured",
       // CARD METRICS — numeric only, recruiter scan layer
-      metrics: ["~90% → 99% accuracy", "8-step pipeline", "2-stage LLM validation"],
+      metrics: ["80-81% → 90%+ accuracy", "117 extraction fields", "4-pass fallback design"],
       description:
-        "Architected an end-to-end document intelligence system that extracts structured data from scanned insurance policies using layout-aware OCR, multi-stage LLM reasoning, and canonical validation — achieving 99% accuracy in production.",
+        "Architected a production-grade extraction pipeline for scanned prior-authorization intake faxes that combines analyzer-driven extraction, targeted field retries, raw OCR markdown fallback, and multimodal PDF-to-LLM extraction — improving accuracy from ~80-81% to 90%+ on noisy real-world documents.",
       problem_statement:
-        "Insurance policy documents were scanned, image-based PDFs with complex multi-column layouts, nested tables, headers/footers, and significant scan noise. No existing OCR solution could reliably produce structured, schema-aligned output. Manual extraction was error-prone and unscalable.",
+        "Prior-authorization intake faxes arrived as low-quality scans with layout drift, checkbox-heavy sections, inconsistent formatting, and mixed field types. The baseline pipeline processed 100+ documents per run and 117 extraction fields, but quality plateaued around 80-81%, which was not reliable enough for downstream healthcare operations.",
       solution_overview:
-        "Designed a multi-stage pipeline: PaddleOCR with bounding-box metadata for spatial-aware text extraction → LLM-based entity and clause reasoning → schema-aligned JSON generation → second-stage LLM reconciliation against canonical policy documents. Each stage includes validation gates.",
+        "Diagnosed the failure boundary instead of guessing: compared the analyzer-driven path against two focused POCs — raw Azure Content Understanding markdown sent directly to the LLM, and direct PDF-as-image multimodal extraction. Productionized the findings into a 4-pass, confidence-aware pipeline with field-level retries, multimodal fallbacks, token control, and selective routing for vision-heavy fields.",
       architecture: [
-        "Scanned Policy PDF ingestion",
-        "PaddleOCR → text + bounding box + layout metadata extraction",
-        "Spatial grounding: region classification (header / body / table / footer)",
-        "LLM Stage 1: entity extraction + implicit clause reasoning across pages",
-        "Schema-aligned structured JSON generation with field-level confidence",
-        "Canonical document retrieval (ground-truth policy templates)",
-        "LLM Stage 2: reconciliation — diff extracted vs canonical, flag discrepancies",
-        "Validation gate: confidence thresholds + human-in-the-loop escalation",
-        "Final validated structured output → downstream systems"
+        "Scanned prior-authorization fax ingestion",
+        "Pass 1: Azure Content Understanding OCR + analyzer extraction",
+        "Field scoring: identify missing or low-confidence fields (<0.78)",
+        "Pass 2: retry only failed or low-confidence fields with analyzer-aligned prompts",
+        "Pass 3: raw OCR markdown → LLM extraction with reused field guidance",
+        "Field gating: only critical fields continue into deeper fallback passes",
+        "Pass 4: PDF as base64 image → multimodal LLM extraction for remaining failures",
+        "Special routing: checkbox-heavy fields sent directly to visual fallback path",
+        "Confidence-aware merge: keep only improved values, retain max-confidence result across passes",
+        "Structured output → downstream healthcare workflow systems"
       ],
-      tech: ["Python", "PaddleOCR", "GPT-5.1", "Gemini-3-Pro-Preview", "Pydantic"],
+      tech: ["Azure Content Understanding", "Python", "Azure Databricks", "GPT-4.1 / GPT-5-series", "Multimodal LLMs"],
       key_features: [
-        "Layout-aware OCR with spatial metadata preservation",
-        "Cross-page clause-level reasoning via LLM",
-        "Two-stage LLM pipeline: extraction → validation",
-        "Schema enforcement via Pydantic models",
-        "Canonical comparison loop for trustworthiness",
-        "Field-level confidence scoring"
+        "4-pass confidence-aware extraction pipeline",
+        "Targeted retries only for missing or low-confidence fields",
+        "Dual fallback strategy: raw OCR markdown and direct PDF vision input",
+        "117 fields grouped into 7 batches to stay within model context limits",
+        "Token-capping logic to reduce overflow and hallucination risk",
+        "Field-level merge rules that preserve the highest-confidence result"
       ],
       implementation_details:
-        "Extracted OCR output enriched with bounding-box coordinates to preserve document layout semantics. Built region classifier to separate headers, body text, tables, and footers before LLM processing. First LLM stage performs entity extraction with implicit reasoning across distributed clauses. Output normalized into strict Pydantic schemas. Second LLM stage compares extraction against canonical policy templates, flagging discrepancies and reconciling ambiguous fields. Confidence thresholds gate final output quality.",
+        "Built field-level retry orchestration that groups 117 fields into 7 extraction batches, caps tokens per request, and tracks confidence across all passes. Pass 2 reruns only fields missing or below 0.78 confidence. Pass 3 reuses analyzer prompt context but bypasses analyzer extraction by sending raw Azure Content Understanding markdown directly to the LLM. Pass 4 sends the PDF as base64 image input for multimodal extraction, especially for checkbox-heavy fields that benefited from direct visual interpretation. Merge logic never overwrites a value unless a later pass improves confidence; otherwise the highest-confidence result across all passes is retained.",
       challenges_solutions: [
         {
-          challenge: "Noisy scans with degraded text quality",
+          challenge: "Quality plateau at ~80-81% with analyzer-only extraction",
           solution:
-            "OCR parameter tuning + layout-grounded region classification before LLM"
+            "Ran paired POCs to isolate whether failures came from OCR, analyzer prompts, or model interpretation before redesigning the pipeline."
         },
         {
-          challenge: "Clauses split across multiple pages",
+          challenge: "117 fields exceeded safe context budgets",
           solution:
-            "Cross-page context window with LLM-based implicit reasoning"
+            "Grouped fields into 7 batches and added token-capping logic to keep prompts bounded and reduce hallucinations."
         },
         {
-          challenge: "No trust baseline for raw LLM outputs",
+          challenge: "Blind retries increased cost without reliable gains",
           solution:
-            "Canonical validation layer — compare extraction against known-good documents"
+            "Retried only fields that were missing or below 0.78 confidence, focusing cost where it mattered."
         },
         {
-          challenge: "Schema drift across policy versions",
+          challenge: "Checkbox and vision-heavy fields underperformed in text-only paths",
           solution:
-            "Pydantic-enforced schemas with version-aware field mapping"
+            "Routed those fields to the multimodal PDF fallback path and applied confidence-aware update rules."
         }
       ],
       impact: [
-        "Extraction accuracy improved from ~90% to ~99%",
-        "Eliminated silent extraction errors via 2-stage validation",
-        "Deployed as enterprise-ready pipeline for US insurance workflows",
-        "Reduced manual QA time by ~70%"
+        "Improved extraction accuracy from ~80-81% to 90%+ on scanned intake faxes",
+        "Made 100+ document runs stable enough for downstream healthcare workflows",
+        "Reduced regression risk with confidence-aware overwrite protection",
+        "Converted experiment-driven learnings into a production fallback architecture"
       ]
     },
     {
-      id: "cua_rag_agent",
-      name: "Computer-Using Agent with RAG",
-      tagline: "RAG-grounded procedural planning for reliable UI automation",
-      category: "Agentic AI · Automation",
+      id: "agentic_rag_layer",
+      name: "Milvus-Backed Agentic RAG Layer",
+      tagline: "Retrieval-grounded orchestration for multi-agent reasoning workflows",
+      category: "Agentic AI · Retrieval Systems",
       tier: "featured",
-      metrics: ["38% → 80% success rate", "SOP-grounded planning", "Dockerized on AWS"],
+      metrics: ["38% → 80% task completion", "Milvus-backed retrieval", "Multi-agent reasoning"],
       description:
-        "Designed a retrieval-augmented planning layer that transforms ambiguous user intent into deterministic, step-by-step execution plans grounded in SOP documentation — doubling the task success rate of Computer-Using Agents.",
+        "Engineered a retrieval-backed context layer for multi-agent reasoning workflows that improved task completion from 38% to 80% by strengthening retrieval quality, context assembly, and orchestration around the model.",
       problem_statement:
-        "Direct prompt-to-action CUA execution achieved only ~38% task success rate. Root causes: ambiguous user instructions, no procedural knowledge, no application-specific context. The agent lacked a mechanism to decompose intent into deterministic execution steps.",
+        "Baseline agent workflows underperformed because reasoning happened on thin context, relevant SOP knowledge was not reliably retrieved, and orchestration quality varied significantly across tasks. Task completion remained around 38%.",
       solution_overview:
-        "Designed a RAG-backed planning layer between user intent and CUA execution. SOP documents indexed in Milvus provide procedural grounding. An LLM planner decomposes intent into structured step sequences. CUA executes deterministic steps with state observation feedback loops.",
+        "Inserted a Milvus-backed RAG layer between task intake and agent execution. Retrieved SOP and domain context is assembled into structured prompts for planner and worker agents, while validation checks ensure the orchestration layer produces actionable, grounded context before execution proceeds.",
       architecture: [
-        "User prompt ingestion + intent classification",
-        "RAG retrieval: Milvus vector search over indexed SOP documentation",
-        "Context assembly: relevant procedures + application knowledge",
-        "LLM Planner: intent decomposition → ordered step-by-step execution plan",
-        "Plan validation: structural checks (completeness, ordering, dependencies)",
-        "CUA Agent: step-by-step UI interaction execution",
-        "State observation layer: screenshot → action verification",
-        "Feedback loop: execution result → next step or retry",
-        "Execution telemetry + success/failure logging"
+        "Task intake + intent analysis",
+        "Milvus vector search over indexed SOPs and domain documents",
+        "Context assembly with relevance filtering and prompt packing",
+        "Planner or orchestrator builds structured multi-agent task context",
+        "Specialist agents execute reasoning or action steps",
+        "Validation and feedback loop checks task completeness and correctness",
+        "Execution telemetry + outcome logging"
       ],
-      tech: ["Python", "OpenAI CUA", "Milvus", "AWS", "Docker", "FastAPI"],
+      tech: ["Python", "Milvus", "FastAPI", "LLMs", "RAG Evaluation"],
       key_features: [
-        "SOP-grounded retrieval-augmented planning",
-        "Intent → deterministic step decomposition",
-        "State-observation feedback loop per execution step",
-        "Plan validation gate before execution",
-        "Dockerized reproducible deployment on AWS",
-        "Real-time execution demo interface"
+        "Milvus-backed retrieval over SOP and domain knowledge",
+        "Context assembly tuned for planner and worker agents",
+        "Validation gate before downstream agent execution",
+        "Telemetry for task-level evaluation and failure diagnosis",
+        "Grounded orchestration instead of model-only reasoning",
+        "Reusable RAG layer for multi-agent workflows"
       ],
       implementation_details:
-        "Indexed internal SOP and application documentation in Milvus using chunk-level embeddings with metadata (section, procedure_id). Built LLM planner that assembles retrieved context into structured execution plans with explicit step ordering and dependency tracking. CUA executes each step, captures UI state via screenshots, and feeds observations back for verification. Plan validation layer checks for structural completeness before execution begins. System containerized in Docker and deployed on AWS with FastAPI serving layer.",
+        "Indexed SOP and domain documentation in Milvus with chunk-level metadata, then built retrieval and context-assembly layers that separated relevant procedures from noisy background context. Planner and worker agents received structured, relevance-filtered context rather than raw retrieval dumps. Evaluation telemetry tracked completion, failure modes, and retrieval quality so orchestration changes could be measured instead of guessed.",
       challenges_solutions: [
         {
-          challenge: "Ambiguous user prompts producing unreliable actions",
+          challenge: "Agents reasoned on insufficient domain context",
           solution:
-            "RAG grounding: retrieve relevant SOPs to disambiguate intent before planning"
+            "Indexed SOPs in Milvus and retrieved only the most relevant procedural context before orchestration."
         },
         {
-          challenge: "Single-shot execution failure on complex multi-step workflows",
+          challenge: "Raw retrieval could still overload or distract agents",
           solution:
-            "Step decomposition with state-observation feedback loop per action"
+            "Added context assembly and prompt-packing logic so each agent received only the relevant subset of retrieved knowledge."
         },
         {
-          challenge: "Environment drift between dev and production",
+          challenge: "Task quality was hard to improve without reliable evaluation",
           solution:
-            "Docker-based reproducible deployment with pinned dependencies"
+            "Tracked completion and failure patterns at the workflow level to tie orchestration changes back to measurable outcomes."
         },
         {
-          challenge: "No execution visibility or debugging capability",
+          challenge: "Planner outputs could still be structurally weak",
           solution:
-            "Telemetry layer logging each step's input, action, and outcome"
+            "Introduced validation checks before downstream agent execution so invalid plans were caught earlier."
         }
       ],
       impact: [
-        "Task success rate improved from ~38% to ~80% (+110% improvement)",
-        "Eliminated execution ambiguity for enterprise workflows",
-        "Enabled reliable UI automation for complex multi-step procedures",
-        "Deployed containerized system on AWS for production demos"
+        "Task completion improved from 38% to 80%",
+        "Strengthened multi-agent reliability through grounded context assembly",
+        "Made orchestration decisions measurable through retrieval and outcome telemetry",
+        "Reduced dependence on model capability alone for complex workflow completion"
       ]
     },
     {
@@ -314,18 +313,59 @@ export const systems = {
   // ── SUPPORTING SYSTEMS (still valuable, lower priority) ──
   supporting: [
     {
-      id: "healthcare_fax_pipeline",
-      name: "Healthcare Document Intelligence Pipeline",
-      tagline: "Medical fax parsing and insurance workflow automation on Azure",
-      category: "Healthcare AI · Enterprise",
+      id: "health_policy_extraction",
+      name: "Health-Policy Entity Extraction System",
+      tagline: "Structured policy extraction with model migration, prompt tuning, and canonical validation",
+      category: "Document AI · Enterprise",
       tier: "supporting",
-      metrics: ["Azure-based pipeline", "OCR + LLM reasoning", "Workflow automation"],
+      metrics: ["90% → 99% accuracy", "Canonical comparison", "Structured output contracts"],
       description:
-        "Building a healthcare document intelligence system to process medical fax documents, extract structured clinical and insurance data, and automate downstream workflows using Azure-native services.",
-      tech: ["Azure Databricks", "Azure Document Intelligence", "Python", "LLMs"],
+        "Improved health-policy entity extraction from 90% to 99% by treating model choice, prompt design, structured-output behavior, and evaluation logic as one engineering problem rather than isolated tuning tasks.",
+      problem_statement:
+        "Policy documents required consistent field-level extraction across document variants and layouts. The baseline GPT-based flow achieved roughly 90% accuracy, but remaining field inconsistency and output-contract drift still created operational review overhead.",
+      solution_overview:
+        "Migrated workloads across GPT- and Gemini-based systems, refined prompts through repeated iterations, enforced structured-output contracts, and used canonical-comparison logic to validate whether changes improved real field-level accuracy.",
+      architecture: [
+        "Policy document ingestion and text normalization",
+        "Prompt assembly with field definitions, examples, and output contract",
+        "Model routing across GPT and Gemini candidates",
+        "Structured JSON generation under explicit schema expectations",
+        "Canonical comparison against expected policy representations",
+        "Evaluation loop: diagnose failures, refine prompts, rerun validation",
+        "Validated entity output for downstream healthcare workflows"
+      ],
+      tech: ["Python", "Gemini", "GPT", "Pydantic", "Evaluation Harness"],
+      key_features: [
+        "Model migration across GPT and Gemini systems",
+        "Prompt refinement driven by field-level evaluation",
+        "Structured-output enforcement with schema validation",
+        "Canonical-comparison logic for deterministic scoring",
+        "Field normalization across policy variants"
+      ],
+      implementation_details:
+        "Built an evaluation-driven extraction workflow where prompt design, model routing, and structured output contracts were tuned together. Candidate GPT and Gemini configurations were benchmarked against the same validation set, outputs were normalized into a strict schema, and canonical-comparison logic measured real extraction quality beyond surface string similarity.",
+      challenges_solutions: [
+        {
+          challenge: "Baseline accuracy plateaued near 90%",
+          solution:
+            "Benchmarked GPT and Gemini variants instead of assuming one model family would dominate the workload."
+        },
+        {
+          challenge: "Field formatting and contract drift reduced trust",
+          solution:
+            "Enforced structured-output behavior with schema-aligned JSON contracts and normalization logic."
+        },
+        {
+          challenge: "Prompt changes could help some fields while regressing others",
+          solution:
+            "Ran repeated canonical-comparison evaluations before promoting prompt or model changes."
+        }
+      ],
       impact: [
-        "Automating manual fax-based healthcare workflows",
-        "Improving turnaround time for insurance processing",
+        "Improved health-policy entity extraction from 90% to 99%",
+        "Raised field-level precision and consistency across policy documents",
+        "Made model migration decisions evidence-based through repeatable evaluation",
+        "Reduced output-contract drift in downstream healthcare workflows"
       ]
     },
     {

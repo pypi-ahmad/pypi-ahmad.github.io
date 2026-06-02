@@ -11,7 +11,7 @@ export const experience = {
   title: "Experience",
   subtitle: "Systems Built · Impact Delivered",
   description:
-    "Building production GenAI systems across healthcare, prior authorization, document intelligence, and workflow automation for Deloitte US-India and Cognizant delivery teams.",
+    "Building production-grade AI systems across healthcare workflows, document intelligence, multimodal extraction, and agentic retrieval for Deloitte US-India and Cognizant delivery teams.",
   sections: [
     {
       title: "Work",
@@ -24,13 +24,13 @@ export const experience = {
           duration: "July 2025 – Present",
           location: "Gurugram, India",
           descriptions: [
-            "Designed and delivered an intelligent document processing pipeline for unstructured health insurance policy documents supporting prior authorization workflows using PaddleOCR, layout-aware parsing, and LLM reasoning over policy clauses.",
-            "Improved health-policy entity extraction accuracy from ~90% with a GPT-5.1 baseline to 99% on internal evaluations by moving to Gemini-3-Pro and adding a canonical-comparison validation loop.",
-            "Contributed to a prior-authorization automation solution on Azure Databricks using Azure Content Understanding with GPT-4.1, then led the migration to GPT-5.2 to improve extraction accuracy and reduce hallucinations.",
-            "Delivered an OpenAI Computer-Using Agent for a healthcare client to automate manual web workflows, deployed in Docker on AWS with a streamed human-in-the-loop interface for reviewer oversight, execution monitoring, and QA.",
-            "Raised task completion on SOP-driven benchmark workflows from 38% to ~80% by adding a Milvus-backed RAG layer that grounded the agent in retrieved standard operating procedures.",
-            "Built a Playwright-based MCP automation tool that used accessibility-tree snapshots instead of raw DOM context, reducing prompt-token usage by ~40% in internal testing.",
-            "Built Databricks ETL pipelines in PySpark and Python for schema mapping, key reconciliation, and multi-table joins that supported downstream healthcare analytics and reporting.",
+            "Redesigned a scanned prior-authorization intake fax extraction system into a 4-pass, confidence-aware pipeline that processed 100+ healthcare documents per run, handled 117 fields, and improved extraction accuracy from ~80-81% to 90%+.",
+            "Used paired proof-of-concepts to isolate failure sources across Azure Content Understanding OCR, analyzer prompts, and multimodal extraction by comparing raw OCR markdown ingestion against direct PDF-as-image LLM extraction.",
+            "Productionized targeted retries for low-confidence fields (<0.78), grouped 117 fields into 7 batches for context control, added token-capping and confidence-aware merge logic, and routed checkbox-heavy fields through vision fallback paths.",
+            "Improved health-policy entity extraction accuracy from 90% to 99% through model migration across GPT and Gemini systems, prompt refinement, structured-output contracts, and canonical-comparison evaluation.",
+            "Benchmarked DeepSeek-OCR, GLM-OCR, PaddleOCR-VL-1.5, and cloud OCR stacks for privacy-sensitive healthcare document scenarios to expand on-prem and lower-lock-in design options.",
+            "Engineered a Milvus-backed RAG layer for multi-agent reasoning workflows that improved task completion from 38% to 80% by strengthening retrieval quality, orchestration, and evaluation discipline.",
+            "Reduced browser-agent prompt-token usage by ~40% with a Playwright MCP-based tool design that replaced DOM-heavy context with accessibility-tree snapshots and JPEG-compressed observations.",
           ],
           color: "#000000",
         },

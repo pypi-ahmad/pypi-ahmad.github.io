@@ -9,7 +9,7 @@
 export const projectsHeader = {
   title: "Projects",
   description:
-    "Recent open-source work spans provider-native computer use, shared AI platforms, and the portfolio experience itself.",
+    "Enterprise AI systems and open-source builds across document intelligence, retrieval-backed agents, and provider-native computer use.",
 };
 
 export const projects = {
