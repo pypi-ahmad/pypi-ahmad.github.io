@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# generated build output
+/build
+
 
 
 # misc
@@ -63,7 +66,6 @@ logs/
 mlruns/
 **/mlruns/
 dist/
-build/
 
 *.egg-info/
 **/*.egg-info/
