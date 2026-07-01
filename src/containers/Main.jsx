@@ -39,7 +39,6 @@ const Experience = lazy(() => import("../pages/experience/Experience"));
 const Contact = lazy(() => import("../pages/contact/ContactComponent"));
 const Projects = lazy(() => import("../pages/projects/Projects"));
 const SkillsPage = lazy(() => import("../pages/skills/SkillsPage"));
-const ThemePage = lazy(() => import("../pages/theme/ThemePage"));
 const NotFound = lazy(() => import("../pages/notFound/NotFound"));
 
 const routeFallbackStyle = {
@@ -80,13 +79,6 @@ const routeMeta = {
     title: "Contact | Ahmad Mujtaba",
     description: contactPageData.contactSection.description,
     canonicalPath: "/contact",
-  },
-  theme: {
-    title: "Theme Gallery | Ahmad Mujtaba",
-    description:
-      "Explore portfolio theme families and switch between light and dark presentation modes.",
-    canonicalPath: "/theme",
-    noindex: true,
   },
   splash: {
     title: "Loading | Ahmad Mujtaba",
@@ -186,13 +178,6 @@ export default function Main(props) {
                 element={withRouteMeta(
                   routeMeta.skills,
                   <SkillsPage {...props} theme={props.theme} />
-                )}
-              />
-              <Route
-                path="/theme"
-                element={withRouteMeta(
-                  routeMeta.theme,
-                  <ThemePage {...props} theme={props.theme} />
                 )}
               />
               <Route

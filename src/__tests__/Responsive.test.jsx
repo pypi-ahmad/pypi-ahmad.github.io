@@ -1,23 +1,10 @@
 /**
  * Responsiveness Tests
- *
- * Verifies viewport-dependent rendering: hamburger menu visibility,
- * CSS class presence for responsive layouts, and mobile-specific
- * element behavior.
- *
- * Note: jsdom does not implement layout, so these tests verify DOM structure
- * and CSS class application rather than computed pixel values. True visual
- * regression testing requires a browser-based runner (Playwright/Cypress).
- *
- * Sources:
- *  - src/components/header/Header.jsx (hamburger menu)
- *  - src/global.js (mobile breakpoint at 768px)
- *  - src/containers/experienceAccordion/ExperienceAccordion.jsx (mobile margin)
  */
 import React from "react";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { describe, it, expect } from "vitest";
 import Header from "../components/header/Header";
 import Greeting from "../containers/greeting/Greeting";
 import { renderWithProviders, darkTheme } from "../test/testUtils";
@@ -64,13 +51,13 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     expect(menu).not.toHaveAttribute("hidden");
   });
 
-  it("all 8 links including the site label are inside the menu <ul>", async () => {
+  it("all 7 links including the site label are inside the menu <ul>", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const menu = document.querySelector("ul.menu");
     const links = menu.querySelectorAll("a");
-    expect(links.length).toBe(8);
+    expect(links.length).toBe(7);
   });
 
   it("theme toggle button is inside the menu <ul>", async () => {
@@ -82,7 +69,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     expect(toggleBtn).toBeInTheDocument();
   });
 
-  it("keeps Contact Me, Theme link, and toggle in the correct final order", async () => {
+  it("keeps Contact Me and toggle as the final interactive items", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
@@ -92,10 +79,6 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
         return "contact";
       }
 
-      if (item.querySelector('a[href="/theme"]')) {
-        return "theme-link";
-      }
-
       if (item.querySelector('button[aria-label="Toggle Theme"]')) {
         return "toggle";
       }
@@ -103,7 +86,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
       return item.textContent.trim();
     });
 
-    expect(menuItems.slice(-3)).toEqual(["contact", "theme-link", "toggle"]);
+    expect(menuItems.slice(-2)).toEqual(["contact", "toggle"]);
   });
 });
 

@@ -29,17 +29,17 @@ const AccordionContainer = styled.div`
 
 const AccordionPanel = styled.details`
   background-color: ${({ theme }) => theme.body};
-  border-bottom: 1px solid ${({ theme }) => theme.secondaryText};
+  border-bottom: 1px solid ${({ theme }) => theme.borderSoft ?? theme.secondaryText};
   &:last-child {
     border-bottom: none;
   }
 `;
 
 const AccordionSummary = styled.summary`
-  padding: 16px 18px;
-  font-size: 1.05rem;
-  font-family: "Google Sans Regular", sans-serif;
-  font-weight: bold;
+  padding: 0.8rem 0.95rem;
+  font-size: 1rem;
+  font-family: "Google Sans", sans-serif;
+  font-weight: 600;
   color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.headerColor || theme.body};
   cursor: pointer;
@@ -53,12 +53,12 @@ const AccordionSummary = styled.summary`
   }
   
   &:hover {
-    background-color: ${({ theme }) => theme.imageDark};
+    background-color: ${({ theme }) => theme.cardBackgroundAlt};
   }
 
   &::after {
     content: '+';
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   ${AccordionPanel}[open] &::after {
@@ -66,19 +66,19 @@ const AccordionSummary = styled.summary`
   }
 
   @media (max-width: 768px) {
-    padding: 16px;
-    font-size: 1.05rem;
+    padding: 0.8rem;
+    font-size: 0.98rem;
   }
 `;
 
 const AccordionContent = styled.div`
-  padding: 16px;
+  padding: 0.9rem;
   background-color: ${({ theme }) => theme.body};
   display: grid;
   gap: var(--section-gap-tight);
 
   @media (max-width: 768px) {
-    padding: 14px;
+    padding: 0.8rem;
   }
 `;
 

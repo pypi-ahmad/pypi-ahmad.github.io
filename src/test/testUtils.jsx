@@ -19,7 +19,6 @@ import { ThemeControllerProvider } from "../themeController";
  * @param {React.ReactElement} ui - The component to render
  * @param {object} options
  * @param {string} options.theme - "light" or "dark" (default: "dark")
- * @param {string} options.themeFamily - active theme family (default: "default")
  * @param {boolean} options.useStoredTheme - when true, use localStorage instead of an explicit initial theme
  * @param {string[]} options.initialEntries - MemoryRouter initial entries
  * @param {object} options.renderOptions - Extra RTL render options
@@ -28,7 +27,6 @@ export function renderWithProviders(
   ui,
   {
     theme = "dark",
-    themeFamily = "default",
     useStoredTheme = false,
     initialEntries,
     ...renderOptions
@@ -43,7 +41,7 @@ export function renderWithProviders(
         initialThemeSelection={
           useStoredTheme
             ? undefined
-            : { family: themeFamily, mode: theme }
+            : { mode: theme }
         }
       >
         <MotionConfig reducedMotion="always">

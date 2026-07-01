@@ -10,21 +10,23 @@
 
 .skills-header {
   font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.04;
-  font-family: "Google Sans Regular";
-  text-align: center;
+  line-height: 1.15;
+  font-family: "Google Sans", sans-serif;
+  text-align: left;
 }
 
 .skills-text {
   font-size: clamp(0.98rem, 0.95rem + 0.28vw, 1.1rem);
+  line-height: 1.6;
+  text-align: left;
 }
 
 .skills-text-div {
   margin-left: 0;
   margin-top: 0;
   padding: clamp(1.2rem, 2.4vw, 1.8rem);
-  font-family: "Google Sans Regular";
-  border-radius: var(--surface-radius, 20px);
+  font-family: "Google Sans", sans-serif;
+  border-radius: var(--surface-radius, 16px);
 }
 
 .skills-main-div > * {
@@ -49,9 +51,9 @@
 .skills-heading {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 700;
-  text-align: center;
+  text-align: left;
   padding-bottom: 6px;
-  font-family: "Google Sans Regular";
+  font-family: "Google Sans", sans-serif;
 }
 
 /* Media Query */
@@ -66,12 +68,13 @@
 @media (max-width: 768px) {
   .skills-heading {
     font-size: 1.5rem;
-    text-align: center;
+    text-align: left;
   }
 
   .skills-header {
     font-size: 1.5rem;
     padding: 0;
+    text-align: left;
   }
 
   .greeting-text-p {
@@ -88,18 +91,18 @@
   .skills-text-div {
     margin: 0;
     padding: 18px 14px;
-    text-align: center;
+    text-align: left;
   }
 
   .skills-text {
     font-size: 0.95rem;
-    text-align: center;
-    padding: 0 10px;
+    text-align: left;
+    padding: 0;
   }
 
   .skills-text-subtitle {
     font-size: 0.95rem;
-    text-align: center;
+    text-align: left;
   }
 
   .skills-image-div {

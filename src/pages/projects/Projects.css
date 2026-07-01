@@ -1,9 +1,9 @@
 /**
- * Projects.css — Projects page layout, heading, and card grid.
+ * Projects.css — project/system page layout.
  */
+
 .projects-main {
   width: 100%;
-  text-align: center;
 }
 
 .basic-projects {
@@ -24,15 +24,15 @@
 .section-accent-glow::before {
   content: "";
   position: absolute;
-  bottom: -30%;
-  left: -15%;
-  width: 44%;
-  height: 90%;
+  bottom: -28%;
+  left: -14%;
+  width: 40%;
+  height: 82%;
   background: radial-gradient(circle, var(--glow-accent) 0%, transparent 70%);
-  filter: blur(68px);
+  filter: blur(72px);
   pointer-events: none;
   z-index: 0;
-  opacity: 0.16;
+  opacity: 0.1;
 }
 
 .section-accent-glow > * {
@@ -42,19 +42,27 @@
 
 .projects-heading-div {
   display: flex;
+  align-items: center;
+  gap: var(--section-gap);
 }
 
 .projects-heading-div > * {
   flex: 1;
 }
 
-.projects-heading-img-div {
-  align-items: center;
+.projects-heading-img-div,
+.projects-heading-text-div {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
 .projects-heading-text-div {
-  text-align: center;
+  text-align: left;
+}
+
+.projects-heading-div .projects-heading-text-div {
+  align-items: flex-start;
 }
 
 .projects-heading-img-div > * {
@@ -63,87 +71,61 @@
 }
 
 .projects-heading-text {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  font-family: "Google Sans Medium";
-  line-height: 1.04;
-  text-align: center;
-  margin-top: 0;
-}
-
-.projects-heading-sub-text {
-  font-size: clamp(1.05rem, 1rem + 0.5vw, 1.3rem);
-  font-family: "Google Sans Regular";
-  text-align: center;
-  margin-bottom: 10px;
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.15;
+  text-align: left;
 }
 
 .projects-header-detail-text {
-  font-size: clamp(0.98rem, 0.95rem + 0.3vw, 1.1rem);
-  line-height: 1.65;
-  margin-top: 0;
-  margin-left: 0;
-  margin-right: 0;
-  font-family: "Google Sans Medium";
+  margin: 0;
+  max-width: 72ch;
+  font-size: clamp(1rem, 0.98rem + 0.2vw, 1.08rem);
+  line-height: 1.6;
+  text-align: left;
 }
 
 .repo-cards-div-main {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin: 1.25rem 0 0;
-}
-
-@media (max-width: 1380px) {
-  .projects-heading-text {
-    font-size: clamp(1.95rem, 3.7vw, 2.8rem);
-    margin-top: 0;
-  }
-  .projects-heading-sub-text {
-    font-size: clamp(1rem, 0.95rem + 0.45vw, 1.2rem);
-  }
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0 0;
 }
 
 @media (max-width: 1024px) {
   .repo-cards-div-main {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 768px) {
-  .projects-heading-text {
-    font-size: 2rem;
-    margin-top: 0;
-  }
-
-  .projects-heading-sub-text {
-    font-size: 1.05rem;
-  }
-
   .projects-heading-div {
     flex-direction: column;
+    align-items: stretch;
+    gap: var(--section-gap-tight);
+  }
+
+  .projects-heading-text,
+  .projects-header-detail-text {
+    text-align: left;
+  }
+
+  .projects-heading-text {
+    font-size: 2rem;
   }
 
   .projects-header-detail-text {
-    font-size: 0.95rem;
-    margin-right: 0px;
-    margin-left: 0px;
-    line-height: normal;
-    text-align: center;
+    font-size: 1rem;
+    line-height: 1.58;
   }
 
   .repo-cards-div-main {
     grid-template-columns: 1fr;
-    margin: 1rem 0 0;
   }
 }
 
 @media (max-width: 480px) {
   .projects-heading-text {
-    font-size: 24px;
-  }
-
-  .projects-heading-sub-text {
-    font-size: 16px;
+    font-size: 1.85rem;
   }
 }

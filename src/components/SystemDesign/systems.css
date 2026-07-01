@@ -1,98 +1,75 @@
 /**
- * systems.css — SystemCard, SystemDiagram, and deep-dive modal styles.
- *
- * Default theme: dark (light backgrounds via .light-mode overrides).
- * Accent color: #00ffaa (dark) / #0055aa (light).
- *
- * Sections:
- *  1. Card layout & hover
- *  2. Header & metadata
- *  3. Tech badges
- *  4. Architecture diagram
- *  5. Impact metrics
- *  6. Expand button & deep-dive panel
- *  7. Hover intelligence (diagram interaction)
- *  8. Light-mode overrides for all of the above
+ * systems.css — system cards, diagram, and modal content typography.
  */
 
-/* src/components/SystemDesign/systems.css */
-
 .system-card {
-  background: var(--card);
-  border-radius: var(--card-radius, 14px);
-  padding: 20px;
-  margin: 22px 0;
+  margin: 0;
+  padding: 1rem;
   border: 1px solid var(--border);
+  border-radius: var(--card-radius, 12px);
+  background: var(--card);
   color: var(--text);
 }
 
 .system-card:hover,
 .system-card:focus-within {
   border-color: var(--accent-solid);
-  box-shadow: var(--shadow-sm);
 }
 
 .system-header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.65rem;
 }
 
 .system-header h2 {
-  color: var(--accent-solid);
-  margin-bottom: 6px;
-  margin-top: 0;
-  font-size: 1.45rem;
+  margin: 0 0 0.35rem;
+  color: var(--text-primary);
+  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.25rem);
+  line-height: 1.25;
 }
 
 .system-tagline {
-  color: var(--text-secondary);
-  font-size: 0.92rem;
-  margin-bottom: 10px;
-  font-style: normal;
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .system-category {
-  font-size: 11px;
-  background: var(--focus-shadow);
-  padding: 4px 9px;
-  border-radius: 8px;
-  display: inline-block;
-  color: var(--text-primary);
-  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+  background: var(--focus-shadow);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
 }
 
 .system-description {
-  margin: 14px 0;
-  color: var(--text-secondary);
-  line-height: 1.62;
+  margin: 0.7rem 0;
+  font-size: 0.98rem;
+  line-height: 1.58;
 }
 
-/* TECH ICONS */
 .system-tech {
-  margin: 16px 0;
+  margin: 0.7rem 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.45rem;
 }
 
 .tech-icon {
-  height: 35px;
-  transition: 0.3s;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  height: 32px;
 }
 
-.tech-icon:hover {
-  transform: scale(1.2);
-}
-
-/* DIAGRAM */
 .diagram-wrapper {
-  background: var(--card);
-  border-radius: var(--card-radius, 14px);
-  padding: 16px;
-  margin: 16px 0;
+  margin: 0.7rem 0;
+  padding: 0.85rem;
+  border-radius: calc(var(--card-radius, 12px) - 2px);
   border: 1px solid var(--border);
+  background: var(--surface-card);
 }
 
 .diagram-container {
@@ -100,7 +77,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 0.45rem;
 }
 
 .diagram-step {
@@ -110,268 +87,165 @@
 
 .diagram-box {
   background: var(--card);
-  padding: 10px 12px;
+  padding: 0.45rem 0.65rem;
   border-radius: 8px;
-  font-size: 0.82rem;
-  color: var(--text);
   border: 1px solid var(--border);
-  font-family: monospace;
-  box-shadow: var(--shadow-sm);
-  font-weight: bold;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--text);
 }
 
 .diagram-arrow {
-  margin: 0 8px;
+  margin: 0 0.4rem;
   color: var(--accent-solid);
-  font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
-/* IMPACT */
 .system-impact {
-  margin-top: 1.25rem;
+  margin-top: 0.85rem;
 }
 
 .system-impact h4 {
-  margin-bottom: 12px;
-  color: var(--accent-solid);
-  font-size: 1.1rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 5px;
-  display: inline-block;
+  margin: 0 0 0.5rem;
+  font-size: 0.94rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
 }
 
 .system-impact ul {
-  padding-left: 0;
-  list-style-type: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.45rem;
 }
 
 .system-impact li {
-  margin-bottom: 6px;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
-/* Light Mode Overrides — no longer needed; colors come from CSS variables */
-/* EXPAND BUTTON */
 .expand-btn {
-  margin-top: 15px;
-  cursor: pointer;
-  color: var(--accent-solid);
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-  min-height: 48px;
-  border-top: 1px solid var(--border);
-  transition: 0.2s;
-  user-select: none;
-  background: transparent;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
+  margin-top: 0.75rem;
   width: 100%;
-  font-size: inherit;
+  min-height: 42px;
+  padding: 0.55rem 0.75rem;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  border-radius: var(--control-radius, 12px);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.92rem;
   font-family: inherit;
+  text-align: center;
 }
 
 .expand-btn:hover {
   background: var(--focus-shadow);
 }
 
-/* DEEP DIVE PANEL */
 .deep-dive {
-  overflow: hidden;
-  margin-top: 12px;
-  padding: 4px 16px 8px;
-  background: var(--surface-card);
-  border-radius: var(--card-radius, 14px);
+  margin-top: 0.7rem;
+  padding: 0.85rem;
   border: 1px solid var(--border);
+  border-radius: var(--card-radius, 12px);
+  background: var(--surface-card);
 }
 
 .deep-dive h4 {
-  margin-top: 16px;
-  margin-bottom: 10px;
-  color: var(--accent-solid);
-  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
 }
 
 .deep-dive ul {
-  list-style-type: none;
-  padding-left: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .deep-dive li {
-  margin-bottom: 8px;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  padding-left: 10px;
+  margin-bottom: 0.45rem;
+  padding-left: 0.55rem;
   border-left: 2px solid var(--border);
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
-.deep-dive strong {
-  color: var(--accent-solid);
+.system-modal-content h2 {
+  font-size: clamp(1.35rem, 1.2rem + 0.4vw, 1.6rem);
+  line-height: 1.25;
 }
 
-/* HOVER INTELLIGENCE */
-.system-card:hover .diagram-box {
-  opacity: 0.7;
+.system-modal-content h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
 }
 
-.system-card:hover .diagram-box:hover {
-  opacity: 1;
-  transform: scale(1.02);
-  background: var(--card);
-  border-color: var(--accent-solid);
-  z-index: 10;
-  cursor: default;
+.system-modal-content p,
+.system-modal-content li,
+.system-modal-content div {
+  font-size: 0.98rem;
+  line-height: 1.58;
 }
 
-/* Light Mode Deep Dive — no longer needed; colors come from CSS variables */
-
-/* ── Responsive: Tablet ─────────────────────────────────────────────── */
-
-@media (max-width: 1024px) {
-  .system-card {
-    padding: 18px;
-    margin: 20px 0;
-  }
-
-  .system-header h2 {
-    font-size: 1.3rem;
-  }
-
-  .system-impact ul {
-    grid-template-columns: 1fr;
-  }
+.system-modal-content ul {
+  margin: 0;
+  padding-left: 1rem;
 }
 
-/* ── Responsive: Mobile ─────────────────────────────────────────────── */
+.system-modal-content > div {
+  margin-top: 1rem;
+}
 
 @media (max-width: 768px) {
   .system-card {
-    padding: 14px;
-    margin: 15px 0;
-    border-radius: var(--card-radius, 14px);
-  }
-
-  .system-header h2 {
-    font-size: 1.3rem;
-  }
-
-  .system-tagline {
-    font-size: 13px;
-  }
-
-  .system-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  .system-tech {
-    gap: 8px;
-    margin: 10px 0 15px;
-  }
-
-  .tech-icon {
-    height: 28px;
-  }
-
-  .diagram-wrapper {
-    padding: 12px;
-    margin: 12px 0;
+    padding: 0.85rem;
   }
 
   .diagram-container {
     flex-direction: column;
     align-items: stretch;
-    gap: 6px;
+    gap: 0.35rem;
   }
 
   .diagram-step {
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   .diagram-box {
     width: 100%;
     text-align: center;
-    padding: 8px 12px;
-    font-size: 0.8rem;
   }
 
   .diagram-arrow {
-    margin: 4px 0;
+    margin: 0.2rem 0;
     transform: rotate(90deg);
-  }
-
-  .system-impact h4 {
-    font-size: 1rem;
   }
 
   .system-impact ul {
     grid-template-columns: 1fr;
-    gap: 8px;
   }
 
-  .system-impact li {
-    font-size: 0.85rem;
+  .system-modal-content h2 {
+    font-size: 1.35rem;
   }
 
-  .expand-btn {
-    padding: 10px 12px;
-    font-size: 0.9rem;
-  }
-
-  .deep-dive {
-    padding: 0 10px;
-  }
-
-  .deep-dive li {
-    font-size: 0.85rem;
+  .system-modal-content p,
+  .system-modal-content li,
+  .system-modal-content div {
+    font-size: 0.96rem;
   }
 }
-
-/* ── Responsive: Small Mobile ──────────────────────────────────────── */
-
-@media (max-width: 480px) {
-  .system-card {
-    padding: 12px;
-    margin: 10px 0;
-  }
-
-  .system-header h2 {
-    font-size: 1.15rem;
-  }
-
-  .system-category {
-    font-size: 10px;
-    padding: 3px 8px;
-  }
-
-  .tech-badge {
-    font-size: 0.75rem !important;
-  }
-
-  .system-card .system-impact-preview span {
-    font-size: 0.8rem !important;
-  }
-
-  .diagram-box {
-    font-size: 0.75rem;
-    padding: 6px 10px;
-  }
-}
-
-/* Light Mode Strong — no longer needed */
-
-/* Light Mode Hover Intelligence — no longer needed */

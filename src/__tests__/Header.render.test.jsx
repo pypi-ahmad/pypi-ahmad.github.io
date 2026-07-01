@@ -1,10 +1,5 @@
 /**
  * Header — UI Rendering Tests
- *
- * Verifies the Header component renders all navigation links, the logo,
- * and the theme toggle button with correct text and attributes.
- *
- * Source: src/components/header/Header.jsx
  */
 import React from "react";
 import { screen } from "@testing-library/react";
@@ -45,7 +40,10 @@ describe("Header — UI Rendering", () => {
     renderWithProviders(<Header />);
     await openMenu();
     expect(screen.getByText("Home").closest("a")).toHaveAttribute("href", "/home");
-    expect(screen.getByText("Education and Certifications").closest("a")).toHaveAttribute("href", "/education");
+    expect(screen.getByText("Education and Certifications").closest("a")).toHaveAttribute(
+      "href",
+      "/education"
+    );
     expect(screen.getByText("Experience").closest("a")).toHaveAttribute("href", "/experience");
     expect(screen.getByText("Skills").closest("a")).toHaveAttribute("href", "/skills");
     expect(screen.getByText("Projects").closest("a")).toHaveAttribute("href", "/projects");
@@ -57,30 +55,6 @@ describe("Header — UI Rendering", () => {
     await openMenu();
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
     expect(toggleBtn).toBeInTheDocument();
-  });
-
-  it("renders the Theme nav link pointing to /theme", async () => {
-    renderWithProviders(<Header />);
-    await openMenu();
-    const themeLink = screen.getByText("Theme").closest("a");
-    expect(themeLink).toHaveAttribute("href", "/theme");
-  });
-
-  it("renders all 7 navigation links including Theme", async () => {
-    renderWithProviders(<Header />);
-    await openMenu();
-    const navLabels = [
-      "Home",
-      "Education and Certifications",
-      "Experience",
-      "Skills",
-      "Projects",
-      "Contact Me",
-      "Theme",
-    ];
-    navLabels.forEach((label) => {
-      expect(screen.getByText(label)).toBeInTheDocument();
-    });
   });
 
   it("renders the hamburger menu button", () => {
@@ -101,13 +75,13 @@ describe("Header — UI Rendering", () => {
     renderWithProviders(<Header />);
     await openMenu();
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
-    expect(toggleBtn).toHaveStyle({ backgroundColor: "#292A2D" });
+    expect(toggleBtn).toHaveStyle({ backgroundColor: "#16243A" });
   });
 
   it("applies neutral light surface color on toggle button in light mode", async () => {
     renderWithProviders(<Header />, { theme: "light" });
     await openMenu();
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
-    expect(toggleBtn).toHaveStyle({ backgroundColor: "#DCE4F2" });
+    expect(toggleBtn).toHaveStyle({ backgroundColor: "#E2E8F0" });
   });
 });

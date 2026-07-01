@@ -14,7 +14,8 @@
 
 .subTitle {
   color: var(--text-secondary, #5f6b7a);
-  line-height: 1.7;
+  line-height: 1.6;
+  max-width: 72ch;
   text-wrap: pretty;
 }
 

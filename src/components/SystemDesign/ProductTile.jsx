@@ -14,7 +14,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import useAccessibleDialog from "./useAccessibleDialog";
 
 function ProductTile({ system, theme }) {
-  const isLight = theme?.name === "light";
   const [isModalOpen, setIsModalOpen] = useState(false);
   const triggerRef = useRef(null);
   const closeModal = useCallback(() => {
@@ -69,12 +68,12 @@ function ProductTile({ system, theme }) {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              padding: "20px",
+              padding: "1rem",
               overflowY: "auto",
             }}
           >
             <motion.div
-              className={`system-modal-content shadow-sm transition-all duration-200 layer-card ${isLight ? "light-mode" : ""}`}
+              className="system-modal-content shadow-sm transition-all duration-200 layer-card"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -86,12 +85,12 @@ function ProductTile({ system, theme }) {
               aria-label={`${system.name} deep dive`}
               style={{
                 background: "var(--surface-card)",
-                padding: "2rem",
-                borderRadius: "12px",
+                padding: "1.1rem",
+                borderRadius: "var(--card-radius, 12px)",
                 border: "1px solid var(--border)",
-                maxWidth: "800px",
+                maxWidth: "min(860px, 96vw)",
                 width: "100%",
-                maxHeight: "90vh",
+                maxHeight: "92vh",
                 overflowY: "auto",
                 position: "relative",
                 color: theme.text,
@@ -102,32 +101,32 @@ function ProductTile({ system, theme }) {
                 onClick={closeModal}
                 aria-label="Close dialog"
                 style={{
-                  position: "absolute", top: "15px", right: "15px",
+                  position: "absolute", top: "0.65rem", right: "0.65rem",
                   background: "transparent", border: "none",
-                  fontSize: "1.5rem", cursor: "pointer", color: "inherit",
+                  fontSize: "1.3rem", cursor: "pointer", color: "inherit",
                 }}
               >
                 ×
               </button>
 
               <h2 style={{ marginTop: 0 }}>{system.name}</h2>
-              <p style={{ fontStyle: "italic", color: theme.secondaryText, marginBottom: "0.5rem" }}>
+              <p style={{ color: theme.secondaryText, marginBottom: "0.45rem" }}>
                 {system.tagline}
               </p>
 
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Problem Statement</h3>
                 <p>{system.problem_statement}</p>
               </div>
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Solution Overview</h3>
                 <p>{system.solution_overview}</p>
               </div>
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Architecture Workflow</h3>
                 <SystemDiagram architecture={system.architecture} theme={theme} />
               </div>
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Key Features</h3>
                 <ul>
                   {system.key_features && system.key_features.map((f, i) => (
@@ -135,20 +134,20 @@ function ProductTile({ system, theme }) {
                   ))}
                 </ul>
               </div>
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Implementation Details</h3>
                 <p>{system.implementation_details}</p>
               </div>
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Challenges & Solutions</h3>
                 {system.challenges_solutions && system.challenges_solutions.map((cs, i) => (
-                  <div key={i} style={{ marginBottom: "12px" }}>
-                    <strong>Challenge:</strong> {cs.challenge}<br />
-                    <strong>Solution:</strong> {cs.solution}
+                  <div key={i} style={{ marginBottom: "0.55rem" }}>
+                    <strong>Challenge:</strong> {cs.challenge}
+                    <div><strong>Solution:</strong> {cs.solution}</div>
                   </div>
                 ))}
               </div>
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Impact</h3>
                 <ul>
                   {system.impact.map((item, i) => (
