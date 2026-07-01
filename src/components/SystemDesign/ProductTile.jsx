@@ -7,14 +7,27 @@
  *
  * Props: { system, theme }
  */
-import React, { useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import "./ProductTile.css";
 import SystemDiagram from "./SystemDiagram";
 import { motion, AnimatePresence } from "framer-motion";
+import useAccessibleDialog from "./useAccessibleDialog";
 
 function ProductTile({ system, theme }) {
   const isLight = theme?.name === "light";
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const triggerRef = useRef(null);
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+  }, []);
+  const openModal = useCallback(() => {
+    setIsModalOpen(true);
+  }, []);
+  const dialogRef = useAccessibleDialog({
+    isOpen: isModalOpen,
+    onClose: closeModal,
+    triggerRef,
+  });
 
   return (
     <>
@@ -25,9 +38,10 @@ function ProductTile({ system, theme }) {
         viewport={{ once: true }}
       >
         <button
+          ref={triggerRef}
           type="button"
           className="product-tile shadow-sm hover-shadow-lg layer-card"
-          onClick={() => setIsModalOpen(true)}
+          onClick={openModal}
           aria-label={`View ${system.name} deep dive`}
         >
           <div className="product-tile__header">
@@ -46,10 +60,7 @@ function ProductTile({ system, theme }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setIsModalOpen(false)}
-            role="dialog"
-            aria-modal="true"
-            aria-label={`${system.name} deep dive`}
+            onClick={closeModal}
             style={{
               position: "fixed",
               top: 0, left: 0, right: 0, bottom: 0,
@@ -68,6 +79,11 @@ function ProductTile({ system, theme }) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
+              ref={dialogRef}
+              tabIndex={-1}
+              role="dialog"
+              aria-modal="true"
+              aria-label={`${system.name} deep dive`}
               style={{
                 background: "var(--surface-card)",
                 padding: "2rem",
@@ -83,7 +99,7 @@ function ProductTile({ system, theme }) {
               }}
             >
               <button
-                onClick={() => setIsModalOpen(false)}
+                onClick={closeModal}
                 aria-label="Close dialog"
                 style={{
                   position: "absolute", top: "15px", right: "15px",

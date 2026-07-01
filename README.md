@@ -2,7 +2,8 @@
 
 React single-page application for presenting professional experience, AI projects, and skills. Most portfolio content is maintained through plain JavaScript data modules in `src/data/`.
 
-- **Live** — [my-portfolio-green-ten-63.vercel.app](https://my-portfolio-green-ten-63.vercel.app/)
+- **Live (Canonical)** — [pypi-ahmad.github.io](https://pypi-ahmad.github.io/)
+- **Live (Mirror)** — [my-portfolio-green-ten-63.vercel.app](https://my-portfolio-green-ten-63.vercel.app/)
 - **Repo** — [github.com/pypi-ahmad/pypi-ahmad.github.io](https://github.com/pypi-ahmad/pypi-ahmad.github.io)
 
 ---
@@ -215,5 +216,5 @@ Two GitHub Actions workflows in `.github/workflows/`:
 ## Known Limitations
 
 - Client-rendered SPA — no SSR or SSG.
-- `Suspense` fallback is a blank `div` (no loading skeleton).
+- Route-level metadata is still static in `index.html` (no per-page metadata manager).
 - `color-contrast` axe rule is disabled in tests (jsdom cannot compute styles); contrast is verified via `ThemeRegistry` ratio checks instead.

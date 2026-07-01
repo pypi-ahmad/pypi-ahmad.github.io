@@ -119,82 +119,84 @@ function Header() {
           >
             <span className="navicon"></span>
           </button>
-          <ul
-            id="site-menu"
-            className={`menu${isMenuOpen ? " menu--open" : ""}`}
-            hidden={!isMenuOpen}
-            style={{
-              background: buildThemeBackground(theme.cardBackgroundAlt, theme.surfacePattern),
-              borderColor: theme.borderSoft,
-              borderWidth: theme.panelBorderWidth,
-              borderStyle: theme.panelBorderStyle,
-              borderRadius: theme.surfaceRadius,
-              boxShadow: buildThemeShadow(`0 18px 42px ${theme.shadowColor}`, theme.panelGlow),
-              transition: themeElevatedSurfaceTransition,
-            }}
-          >
-            <li className="menu-brand-item">
-              <NavLink
-                to={link}
-                className="menu-brand"
-                onClick={closeMenu}
-                style={{
-                  color: theme.text,
-                  fontFamily: theme.accentFontFamily,
-                  letterSpacing: theme.accentLetterSpacing,
-                  transition: themeSurfaceTransition,
-                }}
-              >
-                {greeting.logoName}
-              </NavLink>
-            </li>
-            {navItems.map((item) => (
-              <li key={item.to}>
+          <nav aria-label="Primary">
+            <ul
+              id="site-menu"
+              className={`menu${isMenuOpen ? " menu--open" : ""}`}
+              hidden={!isMenuOpen}
+              style={{
+                background: buildThemeBackground(theme.cardBackgroundAlt, theme.surfacePattern),
+                borderColor: theme.borderSoft,
+                borderWidth: theme.panelBorderWidth,
+                borderStyle: theme.panelBorderStyle,
+                borderRadius: theme.surfaceRadius,
+                boxShadow: buildThemeShadow(`0 18px 42px ${theme.shadowColor}`, theme.panelGlow),
+                transition: themeElevatedSurfaceTransition,
+              }}
+            >
+              <li className="menu-brand-item">
                 <NavLink
-                  className={item.className}
-                  to={item.to}
-                  style={navigationLinkStyle(theme)}
+                  to={link}
+                  className="menu-brand"
                   onClick={closeMenu}
+                  style={{
+                    color: theme.text,
+                    fontFamily: theme.accentFontFamily,
+                    letterSpacing: theme.accentLetterSpacing,
+                    transition: themeSurfaceTransition,
+                  }}
                 >
-                  {item.label}
+                  {greeting.logoName}
                 </NavLink>
               </li>
-            ))}
-            <li className="menu-theme-toggle-item">
-              <button
-                className="change-theme-btn"
-                onClick={() => {
-                  toggleMode();
-                  closeMenu();
-                }}
-                type="button"
-                style={{
-                  cursor: "pointer",
-                  height: "45px",
-                  width: "45px",
-                  margin: 0,
-                  paddingTop: "5px",
-                  borderRadius: "50%",
-                  borderColor: theme.borderColor,
-                  borderWidth: theme.panelBorderWidth,
-                  borderStyle: theme.panelBorderStyle,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
-                  color: theme.selectorText,
-                  outline: "none",
-                  transition: themeSurfaceTransition,
-                  boxShadow:
-                    themeMode === "light"
-                      ? buildThemeShadow("0 6px 16px rgba(31, 41, 55, 0.08)", theme.buttonGlow)
-                      : buildThemeShadow("0 8px 20px rgba(0, 0, 0, 0.28)", theme.buttonGlow),
-                }}
-                aria-label="Toggle Theme"
-              >
-                {icon}
-              </button>
-            </li>
-          </ul>
+              {navItems.map((item) => (
+                <li key={item.to}>
+                  <NavLink
+                    className={item.className}
+                    to={item.to}
+                    style={navigationLinkStyle(theme)}
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
+              <li className="menu-theme-toggle-item">
+                <button
+                  className="change-theme-btn"
+                  onClick={() => {
+                    toggleMode();
+                    closeMenu();
+                  }}
+                  type="button"
+                  style={{
+                    cursor: "pointer",
+                    height: "45px",
+                    width: "45px",
+                    margin: 0,
+                    paddingTop: "5px",
+                    borderRadius: "50%",
+                    borderColor: theme.borderColor,
+                    borderWidth: theme.panelBorderWidth,
+                    borderStyle: theme.panelBorderStyle,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
+                    color: theme.selectorText,
+                    outline: "none",
+                    transition: themeSurfaceTransition,
+                    boxShadow:
+                      themeMode === "light"
+                        ? buildThemeShadow("0 6px 16px rgba(31, 41, 55, 0.08)", theme.buttonGlow)
+                        : buildThemeShadow("0 8px 20px rgba(0, 0, 0, 0.28)", theme.buttonGlow),
+                  }}
+                  aria-label="Toggle Theme"
+                >
+                  {icon}
+                </button>
+              </li>
+            </ul>
+          </nav>
         </header>
       </div>
     </motion.div>

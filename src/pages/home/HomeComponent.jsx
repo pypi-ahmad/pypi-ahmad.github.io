@@ -18,10 +18,12 @@ function Home(props) {
   return (
     <div>
       <Header />
-      <Greeting theme={props.theme} />
-      <SystemShowcase theme={props.theme} />
-      <SystemThinking theme={props.theme} />
-      <Skills theme={props.theme} />
+      <main id="main-content">
+        <Greeting theme={props.theme} />
+        <SystemShowcase theme={props.theme} />
+        <SystemThinking theme={props.theme} />
+        <Skills theme={props.theme} />
+      </main>
       <Footer theme={props.theme} />
     </div>
   );

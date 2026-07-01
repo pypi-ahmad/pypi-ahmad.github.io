@@ -17,6 +17,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 import Header from "../components/header/Header";
 import ThemePage from "../pages/theme/ThemePage";
 import SystemCard from "../components/SystemDesign/SystemCard";
+import ProductTile from "../components/SystemDesign/ProductTile";
 import Greeting from "../containers/greeting/Greeting";
 import ExperienceAccordion from "../containers/experienceAccordion/ExperienceAccordion";
 import { renderWithProviders, darkTheme, lightTheme } from "../test/testUtils";
@@ -275,6 +276,76 @@ describe("SystemCard — Modal Behavior", () => {
       expect(screen.getByText("Feature A")).toBeInTheDocument();
       expect(screen.getByText("Feature B")).toBeInTheDocument();
     });
+  });
+
+  it("closes on Escape and restores focus to the trigger button", async () => {
+    const user = userEvent.setup();
+    renderWithProviders(
+      <SystemCard system={mockSystem} theme={darkTheme} />
+    );
+
+    const openButton = screen.getByRole("button", {
+      name: /View Deep Dive & Architecture/i,
+    });
+    openButton.focus();
+    await user.click(openButton);
+
+    const closeButton = await screen.findByRole("button", {
+      name: /Close dialog/i,
+    });
+    expect(closeButton).toHaveFocus();
+
+    await user.keyboard("{Escape}");
+
+    await waitFor(() => {
+      expect(screen.queryByText("Problem Statement")).not.toBeInTheDocument();
+    });
+    expect(openButton).toHaveFocus();
+  });
+
+  it("traps keyboard focus inside the modal while open", async () => {
+    const user = userEvent.setup();
+    renderWithProviders(
+      <SystemCard system={mockSystem} theme={darkTheme} />
+    );
+
+    await user.click(screen.getByRole("button", {
+      name: /View Deep Dive & Architecture/i,
+    }));
+    const closeButton = await screen.findByRole("button", {
+      name: /Close dialog/i,
+    });
+
+    expect(closeButton).toHaveFocus();
+    await user.tab();
+    expect(closeButton).toHaveFocus();
+    await user.tab({ shift: true });
+    expect(closeButton).toHaveFocus();
+  });
+});
+
+describe("ProductTile — Modal Keyboard Behavior", () => {
+  it("closes on Escape and restores focus to the tile trigger", async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<ProductTile system={mockSystem} theme={darkTheme} />);
+
+    const tileButton = screen.getByRole("button", {
+      name: `View ${mockSystem.name} deep dive`,
+    });
+    tileButton.focus();
+    await user.click(tileButton);
+
+    const closeButton = await screen.findByRole("button", {
+      name: /Close dialog/i,
+    });
+    expect(closeButton).toHaveFocus();
+
+    await user.keyboard("{Escape}");
+
+    await waitFor(() => {
+      expect(screen.queryByText("Problem Statement")).not.toBeInTheDocument();
+    });
+    expect(tileButton).toHaveFocus();
   });
 });
 

@@ -1,0 +1,51 @@
+.not-found-main {
+  width: 100%;
+}
+
+.basic-not-found {
+  width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
+  margin: 0 auto var(--section-spacing);
+}
+
+.not-found-card {
+  text-align: center;
+  padding: clamp(2rem, 6vw, 4rem);
+  border-radius: 12px;
+}
+
+.not-found-code {
+  margin: 0;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 1;
+}
+
+.not-found-title {
+  margin: 0.75rem 0 0;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.not-found-description {
+  margin: 1rem auto 0;
+  max-width: 36rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.not-found-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.not-found-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  min-height: 48px;
+  box-sizing: border-box;
+  text-decoration: none;
+}

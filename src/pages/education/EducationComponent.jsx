@@ -20,38 +20,40 @@ function Education(props) {
   return (
     <div className="education-main">
       <Header />
-      <div className="basic-education">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="heading-div">
-            <div className="heading-img-div">
-              <EducationImg theme={theme} />
+      <main id="main-content">
+        <div className="basic-education">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <div className="heading-div">
+              <div className="heading-img-div">
+                <EducationImg theme={theme} />
+              </div>
+              <div className="heading-text-div">
+                <h1 className="heading-text" style={{ color: theme.text }}>
+                  Education
+                </h1>
+                <h3 className="heading-sub-text" style={{ color: theme.text }}>
+                  Basic Qualification and Certifications
+                </h3>
+                <p
+                  className="experience-header-detail-text subTitle"
+                  style={{ color: theme.secondaryText }}
+                >
+                  My academic journey is built on a strong university
+                  foundation, complemented by specialized online certifications
+                  to stay ahead in the evolving tech landscape.
+                </p>
+              </div>
             </div>
-            <div className="heading-text-div">
-              <h1 className="heading-text" style={{ color: theme.text }}>
-                Education
-              </h1>
-              <h3 className="heading-sub-text" style={{ color: theme.text }}>
-                Basic Qualification and Certifications
-              </h3>
-              <p
-                className="experience-header-detail-text subTitle"
-                style={{ color: theme.secondaryText }}
-              >
-                My academic journey is built on a strong university foundation,
-                complemented by specialized online certifications to stay ahead
-                in the evolving tech landscape.
-              </p>
-            </div>
-          </div>
-        </motion.div>
-        <Educations theme={props.theme} />
-        <Certifications theme={props.theme} />
-      </div>
+          </motion.div>
+          <Educations theme={props.theme} />
+          <Certifications theme={props.theme} />
+        </div>
+      </main>
       <Footer theme={props.theme} />
     </div>
   );
