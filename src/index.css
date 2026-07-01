@@ -76,7 +76,7 @@ body {
 }
 body {
   margin: 0;
-  font: 19px / 23px Montserrat, "Montserrat", sans-serif;
+  font: 16px / 1.65 Montserrat, "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -93,15 +93,15 @@ video {
 
 @media (max-width: 768px) {
   body {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 15px;
+    line-height: 1.6;
   }
 }
 
 @media (max-width: 480px) {
   body {
-    font-size: 15px;
-    line-height: 21px;
+    font-size: 14.5px;
+    line-height: 1.6;
   }
 }
 
@@ -184,7 +184,7 @@ video {
 @media (max-width: 1380px) {
   html,
   body {
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: normal;
   }
 }
@@ -192,12 +192,12 @@ video {
 @media (max-width: 768px) {
   html,
   body {
-    font-size: 15px;
-    line-height: 1.4;
+    font-size: 14.8px;
+    line-height: 1.5;
     overflow-x: hidden;
   }
 
   body {
-    font: 16px / 22px Montserrat, "Montserrat", sans-serif;
+    font: 15px / 1.6 Montserrat, "Montserrat", sans-serif;
   }
 }

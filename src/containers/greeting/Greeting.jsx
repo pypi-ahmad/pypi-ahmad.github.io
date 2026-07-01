@@ -32,6 +32,10 @@ export default function Greeting(props) {
   const coverUrl = greeting.coverLetterLink
     ? `/${greeting.coverLetterLink}`
     : "";
+  const summaryText = greeting.subTitle.replace(
+    /^I'm\s+Ahmad\s+Mujtaba\.\s*/i,
+    ""
+  );
 
   const handleDocOpen = async (event, url, label) => {
     event.preventDefault();
@@ -99,7 +103,7 @@ export default function Greeting(props) {
                 >
                   {greeting.fullName}.{" "}
                 </span>
-                {greeting.subTitle}
+                {summaryText}
               </p>
 
               {/* Hero Bullets */}

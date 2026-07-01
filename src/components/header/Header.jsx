@@ -25,13 +25,12 @@ import {
 } from "../../themeMotion";
 
 const navigationLinkStyle = (theme) => ({ isActive }) => ({
-  fontWeight: isActive ? "bold" : "normal",
+  fontWeight: isActive ? 700 : 500,
   borderRadius: theme.controlRadius,
   color: theme.text,
   backgroundColor: isActive ? theme.accentSoft : "transparent",
-  boxShadow: isActive
-    ? buildThemeShadow(`0 12px 30px ${theme.shadowColor}`, theme.buttonGlow)
-    : "none",
+  border: `1px solid ${isActive ? theme.borderColor : "transparent"}`,
+  boxShadow: "none",
   transition: themeSurfaceTransition,
 });
 
@@ -95,7 +94,7 @@ function Header() {
             borderWidth: theme.panelBorderWidth,
             borderStyle: theme.panelBorderStyle,
             borderRadius: theme.surfaceRadius,
-            boxShadow: buildThemeShadow(`0 18px 42px ${theme.shadowColor}`, theme.panelGlow),
+            boxShadow: buildThemeShadow(`0 10px 24px ${theme.shadowColor}`, theme.panelGlow),
             transition: themeElevatedSurfaceTransition,
           }}
         >
@@ -107,13 +106,13 @@ function Header() {
             aria-controls="site-menu"
             onClick={toggleMenu}
             style={{
-              background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
+              background: buildThemeBackground(theme.cardBackgroundAlt, theme.buttonPattern),
               color: theme.text,
-              borderColor: theme.borderColor,
+              borderColor: theme.borderSoft,
               borderWidth: theme.panelBorderWidth,
               borderStyle: theme.panelBorderStyle,
               borderRadius: theme.controlRadius,
-              boxShadow: buildThemeShadow(`0 12px 28px ${theme.shadowColor}`, theme.buttonGlow),
+              boxShadow: buildThemeShadow(`0 8px 18px ${theme.shadowColor}`, theme.buttonGlow),
               transition: themeSurfaceTransition,
             }}
           >
@@ -130,7 +129,7 @@ function Header() {
                 borderWidth: theme.panelBorderWidth,
                 borderStyle: theme.panelBorderStyle,
                 borderRadius: theme.surfaceRadius,
-                boxShadow: buildThemeShadow(`0 18px 42px ${theme.shadowColor}`, theme.panelGlow),
+                boxShadow: buildThemeShadow(`0 16px 32px ${theme.shadowColor}`, theme.panelGlow),
                 transition: themeElevatedSurfaceTransition,
               }}
             >
@@ -175,13 +174,13 @@ function Header() {
                     width: "45px",
                     margin: 0,
                     paddingTop: "5px",
-                    borderRadius: "50%",
+                    borderRadius: theme.controlRadius,
                     borderColor: theme.borderColor,
                     borderWidth: theme.panelBorderWidth,
                     borderStyle: theme.panelBorderStyle,
                     alignItems: "center",
                     justifyContent: "center",
-                    background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
+                    background: buildThemeBackground(theme.cardBackgroundAlt, theme.buttonPattern),
                     color: theme.selectorText,
                     outline: "none",
                     transition: themeSurfaceTransition,
