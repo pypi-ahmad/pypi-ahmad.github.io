@@ -27,8 +27,8 @@ const Container = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: clamp(1.85rem, 3.4vw, 2.5rem);
+  margin-bottom: 2rem;
   color: ${props => props.theme.text};
 
   @media (max-width: 768px) {
@@ -57,11 +57,11 @@ const StepsContainer = styled.div`
 const Step = styled(motion.div)`
   background: ${props => props.theme.imageDark};
   color: ${props => props.theme.text};
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--card-radius, 14px);
   border: 1px solid var(--border);
-  font-weight: bold;
-  font-size: 1.2rem;
+  font-weight: 700;
+  font-size: 1.05rem;
   box-shadow: var(--shadow-sm);
   position: relative;
   z-index: var(--layer-card);
@@ -71,8 +71,7 @@ const Step = styled(motion.div)`
   justify-content: center;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 768px) {

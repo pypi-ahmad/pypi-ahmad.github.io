@@ -97,17 +97,17 @@ describe("Header — UI Rendering", () => {
     expect(logoLink).toHaveAttribute("href", "/home");
   });
 
-  it("applies dark theme background color on toggle button in dark mode", async () => {
+  it("applies neutral dark surface color on toggle button in dark mode", async () => {
     renderWithProviders(<Header />);
     await openMenu();
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
-    expect(toggleBtn).toHaveStyle({ backgroundColor: "#292C3F" });
+    expect(toggleBtn).toHaveStyle({ backgroundColor: "#292A2D" });
   });
 
-  it("applies light theme background color on toggle button in light mode", async () => {
+  it("applies neutral light surface color on toggle button in light mode", async () => {
     renderWithProviders(<Header />, { theme: "light" });
     await openMenu();
     const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
-    expect(toggleBtn).toHaveStyle({ backgroundColor: "#7CD1F7" });
+    expect(toggleBtn).toHaveStyle({ backgroundColor: "#DCE4F2" });
   });
 });

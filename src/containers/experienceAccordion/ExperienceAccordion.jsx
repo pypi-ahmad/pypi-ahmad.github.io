@@ -14,7 +14,7 @@ import styled from "styled-components";
 const AccordionContainer = styled.div`
   width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
   margin: 0 auto var(--section-spacing);
-  border-radius: 5px;
+  border-radius: var(--surface-radius, 20px);
   border: 1px solid ${({ theme }) => theme.borderSoft ?? theme.secondaryText};
   overflow: hidden;
 
@@ -36,8 +36,8 @@ const AccordionPanel = styled.details`
 `;
 
 const AccordionSummary = styled.summary`
-  padding: 20px;
-  font-size: 1.2rem;
+  padding: 16px 18px;
+  font-size: 1.05rem;
   font-family: "Google Sans Regular", sans-serif;
   font-weight: bold;
   color: ${({ theme }) => theme.text};
@@ -72,7 +72,7 @@ const AccordionSummary = styled.summary`
 `;
 
 const AccordionContent = styled.div`
-  padding: 20px;
+  padding: 16px;
   background-color: ${({ theme }) => theme.body};
   display: grid;
   gap: var(--section-gap-tight);

@@ -13,10 +13,10 @@
 
 .greet-main {
   max-width: min(var(--container-max-width), 100%);
-  padding: clamp(1.75rem, 4vw, 2.75rem);
+  padding: clamp(1.4rem, 3vw, 2.25rem);
   margin: 0 auto;
   display: block;
-  border-radius: 30px;
+  border-radius: var(--surface-radius, 20px);
   position: relative;
   overflow: hidden;
   transition: border-color var(--theme-transition-fast), box-shadow var(--theme-transition-slow);
@@ -30,10 +30,10 @@
   width: 60%;
   height: 120%;
   background: radial-gradient(circle, var(--glow-accent) 0%, transparent 70%);
-  filter: blur(72px);
+  filter: blur(64px);
   pointer-events: none;
   z-index: 0;
-  opacity: 0.55;
+  opacity: 0.28;
 }
 
 .greet-main > * {
@@ -70,8 +70,8 @@
 
 .greeting-text {
   margin-top: 0;
-  font-size: 70px;
-  line-height: 1.02;
+  font-size: clamp(2.4rem, 6.8vw, 4.2rem);
+  line-height: 1;
   font-family: "Google Sans Bold";
   transition: color var(--theme-transition-fast);
 }
@@ -83,8 +83,8 @@
 }
 
 .greeting-text-p {
-  font-size: 30px;
-  line-height: 40px;
+  font-size: clamp(1rem, 0.95rem + 0.5vw, 1.25rem);
+  line-height: 1.55;
   margin-right: 0;
   font-family: "Google Sans Medium";
   transition: color var(--theme-transition-fast);
@@ -112,7 +112,7 @@
   color: inherit;
   padding: 15px 24px;
   margin-top: 0;
-  border-radius: 16px;
+  border-radius: var(--control-radius, 14px);
   border-width: 1px;
   border-style: solid;
   margin-bottom: 0;
@@ -121,8 +121,8 @@
   height: 50px;
   font-weight: bold;
   font-family: "Google Sans Regular";
-  font-size: 17px;
-  transition: transform 0.2s ease-in-out, background-color var(--theme-transition-medium), color var(--theme-transition-fast), border-color var(--theme-transition-fast), box-shadow var(--theme-transition-slow);
+  font-size: 16px;
+  transition: transform 0.2s ease-in-out, background-color var(--theme-transition-medium), color var(--theme-transition-fast), border-color var(--theme-transition-fast), box-shadow var(--theme-transition-slow), filter var(--theme-transition-fast);
   cursor: pointer;
   backdrop-filter: blur(10px);
   display: inline-flex;
@@ -133,8 +133,8 @@
 }
 
 .button:hover {
-  transform: translateY(-2px) scale(1.05);
-  filter: brightness(1.08);
+  transform: translateY(-1px);
+  filter: brightness(1.03);
 }
 
 .doc-fallback-text {
@@ -147,15 +147,15 @@
 /* Media Query */
 @media (max-width: 1380px) {
   .greeting-text {
-    font-size: 50px;
+    font-size: clamp(2.1rem, 6vw, 3.3rem);
   }
 
   .greeting-text-p {
-    font-size: 20px;
+    font-size: clamp(1rem, 0.9rem + 0.4vw, 1.15rem);
   }
 
   .greet-main {
-    max-width: 900px;
+    max-width: 980px;
   }
 }
 @media (max-width: 768px) {
@@ -167,8 +167,8 @@
   .greet-main {
     max-width: 100%;
     width: 100%;
-    padding: 16px 18px;
-    margin-top: 1rem;
+    padding: 16px 16px;
+    margin-top: 0.5rem;
     box-sizing: border-box;
   }
 
@@ -177,7 +177,7 @@
   }
 
   .greeting-text {
-    font-size: 1.75rem;
+    font-size: clamp(1.9rem, 8vw, 2.35rem);
     margin-top: 0px;
     text-align: center;
     line-height: 1.2;
@@ -189,7 +189,7 @@
   }
 
   .greeting-text-p {
-    font-size: 1rem;
+    font-size: 0.98rem;
     margin-right: 0px;
     line-height: 1.5;
     text-align: center;
@@ -230,7 +230,7 @@
     max-width: 280px;
     margin: 5px auto;
     padding: 12px 10px;
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 
@@ -245,7 +245,7 @@
   }
 
   .greeting-text {
-    font-size: 1.55rem;
+    font-size: 1.75rem;
   }
 
   .greeting-nickname {

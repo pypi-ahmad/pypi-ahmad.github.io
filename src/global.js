@@ -19,11 +19,14 @@ export const GlobalStyles = createGlobalStyle`
     --theme-transition-medium: 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
     --theme-transition-slow: 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
     --theme-transition-colors: 300ms ease-in-out;
-    --container-max-width: 72rem;
-    --section-spacing: 4rem;
-    --section-spacing-tight: 2rem;
-    --section-gap: 2rem;
-    --section-gap-tight: 1.5rem;
+    --container-max-width: 74rem;
+    --section-spacing: 4.75rem;
+    --section-spacing-tight: 2.5rem;
+    --section-gap: 2.25rem;
+    --section-gap-tight: 1.25rem;
+    --surface-radius: 20px;
+    --card-radius: 14px;
+    --reading-width: 44rem;
   }
 
   *,
@@ -82,20 +85,20 @@ export const GlobalStyles = createGlobalStyle`
     --heading-letter-spacing: ${({ theme }) => resolveHeadingLetterSpacing(theme)};
     --body-font-family: "Montserrat", "Google Sans Regular", -apple-system, BlinkMacSystemFont,
       "Segoe UI", sans-serif;
-    --page-gutter: clamp(1rem, 4vw, 2.75rem);
-    --stack-xs: 0.45rem;
-    --stack-sm: 0.75rem;
-    --stack-md: 1rem;
-    --stack-lg: 1.5rem;
+    --page-gutter: clamp(1rem, 3.8vw, 3rem);
+    --stack-xs: 0.4rem;
+    --stack-sm: 0.65rem;
+    --stack-md: 0.95rem;
+    --stack-lg: 1.35rem;
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     display: block;
     min-height: 100vh;
     margin: 0;
     font-family: var(--body-font-family);
-    font-size: clamp(1rem, 0.98rem + 0.18vw, 1.0625rem);
-    line-height: 1.7;
-    letter-spacing: 0.01em;
+    font-size: clamp(0.99rem, 0.95rem + 0.25vw, 1.08rem);
+    line-height: 1.65;
+    letter-spacing: 0.005em;
     text-rendering: optimizeLegibility;
     transition:
       background-color var(--theme-transition-colors),
@@ -124,7 +127,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 0 var(--stack-sm);
     color: var(--text-primary);
     font-family: var(--heading-font-family);
-    line-height: 1.08;
+    line-height: 1.02;
     font-weight: 700;
     letter-spacing: var(--heading-letter-spacing);
     text-wrap: balance;
@@ -191,7 +194,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   li {
-    line-height: 1.65;
+    line-height: 1.6;
   }
 
   p:last-child,
@@ -217,7 +220,7 @@ export const GlobalStyles = createGlobalStyle`
   .hover-translate-y-1:hover,
   .hover-translate-y-1:focus-within,
   .hover-translate-y-1:focus-visible {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 768px) {
@@ -229,7 +232,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .transition-all {
-    transition: all 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: all 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .transition-colors {
@@ -282,7 +285,7 @@ export const GlobalStyles = createGlobalStyle`
   .greet-main {
     max-width: min(var(--container-max-width), 100%);
     margin-top: 0;
-    padding: clamp(1.5rem, 3vw, 2.5rem);
+    padding: clamp(1.4rem, 2.8vw, 2.25rem);
   }
 
   .greeting-main,
@@ -310,17 +313,17 @@ export const GlobalStyles = createGlobalStyle`
   .skills-header,
   .contact-cta-text {
     font-family: var(--heading-font-family);
-    font-size: clamp(2.3rem, 4vw, 3.75rem);
+    font-size: clamp(2rem, 3.8vw, 3.2rem);
     font-weight: 700;
-    line-height: 1.05;
+    line-height: 1.04;
     letter-spacing: var(--heading-letter-spacing);
     margin-bottom: var(--stack-sm);
   }
 
   .greeting-text {
     margin-top: 0;
-    font-size: clamp(2.85rem, 7vw, 4.85rem);
-    line-height: 0.96;
+    font-size: clamp(2.4rem, 6.5vw, 4.2rem);
+    line-height: 0.98;
   }
 
   .greeting-nickname,
@@ -401,23 +404,23 @@ export const GlobalStyles = createGlobalStyle`
   .skills-header-detail-text,
   .contact-cta-subtext,
   .contact-social-intro {
-    max-width: min(40rem, 100%);
+    max-width: min(var(--reading-width), 100%);
     margin-left: auto;
     margin-right: auto;
-    font-size: clamp(1rem, 0.98rem + 0.32vw, 1.18rem);
+    font-size: clamp(0.98rem, 0.95rem + 0.3vw, 1.12rem);
   }
 
   .greeting-text-p {
     margin-right: 0;
     margin-bottom: var(--stack-lg);
-    font-size: clamp(1.08rem, 0.98rem + 0.7vw, 1.4rem);
+    font-size: clamp(1rem, 0.96rem + 0.5vw, 1.25rem);
   }
 
   .projects-heading-sub-text,
   .experience-heading-sub-text,
   .heading-sub-text {
     margin-bottom: var(--stack-sm);
-    font-size: clamp(1.1rem, 1rem + 0.55vw, 1.4rem);
+    font-size: clamp(1.05rem, 0.98rem + 0.5vw, 1.3rem);
   }
 
   .contact-cta-subtext,
@@ -466,7 +469,7 @@ export const GlobalStyles = createGlobalStyle`
   .button {
     margin-top: 0;
     margin-bottom: 0;
-    min-height: 3.25rem;
+    min-height: 3rem;
     font-weight: 700;
   }
 
@@ -496,7 +499,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .greeting-text {
-      font-size: clamp(2rem, 8vw, 2.7rem);
+      font-size: clamp(1.95rem, 7vw, 2.5rem);
     }
 
     .greeting-text-p,
@@ -516,7 +519,7 @@ export const GlobalStyles = createGlobalStyle`
     .skills-heading-text,
     .skills-header,
     .contact-cta-text {
-      font-size: clamp(1.95rem, 7vw, 2.5rem);
+      font-size: clamp(1.8rem, 6.5vw, 2.3rem);
       margin-top: var(--section-spacing-tight);
     }
 

@@ -156,18 +156,18 @@ function createThemeTokens(family, mode, tokens) {
     tokens.accentText ?? getReadableTextColor(accentSolid);
   const accentSoft =
     tokens.accentSoft ??
-    withAlpha(accentSolid, isLightMode ? 0.14 : 0.22);
+    withAlpha(accentSolid, isLightMode ? 0.1 : 0.16);
   const shadowColor =
     tokens.shadowColor ??
-    (isLightMode ? withAlpha(tokens.text, 0.1) : "rgba(0, 0, 0, 0.34)");
+    (isLightMode ? withAlpha(tokens.text, 0.08) : "rgba(0, 0, 0, 0.28)");
   const glowColor =
     tokens.glowColor ??
-    withAlpha(accentSolid, isLightMode ? 0.24 : 0.34);
+    withAlpha(accentSolid, isLightMode ? 0.16 : 0.22);
   const heroGradient =
     tokens.heroGradient ??
-    `linear-gradient(135deg, ${tokens.body} 0%, ${bodyAlt} 58%, ${withAlpha(
+    `linear-gradient(140deg, ${tokens.body} 0%, ${bodyAlt} 72%, ${withAlpha(
       accentSolid,
-      isLightMode ? 0.12 : 0.18
+      isLightMode ? 0.08 : 0.12
     )} 100%)`;
 
   return {
@@ -205,9 +205,9 @@ function createThemeTokens(family, mode, tokens) {
     shadowColor,
     heroGradient,
     glowColor,
-    surfaceRadius: tokens.surfaceRadius ?? "24px",
-    heroRadius: tokens.heroRadius ?? "30px",
-    controlRadius: tokens.controlRadius ?? "16px",
+    surfaceRadius: tokens.surfaceRadius ?? "20px",
+    heroRadius: tokens.heroRadius ?? "24px",
+    controlRadius: tokens.controlRadius ?? "14px",
     pillRadius: tokens.pillRadius ?? "999px",
     panelBorderWidth: tokens.panelBorderWidth ?? "1px",
     panelBorderStyle: tokens.panelBorderStyle ?? "solid",
