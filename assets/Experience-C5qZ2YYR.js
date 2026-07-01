@@ -1,7 +1,7 @@
-import{d as e,t}from"./jsx-runtime-CdZnZE2c.js";import{d as n,n as r,t as i}from"./Footer-5ghep2og.js";import{c as a,f as o}from"./index-CkBg4n0c.js";e();var s=t();function c(e){let t=e.experience,n=e.theme;return(0,s.jsxs)(`div`,{className:`experience-card shadow-sm hover-shadow-lg hover-translate-y-1 transition-all duration-200 layer-card`,style:{border:`1px solid ${/^#([0-9a-f]{6})$/i.test(t.color)?`${t.color}55`:t.color}`,backgroundColor:n.imageDark},children:[(0,s.jsx)(`div`,{className:`experience-card-logo-div`,children:(0,s.jsx)(`a`,{href:t.companyUrl,target:`_blank`,rel:`noopener noreferrer`,children:(0,s.jsx)(`img`,{className:`experience-card-logo`,src:`/images/${t.logoPath}`,alt:`${t.company} logo`,loading:`lazy`,decoding:`async`,width:70,height:70})})}),(0,s.jsxs)(`div`,{className:`experience-card-body-div`,children:[(0,s.jsxs)(`div`,{className:`experience-card-header-div`,children:[(0,s.jsxs)(`div`,{className:`experience-card-heading-left`,children:[(0,s.jsx)(`h3`,{className:`experience-card-title`,style:{color:n.text},children:t.title}),(0,s.jsx)(`p`,{className:`experience-card-company`,style:{color:n.secondaryText},children:(0,s.jsx)(`a`,{href:t.companyUrl,target:`_blank`,rel:`noopener noreferrer`,children:t.company})})]}),(0,s.jsxs)(`div`,{className:`experience-card-heading-right`,children:[(0,s.jsx)(`p`,{className:`experience-card-duration`,style:{color:n.secondaryText},children:t.duration}),(0,s.jsx)(`p`,{className:`experience-card-location`,style:{color:n.secondaryText},children:t.location})]})]}),(0,s.jsx)(`div`,{className:`experience-card-description`,style:{color:n.secondaryText},children:t.descriptions?(0,s.jsx)(`ul`,{children:t.descriptions.map((e,t)=>(0,s.jsx)(`li`,{children:e},t))}):(0,s.jsx)(`p`,{children:t.description})})]})]})}var l=a.div`
+import{d as e,t}from"./jsx-runtime-CdZnZE2c.js";import{d as n,n as r,t as i}from"./Footer-DINl4sIg.js";import{c as a,f as o}from"./index-aQ3RlfBT.js";e();var s=t();function c(e){let t=e.experience,n=e.theme;return(0,s.jsxs)(`div`,{className:`experience-card shadow-sm hover-shadow-lg hover-translate-y-1 transition-all duration-200 layer-card`,style:{border:`1px solid ${/^#([0-9a-f]{6})$/i.test(t.color)?`${t.color}55`:t.color}`,backgroundColor:n.imageDark},children:[(0,s.jsx)(`div`,{className:`experience-card-logo-div`,children:(0,s.jsx)(`a`,{href:t.companyUrl,target:`_blank`,rel:`noopener noreferrer`,children:(0,s.jsx)(`img`,{className:`experience-card-logo`,src:`/images/${t.logoPath}`,alt:`${t.company} logo`,loading:`lazy`,decoding:`async`,width:70,height:70})})}),(0,s.jsxs)(`div`,{className:`experience-card-body-div`,children:[(0,s.jsxs)(`div`,{className:`experience-card-header-div`,children:[(0,s.jsxs)(`div`,{className:`experience-card-heading-left`,children:[(0,s.jsx)(`h3`,{className:`experience-card-title`,style:{color:n.text},children:t.title}),(0,s.jsx)(`p`,{className:`experience-card-company`,style:{color:n.secondaryText},children:(0,s.jsx)(`a`,{href:t.companyUrl,target:`_blank`,rel:`noopener noreferrer`,children:t.company})})]}),(0,s.jsxs)(`div`,{className:`experience-card-heading-right`,children:[(0,s.jsx)(`p`,{className:`experience-card-duration`,style:{color:n.secondaryText},children:t.duration}),(0,s.jsx)(`p`,{className:`experience-card-location`,style:{color:n.secondaryText},children:t.location})]})]}),(0,s.jsx)(`div`,{className:`experience-card-description`,style:{color:n.secondaryText},children:t.descriptions?(0,s.jsx)(`ul`,{children:t.descriptions.map((e,t)=>(0,s.jsx)(`li`,{children:e},t))}):(0,s.jsx)(`p`,{children:t.description})})]})]})}var l=a.div`
   width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
   margin: 0 auto var(--section-spacing);
-  border-radius: 5px;
+  border-radius: var(--surface-radius, 20px);
   border: 1px solid ${({theme:e})=>e.borderSoft??e.secondaryText};
   overflow: hidden;
 
@@ -19,8 +19,8 @@ import{d as e,t}from"./jsx-runtime-CdZnZE2c.js";import{d as n,n as r,t as i}from
     border-bottom: none;
   }
 `,d=a.summary`
-  padding: 20px;
-  font-size: 1.2rem;
+  padding: 16px 18px;
+  font-size: 1.05rem;
   font-family: "Google Sans Regular", sans-serif;
   font-weight: bold;
   color: ${({theme:e})=>e.text};
@@ -53,7 +53,7 @@ import{d as e,t}from"./jsx-runtime-CdZnZE2c.js";import{d as n,n as r,t as i}from
     font-size: 1.05rem;
   }
 `,f=a.div`
-  padding: 20px;
+  padding: 16px;
   background-color: ${({theme:e})=>e.body};
   display: grid;
   gap: var(--section-gap-tight);
