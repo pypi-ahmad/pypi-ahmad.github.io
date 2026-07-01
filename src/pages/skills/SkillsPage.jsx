@@ -82,7 +82,7 @@ function SkillsPage(props) {
   return (
     <div className="skills-main">
       <Header />
-      <div className="basic-skills">
+      <main className="basic-skills" id="main-content">
         <motion.div
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -117,7 +117,7 @@ function SkillsPage(props) {
                 </motion.div>
             ))}
         </div>
-      </div>
+      </main>
       <Footer theme={props.theme} />
     </div>
   );

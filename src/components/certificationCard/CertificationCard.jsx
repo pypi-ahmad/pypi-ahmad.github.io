@@ -45,6 +45,10 @@ function CertificationCard(props) {
                 className="logo_img"
                 src={`/${certificate.logoPath}`}
                 alt={certificate.altName}
+                loading="lazy"
+                decoding="async"
+                width={800}
+                height={600}
               />
             </div>
           </a>

@@ -21,7 +21,16 @@
  */
 import React, { lazy, Suspense } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { settings } from "../portfolio.js";
+import { HelmetProvider } from "react-helmet-async";
+import {
+  settings,
+  greeting,
+  experience,
+  projectsHeader,
+  contactPageData,
+  skillsPageData,
+} from "../portfolio.js";
+import RouteMeta from "../components/seo/RouteMeta";
 
 const Home = lazy(() => import("../pages/home/HomeComponent"));
 const Splash = lazy(() => import("../pages/splash/Splash"));
@@ -31,58 +40,172 @@ const Contact = lazy(() => import("../pages/contact/ContactComponent"));
 const Projects = lazy(() => import("../pages/projects/Projects"));
 const SkillsPage = lazy(() => import("../pages/skills/SkillsPage"));
 const ThemePage = lazy(() => import("../pages/theme/ThemePage"));
+const NotFound = lazy(() => import("../pages/notFound/NotFound"));
+
+const routeFallbackStyle = {
+  minHeight: "100vh",
+  display: "grid",
+  placeItems: "center",
+  padding: "2rem 1.5rem",
+};
+
+const routeMeta = {
+  home: {
+    title: "Ahmad Mujtaba | GenAI Engineer Portfolio",
+    description: greeting.subTitle,
+    canonicalPath: "/",
+  },
+  experience: {
+    title: "Experience | Ahmad Mujtaba",
+    description: experience.description,
+    canonicalPath: "/experience",
+  },
+  education: {
+    title: "Education | Ahmad Mujtaba",
+    description:
+      "Academic background, certifications, and continuous learning roadmap in AI and machine learning.",
+    canonicalPath: "/education",
+  },
+  projects: {
+    title: "Projects | Ahmad Mujtaba",
+    description: projectsHeader.description,
+    canonicalPath: "/projects",
+  },
+  skills: {
+    title: "Skills | Ahmad Mujtaba",
+    description: skillsPageData.subtitle,
+    canonicalPath: "/skills",
+  },
+  contact: {
+    title: "Contact | Ahmad Mujtaba",
+    description: contactPageData.contactSection.description,
+    canonicalPath: "/contact",
+  },
+  theme: {
+    title: "Theme Gallery | Ahmad Mujtaba",
+    description:
+      "Explore portfolio theme families and switch between light and dark presentation modes.",
+    canonicalPath: "/theme",
+    noindex: true,
+  },
+  splash: {
+    title: "Loading | Ahmad Mujtaba",
+    description: "Loading Ahmad Mujtaba portfolio.",
+    canonicalPath: "/",
+    noindex: true,
+  },
+  notFound: {
+    title: "Page Not Found | Ahmad Mujtaba",
+    description: "The requested page could not be found on Ahmad Mujtaba portfolio.",
+    noindex: true,
+  },
+};
+
+function withRouteMeta(meta, element) {
+  return (
+    <>
+      <RouteMeta {...meta} />
+      {element}
+    </>
+  );
+}
 
 export default function Main(props) {
   return (
     <div>
-      <BrowserRouter basename="/">
-        <Suspense fallback={<div style={{ minHeight: "100vh" }} />}>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                settings.isSplash ? (
-                  <Splash {...props} theme={props.theme} />
-                ) : (
+      <HelmetProvider>
+        <BrowserRouter basename="/">
+          <Suspense
+            fallback={(
+              <div
+                style={routeFallbackStyle}
+                role="status"
+                aria-live="polite"
+                aria-busy="true"
+              >
+                Loading page...
+              </div>
+            )}
+          >
+            <Routes>
+              <Route
+                path="/"
+                element={withRouteMeta(
+                  routeMeta.home,
+                  settings.isSplash ? (
+                    <Splash {...props} theme={props.theme} />
+                  ) : (
+                    <Home {...props} theme={props.theme} />
+                  )
+                )}
+              />
+              <Route
+                path="/home"
+                element={withRouteMeta(
+                  routeMeta.home,
                   <Home {...props} theme={props.theme} />
-                )
-              }
-            />
-            <Route
-              path="/home"
-              element={<Home {...props} theme={props.theme} />}
-            />
-            <Route
-              path="/experience"
-              element={<Experience {...props} theme={props.theme} />}
-            />
-            <Route
-              path="/education"
-              element={<Education {...props} theme={props.theme} />}
-            />
-            <Route
-              path="/contact"
-              element={<Contact {...props} theme={props.theme} />}
-            />
-            <Route
-              path="/splash"
-              element={<Splash {...props} theme={props.theme} />}
-            />
-            <Route
-              path="/projects"
-              element={<Projects {...props} theme={props.theme} />}
-            />
-            <Route
-              path="/skills"
-              element={<SkillsPage {...props} theme={props.theme} />}
-            />
-            <Route
-              path="/theme"
-              element={<ThemePage {...props} theme={props.theme} />}
-            />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
+                )}
+              />
+              <Route
+                path="/experience"
+                element={withRouteMeta(
+                  routeMeta.experience,
+                  <Experience {...props} theme={props.theme} />
+                )}
+              />
+              <Route
+                path="/education"
+                element={withRouteMeta(
+                  routeMeta.education,
+                  <Education {...props} theme={props.theme} />
+                )}
+              />
+              <Route
+                path="/contact"
+                element={withRouteMeta(
+                  routeMeta.contact,
+                  <Contact {...props} theme={props.theme} />
+                )}
+              />
+              <Route
+                path="/splash"
+                element={withRouteMeta(
+                  routeMeta.splash,
+                  <Splash {...props} theme={props.theme} />
+                )}
+              />
+              <Route
+                path="/projects"
+                element={withRouteMeta(
+                  routeMeta.projects,
+                  <Projects {...props} theme={props.theme} />
+                )}
+              />
+              <Route
+                path="/skills"
+                element={withRouteMeta(
+                  routeMeta.skills,
+                  <SkillsPage {...props} theme={props.theme} />
+                )}
+              />
+              <Route
+                path="/theme"
+                element={withRouteMeta(
+                  routeMeta.theme,
+                  <ThemePage {...props} theme={props.theme} />
+                )}
+              />
+              <Route
+                path="*"
+                element={withRouteMeta(
+                  routeMeta.notFound,
+                  <NotFound {...props} theme={props.theme} />
+                )}
+              />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </HelmetProvider>
     </div>
   );
 }

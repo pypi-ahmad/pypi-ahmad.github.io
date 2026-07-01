@@ -37,7 +37,7 @@ function Contact(props) {
   return (
     <div className="contact-main">
       <Header />
-      <div className="basic-contact">
+      <main className="basic-contact" id="main-content">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -99,9 +99,9 @@ function Contact(props) {
         >
           <div className="blog-heading-div">
             <div className="blog-heading-text-div">
-              <h1 className="blog-heading-text" style={{ color: theme.text }}>
+              <h2 className="blog-heading-text" style={{ color: theme.text }}>
                 {featuredSection["title"]}
-              </h1>
+              </h2>
               <p
                 className="blog-header-detail-text subTitle"
                 style={{ color: theme.secondaryText }}
@@ -125,7 +125,7 @@ function Contact(props) {
             </div>
           </div>
         </motion.div>
-      </div>
+      </main>
       <Footer theme={props.theme} />
     </div>
   );

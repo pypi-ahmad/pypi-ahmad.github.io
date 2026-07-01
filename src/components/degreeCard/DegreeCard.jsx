@@ -61,7 +61,7 @@ const DegreeCardBody = styled.div`
   }
 `;
 
-const VisitButton = styled.p`
+const VisitButton = styled.span`
   text-decoration: none;
   color: ${props => props.theme.accentText};
   background: ${props => props.theme.accentGradient};
@@ -110,10 +110,15 @@ function DegreeCard(props) {
             style={{
               maxWidth: "100%",
               maxHeight: "100%",
+              objectFit: "contain",
               transform: "scale(50%, 50%)",
             }}
             src={`/images/${degree.logoPath}`}
             alt={degree.altName}
+            loading="lazy"
+            decoding="async"
+            width={220}
+            height={220}
           />
         </DegreeImageDiv>
       </motion.div>

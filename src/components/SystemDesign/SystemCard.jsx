@@ -12,14 +12,27 @@
  */
 // src/components/SystemDesign/SystemCard.jsx
 
-import React, { useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import "./systems.css";
 import SystemDiagram from "./SystemDiagram";
 import { motion, AnimatePresence } from "framer-motion";
+import useAccessibleDialog from "./useAccessibleDialog";
 
 function SystemCard({ system, theme }) {
   const isLight = theme?.name === "light";
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const triggerRef = useRef(null);
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+  }, []);
+  const openModal = useCallback(() => {
+    setIsModalOpen(true);
+  }, []);
+  const dialogRef = useAccessibleDialog({
+    isOpen: isModalOpen,
+    onClose: closeModal,
+    triggerRef,
+  });
 
   return (
     <>
@@ -92,8 +105,9 @@ function SystemCard({ system, theme }) {
 
           {/* EXPAND BUTTON */}
           <button 
+            ref={triggerRef}
             className="expand-btn"
-            onClick={() => setIsModalOpen(true)}
+            onClick={openModal}
             style={{ marginTop: "15px" }}
             type="button"
           >
@@ -111,10 +125,7 @@ function SystemCard({ system, theme }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setIsModalOpen(false)}
-            role="dialog"
-            aria-modal="true"
-            aria-label={`${system.name} deep dive`}
+            onClick={closeModal}
             style={{
               position: "fixed",
               top: 0,
@@ -136,6 +147,11 @@ function SystemCard({ system, theme }) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
+              ref={dialogRef}
+              tabIndex={-1}
+              role="dialog"
+              aria-modal="true"
+              aria-label={`${system.name} deep dive`}
               style={{
                 background: "var(--surface-card)",
                 padding: "2rem",
@@ -151,7 +167,7 @@ function SystemCard({ system, theme }) {
               }}
             >
               <button 
-                onClick={() => setIsModalOpen(false)}
+                onClick={closeModal}
                 aria-label="Close dialog"
                 style={{
                   position: "absolute",

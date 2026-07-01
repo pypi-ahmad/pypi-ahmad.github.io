@@ -2,18 +2,17 @@
  * Projects Page (/projects)
  *
  * Two sections:
- *  1. Enterprise Systems — SystemCard showcase of production systems
+ *  1. Enterprise Systems — ProductTile showcase of production systems
  *  2. Open Source Projects — ProjectCard grid (shown only if data exists)
  *
  * Includes a "More Projects" button linking to the GitHub profile.
  *
  * Props: { theme }
  */
-import React, { useState } from "react";
+import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
-import SystemCard from "../../components/SystemDesign/SystemCard";
 import ProductTile from "../../components/SystemDesign/ProductTile";
 import { motion } from "framer-motion";
 import { projectsHeader, projects, socialMediaLinks, systems, platformHeader, platformInfrastructure, platformCategories } from "../../portfolio.js";
@@ -71,7 +70,6 @@ const ProjectsButton = styled.a`
 
 function Projects(props) {
   const theme = props.theme;
-  const [activeSystem, setActiveSystem] = useState(null);
   const sectionShellStyle = {
     padding: "var(--section-spacing) var(--page-gutter)",
     background: buildThemeBackground(theme.bodyAlt, theme.surfacePattern),
@@ -85,34 +83,35 @@ function Projects(props) {
   return (
     <div className="projects-main">
       <Header />
-      <div className="basic-projects">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <div className="projects-heading-div">
-            <div className="projects-heading-img-div">
-              <ProjectsImg theme={theme} />
+      <main id="main-content">
+        <div className="basic-projects">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="projects-heading-div">
+              <div className="projects-heading-img-div">
+                <ProjectsImg theme={theme} />
+              </div>
+              <div className="projects-heading-text-div">
+                <h1
+                  className="projects-heading-text"
+                  style={{ color: theme.text, transition: themeTextTransition }}
+                >
+                  {projectsHeader.title}
+                </h1>
+                <p
+                  className="projects-header-detail-text subTitle"
+                  style={{ color: theme.secondaryText, transition: themeTextTransition }}
+                >
+                  {projectsHeader["description"]}
+                </p>
+              </div>
             </div>
-            <div className="projects-heading-text-div">
-              <h1
-                className="projects-heading-text"
-                style={{ color: theme.text, transition: themeTextTransition }}
-              >
-                {projectsHeader.title}
-              </h1>
-              <p
-                className="projects-header-detail-text subTitle"
-                style={{ color: theme.secondaryText, transition: themeTextTransition }}
-              >
-                {projectsHeader["description"]}
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+          </motion.div>
+        </div>
 
       {/* Agentic AI Platform Section */}
       <div
@@ -322,22 +321,23 @@ function Projects(props) {
           </div>
         </div>
       )}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          padding: `0 var(--page-gutter) var(--section-spacing)`,
-        }}
-      >
-        <ProjectsButton
-          theme={theme}
-          href={socialMediaLinks.github}
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            padding: `0 var(--page-gutter) var(--section-spacing)`,
+          }}
         >
-          More Projects (Github)
-        </ProjectsButton>
-      </div>
+          <ProjectsButton
+            theme={theme}
+            href={socialMediaLinks.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            More Projects (Github)
+          </ProjectsButton>
+        </div>
+      </main>
       <Footer theme={props.theme} />
     </div>
   );

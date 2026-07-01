@@ -20,41 +20,43 @@ function Experience(props) {
   return (
     <div className="experience-main">
       <Header />
-      <div className="basic-experience">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="experience-heading-div">
-            <div className="experience-heading-img-div">
-              <ExperienceImg theme={theme} />
+      <main id="main-content">
+        <div className="basic-experience">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <div className="experience-heading-div">
+              <div className="experience-heading-img-div">
+                <ExperienceImg theme={theme} />
+              </div>
+              <div className="experience-heading-text-div">
+                <h1
+                  className="experience-heading-text"
+                  style={{ color: theme.text }}
+                >
+                  {experience.title}
+                </h1>
+                <h3
+                  className="experience-heading-sub-text"
+                  style={{ color: theme.text }}
+                >
+                  {experience["subtitle"]}
+                </h3>
+                <p
+                  className="experience-header-detail-text subTitle"
+                  style={{ color: theme.secondaryText }}
+                >
+                  {experience["description"]}
+                </p>
+              </div>
             </div>
-            <div className="experience-heading-text-div">
-              <h1
-                className="experience-heading-text"
-                style={{ color: theme.text }}
-              >
-                {experience.title}
-              </h1>
-              <h3
-                className="experience-heading-sub-text"
-                style={{ color: theme.text }}
-              >
-                {experience["subtitle"]}
-              </h3>
-              <p
-                className="experience-header-detail-text subTitle"
-                style={{ color: theme.secondaryText }}
-              >
-                {experience["description"]}
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-      <ExperienceAccordion sections={experience["sections"]} theme={theme} />
+          </motion.div>
+        </div>
+        <ExperienceAccordion sections={experience["sections"]} theme={theme} />
+      </main>
       <Footer theme={props.theme} />
     </div>
   );
