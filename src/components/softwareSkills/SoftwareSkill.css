@@ -1,5 +1,5 @@
 /**
- * SoftwareSkill.css — Iconify skill icon grid with hover effects.
+ * SoftwareSkill.css — Skill icon grid with hover effects.
  */
 .dev-icons {
   padding-left: 0;
@@ -17,12 +17,15 @@
   font-family: "Google Sans Regular";
 }
 
-.software-skill-inline > i {
-  color: var(--text-secondary);
+.skill-icon-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.software-skill-inline > i:hover {
-  color: var(--accent-solid);
+.skill-icon-glyph svg {
+  width: 1em;
+  height: 1em;
 }
 
 .skill-link {

@@ -34,6 +34,13 @@
   background-color: var(--focus-shadow);
 }
 
+.project-language-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 #tooltip-top > .tooltip-inner {
   background-color: var(--card);
   color: var(--text);

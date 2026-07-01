@@ -4,12 +4,12 @@
  * Two exports drive two different views:
  *
  *  skillsPageData  — Full skills grid on /skills page (SkillsPage.jsx).
- *                     Contains 6 categorized sections with Iconify icon IDs.
+ *                     Contains 6 categorized sections with icon IDs.
  *
  *  skills          — Compact 3-category display on the home page (SkillSection.jsx).
  *                     Each entry has a `fileName` mapping to an SVG illustration component.
  *
- * Icon format: Iconify icon IDs for standard entries, with optional
+ * Icon format: registry icon IDs for standard entries, with optional
  * `customIcon` keys for curated fallback SVG components.
  */
 

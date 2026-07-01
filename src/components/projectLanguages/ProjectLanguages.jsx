@@ -1,5 +1,5 @@
 /**
- * ProjectLanguages — Iconify language/tech icons with tooltips.
+ * ProjectLanguages — Language/tech icons with tooltips.
  *
  * Similar to SoftwareSkill but uses `iconifyClass` and `name` keys
  * (project-specific data shape).
@@ -10,6 +10,7 @@ import React from "react";
 import "./ProjectLanguages.css";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
+import SkillIcon from "../icons/SkillIcon";
 
 function ProjectLanguages(props) {
   const { theme } = props;
@@ -52,12 +53,13 @@ function ProjectLanguages(props) {
                         : undefined
                     }
                   >
-                    <span
-                      className="iconify"
-                      data-icon={logo.iconifyClass}
-                      style={logo.color ? { color: logo.color } : {}}
-                      data-inline="false"
-                    ></span>
+                    <SkillIcon
+                      skill={{
+                        fontAwesomeClassname: logo.iconifyClass,
+                        style: logo.color ? { color: logo.color } : undefined,
+                      }}
+                      className="project-language-icon"
+                    />
                   </a>
                 </li>
               </OverlayTrigger>

@@ -1,7 +1,7 @@
 /**
- * SoftwareSkill — Iconify-based skill icon row with Bootstrap tooltips.
+ * SoftwareSkill — Local icon row with Bootstrap tooltips.
  *
- * Each icon is rendered by the Iconify CDN via `data-icon` attributes.
+ * Each icon is rendered through local React icon components.
  * If a skill has a `link`, the icon wraps in an anchor.
  *
  * Props: { logos: Array<{ skillName, fontAwesomeClassname, style, link? }> }
@@ -17,7 +17,7 @@ function SoftwareSkill(props) {
       <div className="software-skills-main-div">
         <ul className="dev-icons">
           {props.logos.map((logo) => {
-            const icon = <SkillIcon skill={logo} className="iconify" />;
+            const icon = <SkillIcon skill={logo} className="skill-icon-glyph" />;
             return (
               <OverlayTrigger
                 key={logo.skillName}

@@ -9,6 +9,14 @@
 import React from "react";
 import "./ContactLinksList.css";
 import { socialMediaLinks } from "../../portfolio";
+import {
+  FaDiscord,
+  FaEnvelope,
+  FaGithub,
+  FaLinkedinIn,
+  FaPhone,
+  FaTelegramPlane,
+} from "react-icons/fa";
 
 /** Assemble enabled contact items from the social-media data. */
 const buildContactItems = () => {
@@ -20,7 +28,7 @@ const buildContactItems = () => {
       label: "GitHub",
       href: socialMediaLinks.github,
       description: socialMediaLinks.githubDesc || "",
-      iconClass: "fab fa-github",
+      Icon: FaGithub,
       openInNewTab: true,
     });
   }
@@ -31,7 +39,7 @@ const buildContactItems = () => {
       label: "LinkedIn",
       href: socialMediaLinks.linkedin,
       description: socialMediaLinks.linkedinDesc || "",
-      iconClass: "fab fa-linkedin-in",
+      Icon: FaLinkedinIn,
       openInNewTab: true,
     });
   }
@@ -42,7 +50,7 @@ const buildContactItems = () => {
       label: "Email",
       href: `mailto:${socialMediaLinks.gmail}`,
       description: socialMediaLinks.gmailDesc || "",
-      iconClass: "fas fa-envelope",
+      Icon: FaEnvelope,
       openInNewTab: false,
     });
   }
@@ -53,7 +61,7 @@ const buildContactItems = () => {
       label: "Phone",
       href: `tel:${socialMediaLinks.phone.replace(/[^+\d]/g, "")}`,
       description: socialMediaLinks.phoneDesc || "",
-      iconClass: "fas fa-phone",
+      Icon: FaPhone,
       displayValue: socialMediaLinks.phone,
       openInNewTab: false,
     });
@@ -65,7 +73,7 @@ const buildContactItems = () => {
       label: "Telegram",
       href: socialMediaLinks.telegram,
       description: socialMediaLinks.telegramDesc || "",
-      iconClass: "fab fa-telegram-plane",
+      Icon: FaTelegramPlane,
       openInNewTab: true,
     });
   }
@@ -76,7 +84,7 @@ const buildContactItems = () => {
       label: "Discord",
       href: socialMediaLinks.discord,
       description: socialMediaLinks.discordDesc || "",
-      iconClass: "fab fa-discord",
+      Icon: FaDiscord,
       openInNewTab: true,
     });
   }
@@ -107,7 +115,7 @@ export default function ContactLinksList({ theme }) {
               style={{ color: theme.text }}
               aria-hidden="true"
             >
-              <i className={item.iconClass}></i>
+              <item.Icon />
             </span>
             <div className="contact-links-content">
               <span className="contact-links-label" style={{ color: theme.text }}>
