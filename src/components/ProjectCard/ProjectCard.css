@@ -1,11 +1,6 @@
 /**
- * ProjectCard.css — Compact product-tile card for open-source projects.
- *
- * Mirrors ProductTile visual language: glass background, accent hover,
- * category badge, 3-line clamped description.
+ * ProjectCard.css — open-source project tiles.
  */
-
-/* ── Card layout & hover ──────────────────────────────────────── */
 
 .project-card {
   display: flex;
@@ -14,29 +9,22 @@
   text-align: left;
   width: 100%;
   height: 100%;
-  padding: 20px;
-  border-radius: var(--card-radius, 14px);
+  padding: 0.95rem;
+  border-radius: var(--card-radius, 12px);
   cursor: pointer;
   text-decoration: none;
   font-family: inherit;
   font-size: inherit;
-
   background: var(--card);
   border: 1px solid var(--border);
   color: var(--text);
-  transition:
-    transform 200ms ease-in-out,
-    background-color 200ms ease-in-out,
-    border-color 200ms ease-in-out,
-    box-shadow 200ms ease-in-out,
-    filter 200ms ease-in-out;
+  transition: transform 160ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
 .project-card:hover {
   border-color: var(--accent-solid);
   background: var(--surface-card);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
 }
 
 .project-card:focus-visible {
@@ -44,71 +32,52 @@
   outline-offset: 2px;
 }
 
-/* ── Header row ───────────────────────────────────────────────── */
-
 .project-card__header {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 0.45rem;
   width: 100%;
-  margin-bottom: 8px;
+  margin-bottom: 0.4rem;
 }
 
 .project-card__name {
   margin: 0;
-  font-size: 1.02rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--accent-solid);
-  line-height: 1.3;
+  color: var(--text-primary);
+  line-height: 1.35;
 }
 
 .project-card__category {
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
-  padding: 3px 8px;
-  border-radius: 6px;
-  white-space: nowrap;
-  background: var(--accent-soft, var(--focus-shadow));
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.48rem;
+  border-radius: 999px;
+  background: var(--focus-shadow);
   color: var(--text-primary);
   border: 1px solid var(--border);
 }
 
-/* ── Description ──────────────────────────────────────────────── */
-
 .project-card__desc {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.93rem;
   line-height: 1.55;
   color: var(--text-secondary);
-  /* 3-line clamp */
   display: -webkit-box;
-  line-clamp: 3;
-  -webkit-line-clamp: 3;
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* ── Responsive ───────────────────────────────────────────────── */
-
 @media (max-width: 768px) {
   .project-card {
-    padding: 16px;
-    border-radius: var(--card-radius, 14px);
+    padding: 0.9rem;
   }
 
   .project-card:hover {
     transform: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .project-card {
-    padding: 14px 16px;
-  }
-
-  .project-card__name {
-    font-size: 0.95rem;
   }
 }

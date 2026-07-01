@@ -1,30 +1,19 @@
 /**
  * Accessibility Tests
- *
- * Two layers:
- *  1. Structural WCAG checks — semantic HTML, ARIA attributes, roles
- *  2. axe-core automated scan — catches a11y violations (WCAG 2.1 AA)
- *
- * Sources: All page/component files audited in Phase 4.
  */
 import React from "react";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { axe, toHaveNoViolations } from "jest-axe";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Greeting from "../containers/greeting/Greeting";
 import ExperienceCard from "../components/experienceCard/ExperienceCard";
-import ThemePage from "../pages/theme/ThemePage";
 import { renderWithProviders, darkTheme } from "../test/testUtils";
 
-// Extend expect with axe matchers
 expect.extend(toHaveNoViolations);
 
-// ────────────────────────────────────────────────────────
-// Structural Accessibility Checks
-// ────────────────────────────────────────────────────────
 describe("Accessibility — Semantic HTML & ARIA", () => {
   it("Header uses a <header> element", () => {
     renderWithProviders(<Header />);
@@ -39,18 +28,12 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
     expect(btn).toHaveAttribute("aria-label", "Toggle Theme");
   });
 
-  it("Theme family selector has an accessible name on the Theme page", () => {
-    renderWithProviders(<ThemePage />, { initialEntries: ["/theme"] });
-    const selector = screen.getByRole("combobox", { name: "Theme Family" });
-    expect(selector).toBeInTheDocument();
-  });
-
   it("Navigation links are accessible (rendered as <a> tags)", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const links = screen.getAllByRole("link");
-    expect(links.length).toBeGreaterThanOrEqual(8);
+    expect(links.length).toBeGreaterThanOrEqual(7);
   });
 
   it("Footer heart emoji has role='img' and aria-label='love'", () => {
@@ -107,18 +90,13 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
   });
 });
 
-// ────────────────────────────────────────────────────────
-// axe-core Automated Scans
-// ────────────────────────────────────────────────────────
 describe("Accessibility — axe-core Scans", () => {
   it("Header has no critical accessibility violations", async () => {
     const { container } = renderWithProviders(<Header />);
     const results = await axe(container, {
       rules: {
-        // Disable rules that fire on partials (no full page structure)
         region: { enabled: false },
         "page-has-heading-one": { enabled: false },
-        // Disable color contrast since jsdom doesn't compute styles
         "color-contrast": { enabled: false },
       },
     });
@@ -138,9 +116,7 @@ describe("Accessibility — axe-core Scans", () => {
   });
 
   it("Greeting section has no critical accessibility violations", async () => {
-    const { container } = renderWithProviders(
-      <Greeting theme={darkTheme} />
-    );
+    const { container } = renderWithProviders(<Greeting theme={darkTheme} />);
     const results = await axe(container, {
       rules: {
         region: { enabled: false },

@@ -125,8 +125,9 @@ function Projects(props) {
             letterSpacing: theme.accentLetterSpacing,
             transition: themeTextTransition,
             textAlign: "center",
-            marginBottom: "0.75rem",
-            fontSize: "2.5rem",
+            marginBottom: "0.65rem",
+            fontSize: "clamp(1.75rem, 2.6vw, 2.2rem)",
+            lineHeight: "1.2",
           }}
         >
           {platformHeader.title}
@@ -137,10 +138,10 @@ function Projects(props) {
             color: theme.secondaryText,
             transition: themeTextTransition,
             textAlign: "center",
-            marginBottom: "1.25rem",
-            fontSize: "1.1rem",
+            marginBottom: "1rem",
+            fontSize: "1rem",
             lineHeight: "1.6",
-            maxWidth: "56rem",
+            maxWidth: "70ch",
             marginLeft: "auto",
             marginRight: "auto",
           }}
@@ -177,10 +178,10 @@ function Projects(props) {
             background: buildThemeBackground(theme.cardBackgroundAlt, theme.surfacePattern),
             border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderColor}`,
             borderRadius: "12px",
-            padding: "24px 32px",
-            marginBottom: "2rem",
+            padding: "1rem 1.1rem",
+            marginBottom: "1.5rem",
             textAlign: "left",
-            maxWidth: "56rem",
+            maxWidth: "72ch",
             marginLeft: "auto",
             marginRight: "auto",
           }}
@@ -191,8 +192,9 @@ function Projects(props) {
               fontFamily: theme.accentFontFamily,
               letterSpacing: theme.accentLetterSpacing,
               transition: themeTextTransition,
-              marginBottom: "0.75rem",
-              fontSize: "1.25rem",
+              marginBottom: "0.6rem",
+              fontSize: "1.12rem",
+              lineHeight: "1.3",
             }}
           >
             Shared Platform Layer
@@ -201,9 +203,9 @@ function Projects(props) {
             style={{
               color: theme.secondaryText,
               transition: themeTextTransition,
-              fontSize: "0.95rem",
-              lineHeight: "1.5",
-              marginBottom: "1rem",
+              fontSize: "0.98rem",
+              lineHeight: "1.58",
+              marginBottom: "0.85rem",
             }}
           >
             {platformInfrastructure.description}
@@ -231,7 +233,7 @@ function Projects(props) {
 
         {/* Category groups */}
         {platformCategories.map((category) => (
-          <div key={category.name} className="platform-category-group" style={{ marginBottom: "2rem" }}>
+          <div key={category.name} className="platform-category-group" style={{ marginBottom: "1.5rem" }}>
             <h3
               className="platform-category-heading"
               style={{
@@ -240,8 +242,9 @@ function Projects(props) {
                 letterSpacing: theme.accentLetterSpacing,
                 transition: themeTextTransition,
                 textAlign: "center",
-                marginBottom: "0.75rem",
-                fontSize: "1.75rem",
+                marginBottom: "0.55rem",
+                fontSize: "clamp(1.2rem, 1rem + 0.55vw, 1.45rem)",
+                lineHeight: "1.3",
               }}
             >
               {category.name}
@@ -251,9 +254,10 @@ function Projects(props) {
                 color: theme.secondaryText,
                 transition: themeTextTransition,
                 textAlign: "center",
-                marginBottom: "1.5rem",
-                fontSize: "0.95rem",
-                maxWidth: "50rem",
+                marginBottom: "1rem",
+                fontSize: "0.98rem",
+                lineHeight: "1.55",
+                maxWidth: "68ch",
                 marginLeft: "auto",
                 marginRight: "auto",
               }}
@@ -281,8 +285,9 @@ function Projects(props) {
             letterSpacing: theme.accentLetterSpacing,
             transition: themeTextTransition,
             textAlign: "center",
-            marginBottom: "2rem",
-            fontSize: "2.5rem",
+            marginBottom: "1.2rem",
+            fontSize: "clamp(1.75rem, 2.6vw, 2.2rem)",
+            lineHeight: "1.2",
           }}
         >
           Enterprise Systems
@@ -292,10 +297,10 @@ function Projects(props) {
             color: theme.secondaryText,
             transition: themeTextTransition,
             textAlign: "center",
-            marginBottom: "1.25rem",
-            fontSize: "0.95rem",
-            lineHeight: "1.55",
-            maxWidth: "52rem",
+            marginBottom: "1rem",
+            fontSize: "0.98rem",
+            lineHeight: "1.58",
+            maxWidth: "70ch",
             marginLeft: "auto",
             marginRight: "auto",
           }}
@@ -323,8 +328,9 @@ function Projects(props) {
               letterSpacing: theme.accentLetterSpacing,
               transition: themeTextTransition,
               textAlign: "center",
-              marginBottom: "2rem",
-              fontSize: "2.5rem",
+              marginBottom: "1.2rem",
+              fontSize: "clamp(1.75rem, 2.6vw, 2.2rem)",
+              lineHeight: "1.2",
             }}
           >
             Open Source Projects

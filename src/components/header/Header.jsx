@@ -3,7 +3,7 @@
  *
  * Features:
  *  - Logo link (routes to /home or /splash based on settings)
- *  - Six NavLinks with active-state bold styling
+ *  - Main navigation links with active-state bold styling
  *  - Light/dark theme toggle button (persists choice to localStorage)
  *  - Responsive hamburger menu for mobile viewports
  *
@@ -61,7 +61,6 @@ function Header() {
     { className: "skills", to: "/skills", label: "Skills" },
     { className: "projects", to: "/projects", label: "Projects" },
     { className: "cr", to: "/contact", label: "Contact Me" },
-    { className: "themei", to: "/theme", label: "Theme" },
   ];
 
   const toggleMenu = () => {
@@ -106,7 +105,7 @@ function Header() {
             aria-controls="site-menu"
             onClick={toggleMenu}
             style={{
-              background: buildThemeBackground(theme.cardBackgroundAlt, theme.buttonPattern),
+              background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
               color: theme.text,
               borderColor: theme.borderSoft,
               borderWidth: theme.panelBorderWidth,
@@ -180,7 +179,7 @@ function Header() {
                     borderStyle: theme.panelBorderStyle,
                     alignItems: "center",
                     justifyContent: "center",
-                    background: buildThemeBackground(theme.cardBackgroundAlt, theme.buttonPattern),
+                    background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
                     color: theme.selectorText,
                     outline: "none",
                     transition: themeSurfaceTransition,

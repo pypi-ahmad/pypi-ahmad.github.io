@@ -19,7 +19,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import useAccessibleDialog from "./useAccessibleDialog";
 
 function SystemCard({ system, theme }) {
-  const isLight = theme?.name === "light";
   const [isModalOpen, setIsModalOpen] = useState(false);
   const triggerRef = useRef(null);
   const closeModal = useCallback(() => {
@@ -42,23 +41,24 @@ function SystemCard({ system, theme }) {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-          <div className={`system-card shadow-sm hover-shadow-lg hover-translate-y-1 transition-all duration-200 layer-card ${isLight ? "light-mode" : ""}`}>
+          <div className="system-card shadow-sm hover-shadow-lg hover-translate-y-1 transition-all duration-200 layer-card">
 
           {/* HEADER */}
           <div className="system-header">
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "0.55rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", flexWrap: "wrap" }}>
                 <h2>{system.name}</h2>
                 {system.tier === "featured" && (
                   <span style={{
-                    fontSize: "0.75rem",
-                    fontWeight: "700",
+                    fontSize: "0.66rem",
+                    fontWeight: "600",
                     textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    padding: "4px 10px",
-                    borderRadius: "4px",
-                    background: theme.accentGradient,
-                    color: theme.accentText,
+                    letterSpacing: "0.05em",
+                    padding: "0.2rem 0.5rem",
+                    borderRadius: "999px",
+                    background: theme.accentSoft,
+                    color: theme.text,
+                    border: `1px solid ${theme.borderSoft}`,
                   }}>Featured</span>
                 )}
               </div>
@@ -71,13 +71,13 @@ function SystemCard({ system, theme }) {
           <p className="system-description">{system.description}</p>
 
           {/* IMPACT PREVIEW (Metrics) */}
-           <div className="system-impact-preview" style={{ marginBottom: "1rem", marginTop: "0.25rem" }}>
+           <div className="system-impact-preview" style={{ marginBottom: "0.65rem", marginTop: "0.15rem" }}>
             {(system.metrics || system.impact.slice(0, 3)).map((item, i) => (
               <span key={i} style={{ 
                 display: "inline-block", 
-                marginRight: "10px", 
-                fontSize: "0.85rem", 
-                fontWeight: "bold", 
+                marginRight: "0.55rem", 
+                fontSize: "0.84rem", 
+                fontWeight: "600", 
                 color: theme.accentSolid
               }}>
                 ⚡ {item}
@@ -90,9 +90,9 @@ function SystemCard({ system, theme }) {
             {system.tech.map((tech, i) => (
               <span key={i} className="tech-badge" style={{
                 background: theme.cardBackgroundAlt,
-                padding: "4px 10px",
-                borderRadius: "4px",
-                fontSize: "0.8rem",
+                padding: "0.24rem 0.55rem",
+                borderRadius: "999px",
+                fontSize: "0.76rem",
                 display: "inline-block"
               }}>
                 {tech}
@@ -108,10 +108,10 @@ function SystemCard({ system, theme }) {
             ref={triggerRef}
             className="expand-btn"
             onClick={openModal}
-            style={{ marginTop: "15px" }}
+            style={{ marginTop: "0.75rem" }}
             type="button"
           >
-            View Deep Dive & Architecture ▼
+            View Deep Dive & Architecture
           </button>
 
         </div>
@@ -137,12 +137,12 @@ function SystemCard({ system, theme }) {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              padding: "20px",
+              padding: "1rem",
               overflowY: "auto"
             }}
           >
             <motion.div 
-              className={`system-modal-content shadow-sm transition-all duration-200 layer-card ${isLight ? "light-mode" : ""}`}
+              className="system-modal-content shadow-sm transition-all duration-200 layer-card"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -154,12 +154,12 @@ function SystemCard({ system, theme }) {
               aria-label={`${system.name} deep dive`}
               style={{
                 background: "var(--surface-card)",
-                padding: "2rem",
-                borderRadius: "12px",
+                padding: "1.1rem",
+                borderRadius: "var(--card-radius, 12px)",
                 border: "1px solid var(--border)",
-                maxWidth: "800px",
+                maxWidth: "min(860px, 96vw)",
                 width: "100%",
-                maxHeight: "90vh",
+                maxHeight: "92vh",
                 overflowY: "auto",
                 position: "relative",
                 color: theme.text,
@@ -171,11 +171,11 @@ function SystemCard({ system, theme }) {
                 aria-label="Close dialog"
                 style={{
                   position: "absolute",
-                  top: "15px",
-                  right: "15px",
+                  top: "0.65rem",
+                  right: "0.65rem",
                   background: "transparent",
                   border: "none",
-                  fontSize: "1.5rem",
+                  fontSize: "1.3rem",
                   cursor: "pointer",
                   color: "inherit"
                 }}
@@ -184,24 +184,24 @@ function SystemCard({ system, theme }) {
               </button>
 
               <h2 style={{ marginTop: 0 }}>{system.name}</h2>
-              <p style={{ fontStyle: "italic", color: theme.secondaryText, marginBottom: "0.5rem" }}>{system.tagline}</p>
+              <p style={{ color: theme.secondaryText, marginBottom: "0.45rem" }}>{system.tagline}</p>
               
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Problem Statement</h3>
                 <p>{system.problem_statement}</p>
               </div>
 
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Solution Overview</h3>
                 <p>{system.solution_overview}</p>
               </div>
 
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Architecture Workflow</h3>
                 <SystemDiagram architecture={system.architecture} theme={theme} />
               </div>
 
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Key Features</h3>
                 <ul>
                   {system.key_features && system.key_features.map((feature, i) => (
@@ -210,22 +210,22 @@ function SystemCard({ system, theme }) {
                 </ul>
               </div>
 
-               <div style={{ marginTop: "24px" }}>
+               <div style={{ marginTop: "1rem" }}>
                 <h3>Implementation Details</h3>
                 <p>{system.implementation_details}</p>
               </div>
 
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Challenges & Solutions</h3>
                 {system.challenges_solutions && system.challenges_solutions.map((cs, i) => (
-                  <div key={i} style={{ marginBottom: "12px" }}>
-                    <strong>Challenge:</strong> {cs.challenge}<br/>
-                    <strong>Solution:</strong> {cs.solution}
+                  <div key={i} style={{ marginBottom: "0.55rem" }}>
+                    <strong>Challenge:</strong> {cs.challenge}
+                    <div><strong>Solution:</strong> {cs.solution}</div>
                   </div>
                 ))}
               </div>
 
-              <div style={{ marginTop: "24px" }}>
+              <div style={{ marginTop: "1rem" }}>
                 <h3>Impact</h3>
                 <ul>
                   {system.impact.map((item, i) => (

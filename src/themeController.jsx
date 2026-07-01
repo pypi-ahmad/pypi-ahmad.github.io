@@ -12,7 +12,6 @@ import {
   DEFAULT_THEME_FAMILY,
   DEFAULT_THEME_MODE,
   resolveTheme,
-  themes,
 } from "./theme";
 
 export const THEME_STORAGE_KEY = "theme";
@@ -20,36 +19,39 @@ export const THEME_STORAGE_KEY = "theme";
 const ThemeControllerContext = createContext(null);
 
 function normalizeThemeSelection(selection) {
-  const family =
-    selection && typeof selection.family === "string" && themes[selection.family]
-      ? selection.family
-      : DEFAULT_THEME_FAMILY;
   const mode =
     selection && (selection.mode === "light" || selection.mode === "dark")
       ? selection.mode
       : DEFAULT_THEME_MODE;
 
-  return { family, mode };
+  return { family: DEFAULT_THEME_FAMILY, mode };
 }
 
 export function parseStoredThemeSelection(rawTheme) {
   if (!rawTheme) {
-    return normalizeThemeSelection();
+    return null;
   }
 
   if (rawTheme === "light" || rawTheme === "dark") {
-    return normalizeThemeSelection({
-      family: DEFAULT_THEME_FAMILY,
-      mode: rawTheme,
-    });
+    return normalizeThemeSelection({ mode: rawTheme });
   }
 
   try {
     const parsedTheme = JSON.parse(rawTheme);
     return normalizeThemeSelection(parsedTheme);
   } catch {
-    return normalizeThemeSelection();
+    return null;
   }
+}
+
+function getSystemMode() {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return DEFAULT_THEME_MODE;
+  }
+
+  return window.matchMedia("(prefers-color-scheme: light)").matches
+    ? "light"
+    : "dark";
 }
 
 function getInitialThemeSelection(initialThemeSelection) {
@@ -61,7 +63,15 @@ function getInitialThemeSelection(initialThemeSelection) {
     return normalizeThemeSelection();
   }
 
-  return parseStoredThemeSelection(window.localStorage.getItem(THEME_STORAGE_KEY));
+  const storedSelection = parseStoredThemeSelection(
+    window.localStorage.getItem(THEME_STORAGE_KEY)
+  );
+
+  if (storedSelection) {
+    return storedSelection;
+  }
+
+  return normalizeThemeSelection({ mode: getSystemMode() });
 }
 
 export function ThemeControllerProvider({ children, initialThemeSelection }) {
@@ -79,45 +89,41 @@ export function ThemeControllerProvider({ children, initialThemeSelection }) {
       root.classList.add("theme-fading");
       fadeTimer.current = setTimeout(() => {
         root.classList.remove("theme-fading");
-      }, 300);
+      }, 220);
     }
     setThemeSelection(updater);
   }, []);
+
+  useEffect(
+    () => () => {
+      clearTimeout(fadeTimer.current);
+    },
+    []
+  );
 
   useEffect(() => {
     if (typeof window === "undefined") {
       return;
     }
 
-    window.localStorage.setItem(
-      THEME_STORAGE_KEY,
-      JSON.stringify(themeSelection)
-    );
+    window.localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify(themeSelection));
   }, [themeSelection]);
 
   const value = useMemo(() => {
-    function setThemeFamily(family) {
-      fadeAndApply((currentSelection) =>
-        normalizeThemeSelection({
-          family,
-          mode: currentSelection.mode,
-        })
-      );
+    function setThemeFamily() {
+      // Theme families were removed in the typography/layout refresh.
+      return;
     }
 
     function setMode(mode) {
-      fadeAndApply((currentSelection) =>
-        normalizeThemeSelection({
-          family: currentSelection.family,
-          mode,
-        })
+      fadeAndApply(() =>
+        normalizeThemeSelection({ mode: mode === "light" ? "light" : "dark" })
       );
     }
 
     function toggleMode() {
       fadeAndApply((currentSelection) =>
         normalizeThemeSelection({
-          family: currentSelection.family,
           mode: currentSelection.mode === "light" ? "dark" : "light",
         })
       );
@@ -125,7 +131,7 @@ export function ThemeControllerProvider({ children, initialThemeSelection }) {
 
     return {
       themeSelection,
-      themeFamily: themeSelection.family,
+      themeFamily: DEFAULT_THEME_FAMILY,
       themeMode: themeSelection.mode,
       resolvedTheme,
       setThemeFamily,
@@ -156,5 +162,9 @@ export function getStoredThemeSelection() {
     return normalizeThemeSelection();
   }
 
-  return parseStoredThemeSelection(window.localStorage.getItem(THEME_STORAGE_KEY));
+  const storedSelection = parseStoredThemeSelection(
+    window.localStorage.getItem(THEME_STORAGE_KEY)
+  );
+
+  return storedSelection ?? normalizeThemeSelection({ mode: getSystemMode() });
 }

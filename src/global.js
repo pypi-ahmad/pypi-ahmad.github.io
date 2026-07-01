@@ -9,7 +9,7 @@ import { createGlobalStyle } from "styled-components";
 
 function resolveHeadingLetterSpacing(theme) {
   return theme.accentLetterSpacing === "normal"
-    ? "-0.03em"
+    ? "-0.015em"
     : theme.accentLetterSpacing;
 }
 
@@ -19,14 +19,14 @@ export const GlobalStyles = createGlobalStyle`
     --theme-transition-medium: 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
     --theme-transition-slow: 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
     --theme-transition-colors: 300ms ease-in-out;
-    --container-max-width: 74rem;
-    --section-spacing: 4.75rem;
-    --section-spacing-tight: 2.5rem;
-    --section-gap: 2.25rem;
-    --section-gap-tight: 1.25rem;
-    --surface-radius: 20px;
-    --card-radius: 14px;
-    --reading-width: 44rem;
+    --container-max-width: 76rem;
+    --section-spacing: 4rem;
+    --section-spacing-tight: 2.25rem;
+    --section-gap: 1.75rem;
+    --section-gap-tight: 1rem;
+    --surface-radius: 16px;
+    --card-radius: 12px;
+    --reading-width: 72ch;
   }
 
   *,
@@ -83,8 +83,7 @@ export const GlobalStyles = createGlobalStyle`
     --control-radius: ${({ theme }) => theme.controlRadius ?? "16px"};
     --heading-font-family: ${({ theme }) => theme.accentFontFamily};
     --heading-letter-spacing: ${({ theme }) => resolveHeadingLetterSpacing(theme)};
-    --body-font-family: "Montserrat", "Google Sans Regular", -apple-system, BlinkMacSystemFont,
-      "Segoe UI", sans-serif;
+    --body-font-family: "Google Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --page-gutter: clamp(1rem, 3.8vw, 3rem);
     --stack-xs: 0.4rem;
     --stack-sm: 0.65rem;
@@ -96,8 +95,8 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     margin: 0;
     font-family: var(--body-font-family);
-    font-size: clamp(0.99rem, 0.95rem + 0.25vw, 1.08rem);
-    line-height: 1.65;
+    font-size: clamp(1rem, 0.98rem + 0.2vw, 1.08rem);
+    line-height: 1.6;
     letter-spacing: 0.005em;
     text-rendering: optimizeLegibility;
     transition:
@@ -127,7 +126,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 0 var(--stack-sm);
     color: var(--text-primary);
     font-family: var(--heading-font-family);
-    line-height: 1.02;
+    line-height: 1.2;
     font-weight: 700;
     letter-spacing: var(--heading-letter-spacing);
     text-wrap: balance;
@@ -136,7 +135,7 @@ export const GlobalStyles = createGlobalStyle`
   p {
     margin: 0 0 var(--stack-md);
     color: var(--text-secondary);
-    line-height: inherit;
+    line-height: 1.6;
     text-wrap: pretty;
   }
 
@@ -315,15 +314,15 @@ export const GlobalStyles = createGlobalStyle`
     font-family: var(--heading-font-family);
     font-size: clamp(2rem, 3.8vw, 3.2rem);
     font-weight: 700;
-    line-height: 1.04;
+    line-height: 1.18;
     letter-spacing: var(--heading-letter-spacing);
     margin-bottom: var(--stack-sm);
   }
 
   .greeting-text {
     margin-top: 0;
-    font-size: clamp(2.4rem, 6.5vw, 4.2rem);
-    line-height: 0.98;
+    font-size: clamp(2.25rem, 5.8vw, 3.8rem);
+    line-height: 1.05;
   }
 
   .greeting-nickname,
@@ -393,7 +392,7 @@ export const GlobalStyles = createGlobalStyle`
   .doc-fallback-text {
     color: var(--text-secondary);
     font-family: var(--body-font-family);
-    line-height: 1.7;
+    line-height: 1.6;
   }
 
   .greeting-text-p,
@@ -407,20 +406,20 @@ export const GlobalStyles = createGlobalStyle`
     max-width: min(var(--reading-width), 100%);
     margin-left: auto;
     margin-right: auto;
-    font-size: clamp(0.98rem, 0.95rem + 0.3vw, 1.12rem);
+    font-size: clamp(1rem, 0.98rem + 0.2vw, 1.1rem);
   }
 
   .greeting-text-p {
     margin-right: 0;
     margin-bottom: var(--stack-lg);
-    font-size: clamp(1rem, 0.96rem + 0.5vw, 1.25rem);
+    font-size: clamp(1rem, 0.98rem + 0.3vw, 1.15rem);
   }
 
   .projects-heading-sub-text,
   .experience-heading-sub-text,
   .heading-sub-text {
     margin-bottom: var(--stack-sm);
-    font-size: clamp(1.05rem, 0.98rem + 0.5vw, 1.3rem);
+    font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
   }
 
   .contact-cta-subtext,

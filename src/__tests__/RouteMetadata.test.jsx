@@ -71,20 +71,6 @@ describe("Route metadata", () => {
     ).toBe("https://pypi-ahmad.github.io/contact");
   });
 
-  it("marks /theme as noindex", async () => {
-    renderMainAt("/theme");
-
-    await waitFor(() => {
-      expect(document.title).toBe("Theme Gallery | Ahmad Mujtaba");
-    });
-    expect(
-      getManagedMeta('meta[name="robots"]')?.getAttribute("content")
-    ).toBe("noindex, nofollow");
-    expect(
-      getManagedMeta('link[rel="canonical"]')?.getAttribute("href")
-    ).toBe("https://pypi-ahmad.github.io/theme");
-  });
-
   it("marks unknown routes as noindex with a path-specific canonical", async () => {
     renderMainAt("/missing-page");
 

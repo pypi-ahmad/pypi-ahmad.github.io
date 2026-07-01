@@ -1,64 +1,97 @@
 /**
- * index.css — Global font declarations, scrollbar styles, and base typography
- *
- * Loaded once at the entry point (index.jsx).
- * Custom fonts are stored in src/assests/fonts/.
+ * index.css — Global font declarations and browser-level defaults.
  */
 
-/* ── @font-face Declarations ────────────────────────────────────────── */
-
 @font-face {
-  font-family: "Agustina Regular";
+  font-family: "Google Sans";
   font-style: normal;
-  font-weight: normal;
-  font-display: swap;
-  src: local("Agustina Regular"),
-    url("./assests/fonts/Agustina.woff") format("woff");
-}
-@font-face {
-  font-family: "Montserrat";
-  font-display: swap;
-  src: local("Montserrat"),
-    url("./assests/fonts/Montserrat-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Google Sans Bold";
-  font-display: swap;
-  src: local("Google Sans Bold"),
-    url("./assests/fonts/GoogleSans-Bold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Google Sans Bold Italic";
-  font-display: swap;
-  src: local("Google Sans Bold Italic"),
-    url("./assests/fonts/GoogleSans-BoldItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Google Sans Italic";
-  font-display: swap;
-  src: local("Google Sans Italic"),
-    url("./assests/fonts/GoogleSans-Italic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Google Sans Medium";
-  font-display: swap;
-  src: local("Google Sans Medium"),
-    url("./assests/fonts/GoogleSans-Medium.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Google Sans Medium Italic";
-  font-display: swap;
-  src: local("Google Sans Medium Italic"),
-    url("./assests/fonts/GoogleSans-MediumItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Google Sans Regular";
+  font-weight: 400;
   font-display: swap;
   src: local("Google Sans Regular"),
     url("./assests/fonts/GoogleSans-Regular.ttf") format("truetype");
 }
 
-/* ── Base Typography ────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Google Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local("Google Sans Medium"),
+    url("./assests/fonts/GoogleSans-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Google Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Google Sans Bold"),
+    url("./assests/fonts/GoogleSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Google Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Google Sans Italic"),
+    url("./assests/fonts/GoogleSans-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Google Sans";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Google Sans Bold Italic"),
+    url("./assests/fonts/GoogleSans-BoldItalic.ttf") format("truetype");
+}
+
+/* Legacy family aliases kept for existing component CSS references. */
+@font-face {
+  font-family: "Google Sans Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Google Sans Regular"),
+    url("./assests/fonts/GoogleSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Google Sans Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local("Google Sans Medium"),
+    url("./assests/fonts/GoogleSans-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Google Sans Bold";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Google Sans Bold"),
+    url("./assests/fonts/GoogleSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Google Sans Bold Italic";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Google Sans Bold Italic"),
+    url("./assests/fonts/GoogleSans-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Google Sans Italic";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Google Sans Italic"),
+    url("./assests/fonts/GoogleSans-Italic.ttf") format("truetype");
+}
 
 *,
 *::before,
@@ -66,17 +99,16 @@
   box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 html,
 body {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
-  font: 16px / 1.65 Montserrat, "Montserrat", sans-serif;
+  font-family: "Google Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -89,115 +121,33 @@ video {
   height: auto;
 }
 
-/* ── Mobile Base Adjustments ────────────────────────────────────────── */
-
-@media (max-width: 768px) {
-  body {
-    font-size: 15px;
-    line-height: 1.6;
-  }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 }
-
-@media (max-width: 480px) {
-  body {
-    font-size: 14.5px;
-    line-height: 1.6;
-  }
-}
-
-/* ── Custom Scrollbar ───────────────────────────────────────────────── */
 
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
+
 ::-webkit-scrollbar-track {
-  background: var(--card, #292a2d);
+  background: var(--card, #111c30);
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--border, #636363);
-  border-radius: 5px;
+  background: var(--border, #475569);
+  border-radius: 999px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary, #555);
+  background: var(--text-secondary, #64748b);
 }
 
-/* ── Rainbow Cursor Keyframes ───────────────────────────────────────── */
-/* Used by the AnimatedCursor component (see App.jsx) */
 @keyframes cursorRainbow {
-  0%   { background-color: #ff0000; } /* Red */
-  2%   { background-color: #ff2a00; }
-  4%   { background-color: #ff5500; }
-  6%   { background-color: #ff7f00; } /* Orange */
-  8%   { background-color: #ffaa00; }
-  10%  { background-color: #ffd400; }
-  12%  { background-color: #ffff00; } /* Yellow */
-  14%  { background-color: #d4ff00; }
-  16%  { background-color: #aaff00; }
-  18%  { background-color: #7fff00; } /* Chartreuse */
-  20%  { background-color: #55ff00; }
-  22%  { background-color: #2aff00; }
-  24%  { background-color: #00ff00; } /* Green */
-  26%  { background-color: #00ff2a; }
-  28%  { background-color: #00ff55; }
-  30%  { background-color: #00ff7f; } /* Spring Green */
-  32%  { background-color: #00ffaa; }
-  34%  { background-color: #00ffd4; }
-  36%  { background-color: #00ffff; } /* Cyan */
-  38%  { background-color: #00d4ff; }
-  40%  { background-color: #00aaff; }
-  42%  { background-color: #007fff; } /* Azure */
-  44%  { background-color: #0055ff; }
-  46%  { background-color: #002aff; }
-  48%  { background-color: #0000ff; } /* Blue */
-  50%  { background-color: #2a00ff; }
-  52%  { background-color: #5500ff; }
-  54%  { background-color: #7f00ff; } /* Violet */
-  56%  { background-color: #aa00ff; }
-  58%  { background-color: #d400ff; }
-  60%  { background-color: #ff00ff; } /* Magenta */
-  62%  { background-color: #ff00d4; }
-  64%  { background-color: #ff00aa; }
-  66%  { background-color: #ff007f; } /* Rose */
-  68%  { background-color: #ff0055; }
-  70%  { background-color: #ff002a; }
-  72%  { background-color: #ff0000; } /* Red (Cycle Reset) */
-  74%  { background-color: #ff1493; } /* Deep Pink */
-  76%  { background-color: #ff69b4; }
-  78%  { background-color: #db7093; }
-  80%  { background-color: #b03060; } /* Maroon */
-  82%  { background-color: #c71585; }
-  84%  { background-color: #d02090; }
-  86%  { background-color: #da70d6; } /* Orchid */
-  88%  { background-color: #ee82ee; }
-  90%  { background-color: #dda0dd; } /* Plum */
-  92%  { background-color: #ffc0cb; } /* Pink */
-  94%  { background-color: #ffb6c1; }
-  96%  { background-color: #fa8072; } /* Salmon */
-  98%  { background-color: #ff6347; } /* Tomato */
-  100% { background-color: #ff0000; } /* Final Red */
-}
-
-/* ── Responsive Breakpoints ──────────────────────────────────────────── */
-
-/* Media Query */
-@media (max-width: 1380px) {
-  html,
-  body {
-    font-size: 15.5px;
-    line-height: normal;
-  }
-}
-
-@media (max-width: 768px) {
-  html,
-  body {
-    font-size: 14.8px;
-    line-height: 1.5;
-    overflow-x: hidden;
-  }
-
-  body {
-    font: 15px / 1.6 Montserrat, "Montserrat", sans-serif;
-  }
+  0% { background-color: #ff0000; }
+  25% { background-color: #00ff00; }
+  50% { background-color: #0000ff; }
+  75% { background-color: #ff00ff; }
+  100% { background-color: #ff0000; }
 }

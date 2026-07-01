@@ -3,17 +3,18 @@
  */
 .footer-text {
   text-align: center;
-  font-weight: 600;
-  font-family: "Google Sans Regular";
+  font-weight: 500;
+  font-family: "Google Sans", sans-serif;
   margin: 0;
-  padding: 1.25rem 1rem;
-  font-size: 0.92rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
   letter-spacing: 0.01em;
   transition: color var(--theme-transition-fast);
 }
 
 .footer-div {
-  margin-top: 1.5rem;
-  border-radius: var(--surface-radius, 20px) var(--surface-radius, 20px) 0 0;
+  margin-top: 1rem;
+  border-radius: var(--surface-radius, 16px) var(--surface-radius, 16px) 0 0;
   transition: background-color var(--theme-transition-medium), border-color var(--theme-transition-fast), box-shadow var(--theme-transition-slow);
 }
