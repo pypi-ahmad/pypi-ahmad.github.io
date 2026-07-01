@@ -33,7 +33,7 @@ React single-page application for presenting professional experience, AI project
 | Analytics | react-ga4 (disabled until a GA4 ID is configured in `settings.js`) |
 | Testing | Vitest, @testing-library/react, jsdom, jest-axe, axe-core |
 | Stress testing | Playwright (Chrome DevTools Protocol) |
-| Node | `>=20.19.0 <21` |
+| Node | `24.x` |
 
 ---
 
@@ -132,7 +132,7 @@ vercel.json                 # Vercel static deployment config
 
 ### Prerequisites
 
-- **Node.js** `>=20.19.0 <21`
+- **Node.js** `24.x`
 - **npm**
 
 ### Install and run
@@ -208,7 +208,7 @@ Two GitHub Actions workflows in `.github/workflows/`:
 
 | Workflow | Trigger | Steps |
 |---|---|---|
-| `ci.yml` | Push or PR to `main` | Checkout → Node 20.19.0 → `npm ci` → `npm run build` → `npm run test:run` |
+| `ci.yml` | Push or PR to `main` | Checkout → Node 24 → `npm ci` → `npm run build` → `npm run test:run` |
 | `deploy.yml` | Push to `main` | Same as CI, then deploys `build/` to GitHub Pages via `peaceiris/actions-gh-pages@v4` |
 
 ---
