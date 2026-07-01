@@ -2,14 +2,14 @@
  * SocialMedia.css — Circular icon-button styles for social links.
  *
  * Each platform class (.github, .linkedin, .google, etc.) defines
- * its brand background color on the <i> icon element.
+ * its brand background color on the icon glyph element.
  */
 
 .social-media-div {
   font-size: 2em;
 }
 
-.icon-button i {
+.icon-button .icon-glyph {
   color: white;
 }
 .icon-button {
@@ -18,13 +18,15 @@
   border-radius: 999px;
 }
 
-.icon-button i {
+.icon-button .icon-glyph {
   border-radius: 2.6rem;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.3rem;
   height: 2.75rem;
-  line-height: 2.75rem;
+  line-height: 1;
   margin: 0 5px;
   position: relative;
   text-align: center;
@@ -39,53 +41,53 @@
   transition: transform var(--theme-transition-fast), box-shadow var(--theme-transition-medium), color var(--theme-transition-fast);
 }
 
-.linkedin i {
+.linkedin .icon-glyph {
   background-color: #0e76a8;
   transition: all 0.2s ease-in-out;
 }
 
-.linkedin i:hover {
+.linkedin .icon-glyph:hover {
   color: rgba(255, 255, 255, 1);
 }
 
-.github i {
+.github .icon-glyph {
   background-color: #333;
   transition: all 0.2s ease-in-out;
 }
 
-.github i:hover {
+.github .icon-glyph:hover {
   color: rgba(255, 255, 255, 1);
 }
 
-.google i {
+.google .icon-glyph {
   background-color: #ea4335;
   transition: all 0.2s ease-in-out;
 }
 
-.google i:hover {
+.google .icon-glyph:hover {
   color: rgba(255, 255, 255, 1);
 }
 
-.twitter i {
+.twitter .icon-glyph {
   background-color: #1da1f2;
   transition: all 0.2s ease-in-out;
 }
 
-.twitter i:hover {
+.twitter .icon-glyph:hover {
   color: rgba(255, 255, 255, 1);
 }
 
-.instagram i {
+.instagram .icon-glyph {
   background-color: #e4405f;
   transition: all 0.2s ease-in-out;
 }
 
-.instagram i:hover {
+.instagram .icon-glyph:hover {
   color: rgba(255, 255, 255, 1);
 }
 
-.icon-button:hover i,
-.icon-button:focus-visible i {
+.icon-button:hover .icon-glyph,
+.icon-button:focus-visible .icon-glyph {
   transform: translateY(-1px) scale(1.05);
 }
 

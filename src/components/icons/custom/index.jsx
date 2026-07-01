@@ -104,6 +104,56 @@ export function RestApisIcon() {
   );
 }
 
+export function AnthropicIcon() {
+  return (
+    <svg {...baseProps}>
+      <path d="M12 4.5 18 19.5h-2.6l-1.1-2.8H9.7l-1.1 2.8H6L12 4.5Z" />
+      <path d="M10.5 14.2h3l-1.5-3.9-1.5 3.9Z" />
+    </svg>
+  );
+}
+
+export function LangChainIcon() {
+  return (
+    <svg {...baseProps}>
+      <rect x="4.5" y="9" width="7" height="6" rx="2.2" />
+      <rect x="12.5" y="9" width="7" height="6" rx="2.2" />
+      <path d="M10.5 12h3" />
+    </svg>
+  );
+}
+
+export function LangGraphIcon() {
+  return (
+    <svg {...baseProps}>
+      <circle cx="6.5" cy="6.5" r="1.8" />
+      <circle cx="17.5" cy="7.5" r="1.8" />
+      <circle cx="12" cy="17.5" r="1.8" />
+      <path d="M8.1 7.2 15.9 7.8M7.4 8.1l3.9 7.8M16.6 8.9l-3.9 7" />
+    </svg>
+  );
+}
+
+export function GeminiIcon() {
+  return (
+    <svg {...baseProps}>
+      <path d="M12 4.5 13.5 9 18 10.5 13.5 12 12 16.5 10.5 12 6 10.5 10.5 9 12 4.5Z" />
+      <path d="M18 5.5 18.8 7.8 21 8.6 18.8 9.4 18 11.7 17.2 9.4 15 8.6 17.2 7.8 18 5.5Z" />
+    </svg>
+  );
+}
+
+export function ModelContextProtocolIcon() {
+  return (
+    <svg {...baseProps}>
+      <rect x="4.5" y="6" width="4.5" height="4.5" rx="1" />
+      <rect x="14.5" y="6" width="4.5" height="4.5" rx="1" />
+      <rect x="9.5" y="13.5" width="5" height="4.5" rx="1" />
+      <path d="M9 8.2h5.5M11.8 10.5v3M17 10.5l-4.5 3" />
+    </svg>
+  );
+}
+
 export const customSkillIcons = {
   AzureMachineLearningIcon,
   AzureBlobStorageIcon,
@@ -113,4 +163,9 @@ export const customSkillIcons = {
   AmazonSageMakerIcon,
   DeltaLakeIcon,
   RestApisIcon,
+  AnthropicIcon,
+  LangChainIcon,
+  LangGraphIcon,
+  GeminiIcon,
+  ModelContextProtocolIcon,
 };

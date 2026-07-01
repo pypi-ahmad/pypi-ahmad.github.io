@@ -7,6 +7,15 @@
 import React from "react";
 import "./SocialMedia.css";
 import { socialMediaLinks } from "../../portfolio";
+import {
+  FaDiscord,
+  FaGithub,
+  FaGoogle,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTelegramPlane,
+  FaTwitter,
+} from "react-icons/fa";
 
 export default function socialMedia() {
   return (
@@ -19,7 +28,7 @@ export default function socialMedia() {
           rel="noopener noreferrer"
           aria-label="GitHub profile"
         >
-          <i className="fab fa-github"></i>
+          <FaGithub className="icon-glyph" />
           <span></span>
         </a>
       ) : null}
@@ -32,7 +41,7 @@ export default function socialMedia() {
           rel="noopener noreferrer"
           aria-label="LinkedIn profile"
         >
-          <i className="fab fa-linkedin-in"></i>
+          <FaLinkedinIn className="icon-glyph" />
           <span></span>
         </a>
       ) : null}
@@ -45,7 +54,7 @@ export default function socialMedia() {
           rel="noopener noreferrer"
           aria-label="Send email"
         >
-          <i className="fab fa-google"></i>
+          <FaGoogle className="icon-glyph" />
           <span></span>
         </a>
       ) : null}
@@ -58,7 +67,7 @@ export default function socialMedia() {
           rel="noopener noreferrer"
           aria-label="Twitter profile"
         >
-          <i className="fab fa-twitter"></i>
+          <FaTwitter className="icon-glyph" />
           <span></span>
         </a>
       ) : null}
@@ -71,7 +80,7 @@ export default function socialMedia() {
           rel="noopener noreferrer"
           aria-label="Instagram profile"
         >
-          <i className="fab fa-instagram"></i>
+          <FaInstagram className="icon-glyph" />
           <span></span>
         </a>
       ) : null}
@@ -85,7 +94,7 @@ export default function socialMedia() {
           aria-label="Telegram"
           style={{ backgroundColor: "#0088cc" }}
         >
-          <i className="fab fa-telegram-plane"></i>
+          <FaTelegramPlane className="icon-glyph" />
           <span></span>
         </a>
       ) : null}
@@ -99,7 +108,7 @@ export default function socialMedia() {
           aria-label="Discord"
           style={{ backgroundColor: "#7289da" }}
         >
-          <i className="fab fa-discord"></i>
+          <FaDiscord className="icon-glyph" />
           <span></span>
         </a>
       ) : null}

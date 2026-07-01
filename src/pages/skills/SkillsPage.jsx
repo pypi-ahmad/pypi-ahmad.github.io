@@ -2,7 +2,7 @@
  * Skills Page (/skills)
  *
  * Full technical skills grid organized by domain. Each section shows
- * Iconify skill icons linking to official docs and an optional text
+ * local SVG/react skill icons linking to official docs and an optional text
  * bullet list.  Driven by `skillsPageData` from the data layer.
  *
  * Props: { theme }
@@ -53,7 +53,7 @@ const SkillSection = ({ section, theme }) => {
                 color: theme.text,
               }}
             >
-              <SkillIcon skill={skill} className="iconify skill-page-icon" />
+              <SkillIcon skill={skill} className="skill-page-icon" />
               <span
                 className="skill-icon-name"
                 style={{ color: theme.secondaryText }}

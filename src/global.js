@@ -30,6 +30,15 @@ export const GlobalStyles = createGlobalStyle`
   *::after,
   *::before {
     box-sizing: border-box;
+  }
+
+  a[href],
+  button,
+  [role="button"],
+  [tabindex]:not([tabindex="-1"]),
+  input,
+  select,
+  textarea {
     transition:
       background-color var(--theme-transition-colors),
       color var(--theme-transition-colors),
@@ -37,7 +46,9 @@ export const GlobalStyles = createGlobalStyle`
       outline-color var(--theme-transition-colors),
       text-decoration-color var(--theme-transition-colors),
       fill var(--theme-transition-colors),
-      stroke var(--theme-transition-colors);
+      stroke var(--theme-transition-colors),
+      box-shadow var(--theme-transition-fast),
+      transform var(--theme-transition-fast);
   }
 
   html {
