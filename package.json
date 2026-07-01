@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "ahmad-mujtaba-portfolio",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "homepage": "https://pypi-ahmad.github.io",
   "type": "module",
   "engines": {
