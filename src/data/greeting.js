@@ -13,7 +13,7 @@ const greeting = {
   fullName: "Ahmad Mujtaba",
   // HERO — 1-line positioning
   subTitle:
-    "I'm a Generative AI Engineer with 3+ years building LLM, agentic, and document intelligence systems for healthcare workflows on Azure, AWS, and Databricks.",
+    "I'm Ahmad Mujtaba. I'm a Generative AI Engineer with 4+ years building LLM, agentic, and document intelligence systems for healthcare workflows on Azure, AWS, and Databricks.",
   // HERO — 3 signal bullets (rendered by Greeting component)
   heroBullets: [
     "Improved scanned prior-authorization fax extraction from ~80-81% to 90%+ with a 4-pass, confidence-aware pipeline",
@@ -30,4 +30,3 @@ const greeting = {
 };
 
 export { greeting };
-

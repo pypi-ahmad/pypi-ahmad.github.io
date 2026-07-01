@@ -21,12 +21,12 @@ describe("Greeting — UI Rendering", () => {
 
   it("renders the full name 'Ahmad Mujtaba.'", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByText(/Ahmad Mujtaba/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Ahmad Mujtaba/).length).toBeGreaterThan(0);
   });
 
   it("renders the subtitle text", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByText(/3\+ years building LLM, agentic, and document intelligence systems/i)).toBeInTheDocument();
+    expect(screen.getByText(/4\+ years building LLM, agentic, and document intelligence systems/i)).toBeInTheDocument();
   });
 
   it("renders all 4 hero bullet points", () => {
@@ -63,7 +63,10 @@ describe("Greeting — UI Rendering", () => {
 
   it("applies accent color to the full name", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    const nameSpan = screen.getByText(/Ahmad Mujtaba\./);
+    const nameSpan = screen
+      .getAllByText(/Ahmad Mujtaba\./)
+      .find((node) => node.tagName === "SPAN");
+    expect(nameSpan).toBeDefined();
     expect(nameSpan).toHaveStyle({ color: darkTheme.accentSolid });
   });
 

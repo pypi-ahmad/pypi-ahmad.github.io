@@ -23,7 +23,7 @@
 // ─────────────────────────────────────────────────────────
 
 export const systems = {
-  // ── FEATURED (top 4 — hero section worthy) ──────────────
+  // ── FEATURED (top 5 — hero section worthy) ──────────────
   featured: [
     {
       id: "prior_auth_fax_pipeline",
@@ -32,11 +32,11 @@ export const systems = {
       category: "Healthcare AI · Enterprise",
       tier: "featured",
       // CARD METRICS — numeric only, recruiter scan layer
-      metrics: ["80-81% → 90%+ accuracy", "117 extraction fields", "4-pass fallback design"],
+      metrics: ["~80% to 90%+ accuracy", "100+ extraction fields", "4-pass fallback design"],
       description:
-        "Architected a production-grade extraction pipeline for scanned prior-authorization intake faxes that combines analyzer-driven extraction, targeted field retries, raw OCR markdown fallback, and multimodal PDF-to-LLM extraction — improving accuracy from ~80-81% to 90%+ on noisy real-world documents.",
+        "Architected a production-grade extraction pipeline for scanned prior-authorization intake faxes that combines analyzer-driven extraction, targeted field retries, raw OCR markdown fallback, and multimodal PDF-to-LLM extraction — improving accuracy from roughly 80% to 90%+ on noisy real-world documents.",
       problem_statement:
-        "Prior-authorization intake faxes arrived as low-quality scans with layout drift, checkbox-heavy sections, inconsistent formatting, and mixed field types. The baseline pipeline processed 100+ documents per run and 117 extraction fields, but quality plateaued around 80-81%, which was not reliable enough for downstream healthcare operations.",
+        "Prior-authorization intake faxes arrived as low-quality scans with layout drift, checkbox-heavy sections, inconsistent formatting, and mixed field types. The baseline pipeline processed 100+ documents per run and over 100 extraction fields, but quality plateaued around the low-80% range, which was not reliable enough for downstream healthcare operations.",
       solution_overview:
         "Diagnosed the failure boundary instead of guessing: compared the analyzer-driven path against two focused POCs — raw Azure Content Understanding markdown sent directly to the LLM, and direct PDF-as-image multimodal extraction. Productionized the findings into a 4-pass, confidence-aware pipeline with field-level retries, multimodal fallbacks, token control, and selective routing for vision-heavy fields.",
       architecture: [
@@ -85,10 +85,79 @@ export const systems = {
         }
       ],
       impact: [
-        "Improved extraction accuracy from ~80-81% to 90%+ on scanned intake faxes",
+        "Improved extraction accuracy from roughly 80% to 90%+ on scanned intake faxes",
         "Made 100+ document runs stable enough for downstream healthcare workflows",
         "Reduced regression risk with confidence-aware overwrite protection",
         "Converted experiment-driven learnings into a production fallback architecture"
+      ]
+    },
+    {
+      id: "document_fraud_detection_engine",
+      name: "Document Fraud Detection Engine",
+      tagline: "Multi-agent forensic pipeline for forged and tampered healthcare documents",
+      category: "Healthcare AI · Enterprise",
+      tier: "featured",
+      metrics: ["7-agent LangGraph pipeline", "0-100 deterministic risk score", "Accept / Review / Reject verdicting"],
+      description:
+        "Built a production-ready document fraud detection system that combines visual forensics, metadata analysis, semantic validation, and cross-document checks to score suspicious healthcare and insurance documents with deterministic investigation outcomes.",
+      problem_statement:
+        "Fraudulent submissions can look visually plausible while hiding tampering, fabricated values, or contradictory metadata. Rule-only checks often miss modern document manipulation patterns across PDFs and images.",
+      solution_overview:
+        "Implemented a 7-agent LangGraph workflow: file preflight checks, vision-based ingestion, reasoning-driven inspection planning, visual forensics, metadata validation, semantic consistency checks, and cross-document duplicate/identifier analysis. The decision layer produces a 0-100 risk score with Accept/Review/Reject verdicts and evidence traces.",
+      architecture: [
+        "Upload PDF, JPEG, or PNG document",
+        "Preflight agent validates magic bytes, container integrity, and baseline file health",
+        "Ingestion agent classifies document type and extracts visible fields using vision LLMs",
+        "Reasoning agent generates targeted forensic inspection focus areas",
+        "Visual forensics agent checks tamper signals (fonts, layout, recompression, copy-paste artifacts)",
+        "Metadata agent evaluates creation history, producer anomalies, and revision chains",
+        "Semantic agent validates cross-field logic and domain rules",
+        "Cross-document agent runs SHA-256 + embedding similarity and identifier validation",
+        "Decision agent aggregates findings into deterministic score and verdict"
+      ],
+      tech: [
+        "Python",
+        "LangGraph",
+        "OpenAI GPT-4o",
+        "OpenAI GPT-4o Vision",
+        "OpenAI text-embedding-3-small",
+        "Streamlit",
+        "pikepdf",
+        "PyMuPDF",
+        "Pillow"
+      ],
+      key_features: [
+        "Deterministic 0-100 fraud risk scoring with Accept/Review/Reject outcomes",
+        "Combined file-integrity, visual, metadata, semantic, and cross-document checks",
+        "Duplicate detection using SHA-256 exact-match and embedding-based near-duplicate search",
+        "Identifier validation workflows for regulated healthcare identifiers",
+        "Audit-ready reasoning trail that explains why each check was executed",
+        "Suspicious-field localization for investigator review"
+      ],
+      implementation_details:
+        "The pipeline uses sequential specialized agents with shared state in LangGraph so each stage contributes structured evidence to later stages. Visual checks and semantic checks are intentionally separated, then merged in the final decision node to avoid over-reliance on one signal type. Cross-document checks combine deterministic hashes with embedding similarity to flag both exact reuse and edited resubmissions.",
+      challenges_solutions: [
+        {
+          challenge: "Documents can pass superficial OCR checks while still being manipulated",
+          solution:
+            "Combined orthogonal signals (visual, metadata, semantic, and cross-document) rather than relying on one detector class."
+        },
+        {
+          challenge: "Investigation outputs are often hard to explain to reviewers",
+          solution:
+            "Generated explicit evidence traces and suspicious-region localization tied to each risk decision."
+        },
+        {
+          challenge: "Duplicate fraud appears as both exact and slightly edited resubmissions",
+          solution:
+            "Implemented two-stage deduplication with SHA-256 for exact matches and embedding similarity for near-duplicates."
+        }
+      ],
+      impact: [
+        "Standardized document fraud triage with deterministic risk scoring and verdicting",
+        "Improved investigator explainability through evidence-backed, field-level forensic findings",
+        "Raised resilience to modern tampering patterns across PDFs and image-based submissions",
+        "Enabled production-ready fraud screening workflows for document-heavy insurance operations"
       ]
     },
     {
@@ -313,16 +382,149 @@ export const systems = {
   // ── SUPPORTING SYSTEMS (still valuable, lower priority) ──
   supporting: [
     {
+      id: "kickback_referral_fraud_platform",
+      name: "Agentic Kickback & Referral Fraud Detection Platform",
+      tagline: "LangGraph investigations for referral loops and hub-and-spoke abuse patterns",
+      category: "Healthcare AI · Enterprise",
+      tier: "supporting",
+      metrics: ["25-node agent graph", "NetworkX loop + hub analytics", "Human-in-the-loop approvals"],
+      description:
+        "Built a multi-agent fraud investigation platform for healthcare claims that detects referral loops, hub-and-spoke concentration, and suspicious routing behavior, then produces evidence-backed reports for compliance teams.",
+      problem_statement:
+        "Kickback and referral abuse is difficult to detect manually because suspicious behavior spans many providers, patients, and time windows. Static dashboards miss network-level patterns and produce weak investigation context.",
+      solution_overview:
+        "Designed a LangGraph orchestration flow with planning, tool execution, quality verification, researcher support, and reporting stages. NetworkX-based detectors identify referral cycles and concentration hubs, while human-in-the-loop gates control sensitive actions and investigation progression.",
+      architecture: [
+        "Claims dataset ingestion and schema-role inference",
+        "Plan agent proposes fraud investigation strategy with success criteria",
+        "Human approval gate for plan approval/edit/reject decisions",
+        "ReAct execution loop dispatches fraud tools and analysis steps",
+        "NetworkX detectors evaluate referral cycles and hub-and-spoke concentration",
+        "Quality-check agent critiques and verifies evidence before report finalization",
+        "Safety layer redacts sensitive identifiers in generated outputs",
+        "Report agent produces structured investigation summary with supporting records"
+      ],
+      tech: [
+        "Python",
+        "LangGraph",
+        "OpenAI GPT",
+        "NetworkX",
+        "Streamlit",
+        "Pandas",
+        "Plotly",
+        "Pyvis"
+      ],
+      key_features: [
+        "Referral loop detection using graph cycle and connected-component analysis",
+        "Hub-and-spoke concentration scoring for high-risk referral routing",
+        "Human-in-the-loop approval checkpoints for plan and sensitive tool execution",
+        "Autonomous researcher path for external sanctions/advisory context",
+        "Critic-verifier quality gate with confidence scoring before delivery",
+        "Structured reporting with provider-network evidence tables"
+      ],
+      implementation_details:
+        "The workflow is organized as a stateful graph with planning, execution, verification, and reporting tiers. Investigation plans are reviewed before tool execution, and each tool result is normalized into a common evidence format. The quality-check node validates claim support and confidence before the report gate allows release.",
+      challenges_solutions: [
+        {
+          challenge: "Provider kickback patterns are relational and hard to capture with flat rules",
+          solution:
+            "Modeled referrals as graphs and used cycle/concentration analytics to surface non-obvious collusion structures."
+        },
+        {
+          challenge: "Fully autonomous agents can execute sensitive actions without enough control",
+          solution:
+            "Added explicit human approval gates at planning and tool-execution checkpoints."
+        },
+        {
+          challenge: "Investigation narratives can overstate weak evidence",
+          solution:
+            "Inserted a critic-verifier stage that checks support before reporting."
+        }
+      ],
+      impact: [
+        "Converted raw claims data into evidence-backed kickback and referral investigations",
+        "Reduced manual analysis burden through orchestrated agent/tool workflows",
+        "Improved reviewer trust with gated execution and confidence-checked reports",
+        "Operationalized network-level fraud detection for healthcare compliance teams"
+      ]
+    },
+    {
+      id: "oon_claims_intelligence_dashboard",
+      name: "Out-of-Network Claims Intelligence Dashboard",
+      tagline: "Price-gouging and billing-risk analytics for out-of-network healthcare claims",
+      category: "Healthcare AI · Enterprise",
+      tier: "supporting",
+      metrics: ["CMS benchmark pricing rules", "Specialty-level Z-score outliers", "7 tabbed investigation workflows"],
+      description:
+        "Built a Streamlit analytics platform for payer and compliance teams to detect out-of-network price gouging, specialty outliers, add-on billing patterns, and appeals/complaint concentration from claims data.",
+      problem_statement:
+        "Out-of-network claims can hide excessive pricing and abusive billing patterns that are hard to triage quickly across specialties, geographies, and claim types.",
+      solution_overview:
+        "Implemented a dashboard-first investigation workflow with rule-based CMS threshold checks, specialty-aware statistical outlier detection, pattern-shift analysis, and a unified flagged-claims table. Optional LLM assistance supports natural-language analysis and provider risk narratives.",
+      architecture: [
+        "Claims data ingestion and preprocessing",
+        "Derived field generation (network status, CMS threshold, price ratio, temporal grouping)",
+        "Price-gouging detection via CMS benchmark multiplier logic",
+        "Specialty-specific outlier detection using Z-score thresholds",
+        "Add-on billing and pattern-shift analysis across time and specialties",
+        "Appeals/complaints concentration analysis for dispute hotspots",
+        "Unified flagged-claims table with filter and export workflows",
+        "Optional GPT-assisted query and narrative generation"
+      ],
+      tech: [
+        "Python",
+        "Streamlit",
+        "Pandas",
+        "NumPy",
+        "Plotly",
+        "OpenAI GPT-4o-mini",
+        "xlsxwriter"
+      ],
+      key_features: [
+        "CMS benchmark thresholding for price-gouging identification",
+        "Per-specialty statistical outlier detection with adjustable Z-score cutoff",
+        "Add-on service detection for hidden ancillary charges",
+        "Billing-pattern shift analysis by quarter and specialty",
+        "Appeals and complaint concentration views for regulatory risk triage",
+        "Filterable/exportable flagged-claims master table with explainability notes"
+      ],
+      implementation_details:
+        "The dashboard computes fraud-risk features at runtime and routes users through focused investigation tabs. Detection logic combines deterministic thresholds and statistical tests so teams can compare hard-rule and distribution-based flags side by side. Output tables preserve per-claim rationale to support downstream payer review workflows.",
+      challenges_solutions: [
+        {
+          challenge: "Single-metric checks miss context-specific pricing anomalies",
+          solution:
+            "Combined CMS rule thresholds with specialty-level statistical outlier detection."
+        },
+        {
+          challenge: "Investigators need interpretable, actionable claim-level signals",
+          solution:
+            "Built a unified flagged-claims table with explicit per-claim explanation context."
+        },
+        {
+          challenge: "Risk signals are distributed across trends, geography, and disputes",
+          solution:
+            "Added multi-view analysis across pattern shifts, hotspots, and appeals/complaints concentration."
+        }
+      ],
+      impact: [
+        "Enabled faster triage of suspicious out-of-network claims for payer investigation teams",
+        "Improved risk visibility across pricing, add-on billing, and dispute concentration patterns",
+        "Standardized analytics workflows for compliance and fraud review use cases",
+        "Produced investigation-ready exports with claim-level rationale"
+      ]
+    },
+    {
       id: "health_policy_extraction",
       name: "Health-Policy Entity Extraction System",
       tagline: "Structured policy extraction with model migration, prompt tuning, and canonical validation",
       category: "Document AI · Enterprise",
       tier: "supporting",
-      metrics: ["90% → 99% accuracy", "Canonical comparison", "Structured output contracts"],
+      metrics: ["~90% to ~99% accuracy", "Canonical comparison", "Structured output contracts"],
       description:
-        "Improved health-policy entity extraction from 90% to 99% by treating model choice, prompt design, structured-output behavior, and evaluation logic as one engineering problem rather than isolated tuning tasks.",
+        "Improved health-policy entity extraction from roughly 90% to about 99% by treating model choice, prompt design, structured-output behavior, and evaluation logic as one engineering problem rather than isolated tuning tasks.",
       problem_statement:
-        "Policy documents required consistent field-level extraction across document variants and layouts. The baseline GPT-based flow achieved roughly 90% accuracy, but remaining field inconsistency and output-contract drift still created operational review overhead.",
+        "Policy documents required consistent field-level extraction across document variants and layouts. The baseline GPT-based flow achieved around 90% accuracy, but remaining field inconsistency and output-contract drift still created operational review overhead.",
       solution_overview:
         "Migrated workloads across GPT- and Gemini-based systems, refined prompts through repeated iterations, enforced structured-output contracts, and used canonical-comparison logic to validate whether changes improved real field-level accuracy.",
       architecture: [
@@ -362,10 +564,77 @@ export const systems = {
         }
       ],
       impact: [
-        "Improved health-policy entity extraction from 90% to 99%",
+        "Improved health-policy entity extraction from roughly 90% to about 99%",
         "Raised field-level precision and consistency across policy documents",
         "Made model migration decisions evidence-based through repeatable evaluation",
         "Reduced output-contract drift in downstream healthcare workflows"
+      ]
+    },
+    {
+      id: "medical_document_intelligence_assistant",
+      name: "Medical Document Intelligence Assistant",
+      tagline: "Local-first medical document understanding with OCR, retrieval, and grounded reporting",
+      category: "Healthcare AI · Document Intelligence",
+      tier: "supporting",
+      metrics: ["32/32 live checks passed", "844 tests passed", "Ollama-first local stack"],
+      description:
+        "Built a local-first medical document intelligence platform that processes prescriptions, lab reports, and scanned notes into structured outputs using OCR, extraction, hybrid retrieval, citation-grounded QA, timelines, and report generation.",
+      problem_statement:
+        "Healthcare document workflows are often fragmented across OCR tools, retrieval systems, and reporting layers, making it hard to produce trustworthy outputs with local privacy controls and end-to-end verification.",
+      solution_overview:
+        "Implemented a full-stack platform with OCR providers, medical extraction pipelines, hybrid retrieval, grounded QA, timeline/report generation, and persistence, then validated the workflow through real run artifacts and live verification checks.",
+      architecture: [
+        "Document upload across prescriptions, lab reports, and scanned images/PDFs",
+        "OCR and parsing via local providers (including glm-ocr and parser fallbacks)",
+        "Medical extraction for entities, medications, and lab values",
+        "Chunking and embedding for hybrid retrieval (semantic + keyword)",
+        "Citation-grounded QA and summary generation",
+        "Timeline construction and doctor-report generation with safety disclaimers",
+        "Persistence through SQLAlchemy models and local/runtime database paths",
+        "Next.js frontend surfaces for upload, chat, OCR view, timeline, and reporting"
+      ],
+      tech: [
+        "Python",
+        "FastAPI",
+        "Next.js 14",
+        "Ollama",
+        "glm-ocr",
+        "Qwen embeddings",
+        "SQLAlchemy",
+        "Alembic"
+      ],
+      key_features: [
+        "Local-first medical document pipeline with educational-use safety guardrails",
+        "Hybrid retrieval powering citation-grounded QA",
+        "Timeline and report generation from extracted clinical context",
+        "Layout-aware processing for scanned and structured documents",
+        "Artifact-backed live verification outputs for run traceability",
+        "Support for both local SQLite runtime and production-style database paths"
+      ],
+      implementation_details:
+        "Implemented modular backend services for OCR, extraction, retrieval, QA, summaries, timelines, and reporting, with frontend routes for document operations and monitoring. Validation evidence is stored in repository artifacts, including live verification reports and parser-baseline matrix runs. The system records extracted entities, medications, labs, chunks, and embeddings to support replayable, grounded workflows.",
+      challenges_solutions: [
+        {
+          challenge: "Scanned and handwritten inputs require resilient parsing beyond one OCR path",
+          solution:
+            "Combined multiple OCR/parser routes with fallback behavior and bounded processing controls."
+        },
+        {
+          challenge: "Medical QA without citations can reduce trust for downstream review",
+          solution:
+            "Added hybrid retrieval and grounded answer paths that return citation-backed outputs."
+        },
+        {
+          challenge: "End-to-end reliability claims needed hard evidence rather than screenshots",
+          solution:
+            "Captured machine-readable verification artifacts from real live runs and matrix checks."
+        }
+      ],
+      impact: [
+        "Validated end-to-end pipeline behavior with 32/32 live checks passed and parser-baseline matrix passing 33/33 checks",
+        "Demonstrated production-style quality gates with 844 passing backend tests",
+        "Enabled unified document-to-report workflows from upload through OCR, retrieval, QA, timeline, and report generation",
+        "Strengthened privacy posture with local-first model execution and storage options"
       ]
     },
     {
@@ -554,4 +823,3 @@ export const systems = {
     return [...this.featured, ...this.supporting];
   }
 };
-

@@ -9,7 +9,7 @@
 export const projectsHeader = {
   title: "Projects",
   description:
-    "Enterprise AI systems and open-source builds across document intelligence, retrieval-backed agents, and provider-native computer use.",
+    "Curated modern AI systems across agentic orchestration, document intelligence, multimodal workflows, retrieval evaluation, and local-first LLM product engineering.",
 };
 
 export const projects = {
@@ -29,11 +29,60 @@ export const projects = {
       category: "AI Platform",
     },
     {
-      name: "pypi-ahmad.github.io",
-      url: "https://github.com/pypi-ahmad/pypi-ahmad.github.io",
+      name: "Multi-Agent AI Studio",
+      url: "https://github.com/pypi-ahmad/multi-agent-ai-studio",
       description:
-        "Portfolio website built with React, Vite, and Framer Motion, organized around data-driven case studies, themed UI surfaces, and component-level render tests.",
-      category: "Frontend",
+        "Production-grade, privacy-first local agentic AI studio with LangGraph supervisor orchestration, Ollama-first model routing, Qdrant retrieval, and real end-to-end verification artifacts.",
+      category: "Agentic AI Platform",
+    },
+    {
+      name: "Agentic Document Extraction",
+      url: "https://github.com/pypi-ahmad/Agentic-Document-Extraction",
+      description:
+        "Document intelligence workflow using a 4-stage LangGraph pipeline with confidence-aware extraction, schema validation, human review handoffs, and MCP server integration.",
+      category: "Document AI · Agentic Workflow",
+    },
+    {
+      name: "Domain-Adapted Embedding Alignment",
+      url: "https://github.com/pypi-ahmad/domain-adapted-embedding-alignment",
+      description:
+        "Adapter-based embedding training and retrieval benchmarking pipeline for medical, legal, and cybersecurity domains, with auditable sparse/dense/hybrid and RAG/GraphRAG evaluations.",
+      category: "Retrieval · Fine-Tuning",
+    },
+    {
+      name: "Local AI Software Engineer",
+      url: "https://github.com/pypi-ahmad/local-ai-software-engineer",
+      description:
+        "Local-first AI engineering platform for repository indexing, semantic and symbol search, architecture summarization, review/test generation, and governed terminal execution.",
+      category: "Agentic AI · Developer Tools",
+    },
+    {
+      name: "Local Video Intelligence Platform",
+      url: "https://github.com/pypi-ahmad/local-video-intelligence-platform",
+      description:
+        "Multimodal video pipeline combining OCR, transcripts, timeline extraction, retrieval, RAG chat, and report generation on a local-first FastAPI + Next.js stack.",
+      category: "Multimodal AI · Video Systems",
+    },
+    {
+      name: "Local Research Assistant",
+      url: "https://github.com/pypi-ahmad/local-research-assistant",
+      description:
+        "NotebookLM-style local research workspace with multimodal ingestion (PDF/image/website/GitHub/YouTube), hybrid retrieval, citation-grounded chat, and graph-backed study workflows, validated through real end-to-end run artifacts.",
+      category: "RAG Systems · Research Intelligence",
+    },
+    {
+      name: "Repository-Specific SQL & Cypher Query Generator",
+      url: "https://github.com/pypi-ahmad/Repository-Specific-SQL-Cypher-Query-Generator",
+      description:
+        "Schema-aware Text-to-SQL and Text-to-Cypher system with deterministic SQL-to-Cypher labeling, QLoRA training, and execution-aware evaluation across baseline and fine-tuned runs with published artifacts.",
+      category: "LLM Systems · Fine-Tuning & Evaluation",
+    },
+    {
+      name: "Cybersecurity Threat Intelligence GraphRAG",
+      url: "https://github.com/pypi-ahmad/Cybersecurity-Threat-Intelligence-GraphRAG",
+      description:
+        "Threat-intelligence assistant over MITRE ATT&CK STIX data implementing GraphRAG, agentic routing, hybrid retrieval, and multimodal OCR/vision paths with section-level retrieval and latency metrics.",
+      category: "GraphRAG · Cybersecurity",
     },
   ],
 };
