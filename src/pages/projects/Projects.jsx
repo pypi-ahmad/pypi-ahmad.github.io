@@ -287,6 +287,22 @@ function Projects(props) {
         >
           Enterprise Systems
         </h2>
+        <p
+          style={{
+            color: theme.secondaryText,
+            transition: themeTextTransition,
+            textAlign: "center",
+            marginBottom: "1.25rem",
+            fontSize: "0.95rem",
+            lineHeight: "1.55",
+            maxWidth: "52rem",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          Anonymized case studies for public portfolio use. Client-identifying
+          and confidential implementation details are intentionally omitted.
+        </p>
         <div className="product-tile-grid">
           {systems.data.map((sys, index) => (
             <ProductTile key={index} system={sys} theme={theme} />
