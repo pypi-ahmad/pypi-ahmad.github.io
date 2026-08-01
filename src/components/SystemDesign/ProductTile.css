@@ -5,7 +5,7 @@
 /* ── Grid container (used in Projects.jsx) ──────────────────────────── */
 .product-tile-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--section-gap-tight);
 }
 
@@ -16,6 +16,7 @@
   align-items: flex-start;
   text-align: left;
   width: 100%;
+  min-width: 0;
   padding: 24px;
   border-radius: 12px;
   cursor: pointer;
@@ -63,7 +64,7 @@
 }
 
 .product-tile__category {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   padding: 2px 8px;
@@ -91,13 +92,13 @@
 /* ── Responsive ─────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .product-tile-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 768px) {
   .product-tile-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
   }
 
@@ -118,5 +119,9 @@
 
   .product-tile__name {
     font-size: 0.95rem;
+  }
+
+  .product-tile__category {
+    white-space: normal;
   }
 }

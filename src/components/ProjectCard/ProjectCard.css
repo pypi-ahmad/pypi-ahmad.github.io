@@ -63,7 +63,7 @@
 }
 
 .project-card__category {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   padding: 2px 8px;
@@ -109,5 +109,9 @@
 
   .project-card__name {
     font-size: 0.95rem;
+  }
+
+  .project-card__category {
+    white-space: normal;
   }
 }
