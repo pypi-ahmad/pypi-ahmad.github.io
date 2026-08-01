@@ -35,6 +35,7 @@ function SoftwareSkill(props) {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="skill-link"
+                      aria-label={logo.skillName}
                     >
                       {icon}
                     </a>
