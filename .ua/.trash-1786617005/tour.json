@@ -1,0 +1,65 @@
+[
+  {
+    "order": 1,
+    "title": "Portfolio Overview",
+    "description": "Start with the README to understand the portfolio's purpose: presenting professional experience, AI projects, and skills as a React single-page application. It also establishes the technology stack, route structure, content-data approach, local workflow, and deployment path that frame the rest of this tour.",
+    "nodeIds": ["document:README.md"]
+  },
+  {
+    "order": 2,
+    "title": "Build and Bootstrap",
+    "description": "The package manifest defines the Vite and React toolchain, the scripts used to develop and verify the site, and the project dependencies. From there, the application entry point mounts the React portfolio so later layers can provide routes, content, and shared UI.",
+    "nodeIds": ["config:package.json", "file:src/index.jsx"],
+    "languageLesson": "Vite uses an npm-script-driven development and production workflow: the manifest centralizes executable tasks and dependency versions, while the JavaScript entry module starts the client-side application."
+  },
+  {
+    "order": 3,
+    "title": "Application Composition",
+    "description": "The application shell composes the portfolio experience, while the portfolio module is a central dependency for the surrounding page and component structure. Read these together to see how the initial bootstrap becomes a navigable set of portfolio views rather than a collection of isolated components.",
+    "nodeIds": ["file:src/App.jsx", "file:src/portfolio.js"]
+  },
+  {
+    "order": 4,
+    "title": "Navigation and Layout",
+    "description": "The header is one of the most widely connected presentation components, making it a useful guide to how visitors move through the site. It pairs with the shared footer to frame page content consistently as the application shell changes views.",
+    "nodeIds": ["file:src/components/header/Header.jsx", "file:src/components/footer/Footer.jsx"]
+  },
+  {
+    "order": 5,
+    "title": "Theme State",
+    "description": "The theme registry creates reusable visual tokens, and the controller supplies and persists the active selection for React consumers. This separates palette construction from UI state, allowing presentation components to use a consistent active theme without owning theme-selection logic.",
+    "nodeIds": ["file:src/theme.js", "file:src/themeController.jsx", "file:src/pages/theme/ThemePage.jsx"],
+    "languageLesson": "React context lets shared state such as the selected theme flow through the component tree without passing the same props through every intermediate component."
+  },
+  {
+    "order": 6,
+    "title": "Project Content Model",
+    "description": "The projects data file is the portfolio's public content surface for the curated 13-project catalog, keeping names, URLs, descriptions, and categories separate from presentation code. The projects page and card component consume that model to render the catalog as a reusable interface rather than duplicating display content in each view.",
+    "nodeIds": ["file:src/data/projects.js", "file:src/pages/projects/Projects.jsx", "file:src/components/ProjectCard/ProjectCard.jsx"]
+  },
+  {
+    "order": 7,
+    "title": "Content Contract Tests",
+    "description": "The project-data test protects the catalog introduced in the prior step by checking its public ordering, URL uniqueness, and compact complete metadata. This makes content edits safer: the data remains flexible to update, while the visitor-facing project-card contract stays explicit and verifiable.",
+    "nodeIds": ["file:src/__tests__/ProjectsData.test.js"]
+  },
+  {
+    "order": 8,
+    "title": "Migration Documentation",
+    "description": "The Astro migration roadmap records a planned evolution beyond the current React and Vite implementation. Treat it as architectural context rather than runtime behavior: it explains how future delivery choices can be evaluated while preserving the portfolio's existing content and experience goals.",
+    "nodeIds": ["document:docs/migration/astro-migration-roadmap.md"]
+  },
+  {
+    "order": 9,
+    "title": "Continuous Integration",
+    "description": "The CI workflow turns the quality checks discussed earlier into a repeatable repository gate by installing dependencies, running linting and tests, and building the portfolio. It connects the content and UI layers to an automated confidence check before changes are delivered.",
+    "nodeIds": ["pipeline:.github/workflows/ci.yml"],
+    "languageLesson": "GitHub Actions workflows use YAML to define triggers, jobs, and ordered steps; this lets the same validation commands run consistently outside a developer's local machine."
+  },
+  {
+    "order": 10,
+    "title": "Pages Deployment",
+    "description": "The deployment workflow builds the validated portfolio and publishes it to GitHub Pages. It is the delivery endpoint for the whole tour: the application shell, presentation components, structured content, and CI-verified changes become the public site visitors can use.",
+    "nodeIds": ["pipeline:.github/workflows/deploy.yml"]
+  }
+]

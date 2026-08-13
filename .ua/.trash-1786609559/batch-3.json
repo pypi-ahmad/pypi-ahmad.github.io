@@ -1,0 +1,875 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/components/icons/SkillIcon.jsx",
+      "type": "file",
+      "name": "SkillIcon.jsx",
+      "filePath": "src/components/icons/SkillIcon.jsx",
+      "summary": "Implements SkillIcon for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/icons/SkillIcon.jsx:SkillIcon",
+      "type": "function",
+      "name": "SkillIcon",
+      "filePath": "src/components/icons/SkillIcon.jsx",
+      "summary": "Provides the SkillIcon routine used by SkillIcon.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/icons/custom/index.jsx",
+      "type": "file",
+      "name": "index.jsx",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Implements index for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:AzureMachineLearningIcon",
+      "type": "function",
+      "name": "AzureMachineLearningIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the AzureMachineLearningIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:AzureBlobStorageIcon",
+      "type": "function",
+      "name": "AzureBlobStorageIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the AzureBlobStorageIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:AzureCognitiveServicesIcon",
+      "type": "function",
+      "name": "AzureCognitiveServicesIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the AzureCognitiveServicesIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:AzureDocumentIntelligenceIcon",
+      "type": "function",
+      "name": "AzureDocumentIntelligenceIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the AzureDocumentIntelligenceIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:AzureKeyVaultIcon",
+      "type": "function",
+      "name": "AzureKeyVaultIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the AzureKeyVaultIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:AmazonSageMakerIcon",
+      "type": "function",
+      "name": "AmazonSageMakerIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the AmazonSageMakerIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:DeltaLakeIcon",
+      "type": "function",
+      "name": "DeltaLakeIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the DeltaLakeIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:RestApisIcon",
+      "type": "function",
+      "name": "RestApisIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the RestApisIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:AnthropicIcon",
+      "type": "function",
+      "name": "AnthropicIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the AnthropicIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:LangChainIcon",
+      "type": "function",
+      "name": "LangChainIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the LangChainIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:LangGraphIcon",
+      "type": "function",
+      "name": "LangGraphIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the LangGraphIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:GeminiIcon",
+      "type": "function",
+      "name": "GeminiIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the GeminiIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/icons/custom/index.jsx:ModelContextProtocolIcon",
+      "type": "function",
+      "name": "ModelContextProtocolIcon",
+      "filePath": "src/components/icons/custom/index.jsx",
+      "summary": "Provides the ModelContextProtocolIcon routine used by index.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/projectLanguages/ProjectLanguages.jsx",
+      "type": "file",
+      "name": "ProjectLanguages.jsx",
+      "filePath": "src/components/projectLanguages/ProjectLanguages.jsx",
+      "summary": "Implements ProjectLanguages for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/projectLanguages/ProjectLanguages.jsx:ProjectLanguages",
+      "type": "function",
+      "name": "ProjectLanguages",
+      "filePath": "src/components/projectLanguages/ProjectLanguages.jsx",
+      "summary": "Provides the ProjectLanguages routine used by ProjectLanguages.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/softwareSkills/SoftwareSkill.jsx",
+      "type": "file",
+      "name": "SoftwareSkill.jsx",
+      "filePath": "src/components/softwareSkills/SoftwareSkill.jsx",
+      "summary": "Implements SoftwareSkill for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/softwareSkills/SoftwareSkill.jsx:SoftwareSkill",
+      "type": "function",
+      "name": "SoftwareSkill",
+      "filePath": "src/components/softwareSkills/SoftwareSkill.jsx",
+      "summary": "Provides the SoftwareSkill routine used by SoftwareSkill.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/containers/SystemThinking/SystemThinking.jsx",
+      "type": "file",
+      "name": "SystemThinking.jsx",
+      "filePath": "src/containers/SystemThinking/SystemThinking.jsx",
+      "summary": "Implements SystemThinking for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/containers/SystemThinking/SystemThinking.jsx:SystemThinking",
+      "type": "function",
+      "name": "SystemThinking",
+      "filePath": "src/containers/SystemThinking/SystemThinking.jsx",
+      "summary": "Provides the SystemThinking routine used by SystemThinking.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/containers/skills/CloudInfraImg.jsx",
+      "type": "file",
+      "name": "CloudInfraImg.jsx",
+      "filePath": "src/containers/skills/CloudInfraImg.jsx",
+      "summary": "Implements CloudInfraImg for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/containers/skills/CloudInfraImg.jsx:CloudInfraImg",
+      "type": "function",
+      "name": "CloudInfraImg",
+      "filePath": "src/containers/skills/CloudInfraImg.jsx",
+      "summary": "Provides the CloudInfraImg routine used by CloudInfraImg.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/containers/skills/DataScienceImg.jsx",
+      "type": "file",
+      "name": "DataScienceImg.jsx",
+      "filePath": "src/containers/skills/DataScienceImg.jsx",
+      "summary": "Implements DataScienceImg for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/containers/skills/DataScienceImg.jsx:DataScienceImg",
+      "type": "function",
+      "name": "DataScienceImg",
+      "filePath": "src/containers/skills/DataScienceImg.jsx",
+      "summary": "Provides the DataScienceImg routine used by DataScienceImg.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/containers/skills/FullStackImg.jsx",
+      "type": "file",
+      "name": "FullStackImg.jsx",
+      "filePath": "src/containers/skills/FullStackImg.jsx",
+      "summary": "Implements FullStackImg for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/containers/skills/FullStackImg.jsx:FullStackImg",
+      "type": "function",
+      "name": "FullStackImg",
+      "filePath": "src/containers/skills/FullStackImg.jsx",
+      "summary": "Provides the FullStackImg routine used by FullStackImg.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/containers/skills/SkillSection.jsx",
+      "type": "file",
+      "name": "SkillSection.jsx",
+      "filePath": "src/containers/skills/SkillSection.jsx",
+      "summary": "Implements SkillSection for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/containers/skills/SkillSection.jsx:SkillSection",
+      "type": "function",
+      "name": "SkillSection",
+      "filePath": "src/containers/skills/SkillSection.jsx",
+      "summary": "Provides the SkillSection routine used by SkillSection.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/containers/skills/Skills.jsx",
+      "type": "file",
+      "name": "Skills.jsx",
+      "filePath": "src/containers/skills/Skills.jsx",
+      "summary": "Implements Skills for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/containers/skills/Skills.jsx:Skills",
+      "type": "function",
+      "name": "Skills",
+      "filePath": "src/containers/skills/Skills.jsx",
+      "summary": "Provides the Skills routine used by Skills.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pages/home/HomeComponent.jsx",
+      "type": "file",
+      "name": "HomeComponent.jsx",
+      "filePath": "src/pages/home/HomeComponent.jsx",
+      "summary": "Implements HomeComponent for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/pages/home/HomeComponent.jsx:Home",
+      "type": "function",
+      "name": "Home",
+      "filePath": "src/pages/home/HomeComponent.jsx",
+      "summary": "Provides the Home routine used by HomeComponent.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/components/icons/SkillIcon.jsx",
+      "target": "file:src/components/icons/custom/index.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/icons/SkillIcon.jsx",
+      "target": "function:src/components/icons/SkillIcon.jsx:SkillIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AzureMachineLearningIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AzureMachineLearningIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AzureBlobStorageIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AzureBlobStorageIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AzureCognitiveServicesIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AzureCognitiveServicesIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AzureDocumentIntelligenceIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AzureDocumentIntelligenceIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AzureKeyVaultIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AzureKeyVaultIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AmazonSageMakerIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AmazonSageMakerIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:DeltaLakeIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:DeltaLakeIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:RestApisIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:RestApisIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AnthropicIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:AnthropicIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:LangChainIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:LangChainIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:LangGraphIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:LangGraphIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:GeminiIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:GeminiIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:ModelContextProtocolIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/icons/custom/index.jsx",
+      "target": "function:src/components/icons/custom/index.jsx:ModelContextProtocolIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/projectLanguages/ProjectLanguages.jsx",
+      "target": "file:src/components/icons/SkillIcon.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/projectLanguages/ProjectLanguages.jsx",
+      "target": "file:src/components/projectLanguages/ProjectLanguages.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/projectLanguages/ProjectLanguages.jsx",
+      "target": "file:src/themeMotion.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/projectLanguages/ProjectLanguages.jsx",
+      "target": "function:src/components/projectLanguages/ProjectLanguages.jsx:ProjectLanguages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/softwareSkills/SoftwareSkill.jsx",
+      "target": "file:src/components/icons/SkillIcon.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/softwareSkills/SoftwareSkill.jsx",
+      "target": "file:src/components/softwareSkills/SoftwareSkill.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/softwareSkills/SoftwareSkill.jsx",
+      "target": "function:src/components/softwareSkills/SoftwareSkill.jsx:SoftwareSkill",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/SystemThinking/SystemThinking.jsx",
+      "target": "function:src/containers/SystemThinking/SystemThinking.jsx:SystemThinking",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/SystemThinking/SystemThinking.jsx",
+      "target": "function:src/containers/SystemThinking/SystemThinking.jsx:SystemThinking",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/containers/skills/CloudInfraImg.jsx",
+      "target": "function:src/containers/skills/CloudInfraImg.jsx:CloudInfraImg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/skills/CloudInfraImg.jsx",
+      "target": "function:src/containers/skills/CloudInfraImg.jsx:CloudInfraImg",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/containers/skills/DataScienceImg.jsx",
+      "target": "function:src/containers/skills/DataScienceImg.jsx:DataScienceImg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/skills/DataScienceImg.jsx",
+      "target": "function:src/containers/skills/DataScienceImg.jsx:DataScienceImg",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/containers/skills/FullStackImg.jsx",
+      "target": "function:src/containers/skills/FullStackImg.jsx:FullStackImg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/skills/FullStackImg.jsx",
+      "target": "function:src/containers/skills/FullStackImg.jsx:FullStackImg",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/containers/skills/SkillSection.jsx",
+      "target": "file:src/components/softwareSkills/SoftwareSkill.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/skills/SkillSection.jsx",
+      "target": "file:src/containers/skills/CloudInfraImg.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/skills/SkillSection.jsx",
+      "target": "file:src/containers/skills/DataScienceImg.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/skills/SkillSection.jsx",
+      "target": "file:src/containers/skills/FullStackImg.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/skills/SkillSection.jsx",
+      "target": "file:src/containers/skills/Skills.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/skills/SkillSection.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/skills/SkillSection.jsx",
+      "target": "function:src/containers/skills/SkillSection.jsx:SkillSection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/skills/Skills.jsx",
+      "target": "file:src/containers/skills/SkillSection.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/skills/Skills.jsx",
+      "target": "file:src/containers/skills/Skills.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/skills/Skills.jsx",
+      "target": "function:src/containers/skills/Skills.jsx:Skills",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/skills/Skills.jsx",
+      "target": "function:src/containers/skills/Skills.jsx:Skills",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/pages/home/HomeComponent.jsx",
+      "target": "file:src/components/footer/Footer.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/home/HomeComponent.jsx",
+      "target": "file:src/components/header/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/home/HomeComponent.jsx",
+      "target": "file:src/containers/SystemShowcase/SystemShowcase.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/home/HomeComponent.jsx",
+      "target": "file:src/containers/SystemThinking/SystemThinking.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/home/HomeComponent.jsx",
+      "target": "file:src/containers/greeting/Greeting.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/home/HomeComponent.jsx",
+      "target": "file:src/containers/skills/Skills.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/home/HomeComponent.jsx",
+      "target": "function:src/pages/home/HomeComponent.jsx:Home",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

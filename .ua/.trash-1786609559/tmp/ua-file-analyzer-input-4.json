@@ -1,0 +1,71 @@
+{
+  "projectRoot": "D:\\AI\\Github\\pypi-ahmad.github.io",
+  "batchFiles": [
+    {
+      "path": "src/App.jsx",
+      "language": "javascript",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/App.test.jsx",
+      "language": "javascript",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/ErrorBoundary.jsx",
+      "language": "javascript",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/seo/RouteMeta.jsx",
+      "language": "javascript",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/Main.jsx",
+      "language": "javascript",
+      "sizeLines": 211,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/global.js",
+      "language": "javascript",
+      "sizeLines": 537,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/index.jsx",
+      "language": "javascript",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/App.jsx": [
+      "src/App.css",
+      "src/components/ErrorBoundary.jsx",
+      "src/containers/Main.jsx",
+      "src/global.js",
+      "src/portfolio.js",
+      "src/themeController.jsx"
+    ],
+    "src/App.test.jsx": [
+      "src/App.jsx"
+    ],
+    "src/components/ErrorBoundary.jsx": [],
+    "src/components/seo/RouteMeta.jsx": [],
+    "src/containers/Main.jsx": [
+      "src/components/seo/RouteMeta.jsx",
+      "src/portfolio.js"
+    ],
+    "src/global.js": [],
+    "src/index.jsx": [
+      "src/App.jsx",
+      "src/index.css"
+    ]
+  }
+}

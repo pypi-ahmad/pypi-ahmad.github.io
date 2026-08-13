@@ -1,0 +1,110 @@
+{
+  "projectRoot": "D:\\AI\\Github\\pypi-ahmad.github.io",
+  "batchFiles": [
+    {
+      "path": "src/components/icons/SkillIcon.jsx",
+      "language": "javascript",
+      "sizeLines": 91,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/icons/custom/index.jsx",
+      "language": "javascript",
+      "sizeLines": 171,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/projectLanguages/ProjectLanguages.jsx",
+      "language": "javascript",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/softwareSkills/SoftwareSkill.jsx",
+      "language": "javascript",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/SystemThinking/SystemThinking.jsx",
+      "language": "javascript",
+      "sizeLines": 133,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/skills/CloudInfraImg.jsx",
+      "language": "javascript",
+      "sizeLines": 284,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/skills/DataScienceImg.jsx",
+      "language": "javascript",
+      "sizeLines": 287,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/skills/FullStackImg.jsx",
+      "language": "javascript",
+      "sizeLines": 226,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/skills/SkillSection.jsx",
+      "language": "javascript",
+      "sizeLines": 171,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/skills/Skills.jsx",
+      "language": "javascript",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/home/HomeComponent.jsx",
+      "language": "javascript",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/components/icons/SkillIcon.jsx": [
+      "src/components/icons/custom/index.jsx"
+    ],
+    "src/components/icons/custom/index.jsx": [],
+    "src/components/projectLanguages/ProjectLanguages.jsx": [
+      "src/components/icons/SkillIcon.jsx",
+      "src/components/projectLanguages/ProjectLanguages.css",
+      "src/themeMotion.js"
+    ],
+    "src/components/softwareSkills/SoftwareSkill.jsx": [
+      "src/components/icons/SkillIcon.jsx",
+      "src/components/softwareSkills/SoftwareSkill.css"
+    ],
+    "src/containers/SystemThinking/SystemThinking.jsx": [],
+    "src/containers/skills/CloudInfraImg.jsx": [],
+    "src/containers/skills/DataScienceImg.jsx": [],
+    "src/containers/skills/FullStackImg.jsx": [],
+    "src/containers/skills/SkillSection.jsx": [
+      "src/components/softwareSkills/SoftwareSkill.jsx",
+      "src/containers/skills/CloudInfraImg.jsx",
+      "src/containers/skills/DataScienceImg.jsx",
+      "src/containers/skills/FullStackImg.jsx",
+      "src/containers/skills/Skills.css",
+      "src/portfolio.js"
+    ],
+    "src/containers/skills/Skills.jsx": [
+      "src/containers/skills/SkillSection.jsx",
+      "src/containers/skills/Skills.css"
+    ],
+    "src/pages/home/HomeComponent.jsx": [
+      "src/components/footer/Footer.jsx",
+      "src/components/header/Header.jsx",
+      "src/containers/SystemShowcase/SystemShowcase.jsx",
+      "src/containers/SystemThinking/SystemThinking.jsx",
+      "src/containers/greeting/Greeting.jsx",
+      "src/containers/skills/Skills.jsx"
+    ]
+  }
+}

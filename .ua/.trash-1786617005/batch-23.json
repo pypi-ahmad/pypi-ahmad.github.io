@@ -1,0 +1,29 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/__tests__/ProjectsData.test.js",
+      "type": "file",
+      "name": "ProjectsData.test.js",
+      "filePath": "src/__tests__/ProjectsData.test.js",
+      "summary": "Verifies the public projects catalog contract, including the workflow-first ordering, unique GitHub URLs, and complete compact project-card metadata.",
+      "tags": ["test", "vitest", "data-validation"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/__tests__/ProjectsData.test.js",
+      "target": "file:src/data/projects.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/data/projects.js",
+      "target": "file:src/__tests__/ProjectsData.test.js",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

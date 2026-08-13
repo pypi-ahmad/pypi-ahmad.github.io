@@ -1,0 +1,925 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/components/ProjectCard/ProjectCard.jsx",
+      "type": "file",
+      "name": "ProjectCard.jsx",
+      "filePath": "src/components/ProjectCard/ProjectCard.jsx",
+      "summary": "Implements ProjectCard for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/ProjectCard/ProjectCard.jsx:ProjectCard",
+      "type": "function",
+      "name": "ProjectCard",
+      "filePath": "src/components/ProjectCard/ProjectCard.jsx",
+      "summary": "Provides the ProjectCard routine used by ProjectCard.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/footer/Footer.jsx",
+      "type": "file",
+      "name": "Footer.jsx",
+      "filePath": "src/components/footer/Footer.jsx",
+      "summary": "Implements Footer for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/footer/Footer.jsx:Footer",
+      "type": "function",
+      "name": "Footer",
+      "filePath": "src/components/footer/Footer.jsx",
+      "summary": "Provides the Footer routine used by Footer.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/header/Header.jsx",
+      "type": "file",
+      "name": "Header.jsx",
+      "filePath": "src/components/header/Header.jsx",
+      "summary": "Implements Header for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/header/Header.jsx:navigationLinkStyle",
+      "type": "function",
+      "name": "navigationLinkStyle",
+      "filePath": "src/components/header/Header.jsx",
+      "summary": "Provides the navigationLinkStyle routine used by Header.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/header/Header.jsx:Header",
+      "type": "function",
+      "name": "Header",
+      "filePath": "src/components/header/Header.jsx",
+      "summary": "Provides the Header routine used by Header.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/socialMedia/ContactLinksList.jsx",
+      "type": "file",
+      "name": "ContactLinksList.jsx",
+      "filePath": "src/components/socialMedia/ContactLinksList.jsx",
+      "summary": "Implements ContactLinksList for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/socialMedia/ContactLinksList.jsx:buildContactItems",
+      "type": "function",
+      "name": "buildContactItems",
+      "filePath": "src/components/socialMedia/ContactLinksList.jsx",
+      "summary": "Provides the buildContactItems routine used by ContactLinksList.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/socialMedia/ContactLinksList.jsx:ContactLinksList",
+      "type": "function",
+      "name": "ContactLinksList",
+      "filePath": "src/components/socialMedia/ContactLinksList.jsx",
+      "summary": "Provides the ContactLinksList routine used by ContactLinksList.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/socialMedia/SocialMedia.jsx",
+      "type": "file",
+      "name": "SocialMedia.jsx",
+      "filePath": "src/components/socialMedia/SocialMedia.jsx",
+      "summary": "Implements SocialMedia for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/socialMedia/SocialMedia.jsx:socialMedia",
+      "type": "function",
+      "name": "socialMedia",
+      "filePath": "src/components/socialMedia/SocialMedia.jsx",
+      "summary": "Provides the socialMedia routine used by SocialMedia.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/pages/contact/BlogsImg.jsx",
+      "type": "file",
+      "name": "BlogsImg.jsx",
+      "filePath": "src/pages/contact/BlogsImg.jsx",
+      "summary": "Implements BlogsImg for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/pages/contact/BlogsImg.jsx:BlogsImg",
+      "type": "function",
+      "name": "BlogsImg",
+      "filePath": "src/pages/contact/BlogsImg.jsx",
+      "summary": "Provides the BlogsImg routine used by BlogsImg.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/pages/contact/ContactComponent.jsx",
+      "type": "file",
+      "name": "ContactComponent.jsx",
+      "filePath": "src/pages/contact/ContactComponent.jsx",
+      "summary": "Implements ContactComponent for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/pages/contact/ContactComponent.jsx:Contact",
+      "type": "function",
+      "name": "Contact",
+      "filePath": "src/pages/contact/ContactComponent.jsx",
+      "summary": "Provides the Contact routine used by ContactComponent.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/pages/experience/Experience.jsx",
+      "type": "file",
+      "name": "Experience.jsx",
+      "filePath": "src/pages/experience/Experience.jsx",
+      "summary": "Implements Experience for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/pages/experience/Experience.jsx:Experience",
+      "type": "function",
+      "name": "Experience",
+      "filePath": "src/pages/experience/Experience.jsx",
+      "summary": "Provides the Experience routine used by Experience.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pages/experience/ExperienceImg.jsx",
+      "type": "file",
+      "name": "ExperienceImg.jsx",
+      "filePath": "src/pages/experience/ExperienceImg.jsx",
+      "summary": "Implements ExperienceImg for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/pages/experience/ExperienceImg.jsx:ExperienceImg",
+      "type": "function",
+      "name": "ExperienceImg",
+      "filePath": "src/pages/experience/ExperienceImg.jsx",
+      "summary": "Provides the ExperienceImg routine used by ExperienceImg.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/pages/notFound/NotFound.jsx",
+      "type": "file",
+      "name": "NotFound.jsx",
+      "filePath": "src/pages/notFound/NotFound.jsx",
+      "summary": "Implements NotFound for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/pages/notFound/NotFound.jsx:NotFound",
+      "type": "function",
+      "name": "NotFound",
+      "filePath": "src/pages/notFound/NotFound.jsx",
+      "summary": "Provides the NotFound routine used by NotFound.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pages/projects/Projects.jsx",
+      "type": "file",
+      "name": "Projects.jsx",
+      "filePath": "src/pages/projects/Projects.jsx",
+      "summary": "Implements Projects for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/pages/projects/Projects.jsx:Projects",
+      "type": "function",
+      "name": "Projects",
+      "filePath": "src/pages/projects/Projects.jsx",
+      "summary": "Provides the Projects routine used by Projects.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/pages/projects/ProjectsImg.jsx",
+      "type": "file",
+      "name": "ProjectsImg.jsx",
+      "filePath": "src/pages/projects/ProjectsImg.jsx",
+      "summary": "Implements ProjectsImg for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/pages/projects/ProjectsImg.jsx:ProjectsImg",
+      "type": "function",
+      "name": "ProjectsImg",
+      "filePath": "src/pages/projects/ProjectsImg.jsx",
+      "summary": "Provides the ProjectsImg routine used by ProjectsImg.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/pages/skills/SkillsPage.jsx",
+      "type": "file",
+      "name": "SkillsPage.jsx",
+      "filePath": "src/pages/skills/SkillsPage.jsx",
+      "summary": "Implements SkillsPage for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/pages/skills/SkillsPage.jsx:SkillSection",
+      "type": "function",
+      "name": "SkillSection",
+      "filePath": "src/pages/skills/SkillsPage.jsx",
+      "summary": "Provides the SkillSection routine used by SkillsPage.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/pages/skills/SkillsPage.jsx:SkillsPage",
+      "type": "function",
+      "name": "SkillsPage",
+      "filePath": "src/pages/skills/SkillsPage.jsx",
+      "summary": "Provides the SkillsPage routine used by SkillsPage.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/portfolio.js",
+      "type": "file",
+      "name": "portfolio.js",
+      "filePath": "src/portfolio.js",
+      "summary": "Implements portfolio for the React portfolio application.",
+      "tags": [
+        "javascript",
+        "application",
+        "supporting-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/themeMotion.js",
+      "type": "file",
+      "name": "themeMotion.js",
+      "filePath": "src/themeMotion.js",
+      "summary": "Implements themeMotion for the React portfolio application.",
+      "tags": [
+        "theme",
+        "utility",
+        "styling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/themeMotion.js:buildThemeBackground",
+      "type": "function",
+      "name": "buildThemeBackground",
+      "filePath": "src/themeMotion.js",
+      "summary": "Provides the buildThemeBackground routine used by themeMotion.js.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/themeMotion.js:buildThemeShadow",
+      "type": "function",
+      "name": "buildThemeShadow",
+      "filePath": "src/themeMotion.js",
+      "summary": "Provides the buildThemeShadow routine used by themeMotion.js.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/components/ProjectCard/ProjectCard.jsx",
+      "target": "file:src/components/ProjectCard/ProjectCard.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/ProjectCard/ProjectCard.jsx",
+      "target": "function:src/components/ProjectCard/ProjectCard.jsx:ProjectCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/ProjectCard/ProjectCard.jsx",
+      "target": "function:src/components/ProjectCard/ProjectCard.jsx:ProjectCard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/footer/Footer.jsx",
+      "target": "file:src/components/footer/Footer.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/footer/Footer.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/footer/Footer.jsx",
+      "target": "file:src/themeController.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/footer/Footer.jsx",
+      "target": "file:src/themeMotion.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/footer/Footer.jsx",
+      "target": "function:src/components/footer/Footer.jsx:Footer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/footer/Footer.jsx",
+      "target": "function:src/components/footer/Footer.jsx:Footer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/header/Header.jsx",
+      "target": "file:src/components/header/Header.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/header/Header.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/header/Header.jsx",
+      "target": "file:src/themeController.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/header/Header.jsx",
+      "target": "file:src/themeMotion.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/header/Header.jsx",
+      "target": "function:src/components/header/Header.jsx:navigationLinkStyle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/header/Header.jsx",
+      "target": "function:src/components/header/Header.jsx:Header",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/socialMedia/ContactLinksList.jsx",
+      "target": "file:src/components/socialMedia/ContactLinksList.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/socialMedia/ContactLinksList.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/socialMedia/ContactLinksList.jsx",
+      "target": "function:src/components/socialMedia/ContactLinksList.jsx:buildContactItems",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/socialMedia/ContactLinksList.jsx",
+      "target": "function:src/components/socialMedia/ContactLinksList.jsx:ContactLinksList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/socialMedia/ContactLinksList.jsx",
+      "target": "function:src/components/socialMedia/ContactLinksList.jsx:ContactLinksList",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/socialMedia/SocialMedia.jsx",
+      "target": "file:src/components/socialMedia/SocialMedia.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/socialMedia/SocialMedia.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/socialMedia/SocialMedia.jsx",
+      "target": "function:src/components/socialMedia/SocialMedia.jsx:socialMedia",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/socialMedia/SocialMedia.jsx",
+      "target": "function:src/components/socialMedia/SocialMedia.jsx:socialMedia",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/pages/contact/BlogsImg.jsx",
+      "target": "function:src/pages/contact/BlogsImg.jsx:BlogsImg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/contact/BlogsImg.jsx",
+      "target": "function:src/pages/contact/BlogsImg.jsx:BlogsImg",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/pages/contact/ContactComponent.jsx",
+      "target": "file:src/components/footer/Footer.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/contact/ContactComponent.jsx",
+      "target": "file:src/components/header/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/contact/ContactComponent.jsx",
+      "target": "file:src/components/socialMedia/ContactLinksList.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/contact/ContactComponent.jsx",
+      "target": "file:src/pages/contact/BlogsImg.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/contact/ContactComponent.jsx",
+      "target": "file:src/pages/contact/ContactComponent.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/contact/ContactComponent.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/contact/ContactComponent.jsx",
+      "target": "function:src/pages/contact/ContactComponent.jsx:Contact",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/experience/Experience.jsx",
+      "target": "file:src/components/footer/Footer.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/experience/Experience.jsx",
+      "target": "file:src/components/header/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/experience/Experience.jsx",
+      "target": "file:src/containers/experienceAccordion/ExperienceAccordion.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/experience/Experience.jsx",
+      "target": "file:src/pages/experience/Experience.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/experience/Experience.jsx",
+      "target": "file:src/pages/experience/ExperienceImg.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/experience/Experience.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/experience/Experience.jsx",
+      "target": "function:src/pages/experience/Experience.jsx:Experience",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/experience/ExperienceImg.jsx",
+      "target": "function:src/pages/experience/ExperienceImg.jsx:ExperienceImg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/experience/ExperienceImg.jsx",
+      "target": "function:src/pages/experience/ExperienceImg.jsx:ExperienceImg",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/pages/notFound/NotFound.jsx",
+      "target": "file:src/components/footer/Footer.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/notFound/NotFound.jsx",
+      "target": "file:src/components/header/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/notFound/NotFound.jsx",
+      "target": "file:src/pages/notFound/NotFound.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/notFound/NotFound.jsx",
+      "target": "file:src/themeMotion.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/notFound/NotFound.jsx",
+      "target": "function:src/pages/notFound/NotFound.jsx:NotFound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/projects/Projects.jsx",
+      "target": "file:src/components/ProjectCard/ProjectCard.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/projects/Projects.jsx",
+      "target": "file:src/components/SystemDesign/ProductTile.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/projects/Projects.jsx",
+      "target": "file:src/components/footer/Footer.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/projects/Projects.jsx",
+      "target": "file:src/components/header/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/projects/Projects.jsx",
+      "target": "file:src/pages/projects/Projects.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/projects/Projects.jsx",
+      "target": "file:src/pages/projects/ProjectsImg.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/projects/Projects.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/projects/Projects.jsx",
+      "target": "file:src/themeMotion.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/projects/Projects.jsx",
+      "target": "function:src/pages/projects/Projects.jsx:Projects",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/projects/ProjectsImg.jsx",
+      "target": "function:src/pages/projects/ProjectsImg.jsx:ProjectsImg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/projects/ProjectsImg.jsx",
+      "target": "function:src/pages/projects/ProjectsImg.jsx:ProjectsImg",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/pages/skills/SkillsPage.jsx",
+      "target": "file:src/components/footer/Footer.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/skills/SkillsPage.jsx",
+      "target": "file:src/components/header/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/skills/SkillsPage.jsx",
+      "target": "file:src/components/icons/SkillIcon.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/skills/SkillsPage.jsx",
+      "target": "file:src/pages/skills/SkillsPage.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/skills/SkillsPage.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/skills/SkillsPage.jsx",
+      "target": "file:src/themeMotion.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/skills/SkillsPage.jsx",
+      "target": "function:src/pages/skills/SkillsPage.jsx:SkillSection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/skills/SkillsPage.jsx",
+      "target": "function:src/pages/skills/SkillsPage.jsx:SkillsPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/themeMotion.js",
+      "target": "function:src/themeMotion.js:buildThemeBackground",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/themeMotion.js",
+      "target": "function:src/themeMotion.js:buildThemeBackground",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/themeMotion.js",
+      "target": "function:src/themeMotion.js:buildThemeShadow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/themeMotion.js",
+      "target": "function:src/themeMotion.js:buildThemeShadow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

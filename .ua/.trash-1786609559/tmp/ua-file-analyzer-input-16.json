@@ -1,0 +1,105 @@
+{
+  "projectRoot": "D:\\AI\\Github\\pypi-ahmad.github.io",
+  "batchFiles": [
+    {
+      "path": "graphify-out/cache/semantic/e7e607f8ead25b1760166c09e5edc36d83eed45c16098a9455c07d9622170c0e.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/e8b5c4332231cf9e9e94bd08dc79ea9701b69748ee6ea64509b7739397c74331.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/ed8d9c37628b4b21d3bc042c118170031ef3fb60c730508c5f9531e94f718a04.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/ee3b110fe50278e6bb54b078491687d43db6696d183409dff7643677edfd933b.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/ee974396ec8918ba7f49945aed8a0cd60f4183effa58ff9bb9fee06fc85a1181.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f04413295244205d33c3cb1a9b1f6966d9af8ed6baff0cb5ec01590f5e6900c4.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f0d1b21b688c5315af807d3fde4fdc09b189b89fc5c6ebf400de0e33932c4212.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f35fecea8b0851863297f7fecb32e15ca83b75ed194c6f80495d9104fd7e7a53.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f430493f17fe614295e396574e32346d2aed4864a5b282ce9cca7d7f2793138f.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f450764da29c73e713189415b8cd313f82dab4cdb308eb4214344a4d11a5f879.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f72540e05c6afb539ac4945ce8e4dfd99a118f504fac3c4d997dc6f9b20cdece.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/fe8fec5098c297a0d5d06035c3ce818f6e90df7f63df9b2df385156136391bac.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/ff15c4b84785b16f54c958d7727db5f774b64ba2e3c7f42e497da693b6754834.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "graphify-out/cache/semantic/e7e607f8ead25b1760166c09e5edc36d83eed45c16098a9455c07d9622170c0e.json": [],
+    "graphify-out/cache/semantic/e8b5c4332231cf9e9e94bd08dc79ea9701b69748ee6ea64509b7739397c74331.json": [],
+    "graphify-out/cache/semantic/ed8d9c37628b4b21d3bc042c118170031ef3fb60c730508c5f9531e94f718a04.json": [],
+    "graphify-out/cache/semantic/ee3b110fe50278e6bb54b078491687d43db6696d183409dff7643677edfd933b.json": [],
+    "graphify-out/cache/semantic/ee974396ec8918ba7f49945aed8a0cd60f4183effa58ff9bb9fee06fc85a1181.json": [],
+    "graphify-out/cache/semantic/f04413295244205d33c3cb1a9b1f6966d9af8ed6baff0cb5ec01590f5e6900c4.json": [],
+    "graphify-out/cache/semantic/f0d1b21b688c5315af807d3fde4fdc09b189b89fc5c6ebf400de0e33932c4212.json": [],
+    "graphify-out/cache/semantic/f35fecea8b0851863297f7fecb32e15ca83b75ed194c6f80495d9104fd7e7a53.json": [],
+    "graphify-out/cache/semantic/f430493f17fe614295e396574e32346d2aed4864a5b282ce9cca7d7f2793138f.json": [],
+    "graphify-out/cache/semantic/f450764da29c73e713189415b8cd313f82dab4cdb308eb4214344a4d11a5f879.json": [],
+    "graphify-out/cache/semantic/f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7.json": [],
+    "graphify-out/cache/semantic/f72540e05c6afb539ac4945ce8e4dfd99a118f504fac3c4d997dc6f9b20cdece.json": [],
+    "graphify-out/cache/semantic/fe8fec5098c297a0d5d06035c3ce818f6e90df7f63df9b2df385156136391bac.json": [],
+    "graphify-out/cache/semantic/ff15c4b84785b16f54c958d7727db5f774b64ba2e3c7f42e497da693b6754834.json": []
+  }
+}

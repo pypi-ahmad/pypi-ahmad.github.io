@@ -1,0 +1,520 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 11,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 11,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 11,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/components/icons/SkillIcon.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 91,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "resolveIcon",
+          "startLine": 62,
+          "endLine": 69,
+          "params": [
+            "skill"
+          ]
+        },
+        {
+          "name": "SkillIcon",
+          "startLine": 71,
+          "endLine": 89,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SkillIcon",
+          "callee": "resolveIcon",
+          "lineNumber": 72
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/icons/custom/index.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 171,
+      "nonEmptyLines": 156,
+      "functions": [
+        {
+          "name": "AzureMachineLearningIcon",
+          "startLine": 16,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "AzureBlobStorageIcon",
+          "startLine": 30,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "AzureCognitiveServicesIcon",
+          "startLine": 41,
+          "endLine": 52,
+          "params": []
+        },
+        {
+          "name": "AzureDocumentIntelligenceIcon",
+          "startLine": 54,
+          "endLine": 63,
+          "params": []
+        },
+        {
+          "name": "AzureKeyVaultIcon",
+          "startLine": 65,
+          "endLine": 73,
+          "params": []
+        },
+        {
+          "name": "AmazonSageMakerIcon",
+          "startLine": 75,
+          "endLine": 85,
+          "params": []
+        },
+        {
+          "name": "DeltaLakeIcon",
+          "startLine": 87,
+          "endLine": 95,
+          "params": []
+        },
+        {
+          "name": "RestApisIcon",
+          "startLine": 97,
+          "endLine": 105,
+          "params": []
+        },
+        {
+          "name": "AnthropicIcon",
+          "startLine": 107,
+          "endLine": 114,
+          "params": []
+        },
+        {
+          "name": "LangChainIcon",
+          "startLine": 116,
+          "endLine": 124,
+          "params": []
+        },
+        {
+          "name": "LangGraphIcon",
+          "startLine": 126,
+          "endLine": 135,
+          "params": []
+        },
+        {
+          "name": "GeminiIcon",
+          "startLine": 137,
+          "endLine": 144,
+          "params": []
+        },
+        {
+          "name": "ModelContextProtocolIcon",
+          "startLine": 146,
+          "endLine": 155,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AzureMachineLearningIcon",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "AzureBlobStorageIcon",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "AzureCognitiveServicesIcon",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "AzureDocumentIntelligenceIcon",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "AzureKeyVaultIcon",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "AmazonSageMakerIcon",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "DeltaLakeIcon",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "RestApisIcon",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "AnthropicIcon",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "LangChainIcon",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "LangGraphIcon",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "GeminiIcon",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "ModelContextProtocolIcon",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "customSkillIcons",
+          "line": 157,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 13,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/projectLanguages/ProjectLanguages.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 71,
+      "functions": [
+        {
+          "name": "ProjectLanguages",
+          "startLine": 15,
+          "endLine": 72,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ProjectLanguages",
+          "callee": "props.logos.map",
+          "lineNumber": 22
+        },
+        {
+          "caller": "ProjectLanguages",
+          "callee": "e.stopPropagation",
+          "lineNumber": 42
+        },
+        {
+          "caller": "ProjectLanguages",
+          "callee": "buildThemeBackground",
+          "lineNumber": 48
+        },
+        {
+          "caller": "ProjectLanguages",
+          "callee": "buildThemeShadow",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/softwareSkills/SoftwareSkill.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "SoftwareSkill",
+          "startLine": 14,
+          "endLine": 53,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SoftwareSkill",
+          "callee": "props.logos.map",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/containers/SystemThinking/SystemThinking.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 133,
+      "nonEmptyLines": 117,
+      "functions": [
+        {
+          "name": "SystemThinking",
+          "startLine": 101,
+          "endLine": 133,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SystemThinking",
+          "line": 101,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SystemThinking",
+          "callee": "steps.map",
+          "lineNumber": 106
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/containers/skills/CloudInfraImg.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 284,
+      "nonEmptyLines": 283,
+      "functions": [
+        {
+          "name": "CloudInfraImg",
+          "startLine": 3,
+          "endLine": 284,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CloudInfraImg",
+          "line": 3,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/containers/skills/DataScienceImg.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 287,
+      "nonEmptyLines": 286,
+      "functions": [
+        {
+          "name": "DataScienceImg",
+          "startLine": 3,
+          "endLine": 287,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DataScienceImg",
+          "line": 3,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/containers/skills/FullStackImg.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 226,
+      "nonEmptyLines": 225,
+      "functions": [
+        {
+          "name": "FullStackImg",
+          "startLine": 3,
+          "endLine": 226,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FullStackImg",
+          "line": 3,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/containers/skills/SkillSection.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 171,
+      "nonEmptyLines": 166,
+      "functions": [
+        {
+          "name": "GetSkillSvg",
+          "startLine": 22,
+          "endLine": 29,
+          "params": [
+            "props"
+          ]
+        },
+        {
+          "name": "SkillSection",
+          "startLine": 31,
+          "endLine": 169,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SkillSection",
+          "callee": "skills.data.map",
+          "lineNumber": 39
+        },
+        {
+          "caller": "SkillSection",
+          "callee": "skill.skills.map",
+          "lineNumber": 87
+        },
+        {
+          "caller": "SkillSection",
+          "callee": "skill.skills.map",
+          "lineNumber": 139
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/containers/skills/Skills.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "Skills",
+          "startLine": 14,
+          "endLine": 33,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Skills",
+          "line": 14,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/pages/home/HomeComponent.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "Home",
+          "startLine": 17,
+          "endLine": 30,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

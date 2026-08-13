@@ -1,0 +1,431 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 6,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 6,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/__tests__/SystemCard.render.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 108,
+      "nonEmptyLines": 98,
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/SystemDesign/ProductTile.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 167,
+      "nonEmptyLines": 161,
+      "functions": [
+        {
+          "name": "ProductTile",
+          "startLine": 16,
+          "endLine": 165,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ProductTile",
+          "callee": "useState",
+          "lineNumber": 18
+        },
+        {
+          "caller": "ProductTile",
+          "callee": "useRef",
+          "lineNumber": 19
+        },
+        {
+          "caller": "ProductTile",
+          "callee": "useCallback",
+          "lineNumber": 20
+        },
+        {
+          "caller": "ProductTile",
+          "callee": "setIsModalOpen",
+          "lineNumber": 21
+        },
+        {
+          "caller": "ProductTile",
+          "callee": "useCallback",
+          "lineNumber": 23
+        },
+        {
+          "caller": "ProductTile",
+          "callee": "setIsModalOpen",
+          "lineNumber": 24
+        },
+        {
+          "caller": "ProductTile",
+          "callee": "useAccessibleDialog",
+          "lineNumber": 26
+        },
+        {
+          "caller": "ProductTile",
+          "callee": "e.stopPropagation",
+          "lineNumber": 81
+        },
+        {
+          "caller": "ProductTile",
+          "callee": "system.key_features.map",
+          "lineNumber": 133
+        },
+        {
+          "caller": "ProductTile",
+          "callee": "system.challenges_solutions.map",
+          "lineNumber": 144
+        },
+        {
+          "caller": "ProductTile",
+          "callee": "system.impact.map",
+          "lineNumber": 154
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/SystemDesign/SystemCard.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 245,
+      "nonEmptyLines": 224,
+      "functions": [
+        {
+          "name": "SystemCard",
+          "startLine": 21,
+          "endLine": 243,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SystemCard",
+          "callee": "useState",
+          "lineNumber": 23
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "useRef",
+          "lineNumber": 24
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "useCallback",
+          "lineNumber": 25
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "setIsModalOpen",
+          "lineNumber": 26
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "useCallback",
+          "lineNumber": 28
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "setIsModalOpen",
+          "lineNumber": 29
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "useAccessibleDialog",
+          "lineNumber": 31
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "(system.metrics || system.impact.slice(0, 3)).map",
+          "lineNumber": 75
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "system.impact.slice",
+          "lineNumber": 75
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "system.tech.map",
+          "lineNumber": 90
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "e.stopPropagation",
+          "lineNumber": 149
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "system.key_features.map",
+          "lineNumber": 207
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "system.challenges_solutions.map",
+          "lineNumber": 220
+        },
+        {
+          "caller": "SystemCard",
+          "callee": "system.impact.map",
+          "lineNumber": 231
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/SystemDesign/SystemDiagram.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "SystemDiagram",
+          "startLine": 15,
+          "endLine": 54,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SystemDiagram",
+          "callee": "architecture.map",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/SystemDesign/useAccessibleDialog.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "getFocusableElements",
+          "startLine": 12,
+          "endLine": 20,
+          "params": [
+            "container"
+          ]
+        },
+        {
+          "name": "useAccessibleDialog",
+          "startLine": 22,
+          "endLine": 103,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "useAccessibleDialog",
+          "line": 22,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getFocusableElements",
+          "callee": "Array.from(container.querySelectorAll(FOCUSABLE_SELECTOR)).filter",
+          "lineNumber": 17
+        },
+        {
+          "caller": "getFocusableElements",
+          "callee": "Array.from",
+          "lineNumber": 17
+        },
+        {
+          "caller": "getFocusableElements",
+          "callee": "container.querySelectorAll",
+          "lineNumber": 17
+        },
+        {
+          "caller": "getFocusableElements",
+          "callee": "element.hasAttribute",
+          "lineNumber": 18
+        },
+        {
+          "caller": "getFocusableElements",
+          "callee": "element.getAttribute",
+          "lineNumber": 18
+        },
+        {
+          "caller": "useAccessibleDialog",
+          "callee": "useRef",
+          "lineNumber": 23
+        },
+        {
+          "caller": "useAccessibleDialog",
+          "callee": "useRef",
+          "lineNumber": 24
+        },
+        {
+          "caller": "useAccessibleDialog",
+          "callee": "useRef",
+          "lineNumber": 25
+        },
+        {
+          "caller": "useAccessibleDialog",
+          "callee": "useEffect",
+          "lineNumber": 27
+        },
+        {
+          "caller": "useAccessibleDialog",
+          "callee": "triggerRef.current.focus",
+          "lineNumber": 31
+        },
+        {
+          "caller": "useAccessibleDialog",
+          "callee": "lastActiveElementRef.current.focus",
+          "lineNumber": 36
+        },
+        {
+          "caller": "focusInitialElement",
+          "callee": "getFocusableElements",
+          "lineNumber": 53
+        },
+        {
+          "caller": "focusInitialElement",
+          "callee": "initialTarget.focus",
+          "lineNumber": 55
+        },
+        {
+          "caller": "useAccessibleDialog",
+          "callee": "focusInitialElement",
+          "lineNumber": 58
+        },
+        {
+          "caller": "handleKeyDown",
+          "callee": "event.preventDefault",
+          "lineNumber": 62
+        },
+        {
+          "caller": "handleKeyDown",
+          "callee": "onClose",
+          "lineNumber": 63
+        },
+        {
+          "caller": "handleKeyDown",
+          "callee": "getFocusableElements",
+          "lineNumber": 71
+        },
+        {
+          "caller": "handleKeyDown",
+          "callee": "event.preventDefault",
+          "lineNumber": 73
+        },
+        {
+          "caller": "handleKeyDown",
+          "callee": "dialogElement.focus",
+          "lineNumber": 74
+        },
+        {
+          "caller": "handleKeyDown",
+          "callee": "dialogElement.contains",
+          "lineNumber": 83
+        },
+        {
+          "caller": "handleKeyDown",
+          "callee": "event.preventDefault",
+          "lineNumber": 84
+        },
+        {
+          "caller": "handleKeyDown",
+          "callee": "last.focus",
+          "lineNumber": 85
+        },
+        {
+          "caller": "handleKeyDown",
+          "callee": "dialogElement.contains",
+          "lineNumber": 90
+        },
+        {
+          "caller": "handleKeyDown",
+          "callee": "event.preventDefault",
+          "lineNumber": 91
+        },
+        {
+          "caller": "handleKeyDown",
+          "callee": "first.focus",
+          "lineNumber": 92
+        },
+        {
+          "caller": "useAccessibleDialog",
+          "callee": "document.addEventListener",
+          "lineNumber": 96
+        },
+        {
+          "caller": "useAccessibleDialog",
+          "callee": "document.removeEventListener",
+          "lineNumber": 98
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/containers/SystemShowcase/SystemShowcase.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "SystemShowcase",
+          "startLine": 41,
+          "endLine": 59,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SystemShowcase",
+          "line": 41,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

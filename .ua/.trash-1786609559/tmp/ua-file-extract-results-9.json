@@ -1,0 +1,525 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [
+    "browserconfig.xml",
+    "index.html"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 9,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 9
+    }
+  },
+  "results": [
+    {
+      "path": "CHANGELOG.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 8,
+      "nonEmptyLines": 6,
+      "sections": [
+        {
+          "heading": "Changelog",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Unreleased",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "v2.2.0 - 2026-07-02",
+          "level": 2,
+          "line": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 38,
+      "nonEmptyLines": 23,
+      "sections": [
+        {
+          "heading": "Code of Conduct",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Our Pledge",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Our Standards",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Enforcement Responsibilities",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "Scope",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "Reporting",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "Enforcement",
+          "level": 2,
+          "line": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "CODE_REVIEW_REPORT.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 102,
+      "nonEmptyLines": 74,
+      "sections": [
+        {
+          "heading": "Comprehensive Code Review Report: Portfolio Website",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Executive Summary",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "1. Code Correctness (Critical Bugs & Logical Issues)",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "🔴 CRITICAL",
+          "level": 3,
+          "line": 10
+        },
+        {
+          "heading": "🟡 MINOR",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "2. Code Quality (Readability, Structure, Modularity)",
+          "level": 2,
+          "line": 44
+        },
+        {
+          "heading": "🟢 WELL-IMPLEMENTED",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "🟡 IMPROVEMENTS",
+          "level": 3,
+          "line": 50
+        },
+        {
+          "heading": "3. Performance Considerations",
+          "level": 2,
+          "line": 57
+        },
+        {
+          "heading": "🟠 MAJOR",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "🟡 MINOR",
+          "level": 3,
+          "line": 63
+        },
+        {
+          "heading": "4. Security Best Practices",
+          "level": 2,
+          "line": 70
+        },
+        {
+          "heading": "🟢 WELL-IMPLEMENTED",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "5. Scalability and Maintainability",
+          "level": 2,
+          "line": 78
+        },
+        {
+          "heading": "🟢 WELL-IMPLEMENTED",
+          "level": 3,
+          "line": 80
+        },
+        {
+          "heading": "🟡 IMPROVEMENTS",
+          "level": 3,
+          "line": 84
+        },
+        {
+          "heading": "6. Frontend / UX Issues",
+          "level": 2,
+          "line": 89
+        },
+        {
+          "heading": "🟡 MINOR",
+          "level": 3,
+          "line": 91
+        },
+        {
+          "heading": "Conclusion & Next Steps",
+          "level": 2,
+          "line": 98
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 19
+      }
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 220,
+      "nonEmptyLines": 163,
+      "sections": [
+        {
+          "heading": "Ahmad Mujtaba — Portfolio",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Tech Stack",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "Pages and Routes",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "Data Architecture",
+          "level": 2,
+          "line": 58
+        },
+        {
+          "heading": "Theme System",
+          "level": 2,
+          "line": 77
+        },
+        {
+          "heading": "Animation and Interaction",
+          "level": 2,
+          "line": 90
+        },
+        {
+          "heading": "Project Structure",
+          "level": 2,
+          "line": 100
+        },
+        {
+          "heading": "Setup",
+          "level": 2,
+          "line": 131
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 3,
+          "line": 133
+        },
+        {
+          "heading": "Install and run",
+          "level": 3,
+          "line": 138
+        },
+        {
+          "heading": "Build",
+          "level": 3,
+          "line": 149
+        },
+        {
+          "heading": "Preview production build",
+          "level": 3,
+          "line": 157
+        },
+        {
+          "heading": "Scripts",
+          "level": 2,
+          "line": 167
+        },
+        {
+          "heading": "Testing",
+          "level": 2,
+          "line": 182
+        },
+        {
+          "heading": "CI/CD",
+          "level": 2,
+          "line": 205
+        },
+        {
+          "heading": "Known Limitations",
+          "level": 2,
+          "line": 216
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 17
+      }
+    },
+    {
+      "path": "SECURITY.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 24,
+      "nonEmptyLines": 15,
+      "sections": [
+        {
+          "heading": "Security Policy",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Supported Versions",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Reporting a Vulnerability",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Response Process",
+          "level": 2,
+          "line": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 72,
+      "nonEmptyLines": 72,
+      "sections": [
+        {
+          "heading": "private",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "homepage",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "type",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "engines",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 36
+        },
+        {
+          "heading": "browserslist",
+          "level": 1,
+          "line": 60
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    },
+    {
+      "path": "security_best_practices_report.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 54,
+      "nonEmptyLines": 40,
+      "sections": [
+        {
+          "heading": "Security Best Practices Report — pypi-ahmad.github.io",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Executive summary",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Findings",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Finding 1: No Content-Security-Policy or security headers configured",
+          "level": 3,
+          "line": 13
+        },
+        {
+          "heading": "Finding 2: Dev/build-tooling dependencies have known advisories (not reachable in production)",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "Not applicable (checked, no findings)",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "Criticality calibration (for this repo)",
+          "level": 2,
+          "line": 44
+        },
+        {
+          "heading": "Summary",
+          "level": 2,
+          "line": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "tsconfig.typecheck.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "include",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "vercel.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "sections": [
+        {
+          "heading": "buildCommand",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "outputDirectory",
+          "level": 1,
+          "line": 3
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/test/setup.js",
+      "type": "file",
+      "name": "setup",
+      "filePath": "src/test/setup.js",
+      "summary": "Installs browser API mocks required by the frontend test environment.",
+      "tags": [
+        "test",
+        "browser-api",
+        "setup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:stress-test.mjs",
+      "type": "file",
+      "name": "stress test",
+      "filePath": "stress-test.mjs",
+      "summary": "Runs browser-based performance, responsiveness, and UI resilience checks across the portfolio.",
+      "tags": [
+        "test",
+        "browser-api",
+        "setup"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:tasks/plan.md",
+      "type": "document",
+      "name": "plan",
+      "filePath": "tasks/plan.md",
+      "summary": "Documents plan for maintaining and evolving the portfolio project.",
+      "tags": [
+        "documentation",
+        "project-planning",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:tasks/todo.md",
+      "type": "document",
+      "name": "todo",
+      "filePath": "tasks/todo.md",
+      "summary": "Documents todo for maintaining and evolving the portfolio project.",
+      "tags": [
+        "documentation",
+        "project-planning",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:vite.config.js",
+      "type": "file",
+      "name": "vite.config",
+      "filePath": "vite.config.js",
+      "summary": "Configures the Vite development server and production build for the portfolio.",
+      "tags": [
+        "configuration",
+        "tooling",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:vitest.config.js",
+      "type": "file",
+      "name": "vitest.config",
+      "filePath": "vitest.config.js",
+      "summary": "Configures the Vitest test runner and browser-like test environment.",
+      "tags": [
+        "test",
+        "browser-api",
+        "setup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:stress-test.mjs:measureBaseline",
+      "type": "function",
+      "name": "measureBaseline",
+      "filePath": "stress-test.mjs",
+      "summary": "Implements measureBaseline as part of stress test.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "moderate",
+      "startLine": 53,
+      "endLine": 115
+    },
+    {
+      "id": "function:stress-test.mjs:measureCoreWebVitals",
+      "type": "function",
+      "name": "measureCoreWebVitals",
+      "filePath": "stress-test.mjs",
+      "summary": "Implements measureCoreWebVitals as part of stress test.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "moderate",
+      "startLine": 120,
+      "endLine": 198
+    },
+    {
+      "id": "function:stress-test.mjs:measureSlow3G",
+      "type": "function",
+      "name": "measureSlow3G",
+      "filePath": "stress-test.mjs",
+      "summary": "Implements measureSlow3G as part of stress test.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "moderate",
+      "startLine": 203,
+      "endLine": 253
+    },
+    {
+      "id": "function:stress-test.mjs:measureFast3G",
+      "type": "function",
+      "name": "measureFast3G",
+      "filePath": "stress-test.mjs",
+      "summary": "Implements measureFast3G as part of stress test.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "moderate",
+      "startLine": 258,
+      "endLine": 279
+    },
+    {
+      "id": "function:stress-test.mjs:rapidNavigationStress",
+      "type": "function",
+      "name": "rapidNavigationStress",
+      "filePath": "stress-test.mjs",
+      "summary": "Implements rapidNavigationStress as part of stress test.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "moderate",
+      "startLine": 284,
+      "endLine": 343
+    },
+    {
+      "id": "function:stress-test.mjs:layoutShiftPerPage",
+      "type": "function",
+      "name": "layoutShiftPerPage",
+      "filePath": "stress-test.mjs",
+      "summary": "Implements layoutShiftPerPage as part of stress test.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "moderate",
+      "startLine": 348,
+      "endLine": 407
+    },
+    {
+      "id": "function:stress-test.mjs:reRenderAndJank",
+      "type": "function",
+      "name": "reRenderAndJank",
+      "filePath": "stress-test.mjs",
+      "summary": "Implements reRenderAndJank as part of stress test.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "complex",
+      "startLine": 412,
+      "endLine": 513
+    },
+    {
+      "id": "function:stress-test.mjs:brokenUIDetection",
+      "type": "function",
+      "name": "brokenUIDetection",
+      "filePath": "stress-test.mjs",
+      "summary": "Implements brokenUIDetection as part of stress test.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "moderate",
+      "startLine": 518,
+      "endLine": 607
+    },
+    {
+      "id": "function:stress-test.mjs:resourceAnalysis",
+      "type": "function",
+      "name": "resourceAnalysis",
+      "filePath": "stress-test.mjs",
+      "summary": "Implements resourceAnalysis as part of stress test.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "moderate",
+      "startLine": 612,
+      "endLine": 679
+    },
+    {
+      "id": "function:stress-test.mjs:mobileViewportStress",
+      "type": "function",
+      "name": "mobileViewportStress",
+      "filePath": "stress-test.mjs",
+      "summary": "Implements mobileViewportStress as part of stress test.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "moderate",
+      "startLine": 684,
+      "endLine": 757
+    },
+    {
+      "id": "function:stress-test.mjs:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "stress-test.mjs",
+      "summary": "Implements main as part of stress test.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "moderate",
+      "startLine": 762,
+      "endLine": 801
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:stress-test.mjs",
+      "target": "function:stress-test.mjs:measureBaseline",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:stress-test.mjs",
+      "target": "function:stress-test.mjs:measureCoreWebVitals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:stress-test.mjs",
+      "target": "function:stress-test.mjs:measureSlow3G",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:stress-test.mjs",
+      "target": "function:stress-test.mjs:measureFast3G",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:stress-test.mjs",
+      "target": "function:stress-test.mjs:rapidNavigationStress",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:stress-test.mjs",
+      "target": "function:stress-test.mjs:layoutShiftPerPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:stress-test.mjs",
+      "target": "function:stress-test.mjs:reRenderAndJank",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:stress-test.mjs",
+      "target": "function:stress-test.mjs:brokenUIDetection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:stress-test.mjs",
+      "target": "function:stress-test.mjs:resourceAnalysis",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:stress-test.mjs",
+      "target": "function:stress-test.mjs:mobileViewportStress",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:stress-test.mjs",
+      "target": "function:stress-test.mjs:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

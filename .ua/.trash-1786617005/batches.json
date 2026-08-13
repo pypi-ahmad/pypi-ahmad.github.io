@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 330,
+  "totalBatches": 2,
+  "exportsByPath": {
+    ".prettierignore": [],
+    ".ua/.trash-1786609559/tmp/generate-batches-1-5.cjs": [],
+    ".ua/.trash-1786609559/tmp/ua-arch-analyze.js": [],
+    ".ua/.trash-1786609559/tmp/ua-inline-validate.cjs": [],
+    ".ua/.trash-1786609559/tmp/ua-tour-analyze.cjs": [],
+    ".ua/.trash-1786609559/tmp/ua-tour-analyze.js": [],
+    ".ua/.understandignore": [],
+    "eslint.config.js": [],
+    "graphify-out/.graphify_python": [],
+    "graphify-out/.graphify_root": [],
+    "public/.nojekyll": [],
+    "src/App.jsx": [],
+    "src/App.test.jsx": [],
+    "src/__tests__/Accessibility.test.jsx": [],
+    "src/__tests__/Behavior.test.jsx": [],
+    "src/__tests__/ExperienceCard.render.test.jsx": [],
+    "src/__tests__/Footer.render.test.jsx": [],
+    "src/__tests__/Greeting.render.test.jsx": [],
+    "src/__tests__/Header.render.test.jsx": [],
+    "src/__tests__/Navigation.test.jsx": [],
+    "src/__tests__/Pages.render.test.jsx": [],
+    "src/__tests__/ProjectsData.test.js": [],
+    "src/__tests__/Responsive.test.jsx": [],
+    "src/__tests__/RouteMetadata.test.jsx": [],
+    "src/__tests__/SystemCard.render.test.jsx": [],
+    "src/__tests__/ThemeRegistry.test.jsx": [],
+    "src/components/ErrorBoundary.jsx": [
+      "default"
+    ],
+    "src/components/ProjectCard/ProjectCard.jsx": [
+      "ProjectCard"
+    ],
+    "src/components/SystemDesign/ProductTile.jsx": [],
+    "src/components/SystemDesign/SystemCard.jsx": [],
+    "src/components/SystemDesign/SystemDiagram.jsx": [],
+    "src/components/SystemDesign/useAccessibleDialog.js": [
+      "useAccessibleDialog"
+    ],
+    "src/components/certificationCard/CertificationCard.jsx": [],
+    "src/components/degreeCard/DegreeCard.jsx": [],
+    "src/components/experienceCard/ExperienceCard.jsx": [],
+    "src/components/footer/Footer.jsx": [
+      "Footer"
+    ],
+    "src/components/header/Header.jsx": [],
+    "src/components/icons/SkillIcon.jsx": [],
+    "src/components/icons/custom/index.jsx": [
+      "AzureMachineLearningIcon",
+      "AzureBlobStorageIcon",
+      "AzureCognitiveServicesIcon",
+      "AzureDocumentIntelligenceIcon",
+      "AzureKeyVaultIcon",
+      "AmazonSageMakerIcon",
+      "DeltaLakeIcon",
+      "RestApisIcon",
+      "AnthropicIcon",
+      "LangChainIcon",
+      "LangGraphIcon",
+      "GeminiIcon",
+      "ModelContextProtocolIcon",
+      "customSkillIcons"
+    ],
+    "src/components/projectLanguages/ProjectLanguages.jsx": [],
+    "src/components/seo/RouteMeta.jsx": [
+      "RouteMeta"
+    ],
+    "src/components/socialMedia/ContactLinksList.jsx": [
+      "ContactLinksList"
+    ],
+    "src/components/socialMedia/SocialMedia.jsx": [
+      "socialMedia"
+    ],
+    "src/components/softwareSkills/SoftwareSkill.jsx": [],
+    "src/containers/Main.jsx": [
+      "Main"
+    ],
+    "src/containers/SystemShowcase/SystemShowcase.jsx": [
+      "SystemShowcase"
+    ],
+    "src/containers/SystemThinking/SystemThinking.jsx": [
+      "SystemThinking"
+    ],
+    "src/containers/certifications/Certifications.jsx": [],
+    "src/containers/education/Educations.jsx": [],
+    "src/containers/experienceAccordion/ExperienceAccordion.jsx": [],
+    "src/containers/greeting/FeelingProud.jsx": [],
+    "src/containers/greeting/Greeting.jsx": [
+      "Greeting"
+    ],
+    "src/containers/skills/CloudInfraImg.jsx": [
+      "CloudInfraImg"
+    ],
+    "src/containers/skills/DataScienceImg.jsx": [
+      "DataScienceImg"
+    ],
+    "src/containers/skills/FullStackImg.jsx": [
+      "FullStackImg"
+    ],
+    "src/containers/skills/SkillSection.jsx": [],
+    "src/containers/skills/Skills.jsx": [
+      "Skills"
+    ],
+    "src/data/contact.js": [
+      "contactPageData"
+    ],
+    "src/data/education.js": [
+      "degrees",
+      "certifications"
+    ],
+    "src/data/experience.js": [
+      "experience"
+    ],
+    "src/data/greeting.js": [
+      "greeting"
+    ],
+    "src/data/platform.js": [
+      "platformHeader",
+      "platformInfrastructure",
+      "platformCategories"
+    ],
+    "src/data/projects.js": [
+      "projectsHeader",
+      "projects"
+    ],
+    "src/data/settings.js": [
+      "settings"
+    ],
+    "src/data/skills.js": [
+      "skillsPageData",
+      "skills"
+    ],
+    "src/data/socialMedia.js": [
+      "socialMediaLinks"
+    ],
+    "src/data/systems.js": [
+      "systems"
+    ],
+    "src/global.js": [
+      "GlobalStyles"
+    ],
+    "src/index.jsx": [],
+    "src/pages/contact/BlogsImg.jsx": [
+      "BlogsImg"
+    ],
+    "src/pages/contact/ContactComponent.jsx": [],
+    "src/pages/education/EducationComponent.jsx": [],
+    "src/pages/education/EducationImg.jsx": [
+      "EducationImg"
+    ],
+    "src/pages/experience/Experience.jsx": [],
+    "src/pages/experience/ExperienceImg.jsx": [
+      "ExperienceImg"
+    ],
+    "src/pages/home/HomeComponent.jsx": [],
+    "src/pages/notFound/NotFound.jsx": [],
+    "src/pages/projects/Projects.jsx": [],
+    "src/pages/projects/ProjectsImg.jsx": [
+      "ProjectsImg"
+    ],
+    "src/pages/skills/SkillsPage.jsx": [],
+    "src/pages/splash/Splash.jsx": [],
+    "src/pages/theme/ThemePage.jsx": [],
+    "src/portfolio.js": [],
+    "src/test/setup.js": [],
+    "src/test/testUtils.jsx": [
+      "renderWithProviders",
+      "darkTheme",
+      "lightTheme"
+    ],
+    "src/theme.js": [
+      "DEFAULT_THEME_FAMILY",
+      "DEFAULT_THEME_MODE",
+      "themes",
+      "themeFamilyOptions",
+      "resolveTheme",
+      "lightTheme",
+      "darkTheme"
+    ],
+    "src/themeController.jsx": [
+      "THEME_STORAGE_KEY",
+      "parseStoredThemeSelection",
+      "ThemeControllerProvider",
+      "useThemeController",
+      "getStoredThemeSelection"
+    ],
+    "src/themeMotion.js": [
+      "themeTextTransition",
+      "themeSurfaceTransition",
+      "themeElevatedSurfaceTransition",
+      "buildThemeBackground",
+      "buildThemeShadow"
+    ],
+    "stress-test.mjs": [],
+    "vite.config.js": [],
+    "vitest.config.js": []
+  },
+  "batches": [
+    {
+      "batchIndex": 23,
+      "files": [
+        {
+          "path": "src/__tests__/ProjectsData.test.js",
+          "language": "javascript",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/__tests__/ProjectsData.test.js": [
+          "src/data/projects.js"
+        ]
+      },
+      "neighborMap": {
+        "src/__tests__/ProjectsData.test.js": [
+          {
+            "path": "src/data/projects.js",
+            "batchIndex": 24,
+            "symbols": [
+              "projectsHeader",
+              "projects"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 24,
+      "files": [
+        {
+          "path": "src/data/projects.js",
+          "language": "javascript",
+          "sizeLines": 109,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/data/projects.js": []
+      },
+      "neighborMap": {
+        "src/data/projects.js": [
+          {
+            "path": "src/__tests__/ProjectsData.test.js",
+            "batchIndex": 23,
+            "symbols": []
+          }
+        ]
+      }
+    }
+  ]
+}

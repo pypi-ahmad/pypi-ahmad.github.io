@@ -1,0 +1,15 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/data/projects.js",
+      "type": "file",
+      "name": "projects.js",
+      "filePath": "src/data/projects.js",
+      "summary": "Exports the Projects page header and a curated 13-project open-source portfolio catalog, including display names, GitHub URLs, descriptions, and categories. This data surface supplies the project-card content without embedding presentation logic.",
+      "tags": ["project-catalog", "content-data", "portfolio", "exports"],
+      "complexity": "moderate",
+      "languageNotes": "Uses named ES module exports and object-literal data so project content can be consumed independently of the UI."
+    }
+  ],
+  "edges": []
+}

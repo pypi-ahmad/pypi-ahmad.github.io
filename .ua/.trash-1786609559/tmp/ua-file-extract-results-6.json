@@ -1,0 +1,911 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 6,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 6,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/__tests__/Navigation.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 153,
+      "nonEmptyLines": 131,
+      "functions": [
+        {
+          "name": "renderAtRoute",
+          "startLine": 34,
+          "endLine": 54,
+          "params": [
+            "initialPath"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderAtRoute",
+          "callee": "render",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/__tests__/RouteMetadata.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 101,
+      "nonEmptyLines": 87,
+      "functions": [
+        {
+          "name": "renderMainAt",
+          "startLine": 8,
+          "endLine": 17,
+          "params": [
+            "pathname"
+          ]
+        },
+        {
+          "name": "getManagedMeta",
+          "startLine": 19,
+          "endLine": 21,
+          "params": [
+            "selector"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderMainAt",
+          "callee": "window.history.pushState",
+          "lineNumber": 9
+        },
+        {
+          "caller": "renderMainAt",
+          "callee": "render",
+          "lineNumber": 10
+        },
+        {
+          "caller": "getManagedMeta",
+          "callee": "document.head.querySelector",
+          "lineNumber": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/__tests__/ThemeRegistry.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 429,
+      "nonEmptyLines": 383,
+      "functions": [
+        {
+          "name": "hexToRgb",
+          "startLine": 4,
+          "endLine": 20,
+          "params": [
+            "hex"
+          ]
+        },
+        {
+          "name": "getRelativeLuminance",
+          "startLine": 22,
+          "endLine": 38,
+          "params": [
+            "hex"
+          ]
+        },
+        {
+          "name": "getContrastRatio",
+          "startLine": 40,
+          "endLine": 49,
+          "params": [
+            "foregroundHex",
+            "backgroundHex"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "hexToRgb",
+          "callee": "hex.replace",
+          "lineNumber": 5
+        },
+        {
+          "caller": "hexToRgb",
+          "callee": "normalizedHex\r\n          .split(\"\")\r\n          .map((character) => `${character}${character}`)\r\n          .join",
+          "lineNumber": 8
+        },
+        {
+          "caller": "hexToRgb",
+          "callee": "normalizedHex\r\n          .split(\"\")\r\n          .map",
+          "lineNumber": 8
+        },
+        {
+          "caller": "hexToRgb",
+          "callee": "normalizedHex\r\n          .split",
+          "lineNumber": 8
+        },
+        {
+          "caller": "hexToRgb",
+          "callee": "Number.parseInt",
+          "lineNumber": 13
+        },
+        {
+          "caller": "getRelativeLuminance",
+          "callee": "hexToRgb",
+          "lineNumber": 23
+        },
+        {
+          "caller": "getRelativeLuminance",
+          "callee": "transformChannel",
+          "lineNumber": 34
+        },
+        {
+          "caller": "getRelativeLuminance",
+          "callee": "transformChannel",
+          "lineNumber": 35
+        },
+        {
+          "caller": "getRelativeLuminance",
+          "callee": "transformChannel",
+          "lineNumber": 36
+        },
+        {
+          "caller": "getContrastRatio",
+          "callee": "getRelativeLuminance",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getContrastRatio",
+          "callee": "getRelativeLuminance",
+          "lineNumber": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/pages/theme/ThemePage.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 219,
+      "nonEmptyLines": 212,
+      "functions": [
+        {
+          "name": "ThemePage",
+          "startLine": 17,
+          "endLine": 217,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ThemePage",
+          "callee": "useThemeController",
+          "lineNumber": 19
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "themeFamilyOptions.map",
+          "lineNumber": 29
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "buildThemeBackground",
+          "lineNumber": 76
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "buildThemeShadow",
+          "lineNumber": 82
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "buildThemeShadow",
+          "lineNumber": 83
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "setThemeFamily",
+          "lineNumber": 92
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "buildThemeShadow",
+          "lineNumber": 101
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "buildThemeShadow",
+          "lineNumber": 102
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "themeFamilyOptions.map",
+          "lineNumber": 105
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "previewThemes.map",
+          "lineNumber": 119
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "setThemeFamily",
+          "lineNumber": 126
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "buildThemeBackground",
+          "lineNumber": 131
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "buildThemeShadow",
+          "lineNumber": 144
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "buildThemeShadow",
+          "lineNumber": 148
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "[\r\n                          familyOption.light.accentStart,\r\n                          familyOption.light.accentEnd,\r\n                          familyOption.dark.accentStart,\r\n                          familyOption.dark.accentEnd,\r\n                        ].map",
+          "lineNumber": 167
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "buildThemeBackground",
+          "lineNumber": 184
+        },
+        {
+          "caller": "ThemePage",
+          "callee": "buildThemeBackground",
+          "lineNumber": 196
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/theme.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 2222,
+      "nonEmptyLines": 2189,
+      "functions": [
+        {
+          "name": "expandHex",
+          "startLine": 32,
+          "endLine": 38,
+          "params": [
+            "hex"
+          ]
+        },
+        {
+          "name": "hexToRgb",
+          "startLine": 40,
+          "endLine": 49,
+          "params": [
+            "hex"
+          ]
+        },
+        {
+          "name": "withAlpha",
+          "startLine": 51,
+          "endLine": 54,
+          "params": [
+            "hex",
+            "alpha"
+          ]
+        },
+        {
+          "name": "mixHex",
+          "startLine": 56,
+          "endLine": 69,
+          "params": [
+            "hexA",
+            "hexB",
+            "ratio"
+          ]
+        },
+        {
+          "name": "getRelativeLuminance",
+          "startLine": 71,
+          "endLine": 87,
+          "params": [
+            "hex"
+          ]
+        },
+        {
+          "name": "getContrastRatio",
+          "startLine": 89,
+          "endLine": 98,
+          "params": [
+            "foregroundHex",
+            "backgroundHex"
+          ]
+        },
+        {
+          "name": "ensureContrast",
+          "startLine": 100,
+          "endLine": 124,
+          "params": [
+            "foregroundHex",
+            "backgroundHex"
+          ]
+        },
+        {
+          "name": "getReadableTextColor",
+          "startLine": 126,
+          "endLine": 131,
+          "params": [
+            "backgroundHex"
+          ]
+        },
+        {
+          "name": "createThemeTokens",
+          "startLine": 133,
+          "endLine": 224,
+          "params": [
+            "family",
+            "mode",
+            "tokens"
+          ]
+        },
+        {
+          "name": "createThemeFamily",
+          "startLine": 226,
+          "endLine": 231,
+          "params": [
+            "family",
+            "lightTokens",
+            "darkTokens"
+          ]
+        },
+        {
+          "name": "resolveTheme",
+          "startLine": 2214,
+          "endLine": 2219,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DEFAULT_THEME_FAMILY",
+          "line": 2171,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_THEME_MODE",
+          "line": 2172,
+          "isDefault": false
+        },
+        {
+          "name": "themes",
+          "line": 2174,
+          "isDefault": false
+        },
+        {
+          "name": "themeFamilyOptions",
+          "line": 2179,
+          "isDefault": false
+        },
+        {
+          "name": "resolveTheme",
+          "line": 2214,
+          "isDefault": false
+        },
+        {
+          "name": "lightTheme",
+          "line": 2221,
+          "isDefault": false
+        },
+        {
+          "name": "darkTheme",
+          "line": 2222,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "hexToRgb",
+          "callee": "expandHex(hex).replace",
+          "lineNumber": 41
+        },
+        {
+          "caller": "hexToRgb",
+          "callee": "expandHex",
+          "lineNumber": 41
+        },
+        {
+          "caller": "hexToRgb",
+          "callee": "Number.parseInt",
+          "lineNumber": 42
+        },
+        {
+          "caller": "withAlpha",
+          "callee": "hexToRgb",
+          "lineNumber": 52
+        },
+        {
+          "caller": "mixHex",
+          "callee": "hexToRgb",
+          "lineNumber": 57
+        },
+        {
+          "caller": "mixHex",
+          "callee": "hexToRgb",
+          "lineNumber": 58
+        },
+        {
+          "caller": "mixChannel",
+          "callee": "Math.round(channelA + (channelB - channelA) * ratio)\r\n      .toString(16)\r\n      .padStart",
+          "lineNumber": 61
+        },
+        {
+          "caller": "mixChannel",
+          "callee": "Math.round(channelA + (channelB - channelA) * ratio)\r\n      .toString",
+          "lineNumber": 61
+        },
+        {
+          "caller": "mixChannel",
+          "callee": "Math.round",
+          "lineNumber": 61
+        },
+        {
+          "caller": "mixHex",
+          "callee": "`#${mixChannel(colorA.r, colorB.r)}${mixChannel(colorA.g, colorB.g)}${mixChannel(\r\n    colorA.b,\r\n    colorB.b\r\n  )}`.toUpperCase",
+          "lineNumber": 65
+        },
+        {
+          "caller": "mixHex",
+          "callee": "mixChannel",
+          "lineNumber": 65
+        },
+        {
+          "caller": "mixHex",
+          "callee": "mixChannel",
+          "lineNumber": 65
+        },
+        {
+          "caller": "mixHex",
+          "callee": "mixChannel",
+          "lineNumber": 65
+        },
+        {
+          "caller": "getRelativeLuminance",
+          "callee": "hexToRgb",
+          "lineNumber": 72
+        },
+        {
+          "caller": "getRelativeLuminance",
+          "callee": "transformChannel",
+          "lineNumber": 83
+        },
+        {
+          "caller": "getRelativeLuminance",
+          "callee": "transformChannel",
+          "lineNumber": 84
+        },
+        {
+          "caller": "getRelativeLuminance",
+          "callee": "transformChannel",
+          "lineNumber": 85
+        },
+        {
+          "caller": "getContrastRatio",
+          "callee": "getRelativeLuminance",
+          "lineNumber": 90
+        },
+        {
+          "caller": "getContrastRatio",
+          "callee": "getRelativeLuminance",
+          "lineNumber": 91
+        },
+        {
+          "caller": "ensureContrast",
+          "callee": "expandHex(foregroundHex).toUpperCase",
+          "lineNumber": 105
+        },
+        {
+          "caller": "ensureContrast",
+          "callee": "expandHex",
+          "lineNumber": 105
+        },
+        {
+          "caller": "ensureContrast",
+          "callee": "getContrastRatio",
+          "lineNumber": 107
+        },
+        {
+          "caller": "ensureContrast",
+          "callee": "expandHex(\r\n    fallbackHex ?? getReadableTextColor(backgroundHex)\r\n  ).toUpperCase",
+          "lineNumber": 111
+        },
+        {
+          "caller": "ensureContrast",
+          "callee": "expandHex",
+          "lineNumber": 111
+        },
+        {
+          "caller": "ensureContrast",
+          "callee": "getReadableTextColor",
+          "lineNumber": 112
+        },
+        {
+          "caller": "ensureContrast",
+          "callee": "mixHex",
+          "lineNumber": 116
+        },
+        {
+          "caller": "ensureContrast",
+          "callee": "getContrastRatio",
+          "lineNumber": 118
+        },
+        {
+          "caller": "getReadableTextColor",
+          "callee": "hexToRgb",
+          "lineNumber": 127
+        },
+        {
+          "caller": "createThemeTokens",
+          "callee": "ensureContrast",
+          "lineNumber": 135
+        },
+        {
+          "caller": "createThemeTokens",
+          "callee": "mixHex",
+          "lineNumber": 141
+        },
+        {
+          "caller": "createThemeTokens",
+          "callee": "mixHex",
+          "lineNumber": 144
+        },
+        {
+          "caller": "createThemeTokens",
+          "callee": "withAlpha",
+          "lineNumber": 147
+        },
+        {
+          "caller": "createThemeTokens",
+          "callee": "mixHex",
+          "lineNumber": 151
+        },
+        {
+          "caller": "createThemeTokens",
+          "callee": "getReadableTextColor",
+          "lineNumber": 156
+        },
+        {
+          "caller": "createThemeTokens",
+          "callee": "withAlpha",
+          "lineNumber": 159
+        },
+        {
+          "caller": "createThemeTokens",
+          "callee": "withAlpha",
+          "lineNumber": 162
+        },
+        {
+          "caller": "createThemeTokens",
+          "callee": "withAlpha",
+          "lineNumber": 165
+        },
+        {
+          "caller": "createThemeTokens",
+          "callee": "withAlpha",
+          "lineNumber": 168
+        },
+        {
+          "caller": "createThemeTokens",
+          "callee": "getReadableTextColor",
+          "lineNumber": 204
+        },
+        {
+          "caller": "createThemeFamily",
+          "callee": "createThemeTokens",
+          "lineNumber": 228
+        },
+        {
+          "caller": "createThemeFamily",
+          "callee": "createThemeTokens",
+          "lineNumber": 229
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 11,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/themeController.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 160,
+      "nonEmptyLines": 135,
+      "functions": [
+        {
+          "name": "normalizeThemeSelection",
+          "startLine": 22,
+          "endLine": 33,
+          "params": [
+            "selection"
+          ]
+        },
+        {
+          "name": "parseStoredThemeSelection",
+          "startLine": 35,
+          "endLine": 53,
+          "params": [
+            "rawTheme"
+          ]
+        },
+        {
+          "name": "getInitialThemeSelection",
+          "startLine": 55,
+          "endLine": 65,
+          "params": [
+            "initialThemeSelection"
+          ]
+        },
+        {
+          "name": "ThemeControllerProvider",
+          "startLine": 67,
+          "endLine": 142,
+          "params": []
+        },
+        {
+          "name": "useThemeController",
+          "startLine": 144,
+          "endLine": 152,
+          "params": []
+        },
+        {
+          "name": "getStoredThemeSelection",
+          "startLine": 154,
+          "endLine": 160,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "THEME_STORAGE_KEY",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "parseStoredThemeSelection",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "ThemeControllerProvider",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "useThemeController",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "getStoredThemeSelection",
+          "line": 154,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseStoredThemeSelection",
+          "callee": "normalizeThemeSelection",
+          "lineNumber": 37
+        },
+        {
+          "caller": "parseStoredThemeSelection",
+          "callee": "normalizeThemeSelection",
+          "lineNumber": 41
+        },
+        {
+          "caller": "parseStoredThemeSelection",
+          "callee": "JSON.parse",
+          "lineNumber": 48
+        },
+        {
+          "caller": "parseStoredThemeSelection",
+          "callee": "normalizeThemeSelection",
+          "lineNumber": 49
+        },
+        {
+          "caller": "parseStoredThemeSelection",
+          "callee": "normalizeThemeSelection",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getInitialThemeSelection",
+          "callee": "normalizeThemeSelection",
+          "lineNumber": 57
+        },
+        {
+          "caller": "getInitialThemeSelection",
+          "callee": "normalizeThemeSelection",
+          "lineNumber": 61
+        },
+        {
+          "caller": "getInitialThemeSelection",
+          "callee": "parseStoredThemeSelection",
+          "lineNumber": 64
+        },
+        {
+          "caller": "getInitialThemeSelection",
+          "callee": "window.localStorage.getItem",
+          "lineNumber": 64
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "useState",
+          "lineNumber": 68
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "getInitialThemeSelection",
+          "lineNumber": 69
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "resolveTheme",
+          "lineNumber": 72
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "useRef",
+          "lineNumber": 73
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "useCallback",
+          "lineNumber": 75
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "document.getElementById",
+          "lineNumber": 76
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "clearTimeout",
+          "lineNumber": 78
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "root.classList.add",
+          "lineNumber": 79
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "setTimeout",
+          "lineNumber": 80
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "root.classList.remove",
+          "lineNumber": 81
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "setThemeSelection",
+          "lineNumber": 84
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "useEffect",
+          "lineNumber": 87
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "window.localStorage.setItem",
+          "lineNumber": 92
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "JSON.stringify",
+          "lineNumber": 94
+        },
+        {
+          "caller": "ThemeControllerProvider",
+          "callee": "useMemo",
+          "lineNumber": 98
+        },
+        {
+          "caller": "setThemeFamily",
+          "callee": "fadeAndApply",
+          "lineNumber": 100
+        },
+        {
+          "caller": "setThemeFamily",
+          "callee": "normalizeThemeSelection",
+          "lineNumber": 101
+        },
+        {
+          "caller": "setMode",
+          "callee": "fadeAndApply",
+          "lineNumber": 109
+        },
+        {
+          "caller": "setMode",
+          "callee": "normalizeThemeSelection",
+          "lineNumber": 110
+        },
+        {
+          "caller": "toggleMode",
+          "callee": "fadeAndApply",
+          "lineNumber": 118
+        },
+        {
+          "caller": "toggleMode",
+          "callee": "normalizeThemeSelection",
+          "lineNumber": 119
+        },
+        {
+          "caller": "useThemeController",
+          "callee": "useContext",
+          "lineNumber": 145
+        },
+        {
+          "caller": "getStoredThemeSelection",
+          "callee": "normalizeThemeSelection",
+          "lineNumber": 156
+        },
+        {
+          "caller": "getStoredThemeSelection",
+          "callee": "parseStoredThemeSelection",
+          "lineNumber": 159
+        },
+        {
+          "caller": "getStoredThemeSelection",
+          "callee": "window.localStorage.getItem",
+          "lineNumber": 159
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    }
+  ]
+}

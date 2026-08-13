@@ -1,0 +1,332 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/__tests__/SystemCard.render.test.jsx",
+      "type": "file",
+      "name": "SystemCard.render.test.jsx",
+      "filePath": "src/__tests__/SystemCard.render.test.jsx",
+      "summary": "Component tests verify that SystemCard renders system metadata, interactive controls, and accessible dialog content.",
+      "tags": [
+        "test",
+        "react",
+        "system-design",
+        "accessibility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/SystemDesign/ProductTile.jsx",
+      "type": "file",
+      "name": "ProductTile.jsx",
+      "filePath": "src/components/SystemDesign/ProductTile.jsx",
+      "summary": "Renders an interactive product tile with system-diagram details and accessible dialog behavior.",
+      "tags": [
+        "react",
+        "component",
+        "system-design",
+        "accessibility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/SystemDesign/SystemCard.jsx",
+      "type": "file",
+      "name": "SystemCard.jsx",
+      "filePath": "src/components/SystemDesign/SystemCard.jsx",
+      "summary": "Renders a detailed system-design card with diagram, architecture information, and an accessible detail dialog.",
+      "tags": [
+        "react",
+        "component",
+        "system-design",
+        "accessibility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/components/SystemDesign/SystemDiagram.jsx",
+      "type": "file",
+      "name": "SystemDiagram.jsx",
+      "filePath": "src/components/SystemDesign/SystemDiagram.jsx",
+      "summary": "Renders a visual system architecture diagram from supplied nodes and connections.",
+      "tags": [
+        "react",
+        "component",
+        "system-design",
+        "visualization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/SystemDesign/useAccessibleDialog.js",
+      "type": "file",
+      "name": "useAccessibleDialog.js",
+      "filePath": "src/components/SystemDesign/useAccessibleDialog.js",
+      "summary": "Provides focus management, keyboard handling, and restoration behavior for accessible dialogs.",
+      "tags": [
+        "react",
+        "hook",
+        "accessibility",
+        "dialog"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/containers/SystemShowcase/SystemShowcase.jsx",
+      "type": "file",
+      "name": "SystemShowcase.jsx",
+      "filePath": "src/containers/SystemShowcase/SystemShowcase.jsx",
+      "summary": "Composes portfolio system-design data into a showcase of SystemCard components.",
+      "tags": [
+        "react",
+        "container",
+        "system-design",
+        "portfolio"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/SystemDesign/ProductTile.jsx:ProductTile",
+      "type": "function",
+      "name": "ProductTile",
+      "filePath": "src/components/SystemDesign/ProductTile.jsx",
+      "lineRange": [
+        16,
+        165
+      ],
+      "summary": "Renders a product tile and manages its detailed dialog interaction.",
+      "tags": [
+        "react",
+        "component",
+        "system-design"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/components/SystemDesign/SystemCard.jsx:SystemCard",
+      "type": "function",
+      "name": "SystemCard",
+      "filePath": "src/components/SystemDesign/SystemCard.jsx",
+      "lineRange": [
+        21,
+        243
+      ],
+      "summary": "Renders a system architecture card with accessible detail controls.",
+      "tags": [
+        "react",
+        "component",
+        "system-design"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/components/SystemDesign/SystemDiagram.jsx:SystemDiagram",
+      "type": "function",
+      "name": "SystemDiagram",
+      "filePath": "src/components/SystemDesign/SystemDiagram.jsx",
+      "lineRange": [
+        15,
+        54
+      ],
+      "summary": "Renders the diagram for a system architecture model.",
+      "tags": [
+        "react",
+        "component",
+        "visualization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/SystemDesign/useAccessibleDialog.js:getFocusableElements",
+      "type": "function",
+      "name": "getFocusableElements",
+      "filePath": "src/components/SystemDesign/useAccessibleDialog.js",
+      "lineRange": [
+        12,
+        20
+      ],
+      "summary": "Finds focusable descendants within a dialog.",
+      "tags": [
+        "accessibility",
+        "dialog",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/SystemDesign/useAccessibleDialog.js:useAccessibleDialog",
+      "type": "function",
+      "name": "useAccessibleDialog",
+      "filePath": "src/components/SystemDesign/useAccessibleDialog.js",
+      "lineRange": [
+        22,
+        103
+      ],
+      "summary": "Manages dialog focus trapping, keyboard dismissal, and focus restoration.",
+      "tags": [
+        "react",
+        "hook",
+        "accessibility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/containers/SystemShowcase/SystemShowcase.jsx:SystemShowcase",
+      "type": "function",
+      "name": "SystemShowcase",
+      "filePath": "src/containers/SystemShowcase/SystemShowcase.jsx",
+      "lineRange": [
+        41,
+        59
+      ],
+      "summary": "Maps portfolio system data into system-design cards.",
+      "tags": [
+        "react",
+        "container",
+        "system-design"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/components/SystemDesign/ProductTile.jsx",
+      "target": "function:src/components/SystemDesign/ProductTile.jsx:ProductTile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/SystemDesign/SystemCard.jsx",
+      "target": "function:src/components/SystemDesign/SystemCard.jsx:SystemCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/SystemDesign/SystemDiagram.jsx",
+      "target": "function:src/components/SystemDesign/SystemDiagram.jsx:SystemDiagram",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/SystemDesign/useAccessibleDialog.js",
+      "target": "function:src/components/SystemDesign/useAccessibleDialog.js:getFocusableElements",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/SystemDesign/useAccessibleDialog.js",
+      "target": "function:src/components/SystemDesign/useAccessibleDialog.js:useAccessibleDialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/SystemShowcase/SystemShowcase.jsx",
+      "target": "function:src/containers/SystemShowcase/SystemShowcase.jsx:SystemShowcase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/__tests__/SystemCard.render.test.jsx",
+      "target": "file:src/components/SystemDesign/SystemCard.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/SystemCard.render.test.jsx",
+      "target": "file:src/test/testUtils.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/SystemDesign/ProductTile.jsx",
+      "target": "file:src/components/SystemDesign/ProductTile.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/SystemDesign/ProductTile.jsx",
+      "target": "file:src/components/SystemDesign/SystemDiagram.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/SystemDesign/ProductTile.jsx",
+      "target": "file:src/components/SystemDesign/useAccessibleDialog.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/SystemDesign/SystemCard.jsx",
+      "target": "file:src/components/SystemDesign/SystemDiagram.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/SystemDesign/SystemCard.jsx",
+      "target": "file:src/components/SystemDesign/systems.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/SystemDesign/SystemCard.jsx",
+      "target": "file:src/components/SystemDesign/useAccessibleDialog.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/SystemDesign/SystemDiagram.jsx",
+      "target": "file:src/components/SystemDesign/systems.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/SystemShowcase/SystemShowcase.jsx",
+      "target": "file:src/components/SystemDesign/SystemCard.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/SystemShowcase/SystemShowcase.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/SystemDesign/useAccessibleDialog.js",
+      "target": "function:src/components/SystemDesign/useAccessibleDialog.js:useAccessibleDialog",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/containers/SystemShowcase/SystemShowcase.jsx",
+      "target": "function:src/containers/SystemShowcase/SystemShowcase.jsx:SystemShowcase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/SystemDesign/SystemCard.jsx",
+      "target": "file:src/__tests__/SystemCard.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "projectRoot": "D:\\AI\\Github\\pypi-ahmad.github.io",
+  "batchFiles": [
+    {
+      "path": "src/__tests__/ProjectsData.test.js",
+      "language": "javascript",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/__tests__/ProjectsData.test.js": ["src/data/projects.js"]
+  }
+}

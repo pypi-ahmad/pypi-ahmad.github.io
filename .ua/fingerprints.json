@@ -1,0 +1,6419 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "7c33a75fdc124757260319f3f208d97467af818f",
+  "generatedAt": "2026-08-13T10:29:58.779Z",
+  "files": {
+    ".github/workflows/ci.yml": {
+      "filePath": ".github/workflows/ci.yml",
+      "contentHash": "a2c4bc92346876d7e1fc4d96bd5282772303ef2a24dece437f44ac206b1527b6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    ".github/workflows/deploy.yml": {
+      "filePath": ".github/workflows/deploy.yml",
+      "contentHash": "5de64e5bd640db9ec30068b9d2d60d0ed810bae4c378178cacc0623e0f923ca0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    },
+    ".prettierignore": {
+      "filePath": ".prettierignore",
+      "contentHash": "0f8c539650887c1153c1a9dbb07e06d1f58277de9abf84ecebe47949310d823b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": false
+    },
+    ".ua/.trash-1786609559/assemble-review.json": {
+      "filePath": ".ua/.trash-1786609559/assemble-review.json",
+      "contentHash": "cd0af92eaf33189c3a916df5276a4f004e626d4c93179f810239ce07dcff79cd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/assembled-graph.json": {
+      "filePath": ".ua/.trash-1786609559/assembled-graph.json",
+      "contentHash": "e524c5279430bcfd1af543d198c170c4528fe11ff226a40e83ad02bbf55ee2a8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7464,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-1.json": {
+      "filePath": ".ua/.trash-1786609559/batch-1.json",
+      "contentHash": "9d10e5da4f0eea4abc226082bb10ea3d8adc834850645071e0aaf8f6a9a7d08e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 925,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-10.json": {
+      "filePath": ".ua/.trash-1786609559/batch-10.json",
+      "contentHash": "4cea53a60540d0d0fc60c35d4875b842a64f511d0da2eb4123f39a0f1da368ae",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 139,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-11.json": {
+      "filePath": ".ua/.trash-1786609559/batch-11.json",
+      "contentHash": "fbf5ec4b8aeb9a398c2ae5d4f8959946e5b03733e0faebc01d08310be1de052f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-12.json": {
+      "filePath": ".ua/.trash-1786609559/batch-12.json",
+      "contentHash": "0a431ea49517f8e9bf6b6533a29f89bcbd6a1998abcbcac1f7e876671e8e20e2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 265,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-13.json": {
+      "filePath": ".ua/.trash-1786609559/batch-13.json",
+      "contentHash": "5497b8170970a300a1aa5774413aab387fed0ffc70a47ae5fd26a69c5d76751b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 265,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-14.json": {
+      "filePath": ".ua/.trash-1786609559/batch-14.json",
+      "contentHash": "d7c7f73e591ad8f0654b949738f0abed4e1ba4abedb93b31c1a3fd14b4bc30df",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 265,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-15.json": {
+      "filePath": ".ua/.trash-1786609559/batch-15.json",
+      "contentHash": "4aaac475fff2403dc1df9adb1c35acd1751c236091f226f75f08824ed8fd7025",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 265,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-16.json": {
+      "filePath": ".ua/.trash-1786609559/batch-16.json",
+      "contentHash": "4d684ccf07e3ef08b37cd59846746430be4c64d7068f2b27d32616485a040f12",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 187,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-17.json": {
+      "filePath": ".ua/.trash-1786609559/batch-17.json",
+      "contentHash": "760649b35fab30c89de40ea5039820704f405378f7759cd19975d8ffc1b5901e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-18.json": {
+      "filePath": ".ua/.trash-1786609559/batch-18.json",
+      "contentHash": "6eae1c31048c50e1c791659b049cf7c14fc9ab58338135773ef995110770817a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 330,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-19.json": {
+      "filePath": ".ua/.trash-1786609559/batch-19.json",
+      "contentHash": "c6fa28bb845ad8aad0f1b206dbb0fb10d0297c36a0ce414f1eec4bc415fd1310",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 382,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-2.json": {
+      "filePath": ".ua/.trash-1786609559/batch-2.json",
+      "contentHash": "8bc8f3735a6e04a526d5687966860438ea10c48005cab6b6f38d487210a1c7ee",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 675,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-20.json": {
+      "filePath": ".ua/.trash-1786609559/batch-20.json",
+      "contentHash": "9d84ab920cee33792bc0ef832bf94c98e30f197c013b1d33e509464cb34a0147",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 326,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-3.json": {
+      "filePath": ".ua/.trash-1786609559/batch-3.json",
+      "contentHash": "ac2fb26a9e827cbe8655de518b3b0103c9a9e0a51694b800aeed2688ab3f8be9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 875,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-4.json": {
+      "filePath": ".ua/.trash-1786609559/batch-4.json",
+      "contentHash": "48ca0ec6ff8d2e10c7fdf0472900b56ceb952b63476c46a4e5a0c5d2cc7972f0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 295,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-5.json": {
+      "filePath": ".ua/.trash-1786609559/batch-5.json",
+      "contentHash": "72971577fbaf4ee365ccb933e8f491e49d30963be952bf7733207256deef7f4d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 420,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-6.json": {
+      "filePath": ".ua/.trash-1786609559/batch-6.json",
+      "contentHash": "ea846f228469569b4047a6b16993bc44a68eca01fcd57f5c3975c1bf9bb17f2e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 848,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-7.json": {
+      "filePath": ".ua/.trash-1786609559/batch-7.json",
+      "contentHash": "08adaac0c1ad3efb57b59bbb25e963035afd8bbcc357965d1a5a305757b0eabb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 332,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-8.json": {
+      "filePath": ".ua/.trash-1786609559/batch-8.json",
+      "contentHash": "7efcbbf6d5de6546bee1887d927bf1caa21dc1edd77e71b8bb87331b720a4153",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 48,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batch-9.json": {
+      "filePath": ".ua/.trash-1786609559/batch-9.json",
+      "contentHash": "e3586c3f98bac623c2f50c15df2b6d340ddabbe3c6e56308bddb523e3fde68a9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 201,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/batches.json": {
+      "filePath": ".ua/.trash-1786609559/batches.json",
+      "contentHash": "a3147957d7e081667ecabd48e208aea74822b9a794dfa2ffd773e5f592138121",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3300,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/fingerprint-input.json": {
+      "filePath": ".ua/.trash-1786609559/fingerprint-input.json",
+      "contentHash": "5887d586a0db7b4a0d069663a6ba09c2fef3430d3048525efb45b0437f2fd559",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 248,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/layers.json": {
+      "filePath": ".ua/.trash-1786609559/layers.json",
+      "contentHash": "39a2faaa674f94f9205c128f025deee370f12c8161793b36da3da372c0a026fb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 300,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/merge-stderr.txt": {
+      "filePath": ".ua/.trash-1786609559/merge-stderr.txt",
+      "contentHash": "be68b34835972a1e188ae50c6cf7bcc317fb78c4177c483e57816e6a95efade9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": false
+    },
+    ".ua/.trash-1786609559/review.json": {
+      "filePath": ".ua/.trash-1786609559/review.json",
+      "contentHash": "44664c9f80820dcf3a870c67e2bbf81a10250663cd992ee0a377aba7e14b3572",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 166,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/generate-batches-1-5.cjs": {
+      "filePath": ".ua/.trash-1786609559/tmp/generate-batches-1-5.cjs",
+      "contentHash": "29b6104dd412433042245fe748ca51be2eabe81096802b1ea675ca5c61f7e0be",
+      "functions": [
+        {
+          "name": "typeFor",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "prefixFor",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "complexity",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "cap",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-arch-analyze.js": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-arch-analyze.js",
+      "contentHash": "0bb398b1e51da1169917043b99feb9bbac3df9353993d6c1b40f5e0b127b9136",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "node:fs",
+          "specifiers": [
+            "fs"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 64,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-arch-input.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-arch-input.json",
+      "contentHash": "f3014a751d8b14916998bf6824c4f954ba13610e4f2c7e8be6b3645a6337780a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5752,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-arch-results.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-arch-results.json",
+      "contentHash": "d5e9800daccb387d8a417b8dc45413eedd0e68ba2a4e1eeb3f3907a4d9bf3a28",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1643,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-1.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-1.json",
+      "contentHash": "6dd2a5b9d9010214eab96082805fb5311a87536c97cae864e319a0405075d48c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 166,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-10.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-10.json",
+      "contentHash": "7f39598d13b1be9f82f7ff19609ca7396f2879fe6a96d6b74802f75e8308d161",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 64,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-11.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-11.json",
+      "contentHash": "05c8667dcc21c2843146361ee93c7a9eafcba2e821b5bcb28bc0173ad03b7814",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-12.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-12.json",
+      "contentHash": "3703cd472f622a28ba8f6bd2d22f446cfde0d73420cd2d5c6caf4407292cc6bf",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 147,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-13.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-13.json",
+      "contentHash": "8c0c9effc84b8155d4c951688f7f7b1b9927a194c61519c79ab06e31b7da3754",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 147,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-14.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-14.json",
+      "contentHash": "cec402c168dc0bb3eece2e8eb133e2c84f3b48509d77d85a7b1126e88c11b54b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 147,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-15.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-15.json",
+      "contentHash": "b21aaba2442abd62d6a9a88fcefd25d0f9056187d7216532a40b97ca6ca749dc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 147,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-16.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-16.json",
+      "contentHash": "4297300cf84a5d36731c36376d996c6bc52da24492fd5402fba756f0bce3ccc0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 106,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-17.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-17.json",
+      "contentHash": "80b6f44dd5c714d691671302302819eb022f14b01ae6f8fc50a627c3ecfbe0ce",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 29,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-18.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-18.json",
+      "contentHash": "1f884945193745049dc708e605e5ffe38e1fc13fb277983170a64317ef804c50",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 183,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-19.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-19.json",
+      "contentHash": "14522ecffda91df7378afcf560b545ad33c8a439d938042603cce87861473a26",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 185,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-2.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-2.json",
+      "contentHash": "08d0c4def0eeeaee968354c6e34fa9f2dfa3dd203b42265f21ff17c47d37fba1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 137,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-20.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-20.json",
+      "contentHash": "9b70380b1612c8308f7ffcb41ca533388d810176884cba5b9f6cd9a24d766c2b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 50,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-3.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-3.json",
+      "contentHash": "6d338778d0dc151e42885f993557a6ca46dff5925c781c0322779b18a2c5bb9d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 111,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-4.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-4.json",
+      "contentHash": "a3cccddf3ddc962417bef909cdcc2f9764d9caf44e9fdf4344bf6f469dc265ba",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 72,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-5.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-5.json",
+      "contentHash": "98140510c982145e43001d31d68b961c596fc543af908d498758724be93d3d53",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 84,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-6.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-6.json",
+      "contentHash": "d05b7f85d64b3889ae2c3cc188299459051bbb8db0ea0a5771b46c0ddea90c05",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 74,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-7.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-7.json",
+      "contentHash": "7e31f8d48c0eaee4d0ff1c72421758248fa9a3c669ffe412e2b88ff01ebd757b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 66,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-8.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-8.json",
+      "contentHash": "d67dfccb68279a0e2702bac0404c6e678bcfb689efba9d9852e92369c6055f96",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-9.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-analyzer-input-9.json",
+      "contentHash": "b301b50dfbb8dd983efb17de48ddb1e0bd49418bc0496651e144c5643e73a116",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 85,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-1.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-1.json",
+      "contentHash": "a6de7c75b6cf20c8de13e13273eb79a5f2f7c704a6e4908d90ec939a2d397fb4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 701,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-10.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-10.json",
+      "contentHash": "3ec9455f6e5aa5c7bea84b7878abdcaf3ffc7cee0bdbbf64cf44312a07bd5444",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1917,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-11.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-11.json",
+      "contentHash": "721d5720ee0cad184168b6ec728d03c143a746e7d4b8179e06b856527436f07a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 122,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-12.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-12.json",
+      "contentHash": "4f2de462cde349d5e33f05600a9bfd8cc5d27db6afe100c7c781db1201280051",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 638,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-13.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-13.json",
+      "contentHash": "480ba04c785ec982700d7e73268b5b0b2d4fadb135b4106aa40753971c0b9f2e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 638,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-14.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-14.json",
+      "contentHash": "c0d2d87758a004ca82fd75a243acfa1b353dce7037a8538a61cc1b4e178a17ed",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 638,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-15.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-15.json",
+      "contentHash": "e2d5239bfa6e882ad9316e6b1b98e0beae5dab58def39586a79f192a1006ce08",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 638,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-16.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-16.json",
+      "contentHash": "0d6dcd9d82439838a16e19b5b4e5dc97a68f62eef032e03bbf5faa16beaa661a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 452,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-17.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-17.json",
+      "contentHash": "6cd70f365c7cc4f2da06ee74dfa5ced9667a94d5068c91ab8b2475f8bf452f31",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 72,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-18.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-18.json",
+      "contentHash": "3f66b3012353be1e31ac34d1e736919400efd04d9e9a13af1be5a392d0fa666c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1091,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-19.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-19.json",
+      "contentHash": "ab8aca7aceba2983d27b10da33934443ac024ff097909f2b1fe042985dd7bd25",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 341,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-2.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-2.json",
+      "contentHash": "06dad99bb298a2a8305586b37153b6c060e3a1debb29f9b29965abc4cea238b6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 433,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-20.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-20.json",
+      "contentHash": "75ea43a5ba9b2c67779e7c3efcce35008039e36d43593e69032a7965a8ddf12b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2257,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-3.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-3.json",
+      "contentHash": "7b86fc2cc8804387fdc6352bb606cdf56cc1e92a2f97f4c3b1ce26c63cb50a86",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 520,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-4.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-4.json",
+      "contentHash": "232ba10668b9271aac2a20a4ae323a4683a9de9364be8223d417cbac92b1ff7c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 332,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-5.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-5.json",
+      "contentHash": "f9331307350534a2ffbd7212ff5b02aa4bcc685e2455577cd86beda1ab4e7117",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 197,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-6.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-6.json",
+      "contentHash": "e394f704014037aa113b4f25c17c757846ac895efb3ff364d95074c9fb419478",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 911,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-7.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-7.json",
+      "contentHash": "5e0a4aa91058c1052de20666e4209b9f4b19575edf08b3bbb7ba029c6cbc3806",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 431,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-8.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-8.json",
+      "contentHash": "c8f9879eb2b880bd56cd23e757c49b3d189c4ea9b6db015d22ee065f29b3038e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 90,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-file-extract-results-9.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-file-extract-results-9.json",
+      "contentHash": "88b89f2bb1cc202a5595b968004271fde27ab257ee91d96587bca8ab61554b07",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 525,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-import-map-input.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-import-map-input.json",
+      "contentHash": "8351de9b92d27c5e1e6f0bc643797fa3a8db18c8be809f3320ebeabb95589b57",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1216,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-import-map-output.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-import-map-output.json",
+      "contentHash": "33bbeb96421216349970da5a2d81ff07f2e66abedb8b5e5c571119c22d9a8399",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 460,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-inline-validate.cjs": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-inline-validate.cjs",
+      "contentHash": "e3bb1ae95f951c4d3231b1f667e9727d031827d43264def6afb19eb84eddf873",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-scan-files.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-scan-files.json",
+      "contentHash": "ff67cfe6805841fb567bdaaa9d3308525dc94fb8f914b34bce081710b3446bb7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1482,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-tour-analyze.cjs": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-tour-analyze.cjs",
+      "contentHash": "2b45d0088f2bd25c4b0ef5e3ef496f761b76eadf71211f911ebb6a280e5c427e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-tour-analyze.js": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-tour-analyze.js",
+      "contentHash": "e538a94e510c69c2ced9fe02322f636fc20b43bdc4fdac8dab1598576fed8bd6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 68,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-tour-input.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-tour-input.json",
+      "contentHash": "891cdfb8c0698dd01187e0a293fd5f6e5cf47196a9831b1656e072a4ce132012",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7356,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tmp/ua-tour-results.json": {
+      "filePath": ".ua/.trash-1786609559/tmp/ua-tour-results.json",
+      "contentHash": "4501462882ad35dbae2b15c74a236bf6ebd5157e06de6e47ab3a8db481202db6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2790,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.trash-1786609559/tour.json": {
+      "filePath": ".ua/.trash-1786609559/tour.json",
+      "contentHash": "2e981709b992c4f6d3a29b9cac9c67c6bcbd80023c16976d597600514a3f41fd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 60,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.understandignore": {
+      "filePath": ".ua/.understandignore",
+      "contentHash": "15e82ac30b22a84edd6591d06fae73f2e1777c1cab8e6f344bec77814317e4d3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 116,
+      "hasStructuralAnalysis": false
+    },
+    ".ua/config.json": {
+      "filePath": ".ua/config.json",
+      "contentHash": "8b872a34689f66b2cf598b9de6815aabe320504f432521d0e1e4c1c8d4b6258b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/fingerprints.json": {
+      "filePath": ".ua/fingerprints.json",
+      "contentHash": "4f5aa1b6778e6c792666922f6d0ccfc3f48964a4a7d7ec7c045bf33ed746fdcd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5492,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/intermediate/batches.json": {
+      "filePath": ".ua/intermediate/batches.json",
+      "contentHash": "4f5479e774247408e833712135414368c4e5967292349a5386ebb5fa9b157eed",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 256,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/intermediate/scan-result.json": {
+      "filePath": ".ua/intermediate/scan-result.json",
+      "contentHash": "1f0d347f585558dbe4754cfe260e6d45a2b18f142077a1ca97cd5b006991bfd6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2549,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/knowledge-graph.json": {
+      "filePath": ".ua/knowledge-graph.json",
+      "contentHash": "5149da295dcf54ae3fea9faa24ea5652d81a0c0455eb57a15c6a9f8a5b5f5c8e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7503,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/meta.json": {
+      "filePath": ".ua/meta.json",
+      "contentHash": "2131d71331e79bb40bca4532ee4fed2336400a84f8e437dbdc2077d195072169",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/tmp/changed-files.txt": {
+      "filePath": ".ua/tmp/changed-files.txt",
+      "contentHash": "0a5f8abd8e87ab2adce7c5d7ec70a3746c16a9a3ff79ada2e45934a4c1a6091d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": false
+    },
+    "CHANGELOG.md": {
+      "filePath": "CHANGELOG.md",
+      "contentHash": "48864e3699b4ab1d0304c50c55a244699c731d4bdd411128e09e4c6336a6a626",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "CODE_OF_CONDUCT.md": {
+      "filePath": "CODE_OF_CONDUCT.md",
+      "contentHash": "f06c7cfd36fef835b6cd63e61dd62c9d85fbe7e11aaabd357d18a933e375e426",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "CODE_REVIEW_REPORT.md": {
+      "filePath": "CODE_REVIEW_REPORT.md",
+      "contentHash": "1ddc4873537bcf2f279752ae46e6f571a8a20bdef068b73aa8fbfb44fdbc1d4a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 102,
+      "hasStructuralAnalysis": true
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "380fa848fef0cf21ac90bd76db1fd2a747c237b7da8d38de13d918261d30bb3d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 221,
+      "hasStructuralAnalysis": true
+    },
+    "SECURITY.md": {
+      "filePath": "SECURITY.md",
+      "contentHash": "5f5817696041950c546dd062ac26f41a9216fa023c1a1c3199eee79157595c40",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 25,
+      "hasStructuralAnalysis": true
+    },
+    "browserconfig.xml": {
+      "filePath": "browserconfig.xml",
+      "contentHash": "66704463cd361050b26b2a315b125047d8eed60df8cc275abbb0383e70d0d0e9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": false
+    },
+    "docs/migration/astro-migration-roadmap.md": {
+      "filePath": "docs/migration/astro-migration-roadmap.md",
+      "contentHash": "76d9512d6bc5bb8d362bbb0115c4d7fc3094f116464214829c6782f66dd0ab9c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "eslint.config.js": {
+      "filePath": "eslint.config.js",
+      "contentHash": "cbebc37a840c095bd56d300f263ac698c95cc8e53458226e68c6337d79f05f7a",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@eslint/js",
+          "specifiers": [
+            "js"
+          ]
+        },
+        {
+          "source": "globals",
+          "specifiers": [
+            "globals"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/.graphify_labels.json": {
+      "filePath": "graphify-out/.graphify_labels.json",
+      "contentHash": "c98559c0b9afa927bb827c8658a2897aecdd9827cf6c48feaafcaa3547252515",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 137,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/.graphify_learning.json": {
+      "filePath": "graphify-out/.graphify_learning.json",
+      "contentHash": "55b7c18b83e570cb6c8626087aaffdde256b4b3106d16f0172a8aa7103eb3c7b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/.graphify_python": {
+      "filePath": "graphify-out/.graphify_python",
+      "contentHash": "9c4383015ecbcf2a28459aa60e00bfed933437d20f79649191be5d10008564d7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "graphify-out/.graphify_root": {
+      "filePath": "graphify-out/.graphify_root",
+      "contentHash": "251836f43790d023fcd6bba994c6422479bc64eaa18319ca1d03ede25247bf53",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "graphify-out/.vocab.txt": {
+      "filePath": "graphify-out/.vocab.txt",
+      "contentHash": "47d146d0542145dd9af2ca81b9f889a126959bbdce2702c0f465cb07521d8dde",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 660,
+      "hasStructuralAnalysis": false
+    },
+    "graphify-out/GRAPH_REPORT.md": {
+      "filePath": "graphify-out/GRAPH_REPORT.md",
+      "contentHash": "3ed42f52eab5d8bad4bd9c116b80f46acea9a6a989851679cf56b9ed914c3cca",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 347,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/ast/v0.9.17/1106e6d148139da98930d8b189f0312a6c6cd0e928dd09aa98194022236346f5.json": {
+      "filePath": "graphify-out/cache/ast/v0.9.17/1106e6d148139da98930d8b189f0312a6c6cd0e928dd09aa98194022236346f5.json",
+      "contentHash": "4f6e44040f04723229e370939b5cac254ed40709502447adb61c46ea7be00a52",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/ast/v0.9.17/5bb4686179cf79e74c412a9acbe9db68fe2289938841be6ec7270c69ae34ea04.json": {
+      "filePath": "graphify-out/cache/ast/v0.9.17/5bb4686179cf79e74c412a9acbe9db68fe2289938841be6ec7270c69ae34ea04.json",
+      "contentHash": "f129900088f9c5607e4c49b38f9cc8489419b8c475b8e370c80a976ffe1017c2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/ast/v0.9.17/8c423f0a8c11aaea9db68bc3aa8b914aeae36bc7334dca8d99787b6bf698bcfc.json": {
+      "filePath": "graphify-out/cache/ast/v0.9.17/8c423f0a8c11aaea9db68bc3aa8b914aeae36bc7334dca8d99787b6bf698bcfc.json",
+      "contentHash": "33d9e33ee4122a061b086d3b826f301482a439399ddce97c40c53c5eeadc47ca",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/ast/v0.9.17/f8d7529cc24901e0efc393069d31a912c1e350d1721ee79829c6cb112eba05dd.json": {
+      "filePath": "graphify-out/cache/ast/v0.9.17/f8d7529cc24901e0efc393069d31a912c1e350d1721ee79829c6cb112eba05dd.json",
+      "contentHash": "ab5b5387268812e86c58addae03b8ef285560a6145d6166fe6c1dcbf76ee10cd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/03191878c3e93c39a7952933b2fd8c8f94f8b51bbb702c94f1250b69d6187717.json": {
+      "filePath": "graphify-out/cache/semantic/03191878c3e93c39a7952933b2fd8c8f94f8b51bbb702c94f1250b69d6187717.json",
+      "contentHash": "1163725485a6ce3de48948c599138f0ae00bad1b3b2386c79d5459a9197db93e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/0abefd9f4861894cf5f00876c4bfe554c8657b63b3a1f2a865c9b64ffb49a64d.json": {
+      "filePath": "graphify-out/cache/semantic/0abefd9f4861894cf5f00876c4bfe554c8657b63b3a1f2a865c9b64ffb49a64d.json",
+      "contentHash": "28cfb0acedc92f085f61486636bdb249ad03e6295eee91f98da5eaaa34c71dae",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/0b513f7616a20b05ee0dc92985838c4e40a33d703f8a53abadc23ba4aeb3ab06.json": {
+      "filePath": "graphify-out/cache/semantic/0b513f7616a20b05ee0dc92985838c4e40a33d703f8a53abadc23ba4aeb3ab06.json",
+      "contentHash": "33b44f6a2cc6bdd76299f97bfcbd07f1b8ecd5f2cfa4d503370907ef47394f08",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/0e52caab3def554d5b442ab3091a688c926eb8cb12e9b93c28e5a8b48ae1e4bb.json": {
+      "filePath": "graphify-out/cache/semantic/0e52caab3def554d5b442ab3091a688c926eb8cb12e9b93c28e5a8b48ae1e4bb.json",
+      "contentHash": "b803c14adcb62b261ee91647aedd5b525053370e43e8f98afbea627ec94d3fbe",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/1097b88382a3dfe897886fe671bd50945873a8b40e02d2ec971981278f8071af.json": {
+      "filePath": "graphify-out/cache/semantic/1097b88382a3dfe897886fe671bd50945873a8b40e02d2ec971981278f8071af.json",
+      "contentHash": "7c956a2d6c8d4e822dec1e9648dbd8cf2ba9a470d7d4887adfbaab532989ece8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/123e05e3ac4e0223f0e7d80969cb5873269632590a04cf018cf5534462cbb8a0.json": {
+      "filePath": "graphify-out/cache/semantic/123e05e3ac4e0223f0e7d80969cb5873269632590a04cf018cf5534462cbb8a0.json",
+      "contentHash": "b28b601c1101b39666302dd60605199bb14322d3b4aaba9f942e774fef3bc2bb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/1264ffb4f70600ef864bc0430db97257f61a1e6d6ce2234722b352bbc2d01d02.json": {
+      "filePath": "graphify-out/cache/semantic/1264ffb4f70600ef864bc0430db97257f61a1e6d6ce2234722b352bbc2d01d02.json",
+      "contentHash": "8e54d98175639b19dfa24aaf1e1bb6279eb267b0abb17d0f76bbf141ade51123",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/14c48530a43dc4958ef3a5891aa2836e27d8fddbc33a65474ce9d254a86d1fe6.json": {
+      "filePath": "graphify-out/cache/semantic/14c48530a43dc4958ef3a5891aa2836e27d8fddbc33a65474ce9d254a86d1fe6.json",
+      "contentHash": "65708925371fe1450613514d90bcaba79e65d97968e4c6d3f50adf83ff87ef8a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/160aca5014ff633969a84a844543f30e365241da1bb4de73ffb13887f215a09a.json": {
+      "filePath": "graphify-out/cache/semantic/160aca5014ff633969a84a844543f30e365241da1bb4de73ffb13887f215a09a.json",
+      "contentHash": "7e57871f6e790c0d4e3a6382868c5e9e62f40b1618c08019b549e334e3061eec",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/16783fd6c9d2d968c1387b6ec683a4f8638df83367decf7ea2c3fd2c2a131228.json": {
+      "filePath": "graphify-out/cache/semantic/16783fd6c9d2d968c1387b6ec683a4f8638df83367decf7ea2c3fd2c2a131228.json",
+      "contentHash": "e10a2f5555c945762cfb460b3b43438f7b9d7e375f2bcdba292f53bf652a5526",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/194ed59dd3e841d120fceca0c969a37bf4f6a028cf8391495fc1a1d2b5bb6df5.json": {
+      "filePath": "graphify-out/cache/semantic/194ed59dd3e841d120fceca0c969a37bf4f6a028cf8391495fc1a1d2b5bb6df5.json",
+      "contentHash": "6f0038c24f68c7e795d860ca2f3d5da1ed286671413778eb75d6669972ff78f1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/1bd8dd37a2edd4fc26e8e4180c89f66121aa0578b7b6d5361022d17e8c8cc900.json": {
+      "filePath": "graphify-out/cache/semantic/1bd8dd37a2edd4fc26e8e4180c89f66121aa0578b7b6d5361022d17e8c8cc900.json",
+      "contentHash": "cc90ca2269998386e547dc33a0d07e3244f8da77eb9a5cdc43801c4e9e12e9bb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/1d981c7289f471fd8632b740b20b1d65c4976d8e4821ff8f8b13a195f4d20035.json": {
+      "filePath": "graphify-out/cache/semantic/1d981c7289f471fd8632b740b20b1d65c4976d8e4821ff8f8b13a195f4d20035.json",
+      "contentHash": "a65a2c942421b1d94ce2f3a34483fd23d240bbb48e061861ab6501fb20bb11e3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/1dc5f3ca7b96c2a0bb9965621452d7e8c94fdb2605cd5cf52acd2c6680badd92.json": {
+      "filePath": "graphify-out/cache/semantic/1dc5f3ca7b96c2a0bb9965621452d7e8c94fdb2605cd5cf52acd2c6680badd92.json",
+      "contentHash": "74551fc38b8a98ce435ec49f1ad456b66f3e9ba1ab40f82a1369bae5ed0d8a75",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/1feac6b0da8a2005f5de10fd923664dfef82507d896cf1bae8d43f43a83ba31b.json": {
+      "filePath": "graphify-out/cache/semantic/1feac6b0da8a2005f5de10fd923664dfef82507d896cf1bae8d43f43a83ba31b.json",
+      "contentHash": "7aaf10aac432a7702c11a85e9122d54b0c28dfa5872587653217eae17c28dade",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/24a0347416c882b0a80b555edaa7316cd2c7c7dd9e3c05705cda63e626bc1214.json": {
+      "filePath": "graphify-out/cache/semantic/24a0347416c882b0a80b555edaa7316cd2c7c7dd9e3c05705cda63e626bc1214.json",
+      "contentHash": "e140a7c5ef32acdfe40b29460b847464f1cf894deec1d9e095ec4e659f124e0b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/25aa52b80683b6a3ea83b13fbb8f6c21c870de9c535342a942cc0ee11508d410.json": {
+      "filePath": "graphify-out/cache/semantic/25aa52b80683b6a3ea83b13fbb8f6c21c870de9c535342a942cc0ee11508d410.json",
+      "contentHash": "703d69aaaa7fd7a1091962559e9232461d6eb5f76efaab62a26904b63cb51643",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/26b1139cd5c4c111ef3c449a617312e849ddc9f694f1970db76b7912eb57c72a.json": {
+      "filePath": "graphify-out/cache/semantic/26b1139cd5c4c111ef3c449a617312e849ddc9f694f1970db76b7912eb57c72a.json",
+      "contentHash": "65102e70aca1466f7477214dc981821b346eefabc2568a72fe49c645f052cb08",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/26ca5a34c51c4bee10020a146434848de39dca9cab953e5bbd3ece9c972ce38f.json": {
+      "filePath": "graphify-out/cache/semantic/26ca5a34c51c4bee10020a146434848de39dca9cab953e5bbd3ece9c972ce38f.json",
+      "contentHash": "6bc551bcfc329786f9749d99c8121beb7121272af87a7e11955c0d2f3f0393b6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/27ec549f119c39f4577d17b75f44260f22d795a7fc4eaf969ed00b459a06a162.json": {
+      "filePath": "graphify-out/cache/semantic/27ec549f119c39f4577d17b75f44260f22d795a7fc4eaf969ed00b459a06a162.json",
+      "contentHash": "b71ed0608f17a9b9f3217112f9a72707bd2b6df995cd3fb214c680b4890fe765",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/2aeb11f4f8d8c1c1d57b0c704c7e430c434c1915059de28ec3ce041965544e4f.json": {
+      "filePath": "graphify-out/cache/semantic/2aeb11f4f8d8c1c1d57b0c704c7e430c434c1915059de28ec3ce041965544e4f.json",
+      "contentHash": "f0e4925055205bcc0a9173312704006a27baf6aac8004243d353c546ab91e1a4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/2e4d6af7e425de1316df836753ded7c32094109c25968bab1a4ad40e9f910aca.json": {
+      "filePath": "graphify-out/cache/semantic/2e4d6af7e425de1316df836753ded7c32094109c25968bab1a4ad40e9f910aca.json",
+      "contentHash": "f62310c2a15346373b6947944748fa5dce358a5f2ce5f6b19e6533554cc24ae0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/2e6f8108ccfd3d69fe0dd7b97d15ac30764738bd002f07826c8125af6e2e7500.json": {
+      "filePath": "graphify-out/cache/semantic/2e6f8108ccfd3d69fe0dd7b97d15ac30764738bd002f07826c8125af6e2e7500.json",
+      "contentHash": "52788507c8f058d7148c27eaa558077bd20c40055e021849a3953fbd47695da2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/2f20c188b10e017e3e96f7539579e80dbd7a51d42faee8dbc72b8c58aaa75190.json": {
+      "filePath": "graphify-out/cache/semantic/2f20c188b10e017e3e96f7539579e80dbd7a51d42faee8dbc72b8c58aaa75190.json",
+      "contentHash": "a19783f69b27c0dfc4574aa229a52635d3b2fb13156e3757bb7eae5399f39c79",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/31bc7030992ad71281d053461d81e2b57cca40889c111d61150efcb585af62bc.json": {
+      "filePath": "graphify-out/cache/semantic/31bc7030992ad71281d053461d81e2b57cca40889c111d61150efcb585af62bc.json",
+      "contentHash": "80fafcd5e64d0135e0f05c77d0748adfc9cfbd427ce5f595f235fa667dba33b8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/35bed1752abbb9361017d37f7c786a80d73774ffe44d39676d3255f35d546a61.json": {
+      "filePath": "graphify-out/cache/semantic/35bed1752abbb9361017d37f7c786a80d73774ffe44d39676d3255f35d546a61.json",
+      "contentHash": "444c01f74a02e158b994d6600df1af9d5c85abfdf1b271c66415f86cb2a2b667",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/39287e8878048c75e8f3d06aae550e513bc3f30fbcb79d8b3f078d3dbad5d3e6.json": {
+      "filePath": "graphify-out/cache/semantic/39287e8878048c75e8f3d06aae550e513bc3f30fbcb79d8b3f078d3dbad5d3e6.json",
+      "contentHash": "ab2cbef3ca1ca5da452606e0e974c42cc0c9c53b83b8635860f29cf22cf490df",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/3b286825c093974100df3629c8c7d90a96ce88814d545e29604893f0ec321cc2.json": {
+      "filePath": "graphify-out/cache/semantic/3b286825c093974100df3629c8c7d90a96ce88814d545e29604893f0ec321cc2.json",
+      "contentHash": "64d4dc7237e2eef17d6c58bd25248136d3fba7dcee86d4fe30379a26bf0ef01b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/3c633c4012ca7d4c39a873d763834e8d2afa193c709336c3579068429b14c9c0.json": {
+      "filePath": "graphify-out/cache/semantic/3c633c4012ca7d4c39a873d763834e8d2afa193c709336c3579068429b14c9c0.json",
+      "contentHash": "13817ebc29136ce8e94d12405861ed2567fbe6a783c6127b45e6f827569f3587",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/3e8087ea9d60536cf297768f4143d082c0171aea96cfd733df2dbab76b285b00.json": {
+      "filePath": "graphify-out/cache/semantic/3e8087ea9d60536cf297768f4143d082c0171aea96cfd733df2dbab76b285b00.json",
+      "contentHash": "b137264b71c03d76de669eb8a8b736bdb6ad0dc72006d3dcb91151a82a72a18f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/42ae12ebbe43dac8788f3120c76d88fc5fce6236c53afbe9bbfb8c6de5f4ac04.json": {
+      "filePath": "graphify-out/cache/semantic/42ae12ebbe43dac8788f3120c76d88fc5fce6236c53afbe9bbfb8c6de5f4ac04.json",
+      "contentHash": "a7de18e9873e0eb6ea508a02fcdc77a1605411d9578cb3162fc26368d96b2317",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/435e100a2d7cad8e6e3fb484d6c335ed760587b3e63ced829f0ff8ded70a3f52.json": {
+      "filePath": "graphify-out/cache/semantic/435e100a2d7cad8e6e3fb484d6c335ed760587b3e63ced829f0ff8ded70a3f52.json",
+      "contentHash": "b505fbbb5daa3e831853c2b7bc823480450d07e37f0dfeda57f974748477dc10",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/43d0cdbc5f40f1dbf76fbb946d54f8e34ddebaa5ec1ddfa7fedf9c56e0a20b6c.json": {
+      "filePath": "graphify-out/cache/semantic/43d0cdbc5f40f1dbf76fbb946d54f8e34ddebaa5ec1ddfa7fedf9c56e0a20b6c.json",
+      "contentHash": "b67e27cc637de18b57e09fabe7e487cbeaa171e074a7cd6caec6e6c813ea9ec1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/45d75f87d8028d6b6c66c5c56eac87a5bf2cce58584ba065c3cfec2165b2744d.json": {
+      "filePath": "graphify-out/cache/semantic/45d75f87d8028d6b6c66c5c56eac87a5bf2cce58584ba065c3cfec2165b2744d.json",
+      "contentHash": "b9897bceb691d5314a8f8300530699c873f014470e26537fd6f9c024e92950d0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/4749a78a77bd424253285e17ad545b358d6bfabe6fbde651efd6a18899984282.json": {
+      "filePath": "graphify-out/cache/semantic/4749a78a77bd424253285e17ad545b358d6bfabe6fbde651efd6a18899984282.json",
+      "contentHash": "c38465fa0f9ba428507862585577406389a5dfc13e05a0f295c18f8b7a5fbd5f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/4e017d39dc3786558ce54ac3a4e10b3b00ef204ba20c7d3efd52d0566f6135f4.json": {
+      "filePath": "graphify-out/cache/semantic/4e017d39dc3786558ce54ac3a4e10b3b00ef204ba20c7d3efd52d0566f6135f4.json",
+      "contentHash": "516cb2c997e90514359e81867d3c925e797c067e3f2f67b8a173a9deec6d2621",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/4e41cca672ae3344fabd743a882d5724cf3abcbdc86949f6bdc3a6e693074ce9.json": {
+      "filePath": "graphify-out/cache/semantic/4e41cca672ae3344fabd743a882d5724cf3abcbdc86949f6bdc3a6e693074ce9.json",
+      "contentHash": "a6736aea794e89eb4116c655cb22c67be1d455ea91878f5fd8321aa5957e2031",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/514a1a4288a5e769f69e993fc5cb0acc3935f0579199b2515bc56ff860ef64ce.json": {
+      "filePath": "graphify-out/cache/semantic/514a1a4288a5e769f69e993fc5cb0acc3935f0579199b2515bc56ff860ef64ce.json",
+      "contentHash": "a7db3fe84043237a83ae29971aee6f26706a46f1fa25e265538a5f877fa3fa88",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/5176944e8103dcddf62f4dfca4f6cccb16e9b75bf250e55e1530b5a4b3e9bb5a.json": {
+      "filePath": "graphify-out/cache/semantic/5176944e8103dcddf62f4dfca4f6cccb16e9b75bf250e55e1530b5a4b3e9bb5a.json",
+      "contentHash": "457e592154b27fbc9aedbe4f952d29a0a529c358049946d0f67f6812b89c9f03",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/553bffb0023f73c44757584b93eb73c4ba9551c94498f73c88951990e142e0d0.json": {
+      "filePath": "graphify-out/cache/semantic/553bffb0023f73c44757584b93eb73c4ba9551c94498f73c88951990e142e0d0.json",
+      "contentHash": "dddd86d9dbdcb0c8ab4bcc7d0a7db0771fbb9160f537a56db52dd3154a69afeb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/562eaad5c45c3433174d6a57b726ce5474fab6097ce3dff4db012930b858b12e.json": {
+      "filePath": "graphify-out/cache/semantic/562eaad5c45c3433174d6a57b726ce5474fab6097ce3dff4db012930b858b12e.json",
+      "contentHash": "50d258f5939a0548ad7bd7c8cd9894a7bcf4050dbc06726d77e90d6eea80fe0b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/5686c4eb0f1fbbee0efe7a3d13e61160857734ac32a1762ec9cfb7bdce4b6d1a.json": {
+      "filePath": "graphify-out/cache/semantic/5686c4eb0f1fbbee0efe7a3d13e61160857734ac32a1762ec9cfb7bdce4b6d1a.json",
+      "contentHash": "fbdd0f801841fa76ae32a3c75e3adcab97a64f69790d6c8794dc32969cd087a0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/57eb1336397cce141d6ebf15b5052e2e278e5984b2970bacf2c18ac5bee9501f.json": {
+      "filePath": "graphify-out/cache/semantic/57eb1336397cce141d6ebf15b5052e2e278e5984b2970bacf2c18ac5bee9501f.json",
+      "contentHash": "ac4e39a59633146ba048ae31a4660c034ee6290b63afb61b844b2f9d02147b41",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/5c3155e788b5a6a2fb4c3ebe1e72bf0e074bc05e5a5b1730e0c5266d1449d642.json": {
+      "filePath": "graphify-out/cache/semantic/5c3155e788b5a6a2fb4c3ebe1e72bf0e074bc05e5a5b1730e0c5266d1449d642.json",
+      "contentHash": "f9d10eadff3d990b8fda7e8e5cc30176fe2768635476e391e250c851241b06e7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/60c664184c5a125287792f5840dd51226143471d57006a38dec43caf41953c35.json": {
+      "filePath": "graphify-out/cache/semantic/60c664184c5a125287792f5840dd51226143471d57006a38dec43caf41953c35.json",
+      "contentHash": "448ddd60175d1b812510223a57aab0997dc4ed4b8db51def757c7e403a1ebaef",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/64728590438d5c4b4951501c3c8077de578bcd37053199dfff585bd0b67dba6a.json": {
+      "filePath": "graphify-out/cache/semantic/64728590438d5c4b4951501c3c8077de578bcd37053199dfff585bd0b67dba6a.json",
+      "contentHash": "9053c8025817f293fb3e5ebd1099fcb20e56d950f66f4ad4f1e3c477b6448a9a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/68e32bd67fbaedc9a22962dab998e8b39a14077146e1e3e13a05cde568ccafda.json": {
+      "filePath": "graphify-out/cache/semantic/68e32bd67fbaedc9a22962dab998e8b39a14077146e1e3e13a05cde568ccafda.json",
+      "contentHash": "78cb4073dbcab65390dfcb5cde2a5ced0a3f86adb4378f84ac07a36a8c3335c6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/7396a87d1965cc6d9a7b7faa1987180ae5f28a5d26ab353bb5eb5dbb71f4226c.json": {
+      "filePath": "graphify-out/cache/semantic/7396a87d1965cc6d9a7b7faa1987180ae5f28a5d26ab353bb5eb5dbb71f4226c.json",
+      "contentHash": "4149a85fe69cfa3bcb963757688a5b7abb95cac8a7d142f3bb33a8e900c3ffda",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/7845349e22965481a18dff86443debc688f6ffd7c27c8d734418db29e379d6a1.json": {
+      "filePath": "graphify-out/cache/semantic/7845349e22965481a18dff86443debc688f6ffd7c27c8d734418db29e379d6a1.json",
+      "contentHash": "51d49056d2647d101f8bb473d147df8b1df22e2ddd37b307dcf5e8d15a84f3ce",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/7b55691c43fe458c04e4bdc42b56a11a3c1425fbe1159277386c31ed0e9c576e.json": {
+      "filePath": "graphify-out/cache/semantic/7b55691c43fe458c04e4bdc42b56a11a3c1425fbe1159277386c31ed0e9c576e.json",
+      "contentHash": "7e4f3891f01cd63d0662f5962416d7043e6af0b37281434ca9cdcb2b036c6aa1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/82fd8eb481bc1ab239b15d3f229434d18fd6fec5a94828b753fe3290fba16685.json": {
+      "filePath": "graphify-out/cache/semantic/82fd8eb481bc1ab239b15d3f229434d18fd6fec5a94828b753fe3290fba16685.json",
+      "contentHash": "9552933eff79f7a881e14caab8b30487bf2f52a70742b2a0279086ff1993e69f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/84f216af5d7044a90422aecc240f29c3ae705826d8980e8ff561dec42b8c7704.json": {
+      "filePath": "graphify-out/cache/semantic/84f216af5d7044a90422aecc240f29c3ae705826d8980e8ff561dec42b8c7704.json",
+      "contentHash": "2cf0f70a953a6a4c1d1622cd62a8fd0c05d9746795c50bf067d887b15891c2fe",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/8600a31cbb0c6250864be42cb8861eacba84bb7db4291d652ff4774d7ddbf197.json": {
+      "filePath": "graphify-out/cache/semantic/8600a31cbb0c6250864be42cb8861eacba84bb7db4291d652ff4774d7ddbf197.json",
+      "contentHash": "fc14671b60709e49df1ee323516e26f5415e95d804f2a2c02e03519477f7db66",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/86ae95f894f9b2bb8bd8f6dca578d4478915d71a8d81bd6076a14f73a6d1e3c2.json": {
+      "filePath": "graphify-out/cache/semantic/86ae95f894f9b2bb8bd8f6dca578d4478915d71a8d81bd6076a14f73a6d1e3c2.json",
+      "contentHash": "3405594956e6e724c2ca88d075de72a656ce5c5c0e99d3b8eb0af5c410c0fbaa",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/8a51a3562e96c48152b781781a02187f6d104f9583196c11bc4612e1c89a8187.json": {
+      "filePath": "graphify-out/cache/semantic/8a51a3562e96c48152b781781a02187f6d104f9583196c11bc4612e1c89a8187.json",
+      "contentHash": "aab8cb52fdd5094127179770ac5a65442e540c3c5dfbd3a6608dcb31f60a1c70",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/8b6a68d10fcd0b8bf1e665ba558b571ab005bb0054c28406e4abf83c6eaa683d.json": {
+      "filePath": "graphify-out/cache/semantic/8b6a68d10fcd0b8bf1e665ba558b571ab005bb0054c28406e4abf83c6eaa683d.json",
+      "contentHash": "419eb91a58d67762abd38c5de5b57aac771671964b0a3c9274db223f721a8729",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/9190b451510e9e7df868e05f857ad764fedda451591fce68471af2e847dac6e5.json": {
+      "filePath": "graphify-out/cache/semantic/9190b451510e9e7df868e05f857ad764fedda451591fce68471af2e847dac6e5.json",
+      "contentHash": "46fcc2b8e1520fe3a369287a58f17df73086b8521da019db23f461beac2bbfef",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/92b98449e1d9bfce99730c347de177b14ad5d2df14a9e9d5ba9c800453e30326.json": {
+      "filePath": "graphify-out/cache/semantic/92b98449e1d9bfce99730c347de177b14ad5d2df14a9e9d5ba9c800453e30326.json",
+      "contentHash": "f20db9524880b1eb308e0b2ca3251dbcc9df369bbca1c8a764e696fff5587bce",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/9a245607e33f7e5d0c26e35a18fafdbfad3e7af15eeb93590fa8a1ebbcd551ac.json": {
+      "filePath": "graphify-out/cache/semantic/9a245607e33f7e5d0c26e35a18fafdbfad3e7af15eeb93590fa8a1ebbcd551ac.json",
+      "contentHash": "949955c199a54c8eebc44110b053ed953157e94c12c8be8017b4baa2af6d7a14",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/9c1d622f57ad6a4666d8e8cdf79664af79021c154d2e2be32dc5f0126c85a463.json": {
+      "filePath": "graphify-out/cache/semantic/9c1d622f57ad6a4666d8e8cdf79664af79021c154d2e2be32dc5f0126c85a463.json",
+      "contentHash": "470b237be892eeed06254a250b089cca9aa738355490a8116351a55fec92825e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/9e8354f7610d483cb91384186bcb75c52d03349f0c48017f6693960c27bb9e89.json": {
+      "filePath": "graphify-out/cache/semantic/9e8354f7610d483cb91384186bcb75c52d03349f0c48017f6693960c27bb9e89.json",
+      "contentHash": "87a07027f9e1300ebc82df87e580ce59c5385e8549333e4533f4cea6b0b349d1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/9fdc6ec957b36f15a90b281088b18cd923958ba2d5d042e6f10d89176570b87d.json": {
+      "filePath": "graphify-out/cache/semantic/9fdc6ec957b36f15a90b281088b18cd923958ba2d5d042e6f10d89176570b87d.json",
+      "contentHash": "c62105b74e7f601108cc69718775d1126efd55ee955159dcb9753acdf3ef9fa3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/a3c851d4ec12831ed830428c061a4add8c8d8b8650c9837ca3d92adab7d7de07.json": {
+      "filePath": "graphify-out/cache/semantic/a3c851d4ec12831ed830428c061a4add8c8d8b8650c9837ca3d92adab7d7de07.json",
+      "contentHash": "3ebc9aaad8827a7c42e53b99eae7009a47f67b0e5cdf34df0ae92b5a984f78ed",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/a879f6959e1c852e203adf6f3c168749db23ee184b15c088837123fc942323f4.json": {
+      "filePath": "graphify-out/cache/semantic/a879f6959e1c852e203adf6f3c168749db23ee184b15c088837123fc942323f4.json",
+      "contentHash": "d6cb03ae1e01632ac2335cafcfe0e90e05c39f3e877ce240a9e03ec12b5f9ed5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/a8bea375e609f5003dbfa326d1ab669ab404999fb2722e8fd74094930868b511.json": {
+      "filePath": "graphify-out/cache/semantic/a8bea375e609f5003dbfa326d1ab669ab404999fb2722e8fd74094930868b511.json",
+      "contentHash": "8e0cd708fbd9f13d2172c8d0c7224f4cb1963b96977c5ec941478cd79bb0efff",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/a8f6d142c814b6c9e75c9d73cdf811a294eb33d7323f4679338fb981b5fbcec9.json": {
+      "filePath": "graphify-out/cache/semantic/a8f6d142c814b6c9e75c9d73cdf811a294eb33d7323f4679338fb981b5fbcec9.json",
+      "contentHash": "28556cadd3cccac42e2916d6b3997ba34be973fb6e002f8b165564732e57f281",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/aeaaa01c0a1b7c6080b6fbf2a3840b688c087020dd41542f6bdf7163d3937314.json": {
+      "filePath": "graphify-out/cache/semantic/aeaaa01c0a1b7c6080b6fbf2a3840b688c087020dd41542f6bdf7163d3937314.json",
+      "contentHash": "589a35729a92e6beb9f6303ed7da5b772341d504fe558e26bcef59ae3e9dca06",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/af3660476b6bde0c6d4edad8b5d7fe78017b550b4e4f1b584ae0f0469e4a469d.json": {
+      "filePath": "graphify-out/cache/semantic/af3660476b6bde0c6d4edad8b5d7fe78017b550b4e4f1b584ae0f0469e4a469d.json",
+      "contentHash": "934990e83bbaba21f6de430e33e0c6cc7cfa7c53361780bc94d5a5b9be60d479",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/b7c5fad4ee79bba0ac4a3b38f6f24c33b0722a1423b2cc726197e82d83fac55b.json": {
+      "filePath": "graphify-out/cache/semantic/b7c5fad4ee79bba0ac4a3b38f6f24c33b0722a1423b2cc726197e82d83fac55b.json",
+      "contentHash": "fd779c8a91b25edaf6c875b1c7d95fa7c6ffa8e4fc1465e45fc17f6cac1d93b6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/bfd01baa3e5134b6d16ec9c68d077b8a3c64f3fc5da8703e21f9fb57f2471225.json": {
+      "filePath": "graphify-out/cache/semantic/bfd01baa3e5134b6d16ec9c68d077b8a3c64f3fc5da8703e21f9fb57f2471225.json",
+      "contentHash": "0665f34000bcbd1d27e699a16ac60ec21ed23ed21c90fa93d112d90f7d167151",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/c6c1dd58ac7b17ff2dfb291e15f63326fae6df905fa4618ec025b636fa3af2ab.json": {
+      "filePath": "graphify-out/cache/semantic/c6c1dd58ac7b17ff2dfb291e15f63326fae6df905fa4618ec025b636fa3af2ab.json",
+      "contentHash": "068e79322055b8becb5d0e4d27326c530c84f73d8380c0da0d74fbc0fd9069a7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/c7afbaf8118fa6456bea1409053f82f3dd99a1b3be31b5442ccfc494f0b3050c.json": {
+      "filePath": "graphify-out/cache/semantic/c7afbaf8118fa6456bea1409053f82f3dd99a1b3be31b5442ccfc494f0b3050c.json",
+      "contentHash": "8cafdf44c36a651ecb9905442406e1d9221ee1f4d95e0084d4ea97d401103cde",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/c7ef76bf6712dc499a176067b4df9e9d683ae74ea54ca67e7fbe0c1bd02ba2c7.json": {
+      "filePath": "graphify-out/cache/semantic/c7ef76bf6712dc499a176067b4df9e9d683ae74ea54ca67e7fbe0c1bd02ba2c7.json",
+      "contentHash": "417d350bae2d4115a5e04be79782d4c013e443b0fcd8f8ebe2ce8b10f8259ccf",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/c86a7a604e1f470067c0450321a17901ffb2bad08b759942f72bdc44cfd284e1.json": {
+      "filePath": "graphify-out/cache/semantic/c86a7a604e1f470067c0450321a17901ffb2bad08b759942f72bdc44cfd284e1.json",
+      "contentHash": "8328ee0d29e308eb2f23c929a0c338c67ea976e42afa0ec560534c9203176ba7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/c89e7b9a8358f24632f5672e66ca000261f0af1085773bfe6fe530216bc00c57.json": {
+      "filePath": "graphify-out/cache/semantic/c89e7b9a8358f24632f5672e66ca000261f0af1085773bfe6fe530216bc00c57.json",
+      "contentHash": "5661da250d5750476d696b6088250a11a7fb8a7b79d51b0fa2e06eeb20756a3e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/cda0a1b86267a43f02f794e4413fafb2f2c3261958327a4193eae42c5df64c2e.json": {
+      "filePath": "graphify-out/cache/semantic/cda0a1b86267a43f02f794e4413fafb2f2c3261958327a4193eae42c5df64c2e.json",
+      "contentHash": "0aa5aab047a8b146c03c48216363faa9ab02907b8839baac07c4b458f44fea7b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/d201ebdba9d9366afc709d5386199f7844162a26a5156566c8f07f9995f3fd19.json": {
+      "filePath": "graphify-out/cache/semantic/d201ebdba9d9366afc709d5386199f7844162a26a5156566c8f07f9995f3fd19.json",
+      "contentHash": "d9f845ae181c64383a3a0f2337f3718cb536992ef3df262a3538fb5dc5c51b21",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/d814779690149bd1252262cc2347c64867769e4fae5dee648751ffeef05e2493.json": {
+      "filePath": "graphify-out/cache/semantic/d814779690149bd1252262cc2347c64867769e4fae5dee648751ffeef05e2493.json",
+      "contentHash": "a7bf8ad87e8e2ef54d4a49fedd3a77e9565eb250b3f93d2d05b63be2c22c8999",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/dc26f590988d9808623b898ad92e69c523b8edafc7a716e53349fef854cdc60a.json": {
+      "filePath": "graphify-out/cache/semantic/dc26f590988d9808623b898ad92e69c523b8edafc7a716e53349fef854cdc60a.json",
+      "contentHash": "fc8d73c746ad69266071dc46daa85de5e7accc710c3f6c43102d66db3c57bfc6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/dd557da2a9669d22054dfa944c09cc5a4cdbc8e2ff90235c1e4fa62015367088.json": {
+      "filePath": "graphify-out/cache/semantic/dd557da2a9669d22054dfa944c09cc5a4cdbc8e2ff90235c1e4fa62015367088.json",
+      "contentHash": "9b56b37b484301b4ead7121f70fd2e5a31018bccc2c374eb74183f32f1811306",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/e02f3bda47fd3e2e1f9c6eb364c286142ca920b9882596f537f40b14072d5e9c.json": {
+      "filePath": "graphify-out/cache/semantic/e02f3bda47fd3e2e1f9c6eb364c286142ca920b9882596f537f40b14072d5e9c.json",
+      "contentHash": "ff7f8c8b528a1b9efff2abe31df55efd23258fdb0a9553e31ff138f258143d14",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/e7e607f8ead25b1760166c09e5edc36d83eed45c16098a9455c07d9622170c0e.json": {
+      "filePath": "graphify-out/cache/semantic/e7e607f8ead25b1760166c09e5edc36d83eed45c16098a9455c07d9622170c0e.json",
+      "contentHash": "9bc89ec1a1352cc00fdf3fd77be6a6d32aedbebc9edbdcb4bb29c40717f879b3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/e8b5c4332231cf9e9e94bd08dc79ea9701b69748ee6ea64509b7739397c74331.json": {
+      "filePath": "graphify-out/cache/semantic/e8b5c4332231cf9e9e94bd08dc79ea9701b69748ee6ea64509b7739397c74331.json",
+      "contentHash": "6b36e3d7aca12cf7db78725c2767b2970dea9401f41797cf6fd36e3322b63f67",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/ed8d9c37628b4b21d3bc042c118170031ef3fb60c730508c5f9531e94f718a04.json": {
+      "filePath": "graphify-out/cache/semantic/ed8d9c37628b4b21d3bc042c118170031ef3fb60c730508c5f9531e94f718a04.json",
+      "contentHash": "3fc828000133e4ca7318246036c5c4c050846e4cb6827345267d0caf95d8ba8c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/ee3b110fe50278e6bb54b078491687d43db6696d183409dff7643677edfd933b.json": {
+      "filePath": "graphify-out/cache/semantic/ee3b110fe50278e6bb54b078491687d43db6696d183409dff7643677edfd933b.json",
+      "contentHash": "82888a520728dc601391dd400b15e7989d83ffe215107ae18fcf9779f130c108",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/ee974396ec8918ba7f49945aed8a0cd60f4183effa58ff9bb9fee06fc85a1181.json": {
+      "filePath": "graphify-out/cache/semantic/ee974396ec8918ba7f49945aed8a0cd60f4183effa58ff9bb9fee06fc85a1181.json",
+      "contentHash": "fcabd628ef6ef415d79ad3f4647f41d5b0877eb6bd617b6ca1a3a6025356276c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/f04413295244205d33c3cb1a9b1f6966d9af8ed6baff0cb5ec01590f5e6900c4.json": {
+      "filePath": "graphify-out/cache/semantic/f04413295244205d33c3cb1a9b1f6966d9af8ed6baff0cb5ec01590f5e6900c4.json",
+      "contentHash": "74a85e4bfafa7b120c7dd49dbe2c3d0fbc13cb39c53140b87c24f1e450156594",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/f0d1b21b688c5315af807d3fde4fdc09b189b89fc5c6ebf400de0e33932c4212.json": {
+      "filePath": "graphify-out/cache/semantic/f0d1b21b688c5315af807d3fde4fdc09b189b89fc5c6ebf400de0e33932c4212.json",
+      "contentHash": "91f98aca4e9ed9dc3227e867969ac248adeec6348060352d9ee2d16fad272845",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/f35fecea8b0851863297f7fecb32e15ca83b75ed194c6f80495d9104fd7e7a53.json": {
+      "filePath": "graphify-out/cache/semantic/f35fecea8b0851863297f7fecb32e15ca83b75ed194c6f80495d9104fd7e7a53.json",
+      "contentHash": "0fc6541a11054625a7f119f1bab98d0a56ed005ed6e5143e9e3420c1095c2467",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/f430493f17fe614295e396574e32346d2aed4864a5b282ce9cca7d7f2793138f.json": {
+      "filePath": "graphify-out/cache/semantic/f430493f17fe614295e396574e32346d2aed4864a5b282ce9cca7d7f2793138f.json",
+      "contentHash": "5143ec691caab8e118190510ad249b80bd4a6854af3393315051ec9799e4ab28",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/f450764da29c73e713189415b8cd313f82dab4cdb308eb4214344a4d11a5f879.json": {
+      "filePath": "graphify-out/cache/semantic/f450764da29c73e713189415b8cd313f82dab4cdb308eb4214344a4d11a5f879.json",
+      "contentHash": "e8dc1160ecf6ffca27ed4720f06d25cfd48711893eb9d88482e7e02f796013b1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7.json": {
+      "filePath": "graphify-out/cache/semantic/f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7.json",
+      "contentHash": "bc811e2043f3c0e2d81ae58057539b9a561db2fb570281dbd28ff522bbdffd4f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/f72540e05c6afb539ac4945ce8e4dfd99a118f504fac3c4d997dc6f9b20cdece.json": {
+      "filePath": "graphify-out/cache/semantic/f72540e05c6afb539ac4945ce8e4dfd99a118f504fac3c4d997dc6f9b20cdece.json",
+      "contentHash": "f10fb80bc6080ac1464d880aa36ad962144e4b00f6a1269e73d746e89842c40b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/fe8fec5098c297a0d5d06035c3ce818f6e90df7f63df9b2df385156136391bac.json": {
+      "filePath": "graphify-out/cache/semantic/fe8fec5098c297a0d5d06035c3ce818f6e90df7f63df9b2df385156136391bac.json",
+      "contentHash": "732d65b4fb81a2f7afc9115294bbc0dd2d02cfcd2d2d9b1323939816f125f8b2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/semantic/ff15c4b84785b16f54c958d7727db5f774b64ba2e3c7f42e497da693b6754834.json": {
+      "filePath": "graphify-out/cache/semantic/ff15c4b84785b16f54c958d7727db5f774b64ba2e3c7f42e497da693b6754834.json",
+      "contentHash": "b0b5061f50b79c54f709b8b1ad35eda49ad8d853e398139400d0edfa12a818f3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cache/stat-index.json": {
+      "filePath": "graphify-out/cache/stat-index.json",
+      "contentHash": "e88299d9ab9153f8248cee025aeb2071b05a13ad2457721b82c83491db0c481f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/cost.json": {
+      "filePath": "graphify-out/cost.json",
+      "contentHash": "a7b79430b5aa3007afffa4cd3a61d016aee57ec51b48bbaae09d06406217ef2e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 48,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/graph.html": {
+      "filePath": "graphify-out/graph.html",
+      "contentHash": "257b7d5f256645b567c3e6ae233e9342173901c29aae91134163680a3a2b4482",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 320,
+      "hasStructuralAnalysis": false
+    },
+    "graphify-out/graph.json": {
+      "filePath": "graphify-out/graph.json",
+      "contentHash": "1e1fff9a9700c2e46995ca67f69e9a251c39b871ebff99365034444324e9b143",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20851,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/manifest.json": {
+      "filePath": "graphify-out/manifest.json",
+      "contentHash": "24d1f04792aefb952c8a69076dfdf4c238ff79d28f0fa5649400313a371bee88",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1327,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/memory/query_20260802_160216_most_interesting__why_does_readme_bridge_theme_sys.md": {
+      "filePath": "graphify-out/memory/query_20260802_160216_most_interesting__why_does_readme_bridge_theme_sys.md",
+      "contentHash": "af5abb6f549b3b1ba0c5281ec0c67d584f5eca9ea09f1e1436f74c7b6a0b8f70",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/memory/query_20260802_160320_trace_the_astro_migration_connection_to_readme.md": {
+      "filePath": "graphify-out/memory/query_20260802_160320_trace_the_astro_migration_connection_to_readme.md",
+      "contentHash": "7547737ef5435164ad0f031dc2b53c7516101a5dd33f4012439c7d16e49b52c0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "graphify-out/reflections/LESSONS.md": {
+      "filePath": "graphify-out/reflections/LESSONS.md",
+      "contentHash": "e44f268591f131391fb12ade29caef0eacb9bb7de1098e42b8416b220d5c1e8d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "index.html": {
+      "filePath": "index.html",
+      "contentHash": "020a12c2e36aeb87ac69c0c32fdbf3496a68bcd9f4ba8fe96d723ea8d0973972",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 49,
+      "hasStructuralAnalysis": false
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "48e5c43fcc007e52bb4cbffb09fc9b584826979eaf717b1c6bdcd6539e633e87",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 73,
+      "hasStructuralAnalysis": true
+    },
+    "public/.nojekyll": {
+      "filePath": "public/.nojekyll",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "public/manifest.json": {
+      "filePath": "public/manifest.json",
+      "contentHash": "ebbd5f2941f3cdc3f7d39538df5c13e3993420c2fee09ca6fe865ceda1b70d8a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "public/robots.txt": {
+      "filePath": "public/robots.txt",
+      "contentHash": "ccc2faba7dd072d229781fb8012b86b59d77be869bc6f53b3dfddf8974e1fd23",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "public/sitemap.xml": {
+      "filePath": "public/sitemap.xml",
+      "contentHash": "6393e9c219ae51b3e214d1182be6814233733b9d42ee1cb63684d28687c58268",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": false
+    },
+    "security_best_practices_report.md": {
+      "filePath": "security_best_practices_report.md",
+      "contentHash": "bf90a89dce3900d8dc327203cbd523164aca7fa4a0248a07e58d8dfc5fa1c391",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 55,
+      "hasStructuralAnalysis": true
+    },
+    "src/App.css": {
+      "filePath": "src/App.css",
+      "contentHash": "af819cb7ccfdeeac32708482f63d13d856aa5995e557406195fde2599dbc74cd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": false
+    },
+    "src/App.jsx": {
+      "filePath": "src/App.jsx",
+      "contentHash": "8fbdb6503ffd043a3b5193dda5645baffa92008186b6bc80e54e32c04310d1a4",
+      "functions": [
+        {
+          "name": "AppContent",
+          "params": [],
+          "exported": false,
+          "lineCount": 58
+        },
+        {
+          "name": "App",
+          "params": [],
+          "exported": false,
+          "lineCount": 9
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "source": "./App.css",
+          "specifiers": []
+        },
+        {
+          "source": "./containers/Main",
+          "specifiers": [
+            "Main"
+          ]
+        },
+        {
+          "source": "./components/ErrorBoundary",
+          "specifiers": [
+            "ErrorBoundary"
+          ]
+        },
+        {
+          "source": "./global",
+          "specifiers": [
+            "GlobalStyles"
+          ]
+        },
+        {
+          "source": "./portfolio",
+          "specifiers": [
+            "settings"
+          ]
+        },
+        {
+          "source": "react-ga4",
+          "specifiers": [
+            "ReactGA"
+          ]
+        },
+        {
+          "source": "react-animated-cursor",
+          "specifiers": [
+            "AnimatedCursor"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "MotionConfig"
+          ]
+        },
+        {
+          "source": "./themeController",
+          "specifiers": [
+            "ThemeControllerProvider",
+            "useThemeController"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 93,
+      "hasStructuralAnalysis": true
+    },
+    "src/App.test.jsx": {
+      "filePath": "src/App.test.jsx",
+      "contentHash": "b329d51d654fd8a22f93ef8623b6ef619b9ba54a44027e4ccc2fbd7eb87145d0",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "render",
+            "screen",
+            "cleanup",
+            "act"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect",
+            "afterEach",
+            "beforeEach"
+          ]
+        },
+        {
+          "source": "./App",
+          "specifiers": [
+            "App"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/Accessibility.test.jsx": {
+      "filePath": "src/__tests__/Accessibility.test.jsx",
+      "contentHash": "651f7a42c16e7819f5afa5c7a179824fd6d4c8b9f87e46159ede5651c207e20d",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "screen"
+          ]
+        },
+        {
+          "source": "@testing-library/user-event",
+          "specifiers": [
+            "userEvent"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect",
+            "vi"
+          ]
+        },
+        {
+          "source": "jest-axe",
+          "specifiers": [
+            "axe",
+            "toHaveNoViolations"
+          ]
+        },
+        {
+          "source": "../components/header/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "../components/footer/Footer",
+          "specifiers": [
+            "Footer"
+          ]
+        },
+        {
+          "source": "../containers/greeting/Greeting",
+          "specifiers": [
+            "Greeting"
+          ]
+        },
+        {
+          "source": "../components/experienceCard/ExperienceCard",
+          "specifiers": [
+            "ExperienceCard"
+          ]
+        },
+        {
+          "source": "../pages/theme/ThemePage",
+          "specifiers": [
+            "ThemePage"
+          ]
+        },
+        {
+          "source": "../test/testUtils",
+          "specifiers": [
+            "renderWithProviders",
+            "darkTheme"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 153,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/Behavior.test.jsx": {
+      "filePath": "src/__tests__/Behavior.test.jsx",
+      "contentHash": "0edd97f073a9425c318e765a6d804d6c943488402a8f15966050e828f144a740",
+      "functions": [
+        {
+          "name": "openHeaderMenu",
+          "params": [
+            "user"
+          ],
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "screen",
+            "waitFor"
+          ]
+        },
+        {
+          "source": "@testing-library/user-event",
+          "specifiers": [
+            "userEvent"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect",
+            "beforeEach"
+          ]
+        },
+        {
+          "source": "../components/header/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "../pages/theme/ThemePage",
+          "specifiers": [
+            "ThemePage"
+          ]
+        },
+        {
+          "source": "../components/SystemDesign/SystemCard",
+          "specifiers": [
+            "SystemCard"
+          ]
+        },
+        {
+          "source": "../components/SystemDesign/ProductTile",
+          "specifiers": [
+            "ProductTile"
+          ]
+        },
+        {
+          "source": "../containers/greeting/Greeting",
+          "specifiers": [
+            "Greeting"
+          ]
+        },
+        {
+          "source": "../containers/experienceAccordion/ExperienceAccordion",
+          "specifiers": [
+            "ExperienceAccordion"
+          ]
+        },
+        {
+          "source": "../test/testUtils",
+          "specifiers": [
+            "renderWithProviders",
+            "darkTheme",
+            "lightTheme"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 473,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/ExperienceCard.render.test.jsx": {
+      "filePath": "src/__tests__/ExperienceCard.render.test.jsx",
+      "contentHash": "8123ace3be0b69f9e69b2707f0769218fe662f33fe07645d8d22f3f7bf07e453",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "screen"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect"
+          ]
+        },
+        {
+          "source": "../components/experienceCard/ExperienceCard",
+          "specifiers": [
+            "ExperienceCard"
+          ]
+        },
+        {
+          "source": "../test/testUtils",
+          "specifiers": [
+            "renderWithProviders",
+            "darkTheme"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 73,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/Footer.render.test.jsx": {
+      "filePath": "src/__tests__/Footer.render.test.jsx",
+      "contentHash": "85f1eed78cb45caa4aa5c9d7061ee11fa2eea12c16607d11c27a1a45cb21cead",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "screen"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect"
+          ]
+        },
+        {
+          "source": "../components/footer/Footer",
+          "specifiers": [
+            "Footer"
+          ]
+        },
+        {
+          "source": "../test/testUtils",
+          "specifiers": [
+            "renderWithProviders",
+            "darkTheme",
+            "lightTheme"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/Greeting.render.test.jsx": {
+      "filePath": "src/__tests__/Greeting.render.test.jsx",
+      "contentHash": "bd1b33cd1f514a0a03d466b1bafb50a183877336e356918cd81e69def467e8be",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "screen"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect"
+          ]
+        },
+        {
+          "source": "../containers/greeting/Greeting",
+          "specifiers": [
+            "Greeting"
+          ]
+        },
+        {
+          "source": "../test/testUtils",
+          "specifiers": [
+            "renderWithProviders",
+            "darkTheme"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 79,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/Header.render.test.jsx": {
+      "filePath": "src/__tests__/Header.render.test.jsx",
+      "contentHash": "5e21e04261a0561f81a02b6803711ccf5e2cc0708d3778bf8a3f137fb01109ef",
+      "functions": [
+        {
+          "name": "openMenu",
+          "params": [],
+          "exported": false,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "screen"
+          ]
+        },
+        {
+          "source": "@testing-library/user-event",
+          "specifiers": [
+            "userEvent"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect"
+          ]
+        },
+        {
+          "source": "../components/header/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "../test/testUtils",
+          "specifiers": [
+            "renderWithProviders"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 114,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/Navigation.test.jsx": {
+      "filePath": "src/__tests__/Navigation.test.jsx",
+      "contentHash": "d0dc56dd5a777867db88fc7db9279d4054d6dc1c39152b14e54cb7d2d62e67a0",
+      "functions": [
+        {
+          "name": "renderAtRoute",
+          "params": [
+            "initialPath"
+          ],
+          "exported": false,
+          "lineCount": 21
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "screen"
+          ]
+        },
+        {
+          "source": "@testing-library/user-event",
+          "specifiers": [
+            "userEvent"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect",
+            "vi"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "render"
+          ]
+        },
+        {
+          "source": "react-router-dom",
+          "specifiers": [
+            "MemoryRouter",
+            "Routes",
+            "Route"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "MotionConfig"
+          ]
+        },
+        {
+          "source": "../themeController",
+          "specifiers": [
+            "ThemeControllerProvider"
+          ]
+        },
+        {
+          "source": "../theme",
+          "specifiers": [
+            "darkTheme"
+          ]
+        },
+        {
+          "source": "../pages/home/HomeComponent",
+          "specifiers": [
+            "Home"
+          ]
+        },
+        {
+          "source": "../pages/experience/Experience",
+          "specifiers": [
+            "Experience"
+          ]
+        },
+        {
+          "source": "../pages/education/EducationComponent",
+          "specifiers": [
+            "Education"
+          ]
+        },
+        {
+          "source": "../pages/contact/ContactComponent",
+          "specifiers": [
+            "Contact"
+          ]
+        },
+        {
+          "source": "../pages/projects/Projects",
+          "specifiers": [
+            "Projects"
+          ]
+        },
+        {
+          "source": "../pages/skills/SkillsPage",
+          "specifiers": [
+            "SkillsPage"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 154,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/Pages.render.test.jsx": {
+      "filePath": "src/__tests__/Pages.render.test.jsx",
+      "contentHash": "2534c0d2046145fc24ec2312e63b84bfd4ff34e147838b7fc781c042cde2981b",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "screen"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect",
+            "vi"
+          ]
+        },
+        {
+          "source": "../test/testUtils",
+          "specifiers": [
+            "renderWithProviders",
+            "darkTheme"
+          ]
+        },
+        {
+          "source": "../pages/home/HomeComponent.jsx",
+          "specifiers": [
+            "Home"
+          ]
+        },
+        {
+          "source": "../pages/experience/Experience.jsx",
+          "specifiers": [
+            "Experience"
+          ]
+        },
+        {
+          "source": "../pages/education/EducationComponent.jsx",
+          "specifiers": [
+            "Education"
+          ]
+        },
+        {
+          "source": "../pages/contact/ContactComponent.jsx",
+          "specifiers": [
+            "Contact"
+          ]
+        },
+        {
+          "source": "../pages/projects/Projects.jsx",
+          "specifiers": [
+            "Projects"
+          ]
+        },
+        {
+          "source": "../pages/skills/SkillsPage.jsx",
+          "specifiers": [
+            "SkillsPage"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 105,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/ProjectsData.test.js": {
+      "filePath": "src/__tests__/ProjectsData.test.js",
+      "contentHash": "682d88897f322cf3cb408ef45b8f83d06ba534bb9babd7e4209067c27237d633",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "expect",
+            "it"
+          ]
+        },
+        {
+          "source": "../data/projects",
+          "specifiers": [
+            "projects"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/Responsive.test.jsx": {
+      "filePath": "src/__tests__/Responsive.test.jsx",
+      "contentHash": "a6c2b7334c7cb5db39d767c5fa648be0aaeeb700dbed3dd847fcab6334966bf6",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "screen"
+          ]
+        },
+        {
+          "source": "@testing-library/user-event",
+          "specifiers": [
+            "userEvent"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect",
+            "vi",
+            "beforeEach",
+            "afterEach"
+          ]
+        },
+        {
+          "source": "../components/header/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "../containers/greeting/Greeting",
+          "specifiers": [
+            "Greeting"
+          ]
+        },
+        {
+          "source": "../test/testUtils",
+          "specifiers": [
+            "renderWithProviders",
+            "darkTheme"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 151,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/RouteMetadata.test.jsx": {
+      "filePath": "src/__tests__/RouteMetadata.test.jsx",
+      "contentHash": "3e9af794e68c8667031ac05c3e5458afad2422478a4f7276d523602541205215",
+      "functions": [
+        {
+          "name": "renderMainAt",
+          "params": [
+            "pathname"
+          ],
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "getManagedMeta",
+          "params": [
+            "selector"
+          ],
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "render",
+            "waitFor"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect"
+          ]
+        },
+        {
+          "source": "../containers/Main",
+          "specifiers": [
+            "Main"
+          ]
+        },
+        {
+          "source": "../themeController",
+          "specifiers": [
+            "ThemeControllerProvider"
+          ]
+        },
+        {
+          "source": "../theme",
+          "specifiers": [
+            "darkTheme"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 102,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/SystemCard.render.test.jsx": {
+      "filePath": "src/__tests__/SystemCard.render.test.jsx",
+      "contentHash": "81be23b52c3e17d11847e6e46ce0854cfcecf5bc16cf4f50c14373b0017147cf",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "screen",
+            "within"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect"
+          ]
+        },
+        {
+          "source": "../components/SystemDesign/SystemCard",
+          "specifiers": [
+            "SystemCard"
+          ]
+        },
+        {
+          "source": "../test/testUtils",
+          "specifiers": [
+            "renderWithProviders",
+            "darkTheme"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 109,
+      "hasStructuralAnalysis": true
+    },
+    "src/__tests__/ThemeRegistry.test.jsx": {
+      "filePath": "src/__tests__/ThemeRegistry.test.jsx",
+      "contentHash": "f6d58cdad0de0fb1de2522a9a4b2255014262189e9274cba76b0aff04b17562d",
+      "functions": [
+        {
+          "name": "hexToRgb",
+          "params": [
+            "hex"
+          ],
+          "exported": false,
+          "lineCount": 17
+        },
+        {
+          "name": "getRelativeLuminance",
+          "params": [
+            "hex"
+          ],
+          "exported": false,
+          "lineCount": 17
+        },
+        {
+          "name": "getContrastRatio",
+          "params": [
+            "foregroundHex",
+            "backgroundHex"
+          ],
+          "exported": false,
+          "lineCount": 10
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "expect",
+            "it"
+          ]
+        },
+        {
+          "source": "../theme",
+          "specifiers": [
+            "resolveTheme",
+            "themeFamilyOptions",
+            "themes"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 430,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/ErrorBoundary.jsx": {
+      "filePath": "src/components/ErrorBoundary.jsx",
+      "contentHash": "125a8e4f30227dfc998ca0d79d4af25881a550ebd75603051125082c0fb964b0",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ErrorBoundary",
+          "methods": [
+            "constructor",
+            "getDerivedStateFromError",
+            "render"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 53
+        }
+      ],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        }
+      ],
+      "exports": [
+        "default"
+      ],
+      "totalLines": 56,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/ProjectCard/ProjectCard.css": {
+      "filePath": "src/components/ProjectCard/ProjectCard.css",
+      "contentHash": "d8579426484a02b72386d3f17a7bf900af213b24421bffd6779f5a3d308b3d2f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 118,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/ProjectCard/ProjectCard.jsx": {
+      "filePath": "src/components/ProjectCard/ProjectCard.jsx",
+      "contentHash": "5d3cd06858afaad880a55dc02ab9a99e4d5459c5c5a472df95504793944a43a4",
+      "functions": [
+        {
+          "name": "ProjectCard",
+          "params": [],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./ProjectCard.css",
+          "specifiers": []
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        }
+      ],
+      "exports": [
+        "ProjectCard"
+      ],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/SystemDesign/ProductTile.css": {
+      "filePath": "src/components/SystemDesign/ProductTile.css",
+      "contentHash": "490bc3524c9e6b7f0a26880015b6fe338a676884cb920276fb852127fa0e28ab",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 128,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/SystemDesign/ProductTile.jsx": {
+      "filePath": "src/components/SystemDesign/ProductTile.jsx",
+      "contentHash": "e0a598a176abf1199ef9eba98ccece55848c33b4d4a1fc6253b3a02abc7a796a",
+      "functions": [
+        {
+          "name": "ProductTile",
+          "params": [],
+          "exported": false,
+          "lineCount": 150
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "useCallback",
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "source": "./ProductTile.css",
+          "specifiers": []
+        },
+        {
+          "source": "./SystemDiagram",
+          "specifiers": [
+            "SystemDiagram"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion",
+            "AnimatePresence"
+          ]
+        },
+        {
+          "source": "./useAccessibleDialog",
+          "specifiers": [
+            "useAccessibleDialog"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 168,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/SystemDesign/SystemCard.jsx": {
+      "filePath": "src/components/SystemDesign/SystemCard.jsx",
+      "contentHash": "ff72d992fa4feba97b5b340b8cfc44aacb7cf2628dd7078f647a83f899e91771",
+      "functions": [
+        {
+          "name": "SystemCard",
+          "params": [],
+          "exported": false,
+          "lineCount": 223
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "useCallback",
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "source": "./systems.css",
+          "specifiers": []
+        },
+        {
+          "source": "./SystemDiagram",
+          "specifiers": [
+            "SystemDiagram"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion",
+            "AnimatePresence"
+          ]
+        },
+        {
+          "source": "./useAccessibleDialog",
+          "specifiers": [
+            "useAccessibleDialog"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 246,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/SystemDesign/SystemDiagram.jsx": {
+      "filePath": "src/components/SystemDesign/SystemDiagram.jsx",
+      "contentHash": "89f26a9adf4fd25be8f8ac01e0e71752cff084adec2d07287bbe266e6e51b64b",
+      "functions": [
+        {
+          "name": "SystemDiagram",
+          "params": [],
+          "exported": false,
+          "lineCount": 40
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./systems.css",
+          "specifiers": []
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/SystemDesign/systems.css": {
+      "filePath": "src/components/SystemDesign/systems.css",
+      "contentHash": "c67f86aea33880524e6f5a77aaef22ae2e6bb6461b94325016ac5f0d6d1af4ee",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 378,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/SystemDesign/useAccessibleDialog.js": {
+      "filePath": "src/components/SystemDesign/useAccessibleDialog.js",
+      "contentHash": "7399ccf506d156cc5eabb5aba063185e45b2bc79f0fa8179f2f2c00f4730a1de",
+      "functions": [
+        {
+          "name": "getFocusableElements",
+          "params": [
+            "container"
+          ],
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "useAccessibleDialog",
+          "params": [],
+          "exported": true,
+          "lineCount": 82
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef"
+          ]
+        }
+      ],
+      "exports": [
+        "useAccessibleDialog"
+      ],
+      "totalLines": 104,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/certificationCard/CertificationCard.css": {
+      "filePath": "src/components/certificationCard/CertificationCard.css",
+      "contentHash": "fbea35cf249a8d82f1b6f262bb061fc75b42cc2579744d840b80b97cc4c5b706",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 116,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/certificationCard/CertificationCard.jsx": {
+      "filePath": "src/components/certificationCard/CertificationCard.jsx",
+      "contentHash": "e0b8e36d717c178bbef562d4d2dab770db0ee014a4d8122964372f6c96556ae6",
+      "functions": [
+        {
+          "name": "CertificationCard",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 75
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./CertificationCard.css",
+          "specifiers": []
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "styled-components",
+          "specifiers": [
+            "styled"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 95,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/degreeCard/DegreeCard.css": {
+      "filePath": "src/components/degreeCard/DegreeCard.css",
+      "contentHash": "2a3103ada67126f636ce8c1dcd0bea00876bed605aad0a97a8090f03e06b3fbf",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 150,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/degreeCard/DegreeCard.jsx": {
+      "filePath": "src/components/degreeCard/DegreeCard.jsx",
+      "contentHash": "71a4d70c532a759ef858b9161551a8ceff88be65885e99a59e0027b69cbd2b0b",
+      "functions": [
+        {
+          "name": "DegreeCard",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 85
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./DegreeCard.css",
+          "specifiers": []
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "styled-components",
+          "specifiers": [
+            "styled"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 182,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/experienceCard/ExperienceCard.css": {
+      "filePath": "src/components/experienceCard/ExperienceCard.css",
+      "contentHash": "ae4b494a2ae8f1f94837933a632271f447444fdd0fab99ada1ce3c3eb8484f27",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 235,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/experienceCard/ExperienceCard.jsx": {
+      "filePath": "src/components/experienceCard/ExperienceCard.jsx",
+      "contentHash": "d227fc0e7f2e8ae4bb8f9ad46b36a8fdf22e607900d7f9ed011a13c920aba499",
+      "functions": [
+        {
+          "name": "ExperienceCard",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 81
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./ExperienceCard.css",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 96,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/footer/Footer.css": {
+      "filePath": "src/components/footer/Footer.css",
+      "contentHash": "cff3f943bae9ca50b808cc679d3c3e4f270ea1ff5d76fb2592717cc7daf2884d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/footer/Footer.jsx": {
+      "filePath": "src/components/footer/Footer.jsx",
+      "contentHash": "c08e4e26ddb17bb5224c9d8461d523efcb39a199b4a3ae4d52da8284cf0b08bb",
+      "functions": [
+        {
+          "name": "Footer",
+          "params": [
+            "props"
+          ],
+          "exported": true,
+          "lineCount": 26
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./Footer.css",
+          "specifiers": []
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "../../portfolio.js",
+          "specifiers": [
+            "greeting"
+          ]
+        },
+        {
+          "source": "../../themeController",
+          "specifiers": [
+            "useThemeController"
+          ]
+        },
+        {
+          "source": "../../themeMotion",
+          "specifiers": [
+            "themeElevatedSurfaceTransition",
+            "themeTextTransition"
+          ]
+        }
+      ],
+      "exports": [
+        "Footer"
+      ],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/header/Header.css": {
+      "filePath": "src/components/header/Header.css",
+      "contentHash": "0d1539884ef4ce56397b62d5b3455de66260d9c76e8b240180115fe2d8b91a51",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 263,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/header/Header.jsx": {
+      "filePath": "src/components/header/Header.jsx",
+      "contentHash": "aeee71549109ba77c36cda7df0992e9b07998767168f1de3dae4b2667db435ee",
+      "functions": [
+        {
+          "name": "navigationLinkStyle",
+          "params": [
+            "theme"
+          ],
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "Header",
+          "params": [],
+          "exported": false,
+          "lineCount": 167
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "source": "./Header.css",
+          "specifiers": []
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "react-router-dom",
+          "specifiers": [
+            "NavLink",
+            "useLocation"
+          ]
+        },
+        {
+          "source": "../../portfolio.js",
+          "specifiers": [
+            "greeting",
+            "settings"
+          ]
+        },
+        {
+          "source": "react-icons/cg/",
+          "specifiers": [
+            "CgSun"
+          ]
+        },
+        {
+          "source": "react-icons/hi",
+          "specifiers": [
+            "HiMoon"
+          ]
+        },
+        {
+          "source": "../../themeController",
+          "specifiers": [
+            "useThemeController"
+          ]
+        },
+        {
+          "source": "../../themeMotion",
+          "specifiers": [
+            "buildThemeBackground",
+            "buildThemeShadow",
+            "themeSurfaceTransition",
+            "themeElevatedSurfaceTransition"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 207,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/icons/SkillIcon.jsx": {
+      "filePath": "src/components/icons/SkillIcon.jsx",
+      "contentHash": "b6a0e689f37fd50b388230e5217a8ab1565c42132b66621e1a7adf5c29bd152a",
+      "functions": [
+        {
+          "name": "resolveIcon",
+          "params": [
+            "skill"
+          ],
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "SkillIcon",
+          "params": [],
+          "exported": false,
+          "lineCount": 19
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "react-icons/si",
+          "specifiers": [
+            "SiAmazonaws",
+            "SiAmazoncloudwatch",
+            "SiAmazons3",
+            "SiApachespark",
+            "SiAwslambda",
+            "SiDatabricks",
+            "SiDocker",
+            "SiFastapi",
+            "SiGit",
+            "SiGitlab",
+            "SiJupyter",
+            "SiMicrosoftazure",
+            "SiMicrosoftsqlserver",
+            "SiMilvus",
+            "SiNumpy",
+            "SiOpenai",
+            "SiPaddlepaddle",
+            "SiPandas",
+            "SiPlaywright",
+            "SiPowerbi",
+            "SiPydantic",
+            "SiPython",
+            "SiScikitlearn",
+            "SiTensorflow"
+          ]
+        },
+        {
+          "source": "./custom",
+          "specifiers": [
+            "customSkillIcons"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 92,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/icons/custom/index.jsx": {
+      "filePath": "src/components/icons/custom/index.jsx",
+      "contentHash": "5aa9c121beecace199356df1ed84b0b142f8ebbf7c59b5f1f1a4a6d92ca69026",
+      "functions": [
+        {
+          "name": "AzureMachineLearningIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "AzureBlobStorageIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "AzureCognitiveServicesIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "AzureDocumentIntelligenceIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "AzureKeyVaultIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "AmazonSageMakerIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "DeltaLakeIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "RestApisIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "AnthropicIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "LangChainIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "LangGraphIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "GeminiIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "ModelContextProtocolIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        }
+      ],
+      "exports": [
+        "AzureMachineLearningIcon",
+        "AzureBlobStorageIcon",
+        "AzureCognitiveServicesIcon",
+        "AzureDocumentIntelligenceIcon",
+        "AzureKeyVaultIcon",
+        "AmazonSageMakerIcon",
+        "DeltaLakeIcon",
+        "RestApisIcon",
+        "AnthropicIcon",
+        "LangChainIcon",
+        "LangGraphIcon",
+        "GeminiIcon",
+        "ModelContextProtocolIcon",
+        "customSkillIcons"
+      ],
+      "totalLines": 172,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/projectLanguages/ProjectLanguages.css": {
+      "filePath": "src/components/projectLanguages/ProjectLanguages.css",
+      "contentHash": "b3aa8dd4040849b279215b869cd97df33d74bec4ec53ec2136e9e17d741adcf8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 69,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/projectLanguages/ProjectLanguages.jsx": {
+      "filePath": "src/components/projectLanguages/ProjectLanguages.jsx",
+      "contentHash": "c1c545785abf12930e85861913ce8c9258f1cc857c10c80b41ffdc184169e443",
+      "functions": [
+        {
+          "name": "ProjectLanguages",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 58
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./ProjectLanguages.css",
+          "specifiers": []
+        },
+        {
+          "source": "react-bootstrap",
+          "specifiers": [
+            "OverlayTrigger",
+            "Tooltip"
+          ]
+        },
+        {
+          "source": "../../themeMotion",
+          "specifiers": [
+            "buildThemeBackground",
+            "buildThemeShadow"
+          ]
+        },
+        {
+          "source": "../icons/SkillIcon",
+          "specifiers": [
+            "SkillIcon"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 75,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/seo/RouteMeta.jsx": {
+      "filePath": "src/components/seo/RouteMeta.jsx",
+      "contentHash": "78215fefdf9345f981541ce26e3c55f02b68d9037008c6978349dffb88315f14",
+      "functions": [
+        {
+          "name": "normalizePath",
+          "params": [
+            "pathname"
+          ],
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "RouteMeta",
+          "params": [],
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "react-helmet-async",
+          "specifiers": [
+            "Helmet"
+          ]
+        },
+        {
+          "source": "react-router-dom",
+          "specifiers": [
+            "useLocation"
+          ]
+        }
+      ],
+      "exports": [
+        "RouteMeta"
+      ],
+      "totalLines": 54,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/socialMedia/ContactLinksList.css": {
+      "filePath": "src/components/socialMedia/ContactLinksList.css",
+      "contentHash": "769e24b3d5fe319ab97666e10dd824024ec9d5f3cc3b73fa00162780c3563a0a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 104,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/socialMedia/ContactLinksList.jsx": {
+      "filePath": "src/components/socialMedia/ContactLinksList.jsx",
+      "contentHash": "8fa03c92b1a5b04d308c82adb5481819ddabc88d8ff063171db52e6dd902be8e",
+      "functions": [
+        {
+          "name": "buildContactItems",
+          "params": [],
+          "exported": false,
+          "lineCount": 72
+        },
+        {
+          "name": "ContactLinksList",
+          "params": [],
+          "exported": true,
+          "lineCount": 41
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./ContactLinksList.css",
+          "specifiers": []
+        },
+        {
+          "source": "../../portfolio",
+          "specifiers": [
+            "socialMediaLinks"
+          ]
+        },
+        {
+          "source": "react-icons/fa",
+          "specifiers": [
+            "FaDiscord",
+            "FaEnvelope",
+            "FaGithub",
+            "FaLinkedinIn",
+            "FaPhone",
+            "FaTelegramPlane"
+          ]
+        }
+      ],
+      "exports": [
+        "ContactLinksList"
+      ],
+      "totalLines": 136,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/socialMedia/SocialMedia.css": {
+      "filePath": "src/components/socialMedia/SocialMedia.css",
+      "contentHash": "ac8a07429a89651684953c9d515801921b9d0f12cd9375d08109daa2627f09d1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 100,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/socialMedia/SocialMedia.jsx": {
+      "filePath": "src/components/socialMedia/SocialMedia.jsx",
+      "contentHash": "d43b8b41f5e2e782390c0ccbb1df6d1abfc5e00e1845f2fb18011be1c9c98b2c",
+      "functions": [
+        {
+          "name": "socialMedia",
+          "params": [],
+          "exported": true,
+          "lineCount": 98
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./SocialMedia.css",
+          "specifiers": []
+        },
+        {
+          "source": "../../portfolio",
+          "specifiers": [
+            "socialMediaLinks"
+          ]
+        },
+        {
+          "source": "react-icons/fa",
+          "specifiers": [
+            "FaDiscord",
+            "FaGithub",
+            "FaGoogle",
+            "FaInstagram",
+            "FaLinkedinIn",
+            "FaTelegramPlane",
+            "FaTwitter"
+          ]
+        }
+      ],
+      "exports": [
+        "socialMedia"
+      ],
+      "totalLines": 118,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/softwareSkills/SoftwareSkill.css": {
+      "filePath": "src/components/softwareSkills/SoftwareSkill.css",
+      "contentHash": "cdd0bd63e2ef502fe6dcdf9ee5ec5d75773f60c98dbb2d6766909e3f977ba8c8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 79,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/softwareSkills/SoftwareSkill.jsx": {
+      "filePath": "src/components/softwareSkills/SoftwareSkill.jsx",
+      "contentHash": "667cb4259adb41cddc24c0c8d2021cb456e74f5ec39e0193b31dbf663e2f060a",
+      "functions": [
+        {
+          "name": "SoftwareSkill",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 40
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./SoftwareSkill.css",
+          "specifiers": []
+        },
+        {
+          "source": "react-bootstrap",
+          "specifiers": [
+            "OverlayTrigger",
+            "Tooltip"
+          ]
+        },
+        {
+          "source": "../icons/SkillIcon",
+          "specifiers": [
+            "SkillIcon"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 56,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/Main.jsx": {
+      "filePath": "src/containers/Main.jsx",
+      "contentHash": "e08e75757a3bc3529305189e85c1a90fcb3b958f3b123e57261fe240aac590cc",
+      "functions": [
+        {
+          "name": "withRouteMeta",
+          "params": [
+            "meta",
+            "element"
+          ],
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "Main",
+          "params": [
+            "props"
+          ],
+          "exported": true,
+          "lineCount": 99
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "lazy",
+            "Suspense"
+          ]
+        },
+        {
+          "source": "react-router-dom",
+          "specifiers": [
+            "Routes",
+            "Route",
+            "BrowserRouter"
+          ]
+        },
+        {
+          "source": "react-helmet-async",
+          "specifiers": [
+            "HelmetProvider"
+          ]
+        },
+        {
+          "source": "../portfolio.js",
+          "specifiers": [
+            "settings",
+            "greeting",
+            "experience",
+            "projectsHeader",
+            "contactPageData",
+            "skillsPageData"
+          ]
+        },
+        {
+          "source": "../components/seo/RouteMeta",
+          "specifiers": [
+            "RouteMeta"
+          ]
+        }
+      ],
+      "exports": [
+        "Main"
+      ],
+      "totalLines": 212,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/SystemShowcase/SystemShowcase.jsx": {
+      "filePath": "src/containers/SystemShowcase/SystemShowcase.jsx",
+      "contentHash": "fc18ecd777d9988e17f0635003111017a54d9bc6d1c1c5ca91848912c5b65edf",
+      "functions": [
+        {
+          "name": "SystemShowcase",
+          "params": [],
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "styled-components",
+          "specifiers": [
+            "styled"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "../../components/SystemDesign/SystemCard",
+          "specifiers": [
+            "SystemCard"
+          ]
+        },
+        {
+          "source": "../../portfolio",
+          "specifiers": [
+            "systems"
+          ]
+        }
+      ],
+      "exports": [
+        "SystemShowcase"
+      ],
+      "totalLines": 60,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/SystemThinking/SystemThinking.jsx": {
+      "filePath": "src/containers/SystemThinking/SystemThinking.jsx",
+      "contentHash": "1ef2430bdd423f750632a75c596d98ebd3999d5a4f0440d7a843bcee60c36fbb",
+      "functions": [
+        {
+          "name": "SystemThinking",
+          "params": [],
+          "exported": true,
+          "lineCount": 33
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "styled-components",
+          "specifiers": [
+            "styled"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        }
+      ],
+      "exports": [
+        "SystemThinking"
+      ],
+      "totalLines": 134,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/certifications/Certifications.css": {
+      "filePath": "src/containers/certifications/Certifications.css",
+      "contentHash": "ec0188ed01781ed83a19254cd3a1422a18f07edb0f8e6c905f47dbd25412f9f0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 37,
+      "hasStructuralAnalysis": false
+    },
+    "src/containers/certifications/Certifications.jsx": {
+      "filePath": "src/containers/certifications/Certifications.jsx",
+      "contentHash": "308021f57cda879488165b5e695d5851a88a5bb87c19d53474cac1a453bb5954",
+      "functions": [
+        {
+          "name": "Certifications",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 30
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./Certifications.css",
+          "specifiers": []
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "../../portfolio",
+          "specifiers": [
+            "certifications"
+          ]
+        },
+        {
+          "source": "../../components/certificationCard/CertificationCard",
+          "specifiers": [
+            "CertificationCard"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/education/Educations.css": {
+      "filePath": "src/containers/education/Educations.css",
+      "contentHash": "2e556a95183a1d9eb3e187777d4d24fd39f9e8bdf4a392a8aae873329bb17213",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": false
+    },
+    "src/containers/education/Educations.jsx": {
+      "filePath": "src/containers/education/Educations.jsx",
+      "contentHash": "638a9962ec03aef2521d8a2ef2d310cc2be83abfd28898360d641c6c6e8847bb",
+      "functions": [
+        {
+          "name": "Educations",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 27
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./Educations.css",
+          "specifiers": []
+        },
+        {
+          "source": "../../components/degreeCard/DegreeCard",
+          "specifiers": [
+            "DegreeCard"
+          ]
+        },
+        {
+          "source": "../../portfolio",
+          "specifiers": [
+            "degrees"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/experienceAccordion/ExperienceAccordion.jsx": {
+      "filePath": "src/containers/experienceAccordion/ExperienceAccordion.jsx",
+      "contentHash": "47c8abfcd3e6bb61349b46623d33a4d8735ef7eebbddf2f5a277fb7ea06e2852",
+      "functions": [
+        {
+          "name": "ExperienceAccordion",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 24
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "../../components/experienceCard/ExperienceCard",
+          "specifiers": [
+            "ExperienceCard"
+          ]
+        },
+        {
+          "source": "styled-components",
+          "specifiers": [
+            "styled"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 111,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/greeting/FeelingProud.css": {
+      "filePath": "src/containers/greeting/FeelingProud.css",
+      "contentHash": "efc2454710ae6415bdc5993ba79b0e627bfddfe1d7e5a17b4684cf594a2340cf",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 308,
+      "hasStructuralAnalysis": false
+    },
+    "src/containers/greeting/FeelingProud.jsx": {
+      "filePath": "src/containers/greeting/FeelingProud.jsx",
+      "contentHash": "8da5d2a97e52da4b0dee4d03b2c5ac9c2d53d4ea98221482c8ab8bffc3e9ceae",
+      "functions": [
+        {
+          "name": "FeelingProud",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 517
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./FeelingProud.css",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 523,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/greeting/Greeting.css": {
+      "filePath": "src/containers/greeting/Greeting.css",
+      "contentHash": "eca4bc451fbd0856191878e5ec3f022e62e0f5e63e319b0b0e74e5407a3b5f85",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 264,
+      "hasStructuralAnalysis": false
+    },
+    "src/containers/greeting/Greeting.jsx": {
+      "filePath": "src/containers/greeting/Greeting.jsx",
+      "contentHash": "9b5c17315b906e052e3c8e4f4b7e88acde23da939907abd94980eae64fa38c96",
+      "functions": [
+        {
+          "name": "Greeting",
+          "params": [
+            "props"
+          ],
+          "exported": true,
+          "lineCount": 232
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "useState"
+          ]
+        },
+        {
+          "source": "./Greeting.css",
+          "specifiers": []
+        },
+        {
+          "source": "../../portfolio",
+          "specifiers": [
+            "greeting"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "react-router-dom",
+          "specifiers": [
+            "useNavigate"
+          ]
+        },
+        {
+          "source": "./FeelingProud",
+          "specifiers": [
+            "FeelingProud"
+          ]
+        },
+        {
+          "source": "../../themeMotion",
+          "specifiers": [
+            "buildThemeBackground",
+            "buildThemeShadow",
+            "themeElevatedSurfaceTransition",
+            "themeSurfaceTransition",
+            "themeTextTransition"
+          ]
+        }
+      ],
+      "exports": [
+        "Greeting"
+      ],
+      "totalLines": 257,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/skills/CloudInfraImg.jsx": {
+      "filePath": "src/containers/skills/CloudInfraImg.jsx",
+      "contentHash": "4f01fbb322905430bf218b8ad4b4940be465558ed2ca3f1c921a3a1e5bfb0c91",
+      "functions": [
+        {
+          "name": "CloudInfraImg",
+          "params": [
+            "props"
+          ],
+          "exported": true,
+          "lineCount": 282
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        }
+      ],
+      "exports": [
+        "CloudInfraImg"
+      ],
+      "totalLines": 285,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/skills/DataScienceImg.jsx": {
+      "filePath": "src/containers/skills/DataScienceImg.jsx",
+      "contentHash": "674869b8ca75d1ad7c2fb55b37ba124324b9a665530fa195dfb51e0ff9d940c7",
+      "functions": [
+        {
+          "name": "DataScienceImg",
+          "params": [
+            "props"
+          ],
+          "exported": true,
+          "lineCount": 285
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        }
+      ],
+      "exports": [
+        "DataScienceImg"
+      ],
+      "totalLines": 288,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/skills/FullStackImg.jsx": {
+      "filePath": "src/containers/skills/FullStackImg.jsx",
+      "contentHash": "a14e4993be57a893a9780d24d9b63916fea46bc3d592019f73fbe6c5f81785d2",
+      "functions": [
+        {
+          "name": "FullStackImg",
+          "params": [
+            "props"
+          ],
+          "exported": true,
+          "lineCount": 224
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        }
+      ],
+      "exports": [
+        "FullStackImg"
+      ],
+      "totalLines": 227,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/skills/SkillSection.jsx": {
+      "filePath": "src/containers/skills/SkillSection.jsx",
+      "contentHash": "db9535fb1011c5eb24323570aaabb42a97e687d7d8c9f5eb28320f7bf6286d24",
+      "functions": [
+        {
+          "name": "GetSkillSvg",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "SkillSection",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 139
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./Skills.css",
+          "specifiers": []
+        },
+        {
+          "source": "../../components/softwareSkills/SoftwareSkill",
+          "specifiers": [
+            "SoftwareSkill"
+          ]
+        },
+        {
+          "source": "../../portfolio",
+          "specifiers": [
+            "skills"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "./DataScienceImg",
+          "specifiers": [
+            "DataScienceImg"
+          ]
+        },
+        {
+          "source": "./FullStackImg",
+          "specifiers": [
+            "FullStackImg"
+          ]
+        },
+        {
+          "source": "./CloudInfraImg",
+          "specifiers": [
+            "CloudInfraImg"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 172,
+      "hasStructuralAnalysis": true
+    },
+    "src/containers/skills/Skills.css": {
+      "filePath": "src/containers/skills/Skills.css",
+      "contentHash": "92bc7424a1b72d2d799636ad3848d3c67e1ec1b2ee7d147e33544bdf717f04d1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 137,
+      "hasStructuralAnalysis": false
+    },
+    "src/containers/skills/Skills.jsx": {
+      "filePath": "src/containers/skills/Skills.jsx",
+      "contentHash": "5a1888e9bea302ac5ff36f3004021317269dbe619519988f8c9faaa243db75ab",
+      "functions": [
+        {
+          "name": "Skills",
+          "params": [
+            "props"
+          ],
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./Skills.css",
+          "specifiers": []
+        },
+        {
+          "source": "./SkillSection",
+          "specifiers": [
+            "SkillSection"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        }
+      ],
+      "exports": [
+        "Skills"
+      ],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/contact.js": {
+      "filePath": "src/data/contact.js",
+      "contentHash": "ce60835c2d9382b93f77fb999a26ab56b69782ef76694de7bc50e57eac4c0bfc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "contactPageData"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/education.js": {
+      "filePath": "src/data/education.js",
+      "contentHash": "c49a3264d44333278a8d7d973665d6162a63a8f8090f4354aa892cb3c9d5b3c8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "degrees",
+        "certifications"
+      ],
+      "totalLines": 152,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/experience.js": {
+      "filePath": "src/data/experience.js",
+      "contentHash": "0daa4b361d8fb0d2b2a8424c2b1219f9930915336cad0f517c7885825a66acba",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "experience"
+      ],
+      "totalLines": 71,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/greeting.js": {
+      "filePath": "src/data/greeting.js",
+      "contentHash": "bdf190cae30a01d325d298a0d6213dadaa7b38814564fb9803023446913abe20",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "greeting"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/platform.js": {
+      "filePath": "src/data/platform.js",
+      "contentHash": "9788d6dc9aef685a740ffdc270141e6e86470255801e18a6c560edd6d1f8748b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "platformHeader",
+        "platformInfrastructure",
+        "platformCategories"
+      ],
+      "totalLines": 1219,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/projects.js": {
+      "filePath": "src/data/projects.js",
+      "contentHash": "83e5340cf2744af1b28944fcf3c5ef7a7c4854cf4919223fd1d37c417b672940",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "projectsHeader",
+        "projects"
+      ],
+      "totalLines": 110,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/settings.js": {
+      "filePath": "src/data/settings.js",
+      "contentHash": "22e26f65abc1db2fe179cf3110e31d4b59e0d5c054c54b581559bd2f73a6ec9e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "settings"
+      ],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/skills.js": {
+      "filePath": "src/data/skills.js",
+      "contentHash": "01f2809d4b2cd9c072b0b5999ec48b99464b4dc52759765003b292dcdd142bea",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "skillsPageData",
+        "skills"
+      ],
+      "totalLines": 562,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/socialMedia.js": {
+      "filePath": "src/data/socialMedia.js",
+      "contentHash": "021f1b5a059c0880a6fc4c4503ac9271f694e296e4c8b142d8c882c384328814",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "socialMediaLinks"
+      ],
+      "totalLines": 29,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/systems.js": {
+      "filePath": "src/data/systems.js",
+      "contentHash": "844e71b40240792bac3f1af7b0ddb8e88da4ce7531b36343a4885533493eafad",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "systems"
+      ],
+      "totalLines": 826,
+      "hasStructuralAnalysis": true
+    },
+    "src/global.js": {
+      "filePath": "src/global.js",
+      "contentHash": "ba33f00d84b8fdfcaab6dbd176bf44833441cc49ba0392bb10248d84f2703284",
+      "functions": [
+        {
+          "name": "resolveHeadingLetterSpacing",
+          "params": [
+            "theme"
+          ],
+          "exported": false,
+          "lineCount": 5
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "styled-components",
+          "specifiers": [
+            "createGlobalStyle"
+          ]
+        }
+      ],
+      "exports": [
+        "GlobalStyles"
+      ],
+      "totalLines": 538,
+      "hasStructuralAnalysis": true
+    },
+    "src/index.css": {
+      "filePath": "src/index.css",
+      "contentHash": "97630a408c7af2dc16dee811935b216e06f636b00b0080274cd6ea8d064c76d8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 204,
+      "hasStructuralAnalysis": false
+    },
+    "src/index.jsx": {
+      "filePath": "src/index.jsx",
+      "contentHash": "813f89cd908ccfbe36ac3fd5cdb73a7442ada44dafc566b288d41c6c7bfdc2f6",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "react-dom/client",
+          "specifiers": [
+            "createRoot"
+          ]
+        },
+        {
+          "source": "./index.css",
+          "specifiers": []
+        },
+        {
+          "source": "./App",
+          "specifiers": [
+            "App"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/contact/BlogsImg.jsx": {
+      "filePath": "src/pages/contact/BlogsImg.jsx",
+      "contentHash": "8779d04b191f2c7e68438b9db63420af4645aa4307eacdab8cb2244288def83f",
+      "functions": [
+        {
+          "name": "BlogsImg",
+          "params": [
+            "props"
+          ],
+          "exported": true,
+          "lineCount": 281
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        }
+      ],
+      "exports": [
+        "BlogsImg"
+      ],
+      "totalLines": 284,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/contact/ContactComponent.css": {
+      "filePath": "src/pages/contact/ContactComponent.css",
+      "contentHash": "3369c6cb0af02d17375ec2cb6bfb5f98a4b32fc9a95d23350357fb1784aeb033",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 288,
+      "hasStructuralAnalysis": false
+    },
+    "src/pages/contact/ContactComponent.jsx": {
+      "filePath": "src/pages/contact/ContactComponent.jsx",
+      "contentHash": "a595b33c35c5c9984b2b0f114e5d52c52ba2ad0dae75f1a5def3cc252929d592",
+      "functions": [
+        {
+          "name": "Contact",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 102
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "../../components/header/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "../../components/footer/Footer",
+          "specifiers": [
+            "Footer"
+          ]
+        },
+        {
+          "source": "../../components/socialMedia/ContactLinksList",
+          "specifiers": [
+            "ContactLinksList"
+          ]
+        },
+        {
+          "source": "./BlogsImg",
+          "specifiers": [
+            "BlogsImg"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "./ContactComponent.css",
+          "specifiers": []
+        },
+        {
+          "source": "../../portfolio.js",
+          "specifiers": [
+            "greeting",
+            "contactPageData"
+          ]
+        },
+        {
+          "source": "styled-components",
+          "specifiers": [
+            "styled"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 135,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/education/EducationComponent.css": {
+      "filePath": "src/pages/education/EducationComponent.css",
+      "contentHash": "78fbc4c6ebf57f003e26fccde4a9dcf464d918bb917d7de9b3eced7786af0b2d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 76,
+      "hasStructuralAnalysis": false
+    },
+    "src/pages/education/EducationComponent.jsx": {
+      "filePath": "src/pages/education/EducationComponent.jsx",
+      "contentHash": "f57f9f6dec8593473e677cda10b3a2c183d53c4a6e8f9b3722f458297c9afb07",
+      "functions": [
+        {
+          "name": "Education",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 43
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "../../components/header/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "../../components/footer/Footer",
+          "specifiers": [
+            "Footer"
+          ]
+        },
+        {
+          "source": "../../containers/education/Educations",
+          "specifiers": [
+            "Educations"
+          ]
+        },
+        {
+          "source": "../../containers/certifications/Certifications",
+          "specifiers": [
+            "Certifications"
+          ]
+        },
+        {
+          "source": "./EducationImg",
+          "specifiers": [
+            "EducationImg"
+          ]
+        },
+        {
+          "source": "./EducationComponent.css",
+          "specifiers": []
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 63,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/education/EducationImg.jsx": {
+      "filePath": "src/pages/education/EducationImg.jsx",
+      "contentHash": "49d8a0c632e31799799dcf1702ee126ac5c59e86c3f7a497b68a67fe69b5ed04",
+      "functions": [
+        {
+          "name": "EducationImg",
+          "params": [
+            "props"
+          ],
+          "exported": true,
+          "lineCount": 211
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        }
+      ],
+      "exports": [
+        "EducationImg"
+      ],
+      "totalLines": 214,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/experience/Experience.css": {
+      "filePath": "src/pages/experience/Experience.css",
+      "contentHash": "9437d896e57c3da37e7f6fcc6934f0f131bc8ce9843f6ac9ac3be1d4190c2a28",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 91,
+      "hasStructuralAnalysis": false
+    },
+    "src/pages/experience/Experience.jsx": {
+      "filePath": "src/pages/experience/Experience.jsx",
+      "contentHash": "561343a54d19bb59b4e3e3bad0491d2741c7de8fb089ddcfc4213efae358b25b",
+      "functions": [
+        {
+          "name": "Experience",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 46
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "../../components/header/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "../../components/footer/Footer",
+          "specifiers": [
+            "Footer"
+          ]
+        },
+        {
+          "source": "../../containers/experienceAccordion/ExperienceAccordion",
+          "specifiers": [
+            "ExperienceAccordion"
+          ]
+        },
+        {
+          "source": "./Experience.css",
+          "specifiers": []
+        },
+        {
+          "source": "../../portfolio.js",
+          "specifiers": [
+            "experience"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "./ExperienceImg",
+          "specifiers": [
+            "ExperienceImg"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 66,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/experience/ExperienceImg.jsx": {
+      "filePath": "src/pages/experience/ExperienceImg.jsx",
+      "contentHash": "257c4e66f7f55cc34b017d5b16d72106dd22743d0c0ab0fe18aa5bff07fe5304",
+      "functions": [
+        {
+          "name": "ExperienceImg",
+          "params": [
+            "props"
+          ],
+          "exported": true,
+          "lineCount": 390
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        }
+      ],
+      "exports": [
+        "ExperienceImg"
+      ],
+      "totalLines": 393,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/home/HomeComponent.jsx": {
+      "filePath": "src/pages/home/HomeComponent.jsx",
+      "contentHash": "9c0f703171edb3d3d8d713c2511bb43e49256b51367ca8947e061363fd6bfbcd",
+      "functions": [
+        {
+          "name": "Home",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 14
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "../../components/header/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "../../containers/greeting/Greeting",
+          "specifiers": [
+            "Greeting"
+          ]
+        },
+        {
+          "source": "../../containers/skills/Skills",
+          "specifiers": [
+            "Skills"
+          ]
+        },
+        {
+          "source": "../../containers/SystemShowcase/SystemShowcase",
+          "specifiers": [
+            "SystemShowcase"
+          ]
+        },
+        {
+          "source": "../../containers/SystemThinking/SystemThinking",
+          "specifiers": [
+            "SystemThinking"
+          ]
+        },
+        {
+          "source": "../../components/footer/Footer",
+          "specifiers": [
+            "Footer"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/notFound/NotFound.css": {
+      "filePath": "src/pages/notFound/NotFound.css",
+      "contentHash": "c1ac9f7edaa534490e4c2bb6cfe6e967190d8ee04ce1bd8876b067560d46511a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": false
+    },
+    "src/pages/notFound/NotFound.jsx": {
+      "filePath": "src/pages/notFound/NotFound.jsx",
+      "contentHash": "5267c9dbf161862384fe9c8bd327b568693290b3b81f6b56693c3b10ae9fc0ce",
+      "functions": [
+        {
+          "name": "NotFound",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 45
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "react-router-dom",
+          "specifiers": [
+            "Link"
+          ]
+        },
+        {
+          "source": "../../components/header/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "../../components/footer/Footer",
+          "specifiers": [
+            "Footer"
+          ]
+        },
+        {
+          "source": "../../themeMotion",
+          "specifiers": [
+            "buildThemeBackground",
+            "buildThemeShadow",
+            "themeElevatedSurfaceTransition"
+          ]
+        },
+        {
+          "source": "./NotFound.css",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 59,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/projects/Projects.css": {
+      "filePath": "src/pages/projects/Projects.css",
+      "contentHash": "e6f30a85f6f732de5b3bf8eaef513ee82187f785a027ef601ec4d71623875258",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 150,
+      "hasStructuralAnalysis": false
+    },
+    "src/pages/projects/Projects.jsx": {
+      "filePath": "src/pages/projects/Projects.jsx",
+      "contentHash": "e8be6fc8ec74c64a60a6587568704287796ed5980db15f99c20fb6719a4b3e9d",
+      "functions": [
+        {
+          "name": "Projects",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 290
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "../../components/header/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "../../components/footer/Footer",
+          "specifiers": [
+            "Footer"
+          ]
+        },
+        {
+          "source": "../../components/ProjectCard/ProjectCard",
+          "specifiers": [
+            "ProjectCard"
+          ]
+        },
+        {
+          "source": "../../components/SystemDesign/ProductTile",
+          "specifiers": [
+            "ProductTile"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "../../portfolio.js",
+          "specifiers": [
+            "projectsHeader",
+            "projects",
+            "socialMediaLinks",
+            "systems",
+            "platformHeader",
+            "platformInfrastructure",
+            "platformCategories"
+          ]
+        },
+        {
+          "source": "./Projects.css",
+          "specifiers": []
+        },
+        {
+          "source": "./ProjectsImg",
+          "specifiers": [
+            "ProjectsImg"
+          ]
+        },
+        {
+          "source": "styled-components",
+          "specifiers": [
+            "styled"
+          ]
+        },
+        {
+          "source": "../../themeMotion",
+          "specifiers": [
+            "buildThemeBackground",
+            "buildThemeShadow",
+            "themeElevatedSurfaceTransition",
+            "themeTextTransition"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 363,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/projects/ProjectsImg.jsx": {
+      "filePath": "src/pages/projects/ProjectsImg.jsx",
+      "contentHash": "0835765a36bf23d0da71f10390f0fddc9a958098e8b7f85153836f808e33aebd",
+      "functions": [
+        {
+          "name": "ProjectsImg",
+          "params": [
+            "props"
+          ],
+          "exported": true,
+          "lineCount": 595
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        }
+      ],
+      "exports": [
+        "ProjectsImg"
+      ],
+      "totalLines": 598,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/skills/SkillsPage.css": {
+      "filePath": "src/pages/skills/SkillsPage.css",
+      "contentHash": "7c2347a0e29a5d9e192165081af11d05123081a0eeaf909f6270f492f7aa0a43",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 203,
+      "hasStructuralAnalysis": false
+    },
+    "src/pages/skills/SkillsPage.jsx": {
+      "filePath": "src/pages/skills/SkillsPage.jsx",
+      "contentHash": "2647bd04b229d20ae7b5cd4a8850648cecf3412a6927dd46e5f048784e4d84b1",
+      "functions": [
+        {
+          "name": "SkillSection",
+          "params": [],
+          "exported": false,
+          "lineCount": 59
+        },
+        {
+          "name": "SkillsPage",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 45
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "../../components/header/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "../../components/footer/Footer",
+          "specifiers": [
+            "Footer"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "../../portfolio",
+          "specifiers": [
+            "skillsPageData"
+          ]
+        },
+        {
+          "source": "../../components/icons/SkillIcon",
+          "specifiers": [
+            "SkillIcon"
+          ]
+        },
+        {
+          "source": "./SkillsPage.css",
+          "specifiers": []
+        },
+        {
+          "source": "../../themeMotion",
+          "specifiers": [
+            "buildThemeBackground",
+            "buildThemeShadow"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 127,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/splash/Splash.css": {
+      "filePath": "src/pages/splash/Splash.css",
+      "contentHash": "ca88cf20d45f308a6d5e5f96fa0ab5b145b4e418978974e92db902f13067ff9b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 199,
+      "hasStructuralAnalysis": false
+    },
+    "src/pages/splash/Splash.jsx": {
+      "filePath": "src/pages/splash/Splash.jsx",
+      "contentHash": "5440358d76dbf5c450fe3ded53a695e3fa646d2a166fd2d8c5089434a881d00e",
+      "functions": [
+        {
+          "name": "AnimatedSplash",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "Splash",
+          "params": [
+            "props"
+          ],
+          "exported": false,
+          "lineCount": 31
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "useState",
+            "useEffect"
+          ]
+        },
+        {
+          "source": "./Splash.css",
+          "specifiers": []
+        },
+        {
+          "source": "react-router-dom",
+          "specifiers": [
+            "Navigate"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 63,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/theme/ThemePage.css": {
+      "filePath": "src/pages/theme/ThemePage.css",
+      "contentHash": "d498f10a0b7b0c778803a6ae58847999ad7b791d2c1f2e869ad543f982ef861f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 173,
+      "hasStructuralAnalysis": false
+    },
+    "src/pages/theme/ThemePage.jsx": {
+      "filePath": "src/pages/theme/ThemePage.jsx",
+      "contentHash": "981b074556f1cf390afa22244cbce2ecda05487635c02d8c0558779baa519e47",
+      "functions": [
+        {
+          "name": "ThemePage",
+          "params": [],
+          "exported": false,
+          "lineCount": 201
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "../../components/header/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "../../components/footer/Footer",
+          "specifiers": [
+            "Footer"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        },
+        {
+          "source": "../../themeController",
+          "specifiers": [
+            "useThemeController"
+          ]
+        },
+        {
+          "source": "../../theme",
+          "specifiers": [
+            "themeFamilyOptions",
+            "themes"
+          ]
+        },
+        {
+          "source": "../../themeMotion",
+          "specifiers": [
+            "buildThemeBackground",
+            "buildThemeShadow",
+            "themeElevatedSurfaceTransition",
+            "themeSurfaceTransition"
+          ]
+        },
+        {
+          "source": "react-icons/cg/",
+          "specifiers": [
+            "CgSun"
+          ]
+        },
+        {
+          "source": "react-icons/hi",
+          "specifiers": [
+            "HiMoon"
+          ]
+        },
+        {
+          "source": "./ThemePage.css",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 220,
+      "hasStructuralAnalysis": true
+    },
+    "src/portfolio.js": {
+      "filePath": "src/portfolio.js",
+      "contentHash": "d11da701911c15e63f0d828f6b616616b43bca7353ab175340f32624a9886596",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/setup.js": {
+      "filePath": "src/test/setup.js",
+      "contentHash": "1220ab5f5aaaa9564f1bf647f9bdb1302e8db7806c95d0b3a2ce851b5292176b",
+      "functions": [],
+      "classes": [
+        {
+          "name": "IntersectionObserverMock",
+          "methods": [
+            "constructor",
+            "observe",
+            "unobserve",
+            "disconnect"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "ResizeObserverMock",
+          "methods": [
+            "observe",
+            "unobserve",
+            "disconnect"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 5
+        }
+      ],
+      "imports": [
+        {
+          "source": "@testing-library/jest-dom",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 46,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/testUtils.jsx": {
+      "filePath": "src/test/testUtils.jsx",
+      "contentHash": "886e1f607f7896b376460a0a3e1853dd3bb07778af8d0a9d64d2255a10d85172",
+      "functions": [
+        {
+          "name": "renderWithProviders",
+          "params": [
+            "ui"
+          ],
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "render"
+          ]
+        },
+        {
+          "source": "react-router-dom",
+          "specifiers": [
+            "BrowserRouter",
+            "MemoryRouter"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "MotionConfig"
+          ]
+        },
+        {
+          "source": "../theme",
+          "specifiers": [
+            "darkTheme",
+            "lightTheme"
+          ]
+        },
+        {
+          "source": "../themeController",
+          "specifiers": [
+            "ThemeControllerProvider"
+          ]
+        }
+      ],
+      "exports": [
+        "renderWithProviders",
+        "darkTheme",
+        "lightTheme"
+      ],
+      "totalLines": 64,
+      "hasStructuralAnalysis": true
+    },
+    "src/theme.js": {
+      "filePath": "src/theme.js",
+      "contentHash": "e76a678565f70d0bbb5537fab04c705f13d6ce8e4adbc9c22ba74630058857f1",
+      "functions": [
+        {
+          "name": "expandHex",
+          "params": [
+            "hex"
+          ],
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "hexToRgb",
+          "params": [
+            "hex"
+          ],
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "withAlpha",
+          "params": [
+            "hex",
+            "alpha"
+          ],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "mixHex",
+          "params": [
+            "hexA",
+            "hexB",
+            "ratio"
+          ],
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "getRelativeLuminance",
+          "params": [
+            "hex"
+          ],
+          "exported": false,
+          "lineCount": 17
+        },
+        {
+          "name": "getContrastRatio",
+          "params": [
+            "foregroundHex",
+            "backgroundHex"
+          ],
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "ensureContrast",
+          "params": [
+            "foregroundHex",
+            "backgroundHex"
+          ],
+          "exported": false,
+          "lineCount": 25
+        },
+        {
+          "name": "getReadableTextColor",
+          "params": [
+            "backgroundHex"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "createThemeTokens",
+          "params": [
+            "family",
+            "mode",
+            "tokens"
+          ],
+          "exported": false,
+          "lineCount": 92
+        },
+        {
+          "name": "createThemeFamily",
+          "params": [
+            "family",
+            "lightTokens",
+            "darkTokens"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "resolveTheme",
+          "params": [],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "DEFAULT_THEME_FAMILY",
+        "DEFAULT_THEME_MODE",
+        "themes",
+        "themeFamilyOptions",
+        "resolveTheme",
+        "lightTheme",
+        "darkTheme"
+      ],
+      "totalLines": 2223,
+      "hasStructuralAnalysis": true
+    },
+    "src/themeController.jsx": {
+      "filePath": "src/themeController.jsx",
+      "contentHash": "c1049ee401ebd757b4f2525d46fa7128da58cea6f6d589145ffc79bb74cced91",
+      "functions": [
+        {
+          "name": "normalizeThemeSelection",
+          "params": [
+            "selection"
+          ],
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "parseStoredThemeSelection",
+          "params": [
+            "rawTheme"
+          ],
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "getInitialThemeSelection",
+          "params": [
+            "initialThemeSelection"
+          ],
+          "exported": false,
+          "lineCount": 11
+        },
+        {
+          "name": "ThemeControllerProvider",
+          "params": [],
+          "exported": true,
+          "lineCount": 76
+        },
+        {
+          "name": "useThemeController",
+          "params": [],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "getStoredThemeSelection",
+          "params": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "createContext",
+            "useCallback",
+            "useContext",
+            "useEffect",
+            "useMemo",
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "source": "styled-components",
+          "specifiers": [
+            "ThemeProvider"
+          ]
+        },
+        {
+          "source": "./theme",
+          "specifiers": [
+            "DEFAULT_THEME_FAMILY",
+            "DEFAULT_THEME_MODE",
+            "resolveTheme",
+            "themes"
+          ]
+        }
+      ],
+      "exports": [
+        "THEME_STORAGE_KEY",
+        "parseStoredThemeSelection",
+        "ThemeControllerProvider",
+        "useThemeController",
+        "getStoredThemeSelection"
+      ],
+      "totalLines": 160,
+      "hasStructuralAnalysis": true
+    },
+    "src/themeMotion.js": {
+      "filePath": "src/themeMotion.js",
+      "contentHash": "43a7bf530210212be1c0d4871f1ab0921dc24e121e6b5e4192783aa710fa6b82",
+      "functions": [
+        {
+          "name": "buildThemeBackground",
+          "params": [
+            "surface"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "buildThemeShadow",
+          "params": [
+            "baseShadow"
+          ],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "themeTextTransition",
+        "themeSurfaceTransition",
+        "themeElevatedSurfaceTransition",
+        "buildThemeBackground",
+        "buildThemeShadow"
+      ],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "stress-test.mjs": {
+      "filePath": "stress-test.mjs",
+      "contentHash": "6a351d81dc7a4cd10eb7e9d44b8869afba8ddbf60705e7665d28e6b0b800c4af",
+      "functions": [
+        {
+          "name": "sleep",
+          "params": [
+            "ms"
+          ],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "measureBaseline",
+          "params": [
+            "page"
+          ],
+          "exported": false,
+          "lineCount": 63
+        },
+        {
+          "name": "measureCoreWebVitals",
+          "params": [
+            "page"
+          ],
+          "exported": false,
+          "lineCount": 79
+        },
+        {
+          "name": "measureSlow3G",
+          "params": [
+            "context",
+            "page"
+          ],
+          "exported": false,
+          "lineCount": 51
+        },
+        {
+          "name": "measureFast3G",
+          "params": [
+            "context",
+            "page"
+          ],
+          "exported": false,
+          "lineCount": 22
+        },
+        {
+          "name": "rapidNavigationStress",
+          "params": [
+            "page"
+          ],
+          "exported": false,
+          "lineCount": 60
+        },
+        {
+          "name": "layoutShiftPerPage",
+          "params": [
+            "page"
+          ],
+          "exported": false,
+          "lineCount": 60
+        },
+        {
+          "name": "reRenderAndJank",
+          "params": [
+            "page"
+          ],
+          "exported": false,
+          "lineCount": 102
+        },
+        {
+          "name": "brokenUIDetection",
+          "params": [
+            "page"
+          ],
+          "exported": false,
+          "lineCount": 90
+        },
+        {
+          "name": "resourceAnalysis",
+          "params": [
+            "page"
+          ],
+          "exported": false,
+          "lineCount": 68
+        },
+        {
+          "name": "mobileViewportStress",
+          "params": [
+            "context"
+          ],
+          "exported": false,
+          "lineCount": 74
+        },
+        {
+          "name": "main",
+          "params": [],
+          "exported": false,
+          "lineCount": 40
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "playwright",
+          "specifiers": [
+            "chromium"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 804,
+      "hasStructuralAnalysis": true
+    },
+    "tasks/plan.md": {
+      "filePath": "tasks/plan.md",
+      "contentHash": "1c1235e1c7b2e3ddf3961e30a61d1578ba79f375affc3e9fbb6ec78a245a5cb2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    },
+    "tasks/todo.md": {
+      "filePath": "tasks/todo.md",
+      "contentHash": "170ded9cebfc4ea7e9f2727026011f4cce7e8094f25a76147c6651cd943c116b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.typecheck.json": {
+      "filePath": "tsconfig.typecheck.json",
+      "contentHash": "55b549e8cb515e726e8a21ebce3f811e7139315ae58f4a1e01b9dae7ee46afa3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    "vercel.json": {
+      "filePath": "vercel.json",
+      "contentHash": "c6ffcc4dcc3a8a22ae740e419a168a13f3e19a5f89c444319ef1c97202a76f30",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": true
+    },
+    "vite.config.js": {
+      "filePath": "vite.config.js",
+      "contentHash": "64485ba070e7566107f4f096eeaad00f69300614bd0578a3b99baf3a7558c2dd",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "vite",
+          "specifiers": [
+            "defineConfig"
+          ]
+        },
+        {
+          "source": "@vitejs/plugin-react",
+          "specifiers": [
+            "react"
+          ]
+        },
+        {
+          "source": "vite-plugin-svgr",
+          "specifiers": [
+            "svgr"
+          ]
+        },
+        {
+          "source": "vite-plugin-env-compatible",
+          "specifiers": [
+            "envCompatible"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 51,
+      "hasStructuralAnalysis": true
+    },
+    "vitest.config.js": {
+      "filePath": "vitest.config.js",
+      "contentHash": "97cb0da18c2b34a71770554bc56960a5495d79d60ea85add27bca01e56d0d0f8",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "vitest/config",
+          "specifiers": [
+            "defineConfig"
+          ]
+        },
+        {
+          "source": "@vitejs/plugin-react",
+          "specifiers": [
+            "react"
+          ]
+        },
+        {
+          "source": "vite-plugin-svgr",
+          "specifiers": [
+            "svgr"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

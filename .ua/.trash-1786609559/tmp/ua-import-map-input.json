@@ -1,0 +1,1215 @@
+{
+  "projectRoot": "D:\\AI\\Github\\pypi-ahmad.github.io",
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "language": "yaml",
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/deploy.yml",
+      "language": "yaml",
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".prettierignore",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua/.understandignore",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua/config.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "CODE_REVIEW_REPORT.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "SECURITY.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "browserconfig.xml",
+      "language": "xml",
+      "fileCategory": "config"
+    },
+    {
+      "path": "docs/migration/astro-migration-roadmap.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "eslint.config.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "graphify-out/.graphify_labels.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/.graphify_learning.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/.graphify_python",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "graphify-out/.graphify_root",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "graphify-out/.vocab.txt",
+      "language": "txt",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "graphify-out/GRAPH_REPORT.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.17/1106e6d148139da98930d8b189f0312a6c6cd0e928dd09aa98194022236346f5.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.17/5bb4686179cf79e74c412a9acbe9db68fe2289938841be6ec7270c69ae34ea04.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.17/8c423f0a8c11aaea9db68bc3aa8b914aeae36bc7334dca8d99787b6bf698bcfc.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.17/f8d7529cc24901e0efc393069d31a912c1e350d1721ee79829c6cb112eba05dd.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/03191878c3e93c39a7952933b2fd8c8f94f8b51bbb702c94f1250b69d6187717.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/0abefd9f4861894cf5f00876c4bfe554c8657b63b3a1f2a865c9b64ffb49a64d.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/0b513f7616a20b05ee0dc92985838c4e40a33d703f8a53abadc23ba4aeb3ab06.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/0e52caab3def554d5b442ab3091a688c926eb8cb12e9b93c28e5a8b48ae1e4bb.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/1097b88382a3dfe897886fe671bd50945873a8b40e02d2ec971981278f8071af.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/123e05e3ac4e0223f0e7d80969cb5873269632590a04cf018cf5534462cbb8a0.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/1264ffb4f70600ef864bc0430db97257f61a1e6d6ce2234722b352bbc2d01d02.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/14c48530a43dc4958ef3a5891aa2836e27d8fddbc33a65474ce9d254a86d1fe6.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/160aca5014ff633969a84a844543f30e365241da1bb4de73ffb13887f215a09a.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/16783fd6c9d2d968c1387b6ec683a4f8638df83367decf7ea2c3fd2c2a131228.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/194ed59dd3e841d120fceca0c969a37bf4f6a028cf8391495fc1a1d2b5bb6df5.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/1bd8dd37a2edd4fc26e8e4180c89f66121aa0578b7b6d5361022d17e8c8cc900.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/1d981c7289f471fd8632b740b20b1d65c4976d8e4821ff8f8b13a195f4d20035.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/1dc5f3ca7b96c2a0bb9965621452d7e8c94fdb2605cd5cf52acd2c6680badd92.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/1feac6b0da8a2005f5de10fd923664dfef82507d896cf1bae8d43f43a83ba31b.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/24a0347416c882b0a80b555edaa7316cd2c7c7dd9e3c05705cda63e626bc1214.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/26b1139cd5c4c111ef3c449a617312e849ddc9f694f1970db76b7912eb57c72a.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/26ca5a34c51c4bee10020a146434848de39dca9cab953e5bbd3ece9c972ce38f.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/27ec549f119c39f4577d17b75f44260f22d795a7fc4eaf969ed00b459a06a162.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/2aeb11f4f8d8c1c1d57b0c704c7e430c434c1915059de28ec3ce041965544e4f.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/2e4d6af7e425de1316df836753ded7c32094109c25968bab1a4ad40e9f910aca.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/2e6f8108ccfd3d69fe0dd7b97d15ac30764738bd002f07826c8125af6e2e7500.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/2f20c188b10e017e3e96f7539579e80dbd7a51d42faee8dbc72b8c58aaa75190.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/31bc7030992ad71281d053461d81e2b57cca40889c111d61150efcb585af62bc.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/35bed1752abbb9361017d37f7c786a80d73774ffe44d39676d3255f35d546a61.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/39287e8878048c75e8f3d06aae550e513bc3f30fbcb79d8b3f078d3dbad5d3e6.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/3b286825c093974100df3629c8c7d90a96ce88814d545e29604893f0ec321cc2.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/3c633c4012ca7d4c39a873d763834e8d2afa193c709336c3579068429b14c9c0.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/3e8087ea9d60536cf297768f4143d082c0171aea96cfd733df2dbab76b285b00.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/42ae12ebbe43dac8788f3120c76d88fc5fce6236c53afbe9bbfb8c6de5f4ac04.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/435e100a2d7cad8e6e3fb484d6c335ed760587b3e63ced829f0ff8ded70a3f52.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/43d0cdbc5f40f1dbf76fbb946d54f8e34ddebaa5ec1ddfa7fedf9c56e0a20b6c.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/45d75f87d8028d6b6c66c5c56eac87a5bf2cce58584ba065c3cfec2165b2744d.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/4749a78a77bd424253285e17ad545b358d6bfabe6fbde651efd6a18899984282.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/4e017d39dc3786558ce54ac3a4e10b3b00ef204ba20c7d3efd52d0566f6135f4.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/4e41cca672ae3344fabd743a882d5724cf3abcbdc86949f6bdc3a6e693074ce9.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/514a1a4288a5e769f69e993fc5cb0acc3935f0579199b2515bc56ff860ef64ce.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/5176944e8103dcddf62f4dfca4f6cccb16e9b75bf250e55e1530b5a4b3e9bb5a.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/553bffb0023f73c44757584b93eb73c4ba9551c94498f73c88951990e142e0d0.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/562eaad5c45c3433174d6a57b726ce5474fab6097ce3dff4db012930b858b12e.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/5686c4eb0f1fbbee0efe7a3d13e61160857734ac32a1762ec9cfb7bdce4b6d1a.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/57eb1336397cce141d6ebf15b5052e2e278e5984b2970bacf2c18ac5bee9501f.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/5c3155e788b5a6a2fb4c3ebe1e72bf0e074bc05e5a5b1730e0c5266d1449d642.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/60c664184c5a125287792f5840dd51226143471d57006a38dec43caf41953c35.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/64728590438d5c4b4951501c3c8077de578bcd37053199dfff585bd0b67dba6a.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/68e32bd67fbaedc9a22962dab998e8b39a14077146e1e3e13a05cde568ccafda.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/7396a87d1965cc6d9a7b7faa1987180ae5f28a5d26ab353bb5eb5dbb71f4226c.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/7845349e22965481a18dff86443debc688f6ffd7c27c8d734418db29e379d6a1.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/7b55691c43fe458c04e4bdc42b56a11a3c1425fbe1159277386c31ed0e9c576e.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/82fd8eb481bc1ab239b15d3f229434d18fd6fec5a94828b753fe3290fba16685.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/84f216af5d7044a90422aecc240f29c3ae705826d8980e8ff561dec42b8c7704.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/8600a31cbb0c6250864be42cb8861eacba84bb7db4291d652ff4774d7ddbf197.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/86ae95f894f9b2bb8bd8f6dca578d4478915d71a8d81bd6076a14f73a6d1e3c2.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/8a51a3562e96c48152b781781a02187f6d104f9583196c11bc4612e1c89a8187.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/8b6a68d10fcd0b8bf1e665ba558b571ab005bb0054c28406e4abf83c6eaa683d.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/9190b451510e9e7df868e05f857ad764fedda451591fce68471af2e847dac6e5.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/92b98449e1d9bfce99730c347de177b14ad5d2df14a9e9d5ba9c800453e30326.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/9a245607e33f7e5d0c26e35a18fafdbfad3e7af15eeb93590fa8a1ebbcd551ac.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/9c1d622f57ad6a4666d8e8cdf79664af79021c154d2e2be32dc5f0126c85a463.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/9e8354f7610d483cb91384186bcb75c52d03349f0c48017f6693960c27bb9e89.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/9fdc6ec957b36f15a90b281088b18cd923958ba2d5d042e6f10d89176570b87d.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/a3c851d4ec12831ed830428c061a4add8c8d8b8650c9837ca3d92adab7d7de07.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/a879f6959e1c852e203adf6f3c168749db23ee184b15c088837123fc942323f4.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/a8bea375e609f5003dbfa326d1ab669ab404999fb2722e8fd74094930868b511.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/a8f6d142c814b6c9e75c9d73cdf811a294eb33d7323f4679338fb981b5fbcec9.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/aeaaa01c0a1b7c6080b6fbf2a3840b688c087020dd41542f6bdf7163d3937314.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/af3660476b6bde0c6d4edad8b5d7fe78017b550b4e4f1b584ae0f0469e4a469d.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/b7c5fad4ee79bba0ac4a3b38f6f24c33b0722a1423b2cc726197e82d83fac55b.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/bfd01baa3e5134b6d16ec9c68d077b8a3c64f3fc5da8703e21f9fb57f2471225.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/c6c1dd58ac7b17ff2dfb291e15f63326fae6df905fa4618ec025b636fa3af2ab.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/c7afbaf8118fa6456bea1409053f82f3dd99a1b3be31b5442ccfc494f0b3050c.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/c7ef76bf6712dc499a176067b4df9e9d683ae74ea54ca67e7fbe0c1bd02ba2c7.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/c86a7a604e1f470067c0450321a17901ffb2bad08b759942f72bdc44cfd284e1.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/c89e7b9a8358f24632f5672e66ca000261f0af1085773bfe6fe530216bc00c57.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/cda0a1b86267a43f02f794e4413fafb2f2c3261958327a4193eae42c5df64c2e.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/d201ebdba9d9366afc709d5386199f7844162a26a5156566c8f07f9995f3fd19.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/d814779690149bd1252262cc2347c64867769e4fae5dee648751ffeef05e2493.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/dc26f590988d9808623b898ad92e69c523b8edafc7a716e53349fef854cdc60a.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/dd557da2a9669d22054dfa944c09cc5a4cdbc8e2ff90235c1e4fa62015367088.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/e02f3bda47fd3e2e1f9c6eb364c286142ca920b9882596f537f40b14072d5e9c.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/e7e607f8ead25b1760166c09e5edc36d83eed45c16098a9455c07d9622170c0e.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/e8b5c4332231cf9e9e94bd08dc79ea9701b69748ee6ea64509b7739397c74331.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/ed8d9c37628b4b21d3bc042c118170031ef3fb60c730508c5f9531e94f718a04.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/ee3b110fe50278e6bb54b078491687d43db6696d183409dff7643677edfd933b.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/ee974396ec8918ba7f49945aed8a0cd60f4183effa58ff9bb9fee06fc85a1181.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f04413295244205d33c3cb1a9b1f6966d9af8ed6baff0cb5ec01590f5e6900c4.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f0d1b21b688c5315af807d3fde4fdc09b189b89fc5c6ebf400de0e33932c4212.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f35fecea8b0851863297f7fecb32e15ca83b75ed194c6f80495d9104fd7e7a53.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f430493f17fe614295e396574e32346d2aed4864a5b282ce9cca7d7f2793138f.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f450764da29c73e713189415b8cd313f82dab4cdb308eb4214344a4d11a5f879.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/f72540e05c6afb539ac4945ce8e4dfd99a118f504fac3c4d997dc6f9b20cdece.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/fe8fec5098c297a0d5d06035c3ce818f6e90df7f63df9b2df385156136391bac.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/semantic/ff15c4b84785b16f54c958d7727db5f774b64ba2e3c7f42e497da693b6754834.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cache/stat-index.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/cost.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/graph.html",
+      "language": "html",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "graphify-out/graph.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/manifest.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/memory/query_20260802_160216_most_interesting__why_does_readme_bridge_theme_sys.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "graphify-out/memory/query_20260802_160320_trace_the_astro_migration_connection_to_readme.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "graphify-out/reflections/LESSONS.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "index.html",
+      "language": "html",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "package.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "public/.nojekyll",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "public/manifest.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "public/robots.txt",
+      "language": "txt",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "public/sitemap.xml",
+      "language": "xml",
+      "fileCategory": "config"
+    },
+    {
+      "path": "security_best_practices_report.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/App.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/App.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/App.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Accessibility.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Behavior.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/ExperienceCard.render.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Footer.render.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Greeting.render.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Header.render.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Navigation.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Pages.render.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Responsive.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/RouteMetadata.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/SystemCard.render.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/ThemeRegistry.test.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/ErrorBoundary.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/ProjectCard/ProjectCard.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/ProjectCard/ProjectCard.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/SystemDesign/ProductTile.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/SystemDesign/ProductTile.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/SystemDesign/SystemCard.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/SystemDesign/SystemDiagram.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/SystemDesign/systems.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/SystemDesign/useAccessibleDialog.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/certificationCard/CertificationCard.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/certificationCard/CertificationCard.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/degreeCard/DegreeCard.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/degreeCard/DegreeCard.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/experienceCard/ExperienceCard.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/experienceCard/ExperienceCard.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/footer/Footer.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/footer/Footer.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/header/Header.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/header/Header.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/icons/SkillIcon.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/icons/custom/index.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/projectLanguages/ProjectLanguages.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/projectLanguages/ProjectLanguages.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/seo/RouteMeta.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/socialMedia/ContactLinksList.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/socialMedia/ContactLinksList.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/socialMedia/SocialMedia.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/socialMedia/SocialMedia.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/softwareSkills/SoftwareSkill.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/softwareSkills/SoftwareSkill.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/Main.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/SystemShowcase/SystemShowcase.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/SystemThinking/SystemThinking.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/certifications/Certifications.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/containers/certifications/Certifications.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/education/Educations.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/containers/education/Educations.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/experienceAccordion/ExperienceAccordion.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/greeting/FeelingProud.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/containers/greeting/FeelingProud.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/greeting/Greeting.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/containers/greeting/Greeting.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/skills/CloudInfraImg.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/skills/DataScienceImg.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/skills/FullStackImg.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/skills/SkillSection.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/skills/Skills.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/containers/skills/Skills.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/data/contact.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/data/education.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/data/experience.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/data/greeting.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/data/platform.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/data/projects.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/data/settings.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/data/skills.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/data/socialMedia.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/data/systems.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/global.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/index.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/index.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/contact/BlogsImg.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/contact/ContactComponent.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/pages/contact/ContactComponent.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/education/EducationComponent.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/pages/education/EducationComponent.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/education/EducationImg.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/experience/Experience.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/pages/experience/Experience.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/experience/ExperienceImg.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/home/HomeComponent.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/notFound/NotFound.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/pages/notFound/NotFound.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/projects/Projects.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/pages/projects/Projects.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/projects/ProjectsImg.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/skills/SkillsPage.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/pages/skills/SkillsPage.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/splash/Splash.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/pages/splash/Splash.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/pages/theme/ThemePage.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/pages/theme/ThemePage.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/portfolio.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/setup.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/testUtils.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/theme.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/themeController.jsx",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/themeMotion.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "stress-test.mjs",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "tasks/plan.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "tasks/todo.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "tsconfig.typecheck.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "vercel.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "vite.config.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "vitest.config.js",
+      "language": "javascript",
+      "fileCategory": "code"
+    }
+  ]
+}

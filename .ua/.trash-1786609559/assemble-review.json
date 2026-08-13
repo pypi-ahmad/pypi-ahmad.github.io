@@ -1,0 +1,13 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 0,
+  "edgesRestored": 0,
+  "crossBatchEdgesAdded": 0,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "notes": [
+    "The merge report contained no unresolved 'Could not fix' items; all 342 nodes and 346 edges are structurally valid.",
+    "All 242 import-map relationships with corresponding file-level nodes already have imports edges.",
+    "Filled five blank file-node names from their paths to satisfy required node metadata."
+  ]
+}

@@ -1,0 +1,2795 @@
+{
+  "scriptCompleted": true,
+  "entryPointCandidates": [
+    {
+      "id": "document:README.md",
+      "score": 5,
+      "name": "README.md",
+      "summary": "Primary portfolio documentation describing the technology stack, route structure, data architecture, development workflow, and deployment."
+    },
+    {
+      "id": "file:stress-test.mjs",
+      "score": 3,
+      "name": "stress test",
+      "summary": "Runs browser-based performance, responsiveness, and UI resilience checks across the portfolio."
+    },
+    {
+      "id": "document:CHANGELOG.md",
+      "score": 2,
+      "name": "CHANGELOG.md",
+      "summary": "Documents released and unreleased changes to the portfolio."
+    },
+    {
+      "id": "document:CODE_OF_CONDUCT.md",
+      "score": 2,
+      "name": "CODE_OF_CONDUCT.md",
+      "summary": "Defines community standards, scope, and enforcement procedures for project participation."
+    },
+    {
+      "id": "document:CODE_REVIEW_REPORT.md",
+      "score": 2,
+      "name": "CODE_REVIEW_REPORT.md",
+      "summary": "Records a comprehensive code review of the portfolio, including correctness, quality, and recommended fixes."
+    }
+  ],
+  "fanInRanking": [
+    {
+      "id": "file:src/portfolio.js",
+      "fanIn": 15,
+      "name": "portfolio.js"
+    },
+    {
+      "id": "file:src/components/header/Header.jsx",
+      "fanIn": 12,
+      "name": "Header.jsx"
+    },
+    {
+      "id": "file:src/components/footer/Footer.jsx",
+      "fanIn": 10,
+      "name": "Footer.jsx"
+    },
+    {
+      "id": "file:src/test/testUtils.jsx",
+      "fanIn": 9,
+      "name": "testUtils.jsx"
+    },
+    {
+      "id": "file:src/themeMotion.js",
+      "fanIn": 8,
+      "name": "themeMotion.js"
+    },
+    {
+      "id": "file:src/__tests__/Behavior.test.jsx",
+      "fanIn": 7,
+      "name": "Behavior.test.jsx"
+    },
+    {
+      "id": "file:src/__tests__/Pages.render.test.jsx",
+      "fanIn": 7,
+      "name": "Pages.render.test.jsx"
+    },
+    {
+      "id": "file:src/theme.js",
+      "fanIn": 7,
+      "name": "theme.js"
+    },
+    {
+      "id": "file:src/themeController.jsx",
+      "fanIn": 7,
+      "name": "themeController.jsx"
+    },
+    {
+      "id": "file:src/__tests__/Accessibility.test.jsx",
+      "fanIn": 6,
+      "name": "Accessibility.test.jsx"
+    },
+    {
+      "id": "file:src/containers/greeting/Greeting.jsx",
+      "fanIn": 5,
+      "name": "Greeting.jsx"
+    },
+    {
+      "id": "file:src/index.jsx",
+      "fanIn": 5,
+      "name": "index.jsx"
+    },
+    {
+      "id": "config:graphify-out/graph.json",
+      "fanIn": 4,
+      "name": "graph.json"
+    },
+    {
+      "id": "file:src/__tests__/Responsive.test.jsx",
+      "fanIn": 3,
+      "name": "Responsive.test.jsx"
+    },
+    {
+      "id": "file:src/App.jsx",
+      "fanIn": 3,
+      "name": "App.jsx"
+    },
+    {
+      "id": "file:src/components/experienceCard/ExperienceCard.jsx",
+      "fanIn": 3,
+      "name": "ExperienceCard.jsx"
+    },
+    {
+      "id": "file:src/components/icons/SkillIcon.jsx",
+      "fanIn": 3,
+      "name": "SkillIcon.jsx"
+    },
+    {
+      "id": "file:src/components/SystemDesign/SystemCard.jsx",
+      "fanIn": 3,
+      "name": "SystemCard.jsx"
+    },
+    {
+      "id": "file:src/__tests__/ExperienceCard.render.test.jsx",
+      "fanIn": 2,
+      "name": "ExperienceCard.render.test.jsx"
+    },
+    {
+      "id": "file:src/__tests__/Footer.render.test.jsx",
+      "fanIn": 2,
+      "name": "Footer.render.test.jsx"
+    }
+  ],
+  "fanOutRanking": [
+    {
+      "id": "file:src/components/icons/custom/index.jsx",
+      "fanOut": 26,
+      "name": "index.jsx"
+    },
+    {
+      "id": "file:src/theme.js",
+      "fanOut": 13,
+      "name": "theme.js"
+    },
+    {
+      "id": "file:src/test/testUtils.jsx",
+      "fanOut": 12,
+      "name": "testUtils.jsx"
+    },
+    {
+      "id": "file:src/themeController.jsx",
+      "fanOut": 12,
+      "name": "themeController.jsx"
+    },
+    {
+      "id": "file:stress-test.mjs",
+      "fanOut": 11,
+      "name": "stress test"
+    },
+    {
+      "id": "file:src/components/header/Header.jsx",
+      "fanOut": 10,
+      "name": "Header.jsx"
+    },
+    {
+      "id": "file:src/containers/greeting/Greeting.jsx",
+      "fanOut": 10,
+      "name": "Greeting.jsx"
+    },
+    {
+      "id": "file:src/pages/projects/Projects.jsx",
+      "fanOut": 10,
+      "name": "Projects.jsx"
+    },
+    {
+      "id": "file:src/__tests__/Navigation.test.jsx",
+      "fanOut": 9,
+      "name": "Navigation.test.jsx"
+    },
+    {
+      "id": "file:src/pages/skills/SkillsPage.jsx",
+      "fanOut": 9,
+      "name": "SkillsPage.jsx"
+    },
+    {
+      "id": "file:src/pages/theme/ThemePage.jsx",
+      "fanOut": 9,
+      "name": "ThemePage.jsx"
+    },
+    {
+      "id": "file:src/App.jsx",
+      "fanOut": 8,
+      "name": "App.jsx"
+    },
+    {
+      "id": "file:src/components/footer/Footer.jsx",
+      "fanOut": 8,
+      "name": "Footer.jsx"
+    },
+    {
+      "id": "file:src/pages/contact/ContactComponent.jsx",
+      "fanOut": 8,
+      "name": "ContactComponent.jsx"
+    },
+    {
+      "id": "file:src/pages/education/EducationComponent.jsx",
+      "fanOut": 8,
+      "name": "EducationComponent.jsx"
+    },
+    {
+      "id": "file:src/pages/experience/Experience.jsx",
+      "fanOut": 8,
+      "name": "Experience.jsx"
+    },
+    {
+      "id": "file:src/pages/home/HomeComponent.jsx",
+      "fanOut": 8,
+      "name": "HomeComponent.jsx"
+    },
+    {
+      "id": "file:src/__tests__/Behavior.test.jsx",
+      "fanOut": 7,
+      "name": "Behavior.test.jsx"
+    },
+    {
+      "id": "file:src/__tests__/Pages.render.test.jsx",
+      "fanOut": 7,
+      "name": "Pages.render.test.jsx"
+    },
+    {
+      "id": "file:src/containers/skills/SkillSection.jsx",
+      "fanOut": 7,
+      "name": "SkillSection.jsx"
+    }
+  ],
+  "bfsTraversal": {
+    "startNode": "file:stress-test.mjs",
+    "order": [
+      "file:stress-test.mjs"
+    ],
+    "depthMap": {
+      "file:stress-test.mjs": 0
+    },
+    "byDepth": {
+      "0": [
+        "file:stress-test.mjs"
+      ]
+    }
+  },
+  "nonCodeFiles": {
+    "documentation": [
+      {
+        "id": "document:CHANGELOG.md",
+        "name": "CHANGELOG.md",
+        "type": "document",
+        "summary": "Documents released and unreleased changes to the portfolio."
+      },
+      {
+        "id": "document:CODE_OF_CONDUCT.md",
+        "name": "CODE_OF_CONDUCT.md",
+        "type": "document",
+        "summary": "Defines community standards, scope, and enforcement procedures for project participation."
+      },
+      {
+        "id": "document:CODE_REVIEW_REPORT.md",
+        "name": "CODE_REVIEW_REPORT.md",
+        "type": "document",
+        "summary": "Records a comprehensive code review of the portfolio, including correctness, quality, and recommended fixes."
+      },
+      {
+        "id": "document:README.md",
+        "name": "README.md",
+        "type": "document",
+        "summary": "Primary portfolio documentation describing the technology stack, route structure, data architecture, development workflow, and deployment."
+      },
+      {
+        "id": "document:SECURITY.md",
+        "name": "SECURITY.md",
+        "type": "document",
+        "summary": "Defines supported versions and a responsible vulnerability-reporting process."
+      },
+      {
+        "id": "document:security_best_practices_report.md",
+        "name": "security_best_practices_report.md",
+        "type": "document",
+        "summary": "Audits the portfolio against security best practices and records prioritized remediation guidance."
+      },
+      {
+        "id": "document:graphify-out/.vocab.txt",
+        "name": ".vocab.txt",
+        "type": "document",
+        "summary": "Contains vocabulary terms indexed from the generated knowledge graph."
+      },
+      {
+        "id": "document:graphify-out/GRAPH_REPORT.md",
+        "name": "GRAPH_REPORT.md",
+        "type": "document",
+        "summary": "Audit report summarizing graph coverage, communities, hubs, connections, and suggested exploration questions."
+      },
+      {
+        "id": "document:public/robots.txt",
+        "name": "robots",
+        "type": "document",
+        "summary": "Provides crawler directives for the deployed portfolio site."
+      },
+      {
+        "id": "document:docs/migration/astro-migration-roadmap.md",
+        "name": "astro migration roadmap",
+        "type": "document",
+        "summary": "Documents the planned migration of the portfolio from Create React App to Astro."
+      },
+      {
+        "id": "document:graphify-out/memory/query_20260802_160216_most_interesting__why_does_readme_bridge_theme_sys.md",
+        "name": "query 20260802 160216 most interesting  why does readme bridge theme sys",
+        "type": "document",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "document:graphify-out/memory/query_20260802_160320_trace_the_astro_migration_connection_to_readme.md",
+        "name": "query 20260802 160320 trace the astro migration connection to readme",
+        "type": "document",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "document:graphify-out/reflections/LESSONS.md",
+        "name": "LESSONS",
+        "type": "document",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "document:tasks/plan.md",
+        "name": "plan",
+        "type": "document",
+        "summary": "Documents plan for maintaining and evolving the portfolio project."
+      },
+      {
+        "id": "document:tasks/todo.md",
+        "name": "todo",
+        "type": "document",
+        "summary": "Documents todo for maintaining and evolving the portfolio project."
+      }
+    ],
+    "infrastructure": [
+      {
+        "id": "pipeline:.github/workflows/ci.yml",
+        "name": "ci.yml",
+        "type": "pipeline",
+        "summary": "GitHub Actions workflow that installs dependencies, runs linting and tests, and builds the portfolio for continuous integration."
+      },
+      {
+        "id": "pipeline:.github/workflows/deploy.yml",
+        "name": "deploy.yml",
+        "type": "pipeline",
+        "summary": "GitHub Actions deployment workflow that builds and publishes the portfolio to GitHub Pages."
+      }
+    ],
+    "data": [],
+    "config": [
+      {
+        "id": "config:browserconfig.xml",
+        "name": "browserconfig.xml",
+        "type": "config",
+        "summary": "Configures Windows browser tile metadata for the site."
+      },
+      {
+        "id": "config:package.json",
+        "name": "package.json",
+        "type": "config",
+        "summary": "Defines the Vite/React project metadata, scripts, dependencies, and development tooling."
+      },
+      {
+        "id": "config:tsconfig.typecheck.json",
+        "name": "tsconfig.typecheck.json",
+        "type": "config",
+        "summary": "TypeScript configuration used for static type-checking JavaScript and JSX project files."
+      },
+      {
+        "id": "config:vercel.json",
+        "name": "vercel.json",
+        "type": "config",
+        "summary": "Defines the Vercel build command and output directory for deployment."
+      },
+      {
+        "id": "config:graphify-out/.graphify_labels.json",
+        "name": ".graphify_labels.json",
+        "type": "config",
+        "summary": "Stores human-readable labels assigned to graph communities."
+      },
+      {
+        "id": "config:graphify-out/.graphify_learning.json",
+        "name": ".graphify_learning.json",
+        "type": "config",
+        "summary": "Stores learned graph-query metadata generated by Graphify."
+      },
+      {
+        "id": "config:graphify-out/cost.json",
+        "name": "cost.json",
+        "type": "config",
+        "summary": "Tracks token usage and run history for graph extraction."
+      },
+      {
+        "id": "config:graphify-out/graph.json",
+        "name": "graph.json",
+        "type": "config",
+        "summary": "Machine-readable GraphRAG export containing the project knowledge graph."
+      },
+      {
+        "id": "config:graphify-out/manifest.json",
+        "name": "manifest.json",
+        "type": "config",
+        "summary": "Manifest of source files used to maintain and incrementally update the Graphify graph."
+      },
+      {
+        "id": "config:graphify-out/cache/ast/v0.9.17/1106e6d148139da98930d8b189f0312a6c6cd0e928dd09aa98194022236346f5.json",
+        "name": "1106e6d148139da98930d8b189f0312a6c6cd0e928dd09aa98194022236346f5.json",
+        "type": "config",
+        "summary": "Cached AST extraction artifact used by Graphify to avoid reparsing project source files."
+      },
+      {
+        "id": "config:graphify-out/cache/ast/v0.9.17/5bb4686179cf79e74c412a9acbe9db68fe2289938841be6ec7270c69ae34ea04.json",
+        "name": "5bb4686179cf79e74c412a9acbe9db68fe2289938841be6ec7270c69ae34ea04.json",
+        "type": "config",
+        "summary": "Cached AST extraction artifact used by Graphify to avoid reparsing project source files."
+      },
+      {
+        "id": "config:graphify-out/cache/ast/v0.9.17/8c423f0a8c11aaea9db68bc3aa8b914aeae36bc7334dca8d99787b6bf698bcfc.json",
+        "name": "8c423f0a8c11aaea9db68bc3aa8b914aeae36bc7334dca8d99787b6bf698bcfc.json",
+        "type": "config",
+        "summary": "Cached AST extraction artifact used by Graphify to avoid reparsing project source files."
+      },
+      {
+        "id": "config:graphify-out/cache/ast/v0.9.17/f8d7529cc24901e0efc393069d31a912c1e350d1721ee79829c6cb112eba05dd.json",
+        "name": "f8d7529cc24901e0efc393069d31a912c1e350d1721ee79829c6cb112eba05dd.json",
+        "type": "config",
+        "summary": "Cached AST extraction artifact used by Graphify to avoid reparsing project source files."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/03191878c3e93c39a7952933b2fd8c8f94f8b51bbb702c94f1250b69d6187717.json",
+        "name": "03191878c3e93c39a7952933b2fd8c8f94f8b51bbb702c94f1250b69d6187717.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/0abefd9f4861894cf5f00876c4bfe554c8657b63b3a1f2a865c9b64ffb49a64d.json",
+        "name": "0abefd9f4861894cf5f00876c4bfe554c8657b63b3a1f2a865c9b64ffb49a64d.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/0b513f7616a20b05ee0dc92985838c4e40a33d703f8a53abadc23ba4aeb3ab06.json",
+        "name": "0b513f7616a20b05ee0dc92985838c4e40a33d703f8a53abadc23ba4aeb3ab06.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/0e52caab3def554d5b442ab3091a688c926eb8cb12e9b93c28e5a8b48ae1e4bb.json",
+        "name": "0e52caab3def554d5b442ab3091a688c926eb8cb12e9b93c28e5a8b48ae1e4bb.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/1097b88382a3dfe897886fe671bd50945873a8b40e02d2ec971981278f8071af.json",
+        "name": "1097b88382a3dfe897886fe671bd50945873a8b40e02d2ec971981278f8071af.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/123e05e3ac4e0223f0e7d80969cb5873269632590a04cf018cf5534462cbb8a0.json",
+        "name": "123e05e3ac4e0223f0e7d80969cb5873269632590a04cf018cf5534462cbb8a0.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/1264ffb4f70600ef864bc0430db97257f61a1e6d6ce2234722b352bbc2d01d02.json",
+        "name": "1264ffb4f70600ef864bc0430db97257f61a1e6d6ce2234722b352bbc2d01d02.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/14c48530a43dc4958ef3a5891aa2836e27d8fddbc33a65474ce9d254a86d1fe6.json",
+        "name": "14c48530a43dc4958ef3a5891aa2836e27d8fddbc33a65474ce9d254a86d1fe6.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/160aca5014ff633969a84a844543f30e365241da1bb4de73ffb13887f215a09a.json",
+        "name": "160aca5014ff633969a84a844543f30e365241da1bb4de73ffb13887f215a09a.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/16783fd6c9d2d968c1387b6ec683a4f8638df83367decf7ea2c3fd2c2a131228.json",
+        "name": "16783fd6c9d2d968c1387b6ec683a4f8638df83367decf7ea2c3fd2c2a131228.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/194ed59dd3e841d120fceca0c969a37bf4f6a028cf8391495fc1a1d2b5bb6df5.json",
+        "name": "194ed59dd3e841d120fceca0c969a37bf4f6a028cf8391495fc1a1d2b5bb6df5.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/1bd8dd37a2edd4fc26e8e4180c89f66121aa0578b7b6d5361022d17e8c8cc900.json",
+        "name": "1bd8dd37a2edd4fc26e8e4180c89f66121aa0578b7b6d5361022d17e8c8cc900.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/1d981c7289f471fd8632b740b20b1d65c4976d8e4821ff8f8b13a195f4d20035.json",
+        "name": "1d981c7289f471fd8632b740b20b1d65c4976d8e4821ff8f8b13a195f4d20035.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/1dc5f3ca7b96c2a0bb9965621452d7e8c94fdb2605cd5cf52acd2c6680badd92.json",
+        "name": "1dc5f3ca7b96c2a0bb9965621452d7e8c94fdb2605cd5cf52acd2c6680badd92.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/1feac6b0da8a2005f5de10fd923664dfef82507d896cf1bae8d43f43a83ba31b.json",
+        "name": "1feac6b0da8a2005f5de10fd923664dfef82507d896cf1bae8d43f43a83ba31b.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/24a0347416c882b0a80b555edaa7316cd2c7c7dd9e3c05705cda63e626bc1214.json",
+        "name": "24a0347416c882b0a80b555edaa7316cd2c7c7dd9e3c05705cda63e626bc1214.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/26b1139cd5c4c111ef3c449a617312e849ddc9f694f1970db76b7912eb57c72a.json",
+        "name": "26b1139cd5c4c111ef3c449a617312e849ddc9f694f1970db76b7912eb57c72a.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/26ca5a34c51c4bee10020a146434848de39dca9cab953e5bbd3ece9c972ce38f.json",
+        "name": "26ca5a34c51c4bee10020a146434848de39dca9cab953e5bbd3ece9c972ce38f.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/27ec549f119c39f4577d17b75f44260f22d795a7fc4eaf969ed00b459a06a162.json",
+        "name": "27ec549f119c39f4577d17b75f44260f22d795a7fc4eaf969ed00b459a06a162.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/2aeb11f4f8d8c1c1d57b0c704c7e430c434c1915059de28ec3ce041965544e4f.json",
+        "name": "2aeb11f4f8d8c1c1d57b0c704c7e430c434c1915059de28ec3ce041965544e4f.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/2e4d6af7e425de1316df836753ded7c32094109c25968bab1a4ad40e9f910aca.json",
+        "name": "2e4d6af7e425de1316df836753ded7c32094109c25968bab1a4ad40e9f910aca.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/2e6f8108ccfd3d69fe0dd7b97d15ac30764738bd002f07826c8125af6e2e7500.json",
+        "name": "2e6f8108ccfd3d69fe0dd7b97d15ac30764738bd002f07826c8125af6e2e7500.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/2f20c188b10e017e3e96f7539579e80dbd7a51d42faee8dbc72b8c58aaa75190.json",
+        "name": "2f20c188b10e017e3e96f7539579e80dbd7a51d42faee8dbc72b8c58aaa75190.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/31bc7030992ad71281d053461d81e2b57cca40889c111d61150efcb585af62bc.json",
+        "name": "31bc7030992ad71281d053461d81e2b57cca40889c111d61150efcb585af62bc.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/35bed1752abbb9361017d37f7c786a80d73774ffe44d39676d3255f35d546a61.json",
+        "name": "35bed1752abbb9361017d37f7c786a80d73774ffe44d39676d3255f35d546a61.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/39287e8878048c75e8f3d06aae550e513bc3f30fbcb79d8b3f078d3dbad5d3e6.json",
+        "name": "39287e8878048c75e8f3d06aae550e513bc3f30fbcb79d8b3f078d3dbad5d3e6.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/3b286825c093974100df3629c8c7d90a96ce88814d545e29604893f0ec321cc2.json",
+        "name": "3b286825c093974100df3629c8c7d90a96ce88814d545e29604893f0ec321cc2.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/3c633c4012ca7d4c39a873d763834e8d2afa193c709336c3579068429b14c9c0.json",
+        "name": "3c633c4012ca7d4c39a873d763834e8d2afa193c709336c3579068429b14c9c0.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/3e8087ea9d60536cf297768f4143d082c0171aea96cfd733df2dbab76b285b00.json",
+        "name": "3e8087ea9d60536cf297768f4143d082c0171aea96cfd733df2dbab76b285b00.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/42ae12ebbe43dac8788f3120c76d88fc5fce6236c53afbe9bbfb8c6de5f4ac04.json",
+        "name": "42ae12ebbe43dac8788f3120c76d88fc5fce6236c53afbe9bbfb8c6de5f4ac04.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/435e100a2d7cad8e6e3fb484d6c335ed760587b3e63ced829f0ff8ded70a3f52.json",
+        "name": "435e100a2d7cad8e6e3fb484d6c335ed760587b3e63ced829f0ff8ded70a3f52.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/43d0cdbc5f40f1dbf76fbb946d54f8e34ddebaa5ec1ddfa7fedf9c56e0a20b6c.json",
+        "name": "43d0cdbc5f40f1dbf76fbb946d54f8e34ddebaa5ec1ddfa7fedf9c56e0a20b6c.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/45d75f87d8028d6b6c66c5c56eac87a5bf2cce58584ba065c3cfec2165b2744d.json",
+        "name": "45d75f87d8028d6b6c66c5c56eac87a5bf2cce58584ba065c3cfec2165b2744d.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/4749a78a77bd424253285e17ad545b358d6bfabe6fbde651efd6a18899984282.json",
+        "name": "4749a78a77bd424253285e17ad545b358d6bfabe6fbde651efd6a18899984282.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/4e017d39dc3786558ce54ac3a4e10b3b00ef204ba20c7d3efd52d0566f6135f4.json",
+        "name": "4e017d39dc3786558ce54ac3a4e10b3b00ef204ba20c7d3efd52d0566f6135f4.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/4e41cca672ae3344fabd743a882d5724cf3abcbdc86949f6bdc3a6e693074ce9.json",
+        "name": "4e41cca672ae3344fabd743a882d5724cf3abcbdc86949f6bdc3a6e693074ce9.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/514a1a4288a5e769f69e993fc5cb0acc3935f0579199b2515bc56ff860ef64ce.json",
+        "name": "514a1a4288a5e769f69e993fc5cb0acc3935f0579199b2515bc56ff860ef64ce.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/5176944e8103dcddf62f4dfca4f6cccb16e9b75bf250e55e1530b5a4b3e9bb5a.json",
+        "name": "5176944e8103dcddf62f4dfca4f6cccb16e9b75bf250e55e1530b5a4b3e9bb5a.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/553bffb0023f73c44757584b93eb73c4ba9551c94498f73c88951990e142e0d0.json",
+        "name": "553bffb0023f73c44757584b93eb73c4ba9551c94498f73c88951990e142e0d0.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/562eaad5c45c3433174d6a57b726ce5474fab6097ce3dff4db012930b858b12e.json",
+        "name": "562eaad5c45c3433174d6a57b726ce5474fab6097ce3dff4db012930b858b12e.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/5686c4eb0f1fbbee0efe7a3d13e61160857734ac32a1762ec9cfb7bdce4b6d1a.json",
+        "name": "5686c4eb0f1fbbee0efe7a3d13e61160857734ac32a1762ec9cfb7bdce4b6d1a.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/57eb1336397cce141d6ebf15b5052e2e278e5984b2970bacf2c18ac5bee9501f.json",
+        "name": "57eb1336397cce141d6ebf15b5052e2e278e5984b2970bacf2c18ac5bee9501f.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/5c3155e788b5a6a2fb4c3ebe1e72bf0e074bc05e5a5b1730e0c5266d1449d642.json",
+        "name": "5c3155e788b5a6a2fb4c3ebe1e72bf0e074bc05e5a5b1730e0c5266d1449d642.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/60c664184c5a125287792f5840dd51226143471d57006a38dec43caf41953c35.json",
+        "name": "60c664184c5a125287792f5840dd51226143471d57006a38dec43caf41953c35.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/64728590438d5c4b4951501c3c8077de578bcd37053199dfff585bd0b67dba6a.json",
+        "name": "64728590438d5c4b4951501c3c8077de578bcd37053199dfff585bd0b67dba6a.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/68e32bd67fbaedc9a22962dab998e8b39a14077146e1e3e13a05cde568ccafda.json",
+        "name": "68e32bd67fbaedc9a22962dab998e8b39a14077146e1e3e13a05cde568ccafda.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/7396a87d1965cc6d9a7b7faa1987180ae5f28a5d26ab353bb5eb5dbb71f4226c.json",
+        "name": "7396a87d1965cc6d9a7b7faa1987180ae5f28a5d26ab353bb5eb5dbb71f4226c.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/7845349e22965481a18dff86443debc688f6ffd7c27c8d734418db29e379d6a1.json",
+        "name": "7845349e22965481a18dff86443debc688f6ffd7c27c8d734418db29e379d6a1.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/7b55691c43fe458c04e4bdc42b56a11a3c1425fbe1159277386c31ed0e9c576e.json",
+        "name": "7b55691c43fe458c04e4bdc42b56a11a3c1425fbe1159277386c31ed0e9c576e.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/82fd8eb481bc1ab239b15d3f229434d18fd6fec5a94828b753fe3290fba16685.json",
+        "name": "82fd8eb481bc1ab239b15d3f229434d18fd6fec5a94828b753fe3290fba16685.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/84f216af5d7044a90422aecc240f29c3ae705826d8980e8ff561dec42b8c7704.json",
+        "name": "84f216af5d7044a90422aecc240f29c3ae705826d8980e8ff561dec42b8c7704.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/8600a31cbb0c6250864be42cb8861eacba84bb7db4291d652ff4774d7ddbf197.json",
+        "name": "8600a31cbb0c6250864be42cb8861eacba84bb7db4291d652ff4774d7ddbf197.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/86ae95f894f9b2bb8bd8f6dca578d4478915d71a8d81bd6076a14f73a6d1e3c2.json",
+        "name": "86ae95f894f9b2bb8bd8f6dca578d4478915d71a8d81bd6076a14f73a6d1e3c2.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/8a51a3562e96c48152b781781a02187f6d104f9583196c11bc4612e1c89a8187.json",
+        "name": "8a51a3562e96c48152b781781a02187f6d104f9583196c11bc4612e1c89a8187.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/8b6a68d10fcd0b8bf1e665ba558b571ab005bb0054c28406e4abf83c6eaa683d.json",
+        "name": "8b6a68d10fcd0b8bf1e665ba558b571ab005bb0054c28406e4abf83c6eaa683d.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/9190b451510e9e7df868e05f857ad764fedda451591fce68471af2e847dac6e5.json",
+        "name": "9190b451510e9e7df868e05f857ad764fedda451591fce68471af2e847dac6e5.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/92b98449e1d9bfce99730c347de177b14ad5d2df14a9e9d5ba9c800453e30326.json",
+        "name": "92b98449e1d9bfce99730c347de177b14ad5d2df14a9e9d5ba9c800453e30326.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/9a245607e33f7e5d0c26e35a18fafdbfad3e7af15eeb93590fa8a1ebbcd551ac.json",
+        "name": "9a245607e33f7e5d0c26e35a18fafdbfad3e7af15eeb93590fa8a1ebbcd551ac.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/9c1d622f57ad6a4666d8e8cdf79664af79021c154d2e2be32dc5f0126c85a463.json",
+        "name": "9c1d622f57ad6a4666d8e8cdf79664af79021c154d2e2be32dc5f0126c85a463.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/9e8354f7610d483cb91384186bcb75c52d03349f0c48017f6693960c27bb9e89.json",
+        "name": "9e8354f7610d483cb91384186bcb75c52d03349f0c48017f6693960c27bb9e89.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/9fdc6ec957b36f15a90b281088b18cd923958ba2d5d042e6f10d89176570b87d.json",
+        "name": "9fdc6ec957b36f15a90b281088b18cd923958ba2d5d042e6f10d89176570b87d.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/a3c851d4ec12831ed830428c061a4add8c8d8b8650c9837ca3d92adab7d7de07.json",
+        "name": "a3c851d4ec12831ed830428c061a4add8c8d8b8650c9837ca3d92adab7d7de07.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/a879f6959e1c852e203adf6f3c168749db23ee184b15c088837123fc942323f4.json",
+        "name": "a879f6959e1c852e203adf6f3c168749db23ee184b15c088837123fc942323f4.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/a8bea375e609f5003dbfa326d1ab669ab404999fb2722e8fd74094930868b511.json",
+        "name": "a8bea375e609f5003dbfa326d1ab669ab404999fb2722e8fd74094930868b511.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/a8f6d142c814b6c9e75c9d73cdf811a294eb33d7323f4679338fb981b5fbcec9.json",
+        "name": "a8f6d142c814b6c9e75c9d73cdf811a294eb33d7323f4679338fb981b5fbcec9.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/aeaaa01c0a1b7c6080b6fbf2a3840b688c087020dd41542f6bdf7163d3937314.json",
+        "name": "aeaaa01c0a1b7c6080b6fbf2a3840b688c087020dd41542f6bdf7163d3937314.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/af3660476b6bde0c6d4edad8b5d7fe78017b550b4e4f1b584ae0f0469e4a469d.json",
+        "name": "af3660476b6bde0c6d4edad8b5d7fe78017b550b4e4f1b584ae0f0469e4a469d.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/b7c5fad4ee79bba0ac4a3b38f6f24c33b0722a1423b2cc726197e82d83fac55b.json",
+        "name": "b7c5fad4ee79bba0ac4a3b38f6f24c33b0722a1423b2cc726197e82d83fac55b.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/bfd01baa3e5134b6d16ec9c68d077b8a3c64f3fc5da8703e21f9fb57f2471225.json",
+        "name": "bfd01baa3e5134b6d16ec9c68d077b8a3c64f3fc5da8703e21f9fb57f2471225.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/c6c1dd58ac7b17ff2dfb291e15f63326fae6df905fa4618ec025b636fa3af2ab.json",
+        "name": "c6c1dd58ac7b17ff2dfb291e15f63326fae6df905fa4618ec025b636fa3af2ab.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/c7afbaf8118fa6456bea1409053f82f3dd99a1b3be31b5442ccfc494f0b3050c.json",
+        "name": "c7afbaf8118fa6456bea1409053f82f3dd99a1b3be31b5442ccfc494f0b3050c.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/c7ef76bf6712dc499a176067b4df9e9d683ae74ea54ca67e7fbe0c1bd02ba2c7.json",
+        "name": "c7ef76bf6712dc499a176067b4df9e9d683ae74ea54ca67e7fbe0c1bd02ba2c7.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/c86a7a604e1f470067c0450321a17901ffb2bad08b759942f72bdc44cfd284e1.json",
+        "name": "c86a7a604e1f470067c0450321a17901ffb2bad08b759942f72bdc44cfd284e1.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/c89e7b9a8358f24632f5672e66ca000261f0af1085773bfe6fe530216bc00c57.json",
+        "name": "c89e7b9a8358f24632f5672e66ca000261f0af1085773bfe6fe530216bc00c57.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/cda0a1b86267a43f02f794e4413fafb2f2c3261958327a4193eae42c5df64c2e.json",
+        "name": "cda0a1b86267a43f02f794e4413fafb2f2c3261958327a4193eae42c5df64c2e.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/d201ebdba9d9366afc709d5386199f7844162a26a5156566c8f07f9995f3fd19.json",
+        "name": "d201ebdba9d9366afc709d5386199f7844162a26a5156566c8f07f9995f3fd19.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/d814779690149bd1252262cc2347c64867769e4fae5dee648751ffeef05e2493.json",
+        "name": "d814779690149bd1252262cc2347c64867769e4fae5dee648751ffeef05e2493.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/dc26f590988d9808623b898ad92e69c523b8edafc7a716e53349fef854cdc60a.json",
+        "name": "dc26f590988d9808623b898ad92e69c523b8edafc7a716e53349fef854cdc60a.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/dd557da2a9669d22054dfa944c09cc5a4cdbc8e2ff90235c1e4fa62015367088.json",
+        "name": "dd557da2a9669d22054dfa944c09cc5a4cdbc8e2ff90235c1e4fa62015367088.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/e02f3bda47fd3e2e1f9c6eb364c286142ca920b9882596f537f40b14072d5e9c.json",
+        "name": "e02f3bda47fd3e2e1f9c6eb364c286142ca920b9882596f537f40b14072d5e9c.json",
+        "type": "config",
+        "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/e7e607f8ead25b1760166c09e5edc36d83eed45c16098a9455c07d9622170c0e.json",
+        "name": "e7e607f8ead25b1760166c09e5edc36d83eed45c16098a9455c07d9622170c0e",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/e8b5c4332231cf9e9e94bd08dc79ea9701b69748ee6ea64509b7739397c74331.json",
+        "name": "e8b5c4332231cf9e9e94bd08dc79ea9701b69748ee6ea64509b7739397c74331",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/ed8d9c37628b4b21d3bc042c118170031ef3fb60c730508c5f9531e94f718a04.json",
+        "name": "ed8d9c37628b4b21d3bc042c118170031ef3fb60c730508c5f9531e94f718a04",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/ee3b110fe50278e6bb54b078491687d43db6696d183409dff7643677edfd933b.json",
+        "name": "ee3b110fe50278e6bb54b078491687d43db6696d183409dff7643677edfd933b",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/ee974396ec8918ba7f49945aed8a0cd60f4183effa58ff9bb9fee06fc85a1181.json",
+        "name": "ee974396ec8918ba7f49945aed8a0cd60f4183effa58ff9bb9fee06fc85a1181",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/f04413295244205d33c3cb1a9b1f6966d9af8ed6baff0cb5ec01590f5e6900c4.json",
+        "name": "f04413295244205d33c3cb1a9b1f6966d9af8ed6baff0cb5ec01590f5e6900c4",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/f0d1b21b688c5315af807d3fde4fdc09b189b89fc5c6ebf400de0e33932c4212.json",
+        "name": "f0d1b21b688c5315af807d3fde4fdc09b189b89fc5c6ebf400de0e33932c4212",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/f35fecea8b0851863297f7fecb32e15ca83b75ed194c6f80495d9104fd7e7a53.json",
+        "name": "f35fecea8b0851863297f7fecb32e15ca83b75ed194c6f80495d9104fd7e7a53",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/f430493f17fe614295e396574e32346d2aed4864a5b282ce9cca7d7f2793138f.json",
+        "name": "f430493f17fe614295e396574e32346d2aed4864a5b282ce9cca7d7f2793138f",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/f450764da29c73e713189415b8cd313f82dab4cdb308eb4214344a4d11a5f879.json",
+        "name": "f450764da29c73e713189415b8cd313f82dab4cdb308eb4214344a4d11a5f879",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7.json",
+        "name": "f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/f72540e05c6afb539ac4945ce8e4dfd99a118f504fac3c4d997dc6f9b20cdece.json",
+        "name": "f72540e05c6afb539ac4945ce8e4dfd99a118f504fac3c4d997dc6f9b20cdece",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/fe8fec5098c297a0d5d06035c3ce818f6e90df7f63df9b2df385156136391bac.json",
+        "name": "fe8fec5098c297a0d5d06035c3ce818f6e90df7f63df9b2df385156136391bac",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:graphify-out/cache/semantic/ff15c4b84785b16f54c958d7727db5f774b64ba2e3c7f42e497da693b6754834.json",
+        "name": "ff15c4b84785b16f54c958d7727db5f774b64ba2e3c7f42e497da693b6754834",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      },
+      {
+        "id": "config:public/manifest.json",
+        "name": "manifest",
+        "type": "config",
+        "summary": "Defines progressive-web-app metadata and icons for the deployed portfolio."
+      },
+      {
+        "id": "config:public/sitemap.xml",
+        "name": "sitemap",
+        "type": "config",
+        "summary": "Lists canonical public pages for search-engine discovery."
+      },
+      {
+        "id": "config:.ua/config.json",
+        "name": "config",
+        "type": "config",
+        "summary": "Configures or records generated Understand-Anything analysis artifacts."
+      },
+      {
+        "id": "config:graphify-out/cache/stat-index.json",
+        "name": "stat index",
+        "type": "config",
+        "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+      }
+    ]
+  },
+  "clusters": [],
+  "layers": {
+    "count": 8,
+    "list": [
+      {
+        "id": "layer:application-shell",
+        "name": "Application Shell",
+        "description": "React application bootstrap, route composition, global styling, and theme state that coordinate the portfolio experience."
+      },
+      {
+        "id": "layer:presentation",
+        "name": "Presentation Layer",
+        "description": "Reusable components, page views, containers, and their styles that render portfolio content."
+      },
+      {
+        "id": "layer:content-data",
+        "name": "Content Data",
+        "description": "Structured portfolio content consumed by the presentation layer."
+      },
+      {
+        "id": "layer:testing",
+        "name": "Testing and Quality",
+        "description": "Vitest setup, component and behavior tests, and browser resilience checks."
+      },
+      {
+        "id": "layer:documentation",
+        "name": "Documentation and Planning",
+        "description": "Project guides, policies, migration notes, and maintenance plans."
+      },
+      {
+        "id": "layer:delivery",
+        "name": "Delivery and Web Metadata",
+        "description": "GitHub Actions workflows and public-site metadata used to publish and index the portfolio."
+      },
+      {
+        "id": "layer:project-configuration",
+        "name": "Project Configuration",
+        "description": "Root build, linting, package, formatting, and repository configuration."
+      },
+      {
+        "id": "layer:generated-artifacts",
+        "name": "Generated Analysis Artifacts",
+        "description": "Graphify and Understand-Anything generated data retained for codebase exploration."
+      }
+    ]
+  },
+  "nodeSummaryIndex": {
+    "file:src/components/ProjectCard/ProjectCard.jsx": {
+      "name": "ProjectCard.jsx",
+      "type": "file",
+      "summary": "Implements ProjectCard for the React portfolio application."
+    },
+    "function:src/components/ProjectCard/ProjectCard.jsx:ProjectCard": {
+      "name": "ProjectCard",
+      "type": "function",
+      "summary": "Provides the ProjectCard routine used by ProjectCard.jsx."
+    },
+    "file:src/components/footer/Footer.jsx": {
+      "name": "Footer.jsx",
+      "type": "file",
+      "summary": "Implements Footer for the React portfolio application."
+    },
+    "function:src/components/footer/Footer.jsx:Footer": {
+      "name": "Footer",
+      "type": "function",
+      "summary": "Provides the Footer routine used by Footer.jsx."
+    },
+    "file:src/components/header/Header.jsx": {
+      "name": "Header.jsx",
+      "type": "file",
+      "summary": "Implements Header for the React portfolio application."
+    },
+    "function:src/components/header/Header.jsx:navigationLinkStyle": {
+      "name": "navigationLinkStyle",
+      "type": "function",
+      "summary": "Provides the navigationLinkStyle routine used by Header.jsx."
+    },
+    "function:src/components/header/Header.jsx:Header": {
+      "name": "Header",
+      "type": "function",
+      "summary": "Provides the Header routine used by Header.jsx."
+    },
+    "file:src/components/socialMedia/ContactLinksList.jsx": {
+      "name": "ContactLinksList.jsx",
+      "type": "file",
+      "summary": "Implements ContactLinksList for the React portfolio application."
+    },
+    "function:src/components/socialMedia/ContactLinksList.jsx:buildContactItems": {
+      "name": "buildContactItems",
+      "type": "function",
+      "summary": "Provides the buildContactItems routine used by ContactLinksList.jsx."
+    },
+    "function:src/components/socialMedia/ContactLinksList.jsx:ContactLinksList": {
+      "name": "ContactLinksList",
+      "type": "function",
+      "summary": "Provides the ContactLinksList routine used by ContactLinksList.jsx."
+    },
+    "file:src/components/socialMedia/SocialMedia.jsx": {
+      "name": "SocialMedia.jsx",
+      "type": "file",
+      "summary": "Implements SocialMedia for the React portfolio application."
+    },
+    "function:src/components/socialMedia/SocialMedia.jsx:socialMedia": {
+      "name": "socialMedia",
+      "type": "function",
+      "summary": "Provides the socialMedia routine used by SocialMedia.jsx."
+    },
+    "file:src/pages/contact/BlogsImg.jsx": {
+      "name": "BlogsImg.jsx",
+      "type": "file",
+      "summary": "Implements BlogsImg for the React portfolio application."
+    },
+    "function:src/pages/contact/BlogsImg.jsx:BlogsImg": {
+      "name": "BlogsImg",
+      "type": "function",
+      "summary": "Provides the BlogsImg routine used by BlogsImg.jsx."
+    },
+    "file:src/pages/contact/ContactComponent.jsx": {
+      "name": "ContactComponent.jsx",
+      "type": "file",
+      "summary": "Implements ContactComponent for the React portfolio application."
+    },
+    "function:src/pages/contact/ContactComponent.jsx:Contact": {
+      "name": "Contact",
+      "type": "function",
+      "summary": "Provides the Contact routine used by ContactComponent.jsx."
+    },
+    "file:src/pages/experience/Experience.jsx": {
+      "name": "Experience.jsx",
+      "type": "file",
+      "summary": "Implements Experience for the React portfolio application."
+    },
+    "function:src/pages/experience/Experience.jsx:Experience": {
+      "name": "Experience",
+      "type": "function",
+      "summary": "Provides the Experience routine used by Experience.jsx."
+    },
+    "file:src/pages/experience/ExperienceImg.jsx": {
+      "name": "ExperienceImg.jsx",
+      "type": "file",
+      "summary": "Implements ExperienceImg for the React portfolio application."
+    },
+    "function:src/pages/experience/ExperienceImg.jsx:ExperienceImg": {
+      "name": "ExperienceImg",
+      "type": "function",
+      "summary": "Provides the ExperienceImg routine used by ExperienceImg.jsx."
+    },
+    "file:src/pages/notFound/NotFound.jsx": {
+      "name": "NotFound.jsx",
+      "type": "file",
+      "summary": "Implements NotFound for the React portfolio application."
+    },
+    "function:src/pages/notFound/NotFound.jsx:NotFound": {
+      "name": "NotFound",
+      "type": "function",
+      "summary": "Provides the NotFound routine used by NotFound.jsx."
+    },
+    "file:src/pages/projects/Projects.jsx": {
+      "name": "Projects.jsx",
+      "type": "file",
+      "summary": "Implements Projects for the React portfolio application."
+    },
+    "function:src/pages/projects/Projects.jsx:Projects": {
+      "name": "Projects",
+      "type": "function",
+      "summary": "Provides the Projects routine used by Projects.jsx."
+    },
+    "file:src/pages/projects/ProjectsImg.jsx": {
+      "name": "ProjectsImg.jsx",
+      "type": "file",
+      "summary": "Implements ProjectsImg for the React portfolio application."
+    },
+    "function:src/pages/projects/ProjectsImg.jsx:ProjectsImg": {
+      "name": "ProjectsImg",
+      "type": "function",
+      "summary": "Provides the ProjectsImg routine used by ProjectsImg.jsx."
+    },
+    "file:src/pages/skills/SkillsPage.jsx": {
+      "name": "SkillsPage.jsx",
+      "type": "file",
+      "summary": "Implements SkillsPage for the React portfolio application."
+    },
+    "function:src/pages/skills/SkillsPage.jsx:SkillSection": {
+      "name": "SkillSection",
+      "type": "function",
+      "summary": "Provides the SkillSection routine used by SkillsPage.jsx."
+    },
+    "function:src/pages/skills/SkillsPage.jsx:SkillsPage": {
+      "name": "SkillsPage",
+      "type": "function",
+      "summary": "Provides the SkillsPage routine used by SkillsPage.jsx."
+    },
+    "file:src/portfolio.js": {
+      "name": "portfolio.js",
+      "type": "file",
+      "summary": "Implements portfolio for the React portfolio application."
+    },
+    "file:src/themeMotion.js": {
+      "name": "themeMotion.js",
+      "type": "file",
+      "summary": "Implements themeMotion for the React portfolio application."
+    },
+    "function:src/themeMotion.js:buildThemeBackground": {
+      "name": "buildThemeBackground",
+      "type": "function",
+      "summary": "Provides the buildThemeBackground routine used by themeMotion.js."
+    },
+    "function:src/themeMotion.js:buildThemeShadow": {
+      "name": "buildThemeShadow",
+      "type": "function",
+      "summary": "Provides the buildThemeShadow routine used by themeMotion.js."
+    },
+    "file:src/__tests__/Accessibility.test.jsx": {
+      "name": "Accessibility.test.jsx",
+      "type": "file",
+      "summary": "Test suite validating Accessibility.test behavior in the React portfolio."
+    },
+    "file:src/__tests__/Behavior.test.jsx": {
+      "name": "Behavior.test.jsx",
+      "type": "file",
+      "summary": "Test suite validating Behavior.test behavior in the React portfolio."
+    },
+    "file:src/__tests__/ExperienceCard.render.test.jsx": {
+      "name": "ExperienceCard.render.test.jsx",
+      "type": "file",
+      "summary": "Test suite validating ExperienceCard.render.test behavior in the React portfolio."
+    },
+    "file:src/__tests__/Footer.render.test.jsx": {
+      "name": "Footer.render.test.jsx",
+      "type": "file",
+      "summary": "Test suite validating Footer.render.test behavior in the React portfolio."
+    },
+    "file:src/__tests__/Greeting.render.test.jsx": {
+      "name": "Greeting.render.test.jsx",
+      "type": "file",
+      "summary": "Test suite validating Greeting.render.test behavior in the React portfolio."
+    },
+    "file:src/__tests__/Header.render.test.jsx": {
+      "name": "Header.render.test.jsx",
+      "type": "file",
+      "summary": "Test suite validating Header.render.test behavior in the React portfolio."
+    },
+    "file:src/__tests__/Responsive.test.jsx": {
+      "name": "Responsive.test.jsx",
+      "type": "file",
+      "summary": "Test suite validating Responsive.test behavior in the React portfolio."
+    },
+    "file:src/components/experienceCard/ExperienceCard.jsx": {
+      "name": "ExperienceCard.jsx",
+      "type": "file",
+      "summary": "Implements ExperienceCard for the React portfolio application."
+    },
+    "function:src/components/experienceCard/ExperienceCard.jsx:ExperienceCard": {
+      "name": "ExperienceCard",
+      "type": "function",
+      "summary": "Provides the ExperienceCard routine used by ExperienceCard.jsx."
+    },
+    "file:src/containers/experienceAccordion/ExperienceAccordion.jsx": {
+      "name": "ExperienceAccordion.jsx",
+      "type": "file",
+      "summary": "Implements ExperienceAccordion for the React portfolio application."
+    },
+    "function:src/containers/experienceAccordion/ExperienceAccordion.jsx:ExperienceAccordion": {
+      "name": "ExperienceAccordion",
+      "type": "function",
+      "summary": "Provides the ExperienceAccordion routine used by ExperienceAccordion.jsx."
+    },
+    "file:src/containers/greeting/FeelingProud.jsx": {
+      "name": "FeelingProud.jsx",
+      "type": "file",
+      "summary": "Implements FeelingProud for the React portfolio application."
+    },
+    "function:src/containers/greeting/FeelingProud.jsx:FeelingProud": {
+      "name": "FeelingProud",
+      "type": "function",
+      "summary": "Provides the FeelingProud routine used by FeelingProud.jsx."
+    },
+    "file:src/containers/greeting/Greeting.jsx": {
+      "name": "Greeting.jsx",
+      "type": "file",
+      "summary": "Implements Greeting for the React portfolio application."
+    },
+    "function:src/containers/greeting/Greeting.jsx:Greeting": {
+      "name": "Greeting",
+      "type": "function",
+      "summary": "Provides the Greeting routine used by Greeting.jsx."
+    },
+    "file:src/test/testUtils.jsx": {
+      "name": "testUtils.jsx",
+      "type": "file",
+      "summary": "Implements testUtils for the React portfolio application."
+    },
+    "function:src/test/testUtils.jsx:renderWithProviders": {
+      "name": "renderWithProviders",
+      "type": "function",
+      "summary": "Provides the renderWithProviders routine used by testUtils.jsx."
+    },
+    "file:src/components/icons/SkillIcon.jsx": {
+      "name": "SkillIcon.jsx",
+      "type": "file",
+      "summary": "Implements SkillIcon for the React portfolio application."
+    },
+    "function:src/components/icons/SkillIcon.jsx:SkillIcon": {
+      "name": "SkillIcon",
+      "type": "function",
+      "summary": "Provides the SkillIcon routine used by SkillIcon.jsx."
+    },
+    "file:src/components/icons/custom/index.jsx": {
+      "name": "index.jsx",
+      "type": "file",
+      "summary": "Implements index for the React portfolio application."
+    },
+    "function:src/components/icons/custom/index.jsx:AzureMachineLearningIcon": {
+      "name": "AzureMachineLearningIcon",
+      "type": "function",
+      "summary": "Provides the AzureMachineLearningIcon routine used by index.jsx."
+    },
+    "function:src/components/icons/custom/index.jsx:AzureBlobStorageIcon": {
+      "name": "AzureBlobStorageIcon",
+      "type": "function",
+      "summary": "Provides the AzureBlobStorageIcon routine used by index.jsx."
+    },
+    "function:src/components/icons/custom/index.jsx:AzureCognitiveServicesIcon": {
+      "name": "AzureCognitiveServicesIcon",
+      "type": "function",
+      "summary": "Provides the AzureCognitiveServicesIcon routine used by index.jsx."
+    },
+    "function:src/components/icons/custom/index.jsx:AzureDocumentIntelligenceIcon": {
+      "name": "AzureDocumentIntelligenceIcon",
+      "type": "function",
+      "summary": "Provides the AzureDocumentIntelligenceIcon routine used by index.jsx."
+    },
+    "function:src/components/icons/custom/index.jsx:AzureKeyVaultIcon": {
+      "name": "AzureKeyVaultIcon",
+      "type": "function",
+      "summary": "Provides the AzureKeyVaultIcon routine used by index.jsx."
+    },
+    "function:src/components/icons/custom/index.jsx:AmazonSageMakerIcon": {
+      "name": "AmazonSageMakerIcon",
+      "type": "function",
+      "summary": "Provides the AmazonSageMakerIcon routine used by index.jsx."
+    },
+    "function:src/components/icons/custom/index.jsx:DeltaLakeIcon": {
+      "name": "DeltaLakeIcon",
+      "type": "function",
+      "summary": "Provides the DeltaLakeIcon routine used by index.jsx."
+    },
+    "function:src/components/icons/custom/index.jsx:RestApisIcon": {
+      "name": "RestApisIcon",
+      "type": "function",
+      "summary": "Provides the RestApisIcon routine used by index.jsx."
+    },
+    "function:src/components/icons/custom/index.jsx:AnthropicIcon": {
+      "name": "AnthropicIcon",
+      "type": "function",
+      "summary": "Provides the AnthropicIcon routine used by index.jsx."
+    },
+    "function:src/components/icons/custom/index.jsx:LangChainIcon": {
+      "name": "LangChainIcon",
+      "type": "function",
+      "summary": "Provides the LangChainIcon routine used by index.jsx."
+    },
+    "function:src/components/icons/custom/index.jsx:LangGraphIcon": {
+      "name": "LangGraphIcon",
+      "type": "function",
+      "summary": "Provides the LangGraphIcon routine used by index.jsx."
+    },
+    "function:src/components/icons/custom/index.jsx:GeminiIcon": {
+      "name": "GeminiIcon",
+      "type": "function",
+      "summary": "Provides the GeminiIcon routine used by index.jsx."
+    },
+    "function:src/components/icons/custom/index.jsx:ModelContextProtocolIcon": {
+      "name": "ModelContextProtocolIcon",
+      "type": "function",
+      "summary": "Provides the ModelContextProtocolIcon routine used by index.jsx."
+    },
+    "file:src/components/projectLanguages/ProjectLanguages.jsx": {
+      "name": "ProjectLanguages.jsx",
+      "type": "file",
+      "summary": "Implements ProjectLanguages for the React portfolio application."
+    },
+    "function:src/components/projectLanguages/ProjectLanguages.jsx:ProjectLanguages": {
+      "name": "ProjectLanguages",
+      "type": "function",
+      "summary": "Provides the ProjectLanguages routine used by ProjectLanguages.jsx."
+    },
+    "file:src/components/softwareSkills/SoftwareSkill.jsx": {
+      "name": "SoftwareSkill.jsx",
+      "type": "file",
+      "summary": "Implements SoftwareSkill for the React portfolio application."
+    },
+    "function:src/components/softwareSkills/SoftwareSkill.jsx:SoftwareSkill": {
+      "name": "SoftwareSkill",
+      "type": "function",
+      "summary": "Provides the SoftwareSkill routine used by SoftwareSkill.jsx."
+    },
+    "file:src/containers/SystemThinking/SystemThinking.jsx": {
+      "name": "SystemThinking.jsx",
+      "type": "file",
+      "summary": "Implements SystemThinking for the React portfolio application."
+    },
+    "function:src/containers/SystemThinking/SystemThinking.jsx:SystemThinking": {
+      "name": "SystemThinking",
+      "type": "function",
+      "summary": "Provides the SystemThinking routine used by SystemThinking.jsx."
+    },
+    "file:src/containers/skills/CloudInfraImg.jsx": {
+      "name": "CloudInfraImg.jsx",
+      "type": "file",
+      "summary": "Implements CloudInfraImg for the React portfolio application."
+    },
+    "function:src/containers/skills/CloudInfraImg.jsx:CloudInfraImg": {
+      "name": "CloudInfraImg",
+      "type": "function",
+      "summary": "Provides the CloudInfraImg routine used by CloudInfraImg.jsx."
+    },
+    "file:src/containers/skills/DataScienceImg.jsx": {
+      "name": "DataScienceImg.jsx",
+      "type": "file",
+      "summary": "Implements DataScienceImg for the React portfolio application."
+    },
+    "function:src/containers/skills/DataScienceImg.jsx:DataScienceImg": {
+      "name": "DataScienceImg",
+      "type": "function",
+      "summary": "Provides the DataScienceImg routine used by DataScienceImg.jsx."
+    },
+    "file:src/containers/skills/FullStackImg.jsx": {
+      "name": "FullStackImg.jsx",
+      "type": "file",
+      "summary": "Implements FullStackImg for the React portfolio application."
+    },
+    "function:src/containers/skills/FullStackImg.jsx:FullStackImg": {
+      "name": "FullStackImg",
+      "type": "function",
+      "summary": "Provides the FullStackImg routine used by FullStackImg.jsx."
+    },
+    "file:src/containers/skills/SkillSection.jsx": {
+      "name": "SkillSection.jsx",
+      "type": "file",
+      "summary": "Implements SkillSection for the React portfolio application."
+    },
+    "function:src/containers/skills/SkillSection.jsx:SkillSection": {
+      "name": "SkillSection",
+      "type": "function",
+      "summary": "Provides the SkillSection routine used by SkillSection.jsx."
+    },
+    "file:src/containers/skills/Skills.jsx": {
+      "name": "Skills.jsx",
+      "type": "file",
+      "summary": "Implements Skills for the React portfolio application."
+    },
+    "function:src/containers/skills/Skills.jsx:Skills": {
+      "name": "Skills",
+      "type": "function",
+      "summary": "Provides the Skills routine used by Skills.jsx."
+    },
+    "file:src/pages/home/HomeComponent.jsx": {
+      "name": "HomeComponent.jsx",
+      "type": "file",
+      "summary": "Implements HomeComponent for the React portfolio application."
+    },
+    "function:src/pages/home/HomeComponent.jsx:Home": {
+      "name": "Home",
+      "type": "function",
+      "summary": "Provides the Home routine used by HomeComponent.jsx."
+    },
+    "file:src/App.jsx": {
+      "name": "App.jsx",
+      "type": "file",
+      "summary": "Implements App for the React portfolio application."
+    },
+    "function:src/App.jsx:AppContent": {
+      "name": "AppContent",
+      "type": "function",
+      "summary": "Provides the AppContent routine used by App.jsx."
+    },
+    "file:src/App.test.jsx": {
+      "name": "App.test.jsx",
+      "type": "file",
+      "summary": "Test suite validating App.test behavior in the React portfolio."
+    },
+    "file:src/components/ErrorBoundary.jsx": {
+      "name": "ErrorBoundary.jsx",
+      "type": "file",
+      "summary": "Implements ErrorBoundary for the React portfolio application."
+    },
+    "class:src/components/ErrorBoundary.jsx:ErrorBoundary": {
+      "name": "ErrorBoundary",
+      "type": "class",
+      "summary": "Defines the ErrorBoundary component or class in ErrorBoundary.jsx."
+    },
+    "file:src/components/seo/RouteMeta.jsx": {
+      "name": "RouteMeta.jsx",
+      "type": "file",
+      "summary": "Implements RouteMeta for the React portfolio application."
+    },
+    "function:src/components/seo/RouteMeta.jsx:normalizePath": {
+      "name": "normalizePath",
+      "type": "function",
+      "summary": "Provides the normalizePath routine used by RouteMeta.jsx."
+    },
+    "function:src/components/seo/RouteMeta.jsx:RouteMeta": {
+      "name": "RouteMeta",
+      "type": "function",
+      "summary": "Provides the RouteMeta routine used by RouteMeta.jsx."
+    },
+    "file:src/containers/Main.jsx": {
+      "name": "Main.jsx",
+      "type": "file",
+      "summary": "Implements Main for the React portfolio application."
+    },
+    "function:src/containers/Main.jsx:Main": {
+      "name": "Main",
+      "type": "function",
+      "summary": "Provides the Main routine used by Main.jsx."
+    },
+    "file:src/global.js": {
+      "name": "global.js",
+      "type": "file",
+      "summary": "Implements global for the React portfolio application."
+    },
+    "file:src/index.jsx": {
+      "name": "index.jsx",
+      "type": "file",
+      "summary": "Implements index for the React portfolio application."
+    },
+    "file:src/__tests__/Pages.render.test.jsx": {
+      "name": "Pages.render.test.jsx",
+      "type": "file",
+      "summary": "Test suite validating Pages.render.test behavior in the React portfolio."
+    },
+    "file:src/components/certificationCard/CertificationCard.jsx": {
+      "name": "CertificationCard.jsx",
+      "type": "file",
+      "summary": "Implements CertificationCard for the React portfolio application."
+    },
+    "function:src/components/certificationCard/CertificationCard.jsx:CertificationCard": {
+      "name": "CertificationCard",
+      "type": "function",
+      "summary": "Provides the CertificationCard routine used by CertificationCard.jsx."
+    },
+    "file:src/components/degreeCard/DegreeCard.jsx": {
+      "name": "DegreeCard.jsx",
+      "type": "file",
+      "summary": "Implements DegreeCard for the React portfolio application."
+    },
+    "function:src/components/degreeCard/DegreeCard.jsx:DegreeCard": {
+      "name": "DegreeCard",
+      "type": "function",
+      "summary": "Provides the DegreeCard routine used by DegreeCard.jsx."
+    },
+    "file:src/containers/certifications/Certifications.jsx": {
+      "name": "Certifications.jsx",
+      "type": "file",
+      "summary": "Implements Certifications for the React portfolio application."
+    },
+    "function:src/containers/certifications/Certifications.jsx:Certifications": {
+      "name": "Certifications",
+      "type": "function",
+      "summary": "Provides the Certifications routine used by Certifications.jsx."
+    },
+    "file:src/containers/education/Educations.jsx": {
+      "name": "Educations.jsx",
+      "type": "file",
+      "summary": "Implements Educations for the React portfolio application."
+    },
+    "function:src/containers/education/Educations.jsx:Educations": {
+      "name": "Educations",
+      "type": "function",
+      "summary": "Provides the Educations routine used by Educations.jsx."
+    },
+    "file:src/pages/education/EducationComponent.jsx": {
+      "name": "EducationComponent.jsx",
+      "type": "file",
+      "summary": "Implements EducationComponent for the React portfolio application."
+    },
+    "function:src/pages/education/EducationComponent.jsx:Education": {
+      "name": "Education",
+      "type": "function",
+      "summary": "Provides the Education routine used by EducationComponent.jsx."
+    },
+    "file:src/pages/education/EducationImg.jsx": {
+      "name": "EducationImg.jsx",
+      "type": "file",
+      "summary": "Implements EducationImg for the React portfolio application."
+    },
+    "function:src/pages/education/EducationImg.jsx:EducationImg": {
+      "name": "EducationImg",
+      "type": "function",
+      "summary": "Provides the EducationImg routine used by EducationImg.jsx."
+    },
+    "file:src/__tests__/Navigation.test.jsx": {
+      "name": "Navigation.test.jsx",
+      "type": "file",
+      "summary": "Navigation route test suite verifies page rendering, navigation links, theme behavior, and metadata across portfolio routes."
+    },
+    "file:src/__tests__/RouteMetadata.test.jsx": {
+      "name": "RouteMetadata.test.jsx",
+      "type": "file",
+      "summary": "Route metadata tests verify that the main application updates document titles and meta tags for rendered routes."
+    },
+    "file:src/__tests__/ThemeRegistry.test.jsx": {
+      "name": "ThemeRegistry.test.jsx",
+      "type": "file",
+      "summary": "Theme registry tests validate palette structure, contrast ratios, and accessible color-token behavior."
+    },
+    "file:src/pages/theme/ThemePage.jsx": {
+      "name": "ThemePage.jsx",
+      "type": "file",
+      "summary": "Interactive theme preview page that renders palette, typography, component, and accessibility samples using the active theme controller."
+    },
+    "file:src/theme.js": {
+      "name": "theme.js",
+      "type": "file",
+      "summary": "Defines the portfolio theme registry, color-token generation helpers, and theme-family resolution for light and dark presentation modes."
+    },
+    "file:src/themeController.jsx": {
+      "name": "themeController.jsx",
+      "type": "file",
+      "summary": "Provides React context and persistence logic for selecting, applying, and consuming the active portfolio theme."
+    },
+    "function:src/__tests__/Navigation.test.jsx:renderAtRoute": {
+      "name": "renderAtRoute",
+      "type": "function",
+      "summary": "Renders the routed application at a requested path for navigation assertions."
+    },
+    "function:src/__tests__/RouteMetadata.test.jsx:renderMainAt": {
+      "name": "renderMainAt",
+      "type": "function",
+      "summary": "Renders the main application at a route for metadata tests."
+    },
+    "function:src/__tests__/RouteMetadata.test.jsx:getManagedMeta": {
+      "name": "getManagedMeta",
+      "type": "function",
+      "summary": "Reads managed document metadata for assertions."
+    },
+    "function:src/__tests__/ThemeRegistry.test.jsx:hexToRgb": {
+      "name": "hexToRgb",
+      "type": "function",
+      "summary": "Converts hexadecimal color values to RGB channels for contrast tests."
+    },
+    "function:src/__tests__/ThemeRegistry.test.jsx:getRelativeLuminance": {
+      "name": "getRelativeLuminance",
+      "type": "function",
+      "summary": "Calculates relative luminance for an RGB color."
+    },
+    "function:src/__tests__/ThemeRegistry.test.jsx:getContrastRatio": {
+      "name": "getContrastRatio",
+      "type": "function",
+      "summary": "Calculates contrast ratio between two luminance values."
+    },
+    "function:src/pages/theme/ThemePage.jsx:ThemePage": {
+      "name": "ThemePage",
+      "type": "function",
+      "summary": "Renders the theme explorer and previews active design tokens."
+    },
+    "function:src/theme.js:expandHex": {
+      "name": "expandHex",
+      "type": "function",
+      "summary": "Normalizes shorthand hexadecimal colors to full values."
+    },
+    "function:src/theme.js:hexToRgb": {
+      "name": "hexToRgb",
+      "type": "function",
+      "summary": "Converts a hexadecimal color to RGB channels."
+    },
+    "function:src/theme.js:withAlpha": {
+      "name": "withAlpha",
+      "type": "function",
+      "summary": "Adds an alpha channel to a color token."
+    },
+    "function:src/theme.js:mixHex": {
+      "name": "mixHex",
+      "type": "function",
+      "summary": "Blends two hexadecimal colors by a ratio."
+    },
+    "function:src/theme.js:getRelativeLuminance": {
+      "name": "getRelativeLuminance",
+      "type": "function",
+      "summary": "Calculates WCAG relative luminance for a color."
+    },
+    "function:src/theme.js:getContrastRatio": {
+      "name": "getContrastRatio",
+      "type": "function",
+      "summary": "Calculates a contrast ratio for two colors."
+    },
+    "function:src/theme.js:ensureContrast": {
+      "name": "ensureContrast",
+      "type": "function",
+      "summary": "Adjusts token colors to satisfy contrast requirements."
+    },
+    "function:src/theme.js:getReadableTextColor": {
+      "name": "getReadableTextColor",
+      "type": "function",
+      "summary": "Chooses a readable text color for a surface."
+    },
+    "function:src/theme.js:createThemeTokens": {
+      "name": "createThemeTokens",
+      "type": "function",
+      "summary": "Builds the complete semantic token set for a theme palette."
+    },
+    "function:src/theme.js:createThemeFamily": {
+      "name": "createThemeFamily",
+      "type": "function",
+      "summary": "Creates light and dark variants for a theme family."
+    },
+    "function:src/theme.js:resolveTheme": {
+      "name": "resolveTheme",
+      "type": "function",
+      "summary": "Resolves a selected family and mode to a concrete theme."
+    },
+    "function:src/themeController.jsx:normalizeThemeSelection": {
+      "name": "normalizeThemeSelection",
+      "type": "function",
+      "summary": "Normalizes a theme family and mode selection."
+    },
+    "function:src/themeController.jsx:parseStoredThemeSelection": {
+      "name": "parseStoredThemeSelection",
+      "type": "function",
+      "summary": "Parses persisted theme-selection data from browser storage."
+    },
+    "function:src/themeController.jsx:getInitialThemeSelection": {
+      "name": "getInitialThemeSelection",
+      "type": "function",
+      "summary": "Initializes theme selection from storage or defaults."
+    },
+    "function:src/themeController.jsx:ThemeControllerProvider": {
+      "name": "ThemeControllerProvider",
+      "type": "function",
+      "summary": "Supplies active-theme state and update controls through React context."
+    },
+    "function:src/themeController.jsx:useThemeController": {
+      "name": "useThemeController",
+      "type": "function",
+      "summary": "Reads the theme-controller context for consumers."
+    },
+    "function:src/themeController.jsx:getStoredThemeSelection": {
+      "name": "getStoredThemeSelection",
+      "type": "function",
+      "summary": "Retrieves the stored theme selection from local storage."
+    },
+    "file:src/__tests__/SystemCard.render.test.jsx": {
+      "name": "SystemCard.render.test.jsx",
+      "type": "file",
+      "summary": "Component tests verify that SystemCard renders system metadata, interactive controls, and accessible dialog content."
+    },
+    "file:src/components/SystemDesign/ProductTile.jsx": {
+      "name": "ProductTile.jsx",
+      "type": "file",
+      "summary": "Renders an interactive product tile with system-diagram details and accessible dialog behavior."
+    },
+    "file:src/components/SystemDesign/SystemCard.jsx": {
+      "name": "SystemCard.jsx",
+      "type": "file",
+      "summary": "Renders a detailed system-design card with diagram, architecture information, and an accessible detail dialog."
+    },
+    "file:src/components/SystemDesign/SystemDiagram.jsx": {
+      "name": "SystemDiagram.jsx",
+      "type": "file",
+      "summary": "Renders a visual system architecture diagram from supplied nodes and connections."
+    },
+    "file:src/components/SystemDesign/useAccessibleDialog.js": {
+      "name": "useAccessibleDialog.js",
+      "type": "file",
+      "summary": "Provides focus management, keyboard handling, and restoration behavior for accessible dialogs."
+    },
+    "file:src/containers/SystemShowcase/SystemShowcase.jsx": {
+      "name": "SystemShowcase.jsx",
+      "type": "file",
+      "summary": "Composes portfolio system-design data into a showcase of SystemCard components."
+    },
+    "function:src/components/SystemDesign/ProductTile.jsx:ProductTile": {
+      "name": "ProductTile",
+      "type": "function",
+      "summary": "Renders a product tile and manages its detailed dialog interaction."
+    },
+    "function:src/components/SystemDesign/SystemCard.jsx:SystemCard": {
+      "name": "SystemCard",
+      "type": "function",
+      "summary": "Renders a system architecture card with accessible detail controls."
+    },
+    "function:src/components/SystemDesign/SystemDiagram.jsx:SystemDiagram": {
+      "name": "SystemDiagram",
+      "type": "function",
+      "summary": "Renders the diagram for a system architecture model."
+    },
+    "function:src/components/SystemDesign/useAccessibleDialog.js:getFocusableElements": {
+      "name": "getFocusableElements",
+      "type": "function",
+      "summary": "Finds focusable descendants within a dialog."
+    },
+    "function:src/components/SystemDesign/useAccessibleDialog.js:useAccessibleDialog": {
+      "name": "useAccessibleDialog",
+      "type": "function",
+      "summary": "Manages dialog focus trapping, keyboard dismissal, and focus restoration."
+    },
+    "function:src/containers/SystemShowcase/SystemShowcase.jsx:SystemShowcase": {
+      "name": "SystemShowcase",
+      "type": "function",
+      "summary": "Maps portfolio system data into system-design cards."
+    },
+    "pipeline:.github/workflows/ci.yml": {
+      "name": "ci.yml",
+      "type": "pipeline",
+      "summary": "GitHub Actions workflow that installs dependencies, runs linting and tests, and builds the portfolio for continuous integration."
+    },
+    "pipeline:.github/workflows/deploy.yml": {
+      "name": "deploy.yml",
+      "type": "pipeline",
+      "summary": "GitHub Actions deployment workflow that builds and publishes the portfolio to GitHub Pages."
+    },
+    "document:CHANGELOG.md": {
+      "name": "CHANGELOG.md",
+      "type": "document",
+      "summary": "Documents released and unreleased changes to the portfolio."
+    },
+    "document:CODE_OF_CONDUCT.md": {
+      "name": "CODE_OF_CONDUCT.md",
+      "type": "document",
+      "summary": "Defines community standards, scope, and enforcement procedures for project participation."
+    },
+    "document:CODE_REVIEW_REPORT.md": {
+      "name": "CODE_REVIEW_REPORT.md",
+      "type": "document",
+      "summary": "Records a comprehensive code review of the portfolio, including correctness, quality, and recommended fixes."
+    },
+    "document:README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "Primary portfolio documentation describing the technology stack, route structure, data architecture, development workflow, and deployment."
+    },
+    "document:SECURITY.md": {
+      "name": "SECURITY.md",
+      "type": "document",
+      "summary": "Defines supported versions and a responsible vulnerability-reporting process."
+    },
+    "config:browserconfig.xml": {
+      "name": "browserconfig.xml",
+      "type": "config",
+      "summary": "Configures Windows browser tile metadata for the site."
+    },
+    "file:index.html": {
+      "name": "index.html",
+      "type": "file",
+      "summary": "HTML document shell that provides the Vite mount point and browser metadata for the portfolio."
+    },
+    "config:package.json": {
+      "name": "package.json",
+      "type": "config",
+      "summary": "Defines the Vite/React project metadata, scripts, dependencies, and development tooling."
+    },
+    "document:security_best_practices_report.md": {
+      "name": "security_best_practices_report.md",
+      "type": "document",
+      "summary": "Audits the portfolio against security best practices and records prioritized remediation guidance."
+    },
+    "config:tsconfig.typecheck.json": {
+      "name": "tsconfig.typecheck.json",
+      "type": "config",
+      "summary": "TypeScript configuration used for static type-checking JavaScript and JSX project files."
+    },
+    "config:vercel.json": {
+      "name": "vercel.json",
+      "type": "config",
+      "summary": "Defines the Vercel build command and output directory for deployment."
+    },
+    "config:graphify-out/.graphify_labels.json": {
+      "name": ".graphify_labels.json",
+      "type": "config",
+      "summary": "Stores human-readable labels assigned to graph communities."
+    },
+    "config:graphify-out/.graphify_learning.json": {
+      "name": ".graphify_learning.json",
+      "type": "config",
+      "summary": "Stores learned graph-query metadata generated by Graphify."
+    },
+    "document:graphify-out/.vocab.txt": {
+      "name": ".vocab.txt",
+      "type": "document",
+      "summary": "Contains vocabulary terms indexed from the generated knowledge graph."
+    },
+    "document:graphify-out/GRAPH_REPORT.md": {
+      "name": "GRAPH_REPORT.md",
+      "type": "document",
+      "summary": "Audit report summarizing graph coverage, communities, hubs, connections, and suggested exploration questions."
+    },
+    "config:graphify-out/cost.json": {
+      "name": "cost.json",
+      "type": "config",
+      "summary": "Tracks token usage and run history for graph extraction."
+    },
+    "file:graphify-out/graph.html": {
+      "name": "graph.html",
+      "type": "file",
+      "summary": "Interactive HTML visualization for exploring the generated project knowledge graph."
+    },
+    "config:graphify-out/graph.json": {
+      "name": "graph.json",
+      "type": "config",
+      "summary": "Machine-readable GraphRAG export containing the project knowledge graph."
+    },
+    "config:graphify-out/manifest.json": {
+      "name": "manifest.json",
+      "type": "config",
+      "summary": "Manifest of source files used to maintain and incrementally update the Graphify graph."
+    },
+    "config:graphify-out/cache/ast/v0.9.17/1106e6d148139da98930d8b189f0312a6c6cd0e928dd09aa98194022236346f5.json": {
+      "name": "1106e6d148139da98930d8b189f0312a6c6cd0e928dd09aa98194022236346f5.json",
+      "type": "config",
+      "summary": "Cached AST extraction artifact used by Graphify to avoid reparsing project source files."
+    },
+    "config:graphify-out/cache/ast/v0.9.17/5bb4686179cf79e74c412a9acbe9db68fe2289938841be6ec7270c69ae34ea04.json": {
+      "name": "5bb4686179cf79e74c412a9acbe9db68fe2289938841be6ec7270c69ae34ea04.json",
+      "type": "config",
+      "summary": "Cached AST extraction artifact used by Graphify to avoid reparsing project source files."
+    },
+    "config:graphify-out/cache/ast/v0.9.17/8c423f0a8c11aaea9db68bc3aa8b914aeae36bc7334dca8d99787b6bf698bcfc.json": {
+      "name": "8c423f0a8c11aaea9db68bc3aa8b914aeae36bc7334dca8d99787b6bf698bcfc.json",
+      "type": "config",
+      "summary": "Cached AST extraction artifact used by Graphify to avoid reparsing project source files."
+    },
+    "config:graphify-out/cache/ast/v0.9.17/f8d7529cc24901e0efc393069d31a912c1e350d1721ee79829c6cb112eba05dd.json": {
+      "name": "f8d7529cc24901e0efc393069d31a912c1e350d1721ee79829c6cb112eba05dd.json",
+      "type": "config",
+      "summary": "Cached AST extraction artifact used by Graphify to avoid reparsing project source files."
+    },
+    "config:graphify-out/cache/semantic/03191878c3e93c39a7952933b2fd8c8f94f8b51bbb702c94f1250b69d6187717.json": {
+      "name": "03191878c3e93c39a7952933b2fd8c8f94f8b51bbb702c94f1250b69d6187717.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/0abefd9f4861894cf5f00876c4bfe554c8657b63b3a1f2a865c9b64ffb49a64d.json": {
+      "name": "0abefd9f4861894cf5f00876c4bfe554c8657b63b3a1f2a865c9b64ffb49a64d.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/0b513f7616a20b05ee0dc92985838c4e40a33d703f8a53abadc23ba4aeb3ab06.json": {
+      "name": "0b513f7616a20b05ee0dc92985838c4e40a33d703f8a53abadc23ba4aeb3ab06.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/0e52caab3def554d5b442ab3091a688c926eb8cb12e9b93c28e5a8b48ae1e4bb.json": {
+      "name": "0e52caab3def554d5b442ab3091a688c926eb8cb12e9b93c28e5a8b48ae1e4bb.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/1097b88382a3dfe897886fe671bd50945873a8b40e02d2ec971981278f8071af.json": {
+      "name": "1097b88382a3dfe897886fe671bd50945873a8b40e02d2ec971981278f8071af.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/123e05e3ac4e0223f0e7d80969cb5873269632590a04cf018cf5534462cbb8a0.json": {
+      "name": "123e05e3ac4e0223f0e7d80969cb5873269632590a04cf018cf5534462cbb8a0.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/1264ffb4f70600ef864bc0430db97257f61a1e6d6ce2234722b352bbc2d01d02.json": {
+      "name": "1264ffb4f70600ef864bc0430db97257f61a1e6d6ce2234722b352bbc2d01d02.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/14c48530a43dc4958ef3a5891aa2836e27d8fddbc33a65474ce9d254a86d1fe6.json": {
+      "name": "14c48530a43dc4958ef3a5891aa2836e27d8fddbc33a65474ce9d254a86d1fe6.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/160aca5014ff633969a84a844543f30e365241da1bb4de73ffb13887f215a09a.json": {
+      "name": "160aca5014ff633969a84a844543f30e365241da1bb4de73ffb13887f215a09a.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/16783fd6c9d2d968c1387b6ec683a4f8638df83367decf7ea2c3fd2c2a131228.json": {
+      "name": "16783fd6c9d2d968c1387b6ec683a4f8638df83367decf7ea2c3fd2c2a131228.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/194ed59dd3e841d120fceca0c969a37bf4f6a028cf8391495fc1a1d2b5bb6df5.json": {
+      "name": "194ed59dd3e841d120fceca0c969a37bf4f6a028cf8391495fc1a1d2b5bb6df5.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/1bd8dd37a2edd4fc26e8e4180c89f66121aa0578b7b6d5361022d17e8c8cc900.json": {
+      "name": "1bd8dd37a2edd4fc26e8e4180c89f66121aa0578b7b6d5361022d17e8c8cc900.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/1d981c7289f471fd8632b740b20b1d65c4976d8e4821ff8f8b13a195f4d20035.json": {
+      "name": "1d981c7289f471fd8632b740b20b1d65c4976d8e4821ff8f8b13a195f4d20035.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/1dc5f3ca7b96c2a0bb9965621452d7e8c94fdb2605cd5cf52acd2c6680badd92.json": {
+      "name": "1dc5f3ca7b96c2a0bb9965621452d7e8c94fdb2605cd5cf52acd2c6680badd92.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/1feac6b0da8a2005f5de10fd923664dfef82507d896cf1bae8d43f43a83ba31b.json": {
+      "name": "1feac6b0da8a2005f5de10fd923664dfef82507d896cf1bae8d43f43a83ba31b.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/24a0347416c882b0a80b555edaa7316cd2c7c7dd9e3c05705cda63e626bc1214.json": {
+      "name": "24a0347416c882b0a80b555edaa7316cd2c7c7dd9e3c05705cda63e626bc1214.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/26b1139cd5c4c111ef3c449a617312e849ddc9f694f1970db76b7912eb57c72a.json": {
+      "name": "26b1139cd5c4c111ef3c449a617312e849ddc9f694f1970db76b7912eb57c72a.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/26ca5a34c51c4bee10020a146434848de39dca9cab953e5bbd3ece9c972ce38f.json": {
+      "name": "26ca5a34c51c4bee10020a146434848de39dca9cab953e5bbd3ece9c972ce38f.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/27ec549f119c39f4577d17b75f44260f22d795a7fc4eaf969ed00b459a06a162.json": {
+      "name": "27ec549f119c39f4577d17b75f44260f22d795a7fc4eaf969ed00b459a06a162.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/2aeb11f4f8d8c1c1d57b0c704c7e430c434c1915059de28ec3ce041965544e4f.json": {
+      "name": "2aeb11f4f8d8c1c1d57b0c704c7e430c434c1915059de28ec3ce041965544e4f.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/2e4d6af7e425de1316df836753ded7c32094109c25968bab1a4ad40e9f910aca.json": {
+      "name": "2e4d6af7e425de1316df836753ded7c32094109c25968bab1a4ad40e9f910aca.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/2e6f8108ccfd3d69fe0dd7b97d15ac30764738bd002f07826c8125af6e2e7500.json": {
+      "name": "2e6f8108ccfd3d69fe0dd7b97d15ac30764738bd002f07826c8125af6e2e7500.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/2f20c188b10e017e3e96f7539579e80dbd7a51d42faee8dbc72b8c58aaa75190.json": {
+      "name": "2f20c188b10e017e3e96f7539579e80dbd7a51d42faee8dbc72b8c58aaa75190.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/31bc7030992ad71281d053461d81e2b57cca40889c111d61150efcb585af62bc.json": {
+      "name": "31bc7030992ad71281d053461d81e2b57cca40889c111d61150efcb585af62bc.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/35bed1752abbb9361017d37f7c786a80d73774ffe44d39676d3255f35d546a61.json": {
+      "name": "35bed1752abbb9361017d37f7c786a80d73774ffe44d39676d3255f35d546a61.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/39287e8878048c75e8f3d06aae550e513bc3f30fbcb79d8b3f078d3dbad5d3e6.json": {
+      "name": "39287e8878048c75e8f3d06aae550e513bc3f30fbcb79d8b3f078d3dbad5d3e6.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/3b286825c093974100df3629c8c7d90a96ce88814d545e29604893f0ec321cc2.json": {
+      "name": "3b286825c093974100df3629c8c7d90a96ce88814d545e29604893f0ec321cc2.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/3c633c4012ca7d4c39a873d763834e8d2afa193c709336c3579068429b14c9c0.json": {
+      "name": "3c633c4012ca7d4c39a873d763834e8d2afa193c709336c3579068429b14c9c0.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/3e8087ea9d60536cf297768f4143d082c0171aea96cfd733df2dbab76b285b00.json": {
+      "name": "3e8087ea9d60536cf297768f4143d082c0171aea96cfd733df2dbab76b285b00.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/42ae12ebbe43dac8788f3120c76d88fc5fce6236c53afbe9bbfb8c6de5f4ac04.json": {
+      "name": "42ae12ebbe43dac8788f3120c76d88fc5fce6236c53afbe9bbfb8c6de5f4ac04.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/435e100a2d7cad8e6e3fb484d6c335ed760587b3e63ced829f0ff8ded70a3f52.json": {
+      "name": "435e100a2d7cad8e6e3fb484d6c335ed760587b3e63ced829f0ff8ded70a3f52.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/43d0cdbc5f40f1dbf76fbb946d54f8e34ddebaa5ec1ddfa7fedf9c56e0a20b6c.json": {
+      "name": "43d0cdbc5f40f1dbf76fbb946d54f8e34ddebaa5ec1ddfa7fedf9c56e0a20b6c.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/45d75f87d8028d6b6c66c5c56eac87a5bf2cce58584ba065c3cfec2165b2744d.json": {
+      "name": "45d75f87d8028d6b6c66c5c56eac87a5bf2cce58584ba065c3cfec2165b2744d.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/4749a78a77bd424253285e17ad545b358d6bfabe6fbde651efd6a18899984282.json": {
+      "name": "4749a78a77bd424253285e17ad545b358d6bfabe6fbde651efd6a18899984282.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/4e017d39dc3786558ce54ac3a4e10b3b00ef204ba20c7d3efd52d0566f6135f4.json": {
+      "name": "4e017d39dc3786558ce54ac3a4e10b3b00ef204ba20c7d3efd52d0566f6135f4.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/4e41cca672ae3344fabd743a882d5724cf3abcbdc86949f6bdc3a6e693074ce9.json": {
+      "name": "4e41cca672ae3344fabd743a882d5724cf3abcbdc86949f6bdc3a6e693074ce9.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/514a1a4288a5e769f69e993fc5cb0acc3935f0579199b2515bc56ff860ef64ce.json": {
+      "name": "514a1a4288a5e769f69e993fc5cb0acc3935f0579199b2515bc56ff860ef64ce.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/5176944e8103dcddf62f4dfca4f6cccb16e9b75bf250e55e1530b5a4b3e9bb5a.json": {
+      "name": "5176944e8103dcddf62f4dfca4f6cccb16e9b75bf250e55e1530b5a4b3e9bb5a.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/553bffb0023f73c44757584b93eb73c4ba9551c94498f73c88951990e142e0d0.json": {
+      "name": "553bffb0023f73c44757584b93eb73c4ba9551c94498f73c88951990e142e0d0.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/562eaad5c45c3433174d6a57b726ce5474fab6097ce3dff4db012930b858b12e.json": {
+      "name": "562eaad5c45c3433174d6a57b726ce5474fab6097ce3dff4db012930b858b12e.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/5686c4eb0f1fbbee0efe7a3d13e61160857734ac32a1762ec9cfb7bdce4b6d1a.json": {
+      "name": "5686c4eb0f1fbbee0efe7a3d13e61160857734ac32a1762ec9cfb7bdce4b6d1a.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/57eb1336397cce141d6ebf15b5052e2e278e5984b2970bacf2c18ac5bee9501f.json": {
+      "name": "57eb1336397cce141d6ebf15b5052e2e278e5984b2970bacf2c18ac5bee9501f.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/5c3155e788b5a6a2fb4c3ebe1e72bf0e074bc05e5a5b1730e0c5266d1449d642.json": {
+      "name": "5c3155e788b5a6a2fb4c3ebe1e72bf0e074bc05e5a5b1730e0c5266d1449d642.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/60c664184c5a125287792f5840dd51226143471d57006a38dec43caf41953c35.json": {
+      "name": "60c664184c5a125287792f5840dd51226143471d57006a38dec43caf41953c35.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/64728590438d5c4b4951501c3c8077de578bcd37053199dfff585bd0b67dba6a.json": {
+      "name": "64728590438d5c4b4951501c3c8077de578bcd37053199dfff585bd0b67dba6a.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/68e32bd67fbaedc9a22962dab998e8b39a14077146e1e3e13a05cde568ccafda.json": {
+      "name": "68e32bd67fbaedc9a22962dab998e8b39a14077146e1e3e13a05cde568ccafda.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/7396a87d1965cc6d9a7b7faa1987180ae5f28a5d26ab353bb5eb5dbb71f4226c.json": {
+      "name": "7396a87d1965cc6d9a7b7faa1987180ae5f28a5d26ab353bb5eb5dbb71f4226c.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/7845349e22965481a18dff86443debc688f6ffd7c27c8d734418db29e379d6a1.json": {
+      "name": "7845349e22965481a18dff86443debc688f6ffd7c27c8d734418db29e379d6a1.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/7b55691c43fe458c04e4bdc42b56a11a3c1425fbe1159277386c31ed0e9c576e.json": {
+      "name": "7b55691c43fe458c04e4bdc42b56a11a3c1425fbe1159277386c31ed0e9c576e.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/82fd8eb481bc1ab239b15d3f229434d18fd6fec5a94828b753fe3290fba16685.json": {
+      "name": "82fd8eb481bc1ab239b15d3f229434d18fd6fec5a94828b753fe3290fba16685.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/84f216af5d7044a90422aecc240f29c3ae705826d8980e8ff561dec42b8c7704.json": {
+      "name": "84f216af5d7044a90422aecc240f29c3ae705826d8980e8ff561dec42b8c7704.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/8600a31cbb0c6250864be42cb8861eacba84bb7db4291d652ff4774d7ddbf197.json": {
+      "name": "8600a31cbb0c6250864be42cb8861eacba84bb7db4291d652ff4774d7ddbf197.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/86ae95f894f9b2bb8bd8f6dca578d4478915d71a8d81bd6076a14f73a6d1e3c2.json": {
+      "name": "86ae95f894f9b2bb8bd8f6dca578d4478915d71a8d81bd6076a14f73a6d1e3c2.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/8a51a3562e96c48152b781781a02187f6d104f9583196c11bc4612e1c89a8187.json": {
+      "name": "8a51a3562e96c48152b781781a02187f6d104f9583196c11bc4612e1c89a8187.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/8b6a68d10fcd0b8bf1e665ba558b571ab005bb0054c28406e4abf83c6eaa683d.json": {
+      "name": "8b6a68d10fcd0b8bf1e665ba558b571ab005bb0054c28406e4abf83c6eaa683d.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/9190b451510e9e7df868e05f857ad764fedda451591fce68471af2e847dac6e5.json": {
+      "name": "9190b451510e9e7df868e05f857ad764fedda451591fce68471af2e847dac6e5.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/92b98449e1d9bfce99730c347de177b14ad5d2df14a9e9d5ba9c800453e30326.json": {
+      "name": "92b98449e1d9bfce99730c347de177b14ad5d2df14a9e9d5ba9c800453e30326.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/9a245607e33f7e5d0c26e35a18fafdbfad3e7af15eeb93590fa8a1ebbcd551ac.json": {
+      "name": "9a245607e33f7e5d0c26e35a18fafdbfad3e7af15eeb93590fa8a1ebbcd551ac.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/9c1d622f57ad6a4666d8e8cdf79664af79021c154d2e2be32dc5f0126c85a463.json": {
+      "name": "9c1d622f57ad6a4666d8e8cdf79664af79021c154d2e2be32dc5f0126c85a463.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/9e8354f7610d483cb91384186bcb75c52d03349f0c48017f6693960c27bb9e89.json": {
+      "name": "9e8354f7610d483cb91384186bcb75c52d03349f0c48017f6693960c27bb9e89.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/9fdc6ec957b36f15a90b281088b18cd923958ba2d5d042e6f10d89176570b87d.json": {
+      "name": "9fdc6ec957b36f15a90b281088b18cd923958ba2d5d042e6f10d89176570b87d.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/a3c851d4ec12831ed830428c061a4add8c8d8b8650c9837ca3d92adab7d7de07.json": {
+      "name": "a3c851d4ec12831ed830428c061a4add8c8d8b8650c9837ca3d92adab7d7de07.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/a879f6959e1c852e203adf6f3c168749db23ee184b15c088837123fc942323f4.json": {
+      "name": "a879f6959e1c852e203adf6f3c168749db23ee184b15c088837123fc942323f4.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/a8bea375e609f5003dbfa326d1ab669ab404999fb2722e8fd74094930868b511.json": {
+      "name": "a8bea375e609f5003dbfa326d1ab669ab404999fb2722e8fd74094930868b511.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/a8f6d142c814b6c9e75c9d73cdf811a294eb33d7323f4679338fb981b5fbcec9.json": {
+      "name": "a8f6d142c814b6c9e75c9d73cdf811a294eb33d7323f4679338fb981b5fbcec9.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/aeaaa01c0a1b7c6080b6fbf2a3840b688c087020dd41542f6bdf7163d3937314.json": {
+      "name": "aeaaa01c0a1b7c6080b6fbf2a3840b688c087020dd41542f6bdf7163d3937314.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/af3660476b6bde0c6d4edad8b5d7fe78017b550b4e4f1b584ae0f0469e4a469d.json": {
+      "name": "af3660476b6bde0c6d4edad8b5d7fe78017b550b4e4f1b584ae0f0469e4a469d.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/b7c5fad4ee79bba0ac4a3b38f6f24c33b0722a1423b2cc726197e82d83fac55b.json": {
+      "name": "b7c5fad4ee79bba0ac4a3b38f6f24c33b0722a1423b2cc726197e82d83fac55b.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/bfd01baa3e5134b6d16ec9c68d077b8a3c64f3fc5da8703e21f9fb57f2471225.json": {
+      "name": "bfd01baa3e5134b6d16ec9c68d077b8a3c64f3fc5da8703e21f9fb57f2471225.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/c6c1dd58ac7b17ff2dfb291e15f63326fae6df905fa4618ec025b636fa3af2ab.json": {
+      "name": "c6c1dd58ac7b17ff2dfb291e15f63326fae6df905fa4618ec025b636fa3af2ab.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/c7afbaf8118fa6456bea1409053f82f3dd99a1b3be31b5442ccfc494f0b3050c.json": {
+      "name": "c7afbaf8118fa6456bea1409053f82f3dd99a1b3be31b5442ccfc494f0b3050c.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/c7ef76bf6712dc499a176067b4df9e9d683ae74ea54ca67e7fbe0c1bd02ba2c7.json": {
+      "name": "c7ef76bf6712dc499a176067b4df9e9d683ae74ea54ca67e7fbe0c1bd02ba2c7.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/c86a7a604e1f470067c0450321a17901ffb2bad08b759942f72bdc44cfd284e1.json": {
+      "name": "c86a7a604e1f470067c0450321a17901ffb2bad08b759942f72bdc44cfd284e1.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/c89e7b9a8358f24632f5672e66ca000261f0af1085773bfe6fe530216bc00c57.json": {
+      "name": "c89e7b9a8358f24632f5672e66ca000261f0af1085773bfe6fe530216bc00c57.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/cda0a1b86267a43f02f794e4413fafb2f2c3261958327a4193eae42c5df64c2e.json": {
+      "name": "cda0a1b86267a43f02f794e4413fafb2f2c3261958327a4193eae42c5df64c2e.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/d201ebdba9d9366afc709d5386199f7844162a26a5156566c8f07f9995f3fd19.json": {
+      "name": "d201ebdba9d9366afc709d5386199f7844162a26a5156566c8f07f9995f3fd19.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/d814779690149bd1252262cc2347c64867769e4fae5dee648751ffeef05e2493.json": {
+      "name": "d814779690149bd1252262cc2347c64867769e4fae5dee648751ffeef05e2493.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/dc26f590988d9808623b898ad92e69c523b8edafc7a716e53349fef854cdc60a.json": {
+      "name": "dc26f590988d9808623b898ad92e69c523b8edafc7a716e53349fef854cdc60a.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/dd557da2a9669d22054dfa944c09cc5a4cdbc8e2ff90235c1e4fa62015367088.json": {
+      "name": "dd557da2a9669d22054dfa944c09cc5a4cdbc8e2ff90235c1e4fa62015367088.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/e02f3bda47fd3e2e1f9c6eb364c286142ca920b9882596f537f40b14072d5e9c.json": {
+      "name": "e02f3bda47fd3e2e1f9c6eb364c286142ca920b9882596f537f40b14072d5e9c.json",
+      "type": "config",
+      "summary": "Cached semantic extraction artifact used by Graphify to reuse prior entity and relationship extraction."
+    },
+    "config:graphify-out/cache/semantic/e7e607f8ead25b1760166c09e5edc36d83eed45c16098a9455c07d9622170c0e.json": {
+      "name": "e7e607f8ead25b1760166c09e5edc36d83eed45c16098a9455c07d9622170c0e",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/e8b5c4332231cf9e9e94bd08dc79ea9701b69748ee6ea64509b7739397c74331.json": {
+      "name": "e8b5c4332231cf9e9e94bd08dc79ea9701b69748ee6ea64509b7739397c74331",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/ed8d9c37628b4b21d3bc042c118170031ef3fb60c730508c5f9531e94f718a04.json": {
+      "name": "ed8d9c37628b4b21d3bc042c118170031ef3fb60c730508c5f9531e94f718a04",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/ee3b110fe50278e6bb54b078491687d43db6696d183409dff7643677edfd933b.json": {
+      "name": "ee3b110fe50278e6bb54b078491687d43db6696d183409dff7643677edfd933b",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/ee974396ec8918ba7f49945aed8a0cd60f4183effa58ff9bb9fee06fc85a1181.json": {
+      "name": "ee974396ec8918ba7f49945aed8a0cd60f4183effa58ff9bb9fee06fc85a1181",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/f04413295244205d33c3cb1a9b1f6966d9af8ed6baff0cb5ec01590f5e6900c4.json": {
+      "name": "f04413295244205d33c3cb1a9b1f6966d9af8ed6baff0cb5ec01590f5e6900c4",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/f0d1b21b688c5315af807d3fde4fdc09b189b89fc5c6ebf400de0e33932c4212.json": {
+      "name": "f0d1b21b688c5315af807d3fde4fdc09b189b89fc5c6ebf400de0e33932c4212",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/f35fecea8b0851863297f7fecb32e15ca83b75ed194c6f80495d9104fd7e7a53.json": {
+      "name": "f35fecea8b0851863297f7fecb32e15ca83b75ed194c6f80495d9104fd7e7a53",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/f430493f17fe614295e396574e32346d2aed4864a5b282ce9cca7d7f2793138f.json": {
+      "name": "f430493f17fe614295e396574e32346d2aed4864a5b282ce9cca7d7f2793138f",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/f450764da29c73e713189415b8cd313f82dab4cdb308eb4214344a4d11a5f879.json": {
+      "name": "f450764da29c73e713189415b8cd313f82dab4cdb308eb4214344a4d11a5f879",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7.json": {
+      "name": "f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/f72540e05c6afb539ac4945ce8e4dfd99a118f504fac3c4d997dc6f9b20cdece.json": {
+      "name": "f72540e05c6afb539ac4945ce8e4dfd99a118f504fac3c4d997dc6f9b20cdece",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/fe8fec5098c297a0d5d06035c3ce818f6e90df7f63df9b2df385156136391bac.json": {
+      "name": "fe8fec5098c297a0d5d06035c3ce818f6e90df7f63df9b2df385156136391bac",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/semantic/ff15c4b84785b16f54c958d7727db5f774b64ba2e3c7f42e497da693b6754834.json": {
+      "name": "ff15c4b84785b16f54c958d7727db5f774b64ba2e3c7f42e497da693b6754834",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:public/manifest.json": {
+      "name": "manifest",
+      "type": "config",
+      "summary": "Defines progressive-web-app metadata and icons for the deployed portfolio."
+    },
+    "document:public/robots.txt": {
+      "name": "robots",
+      "type": "document",
+      "summary": "Provides crawler directives for the deployed portfolio site."
+    },
+    "config:public/sitemap.xml": {
+      "name": "sitemap",
+      "type": "config",
+      "summary": "Lists canonical public pages for search-engine discovery."
+    },
+    "file:.prettierignore": {
+      "name": ".prettierignore",
+      "type": "file",
+      "summary": "Provides project support for ."
+    },
+    "file:.ua/.understandignore": {
+      "name": ".understandignore",
+      "type": "file",
+      "summary": "Configures or records generated Understand-Anything analysis artifacts."
+    },
+    "config:.ua/config.json": {
+      "name": "config",
+      "type": "config",
+      "summary": "Configures or records generated Understand-Anything analysis artifacts."
+    },
+    "document:docs/migration/astro-migration-roadmap.md": {
+      "name": "astro migration roadmap",
+      "type": "document",
+      "summary": "Documents the planned migration of the portfolio from Create React App to Astro."
+    },
+    "file:eslint.config.js": {
+      "name": "eslint.config",
+      "type": "file",
+      "summary": "Defines linting rules and plugins for the JavaScript portfolio codebase."
+    },
+    "file:graphify-out/.graphify_python": {
+      "name": ".graphify_python",
+      "type": "file",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "file:graphify-out/.graphify_root": {
+      "name": ".graphify_root",
+      "type": "file",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "config:graphify-out/cache/stat-index.json": {
+      "name": "stat index",
+      "type": "config",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "document:graphify-out/memory/query_20260802_160216_most_interesting__why_does_readme_bridge_theme_sys.md": {
+      "name": "query 20260802 160216 most interesting  why does readme bridge theme sys",
+      "type": "document",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "document:graphify-out/memory/query_20260802_160320_trace_the_astro_migration_connection_to_readme.md": {
+      "name": "query 20260802 160320 trace the astro migration connection to readme",
+      "type": "document",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "document:graphify-out/reflections/LESSONS.md": {
+      "name": "LESSONS",
+      "type": "document",
+      "summary": "Stores generated Graphify analysis data used for knowledge-graph exploration."
+    },
+    "file:public/.nojekyll": {
+      "name": ".nojekyll",
+      "type": "file",
+      "summary": "Provides project support for ."
+    },
+    "file:src/App.css": {
+      "name": "App",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the App portfolio interface."
+    },
+    "file:src/components/ProjectCard/ProjectCard.css": {
+      "name": "ProjectCard",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the ProjectCard portfolio interface."
+    },
+    "file:src/components/SystemDesign/ProductTile.css": {
+      "name": "ProductTile",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the ProductTile portfolio interface."
+    },
+    "file:src/components/SystemDesign/systems.css": {
+      "name": "systems",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the systems portfolio interface."
+    },
+    "file:src/components/certificationCard/CertificationCard.css": {
+      "name": "CertificationCard",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the CertificationCard portfolio interface."
+    },
+    "file:src/components/degreeCard/DegreeCard.css": {
+      "name": "DegreeCard",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the DegreeCard portfolio interface."
+    },
+    "file:src/components/experienceCard/ExperienceCard.css": {
+      "name": "ExperienceCard",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the ExperienceCard portfolio interface."
+    },
+    "file:src/components/footer/Footer.css": {
+      "name": "Footer",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the Footer portfolio interface."
+    },
+    "file:src/components/header/Header.css": {
+      "name": "Header",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the Header portfolio interface."
+    },
+    "file:src/components/projectLanguages/ProjectLanguages.css": {
+      "name": "ProjectLanguages",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the ProjectLanguages portfolio interface."
+    },
+    "file:src/components/socialMedia/ContactLinksList.css": {
+      "name": "ContactLinksList",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the ContactLinksList portfolio interface."
+    },
+    "file:src/components/socialMedia/SocialMedia.css": {
+      "name": "SocialMedia",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the SocialMedia portfolio interface."
+    },
+    "file:src/components/softwareSkills/SoftwareSkill.css": {
+      "name": "SoftwareSkill",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the SoftwareSkill portfolio interface."
+    },
+    "file:src/containers/certifications/Certifications.css": {
+      "name": "Certifications",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the Certifications portfolio interface."
+    },
+    "file:src/containers/education/Educations.css": {
+      "name": "Educations",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the Educations portfolio interface."
+    },
+    "file:src/containers/greeting/FeelingProud.css": {
+      "name": "FeelingProud",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the FeelingProud portfolio interface."
+    },
+    "file:src/containers/greeting/Greeting.css": {
+      "name": "Greeting",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the Greeting portfolio interface."
+    },
+    "file:src/containers/skills/Skills.css": {
+      "name": "Skills",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the Skills portfolio interface."
+    },
+    "file:src/data/contact.js": {
+      "name": "contact",
+      "type": "file",
+      "summary": "Exports structured portfolio content for contact, consumed by presentation components."
+    },
+    "file:src/data/education.js": {
+      "name": "education",
+      "type": "file",
+      "summary": "Exports structured portfolio content for education, consumed by presentation components."
+    },
+    "file:src/data/experience.js": {
+      "name": "experience",
+      "type": "file",
+      "summary": "Exports structured portfolio content for experience, consumed by presentation components."
+    },
+    "file:src/data/greeting.js": {
+      "name": "greeting",
+      "type": "file",
+      "summary": "Exports structured portfolio content for greeting, consumed by presentation components."
+    },
+    "file:src/data/platform.js": {
+      "name": "platform",
+      "type": "file",
+      "summary": "Exports structured portfolio content for platform, consumed by presentation components."
+    },
+    "file:src/data/settings.js": {
+      "name": "settings",
+      "type": "file",
+      "summary": "Exports structured portfolio content for settings, consumed by presentation components."
+    },
+    "file:src/data/skills.js": {
+      "name": "skills",
+      "type": "file",
+      "summary": "Exports structured portfolio content for skills, consumed by presentation components."
+    },
+    "file:src/data/socialMedia.js": {
+      "name": "socialMedia",
+      "type": "file",
+      "summary": "Exports structured portfolio content for socialMedia, consumed by presentation components."
+    },
+    "file:src/data/systems.js": {
+      "name": "systems",
+      "type": "file",
+      "summary": "Exports structured portfolio content for systems, consumed by presentation components."
+    },
+    "file:src/index.css": {
+      "name": "index",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the index portfolio interface."
+    },
+    "file:src/pages/contact/ContactComponent.css": {
+      "name": "ContactComponent",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the ContactComponent portfolio interface."
+    },
+    "file:src/pages/education/EducationComponent.css": {
+      "name": "EducationComponent",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the EducationComponent portfolio interface."
+    },
+    "file:src/pages/experience/Experience.css": {
+      "name": "Experience",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the Experience portfolio interface."
+    },
+    "file:src/pages/notFound/NotFound.css": {
+      "name": "NotFound",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the NotFound portfolio interface."
+    },
+    "file:src/pages/projects/Projects.css": {
+      "name": "Projects",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the Projects portfolio interface."
+    },
+    "file:src/pages/skills/SkillsPage.css": {
+      "name": "SkillsPage",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the SkillsPage portfolio interface."
+    },
+    "file:src/pages/splash/Splash.css": {
+      "name": "Splash",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the Splash portfolio interface."
+    },
+    "file:src/pages/splash/Splash.jsx": {
+      "name": "Splash",
+      "type": "file",
+      "summary": "Renders the animated splash screen shown while the portfolio initializes."
+    },
+    "file:src/pages/theme/ThemePage.css": {
+      "name": "ThemePage",
+      "type": "file",
+      "summary": "Defines responsive visual styles for the ThemePage portfolio interface."
+    },
+    "function:src/pages/splash/Splash.jsx:AnimatedSplash": {
+      "name": "AnimatedSplash",
+      "type": "function",
+      "summary": "Implements AnimatedSplash as part of Splash."
+    },
+    "function:src/pages/splash/Splash.jsx:Splash": {
+      "name": "Splash",
+      "type": "function",
+      "summary": "Implements Splash as part of Splash."
+    },
+    "file:src/test/setup.js": {
+      "name": "setup",
+      "type": "file",
+      "summary": "Installs browser API mocks required by the frontend test environment."
+    },
+    "file:stress-test.mjs": {
+      "name": "stress test",
+      "type": "file",
+      "summary": "Runs browser-based performance, responsiveness, and UI resilience checks across the portfolio."
+    },
+    "document:tasks/plan.md": {
+      "name": "plan",
+      "type": "document",
+      "summary": "Documents plan for maintaining and evolving the portfolio project."
+    },
+    "document:tasks/todo.md": {
+      "name": "todo",
+      "type": "document",
+      "summary": "Documents todo for maintaining and evolving the portfolio project."
+    },
+    "file:vite.config.js": {
+      "name": "vite.config",
+      "type": "file",
+      "summary": "Configures the Vite development server and production build for the portfolio."
+    },
+    "file:vitest.config.js": {
+      "name": "vitest.config",
+      "type": "file",
+      "summary": "Configures the Vitest test runner and browser-like test environment."
+    },
+    "function:stress-test.mjs:measureBaseline": {
+      "name": "measureBaseline",
+      "type": "function",
+      "summary": "Implements measureBaseline as part of stress test."
+    },
+    "function:stress-test.mjs:measureCoreWebVitals": {
+      "name": "measureCoreWebVitals",
+      "type": "function",
+      "summary": "Implements measureCoreWebVitals as part of stress test."
+    },
+    "function:stress-test.mjs:measureSlow3G": {
+      "name": "measureSlow3G",
+      "type": "function",
+      "summary": "Implements measureSlow3G as part of stress test."
+    },
+    "function:stress-test.mjs:measureFast3G": {
+      "name": "measureFast3G",
+      "type": "function",
+      "summary": "Implements measureFast3G as part of stress test."
+    },
+    "function:stress-test.mjs:rapidNavigationStress": {
+      "name": "rapidNavigationStress",
+      "type": "function",
+      "summary": "Implements rapidNavigationStress as part of stress test."
+    },
+    "function:stress-test.mjs:layoutShiftPerPage": {
+      "name": "layoutShiftPerPage",
+      "type": "function",
+      "summary": "Implements layoutShiftPerPage as part of stress test."
+    },
+    "function:stress-test.mjs:reRenderAndJank": {
+      "name": "reRenderAndJank",
+      "type": "function",
+      "summary": "Implements reRenderAndJank as part of stress test."
+    },
+    "function:stress-test.mjs:brokenUIDetection": {
+      "name": "brokenUIDetection",
+      "type": "function",
+      "summary": "Implements brokenUIDetection as part of stress test."
+    },
+    "function:stress-test.mjs:resourceAnalysis": {
+      "name": "resourceAnalysis",
+      "type": "function",
+      "summary": "Implements resourceAnalysis as part of stress test."
+    },
+    "function:stress-test.mjs:mobileViewportStress": {
+      "name": "mobileViewportStress",
+      "type": "function",
+      "summary": "Implements mobileViewportStress as part of stress test."
+    },
+    "function:stress-test.mjs:main": {
+      "name": "main",
+      "type": "function",
+      "summary": "Implements main as part of stress test."
+    },
+    "file:src/__tests__/ProjectsData.test.js": {
+      "name": "ProjectsData.test.js",
+      "type": "file",
+      "summary": "Verifies the public projects catalog contract, including the workflow-first ordering, unique GitHub URLs, and complete compact project-card metadata."
+    },
+    "file:src/data/projects.js": {
+      "name": "projects.js",
+      "type": "file",
+      "summary": "Exports the Projects page header and a curated 13-project open-source portfolio catalog, including display names, GitHub URLs, descriptions, and categories. This data surface supplies the project-card content without embedding presentation logic."
+    }
+  },
+  "totalNodes": 343,
+  "totalEdges": 348
+}

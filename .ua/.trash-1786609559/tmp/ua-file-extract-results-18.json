@@ -1,0 +1,1091 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [
+    ".prettierignore",
+    ".ua/.understandignore",
+    "graphify-out/.graphify_python",
+    "graphify-out/.graphify_root",
+    "public/.nojekyll",
+    "src/App.css",
+    "src/components/ProjectCard/ProjectCard.css",
+    "src/components/SystemDesign/ProductTile.css",
+    "src/components/SystemDesign/systems.css",
+    "src/components/certificationCard/CertificationCard.css",
+    "src/components/degreeCard/DegreeCard.css",
+    "src/components/experienceCard/ExperienceCard.css",
+    "src/components/footer/Footer.css",
+    "src/components/header/Header.css",
+    "src/components/projectLanguages/ProjectLanguages.css",
+    "src/components/socialMedia/ContactLinksList.css",
+    "src/components/socialMedia/SocialMedia.css",
+    "src/components/softwareSkills/SoftwareSkill.css"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 7,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 1,
+      "failed": 0,
+      "skipped": 6
+    }
+  },
+  "results": [
+    {
+      "path": ".ua/config.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "sections": [
+        {
+          "heading": "outputLanguage",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "docs/migration/astro-migration-roadmap.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 39,
+      "nonEmptyLines": 29,
+      "sections": [
+        {
+          "heading": "Astro Migration Roadmap (Execution Tracker)",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Locked decisions",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Completed in SPA (safe-first)",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Next queued work (before Astro scaffold)",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "Astro scaffold start point",
+          "level": 2,
+          "line": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "eslint.config.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 45,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "graphify-out/cache/stat-index.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\.claude\\settings.local.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\.github\\workflows\\ci.yml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\.github\\workflows\\deploy.yml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\CHANGELOG.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\CODE_OF_CONDUCT.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\CODE_REVIEW_REPORT.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\Cover.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\Resume.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\SECURITY.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\docs\\migration\\astro-migration-roadmap.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\eslint.config.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\home-320.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\index.html",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\logo192.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\logo512.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\package.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\Coursera Advanced Learning Algorithms.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\Coursera Machine Learning 2T5GNSDSV29S.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\Coursera SQL for Data Science 9SC5S8TMRKF3.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\Coursera Supervised Machine Learning- Regression and Classification.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\Coursera Unsupervised Learning.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\Data Science for Professionals UC-fef4ecf7-2b39-44dc-91ab-4bc4eb7e94ae.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\apple-touch-icon.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\coursera_adv_learning_algos.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\coursera_adv_learning_algos.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\coursera_ml_specialization.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\coursera_ml_specialization.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\coursera_sql_data_science.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\coursera_sql_data_science.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\coursera_supervised_ml.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\coursera_supervised_ml.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\coursera_unsupervised_learning.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\coursera_unsupervised_learning.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\data_science_professionals.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\data_science_professionals.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\deep_learning_az.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\deep_learning_az.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\deep_learning_az_hands_on.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\deep_learning_az_hands_on.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\machine_learning_az.pdf",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\certifications\\machine_learning_az.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\favicon-16x16.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\favicon-32x32.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\favicon.svg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\100.jpg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\100.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\aiensured_logo.svg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\aws.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\b.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\buld.jpg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\certifications\\coursera_adv_learning_algos.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\certifications\\coursera_ml_specialization.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\certifications\\coursera_sql_data_science.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\certifications\\coursera_supervised_ml.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\certifications\\coursera_unsupervised_learning.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\certifications\\data_science_professionals.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\certifications\\deep_learning_az.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\certifications\\deep_learning_az_hands_on.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\codeInLogo.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\codeuino.jpg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\cognizant_logo.svg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\coursera_logo.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\cra.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\dal.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\deeplearning_ai_logo.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\deloitte_logo.svg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\googleAssistant.jpg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\google_logo.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\hrishi2.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\iiitk_logo.svg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\ino.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\intel_logo.jpg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\manuu_logo.svg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\quicko.jpg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\sal.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\spatialcut.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\stanford_logo.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\udemy_logo.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\vjt.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\images\\wrighter.jpg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\logo192.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\logo512.png",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\manifest.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\public\\robots.txt",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\App.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\App.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\__tests__\\Accessibility.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\__tests__\\Behavior.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\__tests__\\ExperienceCard.render.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\__tests__\\Footer.render.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\__tests__\\Greeting.render.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\__tests__\\Header.render.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\__tests__\\Navigation.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\__tests__\\Pages.render.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\__tests__\\Responsive.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\__tests__\\RouteMetadata.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\__tests__\\SystemCard.render.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\__tests__\\ThemeRegistry.test.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\ErrorBoundary.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\ProjectCard\\ProjectCard.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\SystemDesign\\ProductTile.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\SystemDesign\\SystemCard.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\SystemDesign\\SystemDiagram.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\SystemDesign\\useAccessibleDialog.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\certificationCard\\CertificationCard.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\degreeCard\\DegreeCard.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\experienceCard\\ExperienceCard.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\footer\\Footer.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\header\\Header.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\icons\\SkillIcon.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\icons\\custom\\index.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\projectLanguages\\ProjectLanguages.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\seo\\RouteMeta.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\socialMedia\\ContactLinksList.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\socialMedia\\SocialMedia.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\components\\softwareSkills\\SoftwareSkill.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\Main.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\SystemShowcase\\SystemShowcase.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\SystemThinking\\SystemThinking.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\certifications\\Certifications.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\education\\Educations.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\experienceAccordion\\ExperienceAccordion.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\greeting\\FeelingProud.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\greeting\\Greeting.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\skills\\CloudInfraImg.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\skills\\DataScienceImg.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\skills\\FullStackImg.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\skills\\SkillSection.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\containers\\skills\\Skills.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\data\\contact.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\data\\education.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\data\\experience.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\data\\greeting.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\data\\platform.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\data\\projects.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\data\\settings.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\data\\skills.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\data\\socialMedia.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\data\\systems.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\global.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\index.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\logo.svg",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\contact\\BlogsImg.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\contact\\ContactComponent.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\education\\EducationComponent.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\education\\EducationImg.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\experience\\Experience.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\experience\\ExperienceImg.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\home\\HomeComponent.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\notFound\\NotFound.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\projects\\Projects.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\projects\\ProjectsImg.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\skills\\SkillsPage.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\splash\\Splash.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\pages\\theme\\ThemePage.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\portfolio.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\test\\setup.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\test\\testUtils.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\theme.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\themeController.jsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\src\\themeMotion.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\stress-test.mjs",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\tsconfig.typecheck.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\vercel.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\vite.config.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\vitest.config.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\security_best_practices_report.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\tasks\\plan.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\tasks\\todo.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\graphify-out\\memory\\query_20260802_160216_most_interesting__why_does_readme_bridge_theme_sys.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "D:\\AI\\Github\\pypi-ahmad.github.io\\graphify-out\\memory\\query_20260802_160320_trace_the_astro_migration_connection_to_readme.md",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 172
+      }
+    },
+    {
+      "path": "graphify-out/memory/query_20260802_160216_most_interesting__why_does_readme_bridge_theme_sys.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 28,
+      "nonEmptyLines": 21,
+      "sections": [
+        {
+          "heading": "Q: Most interesting: Why does README bridge theme system, CSS-in-JS bloat, Astro migration, review report, release, and hosting? Want trace?",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "Answer",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Outcome",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "Source Nodes",
+          "level": 2,
+          "line": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "graphify-out/memory/query_20260802_160320_trace_the_astro_migration_connection_to_readme.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 26,
+      "nonEmptyLines": 19,
+      "sections": [
+        {
+          "heading": "Q: Trace the Astro migration connection to README",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "Answer",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Outcome",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "Source Nodes",
+          "level": 2,
+          "line": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "graphify-out/reflections/LESSONS.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 11,
+      "nonEmptyLines": 6,
+      "sections": [
+        {
+          "heading": "Lessons",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Summary",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Lessons",
+          "level": 2,
+          "line": 9
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    }
+  ]
+}

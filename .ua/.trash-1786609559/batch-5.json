@@ -1,0 +1,420 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/__tests__/Pages.render.test.jsx",
+      "type": "file",
+      "name": "Pages.render.test.jsx",
+      "filePath": "src/__tests__/Pages.render.test.jsx",
+      "summary": "Test suite validating Pages.render.test behavior in the React portfolio.",
+      "tags": [
+        "test",
+        "react",
+        "verification"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/certificationCard/CertificationCard.jsx",
+      "type": "file",
+      "name": "CertificationCard.jsx",
+      "filePath": "src/components/certificationCard/CertificationCard.jsx",
+      "summary": "Implements CertificationCard for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/certificationCard/CertificationCard.jsx:CertificationCard",
+      "type": "function",
+      "name": "CertificationCard",
+      "filePath": "src/components/certificationCard/CertificationCard.jsx",
+      "summary": "Provides the CertificationCard routine used by CertificationCard.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/degreeCard/DegreeCard.jsx",
+      "type": "file",
+      "name": "DegreeCard.jsx",
+      "filePath": "src/components/degreeCard/DegreeCard.jsx",
+      "summary": "Implements DegreeCard for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/degreeCard/DegreeCard.jsx:DegreeCard",
+      "type": "function",
+      "name": "DegreeCard",
+      "filePath": "src/components/degreeCard/DegreeCard.jsx",
+      "summary": "Provides the DegreeCard routine used by DegreeCard.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/containers/certifications/Certifications.jsx",
+      "type": "file",
+      "name": "Certifications.jsx",
+      "filePath": "src/containers/certifications/Certifications.jsx",
+      "summary": "Implements Certifications for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/containers/certifications/Certifications.jsx:Certifications",
+      "type": "function",
+      "name": "Certifications",
+      "filePath": "src/containers/certifications/Certifications.jsx",
+      "summary": "Provides the Certifications routine used by Certifications.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/containers/education/Educations.jsx",
+      "type": "file",
+      "name": "Educations.jsx",
+      "filePath": "src/containers/education/Educations.jsx",
+      "summary": "Implements Educations for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/containers/education/Educations.jsx:Educations",
+      "type": "function",
+      "name": "Educations",
+      "filePath": "src/containers/education/Educations.jsx",
+      "summary": "Provides the Educations routine used by Educations.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pages/education/EducationComponent.jsx",
+      "type": "file",
+      "name": "EducationComponent.jsx",
+      "filePath": "src/pages/education/EducationComponent.jsx",
+      "summary": "Implements EducationComponent for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/pages/education/EducationComponent.jsx:Education",
+      "type": "function",
+      "name": "Education",
+      "filePath": "src/pages/education/EducationComponent.jsx",
+      "summary": "Provides the Education routine used by EducationComponent.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pages/education/EducationImg.jsx",
+      "type": "file",
+      "name": "EducationImg.jsx",
+      "filePath": "src/pages/education/EducationImg.jsx",
+      "summary": "Implements EducationImg for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/pages/education/EducationImg.jsx:EducationImg",
+      "type": "function",
+      "name": "EducationImg",
+      "filePath": "src/pages/education/EducationImg.jsx",
+      "summary": "Provides the EducationImg routine used by EducationImg.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/__tests__/Pages.render.test.jsx",
+      "target": "file:src/pages/contact/ContactComponent.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Pages.render.test.jsx",
+      "target": "file:src/pages/education/EducationComponent.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Pages.render.test.jsx",
+      "target": "file:src/pages/experience/Experience.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Pages.render.test.jsx",
+      "target": "file:src/pages/home/HomeComponent.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Pages.render.test.jsx",
+      "target": "file:src/pages/projects/Projects.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Pages.render.test.jsx",
+      "target": "file:src/pages/skills/SkillsPage.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Pages.render.test.jsx",
+      "target": "file:src/test/testUtils.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/contact/ContactComponent.jsx",
+      "target": "file:src/__tests__/Pages.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/pages/education/EducationComponent.jsx",
+      "target": "file:src/__tests__/Pages.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/pages/experience/Experience.jsx",
+      "target": "file:src/__tests__/Pages.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/pages/home/HomeComponent.jsx",
+      "target": "file:src/__tests__/Pages.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/pages/projects/Projects.jsx",
+      "target": "file:src/__tests__/Pages.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/pages/skills/SkillsPage.jsx",
+      "target": "file:src/__tests__/Pages.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/test/testUtils.jsx",
+      "target": "file:src/__tests__/Pages.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/components/certificationCard/CertificationCard.jsx",
+      "target": "file:src/components/certificationCard/CertificationCard.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/certificationCard/CertificationCard.jsx",
+      "target": "function:src/components/certificationCard/CertificationCard.jsx:CertificationCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/degreeCard/DegreeCard.jsx",
+      "target": "file:src/components/degreeCard/DegreeCard.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/degreeCard/DegreeCard.jsx",
+      "target": "function:src/components/degreeCard/DegreeCard.jsx:DegreeCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/certifications/Certifications.jsx",
+      "target": "file:src/components/certificationCard/CertificationCard.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/certifications/Certifications.jsx",
+      "target": "file:src/containers/certifications/Certifications.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/certifications/Certifications.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/certifications/Certifications.jsx",
+      "target": "function:src/containers/certifications/Certifications.jsx:Certifications",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/education/Educations.jsx",
+      "target": "file:src/components/degreeCard/DegreeCard.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/education/Educations.jsx",
+      "target": "file:src/containers/education/Educations.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/education/Educations.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/education/Educations.jsx",
+      "target": "function:src/containers/education/Educations.jsx:Educations",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/education/EducationComponent.jsx",
+      "target": "file:src/components/footer/Footer.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/education/EducationComponent.jsx",
+      "target": "file:src/components/header/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/education/EducationComponent.jsx",
+      "target": "file:src/containers/certifications/Certifications.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/education/EducationComponent.jsx",
+      "target": "file:src/containers/education/Educations.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/education/EducationComponent.jsx",
+      "target": "file:src/pages/education/EducationComponent.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/education/EducationComponent.jsx",
+      "target": "file:src/pages/education/EducationImg.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/education/EducationComponent.jsx",
+      "target": "function:src/pages/education/EducationComponent.jsx:Education",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/education/EducationImg.jsx",
+      "target": "function:src/pages/education/EducationImg.jsx:EducationImg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/education/EducationImg.jsx",
+      "target": "function:src/pages/education/EducationImg.jsx:EducationImg",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

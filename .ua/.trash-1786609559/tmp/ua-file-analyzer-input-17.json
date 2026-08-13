@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\pypi-ahmad.github.io",
+  "batchFiles": [
+    {
+      "path": "public/manifest.json",
+      "language": "json",
+      "sizeLines": 20,
+      "fileCategory": "config"
+    },
+    {
+      "path": "public/robots.txt",
+      "language": "txt",
+      "sizeLines": 4,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "public/sitemap.xml",
+      "language": "xml",
+      "sizeLines": 21,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "public/manifest.json": [],
+    "public/robots.txt": [],
+    "public/sitemap.xml": []
+  }
+}

@@ -1,0 +1,675 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/__tests__/Accessibility.test.jsx",
+      "type": "file",
+      "name": "Accessibility.test.jsx",
+      "filePath": "src/__tests__/Accessibility.test.jsx",
+      "summary": "Test suite validating Accessibility.test behavior in the React portfolio.",
+      "tags": [
+        "test",
+        "react",
+        "verification"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/__tests__/Behavior.test.jsx",
+      "type": "file",
+      "name": "Behavior.test.jsx",
+      "filePath": "src/__tests__/Behavior.test.jsx",
+      "summary": "Test suite validating Behavior.test behavior in the React portfolio.",
+      "tags": [
+        "test",
+        "react",
+        "verification"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/__tests__/ExperienceCard.render.test.jsx",
+      "type": "file",
+      "name": "ExperienceCard.render.test.jsx",
+      "filePath": "src/__tests__/ExperienceCard.render.test.jsx",
+      "summary": "Test suite validating ExperienceCard.render.test behavior in the React portfolio.",
+      "tags": [
+        "test",
+        "react",
+        "verification"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/__tests__/Footer.render.test.jsx",
+      "type": "file",
+      "name": "Footer.render.test.jsx",
+      "filePath": "src/__tests__/Footer.render.test.jsx",
+      "summary": "Test suite validating Footer.render.test behavior in the React portfolio.",
+      "tags": [
+        "test",
+        "react",
+        "verification"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/__tests__/Greeting.render.test.jsx",
+      "type": "file",
+      "name": "Greeting.render.test.jsx",
+      "filePath": "src/__tests__/Greeting.render.test.jsx",
+      "summary": "Test suite validating Greeting.render.test behavior in the React portfolio.",
+      "tags": [
+        "test",
+        "react",
+        "verification"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/__tests__/Header.render.test.jsx",
+      "type": "file",
+      "name": "Header.render.test.jsx",
+      "filePath": "src/__tests__/Header.render.test.jsx",
+      "summary": "Test suite validating Header.render.test behavior in the React portfolio.",
+      "tags": [
+        "test",
+        "react",
+        "verification"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/__tests__/Responsive.test.jsx",
+      "type": "file",
+      "name": "Responsive.test.jsx",
+      "filePath": "src/__tests__/Responsive.test.jsx",
+      "summary": "Test suite validating Responsive.test behavior in the React portfolio.",
+      "tags": [
+        "test",
+        "react",
+        "verification"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/experienceCard/ExperienceCard.jsx",
+      "type": "file",
+      "name": "ExperienceCard.jsx",
+      "filePath": "src/components/experienceCard/ExperienceCard.jsx",
+      "summary": "Implements ExperienceCard for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/experienceCard/ExperienceCard.jsx:ExperienceCard",
+      "type": "function",
+      "name": "ExperienceCard",
+      "filePath": "src/components/experienceCard/ExperienceCard.jsx",
+      "summary": "Provides the ExperienceCard routine used by ExperienceCard.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/containers/experienceAccordion/ExperienceAccordion.jsx",
+      "type": "file",
+      "name": "ExperienceAccordion.jsx",
+      "filePath": "src/containers/experienceAccordion/ExperienceAccordion.jsx",
+      "summary": "Implements ExperienceAccordion for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/containers/experienceAccordion/ExperienceAccordion.jsx:ExperienceAccordion",
+      "type": "function",
+      "name": "ExperienceAccordion",
+      "filePath": "src/containers/experienceAccordion/ExperienceAccordion.jsx",
+      "summary": "Provides the ExperienceAccordion routine used by ExperienceAccordion.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/containers/greeting/FeelingProud.jsx",
+      "type": "file",
+      "name": "FeelingProud.jsx",
+      "filePath": "src/containers/greeting/FeelingProud.jsx",
+      "summary": "Implements FeelingProud for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/containers/greeting/FeelingProud.jsx:FeelingProud",
+      "type": "function",
+      "name": "FeelingProud",
+      "filePath": "src/containers/greeting/FeelingProud.jsx",
+      "summary": "Provides the FeelingProud routine used by FeelingProud.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/containers/greeting/Greeting.jsx",
+      "type": "file",
+      "name": "Greeting.jsx",
+      "filePath": "src/containers/greeting/Greeting.jsx",
+      "summary": "Implements Greeting for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/containers/greeting/Greeting.jsx:Greeting",
+      "type": "function",
+      "name": "Greeting",
+      "filePath": "src/containers/greeting/Greeting.jsx",
+      "summary": "Provides the Greeting routine used by Greeting.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/test/testUtils.jsx",
+      "type": "file",
+      "name": "testUtils.jsx",
+      "filePath": "src/test/testUtils.jsx",
+      "summary": "Implements testUtils for the React portfolio application.",
+      "tags": [
+        "react",
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/testUtils.jsx:renderWithProviders",
+      "type": "function",
+      "name": "renderWithProviders",
+      "filePath": "src/test/testUtils.jsx",
+      "summary": "Provides the renderWithProviders routine used by testUtils.jsx.",
+      "tags": [
+        "function",
+        "react",
+        "component"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/__tests__/Accessibility.test.jsx",
+      "target": "file:src/components/experienceCard/ExperienceCard.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Accessibility.test.jsx",
+      "target": "file:src/components/footer/Footer.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Accessibility.test.jsx",
+      "target": "file:src/components/header/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Accessibility.test.jsx",
+      "target": "file:src/containers/greeting/Greeting.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Accessibility.test.jsx",
+      "target": "file:src/pages/theme/ThemePage.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Accessibility.test.jsx",
+      "target": "file:src/test/testUtils.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/experienceCard/ExperienceCard.jsx",
+      "target": "file:src/__tests__/Accessibility.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/components/footer/Footer.jsx",
+      "target": "file:src/__tests__/Accessibility.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/components/header/Header.jsx",
+      "target": "file:src/__tests__/Accessibility.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/containers/greeting/Greeting.jsx",
+      "target": "file:src/__tests__/Accessibility.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/pages/theme/ThemePage.jsx",
+      "target": "file:src/__tests__/Accessibility.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/test/testUtils.jsx",
+      "target": "file:src/__tests__/Accessibility.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/__tests__/Behavior.test.jsx",
+      "target": "file:src/components/SystemDesign/ProductTile.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Behavior.test.jsx",
+      "target": "file:src/components/SystemDesign/SystemCard.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Behavior.test.jsx",
+      "target": "file:src/components/header/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Behavior.test.jsx",
+      "target": "file:src/containers/experienceAccordion/ExperienceAccordion.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Behavior.test.jsx",
+      "target": "file:src/containers/greeting/Greeting.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Behavior.test.jsx",
+      "target": "file:src/pages/theme/ThemePage.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Behavior.test.jsx",
+      "target": "file:src/test/testUtils.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/SystemDesign/ProductTile.jsx",
+      "target": "file:src/__tests__/Behavior.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/components/SystemDesign/SystemCard.jsx",
+      "target": "file:src/__tests__/Behavior.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/components/header/Header.jsx",
+      "target": "file:src/__tests__/Behavior.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/containers/experienceAccordion/ExperienceAccordion.jsx",
+      "target": "file:src/__tests__/Behavior.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/containers/greeting/Greeting.jsx",
+      "target": "file:src/__tests__/Behavior.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/pages/theme/ThemePage.jsx",
+      "target": "file:src/__tests__/Behavior.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/test/testUtils.jsx",
+      "target": "file:src/__tests__/Behavior.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/__tests__/ExperienceCard.render.test.jsx",
+      "target": "file:src/components/experienceCard/ExperienceCard.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/ExperienceCard.render.test.jsx",
+      "target": "file:src/test/testUtils.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/experienceCard/ExperienceCard.jsx",
+      "target": "file:src/__tests__/ExperienceCard.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/test/testUtils.jsx",
+      "target": "file:src/__tests__/ExperienceCard.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/__tests__/Footer.render.test.jsx",
+      "target": "file:src/components/footer/Footer.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Footer.render.test.jsx",
+      "target": "file:src/test/testUtils.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/footer/Footer.jsx",
+      "target": "file:src/__tests__/Footer.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/test/testUtils.jsx",
+      "target": "file:src/__tests__/Footer.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/__tests__/Greeting.render.test.jsx",
+      "target": "file:src/containers/greeting/Greeting.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Greeting.render.test.jsx",
+      "target": "file:src/test/testUtils.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/greeting/Greeting.jsx",
+      "target": "file:src/__tests__/Greeting.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/test/testUtils.jsx",
+      "target": "file:src/__tests__/Greeting.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/__tests__/Header.render.test.jsx",
+      "target": "file:src/components/header/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Header.render.test.jsx",
+      "target": "file:src/test/testUtils.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/header/Header.jsx",
+      "target": "file:src/__tests__/Header.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/test/testUtils.jsx",
+      "target": "file:src/__tests__/Header.render.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/__tests__/Responsive.test.jsx",
+      "target": "file:src/components/header/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Responsive.test.jsx",
+      "target": "file:src/containers/greeting/Greeting.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Responsive.test.jsx",
+      "target": "file:src/test/testUtils.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/header/Header.jsx",
+      "target": "file:src/__tests__/Responsive.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/containers/greeting/Greeting.jsx",
+      "target": "file:src/__tests__/Responsive.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/test/testUtils.jsx",
+      "target": "file:src/__tests__/Responsive.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/components/experienceCard/ExperienceCard.jsx",
+      "target": "file:src/components/experienceCard/ExperienceCard.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/experienceCard/ExperienceCard.jsx",
+      "target": "function:src/components/experienceCard/ExperienceCard.jsx:ExperienceCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/experienceAccordion/ExperienceAccordion.jsx",
+      "target": "file:src/components/experienceCard/ExperienceCard.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/experienceAccordion/ExperienceAccordion.jsx",
+      "target": "function:src/containers/experienceAccordion/ExperienceAccordion.jsx:ExperienceAccordion",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/greeting/FeelingProud.jsx",
+      "target": "file:src/containers/greeting/FeelingProud.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/greeting/FeelingProud.jsx",
+      "target": "function:src/containers/greeting/FeelingProud.jsx:FeelingProud",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/greeting/Greeting.jsx",
+      "target": "file:src/containers/greeting/FeelingProud.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/greeting/Greeting.jsx",
+      "target": "file:src/containers/greeting/Greeting.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/greeting/Greeting.jsx",
+      "target": "file:src/portfolio.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/greeting/Greeting.jsx",
+      "target": "file:src/themeMotion.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/containers/greeting/Greeting.jsx",
+      "target": "function:src/containers/greeting/Greeting.jsx:Greeting",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/containers/greeting/Greeting.jsx",
+      "target": "function:src/containers/greeting/Greeting.jsx:Greeting",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/testUtils.jsx",
+      "target": "file:src/theme.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/test/testUtils.jsx",
+      "target": "file:src/themeController.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/test/testUtils.jsx",
+      "target": "function:src/test/testUtils.jsx:renderWithProviders",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/test/testUtils.jsx",
+      "target": "function:src/test/testUtils.jsx:renderWithProviders",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

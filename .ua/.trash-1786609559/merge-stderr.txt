@@ -1,0 +1,34 @@
+Found 20 batch files (20 logical batches, 0 multi-part):
+  batch-1.json: 33 nodes, 70 edges
+  batch-2.json: 17 nodes, 64 edges
+  batch-3.json: 34 nodes, 61 edges
+  batch-4.json: 12 nodes, 19 edges
+  batch-5.json: 13 nodes, 35 edges
+  batch-6.json: 30 nodes, 50 edges
+  batch-7.json: 12 nodes, 20 edges
+  batch-8.json: 2 nodes, 2 edges
+  batch-9.json: 11 nodes, 7 edges
+  batch-10.json: 8 nodes, 4 edges
+  batch-11.json: 4 nodes, 0 edges
+  batch-12.json: 20 nodes, 0 edges
+  batch-13.json: 20 nodes, 0 edges
+  batch-14.json: 20 nodes, 0 edges
+  batch-15.json: 20 nodes, 0 edges
+  batch-16.json: 14 nodes, 0 edges
+  batch-17.json: 3 nodes, 0 edges
+  batch-18.json: 25 nodes, 0 edges
+  batch-19.json: 27 nodes, 3 edges
+  batch-20.json: 17 nodes, 11 edges
+
+Input: 342 nodes, 346 edges
+
+Tested-by linker:
+     0 � tested_by edges produced (path-convention supplement, production \u2192 test)
+    18 � production nodes tagged "tested"
+
+Output: 342 nodes, 346 edges
+
+Imports edge recovery:
+  Recovered 0 `imports` edges from importMap (242 entries scanned)
+
+Written to D:\AI\Github\pypi-ahmad.github.io\.ua\intermediate\assembled-graph.json (231 KB)

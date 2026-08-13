@@ -1,0 +1,136 @@
+{
+  "projectRoot": "D:\\AI\\Github\\pypi-ahmad.github.io",
+  "batchFiles": [
+    {
+      "path": "src/__tests__/Accessibility.test.jsx",
+      "language": "javascript",
+      "sizeLines": 152,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Behavior.test.jsx",
+      "language": "javascript",
+      "sizeLines": 472,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/ExperienceCard.render.test.jsx",
+      "language": "javascript",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Footer.render.test.jsx",
+      "language": "javascript",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Greeting.render.test.jsx",
+      "language": "javascript",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Header.render.test.jsx",
+      "language": "javascript",
+      "sizeLines": 113,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/__tests__/Responsive.test.jsx",
+      "language": "javascript",
+      "sizeLines": 150,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/experienceCard/ExperienceCard.jsx",
+      "language": "javascript",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/experienceAccordion/ExperienceAccordion.jsx",
+      "language": "javascript",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/greeting/FeelingProud.jsx",
+      "language": "javascript",
+      "sizeLines": 522,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/containers/greeting/Greeting.jsx",
+      "language": "javascript",
+      "sizeLines": 256,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/testUtils.jsx",
+      "language": "javascript",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/__tests__/Accessibility.test.jsx": [
+      "src/components/experienceCard/ExperienceCard.jsx",
+      "src/components/footer/Footer.jsx",
+      "src/components/header/Header.jsx",
+      "src/containers/greeting/Greeting.jsx",
+      "src/pages/theme/ThemePage.jsx",
+      "src/test/testUtils.jsx"
+    ],
+    "src/__tests__/Behavior.test.jsx": [
+      "src/components/SystemDesign/ProductTile.jsx",
+      "src/components/SystemDesign/SystemCard.jsx",
+      "src/components/header/Header.jsx",
+      "src/containers/experienceAccordion/ExperienceAccordion.jsx",
+      "src/containers/greeting/Greeting.jsx",
+      "src/pages/theme/ThemePage.jsx",
+      "src/test/testUtils.jsx"
+    ],
+    "src/__tests__/ExperienceCard.render.test.jsx": [
+      "src/components/experienceCard/ExperienceCard.jsx",
+      "src/test/testUtils.jsx"
+    ],
+    "src/__tests__/Footer.render.test.jsx": [
+      "src/components/footer/Footer.jsx",
+      "src/test/testUtils.jsx"
+    ],
+    "src/__tests__/Greeting.render.test.jsx": [
+      "src/containers/greeting/Greeting.jsx",
+      "src/test/testUtils.jsx"
+    ],
+    "src/__tests__/Header.render.test.jsx": [
+      "src/components/header/Header.jsx",
+      "src/test/testUtils.jsx"
+    ],
+    "src/__tests__/Responsive.test.jsx": [
+      "src/components/header/Header.jsx",
+      "src/containers/greeting/Greeting.jsx",
+      "src/test/testUtils.jsx"
+    ],
+    "src/components/experienceCard/ExperienceCard.jsx": [
+      "src/components/experienceCard/ExperienceCard.css"
+    ],
+    "src/containers/experienceAccordion/ExperienceAccordion.jsx": [
+      "src/components/experienceCard/ExperienceCard.jsx"
+    ],
+    "src/containers/greeting/FeelingProud.jsx": [
+      "src/containers/greeting/FeelingProud.css"
+    ],
+    "src/containers/greeting/Greeting.jsx": [
+      "src/containers/greeting/FeelingProud.jsx",
+      "src/containers/greeting/Greeting.css",
+      "src/portfolio.js",
+      "src/themeMotion.js"
+    ],
+    "src/test/testUtils.jsx": [
+      "src/theme.js",
+      "src/themeController.jsx"
+    ]
+  }
+}

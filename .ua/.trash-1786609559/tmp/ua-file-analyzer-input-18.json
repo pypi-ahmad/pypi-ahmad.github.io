@@ -1,0 +1,182 @@
+{
+  "projectRoot": "D:\\AI\\Github\\pypi-ahmad.github.io",
+  "batchFiles": [
+    {
+      "path": ".prettierignore",
+      "language": "unknown",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua/.understandignore",
+      "language": "unknown",
+      "sizeLines": 115,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua/config.json",
+      "language": "json",
+      "sizeLines": 3,
+      "fileCategory": "config"
+    },
+    {
+      "path": "docs/migration/astro-migration-roadmap.md",
+      "language": "markdown",
+      "sizeLines": 39,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "eslint.config.js",
+      "language": "javascript",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "graphify-out/.graphify_python",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "graphify-out/.graphify_root",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "graphify-out/cache/stat-index.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/memory/query_20260802_160216_most_interesting__why_does_readme_bridge_theme_sys.md",
+      "language": "markdown",
+      "sizeLines": 27,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "graphify-out/memory/query_20260802_160320_trace_the_astro_migration_connection_to_readme.md",
+      "language": "markdown",
+      "sizeLines": 25,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "graphify-out/reflections/LESSONS.md",
+      "language": "markdown",
+      "sizeLines": 11,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "public/.nojekyll",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/App.css",
+      "language": "css",
+      "sizeLines": 51,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/ProjectCard/ProjectCard.css",
+      "language": "css",
+      "sizeLines": 117,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/SystemDesign/ProductTile.css",
+      "language": "css",
+      "sizeLines": 127,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/SystemDesign/systems.css",
+      "language": "css",
+      "sizeLines": 377,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/certificationCard/CertificationCard.css",
+      "language": "css",
+      "sizeLines": 115,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/degreeCard/DegreeCard.css",
+      "language": "css",
+      "sizeLines": 149,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/experienceCard/ExperienceCard.css",
+      "language": "css",
+      "sizeLines": 234,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/footer/Footer.css",
+      "language": "css",
+      "sizeLines": 17,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/header/Header.css",
+      "language": "css",
+      "sizeLines": 262,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/projectLanguages/ProjectLanguages.css",
+      "language": "css",
+      "sizeLines": 68,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/socialMedia/ContactLinksList.css",
+      "language": "css",
+      "sizeLines": 103,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/socialMedia/SocialMedia.css",
+      "language": "css",
+      "sizeLines": 99,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/components/softwareSkills/SoftwareSkill.css",
+      "language": "css",
+      "sizeLines": 78,
+      "fileCategory": "markup"
+    }
+  ],
+  "batchImportData": {
+    ".prettierignore": [],
+    ".ua/.understandignore": [],
+    ".ua/config.json": [],
+    "docs/migration/astro-migration-roadmap.md": [],
+    "eslint.config.js": [],
+    "graphify-out/.graphify_python": [],
+    "graphify-out/.graphify_root": [],
+    "graphify-out/cache/stat-index.json": [],
+    "graphify-out/memory/query_20260802_160216_most_interesting__why_does_readme_bridge_theme_sys.md": [],
+    "graphify-out/memory/query_20260802_160320_trace_the_astro_migration_connection_to_readme.md": [],
+    "graphify-out/reflections/LESSONS.md": [],
+    "public/.nojekyll": [],
+    "src/App.css": [],
+    "src/components/ProjectCard/ProjectCard.css": [],
+    "src/components/SystemDesign/ProductTile.css": [],
+    "src/components/SystemDesign/systems.css": [],
+    "src/components/certificationCard/CertificationCard.css": [],
+    "src/components/degreeCard/DegreeCard.css": [],
+    "src/components/experienceCard/ExperienceCard.css": [],
+    "src/components/footer/Footer.css": [],
+    "src/components/header/Header.css": [],
+    "src/components/projectLanguages/ProjectLanguages.css": [],
+    "src/components/socialMedia/ContactLinksList.css": [],
+    "src/components/socialMedia/SocialMedia.css": [],
+    "src/components/softwareSkills/SoftwareSkill.css": []
+  }
+}

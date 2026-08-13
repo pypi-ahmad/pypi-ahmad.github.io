@@ -1,0 +1,84 @@
+{
+  "projectRoot": "D:\\AI\\Github\\pypi-ahmad.github.io",
+  "batchFiles": [
+    {
+      "path": "CHANGELOG.md",
+      "language": "markdown",
+      "sizeLines": 8,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "language": "markdown",
+      "sizeLines": 38,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "CODE_REVIEW_REPORT.md",
+      "language": "markdown",
+      "sizeLines": 101,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 220,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "SECURITY.md",
+      "language": "markdown",
+      "sizeLines": 24,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "browserconfig.xml",
+      "language": "xml",
+      "sizeLines": 1,
+      "fileCategory": "config"
+    },
+    {
+      "path": "index.html",
+      "language": "html",
+      "sizeLines": 48,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "package.json",
+      "language": "json",
+      "sizeLines": 72,
+      "fileCategory": "config"
+    },
+    {
+      "path": "security_best_practices_report.md",
+      "language": "markdown",
+      "sizeLines": 54,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "tsconfig.typecheck.json",
+      "language": "json",
+      "sizeLines": 16,
+      "fileCategory": "config"
+    },
+    {
+      "path": "vercel.json",
+      "language": "json",
+      "sizeLines": 4,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "CHANGELOG.md": [],
+    "CODE_OF_CONDUCT.md": [],
+    "CODE_REVIEW_REPORT.md": [],
+    "README.md": [],
+    "SECURITY.md": [],
+    "browserconfig.xml": [],
+    "index.html": [],
+    "package.json": [],
+    "security_best_practices_report.md": [],
+    "tsconfig.typecheck.json": [],
+    "vercel.json": []
+  }
+}

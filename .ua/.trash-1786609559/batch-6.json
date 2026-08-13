@@ -1,0 +1,848 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/__tests__/Navigation.test.jsx",
+      "type": "file",
+      "name": "Navigation.test.jsx",
+      "filePath": "src/__tests__/Navigation.test.jsx",
+      "summary": "Navigation route test suite verifies page rendering, navigation links, theme behavior, and metadata across portfolio routes.",
+      "tags": [
+        "test",
+        "navigation",
+        "routing",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/__tests__/RouteMetadata.test.jsx",
+      "type": "file",
+      "name": "RouteMetadata.test.jsx",
+      "filePath": "src/__tests__/RouteMetadata.test.jsx",
+      "summary": "Route metadata tests verify that the main application updates document titles and meta tags for rendered routes.",
+      "tags": [
+        "test",
+        "metadata",
+        "routing",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/__tests__/ThemeRegistry.test.jsx",
+      "type": "file",
+      "name": "ThemeRegistry.test.jsx",
+      "filePath": "src/__tests__/ThemeRegistry.test.jsx",
+      "summary": "Theme registry tests validate palette structure, contrast ratios, and accessible color-token behavior.",
+      "tags": [
+        "test",
+        "theme",
+        "accessibility",
+        "color-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/pages/theme/ThemePage.jsx",
+      "type": "file",
+      "name": "ThemePage.jsx",
+      "filePath": "src/pages/theme/ThemePage.jsx",
+      "summary": "Interactive theme preview page that renders palette, typography, component, and accessibility samples using the active theme controller.",
+      "tags": [
+        "react",
+        "theme",
+        "page",
+        "accessibility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/theme.js",
+      "type": "file",
+      "name": "theme.js",
+      "filePath": "src/theme.js",
+      "summary": "Defines the portfolio theme registry, color-token generation helpers, and theme-family resolution for light and dark presentation modes.",
+      "tags": [
+        "theme",
+        "design-tokens",
+        "color-system",
+        "configuration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/themeController.jsx",
+      "type": "file",
+      "name": "themeController.jsx",
+      "filePath": "src/themeController.jsx",
+      "summary": "Provides React context and persistence logic for selecting, applying, and consuming the active portfolio theme.",
+      "tags": [
+        "react",
+        "context",
+        "theme",
+        "state-management"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/__tests__/Navigation.test.jsx:renderAtRoute",
+      "type": "function",
+      "name": "renderAtRoute",
+      "filePath": "src/__tests__/Navigation.test.jsx",
+      "lineRange": [
+        34,
+        54
+      ],
+      "summary": "Renders the routed application at a requested path for navigation assertions.",
+      "tags": [
+        "test",
+        "routing",
+        "rendering"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/__tests__/RouteMetadata.test.jsx:renderMainAt",
+      "type": "function",
+      "name": "renderMainAt",
+      "filePath": "src/__tests__/RouteMetadata.test.jsx",
+      "lineRange": [
+        8,
+        17
+      ],
+      "summary": "Renders the main application at a route for metadata tests.",
+      "tags": [
+        "test",
+        "routing",
+        "rendering"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/__tests__/RouteMetadata.test.jsx:getManagedMeta",
+      "type": "function",
+      "name": "getManagedMeta",
+      "filePath": "src/__tests__/RouteMetadata.test.jsx",
+      "lineRange": [
+        19,
+        21
+      ],
+      "summary": "Reads managed document metadata for assertions.",
+      "tags": [
+        "test",
+        "metadata",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/__tests__/ThemeRegistry.test.jsx:hexToRgb",
+      "type": "function",
+      "name": "hexToRgb",
+      "filePath": "src/__tests__/ThemeRegistry.test.jsx",
+      "lineRange": [
+        4,
+        20
+      ],
+      "summary": "Converts hexadecimal color values to RGB channels for contrast tests.",
+      "tags": [
+        "test",
+        "color",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/__tests__/ThemeRegistry.test.jsx:getRelativeLuminance",
+      "type": "function",
+      "name": "getRelativeLuminance",
+      "filePath": "src/__tests__/ThemeRegistry.test.jsx",
+      "lineRange": [
+        22,
+        38
+      ],
+      "summary": "Calculates relative luminance for an RGB color.",
+      "tags": [
+        "test",
+        "accessibility",
+        "color"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/__tests__/ThemeRegistry.test.jsx:getContrastRatio",
+      "type": "function",
+      "name": "getContrastRatio",
+      "filePath": "src/__tests__/ThemeRegistry.test.jsx",
+      "lineRange": [
+        40,
+        49
+      ],
+      "summary": "Calculates contrast ratio between two luminance values.",
+      "tags": [
+        "test",
+        "accessibility",
+        "color"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/pages/theme/ThemePage.jsx:ThemePage",
+      "type": "function",
+      "name": "ThemePage",
+      "filePath": "src/pages/theme/ThemePage.jsx",
+      "lineRange": [
+        17,
+        217
+      ],
+      "summary": "Renders the theme explorer and previews active design tokens.",
+      "tags": [
+        "react",
+        "theme",
+        "page"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/theme.js:expandHex",
+      "type": "function",
+      "name": "expandHex",
+      "filePath": "src/theme.js",
+      "lineRange": [
+        32,
+        38
+      ],
+      "summary": "Normalizes shorthand hexadecimal colors to full values.",
+      "tags": [
+        "utility",
+        "theme",
+        "helper"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/theme.js:hexToRgb",
+      "type": "function",
+      "name": "hexToRgb",
+      "filePath": "src/theme.js",
+      "lineRange": [
+        40,
+        49
+      ],
+      "summary": "Converts a hexadecimal color to RGB channels.",
+      "tags": [
+        "utility",
+        "theme",
+        "helper"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/theme.js:withAlpha",
+      "type": "function",
+      "name": "withAlpha",
+      "filePath": "src/theme.js",
+      "lineRange": [
+        51,
+        54
+      ],
+      "summary": "Adds an alpha channel to a color token.",
+      "tags": [
+        "utility",
+        "theme",
+        "helper"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/theme.js:mixHex",
+      "type": "function",
+      "name": "mixHex",
+      "filePath": "src/theme.js",
+      "lineRange": [
+        56,
+        69
+      ],
+      "summary": "Blends two hexadecimal colors by a ratio.",
+      "tags": [
+        "utility",
+        "theme",
+        "helper"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/theme.js:getRelativeLuminance",
+      "type": "function",
+      "name": "getRelativeLuminance",
+      "filePath": "src/theme.js",
+      "lineRange": [
+        71,
+        87
+      ],
+      "summary": "Calculates WCAG relative luminance for a color.",
+      "tags": [
+        "theme",
+        "accessibility",
+        "color"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/theme.js:getContrastRatio",
+      "type": "function",
+      "name": "getContrastRatio",
+      "filePath": "src/theme.js",
+      "lineRange": [
+        89,
+        98
+      ],
+      "summary": "Calculates a contrast ratio for two colors.",
+      "tags": [
+        "theme",
+        "accessibility",
+        "color"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/theme.js:ensureContrast",
+      "type": "function",
+      "name": "ensureContrast",
+      "filePath": "src/theme.js",
+      "lineRange": [
+        100,
+        124
+      ],
+      "summary": "Adjusts token colors to satisfy contrast requirements.",
+      "tags": [
+        "theme",
+        "accessibility",
+        "color"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/theme.js:getReadableTextColor",
+      "type": "function",
+      "name": "getReadableTextColor",
+      "filePath": "src/theme.js",
+      "lineRange": [
+        126,
+        131
+      ],
+      "summary": "Chooses a readable text color for a surface.",
+      "tags": [
+        "theme",
+        "accessibility",
+        "color"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/theme.js:createThemeTokens",
+      "type": "function",
+      "name": "createThemeTokens",
+      "filePath": "src/theme.js",
+      "lineRange": [
+        133,
+        224
+      ],
+      "summary": "Builds the complete semantic token set for a theme palette.",
+      "tags": [
+        "theme",
+        "design-tokens",
+        "factory"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/theme.js:createThemeFamily",
+      "type": "function",
+      "name": "createThemeFamily",
+      "filePath": "src/theme.js",
+      "lineRange": [
+        226,
+        231
+      ],
+      "summary": "Creates light and dark variants for a theme family.",
+      "tags": [
+        "theme",
+        "factory",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/theme.js:resolveTheme",
+      "type": "function",
+      "name": "resolveTheme",
+      "filePath": "src/theme.js",
+      "lineRange": [
+        2214,
+        2219
+      ],
+      "summary": "Resolves a selected family and mode to a concrete theme.",
+      "tags": [
+        "theme",
+        "configuration",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/themeController.jsx:normalizeThemeSelection",
+      "type": "function",
+      "name": "normalizeThemeSelection",
+      "filePath": "src/themeController.jsx",
+      "lineRange": [
+        22,
+        33
+      ],
+      "summary": "Normalizes a theme family and mode selection.",
+      "tags": [
+        "theme",
+        "validation",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/themeController.jsx:parseStoredThemeSelection",
+      "type": "function",
+      "name": "parseStoredThemeSelection",
+      "filePath": "src/themeController.jsx",
+      "lineRange": [
+        35,
+        53
+      ],
+      "summary": "Parses persisted theme-selection data from browser storage.",
+      "tags": [
+        "theme",
+        "storage",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/themeController.jsx:getInitialThemeSelection",
+      "type": "function",
+      "name": "getInitialThemeSelection",
+      "filePath": "src/themeController.jsx",
+      "lineRange": [
+        55,
+        65
+      ],
+      "summary": "Initializes theme selection from storage or defaults.",
+      "tags": [
+        "theme",
+        "storage",
+        "initialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/themeController.jsx:ThemeControllerProvider",
+      "type": "function",
+      "name": "ThemeControllerProvider",
+      "filePath": "src/themeController.jsx",
+      "lineRange": [
+        67,
+        142
+      ],
+      "summary": "Supplies active-theme state and update controls through React context.",
+      "tags": [
+        "react",
+        "context",
+        "theme"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/themeController.jsx:useThemeController",
+      "type": "function",
+      "name": "useThemeController",
+      "filePath": "src/themeController.jsx",
+      "lineRange": [
+        144,
+        152
+      ],
+      "summary": "Reads the theme-controller context for consumers.",
+      "tags": [
+        "react",
+        "hook",
+        "theme"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/themeController.jsx:getStoredThemeSelection",
+      "type": "function",
+      "name": "getStoredThemeSelection",
+      "filePath": "src/themeController.jsx",
+      "lineRange": [
+        154,
+        160
+      ],
+      "summary": "Retrieves the stored theme selection from local storage.",
+      "tags": [
+        "theme",
+        "storage",
+        "utility"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/__tests__/Navigation.test.jsx",
+      "target": "function:src/__tests__/Navigation.test.jsx:renderAtRoute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/__tests__/RouteMetadata.test.jsx",
+      "target": "function:src/__tests__/RouteMetadata.test.jsx:renderMainAt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/__tests__/RouteMetadata.test.jsx",
+      "target": "function:src/__tests__/RouteMetadata.test.jsx:getManagedMeta",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/__tests__/ThemeRegistry.test.jsx",
+      "target": "function:src/__tests__/ThemeRegistry.test.jsx:hexToRgb",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/__tests__/ThemeRegistry.test.jsx",
+      "target": "function:src/__tests__/ThemeRegistry.test.jsx:getRelativeLuminance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/__tests__/ThemeRegistry.test.jsx",
+      "target": "function:src/__tests__/ThemeRegistry.test.jsx:getContrastRatio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/theme/ThemePage.jsx",
+      "target": "function:src/pages/theme/ThemePage.jsx:ThemePage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "function:src/theme.js:expandHex",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "function:src/theme.js:hexToRgb",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "function:src/theme.js:withAlpha",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "function:src/theme.js:mixHex",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "function:src/theme.js:getRelativeLuminance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "function:src/theme.js:getContrastRatio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "function:src/theme.js:ensureContrast",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "function:src/theme.js:getReadableTextColor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "function:src/theme.js:createThemeTokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "function:src/theme.js:createThemeFamily",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "function:src/theme.js:resolveTheme",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/themeController.jsx",
+      "target": "function:src/themeController.jsx:normalizeThemeSelection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/themeController.jsx",
+      "target": "function:src/themeController.jsx:parseStoredThemeSelection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/themeController.jsx",
+      "target": "function:src/themeController.jsx:getInitialThemeSelection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/themeController.jsx",
+      "target": "function:src/themeController.jsx:ThemeControllerProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/themeController.jsx",
+      "target": "function:src/themeController.jsx:useThemeController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/themeController.jsx",
+      "target": "function:src/themeController.jsx:getStoredThemeSelection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/__tests__/Navigation.test.jsx",
+      "target": "file:src/pages/contact/ContactComponent.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Navigation.test.jsx",
+      "target": "file:src/pages/education/EducationComponent.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Navigation.test.jsx",
+      "target": "file:src/pages/experience/Experience.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Navigation.test.jsx",
+      "target": "file:src/pages/home/HomeComponent.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Navigation.test.jsx",
+      "target": "file:src/pages/projects/Projects.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Navigation.test.jsx",
+      "target": "file:src/pages/skills/SkillsPage.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Navigation.test.jsx",
+      "target": "file:src/theme.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/Navigation.test.jsx",
+      "target": "file:src/themeController.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/RouteMetadata.test.jsx",
+      "target": "file:src/containers/Main.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/RouteMetadata.test.jsx",
+      "target": "file:src/theme.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/RouteMetadata.test.jsx",
+      "target": "file:src/themeController.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/__tests__/ThemeRegistry.test.jsx",
+      "target": "file:src/theme.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/theme/ThemePage.jsx",
+      "target": "file:src/components/footer/Footer.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/theme/ThemePage.jsx",
+      "target": "file:src/components/header/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/theme/ThemePage.jsx",
+      "target": "file:src/pages/theme/ThemePage.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/theme/ThemePage.jsx",
+      "target": "file:src/theme.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/theme/ThemePage.jsx",
+      "target": "file:src/themeController.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/theme/ThemePage.jsx",
+      "target": "file:src/themeMotion.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/themeController.jsx",
+      "target": "file:src/theme.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "function:src/theme.js:resolveTheme",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/themeController.jsx",
+      "target": "function:src/themeController.jsx:parseStoredThemeSelection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/themeController.jsx",
+      "target": "function:src/themeController.jsx:ThemeControllerProvider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/themeController.jsx",
+      "target": "function:src/themeController.jsx:useThemeController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/themeController.jsx",
+      "target": "function:src/themeController.jsx:getStoredThemeSelection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/theme.js",
+      "target": "file:src/__tests__/ThemeRegistry.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/themeController.jsx",
+      "target": "file:src/__tests__/Navigation.test.jsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

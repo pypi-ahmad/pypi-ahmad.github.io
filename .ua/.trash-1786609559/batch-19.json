@@ -1,0 +1,382 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/containers/certifications/Certifications.css",
+      "type": "file",
+      "name": "Certifications",
+      "filePath": "src/containers/certifications/Certifications.css",
+      "summary": "Defines responsive visual styles for the Certifications portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/containers/education/Educations.css",
+      "type": "file",
+      "name": "Educations",
+      "filePath": "src/containers/education/Educations.css",
+      "summary": "Defines responsive visual styles for the Educations portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/containers/greeting/FeelingProud.css",
+      "type": "file",
+      "name": "FeelingProud",
+      "filePath": "src/containers/greeting/FeelingProud.css",
+      "summary": "Defines responsive visual styles for the FeelingProud portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/containers/greeting/Greeting.css",
+      "type": "file",
+      "name": "Greeting",
+      "filePath": "src/containers/greeting/Greeting.css",
+      "summary": "Defines responsive visual styles for the Greeting portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/containers/skills/Skills.css",
+      "type": "file",
+      "name": "Skills",
+      "filePath": "src/containers/skills/Skills.css",
+      "summary": "Defines responsive visual styles for the Skills portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/data/contact.js",
+      "type": "file",
+      "name": "contact",
+      "filePath": "src/data/contact.js",
+      "summary": "Exports structured portfolio content for contact, consumed by presentation components.",
+      "tags": [
+        "content-data",
+        "portfolio",
+        "exports"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/data/education.js",
+      "type": "file",
+      "name": "education",
+      "filePath": "src/data/education.js",
+      "summary": "Exports structured portfolio content for education, consumed by presentation components.",
+      "tags": [
+        "content-data",
+        "portfolio",
+        "exports"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/data/experience.js",
+      "type": "file",
+      "name": "experience",
+      "filePath": "src/data/experience.js",
+      "summary": "Exports structured portfolio content for experience, consumed by presentation components.",
+      "tags": [
+        "content-data",
+        "portfolio",
+        "exports"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/data/greeting.js",
+      "type": "file",
+      "name": "greeting",
+      "filePath": "src/data/greeting.js",
+      "summary": "Exports structured portfolio content for greeting, consumed by presentation components.",
+      "tags": [
+        "content-data",
+        "portfolio",
+        "exports"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/data/platform.js",
+      "type": "file",
+      "name": "platform",
+      "filePath": "src/data/platform.js",
+      "summary": "Exports structured portfolio content for platform, consumed by presentation components.",
+      "tags": [
+        "content-data",
+        "portfolio",
+        "exports"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/data/projects.js",
+      "type": "file",
+      "name": "projects",
+      "filePath": "src/data/projects.js",
+      "summary": "Exports structured portfolio content for projects, consumed by presentation components.",
+      "tags": [
+        "content-data",
+        "portfolio",
+        "exports"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/data/settings.js",
+      "type": "file",
+      "name": "settings",
+      "filePath": "src/data/settings.js",
+      "summary": "Exports structured portfolio content for settings, consumed by presentation components.",
+      "tags": [
+        "content-data",
+        "portfolio",
+        "exports"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/data/skills.js",
+      "type": "file",
+      "name": "skills",
+      "filePath": "src/data/skills.js",
+      "summary": "Exports structured portfolio content for skills, consumed by presentation components.",
+      "tags": [
+        "content-data",
+        "portfolio",
+        "exports"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/data/socialMedia.js",
+      "type": "file",
+      "name": "socialMedia",
+      "filePath": "src/data/socialMedia.js",
+      "summary": "Exports structured portfolio content for socialMedia, consumed by presentation components.",
+      "tags": [
+        "content-data",
+        "portfolio",
+        "exports"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/data/systems.js",
+      "type": "file",
+      "name": "systems",
+      "filePath": "src/data/systems.js",
+      "summary": "Exports structured portfolio content for systems, consumed by presentation components.",
+      "tags": [
+        "content-data",
+        "portfolio",
+        "exports"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/index.css",
+      "type": "file",
+      "name": "index",
+      "filePath": "src/index.css",
+      "summary": "Defines responsive visual styles for the index portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/pages/contact/ContactComponent.css",
+      "type": "file",
+      "name": "ContactComponent",
+      "filePath": "src/pages/contact/ContactComponent.css",
+      "summary": "Defines responsive visual styles for the ContactComponent portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/pages/education/EducationComponent.css",
+      "type": "file",
+      "name": "EducationComponent",
+      "filePath": "src/pages/education/EducationComponent.css",
+      "summary": "Defines responsive visual styles for the EducationComponent portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/pages/experience/Experience.css",
+      "type": "file",
+      "name": "Experience",
+      "filePath": "src/pages/experience/Experience.css",
+      "summary": "Defines responsive visual styles for the Experience portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/pages/notFound/NotFound.css",
+      "type": "file",
+      "name": "NotFound",
+      "filePath": "src/pages/notFound/NotFound.css",
+      "summary": "Defines responsive visual styles for the NotFound portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/pages/projects/Projects.css",
+      "type": "file",
+      "name": "Projects",
+      "filePath": "src/pages/projects/Projects.css",
+      "summary": "Defines responsive visual styles for the Projects portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/pages/skills/SkillsPage.css",
+      "type": "file",
+      "name": "SkillsPage",
+      "filePath": "src/pages/skills/SkillsPage.css",
+      "summary": "Defines responsive visual styles for the SkillsPage portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/pages/splash/Splash.css",
+      "type": "file",
+      "name": "Splash",
+      "filePath": "src/pages/splash/Splash.css",
+      "summary": "Defines responsive visual styles for the Splash portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/pages/splash/Splash.jsx",
+      "type": "file",
+      "name": "Splash",
+      "filePath": "src/pages/splash/Splash.jsx",
+      "summary": "Renders the animated splash screen shown while the portfolio initializes.",
+      "tags": [
+        "page",
+        "ui",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/pages/theme/ThemePage.css",
+      "type": "file",
+      "name": "ThemePage",
+      "filePath": "src/pages/theme/ThemePage.css",
+      "summary": "Defines responsive visual styles for the ThemePage portfolio interface.",
+      "tags": [
+        "stylesheet",
+        "ui",
+        "presentation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/pages/splash/Splash.jsx:AnimatedSplash",
+      "type": "function",
+      "name": "AnimatedSplash",
+      "filePath": "src/pages/splash/Splash.jsx",
+      "summary": "Implements AnimatedSplash as part of Splash.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 28
+    },
+    {
+      "id": "function:src/pages/splash/Splash.jsx:Splash",
+      "type": "function",
+      "name": "Splash",
+      "filePath": "src/pages/splash/Splash.jsx",
+      "summary": "Implements Splash as part of Splash.",
+      "tags": [
+        "function",
+        "ui-logic",
+        "portfolio"
+      ],
+      "complexity": "moderate",
+      "startLine": 30,
+      "endLine": 60
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/pages/splash/Splash.jsx",
+      "target": "file:src/pages/splash/Splash.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/splash/Splash.jsx",
+      "target": "function:src/pages/splash/Splash.jsx:AnimatedSplash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/splash/Splash.jsx",
+      "target": "function:src/pages/splash/Splash.jsx:Splash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}
