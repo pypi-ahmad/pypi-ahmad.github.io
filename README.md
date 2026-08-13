@@ -12,12 +12,13 @@ React single-page application for presenting professional experience, AI project
 
 | Aspect | Detail |
 |---|---|
-| Routes | 9 paths, 8 lazy-loaded page modules (`React.lazy` + `Suspense`) |
+| Version | `2.2.0` |
+| Routes | 9 named paths plus a catch-all 404; 9 lazy-loaded page modules (`React.lazy` + `Suspense`) |
 | Themes | 32 families × 2 modes (light/dark) = 64 resolved themes |
 | Data layer | 10 modules barrel-exported through `src/portfolio.js` |
-| Tests | 12 files, 147 tests (rendering, behavior, navigation, accessibility, contrast) |
-| CI/CD | GitHub Actions — build + test on push/PR; automated GitHub Pages deploy on push to main |
-| Hosting | Vercel (via `vercel.json`) and GitHub Pages (via `peaceiris/actions-gh-pages`) |
+| Tests | 14 files, 158 tests (rendering, behavior, navigation, accessibility, contrast, project catalog, route metadata) |
+| CI/CD | GitHub Actions — lint, typecheck, build, and test on push/PR; automated GitHub Pages deploy on push to `main` |
+| Hosting | GitHub Pages (`peaceiris/actions-gh-pages`) and Vercel (`vercel.json`) |
 
 ---
 
@@ -29,7 +30,7 @@ React single-page application for presenting professional experience, AI project
 | Build | Vite 8, `@vitejs/plugin-react`, `vite-plugin-svgr` |
 | Routing | React Router DOM 6 |
 | Animation | Framer Motion |
-| Icons | react-icons, Font Awesome 5, Iconify (CDN) |
+| Icons | `react-icons` plus a local `SkillIcon` registry (no Font Awesome or Iconify CDN) |
 | Analytics | react-ga4 (disabled until a GA4 ID is configured in `settings.js`) |
 | Testing | Vitest, @testing-library/react, jsdom, jest-axe, axe-core |
 | Stress testing | Playwright (Chrome DevTools Protocol) |
@@ -39,19 +40,20 @@ React single-page application for presenting professional experience, AI project
 
 ## Pages and Routes
 
-Defined in `src/containers/Main.jsx`. All page modules are lazy-loaded.
+Defined in `src/containers/Main.jsx`. All page modules are lazy-loaded. Per-route title, description, canonical URL, robots, and Open Graph tags are set by `src/components/seo/RouteMeta.jsx` via `react-helmet-async`.
 
 | Path | Page | Content |
 |---|---|---|
-| `/` | Home (or Splash) | Hero, system showcase, skills summary. Splash is toggled via `settings.isSplash`. |
+| `/` | Home (or Splash) | Hero, system showcase, skills summary. Splash is toggled via `settings.isSplash` (currently off). |
 | `/home` | Home | Same as `/` when splash is off |
-| `/experience` | Experience | Work history accordion (3 entries) |
+| `/experience` | Experience | Work history accordion (Deloitte, Cognizant, AiEnsured) |
 | `/education` | Education | 2 degrees, 9 certifications with PDF/verification links |
-| `/contact` | Contact | Contact links, blog CTA |
-| `/projects` | Projects | Platform catalog (20 systems), enterprise case studies (8), open-source projects (4) |
-| `/skills` | Skills | 6-category skill grid with Iconify icons |
-| `/theme` | Theme | 32-family theme gallery with light/dark toggle |
-| `/splash` | Splash | Standalone splash screen |
+| `/contact` | Contact | Contact links (GitHub, LinkedIn, Gmail), blog CTA |
+| `/projects` | Projects | Platform catalog (20 systems), enterprise case studies (12), open-source projects (13) |
+| `/skills` | Skills | 6-category skill grid with bundled `SkillIcon` components |
+| `/theme` | Theme | 32-family theme gallery with light/dark toggle (`noindex`) |
+| `/splash` | Splash | Standalone splash screen (`noindex`) |
+| `*` | Not Found | Catch-all 404 page (`noindex`) |
 
 ---
 
@@ -63,13 +65,13 @@ All portfolio content lives in `src/data/` as plain JavaScript objects, re-expor
 |---|---|
 | `settings.js` | Splash toggle, custom cursor toggle, Google Analytics ID |
 | `greeting.js` | Hero title, subtitle, signal bullets, philosophy, resume/cover links |
-| `socialMedia.js` | GitHub, LinkedIn, Gmail, Telegram, Discord (set link to `" "` to hide) |
+| `socialMedia.js` | GitHub, LinkedIn, Gmail (set a link to `" "` to hide; Telegram/Discord are hidden) |
 | `skills.js` | 6-category skills page + 3-category home summary |
 | `education.js` | 2 degrees + 9 certifications |
 | `experience.js` | 3 work entries with structured bullet descriptions |
-| `projects.js` | 4 open-source project tiles |
+| `projects.js` | 13 open-source project tiles (local-first AI tools, agent platforms, GraphRAG) |
 | `contact.js` | Contact page heading + blog CTA |
-| `systems.js` | 8 enterprise case studies (4 featured + 4 supporting) |
+| `systems.js` | 12 enterprise case studies (5 featured + 7 supporting), including Deloitte healthcare and fraud-investigation work |
 | `platform.js` | 20 platform systems (10 GenAI + 5 LangGraph + 5 CrewAI) + shared infrastructure metadata |
 
 ---
@@ -101,26 +103,33 @@ The theme engine is defined in `src/theme.js` and managed by `src/themeControlle
 
 ```
 .github/workflows/
-├── ci.yml                  # Build + test on push/PR to main
+├── ci.yml                  # Lint, typecheck, build, test on push/PR to main
 └── deploy.yml              # Build, test, deploy to GitHub Pages on push to main
 
 src/
 ├── index.jsx               # createRoot entry point
 ├── App.jsx                 # Provider stack: ErrorBoundary → Theme → Motion → GlobalStyles
+├── App.test.jsx            # Root smoke test
 ├── global.js               # GlobalStyles — CSS custom properties
 ├── theme.js                # 32 theme families, createThemeTokens(), ensureContrast()
 ├── themeController.jsx     # ThemeControllerProvider, localStorage persistence, context API
 ├── themeMotion.js          # Reusable transition strings for themed surfaces
 ├── portfolio.js            # Barrel re-export of all 10 data modules
-│
 ├── data/                   # Pure data modules — no JSX, no side effects
 ├── containers/             # Layout wrappers and section-level composition
-│   └── Main.jsx            # BrowserRouter, Suspense, route definitions
+│   └── Main.jsx            # BrowserRouter, HelmetProvider, Suspense, routes
 ├── components/             # Reusable UI: header, footer, cards, modals, icons
+│   ├── icons/SkillIcon.jsx # Bundled skill-icon registry (react-icons + custom SVGs)
+│   └── seo/RouteMeta.jsx   # Per-route Helmet title, description, canonical, OG tags
 ├── pages/                  # Route-level page components (lazy-loaded)
-└── __tests__/              # 12 test files
+└── __tests__/              # 13 focused suites (14 files with App.test.jsx)
 
-stress-test.mjs             # Playwright + CDP: Core Web Vitals, network throttling, layout shift detection
+security_best_practices_report.md
+graphify-out/               # Graphify knowledge-graph output
+.ua/                        # Understand/architecture graph artifacts
+.codegraph/                 # CodeGraph local index (database is gitignored)
+tasks/                      # Local planning notes
+stress-test.mjs             # Playwright + CDP: Core Web Vitals, throttling, layout shift
 vite.config.js              # Vite 8 config — port 3000, React plugin, svgr, env-compatible
 vitest.config.js            # jsdom environment, 15s timeout
 vercel.json                 # Vercel static deployment config
@@ -175,13 +184,15 @@ Serves `build/` on `http://localhost:4173`.
 | `npm test` | Vitest in watch mode |
 | `npm run test:run` | Full test suite (single run) |
 | `npm run test:coverage` | Test suite with coverage report |
+| `npm run lint` | ESLint over `src` (`.js`, `.jsx`) |
+| `npm run typecheck` | `tsc --noEmit` via `tsconfig.typecheck.json` |
 | `node stress-test.mjs` | Playwright stress test (requires `npm run preview` running) |
 
 ---
 
 ## Testing
 
-12 test files, 147 tests. Run with `npm run test:run`.
+14 test files, 158 tests (`npm run test:run` on current `main`).
 
 | Test File | Scope |
 |---|---|
@@ -191,6 +202,9 @@ Serves `build/` on `http://localhost:4173`.
 | `Navigation.test.jsx` | Route resolution, NavLink navigation, logo redirect |
 | `Responsive.test.jsx` | Hamburger menu structure, viewport-dependent layout |
 | `Pages.render.test.jsx` | Page-level smoke renders for all routes |
+| `ProjectsData.test.js` | Open-source catalog length (13), unique GitHub URLs, compact card fields |
+| `RouteMetadata.test.jsx` | Per-route Helmet title, description, canonical, and robots tags |
+| `App.test.jsx` | Root `<App />` smoke render |
 | `*.render.test.jsx` | Component render verification (Greeting, Header, Footer, ExperienceCard, SystemCard) |
 
 **Test infrastructure:**
@@ -208,13 +222,13 @@ Two GitHub Actions workflows in `.github/workflows/`:
 
 | Workflow | Trigger | Steps |
 |---|---|---|
-| `ci.yml` | Push or PR to `main` | Checkout → Node 20.19.0 → `npm ci` → `npm run build` → `npm run test:run` |
-| `deploy.yml` | Push to `main` | Same as CI, then deploys `build/` to GitHub Pages via `peaceiris/actions-gh-pages@v4` |
+| `ci.yml` | Push or PR to `main` | Checkout → Node 20.19.0 → `npm ci` → `npm run lint` → `npm run typecheck` → `npm run build` → `npm run test:run` |
+| `deploy.yml` | Push to `main` | Checkout → Node 20.19.0 → `npm ci` → `npm run build` → `npm run test:run` → deploy `build/` to GitHub Pages via `peaceiris/actions-gh-pages@v4` |
 
 ---
 
 ## Known Limitations
 
-- Client-rendered SPA — no SSR or SSG.
-- Route-level metadata is still static in `index.html` (no per-page metadata manager).
+- Client-rendered SPA — no SSR or SSG. `index.html` still ships baseline metadata for non-JS crawlers; JS clients get per-route tags from `RouteMeta`.
 - `color-contrast` axe rule is disabled in tests (jsdom cannot compute styles); contrast is verified via `ThemeRegistry` ratio checks instead.
+- GitHub Pages cannot set CSP or clickjacking response headers. Details are in `security_best_practices_report.md`.
