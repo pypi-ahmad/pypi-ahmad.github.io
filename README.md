@@ -232,3 +232,5 @@ Two GitHub Actions workflows in `.github/workflows/`:
 - Client-rendered SPA — no SSR or SSG. `index.html` still ships baseline metadata for non-JS crawlers; JS clients get per-route tags from `RouteMeta`.
 - `color-contrast` axe rule is disabled in tests (jsdom cannot compute styles); contrast is verified via `ThemeRegistry` ratio checks instead.
 - GitHub Pages cannot set CSP or clickjacking response headers. Details are in `security_best_practices_report.md`.
+
+<p align="center">Made with ❤️ by Ahmad Mujtaba</p>
