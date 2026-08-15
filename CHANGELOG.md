@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## v2.4.0 - 2026-08-15
+
+### Changed
+
 - Upgraded package management to npm `12.0.2`, removed unused legacy tooling, and migrated deployment to official GitHub Pages actions.
 - Migrated the repo to Node.js `>=24.19.0 <25` (local pin `24.19.0`) and upgraded frontend dependencies and GitHub Actions to current latest stable versions.
 
