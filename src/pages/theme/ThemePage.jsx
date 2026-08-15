@@ -10,7 +10,7 @@ import {
   themeElevatedSurfaceTransition,
   themeSurfaceTransition,
 } from "../../themeMotion";
-import { CgSun } from "react-icons/cg/";
+import { CgSun } from "react-icons/cg";
 import { HiMoon } from "react-icons/hi";
 import "./ThemePage.css";
 

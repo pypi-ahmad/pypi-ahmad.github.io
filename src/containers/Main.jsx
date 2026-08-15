@@ -1,7 +1,7 @@
 /**
  * Main — Application Router
  *
- * Defines all client-side routes using React Router v6.
+ * Defines all client-side routes using React Router v7.
  * The root path "/" conditionally shows the Splash screen or Home page
  * based on `settings.isSplash`.
  *

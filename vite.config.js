@@ -7,12 +7,10 @@
  * Plugins:
  *  - @vitejs/plugin-react  — JSX transform, Fast Refresh
  *  - vite-plugin-svgr      — Import SVGs as React components (CRA compat)
- *  - vite-plugin-env-compatible — Expose REACT_APP_* env vars as process.env.*
  */
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
-import envCompatible from 'vite-plugin-env-compatible';
 
 export default defineConfig({
   // For GitHub User Pages (username.github.io), base must be '/'
@@ -30,7 +28,6 @@ export default defineConfig({
       },
       include: '**/*.svg',
     }),
-    envCompatible(),
   ],
 
   // Shim process.env for libraries that expect a Node-like environment
@@ -41,7 +38,7 @@ export default defineConfig({
   build: {
     // Preserve the Vite 6 browser target instead of inheriting newer major-version defaults.
     target: ['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14'],
-    outDir: 'build', // gh-pages deploys from this folder
+    outDir: 'build', // GitHub Pages uploads this folder
   },
 
   server: {
