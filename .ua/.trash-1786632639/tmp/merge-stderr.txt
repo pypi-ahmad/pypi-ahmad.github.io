@@ -1,0 +1,13 @@
+Found 3 batch files (3 logical batches, 0 multi-part):
+  batch-existing.json: 339 nodes, 345 edges
+  batch-14.json: 2 nodes, 10 edges
+  batch-25.json: 2 nodes, 7 edges
+
+Input: 343 nodes, 362 edges
+
+Output: 343 nodes, 362 edges
+
+Imports edge recovery:
+  Recovered 0 `imports` edges from importMap (330 entries scanned)
+
+Written to D:\AI\Github\pypi-ahmad.github.io\.ua\intermediate\assembled-graph.json (235 KB)

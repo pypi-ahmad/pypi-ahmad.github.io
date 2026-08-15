@@ -1,0 +1,175 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 2,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 2
+    }
+  },
+  "results": [
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 234,
+      "nonEmptyLines": 177,
+      "sections": [
+        {
+          "heading": "Ahmad Mujtaba — Portfolio",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Tech Stack",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "Pages and Routes",
+          "level": 2,
+          "line": 41
+        },
+        {
+          "heading": "Data Architecture",
+          "level": 2,
+          "line": 60
+        },
+        {
+          "heading": "Theme System",
+          "level": 2,
+          "line": 79
+        },
+        {
+          "heading": "Animation and Interaction",
+          "level": 2,
+          "line": 92
+        },
+        {
+          "heading": "Project Structure",
+          "level": 2,
+          "line": 102
+        },
+        {
+          "heading": "Setup",
+          "level": 2,
+          "line": 140
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 3,
+          "line": 142
+        },
+        {
+          "heading": "Install and run",
+          "level": 3,
+          "line": 147
+        },
+        {
+          "heading": "Build",
+          "level": 3,
+          "line": 158
+        },
+        {
+          "heading": "Preview production build",
+          "level": 3,
+          "line": 166
+        },
+        {
+          "heading": "Scripts",
+          "level": 2,
+          "line": 176
+        },
+        {
+          "heading": "Testing",
+          "level": 2,
+          "line": 193
+        },
+        {
+          "heading": "CI/CD",
+          "level": 2,
+          "line": 219
+        },
+        {
+          "heading": "Known Limitations",
+          "level": 2,
+          "line": 230
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 17
+      }
+    },
+    {
+      "path": "security_best_practices_report.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 54,
+      "nonEmptyLines": 40,
+      "sections": [
+        {
+          "heading": "Security Best Practices Report — pypi-ahmad.github.io",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Executive summary",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Findings",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Finding 1: No Content-Security-Policy or security headers configured",
+          "level": 3,
+          "line": 13
+        },
+        {
+          "heading": "Finding 2: Dev/build-tooling dependencies have known advisories (not reachable in production)",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "Not applicable (checked, no findings)",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "Criticality calibration (for this repo)",
+          "level": 2,
+          "line": 44
+        },
+        {
+          "heading": "Summary",
+          "level": 2,
+          "line": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    }
+  ]
+}

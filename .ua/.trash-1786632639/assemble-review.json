@@ -1,0 +1,12 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 0,
+  "edgesRestored": 0,
+  "crossBatchEdgesAdded": 0,
+  "typesRemapped": 0,
+  "notes": [
+    "Merge report had no mechanical fixes and recovered 0 imports.",
+    "Incremental batches 14 and 25 replaced four document nodes (README, security report, tasks/plan, tasks/todo) and added 17 document/related edges.",
+    "Generated-artifact config nodes from prior full scan remain in the graph."
+  ]
+}

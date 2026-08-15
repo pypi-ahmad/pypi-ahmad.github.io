@@ -1,0 +1,11 @@
+{
+  "projectRoot": "D:\\AI\\Github\\pypi-ahmad.github.io",
+  "batchFiles": [
+    {"path": "tasks/plan.md", "language": "markdown", "sizeLines": 40, "fileCategory": "docs"},
+    {"path": "tasks/todo.md", "language": "markdown", "sizeLines": 51, "fileCategory": "docs"}
+  ],
+  "batchImportData": {
+    "tasks/plan.md": [],
+    "tasks/todo.md": []
+  }
+}

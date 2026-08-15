@@ -1,0 +1,120 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 2,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 2
+    }
+  },
+  "results": [
+    {
+      "path": "tasks/plan.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 40,
+      "nonEmptyLines": 25,
+      "sections": [
+        {
+          "heading": "Implementation Plan: Clean Up Broken/Orphaned Image Assets",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Architecture Decisions",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Task List",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Phase 1: Delete Orphaned Corrupted Files",
+          "level": 3,
+          "line": 14
+        },
+        {
+          "heading": "Checkpoint: Deletion",
+          "level": 3,
+          "line": 18
+        },
+        {
+          "heading": "Phase 2: Fix Stale Documentation",
+          "level": 3,
+          "line": 23
+        },
+        {
+          "heading": "Checkpoint: Complete",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "Risks and Mitigations",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "Open Questions",
+          "level": 2,
+          "line": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    },
+    {
+      "path": "tasks/todo.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 51,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Todo: Clean Up Broken/Orphaned Image Assets",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Task 1: Remove 3 corrupted, unreferenced image files",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Task 2: Fix stale comment in `education.js`",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Checkpoint: Both tasks complete",
+          "level": 2,
+          "line": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    }
+  ]
+}

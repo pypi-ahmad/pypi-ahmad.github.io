@@ -1,0 +1,106 @@
+{
+  "nodes": [
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Primary portfolio overview for the React 18 + Vite 8 SPA, with 17 sections covering routes, src/data/ architecture, the 64-theme engine, npm scripts, 14-file / 158-test suite, and GitHub Actions CI/CD.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview",
+        "architecture",
+        "getting-started"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:security_best_practices_report.md",
+      "type": "document",
+      "name": "security_best_practices_report.md",
+      "filePath": "security_best_practices_report.md",
+      "summary": "Security audit of the client-only React SPA: two infrastructure findings (missing CSP/security headers on index.html and vercel.json, plus dev-tooling advisories) and a pass of XSS, storage, and supply-chain checks with no exploitable code sinks.",
+      "tags": [
+        "documentation",
+        "security",
+        "audit",
+        "csp",
+        "headers"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:README.md",
+      "target": "file:src/index.jsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/App.jsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/containers/Main.jsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/theme.js",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/portfolio.js",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "pipeline:.github/workflows/ci.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "pipeline:.github/workflows/deploy.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:security_best_practices_report.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:security_best_practices_report.md",
+      "target": "file:index.html",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:security_best_practices_report.md",
+      "target": "config:vercel.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

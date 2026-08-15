@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "gitCommitHash": "7c33a75fdc124757260319f3f208d97467af818f",
-  "generatedAt": "2026-08-13T10:29:58.779Z",
+  "gitCommitHash": "06b9bd109c499ff6c53add2ef8aa6d48dc1f940e",
+  "generatedAt": "2026-08-13T14:50:26.641Z",
   "files": {
     ".github/workflows/ci.yml": {
       "filePath": ".github/workflows/ci.yml",
@@ -887,22 +887,22 @@
     },
     ".ua/fingerprints.json": {
       "filePath": ".ua/fingerprints.json",
-      "contentHash": "4f5aa1b6778e6c792666922f6d0ccfc3f48964a4a7d7ec7c045bf33ed746fdcd",
+      "contentHash": "fa41c6e5bab214830c5959183d5b07a20d7ddd86b343279b231902c647343ad2",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 5492,
+      "totalLines": 6419,
       "hasStructuralAnalysis": true
     },
     ".ua/intermediate/batches.json": {
       "filePath": ".ua/intermediate/batches.json",
-      "contentHash": "4f5479e774247408e833712135414368c4e5967292349a5386ebb5fa9b157eed",
+      "contentHash": "9da4d64bfdcd8ed3fc465d13db9208542bf4bba4fcd64f190c8c45487d96c9fc",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 256,
+      "totalLines": 249,
       "hasStructuralAnalysis": true
     },
     ".ua/intermediate/scan-result.json": {
@@ -917,17 +917,17 @@
     },
     ".ua/knowledge-graph.json": {
       "filePath": ".ua/knowledge-graph.json",
-      "contentHash": "5149da295dcf54ae3fea9faa24ea5652d81a0c0455eb57a15c6a9f8a5b5f5c8e",
+      "contentHash": "4aa306636a03062535aac4a42cf7ad633115ad7afe2bcbf83a469a6538f439b3",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 7503,
+      "totalLines": 7609,
       "hasStructuralAnalysis": true
     },
     ".ua/meta.json": {
       "filePath": ".ua/meta.json",
-      "contentHash": "2131d71331e79bb40bca4532ee4fed2336400a84f8e437dbdc2077d195072169",
+      "contentHash": "4073609067191e4633e367735dc2ebde730acc3458ae5e6ffa6e2929f4bfd83c",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -937,12 +937,12 @@
     },
     ".ua/tmp/changed-files.txt": {
       "filePath": ".ua/tmp/changed-files.txt",
-      "contentHash": "0a5f8abd8e87ab2adce7c5d7ec70a3746c16a9a3ff79ada2e45934a4c1a6091d",
+      "contentHash": "316422ee742f429940cd9beade6ec7d9f4435428a43145987ca4518d19bf9541",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 3,
+      "totalLines": 5,
       "hasStructuralAnalysis": false
     },
     "CHANGELOG.md": {
@@ -977,12 +977,12 @@
     },
     "README.md": {
       "filePath": "README.md",
-      "contentHash": "380fa848fef0cf21ac90bd76db1fd2a747c237b7da8d38de13d918261d30bb3d",
+      "contentHash": "8348f9f9138ac197fc3073218a4df53b3786d3d61d9290761677391f1bf77709",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 221,
+      "totalLines": 235,
       "hasStructuralAnalysis": true
     },
     "SECURITY.md": {

@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "document:tasks/plan.md",
+      "type": "document",
+      "name": "plan.md",
+      "filePath": "tasks/plan.md",
+      "summary": "Implementation plan to delete three unreferenced corrupted logo files in public/images and correct a stale certification-logo path comment in education.js. Ten sections cover overview, delete-versus-replace decisions, a two-phase task list with checkpoints, and low-impact risks.",
+      "tags": [
+        "documentation",
+        "implementation-plan",
+        "cleanup",
+        "assets",
+        "education"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:tasks/todo.md",
+      "type": "document",
+      "name": "todo.md",
+      "filePath": "tasks/todo.md",
+      "summary": "Task tracker for the orphaned-image cleanup: delete the unreferenced deeplearning_ai_logo, stanford_logo, and udemy_logo PNGs, then fix the education.js header comment to match CertificationCard logo resolution from public/certifications/. Includes acceptance criteria, verification commands, and files-touched lists for both independent tasks.",
+      "tags": [
+        "documentation",
+        "task-list",
+        "cleanup",
+        "assets",
+        "education"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:tasks/plan.md",
+      "target": "document:tasks/todo.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:tasks/plan.md",
+      "target": "file:src/data/education.js",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:tasks/plan.md",
+      "target": "file:src/components/certificationCard/CertificationCard.jsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:tasks/todo.md",
+      "target": "file:src/data/education.js",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:tasks/todo.md",
+      "target": "file:src/components/certificationCard/CertificationCard.jsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:tasks/todo.md",
+      "target": "file:src/components/degreeCard/DegreeCard.jsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:tasks/todo.md",
+      "target": "file:src/components/experienceCard/ExperienceCard.jsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}
