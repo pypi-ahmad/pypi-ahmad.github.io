@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Upgraded package management to npm `12.0.2`, removed unused legacy tooling, and migrated deployment to official GitHub Pages actions.
+- Migrated the repo to Node.js `>=24.19.0 <25` (local pin `24.19.0`) and upgraded frontend dependencies and GitHub Actions to current latest stable versions.
+
 ## v2.2.0 - 2026-07-02
 - Added three Deloitte enterprise case studies for portfolio presentation: Document Fraud Detection Engine, Agentic Kickback & Referral Fraud Detection Platform, and Out-of-Network Claims Intelligence Dashboard.
 - Expanded and refined recruiter-facing portfolio content across greeting, projects, skills, and Deloitte experience sections with updated modern AI engineering signal.

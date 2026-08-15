@@ -18,7 +18,7 @@ React single-page application for presenting professional experience, AI project
 | Data layer | 10 modules barrel-exported through `src/portfolio.js` |
 | Tests | 14 files, 158 tests (rendering, behavior, navigation, accessibility, contrast, project catalog, route metadata) |
 | CI/CD | GitHub Actions — lint, typecheck, build, and test on push/PR; automated GitHub Pages deploy on push to `main` |
-| Hosting | GitHub Pages (`peaceiris/actions-gh-pages`) and Vercel (`vercel.json`) |
+| Hosting | GitHub Pages (official Pages actions) and Vercel (`vercel.json`) |
 
 ---
 
@@ -26,15 +26,15 @@ React single-page application for presenting professional experience, AI project
 
 | Layer | Technology |
 |---|---|
-| UI | React 18, React Bootstrap, styled-components |
+| UI | React 19, React Bootstrap, styled-components |
 | Build | Vite 8, `@vitejs/plugin-react`, `vite-plugin-svgr` |
-| Routing | React Router DOM 6 |
+| Routing | React Router DOM 7 |
 | Animation | Framer Motion |
 | Icons | `react-icons` plus a local `SkillIcon` registry (no Font Awesome or Iconify CDN) |
 | Analytics | react-ga4 (disabled until a GA4 ID is configured in `settings.js`) |
 | Testing | Vitest, @testing-library/react, jsdom, jest-axe, axe-core |
 | Stress testing | Playwright (Chrome DevTools Protocol) |
-| Node | `>=20.19.0 <21` |
+| Node | `>=24.19.0 <25` |
 
 ---
 
@@ -130,7 +130,7 @@ graphify-out/               # Graphify knowledge-graph output
 .codegraph/                 # CodeGraph local index (database is gitignored)
 tasks/                      # Local planning notes
 stress-test.mjs             # Playwright + CDP: Core Web Vitals, throttling, layout shift
-vite.config.js              # Vite 8 config — port 3000, React plugin, svgr, env-compatible
+vite.config.js              # Vite 8 config — port 3000, React plugin, SVGR
 vitest.config.js            # jsdom environment, 15s timeout
 vercel.json                 # Vercel static deployment config
 ```
@@ -141,15 +141,16 @@ vercel.json                 # Vercel static deployment config
 
 ### Prerequisites
 
-- **Node.js** `>=20.19.0 <21`
-- **npm**
+- **Node.js** `>=24.19.0 <25` (local pin: `.nvmrc` → `24.19.0`)
+- **npm** `>=12.0.2 <13` (repository pin: `12.0.2`)
 
 ### Install and run
 
 ```bash
 git clone https://github.com/pypi-ahmad/pypi-ahmad.github.io.git
 cd pypi-ahmad.github.io
-npm install
+npm install --global npm@12.0.2
+npm ci
 npm run dev
 ```
 
@@ -180,7 +181,6 @@ Serves `build/` on `http://localhost:4173`.
 | `npm run dev` | Vite dev server (port 3000, HMR) |
 | `npm run build` | Production build → `build/` |
 | `npm run preview` | Serve production build locally |
-| `npm run deploy` | Build + publish to GitHub Pages via `gh-pages` (manual; CI handles this automatically) |
 | `npm test` | Vitest in watch mode |
 | `npm run test:run` | Full test suite (single run) |
 | `npm run test:coverage` | Test suite with coverage report |
@@ -222,8 +222,10 @@ Two GitHub Actions workflows in `.github/workflows/`:
 
 | Workflow | Trigger | Steps |
 |---|---|---|
-| `ci.yml` | Push or PR to `main` | Checkout → Node 20.19.0 → `npm ci` → `npm run lint` → `npm run typecheck` → `npm run build` → `npm run test:run` |
-| `deploy.yml` | Push to `main` | Checkout → Node 20.19.0 → `npm ci` → `npm run build` → `npm run test:run` → deploy `build/` to GitHub Pages via `peaceiris/actions-gh-pages@v4` |
+| `ci.yml` | Push or PR to `main` | Checkout → Node 24.19.0 → npm 12.0.2 → `npm ci` → `npm run lint` → `npm run typecheck` → `npm run build` → `npm run test:run` |
+| `deploy.yml` | Push to `main` or manual dispatch | Build and test with Node 24.19.0/npm 12.0.2 → upload `build/` → deploy through official GitHub Pages actions |
+
+GitHub Pages must use **Settings → Pages → Build and deployment → Source: GitHub Actions**. This replaces legacy `gh-pages` branch publishing; no manual `npm run deploy` command remains.
 
 ---
 
