@@ -1,7 +1,7 @@
 /**
  * Application Entry Point
  *
- * Bootstraps the React 18 app using createRoot and mounts <App /> into
+ * Bootstraps the React 19 app using createRoot and mounts <App /> into
  * the #root DOM node declared in index.html.
  *
  * Side-effect imports:

@@ -14,7 +14,7 @@ import "./Header.css";
 import { motion } from "framer-motion";
 import { NavLink, useLocation } from "react-router-dom";
 import { greeting, settings } from "../../portfolio.js";
-import { CgSun } from "react-icons/cg/";
+import { CgSun } from "react-icons/cg";
 import { HiMoon } from "react-icons/hi";
 import { useThemeController } from "../../themeController";
 import {

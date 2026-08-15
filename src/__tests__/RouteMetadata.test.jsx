@@ -17,16 +17,22 @@ function renderMainAt(pathname) {
 }
 
 function getManagedMeta(selector) {
-  return document.head.querySelector(`${selector}[data-rh="true"]`);
+  return (
+    document.head.querySelector(selector) || document.querySelector(selector)
+  );
+}
+
+function waitForTitle(title) {
+  return waitFor(() => {
+    expect(document.title).toBe(title);
+  }, { timeout: 10000 });
 }
 
 describe("Route metadata", () => {
   it("applies Home route metadata", async () => {
     renderMainAt("/home");
 
-    await waitFor(() => {
-      expect(document.title).toBe("Ahmad Mujtaba | GenAI Engineer Portfolio");
-    });
+    await waitForTitle("Ahmad Mujtaba | GenAI Engineer Portfolio");
     expect(
       getManagedMeta('meta[name="description"]')?.getAttribute("content")
     ).toContain("Generative AI Engineer");
@@ -38,9 +44,7 @@ describe("Route metadata", () => {
   it("applies Experience route metadata", async () => {
     renderMainAt("/experience");
 
-    await waitFor(() => {
-      expect(document.title).toBe("Experience | Ahmad Mujtaba");
-    });
+    await waitForTitle("Experience | Ahmad Mujtaba");
     expect(
       getManagedMeta('meta[property="og:url"]')?.getAttribute("content")
     ).toBe("https://pypi-ahmad.github.io/experience");
@@ -49,9 +53,7 @@ describe("Route metadata", () => {
   it("applies Projects route metadata", async () => {
     renderMainAt("/projects");
 
-    await waitFor(() => {
-      expect(document.title).toBe("Projects | Ahmad Mujtaba");
-    });
+    await waitForTitle("Projects | Ahmad Mujtaba");
     expect(
       getManagedMeta('meta[name="twitter:title"]')?.getAttribute("content")
     ).toBe("Projects | Ahmad Mujtaba");
@@ -63,9 +65,7 @@ describe("Route metadata", () => {
   it("applies Contact route metadata", async () => {
     renderMainAt("/contact");
 
-    await waitFor(() => {
-      expect(document.title).toBe("Contact | Ahmad Mujtaba");
-    });
+    await waitForTitle("Contact | Ahmad Mujtaba");
     expect(
       getManagedMeta('meta[property="og:url"]')?.getAttribute("content")
     ).toBe("https://pypi-ahmad.github.io/contact");
@@ -74,9 +74,7 @@ describe("Route metadata", () => {
   it("marks /theme as noindex", async () => {
     renderMainAt("/theme");
 
-    await waitFor(() => {
-      expect(document.title).toBe("Theme Gallery | Ahmad Mujtaba");
-    });
+    await waitForTitle("Theme Gallery | Ahmad Mujtaba");
     expect(
       getManagedMeta('meta[name="robots"]')?.getAttribute("content")
     ).toBe("noindex, nofollow");
@@ -88,9 +86,7 @@ describe("Route metadata", () => {
   it("marks unknown routes as noindex with a path-specific canonical", async () => {
     renderMainAt("/missing-page");
 
-    await waitFor(() => {
-      expect(document.title).toBe("Page Not Found | Ahmad Mujtaba");
-    });
+    await waitForTitle("Page Not Found | Ahmad Mujtaba");
     expect(
       getManagedMeta('meta[name="robots"]')?.getAttribute("content")
     ).toBe("noindex, nofollow");

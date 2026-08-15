@@ -4,7 +4,7 @@
  * Loaded before every test file. Registers extended DOM matchers
  * and provides global mocks for browser APIs not available in jsdom.
  */
-import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/vitest";
 
 // ── Mock IntersectionObserver (used by framer-motion whileInView) ────
 class IntersectionObserverMock {
