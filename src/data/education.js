@@ -40,8 +40,10 @@ export const degrees = {
 export const certifications = {
   certifications: [
     {
-      title: "Claude with the Anthropic API",
+      title: "Building with the Claude API",
       subtitle: "Anthropic Education",
+      completionDate: "July 6, 2026",
+      certificateLink: "https://verify.skilljar.com/c/2njdrsdeigc4",
       pdfLink: "/certifications/anthropic-claude-api.pdf",
       altName: "Anthropic Education",
       category: "Generative AI",
@@ -51,6 +53,8 @@ export const certifications = {
     {
       title: "Claude 101",
       subtitle: "Anthropic Education",
+      completionDate: "March 10, 2026",
+      certificateLink: "https://verify.skilljar.com/c/b3ejcctoop7p",
       pdfLink: "/certifications/anthropic-claude-101.pdf",
       altName: "Anthropic Education",
       category: "Generative AI",
@@ -60,6 +64,8 @@ export const certifications = {
     {
       title: "AI Fluency: Framework & Foundations",
       subtitle: "Anthropic Education",
+      completionDate: "March 11, 2026",
+      certificateLink: "https://verify.skilljar.com/c/suzvk58nwng2",
       pdfLink: "/certifications/anthropic-ai-fluency-framework-foundations.pdf",
       altName: "Anthropic Education",
       category: "Generative AI",

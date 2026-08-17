@@ -8,7 +8,7 @@ import { renderWithProviders, darkTheme } from "../test/testUtils";
 expect.extend(toHaveNoViolations);
 
 const expectedCertificates = [
-  "Claude with the Anthropic API",
+  "Building with the Claude API",
   "Claude 101",
   "AI Fluency: Framework & Foundations",
   "Machine Learning Specialization",
@@ -69,23 +69,28 @@ describe("Education page", () => {
     expect(categoryNames).toEqual(expectedCategories);
   });
 
-  it("links Anthropic certificates only to descriptive local PDFs", () => {
+  it("shows Anthropic completion dates and validation links", () => {
     const { container } = renderWithProviders(<Education theme={darkTheme} />);
     const anthropicGroup = container.querySelector(".certification-group");
     const links = within(anthropicGroup).getAllByRole("link");
 
-    expect(links).toHaveLength(3);
+    expect(links).toHaveLength(6);
     expect(links.map(link => link.getAttribute("href"))).toEqual([
+      "https://verify.skilljar.com/c/2njdrsdeigc4",
       "/certifications/anthropic-claude-api.pdf",
+      "https://verify.skilljar.com/c/b3ejcctoop7p",
       "/certifications/anthropic-claude-101.pdf",
+      "https://verify.skilljar.com/c/suzvk58nwng2",
       "/certifications/anthropic-ai-fluency-framework-foundations.pdf",
     ]);
     for (const link of links) {
-      expect(link).toHaveTextContent("View certificate PDF");
       expect(link).toHaveAttribute("target", "_blank");
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
     }
-    expect(within(anthropicGroup).queryByText("Verify credential")).not.toBeInTheDocument();
+    expect(within(anthropicGroup).getAllByText("Verify credential")).toHaveLength(3);
+    expect(within(anthropicGroup).getByText("Completed July 6, 2026")).toBeInTheDocument();
+    expect(within(anthropicGroup).getByText("Completed March 10, 2026")).toBeInTheDocument();
+    expect(within(anthropicGroup).getByText("Completed March 11, 2026")).toBeInTheDocument();
   });
 
   it("links education to applied project work", () => {
