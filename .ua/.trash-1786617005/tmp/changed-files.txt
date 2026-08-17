@@ -1,2 +1,0 @@
-src/__tests__/ProjectsData.test.js
-src/data/projects.js

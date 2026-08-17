@@ -28,6 +28,15 @@ package - Copy.json
 # local editor and automation artifacts
 .vscode/
 .playwright-mcp/
+.clinerules/
+.cursor/rules/
+.opencode/
+.windsurf/rules/
+graphify-out/
+.ua/
+.codegraph/
+AGENTS.md
+Cover.pdf
 
 # >>> Codex Local Ignore (env/venv/cache/artifacts) >>>
 .env*
