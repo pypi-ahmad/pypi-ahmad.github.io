@@ -1,90 +1,25 @@
-/**
- * Experience.css — Experience page heading and layout.
- */
-.experience-main {
-  width: 100%;
+.experience-main { width: 100%; }
+
+.experience-hero,
+.experience-timeline {
+  width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
+  margin-inline: auto;
 }
 
-.basic-experience {
-  margin-left: auto;
-  margin-right: auto;
-}
+.experience-hero { margin-top: 1.5rem; padding: clamp(1.5rem, 5vw, 4rem); }
+.experience-eyebrow { margin: 0 0 1rem; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.experience-hero h1 { max-width: 1000px; margin: 0; font-size: clamp(3rem, 8vw, 6.5rem); line-height: 0.95; }
+.experience-intro { max-width: 820px; margin: 1.5rem 0 0; font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.65; }
+.experience-timeline { padding: var(--section-spacing) 0; }
 
-.experience-heading-div {
-  display: flex;
-}
-
-.experience-heading-div > * {
-  flex: 1;
-}
-
-.experience-heading-img-div {
-  align-items: center;
-  justify-content: center;
-}
-
-.experience-heading-text-div {
-  text-align: center;
-}
-
-.experience-heading-img-div > * {
-  max-width: 100%;
-  height: auto;
-}
-
-.experience-heading-text {
-  font-size: 56px;
-  font-weight: 400;
-  font-family: "Google Sans Medium";
-  line-height: 1.1;
-  text-align: center;
-  margin-top: 0;
-}
-
-.experience-heading-sub-text {
-  font-size: 30px;
-  font-family: "Google Sans Regular";
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.experience-header-detail-text {
-  font-size: 20px;
-  line-height: 30px;
-  margin-top: 0;
-  margin-left: 0;
-  margin-right: 0;
-  font-family: "Google Sans Medium";
-}
-
-@media (max-width: 1380px) {
-  .experience-heading-text {
-    font-size: 50px;
-    margin-top: 0;
-  }
-  .experience-heading-sub-text {
-    font-size: 25px;
-  }
-}
+.experience-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }
+.experience-section-heading h2, .experience-section-heading p { margin: 0; }
+.experience-section-heading h2 { font-size: clamp(2rem, 4vw, 3rem); }
+.experience-section-heading p { max-width: 580px; line-height: 1.6; text-align: right; }
+.experience-role-list { display: grid; gap: 1.25rem; }
 
 @media (max-width: 768px) {
-  .experience-heading-text {
-    font-size: 30px;
-    margin-top: 0;
-  }
-
-  .experience-heading-sub-text {
-    font-size: 20px;
-  }
-
-  .experience-heading-div {
-    flex-direction: column;
-  }
-
-  .experience-header-detail-text {
-    font-size: 16px;
-    margin-right: 0;
-    line-height: normal;
-    text-align: center;
-  }
+  .experience-hero { margin-top: 1rem; padding: 1.5rem 1.1rem; }
+  .experience-section-heading { align-items: flex-start; flex-direction: column; gap: 0.75rem; }
+  .experience-section-heading p { text-align: left; }
 }

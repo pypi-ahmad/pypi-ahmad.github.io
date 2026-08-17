@@ -1,7 +1,7 @@
 /**
  * ProjectLanguages — Language/tech icons with tooltips.
  *
- * Similar to SoftwareSkill but uses `iconifyClass` and `name` keys
+ * Uses project-language entries with `iconifyClass` and `name` keys.
  * (project-specific data shape).
  *
  * Props: { logos: Array<{ name, iconifyClass, color?, link }> }

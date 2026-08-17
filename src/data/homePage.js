@@ -39,24 +39,24 @@ export const homePageData = {
     "I start with a baseline, ground the system in source data, constrain outputs, verify results, and add observability.",
   workAreas: [
     {
-      title: "Document AI",
+      title: "Agentic systems",
       description:
-        "Structured and multimodal extraction with typed outputs, validation, and human review.",
+        "Stateful tool use, approval gates, memory, retries, and explicit failure handling.",
     },
     {
-      title: "RAG",
+      title: "Retrieval & document AI",
       description:
-        "Hybrid retrieval, reranking, grounded generation, and retrieval evaluation.",
+        "Hybrid retrieval, multimodal extraction, typed outputs, citations, and human review.",
     },
     {
-      title: "Agents",
+      title: "Evaluation & reliability",
       description:
-        "Tool use, stateful workflows, approval gates, and failure handling.",
+        "Fixed benchmarks, comparison loops, confidence logic, regression checks, and observability.",
     },
     {
-      title: "Evaluation",
+      title: "Model adaptation & delivery",
       description:
-        "Fixed benchmarks, comparison loops, confidence logic, and operational reporting.",
+        "LoRA/QLoRA workflows, schema-first services, reproducible environments, and deployment controls.",
     },
   ],
   closing: {

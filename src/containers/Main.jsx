@@ -13,7 +13,7 @@
  *  /contact     — Contact information & blog
  *  /splash      — Loading splash screen
  *  /projects    — Recent open-source projects
- *  /skills      — Full skills grid
+ *  /skills      — Applied AI capabilities, evidence, and toolkit
  *
  * Pages are lazy-loaded so Vite can code-split them into separate chunks.
  *

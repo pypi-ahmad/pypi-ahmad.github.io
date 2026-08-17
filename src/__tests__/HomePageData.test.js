@@ -17,10 +17,10 @@ describe("home page contract", () => {
   it("publishes four qualified outcomes and four work areas", () => {
     expect(homePageData.outcomes).toHaveLength(4);
     expect(homePageData.workAreas.map(area => area.title)).toEqual([
-      "Document AI",
-      "RAG",
-      "Agents",
-      "Evaluation",
+      "Agentic systems",
+      "Retrieval & document AI",
+      "Evaluation & reliability",
+      "Model adaptation & delivery",
     ]);
     expect(homePageData.outcomes.map(outcome => outcome.metric)).toEqual([
       "38% to 80%",

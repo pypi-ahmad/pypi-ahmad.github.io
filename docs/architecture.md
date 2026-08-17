@@ -134,7 +134,7 @@ Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for branch, commit, and pull-reques
 | --- | --- | --- |
 | Runtime entry and providers | `src/index.jsx`, `src/App.jsx` | Verified |
 | Routes and runtime metadata | `src/containers/Main.jsx`, `src/components/seo/RouteMeta.jsx` | Verified |
-| Content data flow | `src/portfolio.js`, `src/data/` | Verified |
+| Contact, skills, and experience content flow | `src/portfolio.js`, `src/data/` | Verified |
 | Light/dark and accent selection | `src/themeController.jsx`, `src/theme.js` | Verified |
 | Build fallbacks | `package.json` | Verified |
 | CI and deployment steps | `.github/workflows/ci.yml`, `.github/workflows/deploy.yml` | Verified |
