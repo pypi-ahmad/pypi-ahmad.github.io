@@ -29,6 +29,7 @@
   margin: 1.5rem 0 0;
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   line-height: 1.65;
+  white-space: pre-line;
 }
 
 .hero-actions {

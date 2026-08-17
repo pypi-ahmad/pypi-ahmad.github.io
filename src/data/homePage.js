@@ -3,7 +3,7 @@ export const homePageData = {
     eyebrow: "Applied AI Engineer · Gurugram, India",
     title: "I build applied AI systems and test whether they work.",
     introduction:
-      "I'm Ahmad, an AI and Data Science Engineer at Deloitte. I build healthcare GenAI systems: document AI, RAG, agents, evaluation, and model adaptation.",
+      "I'm Ahmad, an AI and Data Science Engineer at Deloitte.\nI specialize in AI for healthcare.\nI build GenAI and agentic AI systems across document AI, RAG, agents, evaluation, and model adaptation.",
   },
   outcomes: [
     {
