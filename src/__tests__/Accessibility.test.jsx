@@ -59,31 +59,28 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
     expect(heart).toBeInTheDocument();
   });
 
-  it("Greeting hero section has an h1 heading", () => {
+  it("Home hero has one descriptive h1", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
     const h1 = screen.getByRole("heading", { level: 1 });
     expect(h1).toBeInTheDocument();
-    expect(h1).toHaveTextContent("Hello.");
+    expect(h1).toHaveTextContent(
+      "I build applied AI systems and test whether they work."
+    );
   });
 
-  it("Greeting hero bullets render as a <ul> with <li> items", () => {
+  it("Home outcomes render as a list", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    const list = document.querySelector("ul.hero-bullets");
+    const list = document.querySelector("ul.outcome-grid");
     expect(list).toBeInTheDocument();
     const items = list.querySelectorAll("li");
     expect(items.length).toBe(4);
   });
 
-  it("Resume link has rel='noopener noreferrer' for security", () => {
+  it("Resume link has safe external-document attributes", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    const resumeLink = screen.getByText("Download Resume").closest("a");
+    const resumeLink = screen.getByText("Download résumé").closest("a");
     expect(resumeLink).toHaveAttribute("rel", "noopener noreferrer");
-  });
-
-  it("Cover Letter link has target='_blank'", () => {
-    renderWithProviders(<Greeting theme={darkTheme} />);
-    const coverLink = screen.getByText("View Cover Letter").closest("a");
-    expect(coverLink).toHaveAttribute("target", "_blank");
+    expect(resumeLink).toHaveAttribute("target", "_blank");
   });
 
   it("ExperienceCard company link has proper href", () => {

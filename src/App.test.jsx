@@ -29,6 +29,10 @@ describe("App — Root Component", () => {
     await act(async () => {
       render(<App />);
     });
-    expect(await screen.findByRole("heading", { level: 1, name: "Hello." }, { timeout: 10000 })).toBeInTheDocument();
+    expect(await screen.findByRole(
+      "heading",
+      { level: 1, name: "I build applied AI systems and test whether they work." },
+      { timeout: 10000 }
+    )).toBeInTheDocument();
   });
 });

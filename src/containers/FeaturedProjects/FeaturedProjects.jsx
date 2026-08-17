@@ -51,16 +51,16 @@ const ProjectsLink = styled(Link)`
 
 export default function FeaturedProjects({ theme }) {
   return (
-    <Container aria-labelledby="featured-projects-title">
+    <Container id="selected-work" aria-labelledby="selected-work-title">
       <Title
-        id="featured-projects-title"
+        id="selected-work-title"
         theme={theme}
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        Featured Projects
+        Selected work
       </Title>
       <Grid>
         {projects.data.slice(0, 4).map(project => (
@@ -68,7 +68,7 @@ export default function FeaturedProjects({ theme }) {
         ))}
       </Grid>
       <ProjectsLink theme={theme} to="/projects">
-        View All Projects
+        See all projects
       </ProjectsLink>
     </Container>
   );

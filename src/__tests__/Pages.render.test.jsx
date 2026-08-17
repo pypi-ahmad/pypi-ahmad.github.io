@@ -24,14 +24,17 @@ import SkillsPage from "../pages/skills/SkillsPage.jsx";
 const pageProps = { theme: darkTheme, setTheme: vi.fn() };
 
 describe("Page Rendering Smoke Tests", () => {
-  it("Home page renders the hero title 'Hello.'", () => {
+  it("Home page renders the applied AI hero", () => {
     renderWithProviders(<Home {...pageProps} />);
-    expect(screen.getByRole("heading", { level: 1, name: "Hello." })).toBeInTheDocument();
+    expect(screen.getByRole("heading", {
+      level: 1,
+      name: "I build applied AI systems and test whether they work.",
+    })).toBeInTheDocument();
   });
 
-  it("Home page renders 'Here\\'s what I do' Skills section heading", () => {
+  it("Home page renders the working method", () => {
     renderWithProviders(<Home {...pageProps} />);
-    expect(screen.getByText("Here's what I do")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "How I work" })).toBeInTheDocument();
   });
 
   it("Experience page renders the experience heading", () => {
@@ -100,7 +103,7 @@ describe("Page Rendering Smoke Tests", () => {
 
   it("Home page renders the top four featured projects", () => {
     renderWithProviders(<Home {...pageProps} />);
-    expect(screen.getByRole("heading", { level: 2, name: "Featured Projects" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "Selected work" })).toBeInTheDocument();
     expect(screen.getByText("LoRA Fine-tune Studio")).toBeInTheDocument();
     expect(screen.getByText("NL2SQL Agent")).toBeInTheDocument();
     expect(screen.queryByText("Autonomous Coding Agent Crew")).not.toBeInTheDocument();

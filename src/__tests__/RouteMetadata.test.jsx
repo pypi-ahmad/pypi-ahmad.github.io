@@ -32,7 +32,7 @@ describe("Route metadata", () => {
   it("applies Home route metadata", async () => {
     renderMainAt("/home");
 
-    await waitForTitle("Ahmad Mujtaba | Applied AI Engineer Portfolio");
+    await waitForTitle("Ahmad Mujtaba | Applied AI Engineer");
     expect(
       getManagedMeta('meta[name="description"]')?.getAttribute("content")
     ).toContain("Applied AI Engineer");

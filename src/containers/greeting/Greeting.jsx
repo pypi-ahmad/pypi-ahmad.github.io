@@ -1,19 +1,7 @@
-/**
- * Greeting — Home-page hero section.
- *
- * Displays the intro text, accent-colored name, subtitle, hero bullet
- * points, engineering philosophy quote, and CTA buttons (Contact Me,
- * Download Resume, View Cover Letter).  Document links verified via
- * HEAD request before opening.
- *
- * Props: { theme }
- */
-import React, { useState } from "react";
-import "./Greeting.css";
-import { greeting } from "../../portfolio";
+import React from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import FeelingProud from "./FeelingProud";
+import { Link } from "react-router-dom";
+import { greeting, homePageData } from "../../portfolio";
 import {
   buildThemeBackground,
   buildThemeShadow,
@@ -21,236 +9,133 @@ import {
   themeSurfaceTransition,
   themeTextTransition,
 } from "../../themeMotion";
+import "./Greeting.css";
 
-export default function Greeting(props) {
-  const theme = props.theme;
-  const navigate = useNavigate();
-  const [docError, setDocError] = useState("");
-  const resumeUrl = greeting.resumeLink
-    ? `/${greeting.resumeLink}`
-    : "";
-  const coverUrl = greeting.coverLetterLink
-    ? `/${greeting.coverLetterLink}`
-    : "";
-
-  const handleDocOpen = async (event, url, label) => {
-    event.preventDefault();
-    if (!url) {
-      setDocError(`${label} is unavailable right now.`);
-      return;
-    }
-
-    try {
-      const response = await fetch(url, { method: "HEAD" });
-      if (!response.ok) {
-        throw new Error("missing");
-      }
-      setDocError("");
-      window.open(url, "_blank", "noopener,noreferrer");
-    } catch (error) {
-      setDocError(`${label} is unavailable right now.`);
-    }
-  };
-
+export default function Greeting({ theme }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
+    <motion.section
+      id="greeting"
+      className="greet-main"
+      aria-labelledby="home-title"
+      initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.6 }}
+      style={{
+        background: buildThemeBackground(theme.heroGradient, theme.heroPattern),
+        border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+        borderRadius: theme.heroRadius,
+        boxShadow: buildThemeShadow(
+          `0 28px 80px ${theme.shadowColor}`,
+          theme.panelGlow
+        ),
+      }}
     >
-      <div
-        className="greet-main"
-        id="greeting"
-        style={{
-          background: buildThemeBackground(theme.heroGradient, theme.heroPattern),
-          border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-          borderRadius: theme.heroRadius,
-          boxShadow: buildThemeShadow(`0 28px 80px ${theme.shadowColor}`, theme.panelGlow),
-          transition:
-            `border-color var(--theme-transition-fast), box-shadow var(--theme-transition-slow)`,
-        }}
-      >
-        <div className="greeting-main">
-          <div className="greeting-text-div">
-            <div>
-              <h1
-                className="greeting-text"
-                style={{
-                  color: theme.text,
-                  fontFamily: theme.accentFontFamily,
-                  letterSpacing: theme.accentLetterSpacing,
-                  transition: themeTextTransition,
-                }}
-              >
-                {greeting.title}
-              </h1>
-              <p
-                className="greeting-text-p subTitle"
-                style={{ color: theme.secondaryText, transition: themeTextTransition }}
-              >
-                <span>I'm </span>
-                <span
-                  style={{
-                    color: theme.accentSolid,
-                    fontFamily: theme.accentFontFamily,
-                    letterSpacing: theme.accentLetterSpacing,
-                    transition: themeTextTransition,
-                  }}
-                >
-                  {greeting.fullName}.{" "}
-                </span>
-                {greeting.subTitle}
-              </p>
-
-              {/* Hero Bullets */}
-              {greeting.heroBullets && greeting.heroBullets.length > 0 && (
-                <ul className="hero-bullets" style={{
-                  listStyle: "none",
-                  padding: 0,
-                  margin: "1rem 0",
-                  background: buildThemeBackground(theme.cardBackgroundAlt, theme.surfacePattern),
-                  border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-                  boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.panelGlow),
-                  transition: themeElevatedSurfaceTransition,
-                  borderRadius: theme.surfaceRadius,
-                  paddingInline: "1.25rem",
-                  paddingBlock: "1.1rem",
-                }}>
-                  {greeting.heroBullets.map((bullet, i) => (
-                    <li key={i} style={{
-                      fontSize: "0.95rem",
-                      color: theme.secondaryText,
-                      transition: themeTextTransition,
-                      marginBottom: "0.4rem",
-                      paddingLeft: "1.2rem",
-                      position: "relative",
-                    }}>
-                      <span style={{
-                        position: "absolute",
-                        left: 0,
-                        color: theme.accentSolid,
-                        transition: themeTextTransition,
-                      }}>▸</span>
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {/* Philosophy */}
-              {greeting.philosophy && (
-                <p className="greeting-philosophy" style={{
-                  fontSize: "0.9rem",
-                  fontStyle: "italic",
-                  color: theme.secondaryText,
-                  borderLeft: `3px solid ${theme.accentSolid}`,
-                  transition:
-                    `background-color var(--theme-transition-medium), color var(--theme-transition-fast), border-left-color var(--theme-transition-fast), box-shadow var(--theme-transition-medium)`,
-                  paddingLeft: "1rem",
-                  marginTop: "0.8rem",
-                  marginBottom: "1.2rem",
-                  lineHeight: "1.5",
-                  background: buildThemeBackground(theme.accentSoft, theme.surfacePattern),
-                  boxShadow: buildThemeShadow(`0 16px 32px ${theme.shadowColor}`, theme.panelGlow),
-                  borderTopRightRadius: theme.controlRadius,
-                  borderBottomRightRadius: theme.controlRadius,
-                  paddingTop: "0.95rem",
-                  paddingBottom: "0.95rem",
-                  paddingRight: "1rem",
-                }}>
-                  {greeting.philosophy}
-                </p>
-              )}
-
-              <div className="portfolio-repo-btn-div">
-                <button
-                  className="button"
-                  onClick={() => {
-                    navigate("/contact");
-                  }}
-                  style={{
-                    background: theme.accentGradient,
-                    color: theme.accentText,
-                    border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderColor}`,
-                    borderRadius: theme.controlRadius,
-                    boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.buttonGlow),
-                    fontFamily: theme.accentFontFamily,
-                    letterSpacing: theme.accentLetterSpacing,
-                    transition: themeSurfaceTransition,
-                  }}
-                >
-                  Contact Me
-                </button>
-                {greeting.resumeLink && (
-                  <a
-                    href={resumeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button"
-                    onClick={event =>
-                      handleDocOpen(event, resumeUrl, "Resume")
-                    }
-                    style={{
-                      background: theme.accentGradient,
-                      color: theme.accentText,
-                      display: "inline-flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      textDecoration: "none",
-                      border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderColor}`,
-                      borderRadius: theme.controlRadius,
-                      boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.buttonGlow),
-                      fontFamily: theme.accentFontFamily,
-                      letterSpacing: theme.accentLetterSpacing,
-                      transition: themeSurfaceTransition,
-                    }}
-                  >
-                    Download Resume
-                  </a>
-                )}
-                {greeting.coverLetterLink && (
-                  <a
-                    href={coverUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button"
-                    onClick={event =>
-                      handleDocOpen(event, coverUrl, "Cover letter")
-                    }
-                    style={{
-                      background: theme.accentGradient,
-                      color: theme.accentText,
-                      display: "inline-flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      textDecoration: "none",
-                      border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderColor}`,
-                      borderRadius: theme.controlRadius,
-                      boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.buttonGlow),
-                      fontFamily: theme.accentFontFamily,
-                      letterSpacing: theme.accentLetterSpacing,
-                      transition: themeSurfaceTransition,
-                    }}
-                  >
-                    View Cover Letter
-                  </a>
-                )}
-              </div>
-              {docError && (
-                <p
-                  className="doc-fallback-text"
-                  style={{ color: theme.secondaryText, transition: themeTextTransition }}
-                >
-                  {docError}
-                </p>
-              )}
-            </div>
-          </div>
-          <div className="greeting-image-div">
-            <FeelingProud theme={theme} />
-          </div>
+      <div className="hero-copy">
+        <p className="hero-eyebrow" style={{ color: theme.accentSolid }}>
+          {homePageData.hero.eyebrow}
+        </p>
+        <h1
+          id="home-title"
+          className="greeting-text"
+          style={{
+            color: theme.text,
+            fontFamily: theme.accentFontFamily,
+            letterSpacing: theme.accentLetterSpacing,
+            transition: themeTextTransition,
+          }}
+        >
+          {homePageData.hero.title}
+        </h1>
+        <p
+          className="greeting-text-p"
+          style={{ color: theme.secondaryText, transition: themeTextTransition }}
+        >
+          {homePageData.hero.introduction}
+        </p>
+        <div className="hero-actions" aria-label="Portfolio actions">
+          <a
+            className="button"
+            href="#selected-work"
+            style={{
+              background: theme.accentGradient,
+              color: theme.accentText,
+              borderColor: theme.borderColor,
+              borderRadius: theme.controlRadius,
+              transition: themeSurfaceTransition,
+            }}
+          >
+            View selected work
+          </a>
+          <a
+            className="button button-secondary"
+            href={`/${greeting.resumeLink}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: theme.text,
+              borderColor: theme.borderSoft,
+              borderRadius: theme.controlRadius,
+              transition: themeSurfaceTransition,
+            }}
+          >
+            Download résumé
+          </a>
+          <Link
+            className="button button-secondary"
+            to="/contact"
+            style={{
+              color: theme.text,
+              borderColor: theme.borderSoft,
+              borderRadius: theme.controlRadius,
+              transition: themeSurfaceTransition,
+            }}
+          >
+            Contact me
+          </Link>
         </div>
       </div>
-    </motion.div>
+
+      <div className="outcomes" aria-labelledby="outcomes-title">
+        <div className="section-heading-row">
+          <h2 id="outcomes-title" style={{ color: theme.text }}>
+            Evidence from internal work
+          </h2>
+          <p style={{ color: theme.secondaryText }}>
+            These are team and system results from confidential internal
+            evaluations. Contribution notes identify the parts I worked on.
+          </p>
+        </div>
+        <ul className="outcome-grid">
+          {homePageData.outcomes.map(outcome => (
+            <li
+              key={outcome.label}
+              className="outcome-card"
+              style={{
+                background: buildThemeBackground(
+                  theme.cardBackgroundAlt,
+                  theme.surfacePattern
+                ),
+                border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+                borderRadius: theme.surfaceRadius,
+                boxShadow: buildThemeShadow(
+                  `0 18px 40px ${theme.shadowColor}`,
+                  theme.panelGlow
+                ),
+                transition: themeElevatedSurfaceTransition,
+              }}
+            >
+              <strong style={{ color: theme.accentSolid }}>
+                {outcome.metric}
+              </strong>
+              <h3 style={{ color: theme.text }}>{outcome.label}</h3>
+              <p style={{ color: theme.secondaryText }}>{outcome.context}</p>
+              <p className="contribution" style={{ color: theme.secondaryText }}>
+                {outcome.contribution}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </motion.section>
   );
 }
