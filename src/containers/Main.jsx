@@ -67,7 +67,7 @@ const routeMeta = {
     canonicalPath: "/education",
   },
   projects: {
-    title: "Projects | Ahmad Mujtaba",
+    title: "Applied AI Projects | Ahmad Mujtaba",
     description: projectsHeader.description,
     canonicalPath: "/projects",
   },

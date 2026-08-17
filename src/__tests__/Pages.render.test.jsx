@@ -98,7 +98,7 @@ describe("Page Rendering Smoke Tests", () => {
 
   it("Projects page renders the recent-projects section", () => {
     renderWithProviders(<Projects {...pageProps} />);
-    expect(screen.getByRole("heading", { level: 2, name: "Recent Projects" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "Recent projects" })).toBeInTheDocument();
   });
 
   it("Home page renders the top four featured projects", () => {

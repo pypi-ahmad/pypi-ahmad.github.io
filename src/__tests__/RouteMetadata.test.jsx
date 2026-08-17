@@ -53,10 +53,10 @@ describe("Route metadata", () => {
   it("applies Projects route metadata", async () => {
     renderMainAt("/projects");
 
-    await waitForTitle("Projects | Ahmad Mujtaba");
+    await waitForTitle("Applied AI Projects | Ahmad Mujtaba");
     expect(
       getManagedMeta('meta[name="twitter:title"]')?.getAttribute("content")
-    ).toBe("Projects | Ahmad Mujtaba");
+    ).toBe("Applied AI Projects | Ahmad Mujtaba");
     expect(
       getManagedMeta('link[rel="canonical"]')?.getAttribute("href")
     ).toBe("https://pypi-ahmad.github.io/projects");
