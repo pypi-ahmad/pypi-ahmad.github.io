@@ -1,40 +1,39 @@
-/**
- * ProjectCard — Compact product-tile card for open-source projects.
- *
- * Shows: name (accent link), category badge, short description (3-line clamp).
- * Entire card is clickable, linking to the project URL.
- *
- * Props: { repo (project object), theme }
- */
 import React from "react";
 import "./ProjectCard.css";
-import { motion } from "framer-motion";
 
-export default function ProjectCard({ repo: project }) {
-  const CardWrapper = project.url ? "a" : "div";
-  const wrapperProps = project.url
-    ? { href: project.url, target: "_blank", rel: "noopener noreferrer" }
-    : {};
+export default function ProjectCard({ repo: project, index, priority = false }) {
+  const cardClassName = [
+    "project-card-wrap",
+    priority ? "project-card-wrap--priority" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <motion.div
-      initial={{ y: 30, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.35 }}
-      viewport={{ once: true }}
-    >
-      <CardWrapper
-        {...wrapperProps}
+    <article className={cardClassName} data-priority={priority ? "true" : "false"}>
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
         className="project-card shadow-sm hover-shadow-lg layer-card"
+        aria-label={`View ${project.name} repository on GitHub`}
       >
-        <div className="project-card__header">
-          <h3 className="project-card__name">{project.name}</h3>
-          {project.category && (
+        <div className="project-card__meta">
+          {index ? (
+            <span className="project-card__number">
+              {String(index).padStart(2, "0")}
+            </span>
+          ) : null}
+          {project.category ? (
             <span className="project-card__category">{project.category}</span>
-          )}
+          ) : null}
         </div>
+        <h3 className="project-card__name">{project.name}</h3>
         <p className="project-card__desc">{project.description}</p>
-      </CardWrapper>
-    </motion.div>
+        <span className="project-card__link-text">
+          View repository <span aria-hidden="true">↗</span>
+        </span>
+      </a>
+    </article>
   );
 }

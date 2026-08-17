@@ -5,7 +5,7 @@
 export const projectsHeader = {
   title: "Projects",
   description:
-    "Recent open-source work across model post-training, browser agents, agent evaluation, local-first AI, document intelligence, and developer tooling.",
+    "Thirteen public projects across model training, agents, evaluation, document AI, local-first tools, and developer workflows.",
 };
 
 export const projects = {

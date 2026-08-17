@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { projects } from "../data/projects";
+import { projects, projectsHeader } from "../data/projects";
 
 const expectedTopUrls = [
   "https://github.com/pypi-ahmad/lora-qlora-fine-tuning-app",
@@ -25,6 +25,14 @@ const expectedNames = [
 ];
 
 describe("projects data", () => {
+  it("uses the recruiter-focused catalog introduction", () => {
+    expect(projectsHeader).toEqual({
+      title: "Projects",
+      description:
+        "Thirteen public projects across model training, agents, evaluation, document AI, local-first tools, and developer workflows.",
+    });
+  });
+
   it("publishes the expected 13-project workflow-first catalog", () => {
     const projectUrls = projects.data.map(({ url }) => url);
 
