@@ -141,9 +141,9 @@ describe("Responsiveness — Layout Structure Assertions", () => {
     expect(greetDiv).toHaveClass("greet-main");
   });
 
-  it("Hero bullet list has no default list-style", () => {
+  it("Outcome list has no default list style", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    const bulletList = document.querySelector(".hero-bullets");
+    const bulletList = document.querySelector(".outcome-grid");
     expect(bulletList).toBeInTheDocument();
     expect(bulletList).toHaveStyle({ listStyle: "none" });
   });

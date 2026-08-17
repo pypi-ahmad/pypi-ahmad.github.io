@@ -10,6 +10,7 @@
  */
 export * from "./data/settings";
 export * from "./data/greeting";
+export * from "./data/homePage";
 export * from "./data/socialMedia";
 export * from "./data/skills";
 export * from "./data/education";

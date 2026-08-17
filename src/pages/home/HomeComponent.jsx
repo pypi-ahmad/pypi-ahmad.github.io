@@ -2,16 +2,15 @@
  * Home Page
  *
  * Composes the landing page from container sections:
- * Header → Greeting hero → FeaturedProjects → SystemThinking → Skills → Footer
+ * Header, evidence-led hero, selected projects, work details, and footer.
  *
  * Props: { theme }
  */
 import React from "react";
 import Header from "../../components/header/Header";
 import Greeting from "../../containers/greeting/Greeting";
-import Skills from "../../containers/skills/Skills";
 import FeaturedProjects from "../../containers/FeaturedProjects/FeaturedProjects";
-import SystemThinking from "../../containers/SystemThinking/SystemThinking";
+import HomeDetails from "../../containers/HomeDetails/HomeDetails";
 import Footer from "../../components/footer/Footer";
 
 function Home(props) {
@@ -21,8 +20,7 @@ function Home(props) {
       <main id="main-content">
         <Greeting theme={props.theme} />
         <FeaturedProjects theme={props.theme} />
-        <SystemThinking theme={props.theme} />
-        <Skills theme={props.theme} />
+        <HomeDetails theme={props.theme} />
       </main>
       <Footer theme={props.theme} />
     </div>

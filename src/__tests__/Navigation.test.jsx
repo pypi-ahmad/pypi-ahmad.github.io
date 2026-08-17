@@ -56,12 +56,12 @@ function renderAtRoute(initialPath) {
 describe("Navigation — Route Resolution", () => {
   it("'/' renders the Home page (isSplash=false)", () => {
     renderAtRoute("/");
-    expect(screen.getByRole("heading", { level: 1, name: "Hello." })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "I build applied AI systems and test whether they work." })).toBeInTheDocument();
   });
 
   it("'/home' renders the Home page", () => {
     renderAtRoute("/home");
-    expect(screen.getByRole("heading", { level: 1, name: "Hello." })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "I build applied AI systems and test whether they work." })).toBeInTheDocument();
   });
 
   it("'/experience' renders the Experience page", () => {
@@ -148,6 +148,6 @@ describe("Navigation — NavLink Click Flow", () => {
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const logo = screen.getByText("ahmad.m()");
     await user.click(logo);
-    expect(screen.getByRole("heading", { level: 1, name: "Hello." })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "I build applied AI systems and test whether they work." })).toBeInTheDocument();
   });
 });

@@ -1,78 +1,72 @@
-/**
- * Greeting (Hero) — UI Rendering Tests
- *
- * Verifies the Greeting component renders the hero section with
- * title, full name, subtitle, hero bullets, philosophy, and CTA buttons.
- *
- * Source: src/containers/greeting/Greeting.jsx
- * Data:   src/data/greeting.js
- */
 import React from "react";
-import { screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { screen, within } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 import Greeting from "../containers/greeting/Greeting";
 import { renderWithProviders, darkTheme } from "../test/testUtils";
 
-describe("Greeting — UI Rendering", () => {
-  it("renders the hero title 'Hello.'", () => {
+describe("Home hero", () => {
+  it("states the role and working focus", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByRole("heading", { level: 1, name: "Hello." })).toBeInTheDocument();
+
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: "I build applied AI systems and test whether they work.",
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Applied AI Engineer · Gurugram, India")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/AI and Data Science Engineer at Deloitte/)
+    ).toBeInTheDocument();
   });
 
-  it("renders the full name 'Ahmad Mujtaba.'", () => {
+  it("shows four qualified internal outcomes", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getAllByText(/Ahmad Mujtaba/).length).toBeGreaterThan(0);
+    const outcomes = screen.getByRole("list");
+
+    expect(within(outcomes).getAllByRole("listitem")).toHaveLength(4);
+    expect(within(outcomes).getByText("38% to 80%")).toBeInTheDocument();
+    expect(within(outcomes).getByText("~40% lower")).toBeInTheDocument();
+    expect(
+      within(outcomes).getByText("80% to 81%, then above 90%")
+    ).toBeInTheDocument();
+    expect(within(outcomes).getByText("90% to 99%")).toBeInTheDocument();
+    expect(
+      screen.getByText(/team and system results from confidential internal evaluations/i)
+    ).toBeInTheDocument();
   });
 
-  it("renders the subtitle text", () => {
+  it("identifies Ahmad's contribution for every outcome", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByText(/Applied AI Engineer building reliable Document AI, RAG, and agentic systems/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/^I worked on/)).toHaveLength(4);
   });
 
-  it("renders all 4 hero bullet points", () => {
+  it("renders selected work, résumé, and contact actions", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByText(/38% to 80% across the same 200-task internal evaluation/i)).toBeInTheDocument();
-    expect(screen.getByText(/prompt-token consumption fell by approximately 40%/i)).toBeInTheDocument();
-    expect(screen.getByText(/80–81% to above 90%/i)).toBeInTheDocument();
-    expect(screen.getByText(/90% to 99%/i)).toBeInTheDocument();
+
+    expect(screen.getByRole("link", { name: "View selected work" })).toHaveAttribute(
+      "href",
+      "#selected-work"
+    );
+    expect(screen.getByRole("link", { name: "Download résumé" })).toHaveAttribute(
+      "href",
+      "/Resume.pdf"
+    );
+    expect(screen.getByRole("link", { name: "Contact me" })).toHaveAttribute(
+      "href",
+      "/contact"
+    );
   });
 
-  it("renders the engineering philosophy quote", () => {
+  it("does not render retired hero content", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByText(/LLMs are useful but never self-validating/i)).toBeInTheDocument();
-  });
-
-  it("renders the 'Contact Me' button", () => {
-    renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByRole("button", { name: "Contact Me" })).toBeInTheDocument();
-  });
-
-  it("renders the 'Download Resume' link", () => {
-    renderWithProviders(<Greeting theme={darkTheme} />);
-    const resumeLink = screen.getByText("Download Resume");
-    expect(resumeLink).toBeInTheDocument();
-    expect(resumeLink.closest("a")).toHaveAttribute("href", "/Resume.pdf");
-  });
-
-  it("renders the 'View Cover Letter' link", () => {
-    renderWithProviders(<Greeting theme={darkTheme} />);
-    const coverLink = screen.getByText("View Cover Letter");
-    expect(coverLink).toBeInTheDocument();
-    expect(coverLink.closest("a")).toHaveAttribute("href", "/Cover.pdf");
-  });
-
-  it("applies accent color to the full name", () => {
-    renderWithProviders(<Greeting theme={darkTheme} />);
-    const nameSpan = screen
-      .getAllByText(/Ahmad Mujtaba\./)
-      .find((node) => node.tagName === "SPAN");
-    expect(nameSpan).toBeDefined();
-    expect(nameSpan).toHaveStyle({ color: darkTheme.accentSolid });
-  });
-
-  it("renders hero bullets as list items", () => {
-    renderWithProviders(<Greeting theme={darkTheme} />);
-    const bullets = screen.getAllByRole("listitem");
-    expect(bullets.length).toBeGreaterThanOrEqual(4);
+    expect(screen.queryByText("Hello.")).not.toBeInTheDocument();
+    expect(screen.queryByText("View Cover Letter")).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/LLMs are useful but never self-validating/)
+    ).not.toBeInTheDocument();
+    expect(document.querySelector(".greeting-image-div")).not.toBeInTheDocument();
   });
 });

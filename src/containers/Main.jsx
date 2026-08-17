@@ -24,7 +24,6 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import {
   settings,
-  greeting,
   experience,
   projectsHeader,
   contactPageData,
@@ -51,8 +50,9 @@ const routeFallbackStyle = {
 
 const routeMeta = {
   home: {
-    title: "Ahmad Mujtaba | Applied AI Engineer Portfolio",
-    description: greeting.subTitle,
+    title: "Ahmad Mujtaba | Applied AI Engineer",
+    description:
+      "Applied AI Engineer working on document AI, RAG, agents, and evaluation.",
     canonicalPath: "/",
   },
   experience: {

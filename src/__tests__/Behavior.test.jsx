@@ -9,7 +9,7 @@
  *  - src/containers/experienceAccordion/ExperienceAccordion.jsx (accordion)
  */
 import React from "react";
-import { screen, waitFor } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, beforeEach } from "vitest";
 import Header from "../components/header/Header";
@@ -164,53 +164,31 @@ describe("Header — Theme Toggle Behavior", () => {
 });
 
 // ────────────────────────────────────────────────────────
-// Greeting CTA Behavior
+// Home hero CTA behavior
 // ────────────────────────────────────────────────────────
-describe("Greeting — CTA Button Behavior", () => {
-  it("'Contact Me' button triggers navigation to /contact", async () => {
-    const user = userEvent.setup();
+describe("Home hero CTA behavior", () => {
+  it("contact action points to /contact", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-
-    const contactBtn = screen.getByRole("button", { name: "Contact Me" });
-    await user.click(contactBtn);
-
-    // After click, React Router should have navigated — we verify via the
-    // window location (MemoryRouter won't change window.location, but
-    // we can verify the button is clickable and doesn't throw)
-    expect(contactBtn).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Contact me" })).toHaveAttribute(
+      "href",
+      "/contact"
+    );
   });
 
-  it("'Download Resume' link has correct href and target attributes", () => {
+  it("résumé action has correct href and target attributes", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    const resumeLink = screen.getByText("Download Resume").closest("a");
+    const resumeLink = screen.getByText("Download résumé").closest("a");
     expect(resumeLink).toHaveAttribute("href", "/Resume.pdf");
     expect(resumeLink).toHaveAttribute("target", "_blank");
     expect(resumeLink).toHaveAttribute("rel", "noopener noreferrer");
   });
 
-  it("'View Cover Letter' link has correct href and target attributes", () => {
+  it("selected-work action points to the project section", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    const coverLink = screen.getByText("View Cover Letter").closest("a");
-    expect(coverLink).toHaveAttribute("href", "/Cover.pdf");
-    expect(coverLink).toHaveAttribute("target", "_blank");
-    expect(coverLink).toHaveAttribute("rel", "noopener noreferrer");
-  });
-
-  it("shows error message when document fetch fails", async () => {
-    const user = userEvent.setup();
-    // Mock fetch to reject
-    const originalFetch = globalThis.fetch;
-    globalThis.fetch = vi.fn().mockRejectedValue(new Error("network"));
-
-    renderWithProviders(<Greeting theme={darkTheme} />);
-    const resumeLink = screen.getByText("Download Resume");
-    await user.click(resumeLink);
-
-    await waitFor(() => {
-      expect(screen.getByText(/Resume is unavailable right now/)).toBeInTheDocument();
-    });
-
-    globalThis.fetch = originalFetch;
+    expect(screen.getByRole("link", { name: "View selected work" })).toHaveAttribute(
+      "href",
+      "#selected-work"
+    );
   });
 });
 
