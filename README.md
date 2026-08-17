@@ -18,6 +18,22 @@ A responsive React portfolio showcasing applied AI experience, production system
   <img src="home-320.png" width="320" alt="Mobile preview of Ahmad Mujtaba's portfolio" />
 </p>
 
+## Welcome
+
+This project is **free**, MIT-licensed, and community-driven. Clone it, run it locally, file bugs, suggest features, or send pull requests — all are welcome.
+
+**Please do not send money.** Donations and sponsorship are not needed or wanted. A useful issue or a well-tested PR is more than enough.
+
+For usage help: [SUPPORT.md](SUPPORT.md)  
+For contributions: [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## Disclaimer
+
+> [!CAUTION]
+> **All data you enter, display, or process through this application is 100% your responsibility.** This includes any content you put in `src/data/`, any Google Analytics ID you configure, and any credentials you add to your environment. Do not commit API keys or tokens to version control — Vite bundles client code for public delivery.
+
+Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DISCLAIMER.md)
+
 ## Features
 
 - Professional profile, experience, education, certifications, skills, and contact pages.
@@ -252,6 +268,18 @@ Pushes to `main` trigger `.github/workflows/deploy.yml`. The workflow builds and
 GitHub Pages must use **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
 Vercel uses `vercel.json` with `npm run build` and serves the same `build/` directory.
+
+## Contributing
+
+Contributions of any kind are welcome — bug reports, documentation fixes, accessibility improvements, theme tweaks, test coverage, and code changes.
+
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) for setup, quality checks, and ground rules
+- Use the [bug report template](https://github.com/pypi-ahmad/pypi-ahmad.github.io/issues/new?template=bug_report.md) or [feature request template](https://github.com/pypi-ahmad/pypi-ahmad.github.io/issues/new?template=feature_request.md)
+- Good first contributions: accessibility improvements, new theme families in `src/theme.js`, additional test coverage, documentation fixes
+
+**No financial support is needed or wanted.** The project is free. The best way to support it is a clear issue or a well-tested PR.
+
+For usage questions: [SUPPORT.md](SUPPORT.md). For data responsibility: [DISCLAIMER.md](DISCLAIMER.md). For security concerns: [SECURITY.md](SECURITY.md).
 
 ## License
 
