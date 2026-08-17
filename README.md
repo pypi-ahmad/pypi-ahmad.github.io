@@ -69,8 +69,8 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 - 13 recent public projects with verified GitHub links.
 
 **Theming**
-- One default visual theme with light and dark modes.
-- Mode selection persisted in `localStorage`; older family-and-mode values migrate automatically.
+- One visual theme with light and dark modes plus selectable pink and blue accents.
+- Mode and accent selections persist independently in `localStorage`; older family-and-mode values migrate automatically.
 
 **UX and accessibility**
 - Responsive navigation, card layouts, accordions, and galleries.
@@ -83,7 +83,7 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 - `public/sitemap.xml` and `public/robots.txt` included.
 
 **Quality**
-- 16 test files, 126 tests covering rendering, navigation, theming, accessibility, content contracts, and route metadata.
+- 16 test files, 133 tests covering rendering, navigation, theming, accessibility, content contracts, and route metadata.
 - Automated lint, typecheck, build, and test on every push and pull request to `main`.
 - Optional Google Analytics 4 integration, disabled by default.
 
@@ -129,8 +129,8 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 │   ├── App.jsx                    # Global providers: error boundary, theme, motion, analytics
 │   ├── index.jsx                  # React DOM entry point
 │   ├── portfolio.js               # Barrel re-export of all src/data/* modules
-│   ├── theme.js                   # Default light and dark semantic tokens
-│   └── themeController.jsx        # Mode state, localStorage persistence, and provider
+│   ├── theme.js                   # Light/dark semantic tokens and accent variants
+│   └── themeController.jsx        # Mode/accent state, persistence, and provider
 ├── index.html                     # Vite HTML entry point and baseline metadata
 ├── stress-test.mjs                # Playwright performance and resilience checks
 ├── vite.config.js                 # Dev server (port 3000) and production build config
@@ -212,7 +212,7 @@ index.html
 
 **Data flow:** All portfolio content lives as plain JavaScript objects in `src/data/`. Every data module is re-exported through `src/portfolio.js` so pages import from a single barrel. No runtime API, CMS, or build-time data fetching is involved.
 
-**Theme flow:** `themeController.jsx` reads the saved light or dark mode from `localStorage`, migrates older family-and-mode values, resolves the matching default token set from `src/theme.js`, and passes it through styled-components' `ThemeProvider`. Dark mode is the fallback when nothing valid is stored.
+**Theme flow:** `themeController.jsx` reads the saved light/dark mode and pink/blue accent from separate `localStorage` keys, migrates older family-and-mode values, resolves the matching token set from `src/theme.js`, and passes it through styled-components' `ThemeProvider`. Dark mode and pink accent are the fallbacks when nothing valid is stored.
 
 **Routing:** `Main.jsx` defines all routes with `React.lazy`. Each route is paired with a `RouteMeta` component that writes the page-specific `<title>`, canonical URL, Open Graph tags, and robots directive into `<head>` via `react-helmet-async`.
 
@@ -264,15 +264,15 @@ Update these files to customise the site content without touching any page compo
 
 ### Appearance
 
-`src/theme.js` defines one visual identity in light and dark modes. `src/themeController.jsx` provides the header toggle, persists the selected mode, and migrates older stored theme-family objects.
+`src/theme.js` defines one visual identity in light and dark modes with crimson-to-pink and indigo-to-navy accents. The header provides two accent swatches beside the mode toggle. `src/themeController.jsx` persists mode as `theme=light|dark` and accent as `accent=pink|blue`, while preserving older stored-mode migration.
 
 ## Testing and Quality
 
-The repository contains **16 test files and 126 tests** covering:
+The repository contains **16 test files and 133 tests** covering:
 
 - Page and component rendering
 - Navigation and route resolution
-- Light/dark persistence, legacy-value migration, and contrast ratios
+- Light/dark and accent persistence, legacy-value migration, and contrast ratios
 - Responsive navigation structure
 - Project catalog data integrity
 - Homepage content and featured-project contracts

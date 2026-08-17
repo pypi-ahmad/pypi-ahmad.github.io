@@ -19,6 +19,7 @@ import { ThemeControllerProvider } from "../themeController";
  * @param {React.ReactElement} ui - The component to render
  * @param {object} options
  * @param {string} options.theme - "light" or "dark" (default: "dark")
+ * @param {string} options.accent - "pink" or "blue" (default: "pink")
  * @param {boolean} options.useStoredTheme - when true, use localStorage instead of an explicit initial theme
  * @param {string[]} options.initialEntries - MemoryRouter initial entries
  * @param {object} options.renderOptions - Extra RTL render options
@@ -26,6 +27,7 @@ import { ThemeControllerProvider } from "../themeController";
 export function renderWithProviders(
   ui,
   {
+    accent = "pink",
     theme = "dark",
     useStoredTheme = false,
     initialEntries,
@@ -38,6 +40,7 @@ export function renderWithProviders(
   function Wrapper({ children }) {
     return (
       <ThemeControllerProvider
+        initialAccent={useStoredTheme ? undefined : accent}
         initialThemeMode={useStoredTheme ? undefined : theme}
       >
         <MotionConfig reducedMotion="always">

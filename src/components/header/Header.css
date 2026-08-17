@@ -108,7 +108,52 @@
 
 .menu-theme-toggle-item {
   margin-top: 6px;
+  gap: 12px;
   justify-content: flex-start;
+}
+
+.accent-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.accent-selector__label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.accent-swatch {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  box-shadow: 0 8px 18px var(--shadow-color, rgba(0, 0, 0, 0.18));
+  transition: transform 0.2s ease, border-color var(--theme-transition-fast), box-shadow var(--theme-transition-medium);
+}
+
+.accent-swatch--pink {
+  background: linear-gradient(135deg, #DC143C 0%, #FF69B4 100%);
+}
+
+.accent-swatch--blue {
+  background: linear-gradient(135deg, #6366F1 0%, #1E3A8A 100%);
+}
+
+.accent-swatch:hover {
+  transform: translateY(-1px) scale(1.05);
+}
+
+.accent-swatch[aria-pressed="true"] {
+  border-color: var(--text-primary);
+  box-shadow: 0 0 0 3px var(--surface-card), 0 0 0 5px var(--text-primary);
+}
+
+.accent-swatch:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 3px;
 }
 
 .header .menu-icon {

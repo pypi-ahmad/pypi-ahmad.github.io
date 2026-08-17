@@ -38,7 +38,9 @@ const navigationLinkStyle = (theme) => ({ isActive }) => ({
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {
+    accent,
     resolvedTheme,
+    setAccent,
     themeMode,
     toggleMode,
   } = useThemeController();
@@ -161,6 +163,23 @@ function Header() {
                 </li>
               ))}
               <li className="menu-theme-toggle-item">
+                <div className="accent-selector" role="group" aria-label="Accent color">
+                  <span className="accent-selector__label">Accent</span>
+                  <button
+                    className="accent-swatch accent-swatch--pink"
+                    type="button"
+                    aria-label="Use crimson and pink accent"
+                    aria-pressed={accent === "pink"}
+                    onClick={() => setAccent("pink")}
+                  />
+                  <button
+                    className="accent-swatch accent-swatch--blue"
+                    type="button"
+                    aria-label="Use indigo and navy accent"
+                    aria-pressed={accent === "blue"}
+                    onClick={() => setAccent("blue")}
+                  />
+                </div>
                 <button
                   className="change-theme-btn"
                   onClick={() => {

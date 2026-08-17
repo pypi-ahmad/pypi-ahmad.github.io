@@ -6,6 +6,7 @@
  */
 
 export const DEFAULT_THEME_MODE = "dark";
+export const DEFAULT_ACCENT = "pink";
 
 export const lightTheme = {
   name: "light",
@@ -111,6 +112,38 @@ export const darkTheme = {
   buttonGlow: "none",
 };
 
-export function resolveTheme(mode = DEFAULT_THEME_MODE) {
+const blueAccent = {
+  accentColor: "#6366F1",
+  accentBright: "#818CF8",
+  accentStart: "#6366F1",
+  accentEnd: "#1E3A8A",
+  accentGradient: "linear-gradient(135deg, #6366F1 0%, #1E3A8A 100%)",
+};
+
+const blueLightTheme = {
+  ...lightTheme,
+  ...blueAccent,
+  accentSolid: "#4338CA",
+  accentSoft: "rgba(99, 102, 241, 0.14)",
+  heroGradient:
+    "linear-gradient(135deg, #FFFFFF 0%, #F0F4FA 58%, rgba(99, 102, 241, 0.12) 100%)",
+  glowColor: "rgba(99, 102, 241, 0.24)",
+};
+
+const blueDarkTheme = {
+  ...darkTheme,
+  ...blueAccent,
+  accentSolid: "#818CF8",
+  accentSoft: "rgba(99, 102, 241, 0.22)",
+  heroGradient:
+    "linear-gradient(135deg, #1D1D1D 0%, #242526 58%, rgba(99, 102, 241, 0.18) 100%)",
+  glowColor: "rgba(99, 102, 241, 0.34)",
+};
+
+export function resolveTheme(mode = DEFAULT_THEME_MODE, accent = DEFAULT_ACCENT) {
+  if (accent === "blue") {
+    return mode === "light" ? blueLightTheme : blueDarkTheme;
+  }
+
   return mode === "light" ? lightTheme : darkTheme;
 }

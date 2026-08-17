@@ -87,6 +87,37 @@ describe("Header — Theme Toggle Behavior", () => {
 
     expect(localStorage.getItem("theme")).toBe("light");
   });
+
+  it("selects and persists the blue accent independently of mode", async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<Header />);
+
+    await openHeaderMenu(user);
+    await user.click(
+      screen.getByRole("button", { name: "Use indigo and navy accent" })
+    );
+
+    expect(localStorage.getItem("accent")).toBe("blue");
+    expect(localStorage.getItem("theme")).toBe("dark");
+    expect(
+      screen.getByRole("button", { name: "Use indigo and navy accent" })
+    ).toHaveAttribute("aria-pressed", "true");
+  });
+
+  it("restores a stored accent and falls back from invalid values", () => {
+    localStorage.setItem("accent", "blue");
+    const { unmount } = renderWithProviders(<Header />, { useStoredTheme: true });
+
+    expect(
+      screen.getByRole("button", { name: "Use indigo and navy accent", hidden: true })
+    ).toHaveAttribute("aria-pressed", "true");
+
+    unmount();
+    localStorage.setItem("accent", "invalid");
+    renderWithProviders(<Header />, { useStoredTheme: true });
+
+    expect(localStorage.getItem("accent")).toBe("pink");
+  });
 });
 
 // ────────────────────────────────────────────────────────

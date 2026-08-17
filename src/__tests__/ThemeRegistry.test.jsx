@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import * as themeModule from "../theme";
 import {
+  DEFAULT_ACCENT,
   DEFAULT_THEME_MODE,
   darkTheme,
   lightTheme,
@@ -58,6 +59,12 @@ describe("Default theme", () => {
     expect(resolveTheme("unknown")).toBe(darkTheme);
   });
 
+  it("defaults missing or invalid accents to pink", () => {
+    expect(DEFAULT_ACCENT).toBe("pink");
+    expect(resolveTheme("dark", "unknown")).toBe(darkTheme);
+    expect(resolveTheme("light", "unknown")).toBe(lightTheme);
+  });
+
   it("resolves light and dark modes", () => {
     expect(resolveTheme("light")).toBe(lightTheme);
     expect(resolveTheme("dark")).toBe(darkTheme);
@@ -65,6 +72,24 @@ describe("Default theme", () => {
 
   it("keeps identical semantic token keys in both modes", () => {
     expect(Object.keys(lightTheme).sort()).toEqual(Object.keys(darkTheme).sort());
+    expect(Object.keys(resolveTheme("light", "blue")).sort()).toEqual(
+      Object.keys(lightTheme).sort()
+    );
+    expect(Object.keys(resolveTheme("dark", "blue")).sort()).toEqual(
+      Object.keys(darkTheme).sort()
+    );
+  });
+
+  it.each(["light", "dark"])("resolves the blue accent in %s mode", mode => {
+    const theme = resolveTheme(mode, "blue");
+
+    expect(theme.accentStart).toBe("#6366F1");
+    expect(theme.accentEnd).toBe("#1E3A8A");
+    expect(theme.accentGradient).toBe(
+      "linear-gradient(135deg, #6366F1 0%, #1E3A8A 100%)"
+    );
+    expect(theme.accentSolid).toBe(mode === "light" ? "#4338CA" : "#818CF8");
+    expect(theme.heroGradient).toContain("rgba(99, 102, 241");
   });
 
   it.each([
