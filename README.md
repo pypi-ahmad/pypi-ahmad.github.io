@@ -1,6 +1,10 @@
+<div align="center">
+
+<img src="logo192.png" width="96" alt="Portfolio logo" />
+
 # Ahmad Mujtaba — AI Engineering Portfolio
 
-A responsive React portfolio showcasing applied AI experience, production system designs, open-source projects, technical skills, education, and certifications.
+**GitHub:** [github.com/pypi-ahmad/pypi-ahmad.github.io](https://github.com/pypi-ahmad/pypi-ahmad.github.io)
 
 [![CI](https://github.com/pypi-ahmad/pypi-ahmad.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/pypi-ahmad/pypi-ahmad.github.io/actions/workflows/ci.yml)
 [![Deploy](https://github.com/pypi-ahmad/pypi-ahmad.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/pypi-ahmad/pypi-ahmad.github.io/actions/workflows/deploy.yml)
@@ -9,10 +13,36 @@ A responsive React portfolio showcasing applied AI experience, production system
 [![npm](https://img.shields.io/badge/npm-12.0.2-CB3837?logo=npm&logoColor=white)](https://www.npmjs.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+</div>
+
+A fast, accessible, and fully responsive single-page portfolio built with React 19 and Vite 8. It presents applied-AI experience through a platform catalog of 20 production AI systems, 12 anonymized enterprise case studies, and 13 linked open-source projects — alongside professional experience, education, certifications, and skills. Visitors choose from 64 resolved themes (32 families × light/dark). No backend, no database, no authentication — just a static site deployed to GitHub Pages on every push to `main`.
+
+## Table of Contents
+
+- [Demo](#demo)
+- [Welcome](#welcome)
+- [Disclaimer](#disclaimer)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Commands](#commands)
+- [How It Works](#how-it-works)
+- [Routes](#routes)
+- [Configuration](#configuration)
+- [Testing and Quality](#testing-and-quality)
+- [Deployment](#deployment)
+- [Documentation](#documentation)
+
+---
+
 ## Demo
 
-- **Live site:** [pypi-ahmad.github.io](https://pypi-ahmad.github.io/)
-- **Vercel mirror:** [my-portfolio-green-ten-63.vercel.app](https://my-portfolio-green-ten-63.vercel.app/)
+| | |
+| --- | --- |
+| **Live site** | [pypi-ahmad.github.io](https://pypi-ahmad.github.io/) |
+| **Vercel mirror** | [my-portfolio-green-ten-63.vercel.app](https://my-portfolio-green-ten-63.vercel.app/) |
+| **Repository** | [github.com/pypi-ahmad/pypi-ahmad.github.io](https://github.com/pypi-ahmad/pypi-ahmad.github.io) |
 
 <p align="center">
   <img src="home-320.png" width="320" alt="Mobile preview of Ahmad Mujtaba's portfolio" />
@@ -24,9 +54,6 @@ This project is **free**, MIT-licensed, and community-driven. Clone it, run it l
 
 **Please do not send money.** Donations and sponsorship are not needed or wanted. A useful issue or a well-tested PR is more than enough.
 
-For usage help: [SUPPORT.md](SUPPORT.md)  
-For contributions: [CONTRIBUTING.md](CONTRIBUTING.md)
-
 ## Disclaimer
 
 > [!CAUTION]
@@ -36,69 +63,88 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 
 ## Features
 
-- Professional profile, experience, education, certifications, skills, and contact pages.
-- Applied-AI platform catalog with 20 systems across GenAI, LangGraph, and CrewAI categories.
-- 12 anonymized enterprise case studies and 13 linked open-source projects.
-- 32 visual theme families with light and dark modes, producing 64 resolved themes.
-- Persisted theme selection with backward-compatible `localStorage` parsing.
-- Responsive navigation, layouts, cards, accordions, galleries, and accessible dialogs.
-- Route-level title, description, canonical, robots, Open Graph, and Twitter metadata.
-- Lazy-loaded route modules with an accessible loading state and catch-all 404 page.
-- Reduced-motion support and a desktop-only animated cursor.
+**Content pages**
+- Professional profile, experience timeline, education, degrees, certifications, skills catalog, and contact page.
+- Applied-AI platform catalog with 20 production systems across GenAI pipelines, LangGraph state machines, and CrewAI multi-agent teams.
+- 12 anonymized enterprise AI case studies (Healthcare AI, Agentic AI, Document AI).
+- 13 linked open-source projects with live GitHub links.
+
+**Theming**
+- 32 visual theme families with light and dark variants, producing 64 resolved themes.
+- Theme selection persisted in `localStorage` with backward-compatible parsing.
+- System preference (`prefers-color-scheme`) respected when no explicit choice is made.
+
+**UX and accessibility**
+- Responsive navigation, card layouts, accordions, galleries, and accessible dialogs.
+- Reduced-motion support; desktop-only animated cursor (configurable off).
+- Lazy-loaded routes with a visible loading state and a catch-all accessible 404 page.
+
+**SEO and metadata**
+- Route-level `<title>`, `<meta description>`, canonical URL, `robots`, Open Graph, and Twitter Card tags via `react-helmet-async`.
+- `public/sitemap.xml` and `public/robots.txt` included.
+
+**Quality**
+- 14 test files, 158 tests covering rendering, navigation, theming, accessibility, and route metadata.
+- Automated lint, typecheck, build, and test on every push and pull request to `main`.
 - Optional Google Analytics 4 integration, disabled by default.
-- Automated linting, type checking, builds, tests, and GitHub Pages deployment.
 
 ## Tech Stack
 
-| Area            | Technology                                                    |
-| --------------- | ------------------------------------------------------------- |
-| UI              | React 19, React Bootstrap, styled-components                  |
-| Routing         | React Router DOM 7                                            |
-| Build           | Vite 8, `@vitejs/plugin-react`, SVGR                          |
-| Animation       | Framer Motion, react-animated-cursor                          |
-| Metadata        | react-helmet-async                                            |
-| Icons           | react-icons and local SVG components                          |
-| Analytics       | react-ga4                                                     |
-| Testing         | Vitest, Testing Library, jsdom, jest-axe, axe-core            |
-| Browser testing | Playwright and Chrome DevTools Protocol                       |
-| Quality         | ESLint 10, TypeScript 7 in JavaScript-checking mode, Prettier |
-| Runtime         | Node.js `>=24.19.0 <25`, npm `>=12.0.2 <13`                   |
-| Hosting         | GitHub Pages and Vercel                                       |
+| Area | Technology |
+| --- | --- |
+| UI | React 19, React Bootstrap, styled-components v6 |
+| Routing | React Router DOM 7 |
+| Build | Vite 8, `@vitejs/plugin-react`, SVGR |
+| Animation | Framer Motion v13, react-animated-cursor |
+| Metadata | react-helmet-async |
+| Icons | react-icons v5, local SVG components |
+| Analytics | react-ga4 |
+| Testing | Vitest 4, Testing Library 16, jsdom, jest-axe, axe-core |
+| Browser testing | Playwright, Chrome DevTools Protocol |
+| Quality | ESLint 10, TypeScript 7 (JS-checking mode), Prettier |
+| Runtime | Node.js `>=24.19.0 <25`, npm `>=12.0.2 <13` |
+| Hosting | GitHub Pages (primary), Vercel (mirror) |
 
 ## Project Structure
 
 ```text
 .
-├── .github/workflows/
-│   ├── ci.yml                     # Lint, typecheck, build, and tests
-│   └── deploy.yml                 # Official GitHub Pages deployment
-├── public/                        # Static assets, certificates, manifest, SEO files
+├── .github/
+│   ├── ISSUE_TEMPLATE/            # Bug report and feature request templates
+│   ├── PULL_REQUEST_TEMPLATE.md   # PR checklist and quality gate
+│   └── workflows/
+│       ├── ci.yml                 # Lint, typecheck, build, and test on push/PR
+│       └── deploy.yml             # GitHub Pages deployment on push to main
+├── docs/
+│   └── migration/
+│       └── astro-migration-roadmap.md  # SPA hardening and Astro migration tracker
+├── public/                        # Static assets, favicon, manifest, sitemap, robots
 ├── src/
-│   ├── __tests__/                 # Focused behavior, rendering, and accessibility tests
-│   ├── components/                # Reusable cards, dialogs, navigation, icons, and SEO
-│   ├── containers/                # Page sections and application router
-│   │   └── Main.jsx               # Routes, metadata, lazy loading, and 404 handling
-│   ├── data/                      # Portfolio content and feature configuration
-│   ├── pages/                     # Lazy-loaded route-level components
-│   ├── test/                      # Shared test setup and render helpers
-│   ├── App.jsx                    # Global providers and application shell
+│   ├── __tests__/                 # 14 test files: rendering, a11y, navigation, themes
+│   ├── components/                # Reusable cards, dialogs, navigation, icons, SEO
+│   ├── containers/
+│   │   └── Main.jsx               # Route definitions, lazy loading, RouteMeta, 404
+│   ├── data/                      # Portfolio content — edit these to customise
+│   ├── pages/                     # Lazy-loaded route-level page components
+│   ├── test/                      # Shared Vitest setup and render helpers
+│   ├── App.jsx                    # Global providers: error boundary, theme, motion, analytics
 │   ├── index.jsx                  # React DOM entry point
-│   ├── portfolio.js               # Data-module barrel export
-│   ├── theme.js                   # Theme registry and contrast-safe token generation
-│   └── themeController.jsx        # Theme state, persistence, and provider
-├── index.html                     # Vite HTML entry and baseline metadata
+│   ├── portfolio.js               # Barrel re-export of all src/data/* modules
+│   ├── theme.js                   # 32-family theme registry and token generation
+│   └── themeController.jsx        # Theme state, localStorage persistence, and provider
+├── index.html                     # Vite HTML entry point and baseline metadata
 ├── stress-test.mjs                # Playwright performance and resilience checks
-├── vite.config.js                 # Development and production build configuration
-├── vitest.config.js               # jsdom test configuration
+├── vite.config.js                 # Dev server (port 3000) and production build config
+├── vitest.config.js               # jsdom test environment configuration
 ├── vercel.json                    # Vercel static deployment configuration
-└── package.json                   # Scripts, dependencies, and runtime requirements
+└── package.json                   # Scripts, dependencies, and Node/npm version pins
 ```
 
-## Installation and Setup
+## Getting Started
 
 ### Prerequisites
 
-- Node.js `24.19.0` (`.nvmrc` contains the project pin)
+- Node.js `24.19.0` — `.nvmrc` contains the pin; run `nvm use` or install manually
 - npm `12.0.2`
 - Git
 
@@ -117,7 +163,7 @@ npm ci
 npm run dev
 ```
 
-Vite opens the site at [http://localhost:3000](http://localhost:3000).
+Vite opens the site at [http://localhost:3000](http://localhost:3000) with hot-module replacement.
 
 ### Create a production build
 
@@ -125,44 +171,30 @@ Vite opens the site at [http://localhost:3000](http://localhost:3000).
 npm run build
 ```
 
-The build is written to `build/`. The build script also copies `build/index.html` to `build/404.html` so direct SPA routes work on GitHub Pages.
+Output goes to `build/`. The build script also copies `build/index.html` to `build/404.html` so direct SPA routes resolve correctly on GitHub Pages.
 
-### Preview the production build
+### Preview the production build locally
 
 ```bash
 npm run preview
+# opens http://localhost:4173
 ```
 
-The preview server runs at [http://localhost:4173](http://localhost:4173).
+## Commands
 
-## Environment Variables
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start Vite development server on port 3000 |
+| `npm run start` | Alias for the Vite development server |
+| `npm run build` | Build production assets into `build/` |
+| `npm run preview` | Preview the production build on port 4173 |
+| `npm run lint` | Run ESLint across JavaScript and JSX source files |
+| `npm run typecheck` | Run TypeScript static checks without emitting files |
+| `npm test` | Start Vitest in watch mode |
+| `npm run test:run` | Run the complete test suite once |
+| `npm run test:coverage` | Run tests and generate a coverage report |
 
-No environment variables are required. This is a static, client-only application with no backend, database, authentication service, or secret configuration.
-
-Google Analytics is configured through `googleTrackingID` in `src/data/settings.js`. It is empty by default, so analytics remains disabled. Never place private credentials in client-side configuration because Vite bundles client code for public delivery.
-
-## Usage
-
-| Command                 | Purpose                                             |
-| ----------------------- | --------------------------------------------------- |
-| `npm run dev`           | Start Vite development server on port 3000          |
-| `npm run start`         | Alias for the Vite development server               |
-| `npm run build`         | Build production assets into `build/`               |
-| `npm run preview`       | Preview the production build on port 4173           |
-| `npm run lint`          | Run ESLint across JavaScript and JSX source files   |
-| `npm run typecheck`     | Run TypeScript static checks without emitting files |
-| `npm test`              | Start Vitest in watch mode                          |
-| `npm run test:run`      | Run the complete test suite once                    |
-| `npm run test:coverage` | Run tests and generate coverage output              |
-
-To run the browser stress test, build and start the preview server first:
-
-```bash
-npm run build
-npm run preview
-```
-
-In another terminal:
+To run the browser stress test, build first and start the preview server, then in a second terminal:
 
 ```bash
 node stress-test.mjs
@@ -172,117 +204,115 @@ node stress-test.mjs
 
 ```text
 index.html
-   ↓
-src/index.jsx
-   ↓
-App
-   ├── ErrorBoundary
-   ├── ThemeControllerProvider → styled-components ThemeProvider
-   ├── MotionConfig → reduced-motion preference
-   ├── GlobalStyles
-   └── Main
-       ├── HelmetProvider
-       ├── BrowserRouter
-       ├── RouteMeta
-       └── Lazy-loaded page component
-               ↓
-          src/portfolio.js
-               ↓
-          src/data/*.js
+   └── src/index.jsx           React DOM entry point
+         └── App.jsx           Installs: ErrorBoundary, ThemeControllerProvider,
+                               MotionConfig, GlobalStyles, AnimatedCursor, Analytics
+               └── Main.jsx    HelmetProvider + BrowserRouter + RouteMeta
+                     └── <Lazy page>    renders from src/data/* via portfolio.js
 ```
 
-`src/index.jsx` mounts the React application. `App.jsx` installs global error, theme, motion, style, analytics, and cursor behavior. `Main.jsx` selects a lazy-loaded page for the current route and supplies route-specific metadata.
+**Data flow:** All portfolio content lives as plain JavaScript objects in `src/data/`. Every data module is re-exported through `src/portfolio.js` so pages import from a single barrel. No runtime API, CMS, or build-time data fetching is involved.
 
-Pages render portfolio content from plain JavaScript objects in `src/data/`, re-exported through `src/portfolio.js`. No runtime API or CMS is required. Theme selection is resolved by `themeController.jsx`, passed through styled-components, and persisted under the `theme` key in `localStorage`.
+**Theme flow:** `themeController.jsx` reads the user's stored preference from `localStorage`, resolves it against the registry in `src/theme.js`, and passes a complete token set through styled-components' `ThemeProvider`. The system preference (`prefers-color-scheme`) is the default when nothing is stored.
+
+**Routing:** `Main.jsx` defines all routes with `React.lazy`. Each route is paired with a `RouteMeta` component that writes the page-specific `<title>`, canonical URL, Open Graph tags, and robots directive into `<head>` via `react-helmet-async`.
 
 ## Routes
 
-| Path          | Content                                                   |
-| ------------- | --------------------------------------------------------- |
-| `/`           | Home page, or optional splash page                        |
-| `/home`       | Home page                                                 |
-| `/experience` | Professional experience                                   |
-| `/education`  | Degrees and certifications                                |
-| `/projects`   | AI platform, enterprise systems, and open-source projects |
-| `/skills`     | Complete skill catalog                                    |
-| `/contact`    | Contact links and blog call-to-action                     |
-| `/theme`      | Theme gallery; marked `noindex`                           |
-| `/splash`     | Standalone splash screen; marked `noindex`                |
-| `*`           | Accessible 404 page; marked `noindex`                     |
+| Path | Content |
+| --- | --- |
+| `/` | Home page, or optional splash page if `isSplash: true` |
+| `/home` | Home page |
+| `/experience` | Professional experience timeline |
+| `/education` | Degrees, certifications, and courses |
+| `/projects` | AI platform catalog, enterprise systems, open-source projects |
+| `/skills` | Complete skill catalog |
+| `/contact` | Contact links and blog call-to-action |
+| `/theme` | Theme gallery (marked `noindex`) |
+| `/splash` | Standalone splash screen (marked `noindex`) |
+| `*` | Accessible 404 page (marked `noindex`) |
 
 ## Configuration
 
-Global feature switches live in `src/data/settings.js`:
+### Feature switches
+
+Global settings live in `src/data/settings.js`:
 
 ```js
 export const settings = {
-  isSplash: false,
-  useCustomCursor: true,
-  googleTrackingID: "",
+  isSplash: false,       // true → show splash page at /
+  useCustomCursor: true, // false → use the browser default cursor
+  googleTrackingID: "",  // set a GA4 measurement ID to enable analytics
 };
 ```
 
-- Set `isSplash` to `true` to show the splash page at `/`.
-- Set `useCustomCursor` to `false` to use the browser cursor.
-- Set `googleTrackingID` to a public GA4 measurement ID to enable analytics.
+> [!NOTE]
+> `googleTrackingID` must remain an empty string in the repository. Never commit a real GA4 ID — Vite bundles client code for public delivery.
 
-Portfolio content can be updated without changing page components:
+### Portfolio content
 
-| File                      | Content                                            |
-| ------------------------- | -------------------------------------------------- |
-| `src/data/greeting.js`    | Hero copy, profile links, resume, and cover letter |
-| `src/data/socialMedia.js` | Social and email links                             |
-| `src/data/experience.js`  | Employment history                                 |
-| `src/data/education.js`   | Degrees and certifications                         |
-| `src/data/projects.js`    | Open-source projects                               |
-| `src/data/systems.js`     | Enterprise AI case studies                         |
-| `src/data/platform.js`    | Applied-AI platform catalog                        |
-| `src/data/skills.js`      | Home and full-page skill groups                    |
-| `src/data/contact.js`     | Contact-page content                               |
+Update these files to customise the site content without touching any page component:
 
-Themes are registered in `src/theme.js`. Each family supplies light and dark palettes; shared token generation derives semantic colors, surfaces, shadows, gradients, and contrast-safe text values.
+| File | Content |
+| --- | --- |
+| `src/data/greeting.js` | Hero copy, profile links, resume, and cover letter |
+| `src/data/socialMedia.js` | Social and email links |
+| `src/data/experience.js` | Employment history |
+| `src/data/education.js` | Degrees, certifications, and courses |
+| `src/data/projects.js` | Open-source projects (13 entries) |
+| `src/data/systems.js` | Enterprise AI case studies (12 entries) |
+| `src/data/platform.js` | Applied-AI platform catalog (20 systems) |
+| `src/data/skills.js` | Home and full-page skill groups |
+| `src/data/contact.js` | Contact-page content |
+
+### Themes
+
+Themes are registered in `src/theme.js`. Each of the 32 families provides a light and a dark palette. The shared token generator derives semantic colors, surface layers, shadows, gradients, and contrast-safe text values from those palettes.
 
 ## Testing and Quality
 
-The repository contains 14 test files and 158 tests covering:
+The repository contains **14 test files and 158 tests** covering:
 
 - Page and component rendering
 - Navigation and route resolution
-- Theme persistence, migration, and contrast ratios
+- Theme persistence, migration between formats, and contrast ratios
 - Dialog and gallery behavior
 - Responsive navigation structure
-- Project catalog integrity
-- Route metadata and canonical URLs
+- Project catalog data integrity
+- Route metadata, canonical URLs, and `noindex` flags
 - Accessibility checks with Testing Library, jest-axe, and axe-core
 
-CI runs on pushes and pull requests to `main`:
+CI runs on every push and pull request to `main`:
 
 ```text
-npm ci → lint → typecheck → build → tests
+npm ci → lint → typecheck → build → test:run
 ```
+
+All four gates must pass before a merge.
 
 ## Deployment
 
-Pushes to `main` trigger `.github/workflows/deploy.yml`. The workflow builds and tests the application, uploads `build/` with `actions/upload-pages-artifact`, and deploys it with `actions/deploy-pages`.
+### GitHub Pages (primary)
 
-GitHub Pages must use **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+Every push to `main` triggers `.github/workflows/deploy.yml`, which builds and tests the application, then deploys `build/` via `actions/upload-pages-artifact` and `actions/deploy-pages`.
 
-Vercel uses `vercel.json` with `npm run build` and serves the same `build/` directory.
+> [!IMPORTANT]
+> GitHub Pages must be configured to use **GitHub Actions** as the deployment source: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
-## Contributing
+### Vercel (mirror)
 
-Contributions of any kind are welcome — bug reports, documentation fixes, accessibility improvements, theme tweaks, test coverage, and code changes.
+`vercel.json` points Vercel at `npm run build` and serves the `build/` directory. Both deployments serve the same build output.
 
-- Read [CONTRIBUTING.md](CONTRIBUTING.md) for setup, quality checks, and ground rules
-- Use the [bug report template](https://github.com/pypi-ahmad/pypi-ahmad.github.io/issues/new?template=bug_report.md) or [feature request template](https://github.com/pypi-ahmad/pypi-ahmad.github.io/issues/new?template=feature_request.md)
-- Good first contributions: accessibility improvements, new theme families in `src/theme.js`, additional test coverage, documentation fixes
+## Documentation
 
-**No financial support is needed or wanted.** The project is free. The best way to support it is a clear issue or a well-tested PR.
+| Document | Description |
+| --- | --- |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute: local setup, quality checks, PR workflow, and ground rules |
+| [SUPPORT.md](SUPPORT.md) | Common questions, how to get help, GitHub Issues as the sole support path |
+| [SECURITY.md](SECURITY.md) | Security surface, what to report, and how to report privately |
+| [DISCLAIMER.md](DISCLAIMER.md) | Data responsibility, no-warranty statement, and credential ownership guidance |
+| [docs/migration/astro-migration-roadmap.md](docs/migration/astro-migration-roadmap.md) | SPA hardening tracker and Astro migration plan |
 
-For usage questions: [SUPPORT.md](SUPPORT.md). For data responsibility: [DISCLAIMER.md](DISCLAIMER.md). For security concerns: [SECURITY.md](SECURITY.md).
-
-## License
-
-Licensed under the [MIT License](LICENSE).
+---
 
 <p align="center">Made with ❤️ by Ahmad Mujtaba</p>
