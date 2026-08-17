@@ -1,11 +1,26 @@
-/**
- * Certifications.css — Certifications header and responsive grid.
- */
-.certs-header {
-  font-size: 40px;
-  line-height: 1.1;
-  font-family: "Google Sans Regular";
-  text-align: center;
+.certification-groups {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.certification-group-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.certification-group-heading h3 {
+  margin: 0;
+  font-family: "Google Sans Medium";
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+}
+
+.certification-group-heading span {
+  font-size: 0.85rem;
 }
 
 .certs-body-div {
@@ -14,23 +29,14 @@
   gap: var(--section-gap-tight);
 }
 
-@media (max-width: 1380px) {
-  .certs-header {
-    font-size: 35px;
-  }
-}
-
 @media (max-width: 1024px) {
   .certs-body-div {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 680px) {
   .certs-body-div {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .certs-header {
-    font-size: 30px;
+    grid-template-columns: 1fr;
   }
 }

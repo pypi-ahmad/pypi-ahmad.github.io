@@ -64,7 +64,7 @@ Changing one of the first four entries changes both project-page order and homep
 
 React Router handles `/`, `/home`, `/experience`, `/education`, `/projects`, `/skills`, `/contact`, `/theme`, `/splash`, and the catch-all page. Each route is paired with `RouteMeta`, which manages its title, description, canonical URL, robots rule, Open Graph tags, and Twitter tags.
 
-Both `/` and `/home` render the homepage. Metadata normalizes `/home` to the canonical root URL. The production build copies `index.html` to `404.html` for GitHub Pages route recovery. It also creates `home/index.html` and `projects/index.html` so direct requests for those routes return HTTP 200.
+Both `/` and `/home` render the homepage. Metadata normalizes `/home` to the canonical root URL. The production build copies `index.html` to `404.html` for GitHub Pages route recovery. It also creates `home/index.html`, `education/index.html`, and `projects/index.html` so direct requests for those routes return HTTP 200.
 
 `index.html` supplies fallback metadata before React loads. Its JSON-LD describes a `ProfilePage` whose main entity is Ahmad Mujtaba. When homepage positioning changes, update both fallback metadata and runtime route metadata.
 
@@ -101,7 +101,7 @@ Canonical metadata points to `https://pypi-ahmad.github.io/`. Deployment runs fr
 | Lint | `npm run lint` | ESLint reports no errors |
 | Typecheck | `npm run typecheck` | TypeScript emits no errors |
 | Test | `npm run test:run` | Complete Vitest suite passes |
-| Build | `npm run build` | `build/`, `404.html`, `home/index.html`, and `projects/index.html` exist |
+| Build | `npm run build` | `build/`, `404.html`, `home/index.html`, `education/index.html`, and `projects/index.html` exist |
 | Preview | `npm run preview` | Production build serves port 4173 |
 
 The typecheck configuration allows JavaScript but sets `checkJs` to `false`. It verifies module and configuration compatibility, not complete static typing for every JavaScript expression.

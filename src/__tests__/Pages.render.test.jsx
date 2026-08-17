@@ -56,18 +56,20 @@ describe("Page Rendering Smoke Tests", () => {
     expect(screen.getByText(/team and system results from confidential employer evaluations/i)).toBeInTheDocument();
   });
 
-  it("Education page renders the 'Education' heading", () => {
+  it("Education page renders the applied-AI education heading", () => {
     renderWithProviders(<Education {...pageProps} />);
     expect(
-      screen.getByRole("heading", { level: 1, name: "Education" })
+      screen.getByRole("heading", {
+        level: 1,
+        name: "Academic foundations for applied AI.",
+      })
     ).toBeInTheDocument();
   });
 
-  it("Education page renders the subtitle", () => {
+  it("Education page renders the credential positioning", () => {
     renderWithProviders(<Education {...pageProps} />);
-    expect(
-      screen.getByText("Basic Qualification and Certifications")
-    ).toBeInTheDocument();
+    expect(screen.getByText("Education & credentials")).toBeInTheDocument();
+    expect(screen.getByText("Professional certifications")).toBeInTheDocument();
   });
 
   it("Contact page renders 'Contact Me' heading", () => {

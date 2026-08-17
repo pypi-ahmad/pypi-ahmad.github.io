@@ -61,9 +61,9 @@ const routeMeta = {
     canonicalPath: "/experience",
   },
   education: {
-    title: "Education | Ahmad Mujtaba",
+    title: "Education & Certifications | Ahmad Mujtaba",
     description:
-      "Academic background, certifications, and continuous learning roadmap in AI and machine learning.",
+      "Academic foundations in computer science and data analytics, with focused credentials in generative AI, machine learning, deep learning, and data systems.",
     canonicalPath: "/education",
   },
   projects: {

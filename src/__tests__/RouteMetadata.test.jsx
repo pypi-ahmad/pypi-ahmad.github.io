@@ -50,6 +50,18 @@ describe("Route metadata", () => {
     ).toBe("https://pypi-ahmad.github.io/experience");
   });
 
+  it("applies Education route metadata", async () => {
+    renderMainAt("/education");
+
+    await waitForTitle("Education & Certifications | Ahmad Mujtaba");
+    expect(
+      getManagedMeta('meta[name="description"]')?.getAttribute("content")
+    ).toContain("generative AI");
+    expect(
+      getManagedMeta('link[rel="canonical"]')?.getAttribute("href")
+    ).toBe("https://pypi-ahmad.github.io/education");
+  });
+
   it("applies Projects route metadata", async () => {
     renderMainAt("/projects");
 

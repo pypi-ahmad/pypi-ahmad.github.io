@@ -71,7 +71,10 @@ describe("Navigation — Route Resolution", () => {
 
   it("'/education' renders the Education page", () => {
     renderAtRoute("/education");
-    expect(screen.getByRole("heading", { level: 1, name: "Education" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", {
+      level: 1,
+      name: "Academic foundations for applied AI.",
+    })).toBeInTheDocument();
   });
 
   it("'/contact' renders the Contact page", () => {
@@ -108,7 +111,10 @@ describe("Navigation — NavLink Click Flow", () => {
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const educationLink = screen.getByText("Education and Certifications");
     await user.click(educationLink);
-    expect(screen.getByRole("heading", { level: 1, name: "Education" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", {
+      level: 1,
+      name: "Academic foundations for applied AI.",
+    })).toBeInTheDocument();
   });
 
   it("clicking 'Contact Me' NavLink navigates to Contact page", async () => {
