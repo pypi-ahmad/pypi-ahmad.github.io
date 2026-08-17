@@ -15,6 +15,11 @@ function CertificationCard({ certificate, theme }) {
         {certificate.subtitle}
       </p>
       <h4 style={{ color: theme.text }}>{certificate.title}</h4>
+      {certificate.completionDate ? (
+        <p className="cert-card__date" style={{ color: theme.secondaryText }}>
+          Completed {certificate.completionDate}
+        </p>
+      ) : null}
       {certificate.summary ? (
         <p className="cert-card__summary" style={{ color: theme.secondaryText }}>
           {certificate.summary}
