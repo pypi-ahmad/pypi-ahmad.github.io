@@ -1,126 +1,154 @@
-/**
- * Skills Page (/skills)
- *
- * Full technical skills grid organized by domain. Each section shows
- * local SVG/react skill icons linking to official docs and an optional text
- * bullet list.  Driven by `skillsPageData` from the data layer.
- *
- * Props: { theme }
- */
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import { motion } from "framer-motion";
-import { skillsPageData } from "../../portfolio";
-import SkillIcon from "../../components/icons/SkillIcon";
-import "./SkillsPage.css";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import { homePageData, projects, skillsPageData } from "../../portfolio";
 import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
+import "./SkillsPage.css";
 
-/** Individual skill category section within the page grid. */
-const SkillSection = ({ section, theme }) => {
-  return (
-    <div
-      className="skill-section shadow-sm hover-shadow-lg hover-translate-y-1 transition-all duration-200 layer-card"
-      style={{
-        background: buildThemeBackground(theme.cardBackgroundAlt, theme.surfacePattern),
-        border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-      }}
-    >
-      <h3
-        className="skill-section-title"
-        style={{
-          color: theme.text,
-          fontFamily: theme.accentFontFamily,
-          letterSpacing: theme.accentLetterSpacing,
-        }}
-      >
-        {section.title}
-      </h3>
-      {section.softwareSkills.length > 0 && (
-        <div className="skills-icon-grid">
-          {section.softwareSkills.map((skill, index) => (
-            <a
-              key={index}
-              href={skill.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="skill-icon-item"
-              style={{
-                background: buildThemeBackground(theme.accentSoft, theme.buttonPattern),
-                border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-                borderRadius: theme.controlRadius,
-                boxShadow: buildThemeShadow(`0 16px 30px ${theme.shadowColor}`, theme.buttonGlow),
-                color: theme.text,
-              }}
-            >
-              <SkillIcon skill={skill} className="skill-page-icon" />
-              <span
-                className="skill-icon-name"
-                style={{ color: theme.secondaryText }}
-              >
-                {skill.skillName}
-              </span>
-            </a>
-          ))}
-        </div>
-      )}
-      {section.skills && section.skills.length > 0 && (
-        <ul className="skill-text-list">
-          {section.skills.map((s, i) => (
-            <li key={i} className="skill-text-item" style={{ color: theme.secondaryText }}>
-              {s}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+export default function SkillsPage({ theme }) {
+  const featuredProjects = skillsPageData.featuredProjectNames.map(name =>
+    projects.data.find(project => project.name === name)
   );
-};
 
-function SkillsPage(props) {
-  const theme = props.theme;
   return (
     <div className="skills-main">
       <Header />
-      <main className="basic-skills" id="main-content">
-        <motion.div
-          initial={{ y: 40, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
+      <main id="main-content">
+        <section
+          className="skills-hero"
+          aria-labelledby="skills-title"
+          style={{
+            background: buildThemeBackground(theme.heroGradient, theme.heroPattern),
+            border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+            borderRadius: theme.heroRadius,
+            boxShadow: buildThemeShadow(`0 28px 80px ${theme.shadowColor}`, theme.panelGlow),
+          }}
         >
-          <div className="skills-heading-div">
-            <div className="skills-heading-text-div">
-              <h1 className="skills-heading-text" style={{ color: theme.text }}>
-                {skillsPageData.title}
-              </h1>
-              <p
-                className="skills-header-detail-text subTitle"
-                style={{ color: theme.secondaryText }}
-              >
-                {skillsPageData.subtitle}
-              </p>
-            </div>
-          </div>
-        </motion.div>
+          <p className="skills-eyebrow" style={{ color: theme.accentSolid }}>
+            {skillsPageData.eyebrow}
+          </p>
+          <h1 id="skills-title" style={{ color: theme.text }}>
+            {skillsPageData.title}
+          </h1>
+          <p className="skills-intro" style={{ color: theme.secondaryText }}>
+            {skillsPageData.subtitle}
+          </p>
+        </section>
 
-        <div className="skills-card-div">
-            {skillsPageData.skills.map((section, index) => (
-                <motion.div
-                  initial={{ y: 40, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 1 }}
-                  viewport={{ once: true }}
-                  key={index}
-                >
-                    <SkillSection section={section} theme={theme} />
-                </motion.div>
+        <section className="skills-section" aria-labelledby="capabilities-title">
+          <div className="skills-section-heading">
+            <h2 id="capabilities-title" style={{ color: theme.text }}>Core capabilities</h2>
+            <p style={{ color: theme.secondaryText }}>
+              System-level skills organized around what gets built and verified.
+            </p>
+          </div>
+          <div className="capability-grid">
+            {skillsPageData.capabilities.map(capability => (
+              <article
+                key={capability.title}
+                className="capability-card"
+                style={{
+                  background: buildThemeBackground(theme.cardBackgroundAlt, theme.surfacePattern),
+                  border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+                  borderRadius: theme.surfaceRadius,
+                  boxShadow: buildThemeShadow(`0 16px 32px ${theme.shadowColor}`, theme.panelGlow),
+                }}
+              >
+                <h3 style={{ color: theme.accentSolid }}>{capability.title}</h3>
+                <p style={{ color: theme.secondaryText }}>{capability.description}</p>
+              </article>
             ))}
-        </div>
+          </div>
+        </section>
+
+        <section className="skills-section" aria-labelledby="skills-evidence-title">
+          <div className="skills-section-heading">
+            <h2 id="skills-evidence-title" style={{ color: theme.text }}>Evidence in practice</h2>
+            <p style={{ color: theme.secondaryText }}>
+              Qualified employer outcomes and public implementations provide context for these capabilities.
+            </p>
+          </div>
+          <ul className="skills-outcome-grid">
+            {homePageData.outcomes.map(outcome => (
+              <li
+                key={outcome.label}
+                style={{
+                  background: buildThemeBackground(theme.accentSoft, theme.surfacePattern),
+                  border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+                  borderRadius: theme.surfaceRadius,
+                }}
+              >
+                <strong style={{ color: theme.accentSolid }}>{outcome.metric}</strong>
+                <h3 style={{ color: theme.text }}>{outcome.label}</h3>
+                <p style={{ color: theme.secondaryText }}>{outcome.context}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="skills-proof-grid">
+            {featuredProjects.map((project, index) => (
+              <ProjectCard key={project.url} repo={project} index={index + 1} priority />
+            ))}
+          </div>
+        </section>
+
+        <section className="skills-section" aria-labelledby="toolkit-title">
+          <div className="skills-section-heading">
+            <h2 id="toolkit-title" style={{ color: theme.text }}>Working toolkit</h2>
+            <p style={{ color: theme.secondaryText }}>
+              A curated set of tools used across current work and public projects.
+            </p>
+          </div>
+          <div className="toolkit-grid">
+            {skillsPageData.toolGroups.map(group => (
+              <article
+                key={group.title}
+                className="toolkit-group"
+                style={{
+                  background: theme.cardBackgroundAlt,
+                  border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+                  borderRadius: theme.surfaceRadius,
+                }}
+              >
+                <h3 style={{ color: theme.text }}>{group.title}</h3>
+                <ul>
+                  {group.tools.map(tool => (
+                    <li key={tool} style={{ color: theme.secondaryText, borderColor: theme.borderSoft }}>
+                      {tool}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section
+          className="skills-cta"
+          style={{
+            background: theme.accentSoft,
+            border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+            borderRadius: theme.surfaceRadius,
+          }}
+        >
+          <div>
+            <h2 style={{ color: theme.text }}>See the skills in working systems.</h2>
+            <p style={{ color: theme.secondaryText }}>
+              Review implementation details or discuss an Applied AI role or engagement.
+            </p>
+          </div>
+          <div className="skills-cta-actions">
+            <Link to="/projects" style={{ background: theme.accentGradient, color: theme.accentText }}>
+              View projects
+            </Link>
+            <Link to="/contact" style={{ color: theme.text, borderColor: theme.borderSoft }}>
+              Contact me
+            </Link>
+          </div>
+        </section>
       </main>
-      <Footer theme={props.theme} />
+      <Footer theme={theme} />
     </div>
   );
 }
-
-export default SkillsPage;

@@ -5,14 +5,15 @@
   margin: 18px 0 0 0;
   padding: 0;
   list-style: none;
-  display: inline-flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   text-align: left;
 }
 
 .contact-links-item {
   margin: 0;
+  height: 100%;
 }
 
 .contact-links-anchor {
@@ -22,9 +23,11 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 15px;
-  padding: 10px 12px;
-  border: 1px solid transparent;
-  border-radius: 10px;
+  height: 100%;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--surface-card);
   transition: background-color var(--theme-transition-medium), border-color var(--theme-transition-fast), transform var(--theme-transition-fast);
 }
 
@@ -88,6 +91,10 @@
 }
 
 @media (max-width: 768px) {
+  .contact-links-list {
+    grid-template-columns: 1fr;
+  }
+
   .contact-links-anchor {
     flex-wrap: wrap;
   }

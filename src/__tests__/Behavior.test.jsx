@@ -1,12 +1,11 @@
 /**
  * Component Behavior Tests
  *
- * Verifies theme persistence, Greeting CTAs, and ExperienceAccordion behavior.
+ * Verifies theme persistence and Greeting CTA behavior.
  *
  * Sources:
  *  - src/components/header/Header.jsx     (theme toggle)
  *  - src/containers/greeting/Greeting.jsx  (CTA buttons)
- *  - src/containers/experienceAccordion/ExperienceAccordion.jsx (accordion)
  */
 import React from "react";
 import { screen } from "@testing-library/react";
@@ -14,7 +13,6 @@ import userEvent from "@testing-library/user-event";
 import { describe, it, expect, beforeEach } from "vitest";
 import Header from "../components/header/Header";
 import Greeting from "../containers/greeting/Greeting";
-import ExperienceAccordion from "../containers/experienceAccordion/ExperienceAccordion";
 import { renderWithProviders, darkTheme, lightTheme } from "../test/testUtils";
 
 async function openHeaderMenu(user) {
@@ -119,7 +117,6 @@ describe("Header — Theme Toggle Behavior", () => {
     expect(localStorage.getItem("accent")).toBe("pink");
   });
 });
-
 // ────────────────────────────────────────────────────────
 // Home hero CTA behavior
 // ────────────────────────────────────────────────────────
@@ -146,76 +143,5 @@ describe("Home hero CTA behavior", () => {
       "href",
       "#selected-work"
     );
-  });
-});
-
-// ────────────────────────────────────────────────────────
-// ExperienceAccordion Behavior
-// ────────────────────────────────────────────────────────
-const mockSections = [
-  {
-    title: "Work",
-    experiences: [
-      {
-        title: "AI and Data Science Engineer",
-        company: "Deloitte",
-        companyUrl: "https://www2.deloitte.com/",
-        logoPath: "deloitte_logo.svg",
-        duration: "July 2025 – Present",
-        location: "Gurugram, India",
-        descriptions: ["Built IDP system."],
-        color: "#000000",
-      },
-    ],
-  },
-  {
-    title: "Internship",
-    experiences: [
-      {
-        title: "ML Intern",
-        company: "AiEnsured",
-        companyUrl: "https://aiensured.com/",
-        logoPath: "aiensured_logo.svg",
-        duration: "Jul 2021 - Aug 2021",
-        location: "Remote, India",
-        descriptions: ["Built CV models."],
-        color: "#fc1f20",
-      },
-    ],
-  },
-];
-
-describe("ExperienceAccordion — Expand/Collapse Behavior", () => {
-  it("renders section titles as accordion summaries", () => {
-    renderWithProviders(
-      <ExperienceAccordion sections={mockSections} theme={darkTheme} />
-    );
-    expect(screen.getByText("Work")).toBeInTheDocument();
-    expect(screen.getByText("Internship")).toBeInTheDocument();
-  });
-
-  it("first accordion panel is open by default", () => {
-    renderWithProviders(
-      <ExperienceAccordion sections={mockSections} theme={darkTheme} />
-    );
-    // The first <details> should have the "open" attribute
-    const detailsElements = document.querySelectorAll("details");
-    expect(detailsElements[0]).toHaveAttribute("open");
-  });
-
-  it("second accordion panel is closed by default", () => {
-    renderWithProviders(
-      <ExperienceAccordion sections={mockSections} theme={darkTheme} />
-    );
-    const detailsElements = document.querySelectorAll("details");
-    expect(detailsElements[1]).not.toHaveAttribute("open");
-  });
-
-  it("shows experience card content inside first (open) panel", () => {
-    renderWithProviders(
-      <ExperienceAccordion sections={mockSections} theme={darkTheme} />
-    );
-    expect(screen.getByText("AI and Data Science Engineer")).toBeInTheDocument();
-    expect(screen.getByText("Deloitte")).toBeInTheDocument();
   });
 });

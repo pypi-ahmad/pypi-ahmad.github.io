@@ -83,7 +83,7 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 - `public/sitemap.xml` and `public/robots.txt` included.
 
 **Quality**
-- 16 test files, 133 tests covering rendering, navigation, theming, accessibility, content contracts, and route metadata.
+- Tests cover rendering, navigation, theming, accessibility, content contracts, and route metadata.
 - Automated lint, typecheck, build, and test on every push and pull request to `main`.
 - Optional Google Analytics 4 integration, disabled by default.
 
@@ -119,7 +119,7 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 │       └── astro-migration-roadmap.md  # SPA hardening and Astro migration tracker
 ├── public/                        # Static assets, favicon, manifest, sitemap, robots
 ├── src/
-│   ├── __tests__/                 # 16 test files: rendering, a11y, navigation, themes
+│   ├── __tests__/                 # Rendering, a11y, navigation, content contracts
 │   ├── components/                # Reusable cards, navigation, icons, and SEO
 │   ├── containers/
 │   │   └── Main.jsx               # Route definitions, lazy loading, RouteMeta, 404
@@ -222,11 +222,11 @@ index.html
 | --- | --- |
 | `/` | Home page, or optional splash page if `isSplash: true` |
 | `/home` | Home page |
-| `/experience` | Professional experience timeline |
+| `/experience` | Professional experience, contributions, and qualified outcomes |
 | `/education` | Degrees, certifications, and courses |
 | `/projects` | 13 recent public projects |
-| `/skills` | Complete skill catalog |
-| `/contact` | Contact links and blog call-to-action |
+| `/skills` | Applied-AI capabilities, project evidence, and curated toolkit |
+| `/contact` | Direct contact actions and verified professional channels |
 | `/splash` | Standalone splash screen (marked `noindex`) |
 | `*` | Accessible 404 page (marked `noindex`) |
 
@@ -259,7 +259,7 @@ Update these files to customise the site content without touching any page compo
 | `src/data/experience.js` | Employment history |
 | `src/data/education.js` | Degrees, certifications, and courses |
 | `src/data/projects.js` | Open-source projects (13 entries) |
-| `src/data/skills.js` | Full skills-page groups |
+| `src/data/skills.js` | Skills-page capabilities, proof projects, and curated tools |
 | `src/data/contact.js` | Contact-page content |
 
 ### Appearance
@@ -268,7 +268,7 @@ Update these files to customise the site content without touching any page compo
 
 ## Testing and Quality
 
-The repository contains **16 test files and 133 tests** covering:
+The repository test suite covers:
 
 - Page and component rendering
 - Navigation and route resolution

@@ -41,13 +41,15 @@ describe("Page Rendering Smoke Tests", () => {
     renderWithProviders(<Experience {...pageProps} />);
     // "Experience" appears in both nav link and h1 — use heading role
     expect(
-      screen.getByRole("heading", { level: 1, name: "Experience" })
+      screen.getByRole("heading", { level: 1, name: "Building and evaluating applied AI systems." })
     ).toBeInTheDocument();
   });
 
-  it("Experience page renders the subtitle", () => {
+  it("Experience page renders grouped Deloitte context and outcomes", () => {
     renderWithProviders(<Experience {...pageProps} />);
-    expect(screen.getByText("Systems Built · Impact Delivered")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Team system context" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "My contributions" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Qualified outcomes" })).toBeInTheDocument();
   });
 
   it("Experience page uses the current Deloitte role and confidentiality boundary", () => {
@@ -72,23 +74,22 @@ describe("Page Rendering Smoke Tests", () => {
     expect(screen.getByText("Professional certifications")).toBeInTheDocument();
   });
 
-  it("Contact page renders 'Contact Me' heading", () => {
+  it("Contact page renders its contact-first hero", () => {
     renderWithProviders(<Contact {...pageProps} />);
     // The contact section title from contact.js data
-    expect(screen.getByText("Contact Me", { selector: "h1" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "Let’s build useful AI systems." })).toBeInTheDocument();
   });
 
-  it("Contact page renders resume CTA 'Want to know more?'", () => {
+  it("Contact page renders email and résumé actions", () => {
     renderWithProviders(<Contact {...pageProps} />);
-    expect(screen.getByText("Want to know more?")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Email me" })).toHaveAttribute("href", "mailto:ahmad.iiitk@gmail.com");
+    expect(screen.getByRole("link", { name: "Download résumé" })).toHaveAttribute("href", "/Resume.pdf");
   });
 
-  it("Contact page features LoRA Fine-tune Studio", () => {
+  it("Contact page removes the featured open-source section", () => {
     renderWithProviders(<Contact {...pageProps} />);
-    expect(screen.getByRole("link", { name: "View LoRA Fine-tune Studio on GitHub" })).toHaveAttribute(
-      "href",
-      "https://github.com/pypi-ahmad/lora-qlora-fine-tuning-app"
-    );
+    expect(screen.queryByText("Featured Open Source")).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: /LoRA Fine-tune Studio/ })).not.toBeInTheDocument();
   });
 
   it("Projects page renders 'Projects' heading", () => {
@@ -111,10 +112,10 @@ describe("Page Rendering Smoke Tests", () => {
     expect(screen.queryByText("Autonomous Coding Agent Crew")).not.toBeInTheDocument();
   });
 
-  it("Skills page renders 'Technical Skills' heading", () => {
+  it("Skills page renders the reliable-systems heading", () => {
     renderWithProviders(<SkillsPage {...pageProps} />);
     expect(
-      screen.getByRole("heading", { level: 1, name: "Technical Skills" })
+      screen.getByRole("heading", { level: 1, name: "Skills for reliable AI systems." })
     ).toBeInTheDocument();
   });
 

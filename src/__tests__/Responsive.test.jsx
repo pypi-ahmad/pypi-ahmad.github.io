@@ -12,7 +12,6 @@
  * Sources:
  *  - src/components/header/Header.jsx (hamburger menu)
  *  - src/global.js (mobile breakpoint at 768px)
- *  - src/containers/experienceAccordion/ExperienceAccordion.jsx (mobile margin)
  */
 import React from "react";
 import { screen } from "@testing-library/react";

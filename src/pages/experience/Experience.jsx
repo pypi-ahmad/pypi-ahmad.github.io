@@ -1,65 +1,52 @@
-/**
- * Experience Page (/experience)
- *
- * Displays professional work history with an SVG illustration header
- * and the ExperienceAccordion of role cards.
- *
- * Props: { theme }
- */
 import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import ExperienceAccordion from "../../containers/experienceAccordion/ExperienceAccordion";
-import "./Experience.css";
+import ExperienceCard from "../../components/experienceCard/ExperienceCard";
 import { experience } from "../../portfolio.js";
-import { motion } from "framer-motion";
-import ExperienceImg from "./ExperienceImg";
+import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
+import "./Experience.css";
 
-function Experience(props) {
-  const theme = props.theme;
+export default function Experience({ theme }) {
+  const roles = experience.sections.flatMap(section => section.experiences);
+
   return (
     <div className="experience-main">
       <Header />
       <main id="main-content">
-        <div className="basic-experience">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-          >
-            <div className="experience-heading-div">
-              <div className="experience-heading-img-div">
-                <ExperienceImg theme={theme} />
-              </div>
-              <div className="experience-heading-text-div">
-                <h1
-                  className="experience-heading-text"
-                  style={{ color: theme.text }}
-                >
-                  {experience.title}
-                </h1>
-                <h3
-                  className="experience-heading-sub-text"
-                  style={{ color: theme.text }}
-                >
-                  {experience["subtitle"]}
-                </h3>
-                <p
-                  className="experience-header-detail-text subTitle"
-                  style={{ color: theme.secondaryText }}
-                >
-                  {experience["description"]}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <ExperienceAccordion sections={experience["sections"]} theme={theme} />
+        <section
+          className="experience-hero"
+          aria-labelledby="experience-title"
+          style={{
+            background: buildThemeBackground(theme.heroGradient, theme.heroPattern),
+            border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+            borderRadius: theme.heroRadius,
+            boxShadow: buildThemeShadow(`0 28px 80px ${theme.shadowColor}`, theme.panelGlow),
+          }}
+        >
+          <p className="experience-eyebrow" style={{ color: theme.accentSolid }}>
+            {experience.eyebrow}
+          </p>
+          <h1 id="experience-title" style={{ color: theme.text }}>{experience.title}</h1>
+          <p className="experience-intro" style={{ color: theme.secondaryText }}>
+            {experience.description}
+          </p>
+        </section>
+
+        <section className="experience-timeline" aria-labelledby="roles-title">
+          <div className="experience-section-heading">
+            <h2 id="roles-title" style={{ color: theme.text }}>Roles</h2>
+            <p style={{ color: theme.secondaryText }}>
+              Recent work first, with employer outcomes separated from individual contributions.
+            </p>
+          </div>
+          <div className="experience-role-list">
+            {roles.map(role => (
+              <ExperienceCard key={`${role.company}-${role.title}`} experience={role} theme={theme} />
+            ))}
+          </div>
+        </section>
       </main>
-      <Footer theme={props.theme} />
+      <Footer theme={theme} />
     </div>
   );
 }
-
-export default Experience;
