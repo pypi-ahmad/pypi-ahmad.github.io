@@ -26,15 +26,15 @@ describe("Greeting — UI Rendering", () => {
 
   it("renders the subtitle text", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByText(/4\+ years building LLM, agentic, and document intelligence systems/i)).toBeInTheDocument();
+    expect(screen.getByText(/Applied AI Engineer building reliable Document AI, RAG, and agentic systems/i)).toBeInTheDocument();
   });
 
   it("renders all 4 hero bullet points", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByText(/prior-authorization fax extraction from ~80-81% to 90%\+/i)).toBeInTheDocument();
-    expect(screen.getByText(/health-policy entity extraction from 90% to 99%/i)).toBeInTheDocument();
-    expect(screen.getByText(/task completion from 38% to 80%/i)).toBeInTheDocument();
-    expect(screen.getByText(/prompt-token usage by ~40%/i)).toBeInTheDocument();
+    expect(screen.getByText(/38% to 80% across the same 200-task internal evaluation/i)).toBeInTheDocument();
+    expect(screen.getByText(/prompt-token consumption fell by approximately 40%/i)).toBeInTheDocument();
+    expect(screen.getByText(/80–81% to above 90%/i)).toBeInTheDocument();
+    expect(screen.getByText(/90% to 99%/i)).toBeInTheDocument();
   });
 
   it("renders the engineering philosophy quote", () => {

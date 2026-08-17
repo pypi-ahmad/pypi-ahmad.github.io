@@ -47,6 +47,12 @@ describe("Page Rendering Smoke Tests", () => {
     expect(screen.getByText("Systems Built · Impact Delivered")).toBeInTheDocument();
   });
 
+  it("Experience page uses the current Deloitte role and confidentiality boundary", () => {
+    renderWithProviders(<Experience {...pageProps} />);
+    expect(screen.getByText("AI and Data Science Engineer")).toBeInTheDocument();
+    expect(screen.getByText(/team and system results from confidential employer evaluations/i)).toBeInTheDocument();
+  });
+
   it("Education page renders the 'Education' heading", () => {
     renderWithProviders(<Education {...pageProps} />);
     expect(
@@ -72,6 +78,14 @@ describe("Page Rendering Smoke Tests", () => {
     expect(screen.getByText("Want to know more?")).toBeInTheDocument();
   });
 
+  it("Contact page features LoRA Fine-tune Studio", () => {
+    renderWithProviders(<Contact {...pageProps} />);
+    expect(screen.getByRole("link", { name: "View LoRA Fine-tune Studio on GitHub" })).toHaveAttribute(
+      "href",
+      "https://github.com/pypi-ahmad/lora-qlora-fine-tuning-app"
+    );
+  });
+
   it("Projects page renders 'Projects' heading", () => {
     renderWithProviders(<Projects {...pageProps} />);
     expect(
@@ -79,9 +93,17 @@ describe("Page Rendering Smoke Tests", () => {
     ).toBeInTheDocument();
   });
 
-  it("Projects page renders 'Enterprise Systems' section heading", () => {
+  it("Projects page renders the recent-projects section", () => {
     renderWithProviders(<Projects {...pageProps} />);
-    expect(screen.getByText("Enterprise Systems")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "Recent Projects" })).toBeInTheDocument();
+  });
+
+  it("Home page renders the top four featured projects", () => {
+    renderWithProviders(<Home {...pageProps} />);
+    expect(screen.getByRole("heading", { level: 2, name: "Featured Projects" })).toBeInTheDocument();
+    expect(screen.getByText("LoRA Fine-tune Studio")).toBeInTheDocument();
+    expect(screen.getByText("NL2SQL Agent")).toBeInTheDocument();
+    expect(screen.queryByText("Autonomous Coding Agent Crew")).not.toBeInTheDocument();
   });
 
   it("Skills page renders 'Technical Skills' heading", () => {

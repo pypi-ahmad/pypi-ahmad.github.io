@@ -1,12 +1,10 @@
 /**
  * Component Behavior Tests
  *
- * Verifies interactive behavior: theme toggle persistence, SystemCard modal
- * open/close, Greeting CTA button actions, and ExperienceAccordion expand/collapse.
+ * Verifies theme persistence, Greeting CTAs, and ExperienceAccordion behavior.
  *
  * Sources:
  *  - src/components/header/Header.jsx     (theme toggle)
- *  - src/components/SystemDesign/SystemCard.jsx (modal)
  *  - src/containers/greeting/Greeting.jsx  (CTA buttons)
  *  - src/containers/experienceAccordion/ExperienceAccordion.jsx (accordion)
  */
@@ -16,8 +14,6 @@ import userEvent from "@testing-library/user-event";
 import { describe, it, expect, beforeEach } from "vitest";
 import Header from "../components/header/Header";
 import ThemePage from "../pages/theme/ThemePage";
-import SystemCard from "../components/SystemDesign/SystemCard";
-import ProductTile from "../components/SystemDesign/ProductTile";
 import Greeting from "../containers/greeting/Greeting";
 import ExperienceAccordion from "../containers/experienceAccordion/ExperienceAccordion";
 import { renderWithProviders, darkTheme, lightTheme } from "../test/testUtils";
@@ -168,188 +164,6 @@ describe("Header — Theme Toggle Behavior", () => {
 });
 
 // ────────────────────────────────────────────────────────
-// SystemCard Modal Behavior
-// ────────────────────────────────────────────────────────
-const mockSystem = {
-  id: "test_system",
-  name: "Test Pipeline",
-  tagline: "Test tagline",
-  category: "Test Category",
-  tier: "featured",
-  metrics: ["99% accuracy"],
-  description: "Test description.",
-  problem_statement: "Test problem.",
-  solution_overview: "Test solution.",
-  architecture: ["Step 1", "Step 2"],
-  key_features: ["Feature A", "Feature B"],
-  implementation_details: "Test implementation.",
-  challenges_solutions: [
-    { challenge: "Challenge 1", solution: "Solution 1" },
-  ],
-  impact: ["High impact"],
-  tech: ["Python", "React"],
-};
-
-describe("SystemCard — Modal Behavior", () => {
-  it("opens modal when 'View Deep Dive' is clicked", async () => {
-    const user = userEvent.setup();
-    renderWithProviders(
-      <SystemCard system={mockSystem} theme={darkTheme} />
-    );
-
-    const expandBtn = screen.getByText(/View Deep Dive & Architecture/);
-    await user.click(expandBtn);
-
-    // Modal should now show the Problem Statement section
-    await waitFor(() => {
-      expect(screen.getByText("Problem Statement")).toBeInTheDocument();
-    });
-  });
-
-  it("shows all modal sections when expanded", async () => {
-    const user = userEvent.setup();
-    renderWithProviders(
-      <SystemCard system={mockSystem} theme={darkTheme} />
-    );
-
-    await user.click(screen.getByText(/View Deep Dive & Architecture/));
-
-    await waitFor(() => {
-      expect(screen.getByText("Problem Statement")).toBeInTheDocument();
-      expect(screen.getByText("Solution Overview")).toBeInTheDocument();
-      expect(screen.getByText("Architecture Workflow")).toBeInTheDocument();
-      expect(screen.getByText("Key Features")).toBeInTheDocument();
-      expect(screen.getByText("Implementation Details")).toBeInTheDocument();
-      expect(screen.getByText("Challenges & Solutions")).toBeInTheDocument();
-    });
-  });
-
-  it("closes modal when close button (×) is clicked", async () => {
-    const user = userEvent.setup();
-    renderWithProviders(
-      <SystemCard system={mockSystem} theme={darkTheme} />
-    );
-
-    // Open modal
-    await user.click(screen.getByText(/View Deep Dive & Architecture/));
-    await waitFor(() => {
-      expect(screen.getByText("Problem Statement")).toBeInTheDocument();
-    });
-
-    // Click close button (×)
-    const closeBtn = screen.getByText("×");
-    await user.click(closeBtn);
-
-    await waitFor(() => {
-      expect(screen.queryByText("Problem Statement")).not.toBeInTheDocument();
-    });
-  });
-
-  it("closes modal when overlay backdrop is clicked", async () => {
-    const user = userEvent.setup();
-    renderWithProviders(
-      <SystemCard system={mockSystem} theme={darkTheme} />
-    );
-
-    await user.click(screen.getByText(/View Deep Dive & Architecture/));
-    await waitFor(() => {
-      expect(screen.getByText("Problem Statement")).toBeInTheDocument();
-    });
-
-    // Click the overlay (the outer motion.div with class system-modal-overlay)
-    const overlay = document.querySelector(".system-modal-overlay");
-    await user.click(overlay);
-
-    await waitFor(() => {
-      expect(screen.queryByText("Problem Statement")).not.toBeInTheDocument();
-    });
-  });
-
-  it("renders key features as list items in modal", async () => {
-    const user = userEvent.setup();
-    renderWithProviders(
-      <SystemCard system={mockSystem} theme={darkTheme} />
-    );
-
-    await user.click(screen.getByText(/View Deep Dive & Architecture/));
-    await waitFor(() => {
-      expect(screen.getByText("Feature A")).toBeInTheDocument();
-      expect(screen.getByText("Feature B")).toBeInTheDocument();
-    });
-  });
-
-  it("closes on Escape and restores focus to the trigger button", async () => {
-    const user = userEvent.setup();
-    renderWithProviders(
-      <SystemCard system={mockSystem} theme={darkTheme} />
-    );
-
-    const openButton = screen.getByRole("button", {
-      name: /View Deep Dive & Architecture/i,
-    });
-    openButton.focus();
-    await user.click(openButton);
-
-    const closeButton = await screen.findByRole("button", {
-      name: /Close dialog/i,
-    });
-    expect(closeButton).toHaveFocus();
-
-    await user.keyboard("{Escape}");
-
-    await waitFor(() => {
-      expect(screen.queryByText("Problem Statement")).not.toBeInTheDocument();
-    });
-    expect(openButton).toHaveFocus();
-  });
-
-  it("traps keyboard focus inside the modal while open", async () => {
-    const user = userEvent.setup();
-    renderWithProviders(
-      <SystemCard system={mockSystem} theme={darkTheme} />
-    );
-
-    await user.click(screen.getByRole("button", {
-      name: /View Deep Dive & Architecture/i,
-    }));
-    const closeButton = await screen.findByRole("button", {
-      name: /Close dialog/i,
-    });
-
-    expect(closeButton).toHaveFocus();
-    await user.tab();
-    expect(closeButton).toHaveFocus();
-    await user.tab({ shift: true });
-    expect(closeButton).toHaveFocus();
-  });
-});
-
-describe("ProductTile — Modal Keyboard Behavior", () => {
-  it("closes on Escape and restores focus to the tile trigger", async () => {
-    const user = userEvent.setup();
-    renderWithProviders(<ProductTile system={mockSystem} theme={darkTheme} />);
-
-    const tileButton = screen.getByRole("button", {
-      name: `View ${mockSystem.name} deep dive`,
-    });
-    tileButton.focus();
-    await user.click(tileButton);
-
-    const closeButton = await screen.findByRole("button", {
-      name: /Close dialog/i,
-    });
-    expect(closeButton).toHaveFocus();
-
-    await user.keyboard("{Escape}");
-
-    await waitFor(() => {
-      expect(screen.queryByText("Problem Statement")).not.toBeInTheDocument();
-    });
-    expect(tileButton).toHaveFocus();
-  });
-});
-
-// ────────────────────────────────────────────────────────
 // Greeting CTA Behavior
 // ────────────────────────────────────────────────────────
 describe("Greeting — CTA Button Behavior", () => {
@@ -408,7 +222,7 @@ const mockSections = [
     title: "Work",
     experiences: [
       {
-        title: "GenAI Engineer",
+        title: "AI and Data Science Engineer",
         company: "Deloitte",
         companyUrl: "https://www2.deloitte.com/",
         logoPath: "deloitte_logo.svg",
@@ -466,7 +280,7 @@ describe("ExperienceAccordion — Expand/Collapse Behavior", () => {
     renderWithProviders(
       <ExperienceAccordion sections={mockSections} theme={darkTheme} />
     );
-    expect(screen.getByText("GenAI Engineer")).toBeInTheDocument();
+    expect(screen.getByText("AI and Data Science Engineer")).toBeInTheDocument();
     expect(screen.getByText("Deloitte")).toBeInTheDocument();
   });
 });

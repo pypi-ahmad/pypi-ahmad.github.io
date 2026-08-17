@@ -12,7 +12,7 @@
  *  /education   — Degrees & certifications
  *  /contact     — Contact information & blog
  *  /splash      — Loading splash screen
- *  /projects    — Enterprise systems & open-source projects
+ *  /projects    — Recent open-source projects
  *  /skills      — Full skills grid
  *
  * Pages are lazy-loaded so Vite can code-split them into separate chunks.
@@ -51,7 +51,7 @@ const routeFallbackStyle = {
 
 const routeMeta = {
   home: {
-    title: "Ahmad Mujtaba | GenAI Engineer Portfolio",
+    title: "Ahmad Mujtaba | Applied AI Engineer Portfolio",
     description: greeting.subTitle,
     canonicalPath: "/",
   },

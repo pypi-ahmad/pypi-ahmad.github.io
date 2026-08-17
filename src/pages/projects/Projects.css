@@ -11,10 +11,16 @@
   margin-right: auto;
 }
 
-.systems-div-main {
+.projects-section {
   width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
   margin: 0 auto var(--section-spacing);
   position: relative;
+  padding: var(--section-spacing-tight) 0;
+}
+
+.projects-section h2 {
+  margin: 0;
+  font-size: 2.5rem;
 }
 
 .section-accent-glow {

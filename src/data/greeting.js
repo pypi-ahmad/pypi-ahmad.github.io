@@ -9,17 +9,17 @@ const greeting = {
   title: "Hello.",
   title2: "Ahmad",
   logoName: "ahmad.m()",
-  nickname: "ahmad / Generative AI Engineer",
+  nickname: "ahmad / Applied AI Engineer",
   fullName: "Ahmad Mujtaba",
   // HERO — 1-line positioning
   subTitle:
-    "I'm a Generative AI Engineer with 4+ years building LLM, agentic, and document intelligence systems for healthcare workflows on Azure, AWS, and Databricks.",
+    "I'm an Applied AI Engineer building reliable Document AI, RAG, and agentic systems, with production experience in evaluation, structured extraction, healthcare AI, and Azure deployments.",
   // HERO — 3 signal bullets (rendered by Greeting component)
   heroBullets: [
-    "Improved scanned prior-authorization fax extraction from ~80-81% to 90%+ with a 4-pass, confidence-aware pipeline",
-    "Improved health-policy entity extraction from 90% to 99% through model migration, prompt refinement, and canonical validation",
-    "Raised Milvus-backed multi-agent task completion from 38% to 80% by strengthening retrieval and orchestration",
-    "Reduced browser-agent prompt-token usage by ~40% with Playwright MCP, accessibility-tree snapshots, and JPEG-compressed observations",
+    "Browser task completion increased from 38% to 80% across the same 200-task internal evaluation; I contributed Milvus retrieval, reranking, and failure-aware routing",
+    "Browser-agent prompt-token consumption fell by approximately 40% in an internal evaluation; I contributed accessibility-tree snapshots and compressed observations",
+    "Structured-extraction accuracy increased from 80–81% to above 90% on the same internal benchmark; I contributed multi-pass extraction, confidence-aware retries, and routing",
+    "Policy-entity extraction accuracy increased from 90% to 99% on the same internal benchmark; I contributed prompt iteration, canonical comparison, and evaluation",
   ],
   // PHILOSOPHY — engineering mindset signal
   philosophy:

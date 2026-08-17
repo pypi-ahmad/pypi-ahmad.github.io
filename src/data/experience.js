@@ -11,28 +11,25 @@ export const experience = {
   title: "Experience",
   subtitle: "Systems Built · Impact Delivered",
   description:
-    "Building production-grade AI systems across healthcare workflows, document intelligence, multimodal extraction, and agentic retrieval for Deloitte US-India and Cognizant delivery teams.",
+    "Applied AI engineering across Document AI, RAG, evaluation, agentic systems, and production data workflows.",
   sections: [
     {
       title: "Work",
       experiences: [
         {
-          title: "GenAI Engineer",
+          title: "AI and Data Science Engineer",
           company: "Deloitte US-India",
           companyUrl: "https://www2.deloitte.com/",
           logoPath: "deloitte_logo.svg",
           duration: "July 2025 – Present",
           location: "Gurugram, India",
           descriptions: [
-            "Engineered an AI-assisted prior-authorization document workflow spanning intake, classification, extraction, validation, and traceable operational outcomes on a managed data platform.",
-            "Strengthened production reliability with confidence-aware validation, bounded retries, explicit exception routing, audit-state persistence, and reconciliation for incomplete transactions.",
-            "Built a multi-stage document-risk triage prototype combining file-integrity checks, visual review, metadata analysis, semantic consistency checks, and session-scoped duplicate detection for evidence-backed reviewer decisions.",
-            "Developed a human-in-the-loop claims investigation prototype that used graph analytics to surface referral loops and concentration patterns while keeping sensitive actions behind approval gates.",
-            "Prototyped an out-of-network claims analytics dashboard using synthetic or demo-enriched data to explore pricing, specialty, and billing-pattern signals for investigator triage—not adjudication or proof of fraud.",
-            "Improved health-policy entity extraction through model evaluation, prompt refinement, structured-output contracts, and canonical-comparison testing.",
-            "Evaluated open and cloud OCR stacks for privacy-sensitive healthcare document processing, informing on-premises and lower-lock-in architecture options.",
-            "Engineered retrieval-augmented grounding for multi-agent workflows, improving task completion through stronger retrieval, orchestration, and evaluation.",
-            "Reduced browser-agent context overhead by replacing DOM-heavy prompts with accessibility-tree snapshots and compressed visual observations.",
+            "Contributed Milvus retrieval, reranking, and failure-aware routing to a computer-use system whose task completion increased from 38% to 80% across the same 200-task internal evaluation.",
+            "Replaced raw DOM observations with accessibility-tree snapshots and compressed observations; prompt-token consumption fell by approximately 40% in an internal evaluation.",
+            "Implemented multi-pass extraction, confidence-aware retries, and routing for a document pipeline whose structured-extraction accuracy increased from 80–81% to above 90% on the same internal benchmark.",
+            "Iterated prompts, implemented canonical comparison, and expanded evaluation for a policy-entity workflow whose accuracy increased from 90% to 99% on the same internal benchmark.",
+            "Built and evaluated healthcare Document AI, retrieval, multimodal extraction, and human-review workflows with typed outputs, deterministic safeguards, and traceable operational states.",
+            "These are team and system results from confidential employer evaluations. Client names, source data, task definitions, prompts, schemas, scoring details, and proprietary code are omitted; related public projects do not reproduce these measurements.",
           ],
           color: "#000000",
         },
