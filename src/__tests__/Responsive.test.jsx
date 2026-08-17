@@ -64,13 +64,13 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     expect(menu).not.toHaveAttribute("hidden");
   });
 
-  it("all 8 links including the site label are inside the menu <ul>", async () => {
+  it("all 7 links including the site label are inside the menu <ul>", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const menu = document.querySelector("ul.menu");
     const links = menu.querySelectorAll("a");
-    expect(links.length).toBe(8);
+    expect(links.length).toBe(7);
   });
 
   it("theme toggle button is inside the menu <ul>", async () => {
@@ -82,7 +82,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     expect(toggleBtn).toBeInTheDocument();
   });
 
-  it("keeps Contact Me, Theme link, and toggle in the correct final order", async () => {
+  it("keeps Contact Me and mode toggle in the correct final order", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
@@ -92,10 +92,6 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
         return "contact";
       }
 
-      if (item.querySelector('a[href="/theme"]')) {
-        return "theme-link";
-      }
-
       if (item.querySelector('button[aria-label="Toggle Theme"]')) {
         return "toggle";
       }
@@ -103,7 +99,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
       return item.textContent.trim();
     });
 
-    expect(menuItems.slice(-3)).toEqual(["contact", "theme-link", "toggle"]);
+    expect(menuItems.slice(-2)).toEqual(["contact", "toggle"]);
   });
 });
 

@@ -15,7 +15,7 @@
 
 </div>
 
-A responsive React 19 and Vite 8 portfolio for Ahmad Mujtaba, an Applied AI Engineer. It presents qualified work outcomes, 13 public projects, professional experience, education, and technical skills. Visitors can choose from 64 resolved themes: 32 families with light and dark modes. The site has no backend, database, or authentication. GitHub Actions deploys the static build to GitHub Pages after each push to `main`.
+A responsive React 19 and Vite 8 portfolio for Ahmad Mujtaba, an Applied AI Engineer. It presents qualified work outcomes, 13 public projects, professional experience, education, and technical skills. One consistent visual theme supports light and dark modes. The site has no backend, database, or authentication. GitHub Actions deploys the static build to GitHub Pages after each push to `main`.
 
 ## Table of Contents
 
@@ -69,9 +69,8 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 - 13 recent public projects with verified GitHub links.
 
 **Theming**
-- 32 visual theme families with light and dark variants, producing 64 resolved themes.
-- Theme selection persisted in `localStorage` with backward-compatible parsing.
-- System preference (`prefers-color-scheme`) respected when no explicit choice is made.
+- One default visual theme with light and dark modes.
+- Mode selection persisted in `localStorage`; older family-and-mode values migrate automatically.
 
 **UX and accessibility**
 - Responsive navigation, card layouts, accordions, and galleries.
@@ -84,7 +83,7 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 - `public/sitemap.xml` and `public/robots.txt` included.
 
 **Quality**
-- 16 test files, 156 tests covering rendering, navigation, theming, accessibility, content contracts, and route metadata.
+- 16 test files, 126 tests covering rendering, navigation, theming, accessibility, content contracts, and route metadata.
 - Automated lint, typecheck, build, and test on every push and pull request to `main`.
 - Optional Google Analytics 4 integration, disabled by default.
 
@@ -130,8 +129,8 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 │   ├── App.jsx                    # Global providers: error boundary, theme, motion, analytics
 │   ├── index.jsx                  # React DOM entry point
 │   ├── portfolio.js               # Barrel re-export of all src/data/* modules
-│   ├── theme.js                   # 32-family theme registry and token generation
-│   └── themeController.jsx        # Theme state, localStorage persistence, and provider
+│   ├── theme.js                   # Default light and dark semantic tokens
+│   └── themeController.jsx        # Mode state, localStorage persistence, and provider
 ├── index.html                     # Vite HTML entry point and baseline metadata
 ├── stress-test.mjs                # Playwright performance and resilience checks
 ├── vite.config.js                 # Dev server (port 3000) and production build config
@@ -213,7 +212,7 @@ index.html
 
 **Data flow:** All portfolio content lives as plain JavaScript objects in `src/data/`. Every data module is re-exported through `src/portfolio.js` so pages import from a single barrel. No runtime API, CMS, or build-time data fetching is involved.
 
-**Theme flow:** `themeController.jsx` reads the user's stored preference from `localStorage`, resolves it against the registry in `src/theme.js`, and passes a complete token set through styled-components' `ThemeProvider`. The system preference (`prefers-color-scheme`) is the default when nothing is stored.
+**Theme flow:** `themeController.jsx` reads the saved light or dark mode from `localStorage`, migrates older family-and-mode values, resolves the matching default token set from `src/theme.js`, and passes it through styled-components' `ThemeProvider`. Dark mode is the fallback when nothing valid is stored.
 
 **Routing:** `Main.jsx` defines all routes with `React.lazy`. Each route is paired with a `RouteMeta` component that writes the page-specific `<title>`, canonical URL, Open Graph tags, and robots directive into `<head>` via `react-helmet-async`.
 
@@ -228,7 +227,6 @@ index.html
 | `/projects` | 13 recent public projects |
 | `/skills` | Complete skill catalog |
 | `/contact` | Contact links and blog call-to-action |
-| `/theme` | Theme gallery (marked `noindex`) |
 | `/splash` | Standalone splash screen (marked `noindex`) |
 | `*` | Accessible 404 page (marked `noindex`) |
 
@@ -264,18 +262,17 @@ Update these files to customise the site content without touching any page compo
 | `src/data/skills.js` | Full skills-page groups |
 | `src/data/contact.js` | Contact-page content |
 
-### Themes
+### Appearance
 
-Themes are registered in `src/theme.js`. Each of the 32 families provides a light and a dark palette. The shared token generator derives semantic colors, surface layers, shadows, gradients, and contrast-safe text values from those palettes.
+`src/theme.js` defines one visual identity in light and dark modes. `src/themeController.jsx` provides the header toggle, persists the selected mode, and migrates older stored theme-family objects.
 
 ## Testing and Quality
 
-The repository contains **16 test files and 156 tests** covering:
+The repository contains **16 test files and 126 tests** covering:
 
 - Page and component rendering
 - Navigation and route resolution
-- Theme persistence, migration between formats, and contrast ratios
-- Gallery behavior
+- Light/dark persistence, legacy-value migration, and contrast ratios
 - Responsive navigation structure
 - Project catalog data integrity
 - Homepage content and featured-project contracts

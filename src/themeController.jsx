@@ -8,72 +8,57 @@ import React, {
   useState,
 } from "react";
 import { ThemeProvider } from "styled-components";
-import {
-  DEFAULT_THEME_FAMILY,
-  DEFAULT_THEME_MODE,
-  resolveTheme,
-  themes,
-} from "./theme";
+import { DEFAULT_THEME_MODE, resolveTheme } from "./theme";
 
 export const THEME_STORAGE_KEY = "theme";
 
 const ThemeControllerContext = createContext(null);
 
-function normalizeThemeSelection(selection) {
-  const family =
-    selection && typeof selection.family === "string" && themes[selection.family]
-      ? selection.family
-      : DEFAULT_THEME_FAMILY;
-  const mode =
-    selection && (selection.mode === "light" || selection.mode === "dark")
-      ? selection.mode
-      : DEFAULT_THEME_MODE;
-
-  return { family, mode };
+function normalizeThemeMode(mode) {
+  return mode === "light" || mode === "dark" ? mode : DEFAULT_THEME_MODE;
 }
 
-export function parseStoredThemeSelection(rawTheme) {
-  if (!rawTheme) {
-    return normalizeThemeSelection();
-  }
-
+export function parseStoredThemeMode(rawTheme) {
   if (rawTheme === "light" || rawTheme === "dark") {
-    return normalizeThemeSelection({
-      family: DEFAULT_THEME_FAMILY,
-      mode: rawTheme,
-    });
+    return rawTheme;
   }
 
   try {
     const parsedTheme = JSON.parse(rawTheme);
-    return normalizeThemeSelection(parsedTheme);
+
+    if (typeof parsedTheme === "string") {
+      return normalizeThemeMode(parsedTheme);
+    }
+
+    return normalizeThemeMode(parsedTheme?.mode);
   } catch {
-    return normalizeThemeSelection();
+    return DEFAULT_THEME_MODE;
   }
 }
 
-function getInitialThemeSelection(initialThemeSelection) {
-  if (initialThemeSelection) {
-    return normalizeThemeSelection(initialThemeSelection);
+function getInitialThemeMode(initialThemeMode) {
+  if (initialThemeMode) {
+    return normalizeThemeMode(initialThemeMode);
   }
 
   if (typeof window === "undefined") {
-    return normalizeThemeSelection();
+    return DEFAULT_THEME_MODE;
   }
 
-  return parseStoredThemeSelection(window.localStorage.getItem(THEME_STORAGE_KEY));
+  return parseStoredThemeMode(window.localStorage.getItem(THEME_STORAGE_KEY));
 }
 
-export function ThemeControllerProvider({ children, initialThemeSelection }) {
-  const [themeSelection, setThemeSelection] = useState(() =>
-    getInitialThemeSelection(initialThemeSelection)
+export function ThemeControllerProvider({ children, initialThemeMode }) {
+  const [themeMode, setThemeMode] = useState(() =>
+    getInitialThemeMode(initialThemeMode)
   );
-
-  const resolvedTheme = resolveTheme(themeSelection);
   const fadeTimer = useRef(null);
+  const resolvedTheme = resolveTheme(themeMode);
 
-  const fadeAndApply = useCallback((updater) => {
-    const root = typeof document !== "undefined" ? document.getElementById("root") : null;
+  const fadeAndApply = useCallback(updater => {
+    const root =
+      typeof document !== "undefined" ? document.getElementById("root") : null;
+
     if (root) {
       clearTimeout(fadeTimer.current);
       root.classList.add("theme-fading");
@@ -81,58 +66,34 @@ export function ThemeControllerProvider({ children, initialThemeSelection }) {
         root.classList.remove("theme-fading");
       }, 300);
     }
-    setThemeSelection(updater);
+
+    setThemeMode(updater);
   }, []);
 
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(THEME_STORAGE_KEY, themeMode);
     }
-
-    window.localStorage.setItem(
-      THEME_STORAGE_KEY,
-      JSON.stringify(themeSelection)
-    );
-  }, [themeSelection]);
+  }, [themeMode]);
 
   const value = useMemo(() => {
-    function setThemeFamily(family) {
-      fadeAndApply((currentSelection) =>
-        normalizeThemeSelection({
-          family,
-          mode: currentSelection.mode,
-        })
-      );
-    }
-
     function setMode(mode) {
-      fadeAndApply((currentSelection) =>
-        normalizeThemeSelection({
-          family: currentSelection.family,
-          mode,
-        })
-      );
+      fadeAndApply(() => normalizeThemeMode(mode));
     }
 
     function toggleMode() {
-      fadeAndApply((currentSelection) =>
-        normalizeThemeSelection({
-          family: currentSelection.family,
-          mode: currentSelection.mode === "light" ? "dark" : "light",
-        })
+      fadeAndApply(currentMode =>
+        currentMode === "light" ? "dark" : "light"
       );
     }
 
     return {
-      themeSelection,
-      themeFamily: themeSelection.family,
-      themeMode: themeSelection.mode,
+      themeMode,
       resolvedTheme,
-      setThemeFamily,
       setMode,
       toggleMode,
     };
-  }, [fadeAndApply, resolvedTheme, themeSelection]);
+  }, [fadeAndApply, resolvedTheme, themeMode]);
 
   return (
     <ThemeControllerContext.Provider value={value}>
@@ -151,10 +112,10 @@ export function useThemeController() {
   return context;
 }
 
-export function getStoredThemeSelection() {
+export function getStoredThemeMode() {
   if (typeof window === "undefined") {
-    return normalizeThemeSelection();
+    return DEFAULT_THEME_MODE;
   }
 
-  return parseStoredThemeSelection(window.localStorage.getItem(THEME_STORAGE_KEY));
+  return parseStoredThemeMode(window.localStorage.getItem(THEME_STORAGE_KEY));
 }

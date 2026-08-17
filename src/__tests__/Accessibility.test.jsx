@@ -16,7 +16,6 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Greeting from "../containers/greeting/Greeting";
 import ExperienceCard from "../components/experienceCard/ExperienceCard";
-import ThemePage from "../pages/theme/ThemePage";
 import { renderWithProviders, darkTheme } from "../test/testUtils";
 
 // Extend expect with axe matchers
@@ -39,18 +38,12 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
     expect(btn).toHaveAttribute("aria-label", "Toggle Theme");
   });
 
-  it("Theme family selector has an accessible name on the Theme page", () => {
-    renderWithProviders(<ThemePage />, { initialEntries: ["/theme"] });
-    const selector = screen.getByRole("combobox", { name: "Theme Family" });
-    expect(selector).toBeInTheDocument();
-  });
-
   it("Navigation links are accessible (rendered as <a> tags)", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const links = screen.getAllByRole("link");
-    expect(links.length).toBeGreaterThanOrEqual(8);
+    expect(links.length).toBeGreaterThanOrEqual(7);
   });
 
   it("Footer heart emoji has role='img' and aria-label='love'", () => {

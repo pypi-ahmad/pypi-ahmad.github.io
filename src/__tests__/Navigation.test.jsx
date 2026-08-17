@@ -34,7 +34,7 @@ const routeProps = { theme, setTheme };
 function renderAtRoute(initialPath) {
   return render(
     <ThemeControllerProvider
-      initialThemeSelection={{ family: "default", mode: "dark" }}
+      initialThemeMode="dark"
     >
       <MotionConfig reducedMotion="always">
         <MemoryRouter initialEntries={[initialPath]}>

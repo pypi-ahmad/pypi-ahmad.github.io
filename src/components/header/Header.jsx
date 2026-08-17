@@ -62,7 +62,6 @@ function Header() {
     { className: "skills", to: "/skills", label: "Skills" },
     { className: "projects", to: "/projects", label: "Projects" },
     { className: "cr", to: "/contact", label: "Contact Me" },
-    { className: "themei", to: "/theme", label: "Theme" },
   ];
 
   const toggleMenu = () => {
