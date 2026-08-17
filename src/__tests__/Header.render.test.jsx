@@ -72,10 +72,10 @@ describe("Header — UI Rendering", () => {
     expect(screen.getByRole("group", { name: "Accent color" })).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: "Use crimson and pink accent" })
-    ).toHaveAttribute("aria-pressed", "true");
+    ).toHaveAttribute("aria-pressed", "false");
     expect(
       screen.getByRole("button", { name: "Use indigo and navy accent" })
-    ).toHaveAttribute("aria-pressed", "false");
+    ).toHaveAttribute("aria-pressed", "true");
   });
 
   it("renders the hamburger menu button", () => {

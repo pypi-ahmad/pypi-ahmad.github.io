@@ -55,19 +55,24 @@ describe("Default theme", () => {
 
   it("defaults invalid modes to dark", () => {
     expect(DEFAULT_THEME_MODE).toBe("dark");
-    expect(resolveTheme()).toBe(darkTheme);
-    expect(resolveTheme("unknown")).toBe(darkTheme);
+    expect(resolveTheme().name).toBe("dark");
+    expect(resolveTheme("unknown").name).toBe("dark");
   });
 
-  it("defaults missing or invalid accents to pink", () => {
-    expect(DEFAULT_ACCENT).toBe("pink");
-    expect(resolveTheme("dark", "unknown")).toBe(darkTheme);
-    expect(resolveTheme("light", "unknown")).toBe(lightTheme);
+  it("defaults missing or invalid accents to indigo", () => {
+    expect(DEFAULT_ACCENT).toBe("blue");
+    expect(resolveTheme("dark", "unknown").accentStart).toBe("#6366F1");
+    expect(resolveTheme("light", "unknown").accentStart).toBe("#6366F1");
   });
 
   it("resolves light and dark modes", () => {
-    expect(resolveTheme("light")).toBe(lightTheme);
-    expect(resolveTheme("dark")).toBe(darkTheme);
+    expect(resolveTheme("light").name).toBe("light");
+    expect(resolveTheme("dark").name).toBe("dark");
+  });
+
+  it("keeps the pink accent available in both modes", () => {
+    expect(resolveTheme("light", "pink")).toBe(lightTheme);
+    expect(resolveTheme("dark", "pink")).toBe(darkTheme);
   });
 
   it("keeps identical semantic token keys in both modes", () => {

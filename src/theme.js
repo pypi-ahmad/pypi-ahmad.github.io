@@ -6,7 +6,7 @@
  */
 
 export const DEFAULT_THEME_MODE = "dark";
-export const DEFAULT_ACCENT = "pink";
+export const DEFAULT_ACCENT = "blue";
 
 export const lightTheme = {
   name: "light",
@@ -141,7 +141,9 @@ const blueDarkTheme = {
 };
 
 export function resolveTheme(mode = DEFAULT_THEME_MODE, accent = DEFAULT_ACCENT) {
-  if (accent === "blue") {
+  const resolvedAccent = accent === "pink" || accent === "blue" ? accent : DEFAULT_ACCENT;
+
+  if (resolvedAccent === "blue") {
     return mode === "light" ? blueLightTheme : blueDarkTheme;
   }
 

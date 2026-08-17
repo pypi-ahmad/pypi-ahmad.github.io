@@ -114,7 +114,17 @@ describe("Header — Theme Toggle Behavior", () => {
     localStorage.setItem("accent", "invalid");
     renderWithProviders(<Header />, { useStoredTheme: true });
 
+    expect(localStorage.getItem("accent")).toBe("blue");
+  });
+
+  it("preserves an explicitly stored pink accent", () => {
+    localStorage.setItem("accent", "pink");
+    renderWithProviders(<Header />, { useStoredTheme: true });
+
     expect(localStorage.getItem("accent")).toBe("pink");
+    expect(
+      screen.getByRole("button", { name: "Use crimson and pink accent", hidden: true })
+    ).toHaveAttribute("aria-pressed", "true");
   });
 });
 // ────────────────────────────────────────────────────────

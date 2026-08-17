@@ -70,7 +70,7 @@ Both `/` and `/home` render the homepage. Metadata normalizes `/home` to the can
 
 ## Light/dark modes and accents
 
-`src/themeController.jsx` reads mode and accent from separate `localStorage` keys, migrates older family-and-mode objects, and resolves their combined semantic token set. Invalid or missing values fall back to dark mode and the pink accent. `src/theme.js` keeps surface tokens stable while switching all accent tokens between crimson-to-pink and indigo-to-navy variants.
+`src/themeController.jsx` reads mode and accent from separate `localStorage` keys, migrates older family-and-mode objects, and resolves their combined semantic token set. Invalid or missing values fall back to dark mode and the indigo-to-navy accent. `src/theme.js` keeps surface tokens stable while switching all accent tokens between crimson-to-pink and indigo-to-navy variants.
 
 Components should use semantic tokens such as text, secondary text, card background, border, and accent so both modes remain readable. Interactive components also need visible focus states and reduced-motion behavior.
 

@@ -212,7 +212,7 @@ index.html
 
 **Data flow:** All portfolio content lives as plain JavaScript objects in `src/data/`. Every data module is re-exported through `src/portfolio.js` so pages import from a single barrel. No runtime API, CMS, or build-time data fetching is involved.
 
-**Theme flow:** `themeController.jsx` reads the saved light/dark mode and pink/blue accent from separate `localStorage` keys, migrates older family-and-mode values, resolves the matching token set from `src/theme.js`, and passes it through styled-components' `ThemeProvider`. Dark mode and pink accent are the fallbacks when nothing valid is stored.
+**Theme flow:** `themeController.jsx` reads the saved light/dark mode and pink/blue accent from separate `localStorage` keys, migrates older family-and-mode values, resolves the matching token set from `src/theme.js`, and passes it through styled-components' `ThemeProvider`. Dark mode and the indigo-to-navy accent are the fallbacks when nothing valid is stored.
 
 **Routing:** `Main.jsx` defines all routes with `React.lazy`. Each route is paired with a `RouteMeta` component that writes the page-specific `<title>`, canonical URL, Open Graph tags, and robots directive into `<head>` via `react-helmet-async`.
 

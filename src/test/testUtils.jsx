@@ -9,7 +9,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
-import { darkTheme, lightTheme } from "../theme";
+import { DEFAULT_ACCENT, darkTheme, lightTheme } from "../theme";
 import { ThemeControllerProvider } from "../themeController";
 
 /**
@@ -19,7 +19,7 @@ import { ThemeControllerProvider } from "../themeController";
  * @param {React.ReactElement} ui - The component to render
  * @param {object} options
  * @param {string} options.theme - "light" or "dark" (default: "dark")
- * @param {string} options.accent - "pink" or "blue" (default: "pink")
+ * @param {string} options.accent - "pink" or "blue" (default: DEFAULT_ACCENT)
  * @param {boolean} options.useStoredTheme - when true, use localStorage instead of an explicit initial theme
  * @param {string[]} options.initialEntries - MemoryRouter initial entries
  * @param {object} options.renderOptions - Extra RTL render options
@@ -27,7 +27,7 @@ import { ThemeControllerProvider } from "../themeController";
 export function renderWithProviders(
   ui,
   {
-    accent = "pink",
+    accent = DEFAULT_ACCENT,
     theme = "dark",
     useStoredTheme = false,
     initialEntries,
