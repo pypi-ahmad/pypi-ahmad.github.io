@@ -46,7 +46,7 @@ describe("refreshed contact, skills, and experience content", () => {
     skillsPageData.featuredProjectNames.forEach(name => expect(projectNames.has(name)).toBe(true));
   });
 
-  it("separates Deloitte context, contributions, outcomes, and confidentiality", () => {
+  it("separates Deloitte context, contributions, outcomes, and disclosure scope", () => {
     const deloitte = experience.sections[0].experiences[0];
 
     expect(deloitte.systemContext).toHaveLength(3);
@@ -57,7 +57,7 @@ describe("refreshed contact, skills, and experience content", () => {
       "80–81% to above 90%",
       "90% to 99%",
     ]);
-    expect(deloitte.confidentialityNote).toMatch(/team and system results/i);
+    expect(deloitte.disclosureNote).toMatch(/team and system results/i);
   });
 
   it("keeps older roles unchanged", () => {

@@ -87,8 +87,8 @@ export default function Greeting({ theme }) {
             Evidence from internal work
           </h2>
           <p style={{ color: theme.secondaryText }}>
-            These are team and system results from confidential internal
-            evaluations. Contribution notes identify the parts I worked on.
+            These are team and system results from internal evaluations.
+            Contribution notes identify the parts I worked on.
           </p>
         </div>
         <ul className="outcome-grid">

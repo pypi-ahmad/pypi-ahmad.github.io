@@ -34,7 +34,7 @@ describe("Home hero", () => {
     ).toBeInTheDocument();
     expect(within(outcomes).getByText("90% to 99%")).toBeInTheDocument();
     expect(
-      screen.getByText(/team and system results from confidential internal evaluations/i)
+      screen.getByText(/team and system results from internal evaluations/i)
     ).toBeInTheDocument();
   });
 

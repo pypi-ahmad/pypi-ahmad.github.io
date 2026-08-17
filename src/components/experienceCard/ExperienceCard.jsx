@@ -65,9 +65,9 @@ export default function ExperienceCard({ experience, theme }) {
               ))}
             </ul>
           </section>
-          <aside className="experience-confidentiality" style={{ color: theme.secondaryText, borderColor: theme.borderSoft }}>
-            <strong style={{ color: theme.text }}>Confidentiality boundary</strong>
-            <p>{experience.confidentialityNote}</p>
+          <aside className="experience-disclosure" style={{ color: theme.secondaryText, borderColor: theme.borderSoft }}>
+            <strong style={{ color: theme.text }}>Scope note</strong>
+            <p>{experience.disclosureNote}</p>
           </aside>
         </div>
       ) : (

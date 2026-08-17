@@ -52,10 +52,10 @@ describe("Page Rendering Smoke Tests", () => {
     expect(screen.getByRole("heading", { name: "Qualified outcomes" })).toBeInTheDocument();
   });
 
-  it("Experience page uses the current Deloitte role and confidentiality boundary", () => {
+  it("Experience page uses the current Deloitte role and scope note", () => {
     renderWithProviders(<Experience {...pageProps} />);
     expect(screen.getByText("AI and Data Science Engineer")).toBeInTheDocument();
-    expect(screen.getByText(/team and system results from confidential employer evaluations/i)).toBeInTheDocument();
+    expect(screen.getByText(/team and system results from internal employer evaluations/i)).toBeInTheDocument();
   });
 
   it("Education page renders the applied-AI education heading", () => {

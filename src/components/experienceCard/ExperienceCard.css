@@ -29,8 +29,8 @@
 .experience-outcomes span { font-weight: 700; line-height: 1.35; }
 .experience-outcomes small { line-height: 1.45; }
 
-.experience-confidentiality { margin-top: 1.25rem; padding: 1rem 1.1rem; border: 1px solid; border-radius: 16px; }
-.experience-confidentiality p { margin: 0.4rem 0 0; line-height: 1.55; }
+.experience-disclosure { margin-top: 1.25rem; padding: 1rem 1.1rem; border: 1px solid; border-radius: 16px; }
+.experience-disclosure p { margin: 0.4rem 0 0; line-height: 1.55; }
 .experience-description-list { margin-top: 1.5rem; }
 
 @media (max-width: 900px) {

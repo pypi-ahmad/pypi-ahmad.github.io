@@ -58,8 +58,8 @@ export const experience = {
               context: "On the same internal benchmark.",
             },
           ],
-          confidentialityNote:
-            "These are team and system results from confidential employer evaluations. Client names, internal project names, source data, task definitions, prompts, schemas, thresholds, scoring details, and proprietary code are omitted; related public projects do not reproduce these measurements.",
+          disclosureNote:
+            "These are team and system results from internal employer evaluations. Client names, internal project names, source data, task definitions, prompts, schemas, thresholds, scoring details, and proprietary code are omitted; related public projects do not reproduce these measurements.",
           color: "#000000",
         },
         {
