@@ -21,17 +21,17 @@ This file tracks implementation while the current Vite SPA remains live.
 - `SPA-009` Added image loading/decoding hints and stable logo dimensions in card components.
 - `SPA-010` Added `public/sitemap.xml` and `Sitemap` pointer in `public/robots.txt`.
 - `SPA-011` Updated README to reflect GitHub Pages canonical host.
+- `SPA-012` Added route-level metadata management (`react-helmet-async`); `RouteMeta` component supplies title, description, canonical, robots, Open Graph, and Twitter tags per route.
+- `SPA-015` Added lint (`eslint`) and typecheck (`tsc --noEmit`) gates in CI; both run before build on every push and pull request to `main`.
 
 ## Next queued work (before Astro scaffold)
 
-- `SPA-012` Add route-level metadata management for SPA parity (`react-helmet-async`).
 - `SPA-013` Add modal keyboard behavior (Esc, focus trap, focus restore).
-- `SPA-014` Reduce baseline icon/font payload (Font Awesome tree + Iconify runtime).
-- `SPA-015` Add lint/typecheck gates in CI (without breaking current build path).
+- `SPA-014` Audit icon payload (`react-icons` tree-shaking); confirm only imported icons are bundled.
 
 ## Astro scaffold start point
 
-Scaffold only after `SPA-012` to `SPA-015` land:
+Scaffold only after `SPA-013` and `SPA-014` land:
 
 - `apps/portfolio-astro/`
 - Astro + React integration + TypeScript strict
