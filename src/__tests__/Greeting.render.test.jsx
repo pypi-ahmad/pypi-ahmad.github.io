@@ -43,16 +43,12 @@ describe("Home hero", () => {
     expect(screen.getAllByText(/^I worked on/)).toHaveLength(4);
   });
 
-  it("renders selected work, résumé, and contact actions", () => {
+  it("renders selected work and contact actions", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
 
     expect(screen.getByRole("link", { name: "View selected work" })).toHaveAttribute(
       "href",
       "#selected-work"
-    );
-    expect(screen.getByRole("link", { name: "Download résumé" })).toHaveAttribute(
-      "href",
-      "/Resume.pdf"
     );
     expect(screen.getByRole("link", { name: "Contact me" })).toHaveAttribute(
       "href",

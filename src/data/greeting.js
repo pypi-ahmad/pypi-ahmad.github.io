@@ -8,7 +8,6 @@ const greeting = {
   logoName: "ahmad.m()",
   subTitle:
     "Applied AI Engineer working on document AI, RAG, agents, and evaluation.",
-  resumeLink: "Resume.pdf",
 };
 
 export { greeting };

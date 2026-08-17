@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { greeting, homePageData } from "../../portfolio";
+import { homePageData } from "../../portfolio";
 import {
   buildThemeBackground,
   buildThemeShadow,
@@ -65,20 +65,6 @@ export default function Greeting({ theme }) {
             }}
           >
             View selected work
-          </a>
-          <a
-            className="button button-secondary"
-            href={`/${greeting.resumeLink}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: theme.text,
-              borderColor: theme.borderSoft,
-              borderRadius: theme.controlRadius,
-              transition: themeSurfaceTransition,
-            }}
-          >
-            Download résumé
           </a>
           <Link
             className="button button-secondary"

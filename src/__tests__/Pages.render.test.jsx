@@ -80,10 +80,9 @@ describe("Page Rendering Smoke Tests", () => {
     expect(screen.getByRole("heading", { level: 1, name: "Let’s build useful AI systems." })).toBeInTheDocument();
   });
 
-  it("Contact page renders email and résumé actions", () => {
+  it("Contact page renders the email action", () => {
     renderWithProviders(<Contact {...pageProps} />);
     expect(screen.getByRole("link", { name: "Email me" })).toHaveAttribute("href", "mailto:ahmad.iiitk@gmail.com");
-    expect(screen.getByRole("link", { name: "Download résumé" })).toHaveAttribute("href", "/Resume.pdf");
   });
 
   it("Contact page removes the featured open-source section", () => {

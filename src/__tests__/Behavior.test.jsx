@@ -139,14 +139,6 @@ describe("Home hero CTA behavior", () => {
     );
   });
 
-  it("résumé action has correct href and target attributes", () => {
-    renderWithProviders(<Greeting theme={darkTheme} />);
-    const resumeLink = screen.getByText("Download résumé").closest("a");
-    expect(resumeLink).toHaveAttribute("href", "/Resume.pdf");
-    expect(resumeLink).toHaveAttribute("target", "_blank");
-    expect(resumeLink).toHaveAttribute("rel", "noopener noreferrer");
-  });
-
   it("selected-work action points to the project section", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
     expect(screen.getByRole("link", { name: "View selected work" })).toHaveAttribute(

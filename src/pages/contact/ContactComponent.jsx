@@ -11,16 +11,13 @@ import Footer from "../../components/footer/Footer";
 import ContactLinksList from "../../components/socialMedia/ContactLinksList";
 import { motion } from "framer-motion";
 import "./ContactComponent.css";
-import { greeting, contactPageData, socialMediaLinks } from "../../portfolio.js";
+import { contactPageData, socialMediaLinks } from "../../portfolio.js";
 import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
 
 const ContactData = contactPageData.contactSection;
 
 function Contact(props) {
   const theme = props.theme;
-  const resumeUrl = greeting.resumeLink
-    ? `/${greeting.resumeLink}`
-    : "";
 
   return (
     <div className="contact-main">
@@ -56,15 +53,6 @@ function Contact(props) {
               style={{ background: theme.accentGradient, color: theme.accentText }}
             >
               {ContactData.emailLabel}
-            </a>
-            <a
-              className="contact-action contact-action--secondary"
-              href={resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: theme.text, borderColor: theme.borderSoft }}
-            >
-              {ContactData.resumeLabel}
             </a>
           </div>
         </motion.section>

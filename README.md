@@ -253,7 +253,7 @@ Update these files to customise the site content without touching any page compo
 
 | File | Content |
 | --- | --- |
-| `src/data/greeting.js` | Shared identity and résumé link |
+| `src/data/greeting.js` | Shared identity |
 | `src/data/homePage.js` | Homepage hero, outcomes, method, and work areas |
 | `src/data/socialMedia.js` | Social and email links |
 | `src/data/experience.js` | Employment history |

@@ -69,13 +69,6 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
     expect(items.length).toBe(4);
   });
 
-  it("Resume link has safe external-document attributes", () => {
-    renderWithProviders(<Greeting theme={darkTheme} />);
-    const resumeLink = screen.getByText("Download résumé").closest("a");
-    expect(resumeLink).toHaveAttribute("rel", "noopener noreferrer");
-    expect(resumeLink).toHaveAttribute("target", "_blank");
-  });
-
   it("ExperienceCard company link has proper href", () => {
     renderWithProviders(
       <ExperienceCard

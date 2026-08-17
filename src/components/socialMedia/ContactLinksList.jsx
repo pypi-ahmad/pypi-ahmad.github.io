@@ -14,7 +14,6 @@ import {
   FaEnvelope,
   FaGithub,
   FaLinkedinIn,
-  FaPhone,
   FaTelegramPlane,
 } from "react-icons/fa";
 
@@ -51,18 +50,6 @@ const buildContactItems = () => {
       href: `mailto:${socialMediaLinks.gmail}`,
       description: socialMediaLinks.gmailDesc || "",
       Icon: FaEnvelope,
-      openInNewTab: false,
-    });
-  }
-
-  if (socialMediaLinks.phone && socialMediaLinks.phone !== " ") {
-    items.push({
-      key: "phone",
-      label: "Phone",
-      href: `tel:${socialMediaLinks.phone.replace(/[^+\d]/g, "")}`,
-      description: socialMediaLinks.phoneDesc || "",
-      Icon: FaPhone,
-      displayValue: socialMediaLinks.phone,
       openInNewTab: false,
     });
   }

@@ -15,8 +15,6 @@ export const socialMediaLinks = {
   linkedinDesc: "Professional updates, project highlights, and career networking.",
   gmail: "ahmad.iiitk@gmail.com",
   gmailDesc: "Best channel for roles, collaborations, and consulting conversations.",
-  phone: " ",
-  phoneDesc: "",
   gitlab: " ",
   facebook: " ",
   twitter: " ",

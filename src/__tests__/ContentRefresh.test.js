@@ -8,7 +8,6 @@ describe("refreshed contact, skills, and experience content", () => {
   it("keeps Contact focused on direct channels without featured work", () => {
     expect(contactPageData).not.toHaveProperty("featuredSection");
     expect(contactPageData.contactSection.title).toBe("Let’s build useful AI systems.");
-    expect(contactPageData.contactSection.resumeLabel).toBe("Download résumé");
   });
 
   it("keeps the exact capability order", () => {
