@@ -2,7 +2,7 @@
 
 <img src="logo192.png" width="96" alt="Portfolio logo" />
 
-# Ahmad Mujtaba — AI Engineering Portfolio
+# Ahmad Mujtaba: Applied AI portfolio
 
 **GitHub:** [github.com/pypi-ahmad/pypi-ahmad.github.io](https://github.com/pypi-ahmad/pypi-ahmad.github.io)
 
@@ -15,7 +15,7 @@
 
 </div>
 
-A fast, accessible, and fully responsive single-page portfolio built with React 19 and Vite 8. It presents applied-AI experience through a platform catalog of 20 production AI systems, 12 anonymized enterprise case studies, and 13 linked open-source projects — alongside professional experience, education, certifications, and skills. Visitors choose from 64 resolved themes (32 families × light/dark). No backend, no database, no authentication — just a static site deployed to GitHub Pages on every push to `main`.
+A responsive React 19 and Vite 8 portfolio for Ahmad Mujtaba, an Applied AI Engineer. It presents qualified work outcomes, 13 public projects, professional experience, education, and technical skills. Visitors can choose from 64 resolved themes: 32 families with light and dark modes. The site has no backend, database, or authentication. GitHub Actions deploys the static build to GitHub Pages after each push to `main`.
 
 ## Table of Contents
 
@@ -65,9 +65,8 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 
 **Content pages**
 - Professional profile, experience timeline, education, degrees, certifications, skills catalog, and contact page.
-- Applied-AI platform catalog with 20 production systems across GenAI pipelines, LangGraph state machines, and CrewAI multi-agent teams.
-- 12 anonymized enterprise AI case studies (Healthcare AI, Agentic AI, Document AI).
-- 13 linked open-source projects with live GitHub links.
+- Homepage with qualified internal outcomes, contribution boundaries, and four selected projects.
+- 13 recent public projects with verified GitHub links.
 
 **Theming**
 - 32 visual theme families with light and dark variants, producing 64 resolved themes.
@@ -75,16 +74,17 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 - System preference (`prefers-color-scheme`) respected when no explicit choice is made.
 
 **UX and accessibility**
-- Responsive navigation, card layouts, accordions, galleries, and accessible dialogs.
+- Responsive navigation, card layouts, accordions, and galleries.
 - Reduced-motion support; desktop-only animated cursor (configurable off).
 - Lazy-loaded routes with a visible loading state and a catch-all accessible 404 page.
 
 **SEO and metadata**
 - Route-level `<title>`, `<meta description>`, canonical URL, `robots`, Open Graph, and Twitter Card tags via `react-helmet-async`.
+- `ProfilePage` structured data with Ahmad Mujtaba as its main `Person` entity.
 - `public/sitemap.xml` and `public/robots.txt` included.
 
 **Quality**
-- 14 test files, 158 tests covering rendering, navigation, theming, accessibility, and route metadata.
+- 14 test files, 141 tests covering rendering, navigation, theming, accessibility, content contracts, and route metadata.
 - Automated lint, typecheck, build, and test on every push and pull request to `main`.
 - Optional Google Analytics 4 integration, disabled by default.
 
@@ -121,7 +121,7 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 ├── public/                        # Static assets, favicon, manifest, sitemap, robots
 ├── src/
 │   ├── __tests__/                 # 14 test files: rendering, a11y, navigation, themes
-│   ├── components/                # Reusable cards, dialogs, navigation, icons, SEO
+│   ├── components/                # Reusable cards, navigation, icons, and SEO
 │   ├── containers/
 │   │   └── Main.jsx               # Route definitions, lazy loading, RouteMeta, 404
 │   ├── data/                      # Portfolio content — edit these to customise
@@ -225,7 +225,7 @@ index.html
 | `/home` | Home page |
 | `/experience` | Professional experience timeline |
 | `/education` | Degrees, certifications, and courses |
-| `/projects` | AI platform catalog, enterprise systems, open-source projects |
+| `/projects` | 13 recent public projects |
 | `/skills` | Complete skill catalog |
 | `/contact` | Contact links and blog call-to-action |
 | `/theme` | Theme gallery (marked `noindex`) |
@@ -255,14 +255,13 @@ Update these files to customise the site content without touching any page compo
 
 | File | Content |
 | --- | --- |
-| `src/data/greeting.js` | Hero copy, profile links, resume, and cover letter |
+| `src/data/greeting.js` | Shared identity and résumé link |
+| `src/data/homePage.js` | Homepage hero, outcomes, method, and work areas |
 | `src/data/socialMedia.js` | Social and email links |
 | `src/data/experience.js` | Employment history |
 | `src/data/education.js` | Degrees, certifications, and courses |
 | `src/data/projects.js` | Open-source projects (13 entries) |
-| `src/data/systems.js` | Enterprise AI case studies (12 entries) |
-| `src/data/platform.js` | Applied-AI platform catalog (20 systems) |
-| `src/data/skills.js` | Home and full-page skill groups |
+| `src/data/skills.js` | Full skills-page groups |
 | `src/data/contact.js` | Contact-page content |
 
 ### Themes
@@ -271,14 +270,15 @@ Themes are registered in `src/theme.js`. Each of the 32 families provides a ligh
 
 ## Testing and Quality
 
-The repository contains **14 test files and 158 tests** covering:
+The repository contains **14 test files and 141 tests** covering:
 
 - Page and component rendering
 - Navigation and route resolution
 - Theme persistence, migration between formats, and contrast ratios
-- Dialog and gallery behavior
+- Gallery behavior
 - Responsive navigation structure
 - Project catalog data integrity
+- Homepage content and featured-project contracts
 - Route metadata, canonical URLs, and `noindex` flags
 - Accessibility checks with Testing Library, jest-axe, and axe-core
 
@@ -307,6 +307,7 @@ Every push to `main` triggers `.github/workflows/deploy.yml`, which builds and t
 
 | Document | Description |
 | --- | --- |
+| [docs/architecture.md](docs/architecture.md) | Current SPA structure, data flow, decisions, and safe change map |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute: local setup, quality checks, PR workflow, and ground rules |
 | [SUPPORT.md](SUPPORT.md) | Common questions, how to get help, GitHub Issues as the sole support path |
 | [SECURITY.md](SECURITY.md) | Security surface, what to report, and how to report privately |

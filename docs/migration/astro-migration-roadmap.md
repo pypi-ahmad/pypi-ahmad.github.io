@@ -26,12 +26,11 @@ This file tracks implementation while the current Vite SPA remains live.
 
 ## Next queued work (before Astro scaffold)
 
-- `SPA-013` Add modal keyboard behavior (Esc, focus trap, focus restore).
 - `SPA-014` Audit icon payload (`react-icons` tree-shaking); confirm only imported icons are bundled.
 
 ## Astro scaffold start point
 
-Scaffold only after `SPA-013` and `SPA-014` land:
+Scaffold only after `SPA-014` lands:
 
 - `apps/portfolio-astro/`
 - Astro + React integration + TypeScript strict
