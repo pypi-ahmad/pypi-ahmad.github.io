@@ -65,6 +65,19 @@ describe("Header — UI Rendering", () => {
     expect(screen.queryByRole("link", { name: "Theme" })).not.toBeInTheDocument();
   });
 
+  it("renders accessible pink and blue accent choices", async () => {
+    renderWithProviders(<Header />);
+    await openMenu();
+
+    expect(screen.getByRole("group", { name: "Accent color" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Use crimson and pink accent" })
+    ).toHaveAttribute("aria-pressed", "true");
+    expect(
+      screen.getByRole("button", { name: "Use indigo and navy accent" })
+    ).toHaveAttribute("aria-pressed", "false");
+  });
+
   it("renders the hamburger menu button", () => {
     renderWithProviders(<Header />);
     const menuButton = screen.getByRole("button", { name: "Toggle navigation menu" });

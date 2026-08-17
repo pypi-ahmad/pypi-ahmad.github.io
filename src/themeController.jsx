@@ -8,14 +8,19 @@ import React, {
   useState,
 } from "react";
 import { ThemeProvider } from "styled-components";
-import { DEFAULT_THEME_MODE, resolveTheme } from "./theme";
+import { DEFAULT_ACCENT, DEFAULT_THEME_MODE, resolveTheme } from "./theme";
 
 export const THEME_STORAGE_KEY = "theme";
+export const ACCENT_STORAGE_KEY = "accent";
 
 const ThemeControllerContext = createContext(null);
 
 function normalizeThemeMode(mode) {
   return mode === "light" || mode === "dark" ? mode : DEFAULT_THEME_MODE;
+}
+
+function normalizeAccent(accent) {
+  return accent === "blue" || accent === "pink" ? accent : DEFAULT_ACCENT;
 }
 
 export function parseStoredThemeMode(rawTheme) {
@@ -48,14 +53,27 @@ function getInitialThemeMode(initialThemeMode) {
   return parseStoredThemeMode(window.localStorage.getItem(THEME_STORAGE_KEY));
 }
 
-export function ThemeControllerProvider({ children, initialThemeMode }) {
+function getInitialAccent(initialAccent) {
+  if (initialAccent) {
+    return normalizeAccent(initialAccent);
+  }
+
+  if (typeof window === "undefined") {
+    return DEFAULT_ACCENT;
+  }
+
+  return normalizeAccent(window.localStorage.getItem(ACCENT_STORAGE_KEY));
+}
+
+export function ThemeControllerProvider({ children, initialThemeMode, initialAccent }) {
   const [themeMode, setThemeMode] = useState(() =>
     getInitialThemeMode(initialThemeMode)
   );
+  const [accent, setAccentState] = useState(() => getInitialAccent(initialAccent));
   const fadeTimer = useRef(null);
-  const resolvedTheme = resolveTheme(themeMode);
+  const resolvedTheme = resolveTheme(themeMode, accent);
 
-  const fadeAndApply = useCallback(updater => {
+  const startFade = useCallback(() => {
     const root =
       typeof document !== "undefined" ? document.getElementById("root") : null;
 
@@ -66,15 +84,24 @@ export function ThemeControllerProvider({ children, initialThemeMode }) {
         root.classList.remove("theme-fading");
       }, 300);
     }
-
-    setThemeMode(updater);
   }, []);
+
+  const fadeAndApply = useCallback(updater => {
+    startFade();
+    setThemeMode(updater);
+  }, [startFade]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.localStorage.setItem(THEME_STORAGE_KEY, themeMode);
     }
   }, [themeMode]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(ACCENT_STORAGE_KEY, accent);
+    }
+  }, [accent]);
 
   const value = useMemo(() => {
     function setMode(mode) {
@@ -87,13 +114,20 @@ export function ThemeControllerProvider({ children, initialThemeMode }) {
       );
     }
 
+    function setAccent(nextAccent) {
+      startFade();
+      setAccentState(normalizeAccent(nextAccent));
+    }
+
     return {
+      accent,
       themeMode,
       resolvedTheme,
+      setAccent,
       setMode,
       toggleMode,
     };
-  }, [fadeAndApply, resolvedTheme, themeMode]);
+  }, [accent, fadeAndApply, resolvedTheme, startFade, themeMode]);
 
   return (
     <ThemeControllerContext.Provider value={value}>

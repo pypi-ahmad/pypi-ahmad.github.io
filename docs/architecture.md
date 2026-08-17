@@ -68,9 +68,9 @@ Both `/` and `/home` render the homepage. Metadata normalizes `/home` to the can
 
 `index.html` supplies fallback metadata before React loads. Its JSON-LD describes a `ProfilePage` whose main entity is Ahmad Mujtaba. When homepage positioning changes, update both fallback metadata and runtime route metadata.
 
-## Light and dark modes
+## Light/dark modes and accents
 
-`src/themeController.jsx` reads the saved light or dark mode from `localStorage`, migrates older family-and-mode objects, and resolves the matching default token set. Without a valid saved choice, it uses dark mode. `src/theme.js` contains the two complete token sets consumed by styled-components and global CSS variables.
+`src/themeController.jsx` reads mode and accent from separate `localStorage` keys, migrates older family-and-mode objects, and resolves their combined semantic token set. Invalid or missing values fall back to dark mode and the pink accent. `src/theme.js` keeps surface tokens stable while switching all accent tokens between crimson-to-pink and indigo-to-navy variants.
 
 Components should use semantic tokens such as text, secondary text, card background, border, and accent so both modes remain readable. Interactive components also need visible focus states and reduced-motion behavior.
 
@@ -115,7 +115,7 @@ CI runs install, lint, typecheck, build, and tests for pushes and pull requests 
 | Homepage wording or outcomes | `src/data/homePage.js` | Home rendering and content-contract tests |
 | Project order or copy | `src/data/projects.js` | Projects data test and homepage top four |
 | Route or canonical URL | `src/containers/Main.jsx` | Route metadata, direct build paths, sitemap |
-| Theme tokens or persistence | `src/theme.js`, `src/themeController.jsx` | Light/dark contrast and stored-mode migration |
+| Theme tokens or persistence | `src/theme.js`, `src/themeController.jsx` | Mode/accent resolution, persistence, and stored-mode migration |
 | Fallback SEO | `index.html` | Runtime metadata remains consistent |
 
 Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for branch, commit, and pull-request procedure. Keep content claims tied to committed public sources or approved sanitized work notes.
@@ -135,7 +135,7 @@ Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for branch, commit, and pull-reques
 | Runtime entry and providers | `src/index.jsx`, `src/App.jsx` | Verified |
 | Routes and runtime metadata | `src/containers/Main.jsx`, `src/components/seo/RouteMeta.jsx` | Verified |
 | Content data flow | `src/portfolio.js`, `src/data/` | Verified |
-| Light/dark mode selection | `src/themeController.jsx`, `src/theme.js` | Verified |
+| Light/dark and accent selection | `src/themeController.jsx`, `src/theme.js` | Verified |
 | Build fallbacks | `package.json` | Verified |
 | CI and deployment steps | `.github/workflows/ci.yml`, `.github/workflows/deploy.yml` | Verified |
 | Hosting configuration outside repository | GitHub and Vercel project settings | Unverified |
