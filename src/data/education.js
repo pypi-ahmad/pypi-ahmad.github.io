@@ -40,6 +40,33 @@ export const degrees = {
 export const certifications = {
   certifications: [
     {
+      title: "Claude with the Anthropic API",
+      subtitle: "Anthropic Education",
+      pdfLink: "/certifications/anthropic-claude-api.pdf",
+      altName: "Anthropic Education",
+      category: "Generative AI",
+      highlights: [],
+      summary: "Certificate of completion issued by Anthropic Education.",
+    },
+    {
+      title: "Claude 101",
+      subtitle: "Anthropic Education",
+      pdfLink: "/certifications/anthropic-claude-101.pdf",
+      altName: "Anthropic Education",
+      category: "Generative AI",
+      highlights: [],
+      summary: "Certificate of completion issued by Anthropic Education.",
+    },
+    {
+      title: "AI Fluency: Framework & Foundations",
+      subtitle: "Anthropic Education",
+      pdfLink: "/certifications/anthropic-ai-fluency-framework-foundations.pdf",
+      altName: "Anthropic Education",
+      category: "Generative AI",
+      highlights: [],
+      summary: "Certificate of completion issued by Anthropic Education.",
+    },
+    {
       title: "Machine Learning Specialization",
       subtitle: "DeepLearning.AI / Stanford via Coursera",
       logoPath: "certifications/coursera_ml_specialization.png",

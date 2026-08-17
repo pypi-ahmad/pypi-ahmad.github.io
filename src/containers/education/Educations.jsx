@@ -10,24 +10,23 @@ import React from "react";
 import "./Educations.css";
 import DegreeCard from "../../components/degreeCard/DegreeCard";
 import { degrees } from "../../portfolio";
-import { motion } from "framer-motion";
 
 function Educations(props) {
   const theme = props.theme;
 
   return (
-    <div className="main" id="educations">
-      <div className="educations-header-div">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <h1 className="educations-header" style={{ color: theme.text }}>
-            Degrees Received
-          </h1>
-        </motion.div>
+    <section className="education-section" id="educations" aria-labelledby="degrees-title">
+      <div className="education-section-heading">
+        <p className="education-section-label" style={{ color: theme.accentSolid }}>
+          Academic foundation
+        </p>
+        <h2 id="degrees-title" className="educations-header" style={{ color: theme.text }}>
+          Degrees
+        </h2>
+        <p style={{ color: theme.secondaryText }}>
+          Computer science engineering followed by postgraduate study in data
+          analytics and decision sciences.
+        </p>
       </div>
       <div className="educations-body-div">
         {degrees.degrees.map((degree) => {
@@ -36,7 +35,7 @@ function Educations(props) {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }
 

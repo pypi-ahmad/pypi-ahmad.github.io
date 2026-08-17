@@ -1,21 +1,11 @@
-/**
- * Educations.css — "Degrees Received" header and card list.
- */
-.educations-header {
-  font-size: 40px;
-  line-height: 1.1;
-  font-family: "Google Sans Regular";
-  text-align: center;
+.educations-body-div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--section-gap-tight);
 }
 
-@media (max-width: 1380px) {
-  .educations-header {
-    font-size: 35px;
-  }
-}
-
-@media (max-width: 768px) {
-  .educations-header {
-    font-size: 30px;
+@media (max-width: 900px) {
+  .educations-body-div {
+    grid-template-columns: 1fr;
   }
 }

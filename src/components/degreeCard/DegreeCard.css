@@ -1,149 +1,102 @@
-/**
- * DegreeCard.css — Academic degree card (circular logo + info body).
- */
 .degree-card {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.5rem;
+  min-height: 100%;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.degree-card:hover,
+.degree-card:focus-within {
+  transform: translateY(-3px);
+}
+
+.degree-card__logo {
+  display: grid;
+  place-items: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface-card);
+}
+
+.degree-card__logo img {
   width: 100%;
-  justify-content: center;
-  align-items: center;
-  gap: var(--section-gap-tight);
+  height: 100%;
+  object-fit: contain;
 }
 
-.card-title {
-  font-family: "Google Sans Medium";
-  font-size: 23px;
-  margin-left: 10px;
-  overflow-wrap: anywhere;
-}
-
-.card-subtitle {
-  font-family: "Google Sans Medium";
-  font-size: 18px;
-  margin-top: 7px;
-  margin-bottom: 5px;
-  margin-left: 10px;
-  overflow-wrap: anywhere;
-}
-
-.body-header {
-  max-width: inherit;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  border-radius: 12px 12px 0px 0px;
-  padding: 20px 24px 10px;
-}
-
-.body-header-title {
-  align-items: flex-start;
-  width: 80%;
+.degree-card__content {
   min-width: 0;
 }
 
-.body-header-duration {
-  width: 20%;
-  flex-shrink: 0;
-}
-.duration {
-  font-family: "Google Sans Regular";
-  font-size: 16px;
-  padding-right: 10px;
-  float: right;
+.degree-card__duration {
+  margin: 0 0 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.body-content {
-  max-width: inherit;
-  border-radius: 0px 0px 12px 12px;
-  padding: 5px 24px 24px;
-  justify-content: center;
+.degree-card h3 {
+  margin: 0;
+  font-family: "Google Sans Medium";
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.25;
+}
+
+.degree-card__institution {
+  margin: 0.55rem 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.degree-card__coursework {
+  margin: 1.25rem 0;
+  padding-left: 1.2rem;
+  line-height: 1.65;
+}
+
+.degree-card__link {
+  display: inline-flex;
   align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+  text-decoration: none;
 }
 
-.content-list {
-  padding-left: 10px;
-  padding-right: 10px;
-  font-family: "Google Sans Regular";
-  overflow-wrap: anywhere;
+.degree-card__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
-.degree-visit-link {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
+.degree-card__link:focus-visible {
+  outline: 2px solid var(--accent-solid);
+  outline-offset: 3px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .degree-card {
-    flex-direction: column;
-    max-width: 100%;
-    overflow: hidden;
-    gap: 16px;
-    align-items: stretch;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  .body-header {
-    flex-direction: column;
-    gap: 10px;
-    padding: 14px 12px 8px;
-  }
-
-  .body-header-title {
-    width: 100%;
-  }
-
-  .body-header-duration {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
-
-  .duration {
-    padding: 0px;
-    margin: 0px;
-    float: left;
-  }
-
-  .body-content {
-    padding: 0 12px 14px;
-  }
-
-  .card-title {
-    font-size: 20px;
-    margin-right: 0;
-  }
-
-  .card-subtitle {
-    font-size: 16px;
-    margin-right: 0;
-  }
-
-  .degree-visit-link {
-    justify-content: stretch;
+  .degree-card__logo {
+    width: 4.5rem;
+    height: 4.5rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (prefers-reduced-motion: reduce) {
   .degree-card {
-    gap: 12px;
+    transition: none;
   }
 
-  .body-header {
-    padding: 12px 10px 8px;
-  }
-
-  .body-content {
-    padding: 0 10px 12px;
-  }
-
-  .card-title {
-    font-size: 18px;
-  }
-
-  .card-subtitle {
-    font-size: 15px;
-  }
-
-  .content-list {
-    font-size: 14px;
+  .degree-card:hover,
+  .degree-card:focus-within {
+    transform: none;
   }
 }

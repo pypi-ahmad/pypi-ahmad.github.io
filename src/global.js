@@ -257,7 +257,6 @@ export const GlobalStyles = createGlobalStyle`
   .main,
   .basic-projects,
   .basic-experience,
-  .basic-education,
   .basic-contact,
   .basic-skills {
     width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
@@ -272,7 +271,6 @@ export const GlobalStyles = createGlobalStyle`
 
   .basic-projects,
   .basic-experience,
-  .basic-education,
   .basic-contact,
   .basic-skills {
     padding-top: var(--section-spacing);
@@ -288,7 +286,6 @@ export const GlobalStyles = createGlobalStyle`
   .greeting-main,
   .projects-heading-div,
   .experience-heading-div,
-  .heading-div,
   .contact-heading-div,
   .blog-heading-div,
   .address-heading-div {
@@ -303,7 +300,6 @@ export const GlobalStyles = createGlobalStyle`
   .greeting-text,
   .projects-heading-text,
   .experience-heading-text,
-  .heading-text,
   .contact-heading-text,
   .blog-heading-text,
   .skills-heading-text,
@@ -329,8 +325,6 @@ export const GlobalStyles = createGlobalStyle`
   .skill-section-title,
   .project-title,
   .experience-card-title,
-  .card-title,
-  .cert-body-title,
   .system-header h2 {
     font-family: var(--heading-font-family);
     font-weight: 700;
@@ -355,8 +349,6 @@ export const GlobalStyles = createGlobalStyle`
   .skill-section-title,
   .project-title,
   .experience-card-title,
-  .card-title,
-  .cert-body-title,
   .system-header h2 {
     font-size: clamp(1.2rem, 1.05rem + 0.85vw, 1.75rem);
     margin-top: 0;
@@ -365,7 +357,6 @@ export const GlobalStyles = createGlobalStyle`
 
   .projects-heading-sub-text,
   .experience-heading-sub-text,
-  .heading-sub-text,
   .greeting-text-p,
   .projects-header-detail-text,
   .experience-header-detail-text,
@@ -384,8 +375,6 @@ export const GlobalStyles = createGlobalStyle`
   .light-mode .system-description,
   .system-impact li,
   .light-mode .system-impact li,
-  .card-subtitle,
-  .cert-body-subtitle,
   .skill-text-item,
   .doc-fallback-text {
     color: var(--text-secondary);
@@ -414,8 +403,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .projects-heading-sub-text,
-  .experience-heading-sub-text,
-  .heading-sub-text {
+  .experience-heading-sub-text {
     margin-bottom: var(--stack-sm);
     font-size: clamp(1.1rem, 1rem + 0.55vw, 1.4rem);
   }
@@ -428,8 +416,6 @@ export const GlobalStyles = createGlobalStyle`
   .system-tagline,
   .system-description,
   .system-impact li,
-  .card-subtitle,
-  .cert-body-subtitle,
   .skill-text-item,
   .doc-fallback-text {
     font-size: 1rem;
@@ -446,7 +432,6 @@ export const GlobalStyles = createGlobalStyle`
 
   .projects-heading-text-div,
   .experience-heading-text-div,
-  .heading-text-div,
   .contact-heading-text-div,
   .blog-heading-text-div,
   .address-heading-text-div,
@@ -510,7 +495,6 @@ export const GlobalStyles = createGlobalStyle`
 
     .projects-heading-text,
     .experience-heading-text,
-    .heading-text,
     .contact-heading-text,
     .blog-heading-text,
     .skills-heading-text,
@@ -523,7 +507,6 @@ export const GlobalStyles = createGlobalStyle`
     .greeting-main,
     .projects-heading-div,
     .experience-heading-div,
-    .heading-div,
     .contact-heading-div,
     .blog-heading-div,
     .address-heading-div {

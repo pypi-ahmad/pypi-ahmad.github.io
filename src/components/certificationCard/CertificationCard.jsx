@@ -1,93 +1,57 @@
-/**
- * CertificationCard — Professional certification display card.
- *
- * Renders a card with a color-coded border (from `certificate.colorCode`),
- * header logo image, title, subtitle, and an optional PDF link button.
- *
- * Props: { certificate, theme }
- */
 import React from "react";
 import "./CertificationCard.css";
-import { motion } from "framer-motion";
-import styled from "styled-components";
 
-const CertCardDiv = styled.div`
-  border: 1px solid ${props => props.certificate.colorCode};
-`;
-
-function CertificationCard(props) {
-  const certificate = props.certificate;
-  const theme = props.theme;
-
+function CertificationCard({ certificate, theme }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
+    <article
+      className="cert-card layer-card shadow-sm hover-shadow-lg"
+      style={{
+        background: theme.cardBackgroundAlt,
+        border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
+        borderRadius: theme.surfaceRadius,
+      }}
     >
-      <CertCardDiv
-        className="cert-card shadow-sm hover-shadow-lg hover-translate-y-1 transition-all duration-200 layer-card"
-        certificate={certificate}
-      >
-        <div className="content">
+      <p className="cert-card__issuer" style={{ color: theme.accentSolid }}>
+        {certificate.subtitle}
+      </p>
+      <h4 style={{ color: theme.text }}>{certificate.title}</h4>
+      {certificate.summary ? (
+        <p className="cert-card__summary" style={{ color: theme.secondaryText }}>
+          {certificate.summary}
+        </p>
+      ) : null}
+      {certificate.highlights?.length ? (
+        <ul className="cert-card__highlights" aria-label="Course topics">
+          {certificate.highlights.map(highlight => (
+            <li key={highlight} style={{ color: theme.secondaryText }}>
+              {highlight}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      <div className="cert-card__actions">
+        {certificate.certificateLink ? (
           <a
             href={certificate.certificateLink}
             target="_blank"
             rel="noopener noreferrer"
+            style={{ color: theme.accentSolid }}
           >
-            <div className="content-overlay"></div>
-            <div
-              className="cert-header"
-              style={{ backgroundColor: certificate.colorCode }}
-            >
-              <img
-                className="logo_img"
-                src={`/${certificate.logoPath}`}
-                alt={certificate.altName}
-                loading="lazy"
-                decoding="async"
-                width={800}
-                height={600}
-              />
-            </div>
+            Verify credential <span aria-hidden="true">↗</span>
           </a>
-        </div>
-        <div className="cert-body">
-          <h2 className="cert-body-title" style={{ color: theme.text }}>
-            {certificate.title}
-          </h2>
-          <h3
-            className="cert-body-subtitle"
-            style={{ color: theme.secondaryText }}
+        ) : null}
+        {certificate.pdfLink ? (
+          <a
+            href={certificate.pdfLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: theme.accentSolid }}
           >
-            {certificate.subtitle}
-          </h3>
-          {certificate.pdfLink && (
-            <a
-              href={certificate.pdfLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                marginTop: "10px",
-                display: "inline-block",
-                padding: "8px 14px",
-                minHeight: "44px",
-                color: theme.text,
-                backgroundColor: certificate.colorCode,
-                borderRadius: "5px",
-                textDecoration: "none",
-                fontWeight: "bold",
-                fontSize: "0.9em",
-                lineHeight: "1.6",
-              }}
-            >
-              View Certificate PDF
-            </a>
-          )}
-        </div>
-      </CertCardDiv>
-    </motion.div>
+            View certificate PDF <span aria-hidden="true">↗</span>
+          </a>
+        ) : null}
+      </div>
+    </article>
   );
 }
 

@@ -12,7 +12,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build && node -e \"const fs=require('fs');fs.copyFileSync('build/index.html','build/404.html');for(const route of ['home','projects']){fs.mkdirSync('build/'+route,{recursive:true});fs.copyFileSync('build/index.html','build/'+route+'/index.html')}\"",
+    "build": "vite build && node -e \"const fs=require('fs');fs.copyFileSync('build/index.html','build/404.html');for(const route of ['home','education','projects']){fs.mkdirSync('build/'+route,{recursive:true});fs.copyFileSync('build/index.html','build/'+route+'/index.html')}\"",
     "preview": "vite preview",
     "lint": "eslint src --ext .js,.jsx",
     "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",

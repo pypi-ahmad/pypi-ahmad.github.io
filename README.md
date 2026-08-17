@@ -84,7 +84,7 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 - `public/sitemap.xml` and `public/robots.txt` included.
 
 **Quality**
-- 15 test files, 148 tests covering rendering, navigation, theming, accessibility, content contracts, and route metadata.
+- 16 test files, 156 tests covering rendering, navigation, theming, accessibility, content contracts, and route metadata.
 - Automated lint, typecheck, build, and test on every push and pull request to `main`.
 - Optional Google Analytics 4 integration, disabled by default.
 
@@ -120,7 +120,7 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 │       └── astro-migration-roadmap.md  # SPA hardening and Astro migration tracker
 ├── public/                        # Static assets, favicon, manifest, sitemap, robots
 ├── src/
-│   ├── __tests__/                 # 15 test files: rendering, a11y, navigation, themes
+│   ├── __tests__/                 # 16 test files: rendering, a11y, navigation, themes
 │   ├── components/                # Reusable cards, navigation, icons, and SEO
 │   ├── containers/
 │   │   └── Main.jsx               # Route definitions, lazy loading, RouteMeta, 404
@@ -270,7 +270,7 @@ Themes are registered in `src/theme.js`. Each of the 32 families provides a ligh
 
 ## Testing and Quality
 
-The repository contains **15 test files and 148 tests** covering:
+The repository contains **16 test files and 156 tests** covering:
 
 - Page and component rendering
 - Navigation and route resolution
