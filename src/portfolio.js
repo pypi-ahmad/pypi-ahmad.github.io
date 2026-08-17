@@ -16,5 +16,3 @@ export * from "./data/education";
 export * from "./data/experience";
 export * from "./data/projects";
 export * from "./data/contact";
-export * from "./data/systems";
-export * from "./data/platform";

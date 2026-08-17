@@ -1,109 +1,105 @@
 /**
- * Projects Data
- *
- * `projectsHeader`  — Title and description for the /projects page header.
- * `projects.data`   — Array of open-source project cards.
- *
- * Each project: { name, url, description, category }
+ * Recent public projects, ordered by portfolio priority.
+ * Each entry keeps the compact ProjectCard contract.
  */
 export const projectsHeader = {
   title: "Projects",
   description:
-    "Curated modern AI systems across agentic orchestration, document intelligence, multimodal workflows, retrieval evaluation, and local-first LLM product engineering.",
+    "Recent open-source work across model post-training, browser agents, agent evaluation, local-first AI, document intelligence, and developer tooling.",
 };
 
 export const projects = {
   data: [
     {
-      name: "Grounded Document Parser",
-      url: "https://github.com/pypi-ahmad/grounded-docparse",
+      name: "LoRA Fine-tune Studio",
+      url: "https://github.com/pypi-ahmad/lora-qlora-fine-tuning-app",
       description:
-        "Workstation document-intelligence studio combining local GLM-OCR with bounded Luna recovery to produce grounded Markdown, structured JSON, extraction results, and annotated PDFs.",
-      category: "Document AI · OCR & Extraction",
-    },
-    {
-      name: "Fine-Tuning Studio",
-      url: "https://github.com/pypi-ahmad/fine-tuning-app",
-      description:
-        "Local-first Streamlit studio for dataset preparation, post-training recipes, evaluation, adapter or merged-model export, and optional Ollama testing across supported GPU runtimes.",
+        "Local guided Streamlit application for preparing datasets, running parameter-efficient LLM post-training on NVIDIA GPUs, monitoring jobs, and comparing adapters with base models.",
       category: "Model Training · Fine-Tuning",
     },
     {
-      name: "Local AI Chat Studio",
-      url: "https://github.com/pypi-ahmad/local-ai-chat-studio",
+      name: "Tool-Using Browser Agent",
+      url: "https://github.com/pypi-ahmad/tool-using-browser-agent",
       description:
-        "Local-first FastAPI and React workspace for multi-provider streaming chat, model comparison, provenance-aware context, prompt-injection safeguards, memory, retrieval, and replayable bundles.",
-      category: "Local AI · Chat & RAG",
+        "LangGraph, Playwright, and Streamlit browser agent that plans, acts, observes, and remembers, with human approval before sensitive actions.",
+      category: "Agentic AI · Browser Automation",
     },
     {
-      name: "Computer Use Workbench",
-      url: "https://github.com/pypi-ahmad/computer-use",
+      name: "Self-Improving Prompt Optimizer",
+      url: "https://github.com/pypi-ahmad/self-improving-prompt-optimizer",
       description:
-        "Local single-user workbench for provider-native Computer Use agents with isolated desktop execution, typed APIs, live streaming, auditable actions, declarative workflows, and explicit safety policies.",
-      category: "Agentic AI · Computer Use",
+        "Agentic prompt-optimization system that mutates, evaluates, and selects candidates with multi-objective LLM-as-judge scoring against a fixed benchmark.",
+      category: "Evaluation · Prompt Optimization",
     },
     {
-      name: "GenAI Systems Lab",
-      url: "https://github.com/pypi-ahmad/genai-systems-lab",
+      name: "NL2SQL Agent",
+      url: "https://github.com/pypi-ahmad/natural-language-to-sql-agent",
       description:
-        "Execution and evaluation platform for 20 AI systems spanning GenAI pipelines, LangGraph state machines, and CrewAI teams, with streaming, BYOK access, memory, and benchmark leaderboards.",
-      category: "AI Platform",
+        "Natural-language-to-SQL agent for SQLite and PostgreSQL with query review, audit trails, session tracking, and local or hosted model support.",
+      category: "Agentic AI · Data Systems",
     },
     {
-      name: "Multi-Agent AI Studio",
-      url: "https://github.com/pypi-ahmad/multi-agent-ai-studio",
+      name: "Autonomous Coding Agent Crew",
+      url: "https://github.com/pypi-ahmad/autonomous-coding-agent-crew",
       description:
-        "Privacy-first local agent studio with LangGraph supervisor orchestration, Ollama-first model routing, Qdrant retrieval, and end-to-end verification artifacts.",
-      category: "Agentic AI Platform",
-    },
-    {
-      name: "Agentic Document Extraction",
-      url: "https://github.com/pypi-ahmad/Agentic-Document-Extraction",
-      description:
-        "Document-intelligence workflow built around a four-stage LangGraph pipeline with confidence-aware extraction, schema validation, human-review handoffs, and MCP integration.",
-      category: "Document AI · Agentic Workflow",
-    },
-    {
-      name: "Domain-Adapted Embedding Alignment",
-      url: "https://github.com/pypi-ahmad/domain-adapted-embedding-alignment",
-      description:
-        "Adapter-based embedding training and retrieval benchmarking for medical, legal, and cybersecurity domains, covering sparse, dense, hybrid, RAG, and GraphRAG evaluations.",
-      category: "Retrieval · Fine-Tuning",
-    },
-    {
-      name: "Local AI Software Engineer",
-      url: "https://github.com/pypi-ahmad/local-ai-software-engineer",
-      description:
-        "Local-first engineering assistant for repository indexing, semantic and symbol search, architecture summaries, review and test generation, and governed terminal execution.",
+        "Local-first CrewAI and LangGraph coding crew with planning, parallel specialists, review, testing, debugging, documentation, and quality gates.",
       category: "Agentic AI · Developer Tools",
     },
     {
-      name: "Local Video Intelligence Platform",
-      url: "https://github.com/pypi-ahmad/local-video-intelligence-platform",
+      name: "Multi-Agent Debate Decision System",
+      url: "https://github.com/pypi-ahmad/multi-agent-debate-decision-system",
       description:
-        "Local-first multimodal video pipeline combining OCR, transcription, timeline extraction, retrieval, RAG chat, and report generation with FastAPI and Next.js.",
-      category: "Multimodal AI · Video Systems",
+        "Local multi-agent debate system with moderated personas, optional document grounding, structured judging, recommendations, confidence, and risk reporting.",
+      category: "Multi-Agent AI · Decision Support",
     },
     {
-      name: "Local Research Assistant",
-      url: "https://github.com/pypi-ahmad/local-research-assistant",
+      name: "Multi-Agent Research Assistant",
+      url: "https://github.com/pypi-ahmad/multi-agent-research-assistant",
       description:
-        "Local research workspace with multimodal ingestion, hybrid retrieval, citation-grounded chat, graph-backed study workflows, and reproducible end-to-end run artifacts.",
-      category: "RAG Systems · Research Intelligence",
+        "LangGraph research system that coordinates planning, parallel research, critique, reflection, and writing to produce structured cited reports.",
+      category: "Multi-Agent AI · Research",
     },
     {
-      name: "Repository-Specific SQL & Cypher Query Generator",
-      url: "https://github.com/pypi-ahmad/Repository-Specific-SQL-Cypher-Query-Generator",
+      name: "Local-First Knowledge Base Agent",
+      url: "https://github.com/pypi-ahmad/local-first-knowledge-base-agent",
       description:
-        "Schema-aware Text-to-SQL and Text-to-Cypher system with deterministic labeling, QLoRA training, and execution-aware evaluation across baseline and fine-tuned models.",
-      category: "LLM Systems · Fine-Tuning & Evaluation",
+        "Privacy-first agent that indexes notes, code, documents, media, and browser history for cited answers, temporal reasoning, and local knowledge graphs.",
+      category: "Local AI · Knowledge Systems",
     },
     {
-      name: "Cybersecurity Threat Intelligence GraphRAG",
-      url: "https://github.com/pypi-ahmad/Cybersecurity-Threat-Intelligence-GraphRAG",
+      name: "Intelligent Personal Finance Agent",
+      url: "https://github.com/pypi-ahmad/intelligent-personal-finance-agent",
       description:
-        "Threat-intelligence assistant over MITRE ATT&CK STIX data using GraphRAG, agentic routing, hybrid retrieval, multimodal OCR and vision, and latency-aware evaluation.",
-      category: "GraphRAG · Cybersecurity",
+        "Local-first personal-finance copilot that ingests statements, learns category corrections, and keeps its ledger on the user’s machine.",
+      category: "Local AI · Personal Finance",
+    },
+    {
+      name: "Document Intelligence Agent",
+      url: "https://github.com/pypi-ahmad/document-intelligence-agent",
+      description:
+        "GraphRAG document Q&A agent using LangGraph and ArcadeDB for extraction, community detection, hybrid retrieval, verification, and cross-document comparison.",
+      category: "Document AI · GraphRAG",
+    },
+    {
+      name: "Autonomous Job Application Agent",
+      url: "https://github.com/pypi-ahmad/autonomous-job-application-agent",
+      description:
+        "Human-in-the-loop LangGraph agent that collects jobs, scores them against a resume, drafts tailored content, and tracks applications locally.",
+      category: "Agentic AI · Workflow Automation",
+    },
+    {
+      name: "AutoTabML Studio",
+      url: "https://github.com/pypi-ahmad/AutoTabML-Studio",
+      description:
+        "Local-first AutoML workbench that turns tabular data into trained, evaluated, deployable models through reproducible Streamlit and CLI workflows.",
+      category: "Machine Learning · AutoML",
+    },
+    {
+      name: "Codebase Understanding Agent",
+      url: "https://github.com/pypi-ahmad/codebase-understanding-agent",
+      description:
+        "Multi-agent Streamlit application that clones, scans, summarizes, and explains codebases, then answers repository questions through chat.",
+      category: "Agentic AI · Developer Tools",
     },
   ],
 };

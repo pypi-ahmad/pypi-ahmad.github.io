@@ -32,10 +32,10 @@ describe("Route metadata", () => {
   it("applies Home route metadata", async () => {
     renderMainAt("/home");
 
-    await waitForTitle("Ahmad Mujtaba | GenAI Engineer Portfolio");
+    await waitForTitle("Ahmad Mujtaba | Applied AI Engineer Portfolio");
     expect(
       getManagedMeta('meta[name="description"]')?.getAttribute("content")
-    ).toContain("Generative AI Engineer");
+    ).toContain("Applied AI Engineer");
     expect(
       getManagedMeta('link[rel="canonical"]')?.getAttribute("href")
     ).toBe("https://pypi-ahmad.github.io/");

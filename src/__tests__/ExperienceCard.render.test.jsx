@@ -14,7 +14,7 @@ import ExperienceCard from "../components/experienceCard/ExperienceCard";
 import { renderWithProviders, darkTheme } from "../test/testUtils";
 
 const mockExperience = {
-  title: "GenAI Engineer",
+  title: "AI and Data Science Engineer",
   company: "Deloitte",
   companyUrl: "https://www2.deloitte.com/",
   logoPath: "deloitte_logo.svg",
@@ -32,7 +32,7 @@ describe("ExperienceCard — UI Rendering", () => {
     renderWithProviders(
       <ExperienceCard experience={mockExperience} theme={darkTheme} />
     );
-    expect(screen.getByText("GenAI Engineer")).toBeInTheDocument();
+    expect(screen.getByText("AI and Data Science Engineer")).toBeInTheDocument();
   });
 
   it("renders the company name as a link", () => {

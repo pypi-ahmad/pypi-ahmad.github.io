@@ -81,7 +81,7 @@ describe("Navigation — Route Resolution", () => {
 
   it("'/projects' renders the Projects page", () => {
     renderAtRoute("/projects");
-    expect(screen.getByText("Enterprise Systems")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "Recent Projects" })).toBeInTheDocument();
   });
 
   it("'/skills' renders the Skills page", () => {
@@ -128,7 +128,7 @@ describe("Navigation — NavLink Click Flow", () => {
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const projectsLink = screen.getByText("Projects", { selector: "a" });
     await user.click(projectsLink);
-    expect(screen.getByText("Enterprise Systems")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "Recent Projects" })).toBeInTheDocument();
   });
 
   it("clicking 'Skills' NavLink navigates to Skills page", async () => {
