@@ -1,16 +1,15 @@
 import { describe, expect, it } from "vitest";
-import { resolveTheme, themeFamilyOptions, themes } from "../theme";
+import * as themeModule from "../theme";
+import {
+  DEFAULT_THEME_MODE,
+  darkTheme,
+  lightTheme,
+  resolveTheme,
+} from "../theme";
 
 function hexToRgb(hex) {
   const normalizedHex = hex.replace("#", "");
-  const fullHex =
-    normalizedHex.length === 3
-      ? normalizedHex
-          .split("")
-          .map((character) => `${character}${character}`)
-          .join("")
-      : normalizedHex;
-  const numericHex = Number.parseInt(fullHex, 16);
+  const numericHex = Number.parseInt(normalizedHex, 16);
 
   return {
     r: (numericHex >> 16) & 255,
@@ -21,10 +20,8 @@ function hexToRgb(hex) {
 
 function getRelativeLuminance(hex) {
   const { r, g, b } = hexToRgb(hex);
-
-  const transformChannel = (channel) => {
+  const transformChannel = channel => {
     const normalizedChannel = channel / 255;
-
     return normalizedChannel <= 0.03928
       ? normalizedChannel / 12.92
       : ((normalizedChannel + 0.055) / 1.055) ** 2.4;
@@ -38,392 +35,51 @@ function getRelativeLuminance(hex) {
 }
 
 function getContrastRatio(foregroundHex, backgroundHex) {
-  const foregroundLuminance = getRelativeLuminance(foregroundHex);
-  const backgroundLuminance = getRelativeLuminance(backgroundHex);
+  const foreground = getRelativeLuminance(foregroundHex);
+  const background = getRelativeLuminance(backgroundHex);
   const [lighter, darker] =
-    foregroundLuminance > backgroundLuminance
-      ? [foregroundLuminance, backgroundLuminance]
-      : [backgroundLuminance, foregroundLuminance];
+    foreground > background ? [foreground, background] : [background, foreground];
 
   return (lighter + 0.05) / (darker + 0.05);
 }
 
-describe("Theme registry — terminal family", () => {
-  it("keeps primary and secondary text readable across every registered theme", () => {
-    const failures = [];
-
-    for (const [family, modes] of Object.entries(themes)) {
-      for (const [mode, theme] of Object.entries(modes)) {
-        const textContrast = getContrastRatio(theme.text, theme.body);
-        const secondaryContrast = getContrastRatio(
-          theme.secondaryText,
-          theme.body
-        );
-
-        if (textContrast < 7 || secondaryContrast < 4.5) {
-          failures.push({
-            family,
-            mode,
-            text: Number(textContrast.toFixed(2)),
-            secondary: Number(secondaryContrast.toFixed(2)),
-          });
-        }
-      }
-    }
-
-    expect(failures).toEqual([]);
+describe("Default theme", () => {
+  it("exports only one light-dark theme contract", () => {
+    expect(themeModule).not.toHaveProperty("themes");
+    expect(themeModule).not.toHaveProperty("themeFamilyOptions");
+    expect(themeModule).not.toHaveProperty("DEFAULT_THEME_FAMILY");
+    expect(lightTheme.name).toBe("light");
+    expect(darkTheme.name).toBe("dark");
   });
 
-  it("registers terminal in the selector options", () => {
-    expect(themeFamilyOptions.some((family) => family.value === "terminal")).toBe(true);
+  it("defaults invalid modes to dark", () => {
+    expect(DEFAULT_THEME_MODE).toBe("dark");
+    expect(resolveTheme()).toBe(darkTheme);
+    expect(resolveTheme("unknown")).toBe(darkTheme);
   });
 
-  it("exposes the requested dark terminal palette", () => {
-    const theme = resolveTheme({ family: "terminal", mode: "dark" });
-
-    expect(theme.body).toBe("#0A0F0A");
-    expect(theme.text).toBe("#9EFFA1");
-    expect(theme.accentColor).toBe("#00FF88");
-    expect(theme.panelBorderStyle).toBe("solid");
-    expect(theme.surfaceRadius).toBe("8px");
-    expect(theme.accentFontFamily).toContain("Consolas");
+  it("resolves light and dark modes", () => {
+    expect(resolveTheme("light")).toBe(lightTheme);
+    expect(resolveTheme("dark")).toBe(darkTheme);
   });
 
-  it("keeps a readable light terminal variant", () => {
-    const theme = resolveTheme({ family: "terminal", mode: "light" });
-
-    expect(theme.body).toBe("#EEF7EE");
-    expect(theme.text).toBe("#173020");
-    expect(theme.accentBright).toBe("#00FF88");
-    expect(theme.buttonText).toBe("#173020");
+  it("keeps identical semantic token keys in both modes", () => {
+    expect(Object.keys(lightTheme).sort()).toEqual(Object.keys(darkTheme).sort());
   });
 
-  it("derives the premium accent gradient contract", () => {
-    const theme = resolveTheme({ family: "terminal", mode: "dark" });
+  it.each([
+    ["light", lightTheme],
+    ["dark", darkTheme],
+  ])("keeps %s mode text readable", (_mode, theme) => {
+    expect(getContrastRatio(theme.text, theme.body)).toBeGreaterThanOrEqual(7);
+    expect(getContrastRatio(theme.secondaryText, theme.body)).toBeGreaterThanOrEqual(4.5);
+  });
 
-    expect(theme.accentSolid).toMatch(/^#[0-9A-F]{6}$/);
+  it.each([lightTheme, darkTheme])("retains the component token contract", theme => {
     expect(theme.accentGradient).toContain("linear-gradient");
-    expect(theme.accentStart).toBe("#DC143C");
-    expect(theme.accentEnd).toBe("#FF69B4");
-  });
-
-  it("matrix-amber is available in the theme picker", () => {
-    expect(themeFamilyOptions).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          value: "matrix-amber",
-          label: "Matrix Amber",
-        }),
-      ])
-    );
-  });
-
-  it("matrix-amber dark uses the requested retro amber terminal palette", () => {
-    const theme = resolveTheme({ family: "matrix-amber", mode: "dark" });
-    expect(theme).toMatchObject({
-      body: "#0B0906",
-      text: "#FFBF00",
-      accentColor: "#E38B2C",
-      accentBright: "#F0A74A",
-      projectCard: "#14100B",
-      cardBackgroundAlt: "#18130E",
-      buttonText: "#FFBF00",
-    });
-  });
-
-  it("matrix-amber light stays warm and readable without harsh contrast", () => {
-    const theme = resolveTheme({ family: "matrix-amber", mode: "light" });
-    expect(theme).toMatchObject({
-      body: "#FAF3E5",
-      text: "#44331A",
-      accentColor: "#C7801A",
-      accentBright: "#E39A2D",
-      buttonText: "#44331A",
-    });
-  });
-
-  it("blueprint is available in the theme picker", () => {
-    expect(themeFamilyOptions).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          value: "blueprint",
-          label: "Blueprint",
-        }),
-      ])
-    );
-  });
-
-  it("blueprint dark uses the requested engineering blueprint palette", () => {
-    const theme = resolveTheme({ family: "blueprint", mode: "dark" });
-    expect(theme).toMatchObject({
-      body: "#0B3D91",
-      text: "#FFFFFF",
-      accentColor: "#57D5FF",
-      accentBright: "#9DEBFF",
-      panelBorderStyle: "solid",
-      projectCard: "#0A347A",
-      buttonText: "#FFFFFF",
-    });
-  });
-
-  it("blueprint light stays clean and technical with strong contrast", () => {
-    const theme = resolveTheme({ family: "blueprint", mode: "light" });
-    expect(theme).toMatchObject({
-      body: "#F8FBFF",
-      text: "#0B3D91",
-      accentColor: "#1CA6D9",
-      accentBright: "#74E3FF",
-      panelBorderStyle: "solid",
-      buttonText: "#0B3D91",
-    });
-  });
-
-  it("deep-space is available in the theme picker", () => {
-    expect(themeFamilyOptions).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          value: "deep-space",
-          label: "Deep Space",
-        }),
-      ])
-    );
-  });
-
-  it("deep-space dark uses a calm premium dark dashboard palette", () => {
-    const theme = resolveTheme({ family: "deep-space", mode: "dark" });
-    expect(theme).toMatchObject({
-      body: "#08111D",
-      text: "#F2F7FB",
-      accentColor: "#34C7C9",
-      accentBright: "#76E6E8",
-      projectCard: "#0D1826",
-      buttonText: "#F2F7FB",
-    });
-  });
-
-  it("deep-space light keeps the SaaS look readable and clean", () => {
-    const theme = resolveTheme({ family: "deep-space", mode: "light" });
-    expect(theme).toMatchObject({
-      body: "#F6FBFF",
-      text: "#11263C",
-      accentColor: "#1CAFB4",
-      accentBright: "#67DDE7",
-      projectCard: "#E4EEF6",
-      buttonText: "#11263C",
-    });
-  });
-
-  it("sunset-gradient is available in the theme picker", () => {
-    expect(themeFamilyOptions).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          value: "sunset-gradient",
-          label: "Sunset Gradient",
-        }),
-      ])
-    );
-  });
-
-  it("sunset-gradient dark keeps gradients concentrated in hero and accents", () => {
-    const theme = resolveTheme({ family: "sunset-gradient", mode: "dark" });
-    expect(theme).toMatchObject({
-      body: "#17131F",
-      text: "#F8F3FA",
-      accentColor: "#FF7A8E",
-      accentBright: "#FF9EC1",
-      projectCard: "#211A2B",
-      surfacePattern: "none",
-      buttonText: "#F8F3FA",
-    });
-    expect(theme.heroGradient).toContain("#4A1F38");
-  });
-
-  it("sunset-gradient light stays warm, readable, and restrained", () => {
-    const theme = resolveTheme({ family: "sunset-gradient", mode: "light" });
-    expect(theme).toMatchObject({
-      body: "#FFF8FB",
-      text: "#3F2848",
-      accentColor: "#F56A7E",
-      accentBright: "#FF8CA8",
-      projectCard: "#F9E8F1",
-      surfacePattern: "none",
-      buttonText: "#3F2848",
-    });
-    expect(theme.heroGradient).toContain("#FFD9E6");
-  });
-
-  it("coffee is available in the theme picker", () => {
-    expect(themeFamilyOptions).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          value: "coffee",
-          label: "Coffee",
-        }),
-      ])
-    );
-  });
-
-  it("coffee light uses a warm reading-friendly palette", () => {
-    const theme = resolveTheme({ family: "coffee", mode: "light" });
-    expect(theme).toMatchObject({
-      body: "#F7F0E6",
-      text: "#4A362C",
-      accentColor: "#6B4B3E",
-      accentBright: "#8A6251",
-      projectCard: "#EFE3D6",
-      buttonText: "#4A362C",
-    });
-  });
-
-  it("coffee dark stays warm and soft without harsh contrast", () => {
-    const theme = resolveTheme({ family: "coffee", mode: "dark" });
-    expect(theme).toMatchObject({
-      body: "#221A17",
-      text: "#F1E7DD",
-      accentColor: "#9B7660",
-      accentBright: "#BC9277",
-      projectCard: "#2B211D",
-      buttonText: "#F1E7DD",
-    });
-  });
-
-  it("arctic is available in the theme picker", () => {
-    expect(themeFamilyOptions).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          value: "arctic",
-          label: "Arctic",
-        }),
-      ])
-    );
-  });
-
-  it("arctic light uses a crisp icy palette with restrained glassiness", () => {
-    const theme = resolveTheme({ family: "arctic", mode: "light" });
-    expect(theme).toMatchObject({
-      body: "#F9FCFF",
-      text: "#2F3A45",
-      accentColor: "#5A9FD6",
-      accentBright: "#9FD6FF",
-      projectCard: "#EEF5FB",
-      buttonText: "#2F3A45",
-    });
-  });
-
-  it("arctic dark stays clean and cool without losing readability", () => {
-    const theme = resolveTheme({ family: "arctic", mode: "dark" });
-    expect(theme).toMatchObject({
-      body: "#131A21",
-      text: "#EEF4F8",
-      accentColor: "#74B8E8",
-      accentBright: "#B7E1FF",
-      projectCard: "#1A242E",
-      buttonText: "#EEF4F8",
-    });
-  });
-
-  it("ember is available in the theme picker", () => {
-    expect(themeFamilyOptions).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          value: "ember",
-          label: "Ember",
-        }),
-      ])
-    );
-  });
-
-  it("ember dark uses a bold industrial charcoal palette", () => {
-    const theme = resolveTheme({ family: "ember", mode: "dark" });
-    expect(theme).toMatchObject({
-      body: "#1C1A19",
-      text: "#F6EFE8",
-      accentColor: "#F06A2F",
-      accentBright: "#FF9A63",
-      projectCard: "#262221",
-      buttonText: "#F6EFE8",
-    });
-  });
-
-  it("ember light stays warm and strong without losing readability", () => {
-    const theme = resolveTheme({ family: "ember", mode: "light" });
-    expect(theme).toMatchObject({
-      body: "#FFF7F1",
-      text: "#3C2F2B",
-      accentColor: "#C85B2B",
-      accentBright: "#EE8351",
-      projectCard: "#F4E1D5",
-      buttonText: "#3C2F2B",
-    });
-  });
-
-  it("synthwave is available in the theme picker", () => {
-    expect(themeFamilyOptions).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          value: "synthwave",
-          label: "Synthwave",
-        }),
-      ])
-    );
-  });
-
-  it("synthwave dark uses the requested retro-futuristic neon palette", () => {
-    const theme = resolveTheme({ family: "synthwave", mode: "dark" });
-    expect(theme).toMatchObject({
-      body: "#110C20",
-      text: "#FFFFFF",
-      accentColor: "#FF4FD8",
-      accentBright: "#44E7FF",
-      projectCard: "#1D1431",
-      buttonText: "#FFFFFF",
-    });
-  });
-
-  it("synthwave light stays readable while keeping magenta and cyan accents", () => {
-    const theme = resolveTheme({ family: "synthwave", mode: "light" });
-    expect(theme).toMatchObject({
-      body: "#FFF8FF",
-      text: "#32294D",
-      accentColor: "#D93CFF",
-      accentBright: "#3ED8FF",
-      projectCard: "#F2E1F8",
-      buttonText: "#32294D",
-    });
-  });
-
-  it("black-gold is available in the theme picker", () => {
-    expect(themeFamilyOptions).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          value: "black-gold",
-          label: "Black Gold",
-        }),
-      ])
-    );
-  });
-
-  it("black-gold dark uses the requested graphite and muted gold palette", () => {
-    const theme = resolveTheme({ family: "black-gold", mode: "dark" });
-    expect(theme).toMatchObject({
-      body: "#111214",
-      text: "#F3F0E8",
-      accentColor: "#C9A227",
-      accentBright: "#D7B654",
-      projectCard: "#17191C",
-      buttonText: "#F3F0E8",
-    });
-  });
-
-  it("black-gold light stays clean and high-end with restrained contrast", () => {
-    const theme = resolveTheme({ family: "black-gold", mode: "light" });
-    expect(theme).toMatchObject({
-      body: "#FAF8F3",
-      text: "#2F2A24",
-      accentColor: "#C9A227",
-      accentBright: "#D7B654",
-      projectCard: "#EFEAE0",
-      buttonText: "#2F2A24",
-    });
+    expect(theme.heroGradient).toContain("linear-gradient");
+    expect(theme.surfaceRadius).toBe("24px");
+    expect(theme.panelBorderStyle).toBe("solid");
+    expect(theme.accentFontFamily).toContain("Google Sans Medium");
   });
 });

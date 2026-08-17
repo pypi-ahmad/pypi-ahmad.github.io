@@ -62,17 +62,17 @@ Changing one of the first four entries changes both project-page order and homep
 
 ## Routing, metadata, and static hosting
 
-React Router handles `/`, `/home`, `/experience`, `/education`, `/projects`, `/skills`, `/contact`, `/theme`, `/splash`, and the catch-all page. Each route is paired with `RouteMeta`, which manages its title, description, canonical URL, robots rule, Open Graph tags, and Twitter tags.
+React Router handles `/`, `/home`, `/experience`, `/education`, `/projects`, `/skills`, `/contact`, `/splash`, and the catch-all page. Each route is paired with `RouteMeta`, which manages its title, description, canonical URL, robots rule, Open Graph tags, and Twitter tags.
 
 Both `/` and `/home` render the homepage. Metadata normalizes `/home` to the canonical root URL. The production build copies `index.html` to `404.html` for GitHub Pages route recovery. It also creates `home/index.html`, `education/index.html`, and `projects/index.html` so direct requests for those routes return HTTP 200.
 
 `index.html` supplies fallback metadata before React loads. Its JSON-LD describes a `ProfilePage` whose main entity is Ahmad Mujtaba. When homepage positioning changes, update both fallback metadata and runtime route metadata.
 
-## Theme resolution
+## Light and dark modes
 
-`src/themeController.jsx` reads the saved selection from `localStorage`, migrates older string values, and resolves the active family and mode. Without a saved choice, it uses the system color preference. `src/theme.js` contains 32 theme families and generates the complete token set consumed by styled-components and global CSS variables.
+`src/themeController.jsx` reads the saved light or dark mode from `localStorage`, migrates older family-and-mode objects, and resolves the matching default token set. Without a valid saved choice, it uses dark mode. `src/theme.js` contains the two complete token sets consumed by styled-components and global CSS variables.
 
-Components should use semantic tokens such as text, secondary text, card background, border, and accent. Hard-coded colors can break one of the 64 resolved themes. Interactive components also need visible focus states and reduced-motion behavior.
+Components should use semantic tokens such as text, secondary text, card background, border, and accent so both modes remain readable. Interactive components also need visible focus states and reduced-motion behavior.
 
 ## Design decisions
 
@@ -115,7 +115,7 @@ CI runs install, lint, typecheck, build, and tests for pushes and pull requests 
 | Homepage wording or outcomes | `src/data/homePage.js` | Home rendering and content-contract tests |
 | Project order or copy | `src/data/projects.js` | Projects data test and homepage top four |
 | Route or canonical URL | `src/containers/Main.jsx` | Route metadata, direct build paths, sitemap |
-| Theme tokens or persistence | `src/theme.js`, `src/themeController.jsx` | Theme registry, contrast, stored-value migration |
+| Theme tokens or persistence | `src/theme.js`, `src/themeController.jsx` | Light/dark contrast and stored-mode migration |
 | Fallback SEO | `index.html` | Runtime metadata remains consistent |
 
 Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for branch, commit, and pull-request procedure. Keep content claims tied to committed public sources or approved sanitized work notes.
@@ -125,7 +125,7 @@ Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for branch, commit, and pull-reques
 - BrowserRouter depends on generated static fallbacks for direct GitHub Pages requests.
 - Portfolio data has test coverage but no runtime schema validator.
 - JavaScript checking is limited by `checkJs: false`.
-- Theme breadth makes visual checks on both light and dark modes important.
+- Visual changes require checks in both light and dark modes.
 - Astro architecture does not exist in the current application.
 
 ## Evidence index
@@ -135,7 +135,7 @@ Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for branch, commit, and pull-reques
 | Runtime entry and providers | `src/index.jsx`, `src/App.jsx` | Verified |
 | Routes and runtime metadata | `src/containers/Main.jsx`, `src/components/seo/RouteMeta.jsx` | Verified |
 | Content data flow | `src/portfolio.js`, `src/data/` | Verified |
-| Theme selection and registry | `src/themeController.jsx`, `src/theme.js` | Verified |
+| Light/dark mode selection | `src/themeController.jsx`, `src/theme.js` | Verified |
 | Build fallbacks | `package.json` | Verified |
 | CI and deployment steps | `.github/workflows/ci.yml`, `.github/workflows/deploy.yml` | Verified |
 | Hosting configuration outside repository | GitHub and Vercel project settings | Unverified |

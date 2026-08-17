@@ -9,7 +9,7 @@ function renderMainAt(pathname) {
   window.history.pushState({}, "", pathname);
   return render(
     <ThemeControllerProvider
-      initialThemeSelection={{ family: "default", mode: "dark" }}
+      initialThemeMode="dark"
     >
       <Main theme={darkTheme} />
     </ThemeControllerProvider>
@@ -83,10 +83,10 @@ describe("Route metadata", () => {
     ).toBe("https://pypi-ahmad.github.io/contact");
   });
 
-  it("marks /theme as noindex", async () => {
+  it("treats removed /theme route as not found", async () => {
     renderMainAt("/theme");
 
-    await waitForTitle("Theme Gallery | Ahmad Mujtaba");
+    await waitForTitle("Page Not Found | Ahmad Mujtaba");
     expect(
       getManagedMeta('meta[name="robots"]')?.getAttribute("content")
     ).toBe("noindex, nofollow");

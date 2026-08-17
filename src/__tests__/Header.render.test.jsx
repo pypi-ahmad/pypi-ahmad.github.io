@@ -59,28 +59,10 @@ describe("Header — UI Rendering", () => {
     expect(toggleBtn).toBeInTheDocument();
   });
 
-  it("renders the Theme nav link pointing to /theme", async () => {
+  it("does not render a Theme gallery link", async () => {
     renderWithProviders(<Header />);
     await openMenu();
-    const themeLink = screen.getByText("Theme").closest("a");
-    expect(themeLink).toHaveAttribute("href", "/theme");
-  });
-
-  it("renders all 7 navigation links including Theme", async () => {
-    renderWithProviders(<Header />);
-    await openMenu();
-    const navLabels = [
-      "Home",
-      "Education and Certifications",
-      "Experience",
-      "Skills",
-      "Projects",
-      "Contact Me",
-      "Theme",
-    ];
-    navLabels.forEach((label) => {
-      expect(screen.getByText(label)).toBeInTheDocument();
-    });
+    expect(screen.queryByRole("link", { name: "Theme" })).not.toBeInTheDocument();
   });
 
   it("renders the hamburger menu button", () => {
