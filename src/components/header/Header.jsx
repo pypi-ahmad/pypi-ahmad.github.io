@@ -179,6 +179,13 @@ function Header() {
                     aria-pressed={accent === "blue"}
                     onClick={() => setAccent("blue")}
                   />
+                  <button
+                    className="accent-swatch accent-swatch--pink-indigo"
+                    type="button"
+                    aria-label="Use dark pink and indigo accent"
+                    aria-pressed={accent === "pink-indigo"}
+                    onClick={() => setAccent("pink-indigo")}
+                  />
                 </div>
                 <button
                   className="change-theme-btn"

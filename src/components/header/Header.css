@@ -142,6 +142,10 @@
   background: linear-gradient(135deg, #6366F1 0%, #1E3A8A 100%);
 }
 
+.accent-swatch--pink-indigo {
+  background: linear-gradient(135deg, #BE185D 0%, #312E81 100%);
+}
+
 .accent-swatch:hover {
   transform: translateY(-1px) scale(1.05);
 }

@@ -20,7 +20,9 @@ function normalizeThemeMode(mode) {
 }
 
 function normalizeAccent(accent) {
-  return accent === "blue" || accent === "pink" ? accent : DEFAULT_ACCENT;
+  return accent === "blue" || accent === "pink" || accent === "pink-indigo"
+    ? accent
+    : DEFAULT_ACCENT;
 }
 
 export function parseStoredThemeMode(rawTheme) {

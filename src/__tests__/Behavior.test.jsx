@@ -126,6 +126,34 @@ describe("Header — Theme Toggle Behavior", () => {
       screen.getByRole("button", { name: "Use crimson and pink accent", hidden: true })
     ).toHaveAttribute("aria-pressed", "true");
   });
+
+  it("selects and persists the dark pink and indigo accent", async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<Header />);
+
+    await openHeaderMenu(user);
+    const accentButton = screen.getByRole("button", {
+      name: "Use dark pink and indigo accent",
+    });
+    await user.click(accentButton);
+
+    expect(localStorage.getItem("accent")).toBe("pink-indigo");
+    expect(localStorage.getItem("theme")).toBe("dark");
+    expect(accentButton).toHaveAttribute("aria-pressed", "true");
+  });
+
+  it("restores a stored dark pink and indigo accent", () => {
+    localStorage.setItem("accent", "pink-indigo");
+    renderWithProviders(<Header />, { useStoredTheme: true });
+
+    expect(localStorage.getItem("accent")).toBe("pink-indigo");
+    expect(
+      screen.getByRole("button", {
+        name: "Use dark pink and indigo accent",
+        hidden: true,
+      })
+    ).toHaveAttribute("aria-pressed", "true");
+  });
 });
 // ────────────────────────────────────────────────────────
 // Home hero CTA behavior

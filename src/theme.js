@@ -140,11 +140,46 @@ const blueDarkTheme = {
   glowColor: "rgba(99, 102, 241, 0.34)",
 };
 
+const pinkIndigoAccent = {
+  accentColor: "#BE185D",
+  accentBright: "#F472B6",
+  accentStart: "#BE185D",
+  accentEnd: "#312E81",
+  accentGradient: "linear-gradient(135deg, #BE185D 0%, #312E81 100%)",
+};
+
+const pinkIndigoLightTheme = {
+  ...lightTheme,
+  ...pinkIndigoAccent,
+  accentSolid: "#9D174D",
+  accentSoft: "rgba(190, 24, 93, 0.14)",
+  heroGradient:
+    "linear-gradient(135deg, #FFFFFF 0%, #F0F4FA 52%, rgba(190, 24, 93, 0.10) 76%, rgba(49, 46, 129, 0.14) 100%)",
+  glowColor: "rgba(49, 46, 129, 0.24)",
+};
+
+const pinkIndigoDarkTheme = {
+  ...darkTheme,
+  ...pinkIndigoAccent,
+  accentSolid: "#F472B6",
+  accentSoft: "rgba(244, 114, 182, 0.20)",
+  heroGradient:
+    "linear-gradient(135deg, #1D1D1D 0%, #242526 52%, rgba(190, 24, 93, 0.16) 76%, rgba(49, 46, 129, 0.26) 100%)",
+  glowColor: "rgba(129, 140, 248, 0.30)",
+};
+
 export function resolveTheme(mode = DEFAULT_THEME_MODE, accent = DEFAULT_ACCENT) {
-  const resolvedAccent = accent === "pink" || accent === "blue" ? accent : DEFAULT_ACCENT;
+  const resolvedAccent =
+    accent === "pink" || accent === "blue" || accent === "pink-indigo"
+      ? accent
+      : DEFAULT_ACCENT;
 
   if (resolvedAccent === "blue") {
     return mode === "light" ? blueLightTheme : blueDarkTheme;
+  }
+
+  if (resolvedAccent === "pink-indigo") {
+    return mode === "light" ? pinkIndigoLightTheme : pinkIndigoDarkTheme;
   }
 
   return mode === "light" ? lightTheme : darkTheme;

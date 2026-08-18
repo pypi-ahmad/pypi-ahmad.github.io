@@ -8,6 +8,7 @@ import { renderWithProviders, darkTheme } from "../test/testUtils";
 expect.extend(toHaveNoViolations);
 
 const expectedCertificates = [
+  "Claude Code 101",
   "Building with the Claude API",
   "Claude 101",
   "AI Fluency: Framework & Foundations",
@@ -52,7 +53,7 @@ describe("Education page", () => {
     ]);
   });
 
-  it("renders all twelve certificates in portfolio order", () => {
+  it("renders all thirteen certificates in portfolio order", () => {
     const { container } = renderWithProviders(<Education theme={darkTheme} />);
     const certificateNames = Array.from(container.querySelectorAll(".cert-card h4"))
       .map(node => node.textContent);
@@ -74,8 +75,10 @@ describe("Education page", () => {
     const anthropicGroup = container.querySelector(".certification-group");
     const links = within(anthropicGroup).getAllByRole("link");
 
-    expect(links).toHaveLength(6);
+    expect(links).toHaveLength(8);
     expect(links.map(link => link.getAttribute("href"))).toEqual([
+      "https://verify.skilljar.com/c/uubk52krkzap",
+      "/certifications/anthropic-claude-code-101.pdf",
       "https://verify.skilljar.com/c/2njdrsdeigc4",
       "/certifications/anthropic-claude-api.pdf",
       "https://verify.skilljar.com/c/b3ejcctoop7p",
@@ -87,7 +90,8 @@ describe("Education page", () => {
       expect(link).toHaveAttribute("target", "_blank");
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
     }
-    expect(within(anthropicGroup).getAllByText("Verify credential")).toHaveLength(3);
+    expect(within(anthropicGroup).getAllByText("Verify credential")).toHaveLength(4);
+    expect(within(anthropicGroup).getByText("Completed August 18, 2026")).toBeInTheDocument();
     expect(within(anthropicGroup).getByText("Completed July 6, 2026")).toBeInTheDocument();
     expect(within(anthropicGroup).getByText("Completed March 10, 2026")).toBeInTheDocument();
     expect(within(anthropicGroup).getByText("Completed March 11, 2026")).toBeInTheDocument();

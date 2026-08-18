@@ -40,6 +40,17 @@ export const degrees = {
 export const certifications = {
   certifications: [
     {
+      title: "Claude Code 101",
+      subtitle: "Anthropic Education",
+      completionDate: "August 18, 2026",
+      certificateLink: "https://verify.skilljar.com/c/uubk52krkzap",
+      pdfLink: "/certifications/anthropic-claude-code-101.pdf",
+      altName: "Anthropic Education",
+      category: "Generative AI",
+      highlights: [],
+      summary: "Certificate of completion issued by Anthropic Education.",
+    },
+    {
       title: "Building with the Claude API",
       subtitle: "Anthropic Education",
       completionDate: "July 6, 2026",

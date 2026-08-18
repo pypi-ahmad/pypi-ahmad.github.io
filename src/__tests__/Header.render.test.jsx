@@ -65,7 +65,7 @@ describe("Header — UI Rendering", () => {
     expect(screen.queryByRole("link", { name: "Theme" })).not.toBeInTheDocument();
   });
 
-  it("renders accessible pink and blue accent choices", async () => {
+  it("renders three accessible accent choices", async () => {
     renderWithProviders(<Header />);
     await openMenu();
 
@@ -76,6 +76,9 @@ describe("Header — UI Rendering", () => {
     expect(
       screen.getByRole("button", { name: "Use indigo and navy accent" })
     ).toHaveAttribute("aria-pressed", "true");
+    expect(
+      screen.getByRole("button", { name: "Use dark pink and indigo accent" })
+    ).toHaveAttribute("aria-pressed", "false");
   });
 
   it("renders the hamburger menu button", () => {

@@ -83,6 +83,12 @@ describe("Default theme", () => {
     expect(Object.keys(resolveTheme("dark", "blue")).sort()).toEqual(
       Object.keys(darkTheme).sort()
     );
+    expect(Object.keys(resolveTheme("light", "pink-indigo")).sort()).toEqual(
+      Object.keys(lightTheme).sort()
+    );
+    expect(Object.keys(resolveTheme("dark", "pink-indigo")).sort()).toEqual(
+      Object.keys(darkTheme).sort()
+    );
   });
 
   it.each(["light", "dark"])("resolves the blue accent in %s mode", mode => {
@@ -96,6 +102,25 @@ describe("Default theme", () => {
     expect(theme.accentSolid).toBe(mode === "light" ? "#4338CA" : "#818CF8");
     expect(theme.heroGradient).toContain("rgba(99, 102, 241");
   });
+
+  it.each(["light", "dark"])(
+    "resolves the dark pink and indigo accent in %s mode",
+    mode => {
+      const theme = resolveTheme(mode, "pink-indigo");
+
+      expect(theme.accentStart).toBe("#BE185D");
+      expect(theme.accentEnd).toBe("#312E81");
+      expect(theme.accentGradient).toBe(
+        "linear-gradient(135deg, #BE185D 0%, #312E81 100%)"
+      );
+      expect(theme.accentSolid).toBe(mode === "light" ? "#9D174D" : "#F472B6");
+      expect(theme.heroGradient).toContain("rgba(190, 24, 93");
+      expect(theme.heroGradient).toContain("rgba(49, 46, 129");
+      expect(getContrastRatio(theme.accentSolid, theme.body)).toBeGreaterThanOrEqual(4.5);
+      expect(getContrastRatio(theme.accentText, theme.accentStart)).toBeGreaterThanOrEqual(4.5);
+      expect(getContrastRatio(theme.accentText, theme.accentEnd)).toBeGreaterThanOrEqual(4.5);
+    }
+  );
 
   it.each([
     ["light", lightTheme],
