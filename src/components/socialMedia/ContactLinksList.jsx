@@ -18,15 +18,14 @@ import {
 const buildContactItems = () => {
   const items = [];
 
-  if (socialMediaLinks.github && socialMediaLinks.github !== " ") {
+  if (socialMediaLinks.gmail && socialMediaLinks.gmail !== " ") {
     items.push({
-      key: "github",
-      label: "GitHub",
-      href: socialMediaLinks.github,
-      description: socialMediaLinks.githubDesc || "",
-      iconSrc: "/contacts-icons/github.png",
-      invertOnDark: true,
-      openInNewTab: true,
+      key: "email",
+      label: "Email",
+      href: `mailto:${socialMediaLinks.gmail}`,
+      description: socialMediaLinks.gmailDesc || "",
+      Icon: FaEnvelope,
+      openInNewTab: false,
     });
   }
 
@@ -41,6 +40,30 @@ const buildContactItems = () => {
     });
   }
 
+  if (socialMediaLinks.github && socialMediaLinks.github !== " ") {
+    items.push({
+      key: "github",
+      label: "GitHub",
+      href: socialMediaLinks.github,
+      description: socialMediaLinks.githubDesc || "",
+      iconSrc: "/contacts-icons/github.png",
+      invertOnDark: true,
+      openInNewTab: true,
+    });
+  }
+
+  if (socialMediaLinks.portfolio && socialMediaLinks.portfolio !== " ") {
+    items.push({
+      key: "portfolio",
+      label: "Portfolio",
+      href: socialMediaLinks.portfolio,
+      description: socialMediaLinks.portfolioDesc || "",
+      iconSrc: "/contacts-icons/portfolio.png",
+      invertOnDark: true,
+      openInNewTab: true,
+    });
+  }
+
   if (socialMediaLinks.twitter && socialMediaLinks.twitter !== " ") {
     items.push({
       key: "twitter",
@@ -49,17 +72,6 @@ const buildContactItems = () => {
       description: socialMediaLinks.twitterDesc || "",
       iconSrc: "/contacts-icons/twitter.png",
       openInNewTab: true,
-    });
-  }
-
-  if (socialMediaLinks.gmail && socialMediaLinks.gmail !== " ") {
-    items.push({
-      key: "email",
-      label: "Email",
-      href: `mailto:${socialMediaLinks.gmail}`,
-      description: socialMediaLinks.gmailDesc || "",
-      Icon: FaEnvelope,
-      openInNewTab: false,
     });
   }
 
@@ -81,18 +93,6 @@ const buildContactItems = () => {
       href: socialMediaLinks.telegram,
       description: socialMediaLinks.telegramDesc || "",
       iconSrc: "/contacts-icons/telegram.png",
-      openInNewTab: true,
-    });
-  }
-
-  if (socialMediaLinks.portfolio && socialMediaLinks.portfolio !== " ") {
-    items.push({
-      key: "portfolio",
-      label: "Portfolio",
-      href: socialMediaLinks.portfolio,
-      description: socialMediaLinks.portfolioDesc || "",
-      iconSrc: "/contacts-icons/portfolio.png",
-      invertOnDark: true,
       openInNewTab: true,
     });
   }

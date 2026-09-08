@@ -5,8 +5,20 @@ import { renderWithProviders, darkTheme, lightTheme } from "../test/testUtils";
 import ContactLinksList from "../components/socialMedia/ContactLinksList";
 
 describe("ContactLinksList Component", () => {
-  it("renders all 9 configured contact channels", () => {
+  it("renders all 9 configured contact channels in professional-first order", () => {
     renderWithProviders(<ContactLinksList theme={darkTheme} />);
+
+    expect(screen.getAllByRole("link").map(link => link.getAttribute("aria-label"))).toEqual([
+      "Email",
+      "LinkedIn",
+      "GitHub",
+      "Portfolio",
+      "X (Twitter)",
+      "WhatsApp",
+      "Telegram",
+      "Instagram",
+      "Facebook",
+    ]);
 
     expect(screen.getByRole("link", { name: "GitHub" })).toHaveAttribute(
       "href",
@@ -87,13 +99,23 @@ describe("ContactLinksList Component", () => {
     expect(invertedImages.length).toBe(0);
   });
 
-  it("renders Twitter bio in the card description", () => {
+  it("renders verified descriptions for every contact card", () => {
     renderWithProviders(<ContactLinksList theme={darkTheme} />);
 
-    expect(
-      screen.getByText(
-        "AI Engineer | Data Scientist | GenAI • Agentic AI • ML • LLMs | @Deloitte USI"
-      )
-    ).toBeInTheDocument();
+    const descriptions = [
+      "Email me at ahmad.iiitk@gmail.com.",
+      "My work history and professional updates.",
+      "GenAI engineering work and open-source repositories.",
+      "Selected work in document AI, RAG, agents, and evaluation.",
+      "AI Engineer | Data Scientist | GenAI • Agentic AI • ML • LLMs | @Deloitte USI",
+      "Chat with me on WhatsApp: @pypi_ahmad.",
+      "Message me on Telegram: @dataintuitionist.",
+      "Find me on Instagram: @dataintuitionist.",
+      "Connect with me on Facebook as Ahmad Mujtaba.",
+    ];
+
+    for (const description of descriptions) {
+      expect(screen.getByText(description)).toBeInTheDocument();
+    }
   });
 });

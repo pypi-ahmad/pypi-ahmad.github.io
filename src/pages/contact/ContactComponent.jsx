@@ -68,9 +68,6 @@ function Contact(props) {
             <h2 id="contact-channels-title" style={{ color: theme.text }}>
               {ContactData.channelsTitle}
             </h2>
-            <p style={{ color: theme.secondaryText }}>
-              {ContactData.channelsDescription}
-            </p>
           </div>
           <ContactLinksList theme={theme} />
         </motion.section>

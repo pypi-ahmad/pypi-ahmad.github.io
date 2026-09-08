@@ -70,42 +70,18 @@
 }
 
 .contact-section-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 2rem;
   margin-bottom: 2rem;
 }
 
-.contact-section-heading h2,
-.contact-section-heading p {
-  margin: 0;
-}
-
 .contact-section-heading h2 {
+  margin: 0;
   font-size: clamp(2rem, 4vw, 3rem);
-}
-
-.contact-section-heading p {
-  max-width: 560px;
-  line-height: 1.6;
-  text-align: right;
 }
 
 @media (max-width: 768px) {
   .contact-hero {
     margin-top: 1rem;
     padding: 1.5rem 1.1rem;
-  }
-
-  .contact-section-heading {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .contact-section-heading p {
-    text-align: left;
   }
 }
 
