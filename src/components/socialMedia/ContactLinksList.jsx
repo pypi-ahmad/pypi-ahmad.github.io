@@ -12,9 +12,6 @@ import { socialMediaLinks } from "../../portfolio";
 import {
   FaDiscord,
   FaEnvelope,
-  FaGithub,
-  FaLinkedinIn,
-  FaTelegramPlane,
 } from "react-icons/fa";
 
 /** Assemble enabled contact items from the social-media data. */
@@ -27,7 +24,8 @@ const buildContactItems = () => {
       label: "GitHub",
       href: socialMediaLinks.github,
       description: socialMediaLinks.githubDesc || "",
-      Icon: FaGithub,
+      iconSrc: "/contacts-icons/github.png",
+      invertOnDark: true,
       openInNewTab: true,
     });
   }
@@ -38,7 +36,18 @@ const buildContactItems = () => {
       label: "LinkedIn",
       href: socialMediaLinks.linkedin,
       description: socialMediaLinks.linkedinDesc || "",
-      Icon: FaLinkedinIn,
+      iconSrc: "/contacts-icons/linkedin.png",
+      openInNewTab: true,
+    });
+  }
+
+  if (socialMediaLinks.twitter && socialMediaLinks.twitter !== " ") {
+    items.push({
+      key: "twitter",
+      label: "X (Twitter)",
+      href: socialMediaLinks.twitter,
+      description: socialMediaLinks.twitterDesc || "",
+      iconSrc: "/contacts-icons/twitter.png",
       openInNewTab: true,
     });
   }
@@ -54,13 +63,58 @@ const buildContactItems = () => {
     });
   }
 
+  if (socialMediaLinks.whatsapp && socialMediaLinks.whatsapp !== " ") {
+    items.push({
+      key: "whatsapp",
+      label: "WhatsApp",
+      href: socialMediaLinks.whatsapp,
+      description: socialMediaLinks.whatsappDesc || "",
+      iconSrc: "/contacts-icons/whatsapp.png",
+      openInNewTab: true,
+    });
+  }
+
   if (socialMediaLinks.telegram && socialMediaLinks.telegram !== " ") {
     items.push({
       key: "telegram",
       label: "Telegram",
       href: socialMediaLinks.telegram,
       description: socialMediaLinks.telegramDesc || "",
-      Icon: FaTelegramPlane,
+      iconSrc: "/contacts-icons/telegram.png",
+      openInNewTab: true,
+    });
+  }
+
+  if (socialMediaLinks.portfolio && socialMediaLinks.portfolio !== " ") {
+    items.push({
+      key: "portfolio",
+      label: "Portfolio",
+      href: socialMediaLinks.portfolio,
+      description: socialMediaLinks.portfolioDesc || "",
+      iconSrc: "/contacts-icons/portfolio.png",
+      invertOnDark: true,
+      openInNewTab: true,
+    });
+  }
+
+  if (socialMediaLinks.instagram && socialMediaLinks.instagram !== " ") {
+    items.push({
+      key: "instagram",
+      label: "Instagram",
+      href: socialMediaLinks.instagram,
+      description: socialMediaLinks.instagramDesc || "",
+      iconSrc: "/contacts-icons/instagram.png",
+      openInNewTab: true,
+    });
+  }
+
+  if (socialMediaLinks.facebook && socialMediaLinks.facebook !== " ") {
+    items.push({
+      key: "facebook",
+      label: "Facebook",
+      href: socialMediaLinks.facebook,
+      description: socialMediaLinks.facebookDesc || "",
+      iconSrc: "/contacts-icons/facebook.png",
       openInNewTab: true,
     });
   }
@@ -102,7 +156,19 @@ export default function ContactLinksList({ theme }) {
               style={{ color: theme.text }}
               aria-hidden="true"
             >
-              <item.Icon />
+              {item.iconSrc ? (
+                <img
+                  src={item.iconSrc}
+                  alt=""
+                  className={`contact-links-icon-img${
+                    item.invertOnDark && theme?.name === "dark"
+                      ? " contact-links-icon-img--invert"
+                      : ""
+                  }`}
+                />
+              ) : item.Icon ? (
+                <item.Icon />
+              ) : null}
             </span>
             <div className="contact-links-content">
               <span className="contact-links-label" style={{ color: theme.text }}>

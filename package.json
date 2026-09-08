@@ -18,7 +18,9 @@
     "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
     "test": "vitest",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "framer-motion": "^13.1.0",
@@ -44,6 +46,7 @@
     "ajv": "^8.20.0",
     "axe-core": "^4.13.0",
     "eslint": "^10.8.1",
+    "gh-pages": "^6.3.0",
     "globals": "^17.11.0",
     "jest-axe": "^11.0.0",
     "jsdom": "^30.0.1",

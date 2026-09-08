@@ -66,7 +66,7 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
     const list = document.querySelector("ul.outcome-grid");
     expect(list).toBeInTheDocument();
     const items = list.querySelectorAll("li");
-    expect(items.length).toBe(4);
+    expect(items.length).toBe(5);
   });
 
   it("ExperienceCard company link has proper href", () => {

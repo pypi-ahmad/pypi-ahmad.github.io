@@ -62,6 +62,18 @@
   line-height: 1;
 }
 
+.contact-links-icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+  border-radius: 4px;
+}
+
+.contact-links-icon-img--invert {
+  filter: invert(1);
+}
+
 .contact-links-label {
   font-weight: 600;
   white-space: nowrap;

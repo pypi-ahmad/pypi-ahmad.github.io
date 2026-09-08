@@ -9,12 +9,15 @@ import "./SocialMedia.css";
 import { socialMediaLinks } from "../../portfolio";
 import {
   FaDiscord,
+  FaFacebookF,
   FaGithub,
+  FaGlobe,
   FaGoogle,
   FaInstagram,
   FaLinkedinIn,
   FaTelegramPlane,
   FaTwitter,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 export default function socialMedia() {
@@ -95,6 +98,45 @@ export default function socialMedia() {
           style={{ backgroundColor: "#0088cc" }}
         >
           <FaTelegramPlane className="icon-glyph" />
+          <span></span>
+        </a>
+      ) : null}
+
+      {socialMediaLinks.whatsapp && socialMediaLinks.whatsapp !== " " ? (
+        <a
+          href={socialMediaLinks.whatsapp}
+          className="icon-button whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+        >
+          <FaWhatsapp className="icon-glyph" />
+          <span></span>
+        </a>
+      ) : null}
+
+      {socialMediaLinks.portfolio && socialMediaLinks.portfolio !== " " ? (
+        <a
+          href={socialMediaLinks.portfolio}
+          className="icon-button portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Portfolio"
+        >
+          <FaGlobe className="icon-glyph" />
+          <span></span>
+        </a>
+      ) : null}
+
+      {socialMediaLinks.facebook && socialMediaLinks.facebook !== " " ? (
+        <a
+          href={socialMediaLinks.facebook}
+          className="icon-button facebook"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <FaFacebookF className="icon-glyph" />
           <span></span>
         </a>
       ) : null}

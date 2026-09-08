@@ -34,6 +34,13 @@ export const homePageData = {
       contribution:
         "I worked on prompt iteration, canonical comparison, and evaluation.",
     },
+    {
+      metric: "95%+",
+      label: "Fax-classification accuracy",
+      context: "Measured across 500-file bulk batches in an internal evaluation.",
+      contribution:
+        "I worked on Azure Databricks classification and routing for fax intake.",
+    },
   ],
   method:
     "I start with a baseline, ground the system in source data, constrain outputs, verify results, and add observability.",
