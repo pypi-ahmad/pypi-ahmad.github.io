@@ -56,6 +56,7 @@ describe("refreshed contact, skills, and experience content", () => {
       "~40% lower",
       "80–81% to above 90%",
       "90% to 99%",
+      "95%+",
     ]);
     expect(deloitte.disclosureNote).toMatch(/team and system results/i);
   });

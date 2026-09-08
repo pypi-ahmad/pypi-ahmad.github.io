@@ -57,6 +57,11 @@ export const experience = {
               label: "Policy-entity extraction accuracy",
               context: "On the same internal benchmark.",
             },
+            {
+              metric: "95%+",
+              label: "Fax-classification accuracy",
+              context: "Across 500-file bulk batches, per internal evaluation.",
+            },
           ],
           disclosureNote:
             "These are team and system results from internal employer evaluations. Client names, internal project names, source data, task definitions, prompts, schemas, thresholds, scoring details, and proprietary code are omitted; related public projects do not reproduce these measurements.",

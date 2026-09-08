@@ -85,6 +85,17 @@ describe("Page Rendering Smoke Tests", () => {
     expect(screen.getByRole("link", { name: "Email me" })).toHaveAttribute("href", "mailto:ahmad.iiitk@gmail.com");
   });
 
+  it("Contact page omits the channel introduction", () => {
+    const { container } = renderWithProviders(<Contact {...pageProps} />);
+
+    expect(
+      screen.queryByText(
+        "Email is best for roles and consulting. LinkedIn and GitHub provide professional context and implementation evidence."
+      )
+    ).not.toBeInTheDocument();
+    expect(container.querySelector(".contact-section-heading p")).not.toBeInTheDocument();
+  });
+
   it("Contact page removes the featured open-source section", () => {
     renderWithProviders(<Contact {...pageProps} />);
     expect(screen.queryByText("Featured Open Source")).not.toBeInTheDocument();

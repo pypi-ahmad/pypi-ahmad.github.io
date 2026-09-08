@@ -14,8 +14,8 @@ describe("home page contract", () => {
     ]);
   });
 
-  it("publishes four qualified outcomes and four work areas", () => {
-    expect(homePageData.outcomes).toHaveLength(4);
+  it("publishes qualified outcomes and four work areas", () => {
+    expect(homePageData.outcomes).toHaveLength(5);
     expect(homePageData.workAreas.map(area => area.title)).toEqual([
       "Agentic systems",
       "Retrieval & document AI",
@@ -27,6 +27,7 @@ describe("home page contract", () => {
       "~40% lower",
       "80% to 81%, then above 90%",
       "90% to 99%",
+      "95%+",
     ]);
   });
 

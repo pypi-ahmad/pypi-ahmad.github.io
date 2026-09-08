@@ -22,17 +22,18 @@ describe("Home hero", () => {
     ).toBeInTheDocument();
   });
 
-  it("shows four qualified internal outcomes", () => {
+  it("shows qualified internal outcomes", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
     const outcomes = screen.getByRole("list");
 
-    expect(within(outcomes).getAllByRole("listitem")).toHaveLength(4);
+    expect(within(outcomes).getAllByRole("listitem")).toHaveLength(5);
     expect(within(outcomes).getByText("38% to 80%")).toBeInTheDocument();
     expect(within(outcomes).getByText("~40% lower")).toBeInTheDocument();
     expect(
       within(outcomes).getByText("80% to 81%, then above 90%")
     ).toBeInTheDocument();
     expect(within(outcomes).getByText("90% to 99%")).toBeInTheDocument();
+    expect(within(outcomes).getByText("95%+")).toBeInTheDocument();
     expect(
       screen.getByText(/team and system results from internal evaluations/i)
     ).toBeInTheDocument();
@@ -40,7 +41,7 @@ describe("Home hero", () => {
 
   it("identifies Ahmad's contribution for every outcome", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getAllByText(/^I worked on/)).toHaveLength(4);
+    expect(screen.getAllByText(/^I worked on/)).toHaveLength(5);
   });
 
   it("renders selected work and contact actions", () => {
