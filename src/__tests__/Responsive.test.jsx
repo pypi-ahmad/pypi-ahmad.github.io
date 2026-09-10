@@ -32,7 +32,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
   it("links the hamburger button to the dropdown menu", () => {
     renderWithProviders(<Header />);
     const menuButton = screen.getByRole("button", { name: "Toggle navigation menu" });
-    expect(menuButton).toHaveAttribute("aria-controls", "site-menu");
+    expect(menuButton).toHaveAttribute("aria-controls", expect.any(String));
     expect(menuButton).toHaveAttribute("aria-expanded", "false");
   });
 
@@ -46,7 +46,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
   it("menu is collapsed by default", () => {
     renderWithProviders(<Header />);
     const menuButton = screen.getByRole("button", { name: "Toggle navigation menu" });
-    const menu = document.getElementById("site-menu");
+    const menu = document.getElementById(screen.getByRole("button", { name: "Toggle navigation menu" }).getAttribute("aria-controls"));
     expect(menuButton).toHaveAttribute("aria-expanded", "false");
     expect(menu).toHaveAttribute("hidden");
   });
@@ -55,7 +55,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     const menuButton = screen.getByRole("button", { name: "Toggle navigation menu" });
-    const menu = document.getElementById("site-menu");
+    const menu = document.getElementById(screen.getByRole("button", { name: "Toggle navigation menu" }).getAttribute("aria-controls"));
 
     await user.click(menuButton);
 
@@ -77,7 +77,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const menu = document.querySelector("ul.menu");
-    const toggleBtn = menu.querySelector('button[aria-label="Toggle Theme"]');
+    const toggleBtn = menu.querySelector('button.change-theme-btn');
     expect(toggleBtn).toBeInTheDocument();
   });
 
@@ -91,7 +91,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     choices.forEach(choice => expect(choice).toHaveClass("accent-swatch"));
   });
 
-  it("keeps Contact Me and mode toggle in the correct final order", async () => {
+  it("keeps Contact and mode toggle in the correct final order", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
@@ -101,7 +101,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
         return "contact";
       }
 
-      if (item.querySelector('button[aria-label="Toggle Theme"]')) {
+      if (item.querySelector('button.change-theme-btn')) {
         return "toggle";
       }
 

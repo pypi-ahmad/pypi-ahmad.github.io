@@ -4,7 +4,7 @@
 .footer-text {
   text-align: center;
   font-weight: bold;
-  font-family: "Google Sans Regular";
+  font-family: var(--body-font-family);
   margin: 0;
   padding: 1.5rem 1rem;
   transition: color var(--theme-transition-fast);

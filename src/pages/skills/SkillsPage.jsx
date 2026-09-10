@@ -58,7 +58,7 @@ export default function SkillsPage({ theme }) {
                   boxShadow: buildThemeShadow(`0 16px 32px ${theme.shadowColor}`, theme.panelGlow),
                 }}
               >
-                <h3 style={{ color: theme.accentSolid }}>{capability.title}</h3>
+                <h3 style={{ color: theme.text }}>{capability.title}</h3>
                 <p style={{ color: theme.secondaryText }}>{capability.description}</p>
               </motion.article>
             ))}
@@ -83,7 +83,7 @@ export default function SkillsPage({ theme }) {
                   borderRadius: theme.surfaceRadius,
                 }}
               >
-                <strong style={{ color: theme.accentSolid }}>{outcome.metric}</strong>
+                <strong style={{ color: theme.text }}>{outcome.metric}</strong>
                 <h3 style={{ color: theme.text }}>{outcome.label}</h3>
                 <p style={{ color: theme.secondaryText }}>{outcome.context}</p>
               </motion.li>

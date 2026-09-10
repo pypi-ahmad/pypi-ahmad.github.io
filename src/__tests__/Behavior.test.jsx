@@ -16,7 +16,9 @@ import Greeting from "../containers/greeting/Greeting";
 import { renderWithProviders, darkTheme, lightTheme } from "../test/testUtils";
 
 async function openHeaderMenu(user) {
-  await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
+  await user.click(
+    screen.getByRole("button", { name: "Toggle navigation menu" }),
+  );
 }
 
 // ────────────────────────────────────────────────────────
@@ -32,7 +34,9 @@ describe("Header — Theme Toggle Behavior", () => {
     renderWithProviders(<Header />);
 
     await openHeaderMenu(user);
-    const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
+    const toggleBtn = screen.getByRole("button", {
+      name: /Switch to (light|dark) mode/,
+    });
     await user.click(toggleBtn);
 
     expect(localStorage.getItem("theme")).toBe("light");
@@ -43,7 +47,9 @@ describe("Header — Theme Toggle Behavior", () => {
     renderWithProviders(<Header />, { theme: "light" });
 
     await openHeaderMenu(user);
-    const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
+    const toggleBtn = screen.getByRole("button", {
+      name: /Switch to (light|dark) mode/,
+    });
     await user.click(toggleBtn);
 
     expect(localStorage.getItem("theme")).toBe("dark");
@@ -54,7 +60,9 @@ describe("Header — Theme Toggle Behavior", () => {
     renderWithProviders(<Header />);
 
     await openHeaderMenu(user);
-    const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
+    const toggleBtn = screen.getByRole("button", {
+      name: /Switch to (light|dark) mode/,
+    });
     await user.click(toggleBtn);
 
     expect(localStorage.getItem("theme")).toBe("light");
@@ -65,12 +73,16 @@ describe("Header — Theme Toggle Behavior", () => {
     renderWithProviders(<Header />);
 
     await openHeaderMenu(user);
-    let toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
+    let toggleBtn = screen.getByRole("button", {
+      name: /Switch to (light|dark) mode/,
+    });
     await user.click(toggleBtn);
     expect(localStorage.getItem("theme")).toBe("light");
 
     await openHeaderMenu(user);
-    toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
+    toggleBtn = screen.getByRole("button", {
+      name: /Switch to (light|dark) mode/,
+    });
     await user.click(toggleBtn);
     expect(localStorage.getItem("theme")).toBe("dark");
   });
@@ -78,7 +90,7 @@ describe("Header — Theme Toggle Behavior", () => {
   it("migrates a stored family object while preserving its mode", () => {
     localStorage.setItem(
       "theme",
-      JSON.stringify({ family: "violet", mode: "light" })
+      JSON.stringify({ family: "violet", mode: "light" }),
     );
 
     renderWithProviders(<Header />, { useStoredTheme: true });
@@ -92,22 +104,25 @@ describe("Header — Theme Toggle Behavior", () => {
 
     await openHeaderMenu(user);
     await user.click(
-      screen.getByRole("button", { name: "Use indigo and navy accent" })
+      screen.getByRole("button", { name: "Use indigo and navy accent" }),
     );
 
     expect(localStorage.getItem("accent")).toBe("blue");
     expect(localStorage.getItem("theme")).toBe("dark");
     expect(
-      screen.getByRole("button", { name: "Use indigo and navy accent" })
+      screen.getByRole("button", { name: "Use indigo and navy accent" }),
     ).toHaveAttribute("aria-pressed", "true");
   });
 
-  it("restores a stored accent and falls back from invalid values", () => {
+  it("restores a stored accent and falls back from invalid values", async () => {
     localStorage.setItem("accent", "blue");
-    const { unmount } = renderWithProviders(<Header />, { useStoredTheme: true });
+    const { unmount } = renderWithProviders(<Header />, {
+      useStoredTheme: true,
+    });
+    await openHeaderMenu(userEvent.setup());
 
     expect(
-      screen.getByRole("button", { name: "Use indigo and navy accent", hidden: true })
+      screen.getByRole("button", { name: "Use indigo and navy accent" }),
     ).toHaveAttribute("aria-pressed", "true");
 
     unmount();
@@ -117,13 +132,14 @@ describe("Header — Theme Toggle Behavior", () => {
     expect(localStorage.getItem("accent")).toBe("blue");
   });
 
-  it("preserves an explicitly stored pink accent", () => {
+  it("preserves an explicitly stored pink accent", async () => {
     localStorage.setItem("accent", "pink");
     renderWithProviders(<Header />, { useStoredTheme: true });
+    await openHeaderMenu(userEvent.setup());
 
     expect(localStorage.getItem("accent")).toBe("pink");
     expect(
-      screen.getByRole("button", { name: "Use crimson and pink accent", hidden: true })
+      screen.getByRole("button", { name: "Use crimson and pink accent" }),
     ).toHaveAttribute("aria-pressed", "true");
   });
 
@@ -142,16 +158,16 @@ describe("Header — Theme Toggle Behavior", () => {
     expect(accentButton).toHaveAttribute("aria-pressed", "true");
   });
 
-  it("restores a stored dark pink and indigo accent", () => {
+  it("restores a stored dark pink and indigo accent", async () => {
     localStorage.setItem("accent", "pink-indigo");
     renderWithProviders(<Header />, { useStoredTheme: true });
+    await openHeaderMenu(userEvent.setup());
 
     expect(localStorage.getItem("accent")).toBe("pink-indigo");
     expect(
       screen.getByRole("button", {
         name: "Use dark pink and indigo accent",
-        hidden: true,
-      })
+      }),
     ).toHaveAttribute("aria-pressed", "true");
   });
 });
@@ -163,15 +179,14 @@ describe("Home hero CTA behavior", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
     expect(screen.getByRole("link", { name: "Contact me" })).toHaveAttribute(
       "href",
-      "/contact"
+      "/contact",
     );
   });
 
   it("selected-work action points to the project section", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByRole("link", { name: "View selected work" })).toHaveAttribute(
-      "href",
-      "#selected-work"
-    );
+    expect(
+      screen.getByRole("link", { name: "View selected work" }),
+    ).toHaveAttribute("href", "#selected-work");
   });
 });

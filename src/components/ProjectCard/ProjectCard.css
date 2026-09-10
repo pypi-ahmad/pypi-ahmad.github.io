@@ -10,10 +10,10 @@
   min-height: 250px;
   padding: 1.5rem;
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--surface-radius);
   background: var(--card);
   color: var(--text);
-  text-align: left;
+  text-align: start;
   text-decoration: none;
   transition:
     transform var(--theme-transition-fast),
@@ -39,6 +39,7 @@
 }
 
 .project-card__meta {
+  flex-wrap: wrap;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,22 +57,23 @@
 .project-card__category {
   max-width: 100%;
   padding: 0.25rem 0.55rem;
-  border: 1px solid transparent;
+  border: 1px solid var(--border);
   border-radius: 6px;
-  background: var(--accent);
-  color: var(--accent-text);
-  font-size: 0.7rem;
+  background: var(--surface-background);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
   line-height: 1.3;
-  text-align: right;
+  text-align: start;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
 }
 
 .project-card__name {
   margin: 0;
-  color: var(--accent-solid);
+  color: var(--text-primary);
   font-size: clamp(1.1rem, 2vw, 1.4rem);
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 .project-card__desc {

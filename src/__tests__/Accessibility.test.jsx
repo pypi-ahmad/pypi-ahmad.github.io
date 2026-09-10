@@ -34,8 +34,8 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
-    const btn = screen.getByRole("button", { name: "Toggle Theme" });
-    expect(btn).toHaveAttribute("aria-label", "Toggle Theme");
+    const btn = screen.getByRole("button", { name: /Switch to (light|dark) mode/ });
+    expect(btn).toHaveAttribute("aria-label", expect.stringMatching(/^Switch to (light|dark) mode$/));
   });
 
   it("Navigation links are accessible (rendered as <a> tags)", async () => {

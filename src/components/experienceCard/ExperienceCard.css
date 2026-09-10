@@ -3,7 +3,7 @@
   width: 100%;
   padding: clamp(1.25rem, 3vw, 2rem);
   border: 1px solid;
-  border-radius: 24px;
+  border-radius: var(--surface-radius);
 }
 
 .experience-card-header { display: grid; grid-template-columns: 70px 1fr auto; align-items: center; gap: 1rem; }
@@ -24,12 +24,12 @@
 
 .experience-outcomes { margin-top: 1.5rem; }
 .experience-outcomes > ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.8rem; margin: 0; padding: 0; list-style: none; }
-.experience-outcomes li { display: flex; flex-direction: column; gap: 0.35rem; padding: 1rem; border: 1px solid; border-radius: 16px; }
+.experience-outcomes li { display: flex; flex-direction: column; gap: 0.35rem; padding: 1rem; border: 1px solid; border-radius: var(--control-radius); }
 .experience-outcomes strong { font-size: 1.25rem; }
 .experience-outcomes span { font-weight: 700; line-height: 1.35; }
 .experience-outcomes small { line-height: 1.45; }
 
-.experience-disclosure { margin-top: 1.25rem; padding: 1rem 1.1rem; border: 1px solid; border-radius: 16px; }
+.experience-disclosure { margin-top: 1.25rem; padding: 1rem 1.1rem; border: 1px solid; border-radius: var(--control-radius); }
 .experience-disclosure p { margin: 0.4rem 0 0; line-height: 1.55; }
 .experience-description-list { margin-top: 1.5rem; }
 

@@ -24,15 +24,16 @@
 
 .projects-hero h1 {
   margin: 0;
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  line-height: 0.95;
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 .projects-intro {
-  max-width: 760px;
+  max-width: 65ch;
   margin: 1.5rem 0 0;
   font-size: clamp(1.05rem, 2vw, 1.35rem);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .projects-github-link {

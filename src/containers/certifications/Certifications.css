@@ -15,7 +15,7 @@
 
 .certification-group-heading h3 {
   margin: 0;
-  font-family: "Google Sans Medium";
+  font-family: var(--heading-font-family);
   font-size: clamp(1.35rem, 2vw, 1.7rem);
 }
 

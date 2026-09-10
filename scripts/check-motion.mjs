@@ -194,12 +194,12 @@ async function inspectInteractions() {
     const menu = page.getByRole("button", { name: "Toggle navigation menu" });
     if (await menu.getAttribute("aria-expanded") === "false") await menu.click();
     if (await page.evaluate(() => localStorage.getItem("theme")) !== mode) {
-      await page.getByRole("button", { name: "Toggle Theme", exact: true }).click();
+      await page.getByRole("button", { name: /Switch to (light|dark) mode/, exact: true }).click();
       await menu.click();
     }
     await page.keyboard.press("Tab");
-    await page.getByRole("button", { name: "Toggle Theme", exact: true }).focus();
-    assert.ok(await page.getByRole("button", { name: "Toggle Theme", exact: true }).evaluate(node => {
+    await page.getByRole("button", { name: /Switch to (light|dark) mode/, exact: true }).focus();
+    assert.ok(await page.getByRole("button", { name: /Switch to (light|dark) mode/, exact: true }).evaluate(node => {
       const style = getComputedStyle(node);
       return style.outlineStyle !== "none" && parseFloat(style.outlineWidth) >= 2;
     }), "theme toggle has a visible keyboard focus ring");
@@ -222,7 +222,7 @@ async function inspectInteractions() {
   assert.deepEqual(await page.evaluate(() => [localStorage.getItem("theme"), localStorage.getItem("accent")]), ["light", "pink-indigo"], "theme choice persists");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.getByRole("button", { name: "Toggle navigation menu" }).click();
-  await page.getByRole("link", { name: "Contact Me", exact: true }).click();
+  await page.getByRole("link", { name: "Contact", exact: true }).click();
   await page.waitForURL("**/contact");
   const contact = page.locator(".contact-links-anchor").first();
   await contact.hover();
@@ -241,7 +241,7 @@ async function inspectInteractions() {
 
   await page.goto(base + "/missing-motion-check");
   await page.getByRole("heading", { name: "Page not found", exact: true }).waitFor();
-  await page.getByRole("link", { name: "Go to Home", exact: true }).click();
+  await page.getByRole("link", { name: "Return home", exact: true }).click();
   await page.waitForURL("**/home");
   await page.locator("main h1").waitFor();
   await page.goto(base + "/splash");

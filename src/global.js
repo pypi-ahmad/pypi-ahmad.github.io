@@ -16,6 +16,7 @@ function resolveHeadingLetterSpacing(theme) {
 export const GlobalStyles = createGlobalStyle`
   :root {
     --theme-transition-fast: 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    --theme-transition-press: 100ms cubic-bezier(0.23, 1, 0.32, 1);
     --theme-transition-medium: 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
     --theme-transition-slow: 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
     --theme-transition-colors: 300ms ease-in-out;
@@ -52,7 +53,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    font-size: 16px;
+    font-size: 100%;
     scroll-behavior: smooth;
   }
 
@@ -60,7 +61,9 @@ export const GlobalStyles = createGlobalStyle`
     --surface-background: ${({ theme }) => theme.body};
     --surface-card: ${({ theme }) => theme.cardBackgroundAlt ?? theme.projectCard};
     --surface-overlay: ${({ theme }) =>
-      theme.name === "light" ? "rgba(15, 23, 42, 0.26)" : "rgba(2, 6, 23, 0.72)"};
+      theme.name === "light"
+        ? "rgba(15, 23, 42, 0.26)"
+        : "rgba(2, 6, 23, 0.72)"};
     --text: ${({ theme }) => theme.text};
     --text-primary: ${({ theme }) => theme.text};
     --text-secondary: ${({ theme }) => theme.secondaryText};
@@ -77,10 +80,13 @@ export const GlobalStyles = createGlobalStyle`
     --layer-background: 0;
     --layer-card: 1;
     --layer-overlay: 40;
+    --surface-radius: ${({ theme }) => theme.surfaceRadius};
+    --hero-radius: ${({ theme }) => theme.heroRadius};
+    --image-outline: ${({ theme }) => (theme.name === "light" ? "rgba(0,0,0,0.1)" : "rgba(255,255,255,0.1)")};
     --control-radius: ${({ theme }) => theme.controlRadius ?? "16px"};
     --heading-font-family: ${({ theme }) => theme.accentFontFamily};
     --heading-letter-spacing: ${({ theme }) => resolveHeadingLetterSpacing(theme)};
-    --body-font-family: "Montserrat", "Google Sans Regular", -apple-system, BlinkMacSystemFont,
+    --body-font-family: "Google Sans", -apple-system, BlinkMacSystemFont,
       "Segoe UI", sans-serif;
     --page-gutter: clamp(1rem, 4vw, 2.75rem);
     --stack-xs: 0.45rem;
@@ -94,8 +100,8 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-family: var(--body-font-family);
     font-size: clamp(1rem, 0.98rem + 0.18vw, 1.0625rem);
-    line-height: 1.7;
-    letter-spacing: 0.01em;
+    line-height: 1.6;
+    letter-spacing: 0;
     text-rendering: optimizeLegibility;
     transition:
       background-color var(--theme-transition-colors),
@@ -108,12 +114,8 @@ export const GlobalStyles = createGlobalStyle`
     z-index: var(--layer-background);
     isolation: isolate;
     opacity: 1;
-    transition: opacity 250ms ease-in-out;
   }
 
-  #root.theme-fading {
-    opacity: 0.92;
-  }
 
   h1,
   h2,
@@ -187,7 +189,7 @@ export const GlobalStyles = createGlobalStyle`
   ul,
   ol {
     margin: 0 0 var(--stack-lg);
-    padding-left: 1.25rem;
+    padding-inline-start: 1.25rem;
   }
 
   li {
@@ -229,7 +231,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .transition-all {
-    transition: all 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform var(--theme-transition-fast), opacity var(--theme-transition-fast);
   }
 
   .transition-colors {
@@ -277,11 +279,6 @@ export const GlobalStyles = createGlobalStyle`
     padding-bottom: var(--section-spacing);
   }
 
-  .greet-main {
-    max-width: min(var(--container-max-width), 100%);
-    margin-top: 0;
-    padding: clamp(1.5rem, 3vw, 2.5rem);
-  }
 
   .greeting-main,
   .projects-heading-div,
@@ -297,7 +294,6 @@ export const GlobalStyles = createGlobalStyle`
     margin-bottom: 0;
   }
 
-  .greeting-text,
   .projects-heading-text,
   .experience-heading-text,
   .contact-heading-text,
@@ -313,11 +309,6 @@ export const GlobalStyles = createGlobalStyle`
     margin-bottom: var(--stack-sm);
   }
 
-  .greeting-text {
-    margin-top: 0;
-    font-size: clamp(2.85rem, 7vw, 4.85rem);
-    line-height: 0.96;
-  }
 
   .greeting-nickname,
   .address-heading-text,
@@ -357,7 +348,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .projects-heading-sub-text,
   .experience-heading-sub-text,
-  .greeting-text-p,
+
   .projects-header-detail-text,
   .experience-header-detail-text,
   .contact-header-detail-text,
@@ -382,7 +373,6 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 1.7;
   }
 
-  .greeting-text-p,
   .projects-header-detail-text,
   .experience-header-detail-text,
   .contact-header-detail-text,
@@ -396,11 +386,6 @@ export const GlobalStyles = createGlobalStyle`
     font-size: clamp(1rem, 0.98rem + 0.32vw, 1.18rem);
   }
 
-  .greeting-text-p {
-    margin-right: 0;
-    margin-bottom: var(--stack-lg);
-    font-size: clamp(1.08rem, 0.98rem + 0.7vw, 1.4rem);
-  }
 
   .projects-heading-sub-text,
   .experience-heading-sub-text {
@@ -500,7 +485,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   @media (hover: none), (pointer: coarse) {
-    :is(.button, .project-card, .contact-links-anchor, .contact-action,
+    :is(.button, .contact-action,
         .projects-github-link, .education-projects-link, .not-found-link,
         .skills-cta-actions a, .motion-action):hover {
       transform: none !important;
@@ -536,13 +521,12 @@ export const GlobalStyles = createGlobalStyle`
       transition: none !important;
     }
 
-    #root,
-    #root.theme-fading {
+    #root {
       opacity: 1;
       transition: none;
     }
 
-    :is(.button, .project-card, .contact-links-anchor, .contact-action,
+    :is(.button, .contact-action,
         .projects-github-link, .education-projects-link, .not-found-link,
         .skills-cta-actions a, .motion-action):hover {
       transform: none !important;
@@ -557,11 +541,6 @@ export const GlobalStyles = createGlobalStyle`
       width: 100%;
     }
 
-    .greeting-text {
-      font-size: clamp(2rem, 8vw, 2.7rem);
-    }
-
-    .greeting-text-p,
     .projects-header-detail-text,
     .experience-header-detail-text,
     .contact-header-detail-text,
@@ -589,9 +568,67 @@ export const GlobalStyles = createGlobalStyle`
     .address-heading-div {
       gap: var(--section-gap-tight);
     }
+  }
 
-    .greet-main {
-      padding: 1.25rem;
+  p, li { overflow-wrap: break-word; }
+  img { outline: 1px solid var(--image-outline); outline-offset: -1px; }
+  a { text-underline-position: from-font; text-decoration-thickness: from-font; }
+
+  :is(button, .button, .contact-action, .projects-github-link,
+      .education-projects-link, .not-found-link, .skills-cta-actions a, .motion-action):active {
+    opacity: 0.88;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    :is(button, .button, .contact-action, .projects-github-link,
+        .education-projects-link, .not-found-link, .skills-cta-actions a, .motion-action):active:not(:focus-visible):not([data-static]) {
+      transform: scale(0.96);
+      transition: transform 100ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 100ms ease;
     }
+  }
+  /* Native link press feedback. Keep geometry on the link, not its reveal parent. */
+  a:is(.project-card, .contact-links-anchor, .degree-card__link, .cert-card__actions a) {
+    transition: transform var(--theme-transition-press),
+      opacity var(--theme-transition-press),
+      border-color var(--theme-transition-colors),
+      background-color var(--theme-transition-colors),
+      color var(--theme-transition-colors);
+  }
+  a:is(.project-card, .contact-links-anchor, .degree-card__link, .cert-card__actions a):active:not(:focus-visible) {
+    opacity: 0.88;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    a:is(.project-card, .contact-links-anchor, .degree-card__link, .cert-card__actions a):active:not(:focus-visible) {
+      transform: scale(0.97);
+    }
+  }
+  @media (hover: none), (pointer: coarse) {
+    a:is(.project-card, .contact-links-anchor):hover:not(:active) {
+      transform: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    a:is(.project-card, .contact-links-anchor, .degree-card__link, .cert-card__actions a) {
+      transform: none !important;
+      transition: opacity var(--theme-transition-press);
+    }
+  }
+  a:is(.project-card, .contact-links-anchor, .degree-card__link, .cert-card__actions a):focus-visible {
+    transform: none !important;
+    opacity: 1;
+    transition: none !important;
+  }
+  @media (forced-colors: active), print {
+    a:is(.project-card, .contact-links-anchor, .degree-card__link, .cert-card__actions a) {
+      transform: none !important;
+      opacity: 1 !important;
+      transition: none !important;
+    }
+  }
+  @media (forced-colors: active) {
+    a[href]:focus-visible, button:focus-visible {
+      outline: 2px solid Highlight;
+      box-shadow: none;
+    }
+    .accent-swatch[aria-pressed="true"] { outline: 2px solid Highlight; }
   }
 `;

@@ -104,12 +104,12 @@ describe("Navigation — NavLink Click Flow", () => {
     expect(screen.getByRole("heading", { level: 1, name: "Building and evaluating applied AI systems." })).toBeInTheDocument();
   });
 
-  it("clicking 'Education and Certifications' NavLink navigates to Education page", async () => {
+  it("clicking 'Education and certifications' NavLink navigates to Education page", async () => {
     const user = userEvent.setup();
     renderAtRoute("/home");
 
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
-    const educationLink = screen.getByText("Education and Certifications");
+    const educationLink = screen.getByText("Education and certifications");
     await user.click(educationLink);
     expect(screen.getByRole("heading", {
       level: 1,
@@ -117,12 +117,12 @@ describe("Navigation — NavLink Click Flow", () => {
     })).toBeInTheDocument();
   });
 
-  it("clicking 'Contact Me' NavLink navigates to Contact page", async () => {
+  it("clicking 'Contact' NavLink navigates to Contact page", async () => {
     const user = userEvent.setup();
     renderAtRoute("/home");
 
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
-    const navLink = screen.getByRole("link", { name: "Contact Me" });
+    const navLink = screen.getByRole("link", { name: "Contact" });
     await user.click(navLink);
     expect(screen.getByRole("heading", { level: 1, name: "Let’s build useful AI systems." })).toBeInTheDocument();
   });

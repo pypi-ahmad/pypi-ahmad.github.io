@@ -31,16 +31,17 @@
 .education-hero h1 {
   max-width: 900px;
   margin: 0;
-  font-family: "Google Sans Medium";
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  line-height: 0.95;
+  font-family: var(--heading-font-family);
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 .education-intro {
-  max-width: 780px;
+  max-width: 65ch;
   margin: 1.5rem 0 0;
   font-size: clamp(1.05rem, 2vw, 1.35rem);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .education-section {
@@ -62,7 +63,7 @@
 
 .education-section-heading h2 {
   margin: 0;
-  font-family: "Google Sans Medium";
+  font-family: var(--heading-font-family);
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
 }
@@ -87,7 +88,7 @@
 
 .education-projects-bridge h2 {
   margin: 0;
-  font-family: "Google Sans Medium";
+  font-family: var(--heading-font-family);
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   line-height: 1.1;
 }
@@ -153,4 +154,8 @@
   .education-projects-link:hover {
     transform: none;
   }
+}
+
+@media (max-width: 480px) {
+  .education-hero h1 { line-height: 1.4; }
 }

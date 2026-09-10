@@ -10,7 +10,7 @@
 .not-found-card {
   text-align: center;
   padding: clamp(2rem, 6vw, 4rem);
-  border-radius: 12px;
+  border-radius: var(--hero-radius);
 }
 
 .not-found-code {
@@ -42,7 +42,7 @@
   align-items: center;
   justify-content: center;
   padding: 0.85rem 1.4rem;
-  border-radius: 8px;
+  border-radius: var(--control-radius);
   font-weight: 700;
   font-size: 1rem;
   min-height: 48px;

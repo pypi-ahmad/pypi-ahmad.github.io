@@ -45,7 +45,7 @@ function NotFound(props) {
                 color: theme.accentText,
               }}
             >
-              Go to Home
+              Return home
             </Link>
           </div>
         </section>
