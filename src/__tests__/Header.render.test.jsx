@@ -30,11 +30,11 @@ describe("Header — UI Rendering", () => {
     await openMenu();
     const navLabels = [
       "Home",
-      "Education and Certifications",
+      "Education and certifications",
       "Experience",
       "Skills",
       "Projects",
-      "Contact Me",
+      "Contact",
     ];
     navLabels.forEach((label) => {
       expect(screen.getByText(label)).toBeInTheDocument();
@@ -45,17 +45,17 @@ describe("Header — UI Rendering", () => {
     renderWithProviders(<Header />);
     await openMenu();
     expect(screen.getByText("Home").closest("a")).toHaveAttribute("href", "/home");
-    expect(screen.getByText("Education and Certifications").closest("a")).toHaveAttribute("href", "/education");
+    expect(screen.getByText("Education and certifications").closest("a")).toHaveAttribute("href", "/education");
     expect(screen.getByText("Experience").closest("a")).toHaveAttribute("href", "/experience");
     expect(screen.getByText("Skills").closest("a")).toHaveAttribute("href", "/skills");
     expect(screen.getByText("Projects").closest("a")).toHaveAttribute("href", "/projects");
-    expect(screen.getByText("Contact Me").closest("a")).toHaveAttribute("href", "/contact");
+    expect(screen.getByText("Contact").closest("a")).toHaveAttribute("href", "/contact");
   });
 
   it("renders the theme toggle button with aria-label", async () => {
     renderWithProviders(<Header />);
     await openMenu();
-    const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
+    const toggleBtn = screen.getByRole("button", { name: /Switch to (light|dark) mode/ });
     expect(toggleBtn).toBeInTheDocument();
   });
 
@@ -85,7 +85,7 @@ describe("Header — UI Rendering", () => {
     renderWithProviders(<Header />);
     const menuButton = screen.getByRole("button", { name: "Toggle navigation menu" });
     expect(menuButton).toBeInTheDocument();
-    expect(menuButton).toHaveAttribute("aria-controls", "site-menu");
+    expect(menuButton).toHaveAttribute("aria-controls", expect.any(String));
   });
 
   it("renders the logo as a link to /home when isSplash is false", async () => {
@@ -98,14 +98,14 @@ describe("Header — UI Rendering", () => {
   it("applies dark theme background color on toggle button in dark mode", async () => {
     renderWithProviders(<Header />);
     await openMenu();
-    const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
-    expect(toggleBtn).toHaveStyle({ backgroundColor: "#292C3F" });
+    const toggleBtn = screen.getByRole("button", { name: /Switch to (light|dark) mode/ });
+    expect(toggleBtn).toHaveStyle({ backgroundColor: "#1D2129" });
   });
 
   it("applies light theme background color on toggle button in light mode", async () => {
     renderWithProviders(<Header />, { theme: "light" });
     await openMenu();
-    const toggleBtn = screen.getByRole("button", { name: "Toggle Theme" });
-    expect(toggleBtn).toHaveStyle({ backgroundColor: "#7CD1F7" });
+    const toggleBtn = screen.getByRole("button", { name: /Switch to (light|dark) mode/ });
+    expect(toggleBtn).toHaveStyle({ backgroundColor: "#ECEFF4" });
   });
 });

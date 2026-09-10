@@ -110,7 +110,7 @@ export default function Greeting({ theme }) {
                 transition: themeTextTransition,
               }}
             >
-              <strong style={{ color: theme.accentSolid }}>
+              <strong style={{ color: theme.text }}>
                 {outcome.metric}
               </strong>
               <h3 style={{ color: theme.text }}>{outcome.label}</h3>

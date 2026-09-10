@@ -42,7 +42,7 @@
 
 .degree-card h3 {
   margin: 0;
-  font-family: "Google Sans Medium";
+  font-family: var(--heading-font-family);
   font-size: clamp(1.25rem, 2vw, 1.55rem);
   line-height: 1.25;
 }

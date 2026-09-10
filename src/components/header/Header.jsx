@@ -9,9 +9,8 @@
  *
  * Theme state comes from the global theme controller.
  */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 import "./Header.css";
-import { motion } from "framer-motion";
 import { NavLink, useLocation } from "react-router-dom";
 import { greeting, settings } from "../../portfolio.js";
 import { CgSun } from "react-icons/cg";
@@ -22,29 +21,30 @@ import {
   buildThemeShadow,
   themeSurfaceTransition,
   themeElevatedSurfaceTransition,
-  revealMotion,
 } from "../../themeMotion";
 
-const navigationLinkStyle = (theme) => ({ isActive }) => ({
-  fontWeight: isActive ? "bold" : "normal",
-  borderRadius: theme.controlRadius,
-  color: theme.text,
-  backgroundColor: isActive ? theme.accentSoft : "transparent",
-  boxShadow: isActive
-    ? buildThemeShadow(`0 12px 30px ${theme.shadowColor}`, theme.buttonGlow)
-    : "none",
-  transition: themeSurfaceTransition,
-});
+const navigationLinkStyle =
+  (theme) =>
+  ({ isActive }) => ({
+    fontWeight: isActive ? "bold" : "normal",
+    borderRadius: theme.controlRadius,
+    color: theme.text,
+    backgroundColor: isActive ? theme.accentSoft : "transparent",
+    boxShadow: isActive
+      ? buildThemeShadow(`0 12px 30px ${theme.shadowColor}`, theme.buttonGlow)
+      : "none",
+    transition: themeSurfaceTransition,
+  });
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const {
-    accent,
-    resolvedTheme,
-    setAccent,
-    themeMode,
-    toggleMode,
-  } = useThemeController();
+  const [instant, setInstant] = useState(true);
+  const headerRef = useRef(null);
+  const triggerRef = useRef(null);
+  const menuId = useId();
+  const menuTabIndex = isMenuOpen ? undefined : -1;
+  const { accent, resolvedTheme, setAccent, themeMode, toggleMode } =
+    useThemeController();
   const location = useLocation();
   const theme = resolvedTheme;
 
@@ -54,20 +54,48 @@ function Header() {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    function dismissOutside(event) {
+      if (!headerRef.current?.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    }
+    document.addEventListener("pointerdown", dismissOutside);
+    return () => document.removeEventListener("pointerdown", dismissOutside);
+  }, [isMenuOpen]);
+
+  function handleKeyDown(event) {
+    setInstant(true);
+    if (event.key === "Escape" && isMenuOpen) {
+      event.preventDefault();
+      triggerRef.current?.focus();
+      setIsMenuOpen(false);
+    }
+  }
+
+  function handleBlur(event) {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setInstant(true);
+      setIsMenuOpen(false);
+    }
+  }
+
   const navItems = [
     { className: "homei", to: "/home", label: "Home" },
     {
       className: "ec",
       to: "/education",
-      label: "Education and Certifications",
+      label: "Education and certifications",
     },
     { className: "xp", to: "/experience", label: "Experience" },
     { className: "skills", to: "/skills", label: "Skills" },
     { className: "projects", to: "/projects", label: "Projects" },
-    { className: "cr", to: "/contact", label: "Contact Me" },
+    { className: "cr", to: "/contact", label: "Contact" },
   ];
 
-  const toggleMenu = () => {
+  const toggleMenu = (event) => {
+    setInstant(event.detail === 0);
     setIsMenuOpen((currentOpen) => !currentOpen);
   };
 
@@ -83,144 +111,183 @@ function Header() {
     );
 
   return (
-    <motion.div {...revealMotion(0, true)}>
-      <div>
-        <header
-          className="header"
+    <header
+      className="header"
+      ref={headerRef}
+      onKeyDown={handleKeyDown}
+      onBlur={handleBlur}
+      style={{
+        background: buildThemeBackground(
+          theme.headerSurface,
+          theme.headerPattern,
+        ),
+        borderColor: theme.borderSoft,
+        borderWidth: theme.panelBorderWidth,
+        borderStyle: theme.panelBorderStyle,
+        borderRadius: `calc(${theme.controlRadius} + 12px)`,
+        boxShadow: buildThemeShadow(
+          `0 18px 42px ${theme.shadowColor}`,
+          theme.panelGlow,
+        ),
+        transition: themeElevatedSurfaceTransition,
+      }}
+    >
+      <button
+        className={`menu-icon${isMenuOpen ? " is-open" : ""}`}
+        ref={triggerRef}
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded={isMenuOpen}
+        aria-controls={menuId}
+        onClick={toggleMenu}
+        style={{
+          background: buildThemeBackground(
+            theme.buttonColor,
+            theme.buttonPattern,
+          ),
+          color: theme.text,
+          borderColor: theme.borderColor,
+          borderWidth: theme.panelBorderWidth,
+          borderStyle: theme.panelBorderStyle,
+          borderRadius: theme.controlRadius,
+          boxShadow: buildThemeShadow(
+            `0 12px 28px ${theme.shadowColor}`,
+            theme.buttonGlow,
+          ),
+          transition: themeSurfaceTransition,
+        }}
+      >
+        <span className="navicon"></span>
+      </button>
+      <nav aria-label="Primary">
+        <ul
+          id={menuId}
+          className={`menu${isMenuOpen ? " menu--open" : ""}${instant ? " menu--instant" : ""}`}
+          hidden={!isMenuOpen}
+          aria-hidden={!isMenuOpen}
+          inert={!isMenuOpen}
           style={{
-            background: buildThemeBackground(theme.headerSurface, theme.headerPattern),
+            background: buildThemeBackground(
+              theme.cardBackgroundAlt,
+              theme.surfacePattern,
+            ),
             borderColor: theme.borderSoft,
             borderWidth: theme.panelBorderWidth,
             borderStyle: theme.panelBorderStyle,
-            borderRadius: theme.surfaceRadius,
-            boxShadow: buildThemeShadow(`0 18px 42px ${theme.shadowColor}`, theme.panelGlow),
-            transition: themeElevatedSurfaceTransition,
+            borderRadius: `calc(${theme.controlRadius} + 12px)`,
+            boxShadow: buildThemeShadow(
+              `0 18px 42px ${theme.shadowColor}`,
+              theme.panelGlow,
+            ),
           }}
         >
-          <button
-            className={`menu-icon${isMenuOpen ? " is-open" : ""}`}
-            type="button"
-            aria-label="Toggle navigation menu"
-            aria-expanded={isMenuOpen}
-            aria-controls="site-menu"
-            onClick={toggleMenu}
-            style={{
-              background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
-              color: theme.text,
-              borderColor: theme.borderColor,
-              borderWidth: theme.panelBorderWidth,
-              borderStyle: theme.panelBorderStyle,
-              borderRadius: theme.controlRadius,
-              boxShadow: buildThemeShadow(`0 12px 28px ${theme.shadowColor}`, theme.buttonGlow),
-              transition: themeSurfaceTransition,
-            }}
-          >
-            <span className="navicon"></span>
-          </button>
-          <nav aria-label="Primary">
-            <ul
-              id="site-menu"
-              className={`menu${isMenuOpen ? " menu--open" : ""}`}
-              hidden={!isMenuOpen}
+          <li className="menu-brand-item">
+            <NavLink
+              to={link}
+              className="menu-brand"
+              tabIndex={menuTabIndex}
+              onClick={closeMenu}
               style={{
-                background: buildThemeBackground(theme.cardBackgroundAlt, theme.surfacePattern),
-                borderColor: theme.borderSoft,
-                borderWidth: theme.panelBorderWidth,
-                borderStyle: theme.panelBorderStyle,
-                borderRadius: theme.surfaceRadius,
-                boxShadow: buildThemeShadow(`0 18px 42px ${theme.shadowColor}`, theme.panelGlow),
-                transition: themeElevatedSurfaceTransition,
+                color: theme.text,
+                fontFamily: theme.accentFontFamily,
+                letterSpacing: theme.accentLetterSpacing,
+                transition: themeSurfaceTransition,
               }}
             >
-              <li className="menu-brand-item">
-                <NavLink
-                  to={link}
-                  className="menu-brand"
-                  onClick={closeMenu}
-                  style={{
-                    color: theme.text,
-                    fontFamily: theme.accentFontFamily,
-                    letterSpacing: theme.accentLetterSpacing,
-                    transition: themeSurfaceTransition,
-                  }}
-                >
-                  {greeting.logoName}
-                </NavLink>
-              </li>
-              {navItems.map((item) => (
-                <li key={item.to}>
-                  <NavLink
-                    className={item.className}
-                    to={item.to}
-                    style={navigationLinkStyle(theme)}
-                    onClick={closeMenu}
-                  >
-                    {item.label}
-                  </NavLink>
-                </li>
-              ))}
-              <li className="menu-theme-toggle-item">
-                <div className="accent-selector" role="group" aria-label="Accent color">
-                  <span className="accent-selector__label">Accent</span>
-                  <button
-                    className="accent-swatch accent-swatch--pink"
-                    type="button"
-                    aria-label="Use crimson and pink accent"
-                    aria-pressed={accent === "pink"}
-                    onClick={() => setAccent("pink")}
-                  />
-                  <button
-                    className="accent-swatch accent-swatch--blue"
-                    type="button"
-                    aria-label="Use indigo and navy accent"
-                    aria-pressed={accent === "blue"}
-                    onClick={() => setAccent("blue")}
-                  />
-                  <button
-                    className="accent-swatch accent-swatch--pink-indigo"
-                    type="button"
-                    aria-label="Use dark pink and indigo accent"
-                    aria-pressed={accent === "pink-indigo"}
-                    onClick={() => setAccent("pink-indigo")}
-                  />
-                </div>
-                <button
-                  className="change-theme-btn"
-                  onClick={() => {
-                    toggleMode();
-                    closeMenu();
-                  }}
-                  type="button"
-                  style={{
-                    cursor: "pointer",
-                    height: "45px",
-                    width: "45px",
-                    margin: 0,
-                    paddingTop: "5px",
-                    borderRadius: "50%",
-                    borderColor: theme.borderColor,
-                    borderWidth: theme.panelBorderWidth,
-                    borderStyle: theme.panelBorderStyle,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
-                    color: theme.selectorText,
-                    transition: themeSurfaceTransition,
-                    boxShadow:
-                      themeMode === "light"
-                        ? buildThemeShadow("0 6px 16px rgba(31, 41, 55, 0.08)", theme.buttonGlow)
-                        : buildThemeShadow("0 8px 20px rgba(0, 0, 0, 0.28)", theme.buttonGlow),
-                  }}
-                  aria-label="Toggle Theme"
-                >
-                  {icon}
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </header>
-      </div>
-    </motion.div>
+              {greeting.logoName}
+            </NavLink>
+          </li>
+          {navItems.map((item) => (
+            <li key={item.to}>
+              <NavLink
+                className={item.className}
+                tabIndex={menuTabIndex}
+                to={item.to}
+                style={navigationLinkStyle(theme)}
+                onClick={closeMenu}
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
+          <li className="menu-theme-toggle-item">
+            <div
+              className="accent-selector"
+              role="group"
+              aria-label="Accent color"
+            >
+              <span className="accent-selector__label">Accent</span>
+              <button
+                className="accent-swatch accent-swatch--pink"
+                type="button"
+                tabIndex={menuTabIndex}
+                aria-label="Use crimson and pink accent"
+                aria-pressed={accent === "pink"}
+                onClick={() => setAccent("pink")}
+              />
+              <button
+                className="accent-swatch accent-swatch--blue"
+                type="button"
+                tabIndex={menuTabIndex}
+                aria-label="Use indigo and navy accent"
+                aria-pressed={accent === "blue"}
+                onClick={() => setAccent("blue")}
+              />
+              <button
+                className="accent-swatch accent-swatch--pink-indigo"
+                type="button"
+                tabIndex={menuTabIndex}
+                aria-label="Use dark pink and indigo accent"
+                aria-pressed={accent === "pink-indigo"}
+                onClick={() => setAccent("pink-indigo")}
+              />
+            </div>
+            <button
+              className="change-theme-btn"
+              tabIndex={menuTabIndex}
+              onClick={() => {
+                triggerRef.current?.focus();
+                toggleMode();
+                closeMenu();
+              }}
+              type="button"
+              style={{
+                cursor: "pointer",
+                height: "45px",
+                width: "45px",
+                margin: 0,
+                paddingTop: "5px",
+                borderRadius: "50%",
+                borderColor: theme.borderColor,
+                borderWidth: theme.panelBorderWidth,
+                borderStyle: theme.panelBorderStyle,
+                alignItems: "center",
+                justifyContent: "center",
+                background: buildThemeBackground(
+                  theme.buttonColor,
+                  theme.buttonPattern,
+                ),
+                color: theme.selectorText,
+                transition: themeSurfaceTransition,
+                boxShadow:
+                  themeMode === "light"
+                    ? buildThemeShadow(
+                        "0 6px 16px rgba(31, 41, 55, 0.08)",
+                        theme.buttonGlow,
+                      )
+                    : buildThemeShadow(
+                        "0 8px 20px rgba(0, 0, 0, 0.28)",
+                        theme.buttonGlow,
+                      ),
+              }}
+              aria-label={`Switch to ${themeMode === "dark" ? "light" : "dark"} mode`}
+            >
+              {icon}
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 }
 

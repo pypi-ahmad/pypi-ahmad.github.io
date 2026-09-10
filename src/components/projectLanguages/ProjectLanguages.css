@@ -13,7 +13,7 @@
 
 .software-skill-inline-languages {
   margin-bottom: 0px;
-  font-family: "Google Sans Regular";
+  font-family: var(--body-font-family);
   cursor: pointer;
 }
 

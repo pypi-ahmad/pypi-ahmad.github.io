@@ -53,6 +53,7 @@ function CertificationCard({ certificate, theme }) {
         {certificate.certificateLink ? (
           <a
             href={certificate.certificateLink}
+            aria-label={`Verify credential: ${certificate.title}`}
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: theme.accentSolid }}
@@ -63,6 +64,7 @@ function CertificationCard({ certificate, theme }) {
         {certificate.pdfLink ? (
           <a
             href={certificate.pdfLink}
+            aria-label={`View certificate PDF: ${certificate.title}`}
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: theme.accentSolid }}

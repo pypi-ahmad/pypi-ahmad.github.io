@@ -24,15 +24,16 @@
 .contact-hero h1 {
   max-width: 900px;
   margin: 0;
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  line-height: 0.95;
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 .contact-intro {
-  max-width: 780px;
+  max-width: 65ch;
   margin: 1.5rem 0 0;
   font-size: clamp(1.05rem, 2vw, 1.35rem);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .contact-actions {
@@ -90,4 +91,8 @@
   .contact-action {
     width: 100%;
   }
+}
+
+@media (max-width: 480px) {
+  .contact-hero h1 { line-height: 1.4; }
 }

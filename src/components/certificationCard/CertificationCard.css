@@ -38,7 +38,7 @@
 
 .cert-card h4 {
   margin: 0;
-  font-family: "Google Sans Medium";
+  font-family: var(--heading-font-family);
   font-size: 1.25rem;
   line-height: 1.3;
 }

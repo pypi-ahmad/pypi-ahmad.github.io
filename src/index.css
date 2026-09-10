@@ -8,54 +8,27 @@
 /* ── @font-face Declarations ────────────────────────────────────────── */
 
 @font-face {
-  font-family: "Agustina Regular";
+  font-family: "Google Sans";
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-display: swap;
-  src: local("Agustina Regular"),
-    url("./assests/fonts/Agustina.woff") format("woff");
+  src: url("./assests/fonts/GoogleSans-Regular.woff2") format("woff2");
 }
+
 @font-face {
-  font-family: "Montserrat";
+  font-family: "Google Sans";
+  font-style: normal;
+  font-weight: 500;
   font-display: swap;
-  src: local("Montserrat"),
-    url("./assests/fonts/Montserrat-Regular.ttf") format("truetype");
+  src: url("./assests/fonts/GoogleSans-Medium.woff2") format("woff2");
 }
+
 @font-face {
-  font-family: "Google Sans Bold";
+  font-family: "Google Sans";
+  font-style: normal;
+  font-weight: 700;
   font-display: swap;
-  src: local("Google Sans Bold"),
-    url("./assests/fonts/GoogleSans-Bold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Google Sans Bold Italic";
-  font-display: swap;
-  src: local("Google Sans Bold Italic"),
-    url("./assests/fonts/GoogleSans-BoldItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Google Sans Italic";
-  font-display: swap;
-  src: local("Google Sans Italic"),
-    url("./assests/fonts/GoogleSans-Italic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Google Sans Medium";
-  font-display: swap;
-  src: local("Google Sans Medium"),
-    url("./assests/fonts/GoogleSans-Medium.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Google Sans Medium Italic";
-  font-display: swap;
-  src: local("Google Sans Medium Italic"),
-    url("./assests/fonts/GoogleSans-MediumItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Google Sans Regular";
-  font-display: swap;
-  src: local("Google Sans Regular"),
-    url("./assests/fonts/GoogleSans-Regular.ttf") format("truetype");
+  src: url("./assests/fonts/GoogleSans-Bold.woff2") format("woff2");
 }
 
 /* ── Base Typography ────────────────────────────────────────────────── */
@@ -76,7 +49,7 @@ body {
 }
 body {
   margin: 0;
-  font: 19px / 23px Montserrat, "Montserrat", sans-serif;
+  font: 1rem / 1.6 "Google Sans", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -198,6 +171,6 @@ video {
   }
 
   body {
-    font: 16px / 22px Montserrat, "Montserrat", sans-serif;
+    font: 1rem / 1.6 "Google Sans", system-ui, sans-serif;
   }
 }

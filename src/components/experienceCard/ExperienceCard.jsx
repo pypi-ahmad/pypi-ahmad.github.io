@@ -60,8 +60,8 @@ export default function ExperienceCard({ experience, theme }) {
             <h4 id="deloitte-outcomes-title" style={{ color: theme.text }}>Qualified outcomes</h4>
             <ul>
               {experience.outcomes.map(outcome => (
-                <li key={outcome.label} style={{ background: theme.accentSoft, borderColor: theme.borderSoft }}>
-                  <strong style={{ color: theme.accentSolid }}>{outcome.metric}</strong>
+                <li key={outcome.label} style={{ background: theme.bodyAlt, borderColor: theme.borderSoft }}>
+                  <strong style={{ color: theme.text }}>{outcome.metric}</strong>
                   <span style={{ color: theme.text }}>{outcome.label}</span>
                   <small style={{ color: theme.secondaryText }}>{outcome.context}</small>
                 </li>

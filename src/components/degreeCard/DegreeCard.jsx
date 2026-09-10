@@ -37,6 +37,7 @@ function DegreeCard({ degree, theme }) {
         <a
           className="degree-card__link"
           href={degree.websiteLink}
+          aria-label={`Visit institution: ${degree.title}`}
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: theme.accentSolid }}

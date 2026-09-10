@@ -67,31 +67,60 @@ function getInitialAccent(initialAccent) {
   return normalizeAccent(window.localStorage.getItem(ACCENT_STORAGE_KEY));
 }
 
-export function ThemeControllerProvider({ children, initialThemeMode, initialAccent }) {
+export function ThemeControllerProvider({
+  children,
+  initialThemeMode,
+  initialAccent,
+}) {
   const [themeMode, setThemeMode] = useState(() =>
-    getInitialThemeMode(initialThemeMode)
+    getInitialThemeMode(initialThemeMode),
   );
-  const [accent, setAccentState] = useState(() => getInitialAccent(initialAccent));
-  const fadeTimer = useRef(null);
+  const [accent, setAccentState] = useState(() =>
+    getInitialAccent(initialAccent),
+  );
+  const transitionStyle = useRef(null);
+  const transitionFrames = useRef([]);
   const resolvedTheme = resolveTheme(themeMode, accent);
 
-  const startFade = useCallback(() => {
-    const root =
-      typeof document !== "undefined" ? document.getElementById("root") : null;
-
-    if (root) {
-      clearTimeout(fadeTimer.current);
-      root.classList.add("theme-fading");
-      fadeTimer.current = setTimeout(() => {
-        root.classList.remove("theme-fading");
-      }, 300);
+  const suppressTransitions = useCallback(() => {
+    transitionFrames.current.forEach(cancelAnimationFrame);
+    transitionFrames.current = [];
+    if (!transitionStyle.current) {
+      const style = document.createElement("style");
+      style.textContent = "*,*::before,*::after{transition:none !important}";
+      document.head.append(style);
+      transitionStyle.current = style;
     }
+    // Commit the override before React applies new theme tokens.
+    void document.body.offsetHeight;
+    transitionFrames.current = [
+      requestAnimationFrame(() => {
+        transitionFrames.current = [
+          requestAnimationFrame(() => {
+            transitionStyle.current?.remove();
+            transitionStyle.current = null;
+            transitionFrames.current = [];
+          }),
+        ];
+      }),
+    ];
   }, []);
 
-  const fadeAndApply = useCallback(updater => {
-    startFade();
-    setThemeMode(updater);
-  }, [startFade]);
+  useEffect(
+    () => () => {
+      transitionFrames.current.forEach(cancelAnimationFrame);
+      transitionStyle.current?.remove();
+    },
+    [],
+  );
+
+  const applyMode = useCallback(
+    (updater) => {
+      suppressTransitions();
+      setThemeMode(updater);
+    },
+    [suppressTransitions],
+  );
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -107,17 +136,17 @@ export function ThemeControllerProvider({ children, initialThemeMode, initialAcc
 
   const value = useMemo(() => {
     function setMode(mode) {
-      fadeAndApply(() => normalizeThemeMode(mode));
+      if (normalizeThemeMode(mode) !== themeMode)
+        applyMode(() => normalizeThemeMode(mode));
     }
 
     function toggleMode() {
-      fadeAndApply(currentMode =>
-        currentMode === "light" ? "dark" : "light"
-      );
+      applyMode((currentMode) => (currentMode === "light" ? "dark" : "light"));
     }
 
     function setAccent(nextAccent) {
-      startFade();
+      if (normalizeAccent(nextAccent) === accent) return;
+      suppressTransitions();
       setAccentState(normalizeAccent(nextAccent));
     }
 
@@ -129,7 +158,7 @@ export function ThemeControllerProvider({ children, initialThemeMode, initialAcc
       setMode,
       toggleMode,
     };
-  }, [accent, fadeAndApply, resolvedTheme, startFade, themeMode]);
+  }, [accent, applyMode, resolvedTheme, suppressTransitions, themeMode]);
 
   return (
     <ThemeControllerContext.Provider value={value}>
@@ -142,7 +171,9 @@ export function useThemeController() {
   const context = useContext(ThemeControllerContext);
 
   if (!context) {
-    throw new Error("useThemeController must be used within ThemeControllerProvider");
+    throw new Error(
+      "useThemeController must be used within ThemeControllerProvider",
+    );
   }
 
   return context;

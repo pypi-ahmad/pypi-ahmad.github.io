@@ -56,10 +56,6 @@ export default function Projects({ theme }) {
             <h2 id="recent-projects-title" style={{ color: theme.text }}>
               Recent projects
             </h2>
-            <p style={{ color: theme.secondaryText }}>
-              Ordered by portfolio priority. The first four also appear on the
-              homepage.
-            </p>
           </motion.div>
           <div className="repo-cards-div-main">
             {projects.data.map((project, index) => (

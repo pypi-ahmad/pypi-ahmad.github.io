@@ -123,7 +123,7 @@ export default function HomeDetails({ theme }) {
               ),
             }}
           >
-            <h3 style={{ color: theme.accentSolid }}>{area.title}</h3>
+            <h3 style={{ color: theme.text }}>{area.title}</h3>
             <p style={{ color: theme.secondaryText }}>{area.description}</p>
           </WorkCard>
         ))}

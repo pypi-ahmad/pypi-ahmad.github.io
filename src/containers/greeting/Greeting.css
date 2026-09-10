@@ -71,14 +71,14 @@
   max-width: 820px;
   margin: 0;
   font-size: clamp(2.5rem, 6vw, 5.25rem);
-  line-height: 1.02;
+  line-height: 1.1;
 }
 
 .greeting-text-p {
-  max-width: 720px;
+  max-width: 65ch;
   margin: 1.5rem 0 0;
   font-size: clamp(1.05rem, 2vw, 1.35rem);
-  line-height: 1.65;
+  line-height: 1.6;
   white-space: pre-line;
 }
 
@@ -160,6 +160,7 @@
 }
 
 .outcome-card h3 {
+  line-height: 1.4;
   margin: 0.7rem 0 0.4rem;
   font-size: 1rem;
 }
@@ -204,4 +205,8 @@
   .hero-atmosphere::after {
     animation: none;
   }
+}
+
+@media (max-width: 480px) {
+  .greeting-text { line-height: 1.4; }
 }

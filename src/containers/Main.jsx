@@ -30,6 +30,7 @@ import {
   skillsPageData,
 } from "../portfolio.js";
 import RouteMeta from "../components/seo/RouteMeta";
+import RouteNavigation from "../components/RouteNavigation";
 
 const Home = lazy(() => import("../pages/home/HomeComponent"));
 const Splash = lazy(() => import("../pages/splash/Splash"));
@@ -119,6 +120,7 @@ export default function Main(props) {
               </div>
             )}
           >
+            <RouteNavigation />
             <Routes>
               <Route
                 path="/"
