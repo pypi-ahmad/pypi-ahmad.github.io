@@ -3,11 +3,10 @@
   flex-direction: column;
   min-height: 100%;
   padding: clamp(1.2rem, 2.5vw, 1.6rem);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: transform var(--theme-transition-fast), box-shadow var(--theme-transition-fast);
 }
 
-.cert-card:hover,
-.cert-card:focus-within {
+.cert-card:hover {
   transform: translateY(-3px);
 }
 
@@ -81,7 +80,7 @@
   outline-offset: 3px;
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse), print {
   .cert-card {
     transition: none;
   }

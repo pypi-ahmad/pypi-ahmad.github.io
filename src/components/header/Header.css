@@ -220,6 +220,14 @@
   top: 0;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .header .menu-icon .navicon,
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    transition: none;
+  }
+}
+
 .homei {
   margin: 0;
   color: inherit;

@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { revealMotion } from "../../themeMotion";
 import "./ExperienceCard.css";
 
 function DetailList({ title, items, theme }) {
@@ -19,7 +21,8 @@ export default function ExperienceCard({ experience, theme }) {
   const isFeatured = Boolean(experience.systemContext);
 
   return (
-    <article
+    <motion.article
+      {...revealMotion()}
       className={`experience-card${isFeatured ? " experience-card--featured" : ""}`}
       style={{ background: theme.cardBackgroundAlt, borderColor }}
     >
@@ -77,6 +80,6 @@ export default function ExperienceCard({ experience, theme }) {
           ))}
         </ul>
       )}
-    </article>
+    </motion.article>
   );
 }

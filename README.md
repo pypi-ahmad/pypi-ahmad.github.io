@@ -69,12 +69,13 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 - 13 recent public projects with verified GitHub links.
 
 **Theming**
-- One visual theme with light and dark modes plus selectable pink and blue accents.
+- One visual theme with light and dark modes plus selectable pink, blue, and pink-indigo accents.
 - Mode and accent selections persist independently in `localStorage`; older family-and-mode values migrate automatically.
 
 **UX and accessibility**
 - Responsive navigation, card layouts, accordions, and galleries.
-- Reduced-motion support; desktop-only animated cursor (configurable off).
+- Brief hero entrance, once-per-mount scroll reveals, and fine-pointer hover feedback.
+- Reduced-motion support, including preference changes while browsing; native browser cursor by default.
 - Lazy-loaded routes with a visible loading state and a catch-all accessible 404 page.
 
 **SEO and metadata**
@@ -94,7 +95,7 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 | UI | React 19, React Bootstrap, styled-components v6 |
 | Routing | React Router DOM 7 |
 | Build | Vite 8, `@vitejs/plugin-react`, SVGR |
-| Animation | Framer Motion v13, react-animated-cursor |
+| Animation | Framer Motion v13 and CSS; optional cursor package disabled by default |
 | Metadata | react-helmet-async |
 | Icons | react-icons v5, local SVG components |
 | Analytics | react-ga4 |
@@ -199,6 +200,20 @@ To run the browser stress test, build first and start the preview server, then i
 node stress-test.mjs
 ```
 
+The focused motion check exits nonzero on failed assertions. With a production preview at `http://127.0.0.1:4173`, run:
+
+```bash
+node scripts/check-motion.mjs
+```
+
+It checks routes, desktop/mobile layouts, keyboard focus, reduced motion, theme changes, and navigation. Screenshots and three cold-load measurements per viewport are saved to an OS temp directory printed at completion. Capture an unchanged build with `--baseline`, then run the changed build with `--compare <baseline-report.json>` to check content/link preservation and the 5 KiB initial-JavaScript gzip budget. Neither script runs in CI.
+
+### Motion policy
+
+`src/themeMotion.js` owns shared entrances: 400 ms with 14 px vertical travel on desktop, 60 ms stagger capped at 180 ms, and once-per-mount viewport reveals. Mobile uses a 250 ms opacity-only entrance without stagger. Primary page headings remain outside entrance animations.
+
+`src/global.js` keeps focused and printed content visible and overrides motion immediately when the browser's reduced-motion preference changes. Home's two CSS accent shapes settle after 3.6 seconds; they stay static on mobile and under reduced motion. The animation uses existing dependencies and local CSS, with no video generation, media downloads, or API key.
+
 ## How It Works
 
 ```text
@@ -239,7 +254,7 @@ Global settings live in `src/data/settings.js`:
 ```js
 export const settings = {
   isSplash: false,       // true → show splash page at /
-  useCustomCursor: true, // false → use the browser default cursor
+  useCustomCursor: false, // native browser cursor; true opts into the custom cursor
   googleTrackingID: "",  // set a GA4 measurement ID to enable analytics
 };
 ```
@@ -264,7 +279,7 @@ Update these files to customise the site content without touching any page compo
 
 ### Appearance
 
-`src/theme.js` defines one visual identity in light and dark modes with crimson-to-pink and indigo-to-navy accents. The header provides two accent swatches beside the mode toggle. `src/themeController.jsx` persists mode as `theme=light|dark` and accent as `accent=pink|blue`, while preserving older stored-mode migration.
+`src/theme.js` defines one visual identity in light and dark modes with crimson-to-pink, indigo-to-navy, and dark-pink-to-indigo accents. The header provides three accent swatches beside the mode toggle. `src/themeController.jsx` persists mode as `theme=light|dark` and accent as `accent=pink|blue|pink-indigo`, while preserving older stored-mode migration.
 
 ## Testing and Quality
 

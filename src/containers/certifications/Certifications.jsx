@@ -7,6 +7,8 @@
  * Props: { theme }
  */
 import React from "react";
+import { motion } from "framer-motion";
+import { revealMotion } from "../../themeMotion";
 import "./Certifications.css";
 import { certifications } from "../../portfolio";
 import CertificationCard from "../../components/certificationCard/CertificationCard";
@@ -23,7 +25,7 @@ function Certifications(props) {
   const theme = props.theme;
   return (
     <section className="education-section" id="certs" aria-labelledby="certs-title">
-      <div className="education-section-heading">
+      <motion.div {...revealMotion()} className="education-section-heading">
         <p className="education-section-label" style={{ color: theme.accentSolid }}>
           Focused learning
         </p>
@@ -33,7 +35,7 @@ function Certifications(props) {
         <p style={{ color: theme.secondaryText }}>
           Thirteen credentials grouped by focus area for faster review.
         </p>
-      </div>
+      </motion.div>
       <div className="certification-groups">
         {categoryOrder.map((category) => {
           const categoryCertificates = certifications.certifications.filter(
@@ -41,7 +43,8 @@ function Certifications(props) {
           );
 
           return (
-            <section
+            <motion.section
+              {...revealMotion()}
               className="certification-group"
               key={category}
               aria-labelledby={`certification-group-${category.toLowerCase().replaceAll(" ", "-")}`}
@@ -66,7 +69,7 @@ function Certifications(props) {
                   />
                 ))}
               </div>
-            </section>
+            </motion.section>
           );
         })}
       </div>

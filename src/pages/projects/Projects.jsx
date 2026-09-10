@@ -1,9 +1,10 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { projectsHeader, projects, socialMediaLinks } from "../../portfolio.js";
-import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
+import { buildThemeBackground, buildThemeShadow, revealMotion } from "../../themeMotion";
 import "./Projects.css";
 
 export default function Projects({ theme }) {
@@ -24,32 +25,34 @@ export default function Projects({ theme }) {
             ),
           }}
         >
-          <p className="projects-eyebrow" style={{ color: theme.accentSolid }}>
+          <motion.p {...revealMotion(0, true)} className="projects-eyebrow" style={{ color: theme.accentSolid }}>
             Open-source applied AI
-          </p>
+          </motion.p>
           <h1 id="projects-title" style={{ color: theme.text }}>
             {projectsHeader.title}
           </h1>
-          <p className="projects-intro" style={{ color: theme.secondaryText }}>
+          <motion.p {...revealMotion(1, true)} className="projects-intro" style={{ color: theme.secondaryText }}>
             {projectsHeader.description}
-          </p>
-          <a
-            className="projects-github-link"
-            href={socialMediaLinks.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              background: theme.accentGradient,
-              color: theme.accentText,
-              borderRadius: theme.controlRadius,
-            }}
-          >
-            View GitHub profile
-          </a>
+          </motion.p>
+          <motion.div {...revealMotion(2, true)}>
+            <a
+              className="projects-github-link"
+              href={socialMediaLinks.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: theme.accentGradient,
+                color: theme.accentText,
+                borderRadius: theme.controlRadius,
+              }}
+            >
+              View GitHub profile
+            </a>
+          </motion.div>
         </section>
 
         <section className="projects-section" aria-labelledby="recent-projects-title">
-          <div className="projects-section-heading">
+          <motion.div {...revealMotion()} className="projects-section-heading">
             <h2 id="recent-projects-title" style={{ color: theme.text }}>
               Recent projects
             </h2>
@@ -57,7 +60,7 @@ export default function Projects({ theme }) {
               Ordered by portfolio priority. The first four also appear on the
               homepage.
             </p>
-          </div>
+          </motion.div>
           <div className="repo-cards-div-main">
             {projects.data.map((project, index) => (
               <ProjectCard

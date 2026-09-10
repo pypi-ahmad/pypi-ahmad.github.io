@@ -1,7 +1,7 @@
 /**
  * Splash — Animated loading screen.
  *
- * Shows a bouncing-ball animation until the page finishes loading,
+ * Shows a brief loading-mark fade until the page finishes loading,
  * then redirects to /home.  Enabled when `settings.isSplash` is true.
  * Falls back to redirect after 3 seconds if the load event doesn't fire.
  *
@@ -13,15 +13,17 @@ import { Navigate } from "react-router-dom";
 
 function AnimatedSplash(props) {
   return (
-    <div className="logo_wrapper">
+    <div className="logo_wrapper" role="status" aria-label="Loading portfolio">
       <div className="loading">
-        <div className="ball"></div>
-        <div className="ball"></div>
-        <div className="ball"></div>
-        <div className="ball"></div>
-        <div className="ball"></div>
-        <div className="ball"></div>
-        <div className="ball"></div>
+        <div className="motion-fade" data-motion="fade" aria-hidden="true">
+          <div className="ball"></div>
+          <div className="ball"></div>
+          <div className="ball"></div>
+          <div className="ball"></div>
+          <div className="ball"></div>
+          <div className="ball"></div>
+          <div className="ball"></div>
+        </div>
       </div>
     </div>
   );

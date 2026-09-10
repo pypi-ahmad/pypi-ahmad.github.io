@@ -5,7 +5,7 @@
  *  1. ThemeProvider  — styled-components theme (light/dark), persisted in localStorage
  *  2. MotionConfig   — Framer Motion respects user's "prefers-reduced-motion" setting
  *  3. GlobalStyles   — CSS reset & body theme styles
- *  4. AnimatedCursor — custom rainbow cursor (desktop only, toggleable in settings)
+ *  4. AnimatedCursor — optional fine-pointer cursor (disabled by default)
  *
  * The <Main /> component handles all routing.
  */

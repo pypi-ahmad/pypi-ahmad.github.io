@@ -12,7 +12,7 @@ import ContactLinksList from "../../components/socialMedia/ContactLinksList";
 import { motion } from "framer-motion";
 import "./ContactComponent.css";
 import { contactPageData, socialMediaLinks } from "../../portfolio.js";
-import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
+import { buildThemeBackground, buildThemeShadow, revealMotion } from "../../themeMotion";
 
 const ContactData = contactPageData.contactSection;
 
@@ -23,13 +23,9 @@ function Contact(props) {
     <div className="contact-main">
       <Header />
       <main className="basic-contact" id="main-content">
-        <motion.section
+        <section
           className="contact-hero"
           aria-labelledby="contact-title"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
           style={{
             background: buildThemeBackground(theme.heroGradient, theme.heroPattern),
             border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
@@ -37,16 +33,16 @@ function Contact(props) {
             boxShadow: buildThemeShadow(`0 28px 80px ${theme.shadowColor}`, theme.panelGlow),
           }}
         >
-          <p className="contact-eyebrow" style={{ color: theme.accentSolid }}>
+          <motion.p {...revealMotion(0, true)} className="contact-eyebrow" style={{ color: theme.accentSolid }}>
             {ContactData.eyebrow}
-          </p>
+          </motion.p>
           <h1 id="contact-title" style={{ color: theme.text }}>
             {ContactData.title}
           </h1>
-          <p className="contact-intro" style={{ color: theme.secondaryText }}>
+          <motion.p {...revealMotion(1, true)} className="contact-intro" style={{ color: theme.secondaryText }}>
             {ContactData.description}
-          </p>
-          <div className="contact-actions">
+          </motion.p>
+          <motion.div {...revealMotion(2, true)} className="contact-actions">
             <a
               className="contact-action contact-action--primary"
               href={`mailto:${socialMediaLinks.gmail}`}
@@ -54,23 +50,19 @@ function Contact(props) {
             >
               {ContactData.emailLabel}
             </a>
-          </div>
-        </motion.section>
-        <motion.section
+          </motion.div>
+        </section>
+        <section
           className="contact-channels"
           aria-labelledby="contact-channels-title"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
         >
-          <div className="contact-section-heading">
+          <motion.div {...revealMotion()} className="contact-section-heading">
             <h2 id="contact-channels-title" style={{ color: theme.text }}>
               {ContactData.channelsTitle}
             </h2>
-          </div>
+          </motion.div>
           <ContactLinksList theme={theme} />
-        </motion.section>
+        </section>
       </main>
       <Footer theme={props.theme} />
     </div>

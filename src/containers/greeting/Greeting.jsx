@@ -5,21 +5,18 @@ import { homePageData } from "../../portfolio";
 import {
   buildThemeBackground,
   buildThemeShadow,
-  themeElevatedSurfaceTransition,
   themeSurfaceTransition,
   themeTextTransition,
+  revealMotion,
 } from "../../themeMotion";
 import "./Greeting.css";
 
 export default function Greeting({ theme }) {
   return (
-    <motion.section
+    <section
       id="greeting"
       className="greet-main"
       aria-labelledby="home-title"
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
       style={{
         background: buildThemeBackground(theme.heroGradient, theme.heroPattern),
         border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
@@ -31,9 +28,10 @@ export default function Greeting({ theme }) {
       }}
     >
       <div className="hero-copy">
-        <p className="hero-eyebrow" style={{ color: theme.accentSolid }}>
+        <div className="hero-atmosphere" aria-hidden="true" />
+        <motion.p {...revealMotion(0, true)} className="hero-eyebrow" style={{ color: theme.accentSolid }}>
           {homePageData.hero.eyebrow}
-        </p>
+        </motion.p>
         <h1
           id="home-title"
           className="greeting-text"
@@ -46,13 +44,14 @@ export default function Greeting({ theme }) {
         >
           {homePageData.hero.title}
         </h1>
-        <p
+        <motion.p
+          {...revealMotion(1, true)}
           className="greeting-text-p"
           style={{ color: theme.secondaryText, transition: themeTextTransition }}
         >
           {homePageData.hero.introduction}
-        </p>
-        <div className="hero-actions" aria-label="Portfolio actions">
+        </motion.p>
+        <motion.div {...revealMotion(2, true)} className="hero-actions" aria-label="Portfolio actions">
           <a
             className="button"
             href="#selected-work"
@@ -78,11 +77,11 @@ export default function Greeting({ theme }) {
           >
             Contact me
           </Link>
-        </div>
+        </motion.div>
       </div>
 
       <div className="outcomes" aria-labelledby="outcomes-title">
-        <div className="section-heading-row">
+        <motion.div {...revealMotion()} className="section-heading-row">
           <h2 id="outcomes-title" style={{ color: theme.text }}>
             Evidence from internal work
           </h2>
@@ -90,10 +89,11 @@ export default function Greeting({ theme }) {
             These are team and system results from internal evaluations.
             Contribution notes identify the parts I worked on.
           </p>
-        </div>
+        </motion.div>
         <ul className="outcome-grid">
-          {homePageData.outcomes.map(outcome => (
-            <li
+          {homePageData.outcomes.map((outcome, index) => (
+            <motion.li
+              {...revealMotion(index)}
               key={outcome.label}
               className="outcome-card"
               style={{
@@ -107,7 +107,7 @@ export default function Greeting({ theme }) {
                   `0 18px 40px ${theme.shadowColor}`,
                   theme.panelGlow
                 ),
-                transition: themeElevatedSurfaceTransition,
+                transition: themeTextTransition,
               }}
             >
               <strong style={{ color: theme.accentSolid }}>
@@ -118,10 +118,10 @@ export default function Greeting({ theme }) {
               <p className="contribution" style={{ color: theme.secondaryText }}>
                 {outcome.contribution}
               </p>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>
-    </motion.section>
+    </section>
   );
 }

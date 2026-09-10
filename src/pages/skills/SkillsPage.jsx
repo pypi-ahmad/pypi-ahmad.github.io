@@ -1,10 +1,11 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { homePageData, projects, skillsPageData } from "../../portfolio";
-import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
+import { buildThemeBackground, buildThemeShadow, revealMotion } from "../../themeMotion";
 import "./SkillsPage.css";
 
 export default function SkillsPage({ theme }) {
@@ -26,27 +27,28 @@ export default function SkillsPage({ theme }) {
             boxShadow: buildThemeShadow(`0 28px 80px ${theme.shadowColor}`, theme.panelGlow),
           }}
         >
-          <p className="skills-eyebrow" style={{ color: theme.accentSolid }}>
+          <motion.p {...revealMotion(0, true)} className="skills-eyebrow" style={{ color: theme.accentSolid }}>
             {skillsPageData.eyebrow}
-          </p>
+          </motion.p>
           <h1 id="skills-title" style={{ color: theme.text }}>
             {skillsPageData.title}
           </h1>
-          <p className="skills-intro" style={{ color: theme.secondaryText }}>
+          <motion.p {...revealMotion(1, true)} className="skills-intro" style={{ color: theme.secondaryText }}>
             {skillsPageData.subtitle}
-          </p>
+          </motion.p>
         </section>
 
         <section className="skills-section" aria-labelledby="capabilities-title">
-          <div className="skills-section-heading">
+          <motion.div {...revealMotion()} className="skills-section-heading">
             <h2 id="capabilities-title" style={{ color: theme.text }}>Core capabilities</h2>
             <p style={{ color: theme.secondaryText }}>
               System-level skills organized around what gets built and verified.
             </p>
-          </div>
+          </motion.div>
           <div className="capability-grid">
-            {skillsPageData.capabilities.map(capability => (
-              <article
+            {skillsPageData.capabilities.map((capability, index) => (
+              <motion.article
+                {...revealMotion(index)}
                 key={capability.title}
                 className="capability-card"
                 style={{
@@ -58,21 +60,22 @@ export default function SkillsPage({ theme }) {
               >
                 <h3 style={{ color: theme.accentSolid }}>{capability.title}</h3>
                 <p style={{ color: theme.secondaryText }}>{capability.description}</p>
-              </article>
+              </motion.article>
             ))}
           </div>
         </section>
 
         <section className="skills-section" aria-labelledby="skills-evidence-title">
-          <div className="skills-section-heading">
+          <motion.div {...revealMotion()} className="skills-section-heading">
             <h2 id="skills-evidence-title" style={{ color: theme.text }}>Evidence in practice</h2>
             <p style={{ color: theme.secondaryText }}>
               Qualified employer outcomes and public implementations provide context for these capabilities.
             </p>
-          </div>
+          </motion.div>
           <ul className="skills-outcome-grid">
-            {homePageData.outcomes.map(outcome => (
-              <li
+            {homePageData.outcomes.map((outcome, index) => (
+              <motion.li
+                {...revealMotion(index)}
                 key={outcome.label}
                 style={{
                   background: buildThemeBackground(theme.accentSoft, theme.surfacePattern),
@@ -83,7 +86,7 @@ export default function SkillsPage({ theme }) {
                 <strong style={{ color: theme.accentSolid }}>{outcome.metric}</strong>
                 <h3 style={{ color: theme.text }}>{outcome.label}</h3>
                 <p style={{ color: theme.secondaryText }}>{outcome.context}</p>
-              </li>
+              </motion.li>
             ))}
           </ul>
           <div className="skills-proof-grid">
@@ -94,15 +97,16 @@ export default function SkillsPage({ theme }) {
         </section>
 
         <section className="skills-section" aria-labelledby="toolkit-title">
-          <div className="skills-section-heading">
+          <motion.div {...revealMotion()} className="skills-section-heading">
             <h2 id="toolkit-title" style={{ color: theme.text }}>Working toolkit</h2>
             <p style={{ color: theme.secondaryText }}>
               A curated set of tools used across current work and public projects.
             </p>
-          </div>
+          </motion.div>
           <div className="toolkit-grid">
-            {skillsPageData.toolGroups.map(group => (
-              <article
+            {skillsPageData.toolGroups.map((group, index) => (
+              <motion.article
+                {...revealMotion(index)}
                 key={group.title}
                 className="toolkit-group"
                 style={{
@@ -119,12 +123,13 @@ export default function SkillsPage({ theme }) {
                     </li>
                   ))}
                 </ul>
-              </article>
+              </motion.article>
             ))}
           </div>
         </section>
 
-        <section
+        <motion.section
+          {...revealMotion()}
           className="skills-cta"
           style={{
             background: theme.accentSoft,
@@ -146,7 +151,7 @@ export default function SkillsPage({ theme }) {
               Contact me
             </Link>
           </div>
-        </section>
+        </motion.section>
       </main>
       <Footer theme={theme} />
     </div>

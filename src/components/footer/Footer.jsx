@@ -11,6 +11,7 @@ import { useThemeController } from "../../themeController";
 import {
   themeElevatedSurfaceTransition,
   themeTextTransition,
+  revealMotion,
 } from "../../themeMotion";
 
 export default function Footer(props) {
@@ -27,11 +28,7 @@ export default function Footer(props) {
         transition: themeElevatedSurfaceTransition,
       }}
     >
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      <motion.div {...revealMotion()}>
         <p className="footer-text" style={{ color: theme.secondaryText, transition: themeTextTransition }}>
           Made with <span role="img" aria-label="love">❤️</span> by {greeting.title2}
         </p>

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { projects } from "../../portfolio";
+import { revealMotion } from "../../themeMotion";
 
 const Container = styled.section`
   width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
@@ -55,19 +56,16 @@ export default function FeaturedProjects({ theme }) {
       <Title
         id="selected-work-title"
         theme={theme}
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
+        {...revealMotion()}
       >
         Selected work
       </Title>
       <Grid>
-        {projects.data.slice(0, 4).map(project => (
-          <ProjectCard key={project.url} repo={project} theme={theme} />
+        {projects.data.slice(0, 4).map((project, index) => (
+          <ProjectCard key={project.url} repo={project} theme={theme} revealIndex={index} />
         ))}
       </Grid>
-      <ProjectsLink theme={theme} to="/projects">
+      <ProjectsLink className="motion-action" theme={theme} to="/projects">
         See all projects
       </ProjectsLink>
     </Container>
