@@ -6,12 +6,13 @@
  * Props: { theme }
  */
 import React from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import Educations from "../../containers/education/Educations";
 import Certifications from "../../containers/certifications/Certifications";
-import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
+import { buildThemeBackground, buildThemeShadow, revealMotion } from "../../themeMotion";
 import "./EducationComponent.css";
 
 function Education(props) {
@@ -34,23 +35,24 @@ function Education(props) {
               ),
             }}
           >
-            <p className="education-eyebrow" style={{ color: theme.accentSolid }}>
+            <motion.p {...revealMotion(0, true)} className="education-eyebrow" style={{ color: theme.accentSolid }}>
               Education & credentials
-            </p>
+            </motion.p>
             <h1 id="education-title" style={{ color: theme.text }}>
               Academic foundations for applied AI.
             </h1>
-            <p className="education-intro" style={{ color: theme.secondaryText }}>
+            <motion.p {...revealMotion(1, true)} className="education-intro" style={{ color: theme.secondaryText }}>
               Formal training in data analytics and computer science, reinforced
               by focused credentials in generative AI, machine learning, deep
               learning, and data systems.
-            </p>
+            </motion.p>
           </section>
 
           <Educations theme={props.theme} />
           <Certifications theme={props.theme} />
 
-          <section
+          <motion.section
+            {...revealMotion()}
             className="education-projects-bridge"
             aria-labelledby="education-projects-title"
             style={{
@@ -86,7 +88,7 @@ function Education(props) {
             >
               Explore projects
             </Link>
-          </section>
+          </motion.section>
         </div>
       </main>
       <Footer theme={props.theme} />

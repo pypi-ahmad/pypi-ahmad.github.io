@@ -16,10 +16,10 @@
   text-align: left;
   text-decoration: none;
   transition:
-    transform 200ms ease-in-out,
-    background-color 200ms ease-in-out,
-    border-color 200ms ease-in-out,
-    box-shadow 200ms ease-in-out;
+    transform var(--theme-transition-fast),
+    background-color var(--theme-transition-colors),
+    border-color var(--theme-transition-colors),
+    box-shadow var(--theme-transition-fast);
 }
 
 .project-card-wrap--priority .project-card {
@@ -31,7 +31,6 @@
 
 .project-card:hover {
   border-color: var(--accent-solid);
-  transform: translateY(-4px);
 }
 
 .project-card:focus-visible {

@@ -4,11 +4,10 @@
   gap: 1.5rem;
   min-height: 100%;
   padding: clamp(1.25rem, 3vw, 2rem);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: transform var(--theme-transition-fast), box-shadow var(--theme-transition-fast);
 }
 
-.degree-card:hover,
-.degree-card:focus-within {
+.degree-card:hover {
   transform: translateY(-3px);
 }
 
@@ -90,7 +89,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse), print {
   .degree-card {
     transition: none;
   }

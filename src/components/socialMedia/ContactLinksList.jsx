@@ -7,6 +7,8 @@
  * Props: { theme }
  */
 import React from "react";
+import { motion } from "framer-motion";
+import { revealMotion } from "../../themeMotion";
 import "./ContactLinksList.css";
 import { socialMediaLinks } from "../../portfolio";
 import {
@@ -142,8 +144,8 @@ export default function ContactLinksList({ theme }) {
 
   return (
     <ul className="contact-links-list">
-      {items.map(item => (
-        <li key={item.key} className="contact-links-item">
+      {items.map((item, index) => (
+        <motion.li {...revealMotion(index)} key={item.key} className="contact-links-item">
           <a
             className="contact-links-anchor"
             href={item.href}
@@ -181,7 +183,7 @@ export default function ContactLinksList({ theme }) {
               )}
             </div>
           </a>
-        </li>
+        </motion.li>
       ))}
     </ul>
   );

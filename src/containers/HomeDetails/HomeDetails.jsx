@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { homePageData } from "../../portfolio";
-import { buildThemeBackground, buildThemeShadow } from "../../themeMotion";
+import { buildThemeBackground, buildThemeShadow, revealMotion } from "../../themeMotion";
 
 const Container = styled.section`
   width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
@@ -10,7 +11,7 @@ const Container = styled.section`
   padding: var(--section-spacing) 0;
 `;
 
-const Method = styled.div`
+const Method = styled(motion.div)`
   max-width: 820px;
   margin-bottom: 2rem;
 
@@ -40,7 +41,7 @@ const WorkGrid = styled.div`
   }
 `;
 
-const WorkCard = styled.article`
+const WorkCard = styled(motion.article)`
   padding: 1.25rem;
 
   h3 {
@@ -54,7 +55,7 @@ const WorkCard = styled.article`
   }
 `;
 
-const Closing = styled.div`
+const Closing = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   gap: 2rem;
@@ -97,7 +98,7 @@ const ContactLink = styled(Link)`
 export default function HomeDetails({ theme }) {
   return (
     <Container aria-labelledby="method-title">
-      <Method>
+      <Method {...revealMotion()}>
         <h2 id="method-title" style={{ color: theme.text }}>
           How I work
         </h2>
@@ -105,8 +106,9 @@ export default function HomeDetails({ theme }) {
       </Method>
 
       <WorkGrid aria-label="Applied AI work areas">
-        {homePageData.workAreas.map(area => (
+        {homePageData.workAreas.map((area, index) => (
           <WorkCard
+            {...revealMotion(index)}
             key={area.title}
             style={{
               background: buildThemeBackground(
@@ -128,6 +130,7 @@ export default function HomeDetails({ theme }) {
       </WorkGrid>
 
       <Closing
+        {...revealMotion()}
         style={{
           background: buildThemeBackground(theme.accentSoft, theme.surfacePattern),
           border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
@@ -140,7 +143,7 @@ export default function HomeDetails({ theme }) {
             {homePageData.closing.description}
           </p>
         </div>
-        <ContactLink theme={theme} to="/contact">
+        <ContactLink className="motion-action" theme={theme} to="/contact">
           Contact me
         </ContactLink>
       </Closing>

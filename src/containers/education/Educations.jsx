@@ -7,6 +7,8 @@
  * Props: { theme }
  */
 import React from "react";
+import { motion } from "framer-motion";
+import { revealMotion } from "../../themeMotion";
 import "./Educations.css";
 import DegreeCard from "../../components/degreeCard/DegreeCard";
 import { degrees } from "../../portfolio";
@@ -16,7 +18,7 @@ function Educations(props) {
 
   return (
     <section className="education-section" id="educations" aria-labelledby="degrees-title">
-      <div className="education-section-heading">
+      <motion.div {...revealMotion()} className="education-section-heading">
         <p className="education-section-label" style={{ color: theme.accentSolid }}>
           Academic foundation
         </p>
@@ -27,14 +29,14 @@ function Educations(props) {
           Computer science engineering followed by postgraduate study in data
           analytics and decision sciences.
         </p>
-      </div>
-      <div className="educations-body-div">
+      </motion.div>
+      <motion.div {...revealMotion()} className="educations-body-div">
         {degrees.degrees.map((degree) => {
           return (
             <DegreeCard key={degree.title} degree={degree} theme={theme} />
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 }

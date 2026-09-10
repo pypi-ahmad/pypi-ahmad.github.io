@@ -1,7 +1,9 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { revealMotion } from "../../themeMotion";
 import "./ProjectCard.css";
 
-export default function ProjectCard({ repo: project, index, priority = false }) {
+export default function ProjectCard({ repo: project, index, priority = false, revealIndex = 0 }) {
   const cardClassName = [
     "project-card-wrap",
     priority ? "project-card-wrap--priority" : "",
@@ -10,7 +12,7 @@ export default function ProjectCard({ repo: project, index, priority = false }) 
     .join(" ");
 
   return (
-    <article className={cardClassName} data-priority={priority ? "true" : "false"}>
+    <motion.article {...revealMotion(index ? index - 1 : revealIndex)} className={cardClassName} data-priority={priority ? "true" : "false"}>
       <a
         href={project.url}
         target="_blank"
@@ -34,6 +36,6 @@ export default function ProjectCard({ repo: project, index, priority = false }) 
           View repository <span aria-hidden="true">↗</span>
         </span>
       </a>
-    </article>
+    </motion.article>
   );
 }

@@ -22,6 +22,7 @@ import {
   buildThemeShadow,
   themeSurfaceTransition,
   themeElevatedSurfaceTransition,
+  revealMotion,
 } from "../../themeMotion";
 
 const navigationLinkStyle = (theme) => ({ isActive }) => ({
@@ -82,11 +83,7 @@ function Header() {
     );
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-    >
+    <motion.div {...revealMotion(0, true)}>
       <div>
         <header
           className="header"
@@ -208,7 +205,6 @@ function Header() {
                     justifyContent: "center",
                     background: buildThemeBackground(theme.buttonColor, theme.buttonPattern),
                     color: theme.selectorText,
-                    outline: "none",
                     transition: themeSurfaceTransition,
                     boxShadow:
                       themeMode === "light"

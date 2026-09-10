@@ -460,7 +460,64 @@ export const GlobalStyles = createGlobalStyle`
     margin-bottom: 0;
   }
 
-  @media (prefers-reduced-motion: reduce) {
+  /* Reveal targets keep their semantic elements and ordinary focus behavior. */
+  [data-motion]:focus-within {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .motion-fade {
+    animation: motion-fade-in 250ms ease-out both;
+  }
+
+  @keyframes motion-fade-in {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+  }
+
+  :is(.button, .project-card, .contact-links-anchor, .contact-action,
+      .projects-github-link, .education-projects-link, .not-found-link,
+      .skills-cta-actions a, .motion-action) {
+    transition: transform var(--theme-transition-fast),
+      border-color var(--theme-transition-colors),
+      background-color var(--theme-transition-colors),
+      color var(--theme-transition-colors);
+  }
+
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    :is(.button, .project-card, .contact-links-anchor, .contact-action,
+        .projects-github-link, .education-projects-link, .not-found-link,
+        .skills-cta-actions a, .motion-action):hover {
+      transform: translateY(-3px);
+    }
+  }
+
+  :is(.button, .project-card, .contact-links-anchor, .contact-action,
+      .projects-github-link, .education-projects-link, .not-found-link,
+      .skills-cta-actions a, .motion-action):focus-visible {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    :is(.button, .project-card, .contact-links-anchor, .contact-action,
+        .projects-github-link, .education-projects-link, .not-found-link,
+        .skills-cta-actions a, .motion-action):hover {
+      transform: none !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --section-spacing: 2.5rem;
+    }
+
+    [data-motion] {
+      transform: none !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce), print {
     :root {
       --theme-transition-fast: 1ms linear;
       --theme-transition-medium: 1ms linear;
@@ -470,6 +527,26 @@ export const GlobalStyles = createGlobalStyle`
 
     html {
       scroll-behavior: auto;
+    }
+
+    [data-motion] {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      transition: none !important;
+    }
+
+    #root,
+    #root.theme-fading {
+      opacity: 1;
+      transition: none;
+    }
+
+    :is(.button, .project-card, .contact-links-anchor, .contact-action,
+        .projects-github-link, .education-projects-link, .not-found-link,
+        .skills-cta-actions a, .motion-action):hover {
+      transform: none !important;
+      transition: none !important;
     }
   }
 

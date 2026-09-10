@@ -6,7 +6,57 @@
 }
 
 .hero-copy {
-  max-width: 850px;
+  position: relative;
+  isolation: isolate;
+  padding-bottom: 1rem;
+}
+
+.hero-atmosphere {
+  position: absolute;
+  inset: -3rem -3rem -2rem 35%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-atmosphere::before,
+.hero-atmosphere::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: 0.18;
+  background: radial-gradient(ellipse, var(--accent-solid), transparent 68%);
+  animation: hero-settle 3.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-atmosphere::after {
+  width: 65%;
+  top: 30%;
+  right: -10%;
+  opacity: 0.1;
+  animation-name: hero-settle-secondary;
+}
+
+@keyframes hero-settle {
+  from { transform: translate(24px, 14px) scale(0.94); opacity: 0; }
+  to { transform: none; opacity: 0.18; }
+}
+
+@keyframes hero-settle-secondary {
+  from { transform: translate(-18px, 24px) scale(1.06); opacity: 0; }
+  to { transform: none; opacity: 0.1; }
+}
+
+.greet-main .greeting-text {
+  max-width: 48rem;
+  text-wrap: balance;
+}
+
+.greet-main .greeting-text-p {
+  max-width: 65ch;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .hero-eyebrow {
@@ -125,6 +175,11 @@
 }
 
 @media (max-width: 768px) {
+  .hero-atmosphere::before,
+  .hero-atmosphere::after {
+    animation: none;
+  }
+
   .greet-main {
     margin-top: 1rem;
     padding: 1.5rem 1.1rem;
@@ -141,5 +196,12 @@
 
   .hero-actions .button {
     width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce), print {
+  .hero-atmosphere::before,
+  .hero-atmosphere::after {
+    animation: none;
   }
 }

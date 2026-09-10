@@ -36,7 +36,7 @@ function NotFound(props) {
             The page you requested does not exist or has moved. Use the button
             below to return to the portfolio homepage.
           </p>
-          <div className="not-found-actions">
+          <div className="not-found-actions motion-fade" data-motion="fade">
             <Link
               to="/home"
               className="not-found-link"
