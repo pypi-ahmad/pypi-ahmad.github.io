@@ -33,7 +33,7 @@ function Certifications(props) {
           Professional certifications
         </h2>
         <p style={{ color: theme.secondaryText }}>
-          Thirteen credentials grouped by focus area for faster review.
+          Fourteen credentials grouped by focus area for faster review.
         </p>
       </motion.div>
       <div className="certification-groups">

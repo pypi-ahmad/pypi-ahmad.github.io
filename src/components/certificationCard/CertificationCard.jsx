@@ -11,13 +11,28 @@ function CertificationCard({ certificate, theme }) {
         borderRadius: theme.surfaceRadius,
       }}
     >
-      <p className="cert-card__issuer" style={{ color: theme.accentSolid }}>
-        {certificate.subtitle}
-      </p>
-      <h4 style={{ color: theme.text }}>{certificate.title}</h4>
+      <div className="cert-card__heading">
+        <div>
+          <p className="cert-card__issuer" style={{ color: theme.accentSolid }}>
+            {certificate.subtitle}
+          </p>
+          <h4 style={{ color: theme.text }}>{certificate.title}</h4>
+        </div>
+        {certificate.badgeImagePath ? (
+          <img
+            className="cert-card__badge"
+            src={certificate.badgeImagePath}
+            alt=""
+            width={72}
+            height={72}
+            loading="lazy"
+            decoding="async"
+          />
+        ) : null}
+      </div>
       {certificate.completionDate ? (
         <p className="cert-card__date" style={{ color: theme.secondaryText }}>
-          Completed {certificate.completionDate}
+          {certificate.dateLabel || "Completed"} {certificate.completionDate}
         </p>
       ) : null}
       {certificate.summary ? (

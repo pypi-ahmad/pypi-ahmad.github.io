@@ -8,6 +8,7 @@ import { renderWithProviders, darkTheme } from "../test/testUtils";
 expect.extend(toHaveNoViolations);
 
 const expectedCertificates = [
+  "Claude Certified Associate - Foundations",
   "Claude Code 101",
   "Building with the Claude API",
   "Claude 101",
@@ -53,7 +54,7 @@ describe("Education page", () => {
     ]);
   });
 
-  it("renders all thirteen certificates in portfolio order", () => {
+  it("renders all fourteen certificates in portfolio order", () => {
     const { container } = renderWithProviders(<Education theme={darkTheme} />);
     const certificateNames = Array.from(container.querySelectorAll(".cert-card h4"))
       .map(node => node.textContent);
@@ -75,8 +76,10 @@ describe("Education page", () => {
     const anthropicGroup = container.querySelector(".certification-group");
     const links = within(anthropicGroup).getAllByRole("link");
 
-    expect(links).toHaveLength(8);
+    expect(links).toHaveLength(10);
     expect(links.map(link => link.getAttribute("href"))).toEqual([
+      "https://www.credly.com/badges/d9eace76-da4e-447f-b38b-9c39ac6edf6d",
+      "/certifications/anthropic-claude-certified-associate-foundations.pdf",
       "https://verify.skilljar.com/c/uubk52krkzap",
       "/certifications/anthropic-claude-code-101.pdf",
       "https://verify.skilljar.com/c/2njdrsdeigc4",
@@ -90,7 +93,16 @@ describe("Education page", () => {
       expect(link).toHaveAttribute("target", "_blank");
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
     }
-    expect(within(anthropicGroup).getAllByText("Verify credential")).toHaveLength(4);
+    expect(within(anthropicGroup).getAllByText("Verify credential")).toHaveLength(5);
+    expect(within(anthropicGroup).getByText("Issued August 31, 2026")).toBeInTheDocument();
+    const certifiedCard = Array.from(anthropicGroup.querySelectorAll(".cert-card"))
+      .find(card => card.querySelector("h4")?.textContent === "Claude Certified Associate - Foundations");
+    const badge = certifiedCard?.querySelector(".cert-card__badge");
+    expect(badge).toHaveAttribute(
+      "src",
+      "/images/certifications/claude-certified-associate-foundations.png"
+    );
+    expect(badge).toHaveAttribute("alt", "");
     expect(within(anthropicGroup).getByText("Completed August 18, 2026")).toBeInTheDocument();
     expect(within(anthropicGroup).getByText("Completed July 6, 2026")).toBeInTheDocument();
     expect(within(anthropicGroup).getByText("Completed March 10, 2026")).toBeInTheDocument();

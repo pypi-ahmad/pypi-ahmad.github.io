@@ -40,6 +40,19 @@ export const degrees = {
 export const certifications = {
   certifications: [
     {
+      title: "Claude Certified Associate - Foundations",
+      subtitle: "Anthropic",
+      completionDate: "August 31, 2026",
+      dateLabel: "Issued",
+      certificateLink: "https://www.credly.com/badges/d9eace76-da4e-447f-b38b-9c39ac6edf6d",
+      pdfLink: "/certifications/anthropic-claude-certified-associate-foundations.pdf",
+      badgeImagePath: "/images/certifications/claude-certified-associate-foundations.png",
+      altName: "Anthropic",
+      category: "Generative AI",
+      highlights: [],
+      summary: "Anthropic certification in Claude foundations.",
+    },
+    {
       title: "Claude Code 101",
       subtitle: "Anthropic Education",
       completionDate: "August 18, 2026",
