@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Ahmad Mujtaba Portfolio Architecture",
+    "locale": "en",
+    "output": "architecture-diagram.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/pypi-ahmad/pypi-ahmad.github.io",
+      "revision": "7053a82627756bbeefe0226b0b1948193df7e753"
+    },
+    "viewBox": [1380, 720]
+  },
+  "components": [
+    {
+      "id": "visitor",
+      "type": "external",
+      "label": "Visitor Browser",
+      "sublabel": "HTTPS navigation",
+      "pos": [40, 290],
+      "size": [140, 68]
+    },
+    {
+      "id": "staticHost",
+      "type": "cloud",
+      "label": "Static Hosting",
+      "sublabel": "GitHub Pages / Vercel",
+      "pos": [240, 290],
+      "size": [160, 68],
+      "sources": [
+        { "path": ".github/workflows/deploy.yml" },
+        { "path": "vercel.json" }
+      ]
+    },
+    {
+      "id": "staticBuild",
+      "type": "frontend",
+      "label": "Static Build",
+      "sublabel": "build/ + route fallbacks",
+      "pos": [460, 290],
+      "size": [165, 68],
+      "sources": [{ "path": "package.json", "line": 12 }]
+    },
+    {
+      "id": "entry",
+      "type": "frontend",
+      "label": "Browser Entry",
+      "sublabel": "index.html → src/index.jsx",
+      "pos": [685, 290],
+      "size": [175, 68],
+      "sources": [
+        { "path": "index.html" },
+        { "path": "src/index.jsx" }
+      ]
+    },
+    {
+      "id": "appShell",
+      "type": "frontend",
+      "label": "Application Shell",
+      "sublabel": "Error, theme, motion, globals",
+      "pos": [920, 290],
+      "size": [180, 68],
+      "sources": [{ "path": "src/App.jsx" }]
+    },
+    {
+      "id": "router",
+      "type": "frontend",
+      "label": "Router + Metadata",
+      "sublabel": "BrowserRouter, RouteMeta",
+      "pos": [1160, 290],
+      "size": [175, 68],
+      "sources": [
+        { "path": "src/containers/Main.jsx" },
+        { "path": "src/components/seo/RouteMeta.jsx" }
+      ]
+    },
+    {
+      "id": "pages",
+      "type": "frontend",
+      "label": "Lazy Route Pages",
+      "sublabel": "Route-level UI",
+      "pos": [1160, 455],
+      "size": [175, 68],
+      "sources": [{ "path": "src/pages/home/HomeComponent.jsx" }]
+    },
+    {
+      "id": "components",
+      "type": "frontend",
+      "label": "Shared Components",
+      "sublabel": "Header, footer, cards, links",
+      "pos": [920, 455],
+      "size": [180, 68],
+      "sources": [{ "path": "src/components/header/Header.jsx" }]
+    },
+    {
+      "id": "portfolioData",
+      "type": "database",
+      "label": "Portfolio Content",
+      "sublabel": "portfolio.js → src/data/*",
+      "pos": [685, 455],
+      "size": [175, 68],
+      "sources": [
+        { "path": "src/portfolio.js" },
+        { "path": "src/data/projects.js" }
+      ]
+    },
+    {
+      "id": "themeState",
+      "type": "frontend",
+      "label": "Theme Controller",
+      "sublabel": "Mode, accent, token resolution",
+      "pos": [920, 105],
+      "size": [180, 68],
+      "sources": [
+        { "path": "src/themeController.jsx" },
+        { "path": "src/theme.js" }
+      ]
+    },
+    {
+      "id": "localStorage",
+      "type": "database",
+      "label": "Browser localStorage",
+      "sublabel": "theme + accent preferences",
+      "pos": [685, 105],
+      "size": [175, 68],
+      "sources": [{ "path": "src/themeController.jsx", "line": 13 }]
+    },
+    {
+      "id": "analytics",
+      "type": "external",
+      "label": "Google Analytics 4",
+      "sublabel": "Optional initialization",
+      "pos": [1160, 105],
+      "size": [175, 68],
+      "sources": [
+        { "path": "src/App.jsx", "line": 23 },
+        { "path": "src/data/settings.js" }
+      ]
+    }
+  ],
+  "connections": [
+    { "id": "requestHost", "from": "visitor", "to": "staticHost", "label": "HTTPS", "variant": "emphasis" },
+    { "id": "serveBuild", "from": "staticHost", "to": "staticBuild", "label": "serves" },
+    { "id": "loadEntry", "from": "staticBuild", "to": "entry", "label": "loads" },
+    { "id": "mountApp", "from": "entry", "to": "appShell", "label": "mounts React", "labelAt": [890, 372] },
+    { "id": "renderRouter", "from": "appShell", "to": "router", "label": "renders", "labelAt": [1130, 372] },
+    { "id": "resolvePage", "from": "router", "to": "pages", "label": "lazy route", "labelAt": [1248, 372] },
+    { "id": "composeComponents", "from": "pages", "to": "components", "label": "composes" },
+    { "id": "readContent", "from": "components", "to": "portfolioData", "label": "reads bundled data", "labelAt": [890, 537] },
+    { "id": "provideTheme", "from": "themeState", "to": "appShell", "label": "provides resolved tokens", "labelAt": [1010, 187] },
+    { "id": "persistTheme", "from": "themeState", "to": "localStorage", "label": "reads / writes", "labelAt": [890, 187] },
+    { "id": "initializeAnalytics", "from": "appShell", "to": "analytics", "label": "initialize if configured", "variant": "dashed" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Runtime",
+      "items": [
+        "Static React 19 SPA with lazy BrowserRouter routes",
+        "No backend, database service, authentication, or runtime content API"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Content and preferences",
+      "items": [
+        "Portfolio records are bundled from src/data/*",
+        "Theme and accent preferences stay in browser localStorage"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Delivery",
+      "items": [
+        "Vite emits build/ plus direct-route fallbacks",
+        "GitHub Pages is canonical; Vercel is the configured mirror"
+      ]
+    }
+  ]
+}

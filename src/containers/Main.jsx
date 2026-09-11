@@ -19,7 +19,7 @@
  *
  * Props: { theme }
  */
-import React, { lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import {
@@ -127,7 +127,7 @@ export default function Main(props) {
                 element={withRouteMeta(
                   routeMeta.home,
                   settings.isSplash ? (
-                    <Splash {...props} theme={props.theme} />
+                    <Splash />
                   ) : (
                     <Home {...props} theme={props.theme} />
                   )
@@ -165,7 +165,7 @@ export default function Main(props) {
                 path="/splash"
                 element={withRouteMeta(
                   routeMeta.splash,
-                  <Splash {...props} theme={props.theme} />
+                  <Splash />
                 )}
               />
               <Route

@@ -36,5 +36,15 @@ export default defineConfig({
     silent: false,
     // Increase timeout for accessibility tests
     testTimeout: 15000,
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "json"],
+      thresholds: {
+        statements: 85,
+        branches: 75,
+        functions: 75,
+        lines: 85,
+      },
+    },
   },
 });

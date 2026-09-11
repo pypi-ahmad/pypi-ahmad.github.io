@@ -1,47 +1,42 @@
-# Coding Conventions
+# Code Conventions
 
-## Core Sections (Required)
+## 1) Naming and File Organization
 
-### 1) Naming Rules
+- Component functions and JSX files use PascalCase (`Header`, `ProjectCard.jsx`); ordinary helpers use camelCase (`buildThemeShadow`, `normalizeAccent`).
+- Data module filenames use camelCase. Component folders vary between camelCase and PascalCase, so preserve the local folder style.
+- Page, component, and test CSS commonly live next to their owning source file.
+- Route pages import portfolio data from the `src/portfolio.js` barrel rather than directly duplicating objects.
 
-These describe observed style across the source inventory; they are not all lint-enforced.
+## 2) Formatting and Static Analysis
 
-| Item | Rule | Example | Evidence |
-| --- | --- | --- | --- |
-| Components/files | PascalCase component and JSX basename | ContactLinksList | `src/components/socialMedia/ContactLinksList.jsx` |
-| Data files/variables | camelCase | socialMediaLinks | `src/data/socialMedia.js` |
-| Functions/hooks | camelCase, use prefix for hooks | parseStoredThemeMode, useThemeController | `src/themeController.jsx` |
-| Shared constants | UPPER_SNAKE_CASE | DEFAULT_ACCENT | `src/theme.js` |
-| Types/interfaces | No general TS interface convention established | [TODO] Future typed conventions | `tsconfig.typecheck.json` |
-| Directories | Feature/layer names with mixed casing | socialMedia, ProjectCard, HomeDetails | `src/` file inventory |
+- ESLint's recommended configuration applies to `src/**/*.{js,jsx}` and root `.js` files.
+- `no-unused-vars` is explicitly disabled. ESLint does not currently enforce unused-code cleanup.
+- Prettier is installed and `.prettierignore` exists, but the manifest has no formatting script or checked-in Prettier configuration.
+- `npm run typecheck` executes `tsc --noEmit`, but `checkJs` is false; it does not provide full JavaScript type checking.
+- Run: `npm run lint`, `npm run typecheck`, `npm run test:run`, and `npm run build` for source changes.
 
-Private field prefixes are not an established convention in inspected components.
+## 3) Import and Module Conventions
 
-### 2) Formatting and Linting
+- Use relative ESM imports. No alias mapping is configured in Vite or TypeScript settings.
+- Imports are generally grouped by package first and local module second; no automated import-order rule is configured.
+- Use `src/portfolio.js` as the public re-export boundary for portfolio data.
 
-- ESLint recommended flat config; no-unused-vars disabled. no-undef disabled for src/__tests__ and src/test.
-- `npm run lint` targets src JS/JSX, not the entire repository.
-- Prettier is declared; `.prettierignore` exists, but no dedicated format script or formatter rule config was detected.
-- Most source uses two spaces, semicolons, double quotes; Vite config uses single quotes. Match the touched file.
-- TypeScript allows JS but sets checkJs false and skipLibCheck true; strict is not enabled. Do not describe it as strict typing.
+## 4) Error and Logging Conventions
 
-### 3) Import and Module Conventions
+- Render-time failures reach the class-based `ErrorBoundary`, which replaces the UI with a recovery screen and reload action.
+- Route metadata and theme parsing prefer safe defaults rather than throwing for missing/invalid user-controlled values.
+- Browser diagnostic scripts use Node assertions and nonzero failure behavior; the legacy stress script logs caught step failures.
+- No application logging, client error-reporting service, or sensitive-data redaction utility was found.
 
-ES module imports are relative, with both extensionless and explicit .js forms. Components commonly group library imports, local components/data, and CSS, but no ordering rule is configured. `src/portfolio.js` re-exports named content exports; components commonly default-export their main component.
+## 5) Testing Conventions
 
-### 4) Error and Logging Conventions
+- Tests use `*.test.js` and `*.test.jsx`, primarily under `src/__tests__/`; `src/App.test.jsx` is colocated.
+- `renderWithProviders` is the standard wrapper for router, theme, and reduced-motion context.
+- Browser APIs absent from jsdom are mocked in `src/test/setup.js`.
+- Coverage is expected in CI through `npm run test:coverage` and configured thresholds.
 
-`ErrorBoundary.jsx` shows a generic error and refresh button. Theme parsing falls back on invalid JSON; missing provider usage throws a descriptive error. Browser storage access itself is not caught. No structured application logger or required log-context schema was found. `stress-test.mjs` uses console output for diagnostics.
-
-`CONTRIBUTING.md` forbids real credentials in tests and requires the tracked analytics ID to stay empty. All application data is public browser content.
-
-### 5) Testing Conventions
-
-Tests use *.test.js/jsx, primarily under src/__tests__, plus src/App.test.jsx. Shared renderWithProviders wraps routing, theme, and reduced motion. setup.js mocks observers, matchMedia and scrollTo. Behavior tests explicitly clear localStorage before theme tests. No coverage threshold is configured.
-
-### 6) Evidence
+## 6) Evidence
 
 - `eslint.config.js`, `tsconfig.typecheck.json`, `.prettierignore`, `package.json`
-- `src/themeController.jsx`, `src/components/ErrorBoundary.jsx`, `src/portfolio.js`
-- `src/test/setup.js`, `src/test/testUtils.jsx`, `src/__tests__/Behavior.test.jsx`
-- `CONTRIBUTING.md`
+- `src/themeController.jsx`, `src/components/ErrorBoundary.jsx`, `src/test/testUtils.jsx`
+- `vitest.config.js`, `scripts/check-frontend.mjs`

@@ -9,7 +9,7 @@
  *
  * Theme state comes from the global theme controller.
  */
-import React, { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import "./Header.css";
 import { NavLink, useLocation } from "react-router-dom";
 import { greeting, settings } from "../../portfolio.js";

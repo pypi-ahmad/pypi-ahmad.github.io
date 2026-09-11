@@ -9,7 +9,7 @@
 [![CI](https://github.com/pypi-ahmad/pypi-ahmad.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/pypi-ahmad/pypi-ahmad.github.io/actions/workflows/ci.yml)
 [![Deploy](https://github.com/pypi-ahmad/pypi-ahmad.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/pypi-ahmad/pypi-ahmad.github.io/actions/workflows/deploy.yml)
 [![Release](https://img.shields.io/github/v/release/pypi-ahmad/pypi-ahmad.github.io)](https://github.com/pypi-ahmad/pypi-ahmad.github.io/releases/latest)
-[![Node.js](https://img.shields.io/badge/Node.js-24.19.0-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-24.21.0-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![npm](https://img.shields.io/badge/npm-12.0.2-CB3837?logo=npm&logoColor=white)](https://www.npmjs.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -43,10 +43,6 @@ A responsive React 19 and Vite 8 portfolio for Ahmad Mujtaba, an Applied AI Engi
 | **Live site** | [pypi-ahmad.github.io](https://pypi-ahmad.github.io/) |
 | **Vercel mirror** | [my-portfolio-green-ten-63.vercel.app](https://my-portfolio-green-ten-63.vercel.app/) |
 | **Repository** | [github.com/pypi-ahmad/pypi-ahmad.github.io](https://github.com/pypi-ahmad/pypi-ahmad.github.io) |
-
-<p align="center">
-  <img src="home-320.png" width="320" alt="Mobile preview of Ahmad Mujtaba's portfolio" />
-</p>
 
 ## Welcome
 
@@ -92,17 +88,17 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 
 | Area | Technology |
 | --- | --- |
-| UI | React 19, React Bootstrap, styled-components v6 |
+| UI | React 19, styled-components v6 |
 | Routing | React Router DOM 7 |
 | Build | Vite 8, `@vitejs/plugin-react`, SVGR |
 | Animation | Framer Motion v13 and CSS; optional cursor package disabled by default |
 | Metadata | react-helmet-async |
 | Icons | react-icons v5, local SVG components |
 | Analytics | react-ga4 |
-| Testing | Vitest 4, Testing Library 16, jsdom, jest-axe, axe-core |
+| Testing | Vitest 5, Testing Library 16, jsdom, jest-axe, axe-core |
 | Browser testing | Playwright, Chrome DevTools Protocol |
 | Quality | ESLint 10, TypeScript 7 (JS-checking mode), Prettier |
-| Runtime | Node.js `>=24.19.0 <25`, npm `>=12.0.2 <13` |
+| Runtime | Node.js `>=24.21.0 <25`, npm `>=12.0.2 <13` |
 | Hosting | GitHub Pages (primary), Vercel (mirror) |
 
 ## Project Structure
@@ -113,11 +109,11 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 │   ├── ISSUE_TEMPLATE/            # Bug report and feature request templates
 │   ├── PULL_REQUEST_TEMPLATE.md   # PR checklist and quality gate
 │   └── workflows/
-│       ├── ci.yml                 # Lint, typecheck, build, and test on push/PR
+│       ├── ci.yml                 # Lint, typecheck, coverage, and Chromium browser checks on push/PR
 │       └── deploy.yml             # GitHub Pages deployment on push to main
 ├── docs/
 │   └── migration/
-│       └── astro-migration-roadmap.md  # SPA hardening and Astro migration tracker
+│       └── astro-migration-roadmap.md  # Retired Astro migration planning record
 ├── public/                        # Static assets, favicon, manifest, sitemap, robots
 ├── src/
 │   ├── __tests__/                 # Rendering, a11y, navigation, content contracts
@@ -127,7 +123,7 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 │   ├── data/                      # Portfolio content — edit these to customise
 │   ├── pages/                     # Lazy-loaded route-level page components
 │   ├── test/                      # Shared Vitest setup and render helpers
-│   ├── App.jsx                    # Global providers: error boundary, theme, motion, analytics
+│   ├── App.jsx                    # Error/theme providers, motion policy, analytics initialization
 │   ├── index.jsx                  # React DOM entry point
 │   ├── portfolio.js               # Barrel re-export of all src/data/* modules
 │   ├── theme.js                   # Light/dark semantic tokens and accent variants
@@ -144,7 +140,7 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 
 ### Prerequisites
 
-- Node.js `24.19.0` — `.nvmrc` contains the pin; run `nvm use` or install manually
+- Node.js `24.21.0` — `.nvmrc` contains the pin; run `nvm use` or install manually
 - npm `12.0.2`
 - Git
 
@@ -171,7 +167,7 @@ Vite opens the site at [http://localhost:3000](http://localhost:3000) with hot-m
 npm run build
 ```
 
-Output goes to `build/`. The build script also copies `build/index.html` to `build/404.html` so direct SPA routes resolve correctly on GitHub Pages.
+Output goes to `build/`. The build script copies `build/index.html` to `build/404.html` for GitHub Pages route recovery and creates `build/<route>/index.html` for `/home`, `/experience`, `/education`, `/contact`, `/splash`, `/projects`, and `/skills`.
 
 ### Preview the production build locally
 
@@ -192,7 +188,7 @@ npm run preview
 | `npm run typecheck` | Run TypeScript static checks without emitting files |
 | `npm test` | Start Vitest in watch mode |
 | `npm run test:run` | Run the complete test suite once |
-| `npm run test:coverage` | Run tests and generate a coverage report |
+| `npm run test:coverage` | Run tests, generate V8 coverage, and enforce global thresholds |
 
 To run the browser stress test, build first and start the preview server, then in a second terminal:
 
@@ -206,7 +202,7 @@ The focused motion check exits nonzero on failed assertions. With a production p
 node scripts/check-motion.mjs
 ```
 
-It checks routes, desktop/mobile layouts, keyboard focus, reduced motion, theme changes, and navigation. Screenshots and three cold-load measurements per viewport are saved to an OS temp directory printed at completion. Capture an unchanged build with `--baseline`, then run the changed build with `--compare <baseline-report.json>` to check content/link preservation and the 5 KiB initial-JavaScript gzip budget. Neither script runs in CI.
+It checks routes, desktop/mobile layouts, keyboard focus, reduced motion, theme changes, and navigation. Screenshots and three cold-load measurements per viewport are saved to an OS temp directory printed at completion. Capture an unchanged build with `--baseline`, then run the changed build with `--compare <baseline-report.json>` to check content/link preservation and the 5 KiB initial-JavaScript gzip budget. The focused `scripts/check-frontend.mjs` browser and accessibility check runs in CI; this performance-comparison script remains local-only.
 
 ### Motion policy
 
@@ -220,16 +216,19 @@ It checks routes, desktop/mobile layouts, keyboard focus, reduced motion, theme 
 index.html
    └── src/index.jsx           React DOM entry point
          └── App.jsx           Installs: ErrorBoundary, ThemeControllerProvider,
-                               MotionConfig, GlobalStyles, AnimatedCursor, Analytics
+                               MotionConfig, GlobalStyles, optional cursor;
+                               initializes analytics when configured
                └── Main.jsx    HelmetProvider + BrowserRouter + RouteMeta
                      └── <Lazy page>    renders from src/data/* via portfolio.js
 ```
 
 **Data flow:** All portfolio content lives as plain JavaScript objects in `src/data/`. Every data module is re-exported through `src/portfolio.js` so pages import from a single barrel. No runtime API, CMS, or build-time data fetching is involved.
 
-**Theme flow:** `themeController.jsx` reads the saved light/dark mode and pink/blue accent from separate `localStorage` keys, migrates older family-and-mode values, resolves the matching token set from `src/theme.js`, and passes it through styled-components' `ThemeProvider`. Dark mode and the indigo-to-navy accent are the fallbacks when nothing valid is stored.
+**Theme flow:** `themeController.jsx` reads the saved light/dark mode and pink, blue, or pink-indigo accent from separate `localStorage` keys, migrates older family-and-mode values, resolves the matching token set from `src/theme.js`, and passes it through styled-components' `ThemeProvider`. Dark mode and the indigo-to-navy accent are the fallbacks when nothing valid is stored.
 
 **Routing:** `Main.jsx` defines all routes with `React.lazy`. Each route is paired with a `RouteMeta` component that writes the page-specific `<title>`, canonical URL, Open Graph tags, and robots directive into `<head>` via `react-helmet-async`.
+
+**Analytics:** `App.jsx` initializes GA4 once when `AppContent` mounts, but only when `settings.googleTrackingID` is non-empty. The current source does not send explicit route pageview events.
 
 ## Routes
 
@@ -297,10 +296,10 @@ The repository test suite covers:
 CI runs on every push and pull request to `main`:
 
 ```text
-npm ci → lint → typecheck → build → test:run
+npm ci → lint → typecheck → build → test:coverage → Chromium browser checks
 ```
 
-All four gates must pass before a merge.
+All CI gates must pass before a merge.
 
 ## Deployment
 
@@ -320,11 +319,12 @@ Every push to `main` triggers `.github/workflows/deploy.yml`, which builds and t
 | Document | Description |
 | --- | --- |
 | [docs/architecture.md](docs/architecture.md) | Current SPA structure, data flow, decisions, and safe change map |
+| [docs/codebase/ARCHITECTURE.md](docs/codebase/ARCHITECTURE.md) | Entry point to the detailed architecture, structure, stack, conventions, integrations, concerns, and testing references |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute: local setup, quality checks, PR workflow, and ground rules |
 | [SUPPORT.md](SUPPORT.md) | Common questions, how to get help, GitHub Issues as the sole support path |
 | [SECURITY.md](SECURITY.md) | Security surface, what to report, and how to report privately |
 | [DISCLAIMER.md](DISCLAIMER.md) | Data responsibility, no-warranty statement, and credential ownership guidance |
-| [docs/migration/astro-migration-roadmap.md](docs/migration/astro-migration-roadmap.md) | SPA hardening tracker and Astro migration plan |
+| [docs/migration/astro-migration-roadmap.md](docs/migration/astro-migration-roadmap.md) | Retired Astro migration planning record |
 
 ---
 

@@ -22,8 +22,6 @@ export const GlobalStyles = createGlobalStyle`
     --theme-transition-colors: 300ms ease-in-out;
     --container-max-width: 72rem;
     --section-spacing: 4rem;
-    --section-spacing-tight: 2rem;
-    --section-gap: 2rem;
     --section-gap-tight: 1.5rem;
   }
 
@@ -60,10 +58,6 @@ export const GlobalStyles = createGlobalStyle`
   body {
     --surface-background: ${({ theme }) => theme.body};
     --surface-card: ${({ theme }) => theme.cardBackgroundAlt ?? theme.projectCard};
-    --surface-overlay: ${({ theme }) =>
-      theme.name === "light"
-        ? "rgba(15, 23, 42, 0.26)"
-        : "rgba(2, 6, 23, 0.72)"};
     --text: ${({ theme }) => theme.text};
     --text-primary: ${({ theme }) => theme.text};
     --text-secondary: ${({ theme }) => theme.secondaryText};
@@ -74,7 +68,6 @@ export const GlobalStyles = createGlobalStyle`
     --accent-text: ${({ theme }) => theme.accentText};
     --accent-hover: ${({ theme }) => theme.accentSoft};
     --focus-shadow: ${({ theme }) => theme.accentSoft};
-    --glow-accent: ${({ theme }) => theme.accentSoft};
     --shadow-sm: ${({ theme }) => `0 10px 24px ${theme.shadowColor}`};
     --shadow-lg: ${({ theme }) => `0 24px 56px ${theme.shadowColor}`};
     --layer-background: 0;
@@ -89,7 +82,6 @@ export const GlobalStyles = createGlobalStyle`
     --body-font-family: "Google Sans", -apple-system, BlinkMacSystemFont,
       "Segoe UI", sans-serif;
     --page-gutter: clamp(1rem, 4vw, 2.75rem);
-    --stack-xs: 0.45rem;
     --stack-sm: 0.75rem;
     --stack-md: 1rem;
     --stack-lg: 1.5rem;
@@ -216,221 +208,20 @@ export const GlobalStyles = createGlobalStyle`
     box-shadow: var(--shadow-lg);
   }
 
-  .hover-translate-y-1:hover,
-  .hover-translate-y-1:focus-within,
-  .hover-translate-y-1:focus-visible {
-    transform: translateY(-4px);
-  }
-
-  @media (max-width: 768px) {
-    .hover-translate-y-1:hover,
-    .hover-translate-y-1:focus-within,
-    .hover-translate-y-1:focus-visible {
-      transform: none;
-    }
-  }
-
-  .transition-all {
-    transition: transform var(--theme-transition-fast), opacity var(--theme-transition-fast);
-  }
-
-  .transition-colors {
-    transition-property: background-color, color, border-color, outline-color, text-decoration-color, fill, stroke;
-    transition-timing-function: ease-in-out;
-  }
-
-  .duration-200 {
-    transition-duration: 200ms;
-  }
-
-  .duration-300 {
-    transition-duration: 300ms;
-  }
-
   .layer-card {
     position: relative;
     z-index: var(--layer-card);
   }
 
-  .layer-overlay {
-    z-index: var(--layer-overlay);
-  }
-
-  .main,
-  .basic-projects,
-  .basic-experience,
-  .basic-contact,
-  .basic-skills {
+  .basic-contact {
     width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
     margin-left: auto;
     margin-right: auto;
   }
 
-  .main {
-    padding-top: var(--section-spacing-tight);
-    padding-bottom: var(--section-spacing-tight);
-  }
-
-  .basic-projects,
-  .basic-experience,
-  .basic-contact,
-  .basic-skills {
+  .basic-contact {
     padding-top: var(--section-spacing);
     padding-bottom: var(--section-spacing);
-  }
-
-
-  .greeting-main,
-  .projects-heading-div,
-  .experience-heading-div,
-  .contact-heading-div,
-  .blog-heading-div,
-  .address-heading-div {
-    align-items: center;
-    gap: var(--section-gap);
-  }
-
-  .greeting-main > * {
-    margin-bottom: 0;
-  }
-
-  .projects-heading-text,
-  .experience-heading-text,
-  .contact-heading-text,
-  .blog-heading-text,
-  .skills-heading-text,
-  .skills-header,
-  .contact-cta-text {
-    font-family: var(--heading-font-family);
-    font-size: clamp(2.3rem, 4vw, 3.75rem);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: var(--heading-letter-spacing);
-    margin-bottom: var(--stack-sm);
-  }
-
-
-  .greeting-nickname,
-  .address-heading-text,
-  .skills-heading,
-  .skill-section-title,
-  .project-title,
-  .experience-card-title,
-  .system-header h2 {
-    font-family: var(--heading-font-family);
-    font-weight: 700;
-    letter-spacing: var(--heading-letter-spacing);
-    line-height: 1.18;
-  }
-
-  .greeting-nickname {
-    display: block;
-    margin-bottom: var(--stack-sm);
-    font-size: clamp(1.2rem, 2vw, 1.7rem);
-    line-height: 1.25;
-  }
-
-  .skills-heading {
-    font-size: clamp(1.7rem, 3vw, 2.7rem);
-    margin: 0 0 var(--stack-sm);
-    padding-bottom: 0;
-  }
-
-  .address-heading-text,
-  .skill-section-title,
-  .project-title,
-  .experience-card-title,
-  .system-header h2 {
-    font-size: clamp(1.2rem, 1.05rem + 0.85vw, 1.75rem);
-    margin-top: 0;
-    margin-bottom: var(--stack-xs);
-  }
-
-  .projects-heading-sub-text,
-  .experience-heading-sub-text,
-
-  .projects-header-detail-text,
-  .experience-header-detail-text,
-  .contact-header-detail-text,
-  .blog-header-detail-text,
-  .skills-header-detail-text,
-  .contact-cta-subtext,
-  .contact-social-intro,
-  .skills-text,
-  .skills-text-subtitle,
-  .subTitle,
-  .project-description,
-  .system-tagline,
-  .system-description,
-  .light-mode .system-tagline,
-  .light-mode .system-description,
-  .system-impact li,
-  .light-mode .system-impact li,
-  .skill-text-item,
-  .doc-fallback-text {
-    color: var(--text-secondary);
-    font-family: var(--body-font-family);
-    line-height: 1.7;
-  }
-
-  .projects-header-detail-text,
-  .experience-header-detail-text,
-  .contact-header-detail-text,
-  .blog-header-detail-text,
-  .skills-header-detail-text,
-  .contact-cta-subtext,
-  .contact-social-intro {
-    max-width: min(40rem, 100%);
-    margin-left: auto;
-    margin-right: auto;
-    font-size: clamp(1rem, 0.98rem + 0.32vw, 1.18rem);
-  }
-
-
-  .projects-heading-sub-text,
-  .experience-heading-sub-text {
-    margin-bottom: var(--stack-sm);
-    font-size: clamp(1.1rem, 1rem + 0.55vw, 1.4rem);
-  }
-
-  .contact-cta-subtext,
-  .contact-social-intro,
-  .skills-text,
-  .skills-text-subtitle,
-  .project-description,
-  .system-tagline,
-  .system-description,
-  .system-impact li,
-  .skill-text-item,
-  .doc-fallback-text {
-    font-size: 1rem;
-  }
-
-  .skills-text-div {
-    margin-top: var(--section-spacing-tight);
-    padding: clamp(1.5rem, 3vw, 2.5rem);
-  }
-
-  .skills-image-div > * {
-    margin-top: var(--section-spacing-tight);
-  }
-
-  .projects-heading-text-div,
-  .experience-heading-text-div,
-  .contact-heading-text-div,
-  .blog-heading-text-div,
-  .address-heading-text-div,
-  .skills-heading-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .button-greeting-div,
-  .portfolio-repo-btn-div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
   }
 
   .button {
@@ -438,11 +229,6 @@ export const GlobalStyles = createGlobalStyle`
     margin-bottom: 0;
     min-height: 3.25rem;
     font-weight: 700;
-  }
-
-  .experience-card-description ul,
-  .hero-bullets {
-    margin-bottom: 0;
   }
 
   /* Reveal targets keep their semantic elements and ordinary focus behavior. */
@@ -539,34 +325,6 @@ export const GlobalStyles = createGlobalStyle`
     body {
       overflow-x: hidden;
       width: 100%;
-    }
-
-    .projects-header-detail-text,
-    .experience-header-detail-text,
-    .contact-header-detail-text,
-    .blog-header-detail-text,
-    .skills-header-detail-text {
-      font-size: 1rem;
-    }
-
-    .projects-heading-text,
-    .experience-heading-text,
-    .contact-heading-text,
-    .blog-heading-text,
-    .skills-heading-text,
-    .skills-header,
-    .contact-cta-text {
-      font-size: clamp(1.95rem, 7vw, 2.5rem);
-      margin-top: var(--section-spacing-tight);
-    }
-
-    .greeting-main,
-    .projects-heading-div,
-    .experience-heading-div,
-    .contact-heading-div,
-    .blog-heading-div,
-    .address-heading-div {
-      gap: var(--section-gap-tight);
     }
   }
 

@@ -6,7 +6,6 @@
  *
  * Props: { theme }
  */
-import React from "react";
 import { motion } from "framer-motion";
 import { revealMotion } from "../../themeMotion";
 import "./Educations.css";

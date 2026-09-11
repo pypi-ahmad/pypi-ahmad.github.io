@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   useCallback,
   useContext,
@@ -135,11 +135,6 @@ export function ThemeControllerProvider({
   }, [accent]);
 
   const value = useMemo(() => {
-    function setMode(mode) {
-      if (normalizeThemeMode(mode) !== themeMode)
-        applyMode(() => normalizeThemeMode(mode));
-    }
-
     function toggleMode() {
       applyMode((currentMode) => (currentMode === "light" ? "dark" : "light"));
     }
@@ -155,7 +150,6 @@ export function ThemeControllerProvider({
       themeMode,
       resolvedTheme,
       setAccent,
-      setMode,
       toggleMode,
     };
   }, [accent, applyMode, resolvedTheme, suppressTransitions, themeMode]);
@@ -177,12 +171,4 @@ export function useThemeController() {
   }
 
   return context;
-}
-
-export function getStoredThemeMode() {
-  if (typeof window === "undefined") {
-    return DEFAULT_THEME_MODE;
-  }
-
-  return parseStoredThemeMode(window.localStorage.getItem(THEME_STORAGE_KEY));
 }

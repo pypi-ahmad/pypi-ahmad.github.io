@@ -7,7 +7,6 @@
  * Side-effect imports:
  *  - index.css    — global @font-face declarations, scrollbar styles, responsive rules
  */
-import React from "react";
 import { createRoot } from "react-dom/client";
 
 import "./index.css";

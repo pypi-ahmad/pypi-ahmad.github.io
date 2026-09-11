@@ -1,6 +1,6 @@
-# Astro Migration Roadmap (Execution Tracker)
+# Astro Migration Roadmap (Historical — Retired)
 
-This file tracks implementation while the current Vite SPA remains live.
+> Status: retired on 2026-09-11. The React/Vite SPA remains the supported implementation; this document is retained solely as historical planning and must not be treated as an active migration backlog.
 
 ## Locked decisions
 
@@ -24,13 +24,13 @@ This file tracks implementation while the current Vite SPA remains live.
 - `SPA-012` Added route-level metadata management (`react-helmet-async`); `RouteMeta` component supplies title, description, canonical, robots, Open Graph, and Twitter tags per route.
 - `SPA-015` Added lint (`eslint`) and typecheck (`tsc --noEmit`) gates in CI; both run before build on every push and pull request to `main`.
 
-## Next queued work (before Astro scaffold)
+## Historical queued work (not planned)
 
 - `SPA-014` Audit icon payload (`react-icons` tree-shaking); confirm only imported icons are bundled.
 
-## Astro scaffold start point
+## Historical Astro scaffold concept (not planned)
 
-Scaffold only after `SPA-014` lands:
+Former condition: scaffold only after `SPA-014` lands:
 
 - `apps/portfolio-astro/`
 - Astro + React integration + TypeScript strict

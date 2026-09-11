@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { revealMotion } from "../../themeMotion";
 import "./ProjectCard.css";
