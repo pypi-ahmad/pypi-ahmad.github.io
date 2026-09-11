@@ -67,8 +67,8 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 
 **Theming**
 
-- One visual theme with light and dark modes plus selectable pink, blue, and pink-indigo accents.
-- Mode and accent selections persist independently in `localStorage`; older family-and-mode values migrate automatically.
+- One indigo-to-navy visual identity with light and dark modes.
+- Mode selection persists in `localStorage`; older family-and-mode values migrate automatically.
 
 **UX and accessibility**
 
@@ -238,7 +238,7 @@ index.html
 
 **Data flow:** All portfolio content lives as plain JavaScript objects in `src/data/`. Every data module is re-exported through `src/portfolio.js` so pages import from a single barrel. No runtime API, CMS, or build-time data fetching is involved.
 
-**Theme flow:** `themeController.jsx` reads the saved light/dark mode and pink, blue, or pink-indigo accent from separate `localStorage` keys, migrates older family-and-mode values, resolves the matching token set from `src/theme.js`, and passes it through styled-components' `ThemeProvider`. Dark mode and the indigo-to-navy accent are the fallbacks when nothing valid is stored.
+**Theme flow:** `themeController.jsx` reads the saved light/dark mode, removes obsolete accent preferences, migrates older family-and-mode values, resolves the matching indigo-to-navy token set from `src/theme.js`, and passes it through styled-components' `ThemeProvider`. Dark mode is the fallback when nothing valid is stored.
 
 **Routing:** `Main.jsx` defines all routes with `React.lazy`. Each route is paired with a `RouteMeta` component that writes the page-specific `<title>`, canonical URL, Open Graph tags, and robots directive into `<head>` via `react-helmet-async`.
 
@@ -311,7 +311,7 @@ with Experience when editing those records.
 
 ### Appearance
 
-`src/theme.js` defines one visual identity in light and dark modes with crimson-to-pink, indigo-to-navy, and dark-pink-to-indigo accents. The header provides three accent swatches beside the mode toggle. `src/themeController.jsx` persists mode as `theme=light|dark` and accent as `accent=pink|blue|pink-indigo`, while preserving older stored-mode migration.
+`src/theme.js` defines one indigo-to-navy visual identity in light and dark modes. The header provides only the mode toggle. `src/themeController.jsx` persists mode as `theme=light|dark`, clears obsolete accent preferences, and preserves older stored-mode migration.
 
 ## Testing and Quality
 

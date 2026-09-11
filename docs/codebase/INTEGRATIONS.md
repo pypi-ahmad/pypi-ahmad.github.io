@@ -15,7 +15,7 @@ No runtime HTTP client, fetch call, database driver, queue client, API gateway, 
 
 | Store | Role | Access layer | Key risk | Evidence |
 | --- | --- | --- | --- | --- |
-| Browser localStorage | Persists theme mode and accent | `ThemeControllerProvider` | Missing/malformed values normalize to defaults; storage-access exceptions are not caught | `src/themeController.jsx` |
+| Browser localStorage | Persists theme mode | `ThemeControllerProvider` | Missing/malformed values normalize to the default; obsolete accent values are removed; storage-access exceptions are not caught | `src/themeController.jsx` |
 | Bundled JavaScript data | Portfolio content at build time | `src/portfolio.js` | Updates require source edit and redeployment | `src/data/`, `src/portfolio.js` |
 
 No server-side database or distributed cache was found.

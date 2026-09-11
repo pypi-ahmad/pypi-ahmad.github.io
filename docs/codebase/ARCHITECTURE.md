@@ -4,7 +4,7 @@
 
 - Primary style: static, client-rendered React SPA organized by UI layer and route feature.
 - Why: the browser entry mounts React, `Main.jsx` routes to lazy page modules, and pages consume committed JavaScript data through a barrel module.
-- Primary constraints: static hosting with BrowserRouter fallbacks; all content ships in the client bundle; mode/accent preferences persist only in browser localStorage.
+- Primary constraints: static hosting with BrowserRouter fallbacks; all content ships in the client bundle; the light/dark preference persists only in browser localStorage.
 
 ## 2) System Flow
 

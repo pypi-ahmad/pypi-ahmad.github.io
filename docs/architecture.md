@@ -102,18 +102,17 @@ The primary email action comes from that filtered list. With no available channe
 the page displays an unavailable message and Return home; it does not emit a blank
 `mailto:` link or empty channel instructions.
 
-## Light/dark modes and accents
+## Light/dark modes and accent
 
-`src/themeController.jsx` reads mode and accent from separate `localStorage` keys, migrates older family-and-mode objects, and resolves their combined semantic token set. Invalid or missing values fall back to dark mode and the indigo-to-navy accent. `src/theme.js` keeps surface tokens stable while switching accent tokens among crimson-to-pink, indigo-to-navy, and dark-pink-to-indigo variants.
+`src/themeController.jsx` reads the mode from `localStorage`, removes obsolete accent preferences, migrates older family-and-mode objects, and resolves the semantic token set. Invalid or missing values fall back to dark mode. `src/theme.js` provides the indigo-to-navy accent in both modes.
 
 Components should use semantic tokens such as text, secondary text, card background, border, and accent so both modes remain readable. Interactive components also need visible focus states and reduced-motion behavior.
 
 `GlobalStyles` exports `separatorColor` as `--separator` and `shadowColor` as
-`--shadow-color` for header CSS. Swatch gradients come from
-`resolveTheme(themeMode, preset).accentGradient`. Filled primary actions stay
+`--shadow-color` for header CSS. Filled primary actions stay
 opaque while pressed; Contact's primary hover does not apply a brightness filter.
 
-Mode/accent changes briefly suppress CSS transitions while applying tokens and
+Mode changes briefly suppress CSS transitions while applying tokens and
 restore them after two animation frames. Rapid changes cancel earlier cleanup
 frames; unmounting removes the override. Malformed stored values normalize to
 defaults, but storage access exceptions are not caught by the theme controller.
@@ -176,7 +175,7 @@ Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for branch, commit, and pull-reques
 - BrowserRouter depends on generated static fallbacks for direct GitHub Pages requests.
 - Portfolio data has test coverage but no runtime schema validator.
 - JavaScript checking is limited by `checkJs: false`.
-- Visual changes require checks in all three accents and both light/dark modes.
+- Visual changes require checks in both light and dark modes.
 - Browser storage-access exceptions are not handled as recoverable preference defaults.
 - Astro architecture does not exist in the current application.
 
