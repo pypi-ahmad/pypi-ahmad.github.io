@@ -2,7 +2,7 @@
 
 ## Purpose and boundaries
 
-This document explains how the current portfolio works so a new contributor can find the right code, understand its constraints, and make a safe change. It describes the React and Vite single-page application in this repository. The planned Astro migration is separate work tracked in [the migration roadmap](migration/astro-migration-roadmap.md).
+This document explains how the current portfolio works so a new contributor can find the right code, understand its constraints, and make a safe change. It describes the React and Vite single-page application in this repository. The former Astro migration is retained only as [historical planning](migration/astro-migration-roadmap.md).
 
 The deployed application is static. It has no server application, database, authentication layer, or runtime content API. Portfolio content is committed as JavaScript data and bundled with the client.
 
@@ -21,7 +21,7 @@ flowchart LR
   browser --> analytics[Optional Google Analytics 4]
 ```
 
-GitHub Pages is the canonical host. Vercel provides a mirror. The application links to public project repositories and can send analytics only when `googleTrackingID` is configured. The committed value is empty.
+GitHub Pages is the canonical host. Vercel provides a mirror. The application links to public project repositories. `App.jsx` initializes GA4 once when `AppContent` mounts and only when `googleTrackingID` is configured; the committed value is empty, and no explicit route pageview calls exist in the current source.
 
 ## Runtime structure
 
@@ -29,14 +29,15 @@ GitHub Pages is the canonical host. Vercel provides a mirror. The application li
 flowchart TD
   html[index.html] --> entry[src/index.jsx]
   entry --> app[src/App.jsx]
-  app --> providers[Error, theme, motion, analytics providers]
-  providers --> main[src/containers/Main.jsx]
+  app --> setup[Error and theme providers, motion and global setup]
+  setup --> main[src/containers/Main.jsx]
   main --> metadata[RouteMeta]
   main --> pages[Lazy page components]
   pages --> components[Shared components]
   pages --> portfolio[src/portfolio.js]
   portfolio --> data[src/data modules]
-  providers --> themes[Theme controller and theme registry]
+  setup --> themes[Theme controller and theme registry]
+  setup --> analytics[Optional GA4 initialization]
 ```
 
 `src/index.jsx` mounts React. `src/App.jsx` installs global providers and styles. `src/containers/Main.jsx` owns the browser router, lazy page imports, loading fallback, and route metadata. Pages compose shared components and read content through `src/portfolio.js`, which re-exports the data modules.
@@ -64,13 +65,13 @@ Changing one of the first four entries changes both project-page order and homep
 
 React Router handles `/`, `/home`, `/experience`, `/education`, `/projects`, `/skills`, `/contact`, `/splash`, and the catch-all page. Each route is paired with `RouteMeta`, which manages its title, description, canonical URL, robots rule, Open Graph tags, and Twitter tags.
 
-Both `/` and `/home` render the homepage. Metadata normalizes `/home` to the canonical root URL. The production build copies `index.html` to `404.html` for GitHub Pages route recovery. It also creates `home/index.html`, `education/index.html`, and `projects/index.html` so direct requests for those routes return HTTP 200.
+Both `/` and `/home` render the homepage. Metadata normalizes `/home` to the canonical root URL. The production build copies `index.html` to `404.html` for GitHub Pages route recovery. It also creates `build/<route>/index.html` for `home`, `experience`, `education`, `contact`, `splash`, `projects`, and `skills` so direct requests for those routes return HTTP 200.
 
 `index.html` supplies fallback metadata before React loads. Its JSON-LD describes a `ProfilePage` whose main entity is Ahmad Mujtaba. When homepage positioning changes, update both fallback metadata and runtime route metadata.
 
 ## Light/dark modes and accents
 
-`src/themeController.jsx` reads mode and accent from separate `localStorage` keys, migrates older family-and-mode objects, and resolves their combined semantic token set. Invalid or missing values fall back to dark mode and the indigo-to-navy accent. `src/theme.js` keeps surface tokens stable while switching all accent tokens between crimson-to-pink and indigo-to-navy variants.
+`src/themeController.jsx` reads mode and accent from separate `localStorage` keys, migrates older family-and-mode objects, and resolves their combined semantic token set. Invalid or missing values fall back to dark mode and the indigo-to-navy accent. `src/theme.js` keeps surface tokens stable while switching accent tokens among crimson-to-pink, indigo-to-navy, and dark-pink-to-indigo variants.
 
 Components should use semantic tokens such as text, secondary text, card background, border, and accent so both modes remain readable. Interactive components also need visible focus states and reduced-motion behavior.
 
@@ -101,12 +102,12 @@ Canonical metadata points to `https://pypi-ahmad.github.io/`. Deployment runs fr
 | Lint | `npm run lint` | ESLint reports no errors |
 | Typecheck | `npm run typecheck` | TypeScript emits no errors |
 | Test | `npm run test:run` | Complete Vitest suite passes |
-| Build | `npm run build` | `build/`, `404.html`, `home/index.html`, `education/index.html`, and `projects/index.html` exist |
+| Build | `npm run build` | `build/`, `404.html`, and route-specific `index.html` files for all seven non-root routes exist |
 | Preview | `npm run preview` | Production build serves port 4173 |
 
 The typecheck configuration allows JavaScript but sets `checkJs` to `false`. It verifies module and configuration compatibility, not complete static typing for every JavaScript expression.
 
-CI runs install, lint, typecheck, build, and tests for pushes and pull requests targeting `main`. The deployment workflow builds and tests before uploading the GitHub Pages artifact. It does not run lint or typecheck, so local verification and CI remain necessary.
+CI runs install, lint, typecheck, build, threshold-enforced V8 coverage, and Chromium browser/accessibility checks for pushes and pull requests targeting `main`. The deployment workflow builds and tests before uploading the GitHub Pages artifact. It does not run coverage or browser checks, so CI remains the full quality gate.
 
 ## Safe change map
 

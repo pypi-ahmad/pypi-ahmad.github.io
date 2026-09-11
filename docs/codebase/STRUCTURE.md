@@ -1,61 +1,49 @@
 # Codebase Structure
 
-Snapshot: local portfolio at HEAD `4c9a60b`, 2026-09-10.
-
-## Core Sections (Required)
-
-### 1) Top-Level Map
+## 1) Top-Level Map
 
 | Path | Purpose | Evidence |
 | --- | --- | --- |
-| `src/` | Application and tests | `src/index.jsx` |
-| `src/pages/` | Route components organized by feature | `src/containers/Main.jsx` |
-| `src/components/` | Cards, header, footer, icons, SEO, contact links | `src/components/header/Header.jsx` |
-| `src/containers/` | Router and composed content sections | `src/containers/Main.jsx`, `src/containers/FeaturedProjects/FeaturedProjects.jsx` |
-| `src/data/` | Portfolio content and switches | `src/portfolio.js` |
-| `src/assests/fonts/` | Local fonts; preserve existing assests spelling | `src/index.css` |
-| `src/__tests__/`, `src/test/` | Suites and shared helpers | `vitest.config.js` |
-| `public/` | Images, certificates, robots, sitemap and other copied static assets | `public/robots.txt`, `public/sitemap.xml` |
-| `.github/` | CI, deployment, contribution templates | `.github/workflows/ci.yml` |
-| `docs/` | Architecture, migration roadmap, this map | `docs/architecture.md` |
-| `tasks/` | Existing asset-cleanup plan and checklist | `tasks/plan.md`, `tasks/todo.md` |
-| `index.html`, `package.json` | HTML entry and package commands | Files themselves |
-| `stress-test.mjs` | Standalone browser diagnostics | File itself |
-| `scripts/check-motion.mjs` | Failing browser assertions, screenshots and cold-load comparison | README motion checks |
-| `build/`, `node_modules/` | Generated output and installed dependencies | `.gitignore`, `vite.config.js` |
-| `.codegraph/`, `.code-review-graph/`, `graphify-out/` | Local graph/index artifacts, not application layers | Scan and graph tool output |
-| `.claude/`, `.cursor/`, `.playwright-mcp/`, `.ua/` | Local agent/browser artifacts, outside application flow | Scan and `.gitignore` |
-| `lets-scroll-main/` | Pre-existing untracked adjacent directory; not wired into root application manifest | Initial git status, `package.json` |
+| `src/` | React application source, styles, data, and tests | `src/index.jsx` |
+| `public/` | Static images, certificates, favicon, manifest, robots, and sitemap | `public/` |
+| `scripts/` | Browser, accessibility, motion, parity, and interaction diagnostics | `scripts/check-frontend.mjs` |
+| `dev/` | Test fixtures for isolated component browser checks | `dev/` |
+| `.github/` | Issue/PR templates plus CI and Pages deployment | `.github/workflows/` |
+| `docs/` | Maintained architecture and historical migration record | `docs/architecture.md` |
+| `knowledge/` | Repository knowledge notes | `knowledge/index.md` |
+| `tasks/` | Existing cleanup plan and checklist | `tasks/plan.md` |
 
-Root images, PDFs, and `contacts-icons/` also exist. Presence alone does not establish that an asset is served or imported; use actual public paths/imports before changing them.
+Generated or local-tool directories such as `build/`, `node_modules/`, `.codegraph/`, `.code-review-graph/`, `.ua/`, and `graphify-out/` are not application layers.
 
-### 2) Entry Points
+## 2) Entry Points
 
-- Runtime: `index.html` imports `src/index.jsx`, which mounts `App`.
-- Dev/build entry selection: Vite commands in `package.json`.
-- Diagnostic entry: `stress-test.mjs`, requiring a preview server.
-- CI and publishing entries: `.github/workflows/ci.yml`, `deploy.yml`.
-- No application worker/server entry found. Astro is planned; no root Astro dependency or workspace exists.
+- Main runtime: `index.html` supplies `#root`; `src/index.jsx` mounts `App`.
+- Application composition: `src/App.jsx` installs global providers; `src/containers/Main.jsx` owns the router and lazy page imports.
+- Secondary executable entry points: `scripts/*.mjs` and `stress-test.mjs` require a locally running site; no server, worker, queue consumer, or CLI application was found.
+- Script selection: `npm run dev` and `npm run build` invoke Vite through `package.json`.
 
-### 3) Module Boundaries
+## 3) Module Boundaries
 
-These are observed responsibilities, not mechanically enforced architectural restrictions.
-
-| Boundary | What belongs here | Outside observed responsibility |
+| Boundary | What belongs here | What must not own |
 | --- | --- | --- |
-| Data | Copy, links, project objects, settings | Rendering or runtime API fetching |
-| Pages/containers | Compose sections and route content | Credential storage |
-| Components | Reusable UI | Authoritative project catalog ownership |
-| Theme | Tokens, mode/accent state, persistence | Portfolio content |
-| Public | Directly served assets | Private files or secrets |
+| `src/data/` | Static portfolio facts and application switches | Rendering or API fetch logic |
+| `src/portfolio.js` | Re-exporting content modules | Independent content copies |
+| `src/components/` | Reusable cards, header, footer, SEO, navigation, and error UI | Route assembly or authoritative content data |
+| `src/containers/` | Router and reusable composed sections | Persistent global state beyond their purpose |
+| `src/pages/` | Route-level page composition | Cross-route application state |
+| `src/theme*`, `src/global.js` | Theme tokens, local persistence, shared visual behavior | Portfolio copy |
+| `src/test/`, `src/__tests__/` | Test setup, helpers, and assertions | Production runtime imports |
 
-### 4) Naming and Organization Rules
+## 4) Naming and Organization Rules
 
-PascalCase JSX component names coexist with camelCase feature directories and exceptions such as `ProjectCard/`. Data files use camelCase names. Imports are relative; no configured path aliases were found in Vite or typecheck config. CSS is generally colocated with components/pages; newer sections also use styled-components.
+- JSX components use PascalCase file and export names, for example `ProjectCard.jsx` and `RouteMeta.jsx`.
+- Data files use camelCase, for example `homePage.js` and `socialMedia.js`.
+- Directories mix feature camelCase names (`socialMedia`) with PascalCase component groups (`ProjectCard`).
+- Imports are relative ESM imports; no path alias is configured. `src/portfolio.js` is the data barrel.
+- CSS is generally co-located with components or pages; theme-aware surfaces also use styled-components.
 
-### 5) Evidence
+## 5) Evidence
 
-- `docs/.codebase-scan.txt` (raw scan; includes local artifacts)
-- `index.html`, `src/index.jsx`, `src/portfolio.js`
-- `package.json`, `vite.config.js`, `.gitignore`
-- `docs/migration/astro-migration-roadmap.md`
+- `index.html`, `src/index.jsx`, `src/App.jsx`, `src/containers/Main.jsx`
+- `src/components/`, `src/containers/`, `src/data/`, `src/pages/`, `src/test/`
+- `package.json`, `vite.config.js`, `docs/codebase/.codebase-scan.txt`

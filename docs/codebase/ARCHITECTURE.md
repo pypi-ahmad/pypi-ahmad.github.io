@@ -1,70 +1,53 @@
 # Architecture
 
-## Core Sections (Required)
+## 1) Architectural Style
 
-### 1) Architectural Style
+- Primary style: static, client-rendered React SPA organized by UI layer and route feature.
+- Why: the browser entry mounts React, `Main.jsx` routes to lazy page modules, and pages consume committed JavaScript data through a barrel module.
+- Primary constraints: static hosting with BrowserRouter fallbacks; all content ships in the client bundle; mode/accent preferences persist only in browser localStorage.
 
-Static client-rendered React SPA with feature pages, shared UI components, and a local data layer. This classification follows `src/index.jsx`, `src/containers/Main.jsx`, and `src/portfolio.js`; there is no server/data-service layer in the inspected application.
-
-Constraints: static hosting, content bundled at build time, and client-side route metadata. The Astro roadmap is future intent, not implemented architecture.
-
-### 2) System Flow
+## 2) System Flow
 
 ```text
-index.html -> src/index.jsx -> App providers -> Main router
-                                              -> RouteMeta
-                                              -> lazy page -> sections/cards
-                                                              <- portfolio.js <- data/*
+index.html -> src/index.jsx -> App providers -> Main router -> lazy page -> shared components -> src/portfolio.js -> src/data/*
 ```
 
-1. HTML supplies baseline metadata and a React mount node.
-2. `src/index.jsx` mounts App; `src/App.jsx` wraps the theme provider in an error boundary.
-3. Theme initialization reads localStorage and resolves tokens; AppContent installs motion/global styles, optional cursor, and optional GA initialization.
-4. `Main.jsx` provides Helmet and BrowserRouter, matches a route, and uses Suspense with visible loading feedback.
-5. Pages render local content through the portfolio barrel. For example, FeaturedProjects renders `projects.data.slice(0, 4)`; project order therefore changes the home selection.
-6. RouteMeta updates canonical/social metadata. Header actions update mode/accent through context and persist them to browser storage.
+1. `index.html` loads `src/index.jsx`, which creates the React root.
+2. `App.jsx` wraps the app with error, theme, motion, and metadata-related runtime providers; analytics/cursor behavior is conditional.
+3. `Main.jsx` creates a BrowserRouter, renders a suspense fallback, and maps route metadata to lazy page components.
+4. A page composes reusable header, footer, and cards, then reads committed portfolio objects from `src/portfolio.js`.
+5. `themeController.jsx` validates persisted values, resolves semantic tokens in `theme.js`, and writes valid choices to localStorage.
+6. Vite builds client assets; the build command writes fallback HTML for GitHub Pages direct-route recovery.
 
-Routes: /, /home, /experience, /education, /projects, /skills, /contact, /splash, and wildcard. /home canonicalizes to /. Splash and not-found metadata use noindex.
+## 3) Layer/Module Responsibilities
 
-### 3) Layer/Module Responsibilities
-
-| Module | Owns | Outside observed scope | Evidence |
+| Layer or module | Owns | Must not own | Evidence |
 | --- | --- | --- | --- |
-| App | Global providers, error fallback, optional features | Route table | `src/App.jsx` |
-| Main | Routing, lazy loading, route metadata inputs | Content persistence | `src/containers/Main.jsx` |
-| Theme controller | Context, storage, mode/accent selection | Contact/project data | `src/themeController.jsx` |
-| Theme registry/global styles | Semantic tokens, global visual rules | Navigation | `src/theme.js`, `src/global.js` |
-| Motion policy | Entrance timing, viewport reveal defaults, mobile/reduced behavior | Content and routing | `src/themeMotion.js`, `src/global.js` |
-| Portfolio barrel/data | Static content | Network fetching | `src/portfolio.js`, `src/data/projects.js` |
-| Contact links | Build/render public contact actions | Message delivery service | `src/components/socialMedia/ContactLinksList.jsx` |
+| Entry and providers | Mounting, fallback boundary, global providers | Route-specific content | `src/index.jsx`, `src/App.jsx` |
+| Routing | URL matching, lazy imports, metadata pairing, focus/scroll behavior | Data persistence | `src/containers/Main.jsx`, `src/components/RouteNavigation.jsx` |
+| Pages and components | Visual composition, navigation, card rendering | Remote data access | `src/pages/`, `src/components/` |
+| Data | Copy, URLs, project/experience/education records, feature flags | UI behavior | `src/data/`, `src/portfolio.js` |
+| Theme | Token registry, preference migration, local persistence | Portfolio facts | `src/theme.js`, `src/themeController.jsx` |
 
-### 4) Reused Patterns
+## 4) Reused Patterns
 
-| Pattern | Where found | Observed purpose |
+| Pattern | Where found | Why it exists |
 | --- | --- | --- |
-| Context/provider | Theme controller | Share mode/accent state |
-| Composition | Home page | Assemble independently defined sections |
-| Barrel exports | portfolio.js | Central content import path |
-| Lazy loading with fallback | Main.jsx | Defer route modules |
-| Error boundary | ErrorBoundary.jsx | Render refresh UI after React render failure |
-| Data-driven rendering | FeaturedProjects, ContactLinksList | Map content into cards/links |
+| Provider/context | Theme controller and styled-components provider | Makes resolved theme available application-wide |
+| Data barrel | `src/portfolio.js` | Gives pages one import boundary for content |
+| Route metadata wrapper | `withRouteMeta` in `src/containers/Main.jsx` | Couples each route to title, canonical, social tags, and robots rule |
+| Lazy route imports | `src/containers/Main.jsx` | Splits route code and exposes a loading state |
+| Shared motion helper | `src/themeMotion.js` | Applies consistent reduced-motion behavior |
 
-No application queues, background workers, dependency-injection container, or backend singleton service was found. Browser effects/timers handle theme transitions and optional initialization.
+## 5) Known Architectural Risks
 
-Motion remains in the existing Framer Motion/CSS path. `revealMotion(index, onMount)` supplies props directly to semantic motion elements; it adds no provider or generalized animation wrapper. Page headings stay visible. CSS enforces live reduced-motion preferences, immediate focused-content visibility, and opacity-only mobile reveals. Hero decoration uses two finite CSS animations; mobile and reduced-motion decoration is static. The native cursor is the default.
+- The route list is duplicated in `Main.jsx` and the post-build fallback-generation command; a new route can work during client navigation but fail on a direct static-host request if both are not updated.
+- Content objects have tests but no runtime schema validator, so malformed edits are detected by tests/build behavior rather than at the data boundary.
+- [ASK USER] Decide whether the retained manual `gh-pages` script is still an approved deployment route alongside the GitHub Actions Pages artifact workflow.
 
-### 5) Known Architectural Risks
-
-- Build emits explicit route HTML only for home, education, projects; remaining direct routes depend on hosting fallback behavior (`package.json`). Live HTTP status behavior is [TODO].
-- Route-specific SEO runs in the browser; baseline HTML is not route-prerendered (`index.html`, `RouteMeta.jsx`).
-- Theme storage access is unguarded against getItem/setItem exceptions; parsing fallback only handles invalid stored JSON (`themeController.jsx`).
-- Deploy workflow builds/tests independently of lint/typecheck CI; no explicit dependency on the CI workflow appears in `deploy.yml`.
-- Three accents exist: pink, blue, pink-indigo; defaults are dark + blue (`theme.js`). Older architecture prose may still list only two; source and the updated README are current.
-
-### 6) Evidence
+## 6) Evidence
 
 - `index.html`, `src/index.jsx`, `src/App.jsx`
-- `src/containers/Main.jsx`, `src/containers/FeaturedProjects/FeaturedProjects.jsx`
-- `src/themeController.jsx`, `src/theme.js`
-- `src/components/seo/RouteMeta.jsx`, `src/components/ErrorBoundary.jsx`
-- `package.json`, `.github/workflows/deploy.yml`
+- `src/containers/Main.jsx`, `src/components/RouteNavigation.jsx`, `src/components/seo/RouteMeta.jsx`
+- `src/portfolio.js`, `src/data/`, `src/theme.js`, `src/themeController.jsx`
+- `package.json`, `vite.config.js`

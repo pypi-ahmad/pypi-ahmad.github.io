@@ -1,47 +1,47 @@
 # External Integrations
 
-## Core Sections (Required)
-
-### 1) Integration Inventory
+## 1) Integration Inventory
 
 | System | Type | Purpose | Auth model | Criticality | Evidence |
 | --- | --- | --- | --- | --- | --- |
-| GitHub Pages | Static hosting | Canonical deployment | Actions pages:write/id-token:write | High | `.github/workflows/deploy.yml` |
-| Vercel | Hosting configuration | Documented mirror | [TODO] External project settings | Secondary | `vercel.json`, `README.md` |
-| Google Analytics 4 | Optional telemetry SDK | Conditional initialization | Measurement ID config, currently empty | Optional | `src/App.jsx`, `src/data/settings.js` |
-| GitHub and social/contact destinations | Outbound links/mailto | Project evidence and contact | No app-managed login | Content-dependent | `src/data/projects.js`, `src/data/socialMedia.js`, `ContactLinksList.jsx` |
-| npm registry | Build dependency supply | Install lockfile dependencies | No custom credential specified in workflow | Build-critical | `package-lock.json`, `.github/workflows/ci.yml` |
+| GitHub repositories | Outbound browser links | Project and profile links | Public URLs | Medium | `src/data/projects.js`, `src/data/socialMedia.js` |
+| Google Analytics 4 | Browser analytics SDK | Optional client-side analytics | Public measurement ID in `settings` | Low while disabled | `src/App.jsx`, `src/data/settings.js` |
+| GitHub Pages | Static hosting | Canonical deployment | GitHub Actions token permissions | High | `.github/workflows/deploy.yml` |
+| Vercel | Static-host mirror | Builds and serves `build/` | [TODO] Hosting-account configuration is outside the repository | Low | `vercel.json`, `README.md` |
 
-Source search found no fetch/axios calls, application API gateway, database client, or queue integration. An AI project listed in the portfolio is content, not an AI API integration in this website.
+No runtime HTTP client, fetch call, database driver, queue client, API gateway, or service-mesh configuration was found in application source.
 
-### 2) Data Stores
+## 2) Data Stores
 
-| Store | Role | Access | Key risk | Evidence |
+| Store | Role | Access layer | Key risk | Evidence |
 | --- | --- | --- | --- | --- |
-| Committed JS data | Portfolio content | portfolio barrel | Needs rebuild; no runtime schema | `src/portfolio.js` |
-| Browser localStorage | Theme/accent preferences | getItem/setItem | Browser access exceptions uncaught | `src/themeController.jsx` |
+| Browser localStorage | Persists theme mode and accent | `ThemeControllerProvider` | Cleared, unavailable, or malformed browser storage falls back to defaults | `src/themeController.jsx` |
+| Bundled JavaScript data | Portfolio content at build time | `src/portfolio.js` | Updates require source edit and redeployment | `src/data/`, `src/portfolio.js` |
 
-No backend database or user-account store was found.
+No server-side database or distributed cache was found.
 
-### 3) Secrets and Credentials Handling
+## 3) Secrets and Credentials Handling
 
-The application does not read OPENAI_API_KEY or OPENAI_BASE_URL. Earlier environment-key checks are separate from website behavior. No application credential source was found in inspected source/config; this is not a historical secret audit.
+- Credential sources: no required runtime secret or environment variable was found.
+- The analytics measurement ID is intentionally empty by default; a configured ID would be delivered to browsers and must not be treated as confidential.
+- GitHub Actions uses declared `pages: write` and `id-token: write` permissions for deployment; repository/environment configuration is [TODO] outside the checked-in workflow.
+- Rotation and hosting-account lifecycle practices: [ASK USER] define the owner and rotation/revocation process for GitHub Pages and Vercel access.
 
-Actions declares limited publishing permissions. Analytics remains disabled through an empty googleTrackingID. `.gitignore` excludes .env patterns; ignored files are not a security boundary for bundled client code.
+## 4) Reliability and Failure Behavior
 
-[TODO] Remote credential lifecycle, host account configuration, and rotation policies were not inspected.
+- Retry/backoff, timeout, and circuit-breaker policies: none in application source because it has no runtime remote API calls.
+- Missing or invalid local theme preferences normalize to supported values.
+- An uncaught React render error displays the local error boundary fallback; no remote reporting is implemented.
+- Static-host deep-link reliability depends on the generated fallback HTML included by `npm run build`.
 
-### 4) Reliability and Failure Behavior
+## 5) Observability for Integrations
 
-There is no custom API retry/backoff, timeout, or circuit breaker because no application API fetch layer was found. Outbound navigation is handled by the browser. ErrorBoundary offers refresh after React failures; it is not an integration retry manager. Live external links and host fallback responses were not probed.
+- Application logging around integrations: none found.
+- Metrics/tracing: optional GA4 only when a measurement ID is configured; no error telemetry found.
+- CI browser checks write temporary reports, but they are not production monitoring.
 
-### 5) Observability for Integrations
-
-GA initialization is conditional; no explicit ReactGA route-event calls were found. ErrorBoundary has no error-reporting hook. web-vitals is declared but no src import was found. Browser diagnostics exist in stress-test.mjs; production performance and runtime exceptions have no verified reporting pipeline.
-
-### 6) Evidence
+## 6) Evidence
 
 - `src/App.jsx`, `src/data/settings.js`, `src/themeController.jsx`
-- `src/data/socialMedia.js`, `src/data/projects.js`
-- `src/components/socialMedia/ContactLinksList.jsx`, `src/components/ErrorBoundary.jsx`
-- `.github/workflows/deploy.yml`, `vercel.json`, `.gitignore`, `SECURITY.md`
+- `src/data/projects.js`, `src/data/socialMedia.js`, `src/portfolio.js`
+- `.github/workflows/deploy.yml`, `vercel.json`, `package.json`
