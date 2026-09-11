@@ -32,6 +32,17 @@ const expectedCategories = [
   "Data Engineering",
 ];
 
+const expectedProfessionalSkills = [
+  "Claude Projects",
+  "Knowledge Management",
+  "Model Selection",
+  "Output evaluation",
+  "Prompt Engineering",
+  "Responsible AI",
+  "Troubleshooting",
+  "Workflow Integration",
+];
+
 describe("Education page", () => {
   it("renders the recruiter-focused proof-sheet hero", () => {
     renderWithProviders(<Education theme={darkTheme} />);
@@ -112,6 +123,11 @@ describe("Education page", () => {
     expect(within(professionalSection).getByText("Verify credential")).toBeInTheDocument();
     expect(within(anthropicGroup).getAllByText("Verify credential")).toHaveLength(4);
     expect(within(professionalSection).getByText("Issued August 31, 2026")).toBeInTheDocument();
+    const skills = within(professionalSection).getByRole("list", {
+      name: "Credential skills",
+    });
+    expect(within(skills).getAllByRole("listitem").map(item => item.textContent))
+      .toEqual(expectedProfessionalSkills);
     const certifiedCard = professionalSection.querySelector(".cert-card");
     const badge = certifiedCard?.querySelector(".cert-card__badge");
     expect(badge).toHaveAttribute(
