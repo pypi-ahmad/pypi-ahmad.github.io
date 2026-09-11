@@ -2,6 +2,20 @@
 
 ## Unreleased
 
+## v3.0.0 - 2026-09-12
+
+### Added
+
+- Featured the Anthropic Claude Certified Associate credential separately from course-completion certificates.
+- Added accessible route-loading feedback, focused error recovery, and an actionable empty-contact state.
+- Expanded component, navigation, responsive-layout, motion, recovery, and browser regression coverage.
+
+### Changed
+
+- Refined responsive layouts, typography, theme controls, interaction feedback, and contrast across the portfolio.
+- Synchronized contributor, testing, architecture, and project documentation with the current application.
+- Removed the unused SVG transform plugin and its dependency chain.
+
 ## v2.4.0 - 2026-08-15
 
 ### Changed
