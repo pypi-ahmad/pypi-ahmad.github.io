@@ -105,6 +105,6 @@ describe("Header — UI Rendering", () => {
     renderWithProviders(<Header />, { theme: "light" });
     await openMenu();
     const toggleBtn = screen.getByRole("button", { name: /Switch to (light|dark) mode/ });
-    expect(toggleBtn).toHaveStyle({ backgroundColor: "#ECEFF4" });
+    expect(toggleBtn).toHaveStyle({ backgroundColor: "#EEE7DA" });
   });
 });

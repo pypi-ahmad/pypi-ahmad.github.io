@@ -104,7 +104,7 @@ describe("Default theme", () => {
     expect(theme.panelBorderStyle).toBe("solid");
     expect(theme.accentFontFamily).toContain("Manrope");
     expect(theme.separatorColor).toBe(theme.name === "light"
-      ? "rgba(201, 215, 234, 0.55)" : "rgba(59, 61, 69, 0.78)");
+      ? "rgba(190, 174, 151, 0.55)" : "rgba(59, 61, 69, 0.78)");
   });
 });
 
