@@ -1,9 +1,9 @@
-import{a as e,c as t,i as n,n as r,r as i,s as a,t as o,u as s}from"./Footer-CNj2zzFW.js";import{t as c}from"./homePage-CFOSx2uo.js";import{l,m as u,o as d,s as f,v as p,y as m}from"./index-BEYjHofn.js";import{t as h}from"./ProjectCard-Dj0mgpWI.js";var g=f(),_=m(p(),1);function v({theme:r}){return(0,g.jsxs)(`section`,{id:`greeting`,className:`greet-main`,"aria-labelledby":`home-title`,style:{background:i(r.heroGradient,r.heroPattern),border:`${r.panelBorderWidth} ${r.panelBorderStyle} ${r.borderSoft}`,borderRadius:r.heroRadius,boxShadow:n(`0 28px 80px ${r.shadowColor}`,r.panelGlow)},children:[(0,g.jsxs)(`div`,{className:`hero-copy`,children:[(0,g.jsx)(`div`,{className:`hero-atmosphere`,"aria-hidden":`true`}),(0,g.jsx)(s.p,{...e(0,!0),className:`hero-eyebrow`,style:{color:r.accentSolid},children:c.hero.eyebrow}),(0,g.jsx)(`h1`,{id:`home-title`,className:`greeting-text`,style:{color:r.text,fontFamily:r.accentFontFamily,letterSpacing:r.accentLetterSpacing,transition:t},children:c.hero.title}),(0,g.jsx)(s.p,{...e(1,!0),className:`greeting-text-p`,style:{color:r.secondaryText,transition:t},children:c.hero.introduction}),(0,g.jsxs)(s.div,{...e(2,!0),className:`hero-actions`,"aria-label":`Portfolio actions`,children:[(0,g.jsx)(`a`,{className:`button`,href:`#selected-work`,style:{background:r.accentGradient,color:r.accentText,borderColor:r.borderColor,borderRadius:r.controlRadius,transition:a},children:`View selected work`}),(0,g.jsx)(u,{className:`button button-secondary`,to:`/contact`,style:{color:r.text,borderColor:r.borderSoft,borderRadius:r.controlRadius,transition:a},children:`Contact me`})]})]}),(0,g.jsxs)(`div`,{className:`outcomes`,"aria-labelledby":`outcomes-title`,children:[(0,g.jsxs)(s.div,{...e(),className:`section-heading-row`,children:[(0,g.jsx)(`h2`,{id:`outcomes-title`,style:{color:r.text},children:`Evidence from internal work`}),(0,g.jsx)(`p`,{style:{color:r.secondaryText},children:`These are team and system results from internal evaluations. Contribution notes identify the parts I worked on.`})]}),(0,g.jsx)(`ul`,{className:`outcome-grid`,children:c.outcomes.map((a,o)=>(0,_.createElement)(s.li,{...e(o),key:a.label,className:`outcome-card`,style:{background:i(r.cardBackgroundAlt,r.surfacePattern),border:`${r.panelBorderWidth} ${r.panelBorderStyle} ${r.borderSoft}`,borderRadius:r.surfaceRadius,boxShadow:n(`0 18px 40px ${r.shadowColor}`,r.panelGlow),transition:t}},(0,g.jsx)(`strong`,{style:{color:r.text},children:a.metric}),(0,g.jsx)(`h3`,{style:{color:r.text},children:a.label}),(0,g.jsx)(`p`,{style:{color:r.secondaryText},children:a.context}),(0,g.jsx)(`p`,{className:`contribution`,style:{color:r.secondaryText},children:a.contribution})))})]})]})}var y=d.section`
+import{a as e,c as t,i as n,n as r,r as i,s as a,t as o,u as s}from"./Footer-Cn1Egcjp.js";import{t as c}from"./homePage-CFOSx2uo.js";import{_ as l,a as u,c as d,o as f,p,v as m}from"./index-Dk8zwGyL.js";import{t as h}from"./ProjectCard-Be4gUUEC.js";var g=f(),_=m(l(),1);function v({theme:r}){return(0,g.jsxs)(`section`,{id:`greeting`,className:`greet-main`,"aria-labelledby":`home-title`,style:{background:i(r.heroGradient,r.heroPattern),border:`${r.panelBorderWidth} ${r.panelBorderStyle} ${r.borderSoft}`,borderRadius:r.heroRadius,boxShadow:n(`0 28px 80px ${r.shadowColor}`,r.panelGlow)},children:[(0,g.jsxs)(`div`,{className:`hero-copy`,children:[(0,g.jsx)(`div`,{className:`hero-atmosphere`,"aria-hidden":`true`}),(0,g.jsx)(s.p,{...e(0,!0),className:`hero-eyebrow`,style:{color:r.accentSolid},children:c.hero.eyebrow}),(0,g.jsx)(`h1`,{id:`home-title`,className:`greeting-text`,style:{color:r.text,fontFamily:r.accentFontFamily,letterSpacing:r.accentLetterSpacing,transition:t},children:c.hero.title}),(0,g.jsx)(s.p,{...e(1,!0),className:`greeting-text-p`,style:{color:r.secondaryText,transition:t},children:c.hero.introduction}),(0,g.jsxs)(s.div,{...e(2,!0),className:`hero-actions`,"aria-label":`Portfolio actions`,children:[(0,g.jsx)(`a`,{className:`button`,href:`#selected-work`,style:{background:r.accentGradient,color:r.accentText,borderColor:r.borderColor,borderRadius:r.controlRadius,transition:a},children:`View selected work`}),(0,g.jsx)(p,{className:`button button-secondary`,to:`/contact`,style:{color:r.text,borderColor:r.borderSoft,borderRadius:r.controlRadius,transition:a},children:`Contact me`})]})]}),(0,g.jsxs)(`div`,{className:`outcomes`,"aria-labelledby":`outcomes-title`,children:[(0,g.jsxs)(s.div,{...e(),className:`section-heading-row`,children:[(0,g.jsx)(`h2`,{id:`outcomes-title`,style:{color:r.text},children:`Evidence from internal work`}),(0,g.jsx)(`p`,{style:{color:r.secondaryText},children:`These are team and system results from internal evaluations. Contribution notes identify the parts I worked on.`})]}),(0,g.jsx)(`ul`,{className:`outcome-grid`,children:c.outcomes.map((a,o)=>(0,_.createElement)(s.li,{...e(o),key:a.label,className:`outcome-card`,style:{background:i(r.cardBackgroundAlt,r.surfacePattern),border:`${r.panelBorderWidth} ${r.panelBorderStyle} ${r.borderSoft}`,borderRadius:r.surfaceRadius,boxShadow:n(`0 18px 40px ${r.shadowColor}`,r.panelGlow),transition:t}},(0,g.jsx)(`strong`,{style:{color:r.text},children:a.metric}),(0,g.jsx)(`h3`,{style:{color:r.text},children:a.label}),(0,g.jsx)(`p`,{style:{color:r.secondaryText},children:a.context}),(0,g.jsx)(`p`,{className:`contribution`,style:{color:r.secondaryText},children:a.contribution})))})]})]})}var y=u.section`
   width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
   margin: 0 auto;
   padding: var(--section-spacing) 0;
   text-align: center;
-`,b=d(s.h2)`
+`,b=u(s.h2)`
   color: ${e=>e.theme.text};
   font-size: 2.5rem;
   margin-bottom: 2rem;
@@ -12,7 +12,7 @@ import{a as e,c as t,i as n,n as r,r as i,s as a,t as o,u as s}from"./Footer-CNj
   @media (max-width: 768px) {
     font-size: 2rem;
   }
-`,x=d.div`
+`,x=u.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--section-gap-tight);
@@ -20,7 +20,7 @@ import{a as e,c as t,i as n,n as r,r as i,s as a,t as o,u as s}from"./Footer-CNj
   @media (max-width: 768px) {
     grid-template-columns: minmax(0, 1fr);
   }
-`,S=d(u)`
+`,S=u(p)`
   display: inline-flex;
   margin-top: 2rem;
   padding: 0.9rem 1.5rem;
@@ -34,17 +34,17 @@ import{a as e,c as t,i as n,n as r,r as i,s as a,t as o,u as s}from"./Footer-CNj
     color: ${e=>e.theme.accentText};
     transform: translateY(-2px);
   }
-`;function C({theme:t}){return(0,g.jsxs)(y,{id:`selected-work`,"aria-labelledby":`selected-work-title`,children:[(0,g.jsx)(b,{id:`selected-work-title`,theme:t,...e(),children:`Selected work`}),(0,g.jsx)(x,{children:l.data.slice(0,4).map((e,n)=>(0,g.jsx)(h,{repo:e,theme:t,revealIndex:n},e.url))}),(0,g.jsx)(S,{className:`motion-action`,theme:t,to:`/projects`,children:`See all projects`})]})}var w=d.section`
+`;function C({theme:t}){return(0,g.jsxs)(y,{id:`selected-work`,"aria-labelledby":`selected-work-title`,children:[(0,g.jsx)(b,{id:`selected-work-title`,theme:t,...e(),children:`Selected work`}),(0,g.jsx)(x,{children:d.data.slice(0,4).map((e,n)=>(0,g.jsx)(h,{repo:e,theme:t,revealIndex:n},e.url))}),(0,g.jsx)(S,{className:`motion-action`,theme:t,to:`/projects`,children:`See all projects`})]})}var w=u.section`
   width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
   margin: 0 auto;
   padding: var(--section-spacing) 0;
-`,T=d(s.div)`
+`,T=u(s.div)`
   max-width: 820px;
   margin-bottom: 2rem;
 
   h2 {
     margin: 0 0 1rem;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 2.25rem);
   }
 
   p {
@@ -52,7 +52,7 @@ import{a as e,c as t,i as n,n as r,r as i,s as a,t as o,u as s}from"./Footer-CNj
     font-size: clamp(1.1rem, 2vw, 1.35rem);
     line-height: 1.7;
   }
-`,E=d.div`
+`,E=u.div`
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
@@ -64,7 +64,7 @@ import{a as e,c as t,i as n,n as r,r as i,s as a,t as o,u as s}from"./Footer-CNj
   @media (max-width: 560px) {
     grid-template-columns: minmax(0, 1fr);
   }
-`,D=d(s.article)`
+`,D=u(s.article)`
   padding: 1.25rem;
 
   h3 {
@@ -76,7 +76,7 @@ import{a as e,c as t,i as n,n as r,r as i,s as a,t as o,u as s}from"./Footer-CNj
     margin: 0;
     line-height: 1.55;
   }
-`,O=d(s.div)`
+`,O=u(s.div)`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -100,7 +100,7 @@ import{a as e,c as t,i as n,n as r,r as i,s as a,t as o,u as s}from"./Footer-CNj
     align-items: flex-start;
     flex-direction: column;
   }
-`,k=d(u)`
+`,k=u(p)`
   flex: 0 1 auto;
   padding: 0.8rem 1.25rem;
   border-radius: ${e=>e.theme.controlRadius};
