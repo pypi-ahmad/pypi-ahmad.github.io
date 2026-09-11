@@ -33,6 +33,7 @@ package - Copy.json
 .opencode/
 .windsurf/rules/
 graphify-out/
+.firecrawl/
 .ua/
 .codegraph/
 AGENTS.md
