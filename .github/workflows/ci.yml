@@ -45,6 +45,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Browser checks
+        # Check emitted assets as served by preview, not Vite's development transforms.
         run: |
           npm run preview -- --host 127.0.0.1 --strictPort > /tmp/vite-preview.log 2>&1 &
           preview_pid=$!

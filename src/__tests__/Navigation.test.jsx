@@ -3,115 +3,99 @@
  *
  * Verifies React Router navigation via the full app route tree (Main.jsx).
  * Tests that clicking NavLinks renders the correct page content,
- * and that direct URL entry (via MemoryRouter) resolves properly.
+ * and that direct URL entry (via browser history) resolves properly.
  *
  * Source: src/containers/Main.jsx, src/components/header/Header.jsx
  */
 import React from "react";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
-import { MemoryRouter, Routes, Route } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
 import { ThemeControllerProvider } from "../themeController";
 import { darkTheme } from "../theme";
 
-import Home from "../pages/home/HomeComponent";
-import Experience from "../pages/experience/Experience";
-import Education from "../pages/education/EducationComponent";
-import Contact from "../pages/contact/ContactComponent";
-import Projects from "../pages/projects/Projects";
-import SkillsPage from "../pages/skills/SkillsPage";
+import Main from "../containers/Main";
 
-const theme = darkTheme;
-const setTheme = vi.fn();
-const routeProps = { theme, setTheme };
-
-/**
- * Renders the full route tree inside a MemoryRouter at the given path.
- */
-function renderAtRoute(initialPath) {
-  return render(
+/** Renders the production route tree and waits for its lazy page to load. */
+async function renderAtRoute(initialPath) {
+  window.history.replaceState({}, "", initialPath);
+  render(
     <ThemeControllerProvider
       initialThemeMode="dark"
     >
       <MotionConfig reducedMotion="always">
-        <MemoryRouter initialEntries={[initialPath]}>
-          <Routes>
-            <Route path="/" element={<Home {...routeProps} />} />
-            <Route path="/home" element={<Home {...routeProps} />} />
-            <Route path="/experience" element={<Experience {...routeProps} />} />
-            <Route path="/education" element={<Education {...routeProps} />} />
-            <Route path="/contact" element={<Contact {...routeProps} />} />
-            <Route path="/projects" element={<Projects {...routeProps} />} />
-            <Route path="/skills" element={<SkillsPage {...routeProps} />} />
-          </Routes>
-        </MemoryRouter>
+        <Main theme={darkTheme} />
       </MotionConfig>
     </ThemeControllerProvider>
   );
+  await screen.findByRole("main");
 }
 
 describe("Navigation — Route Resolution", () => {
-  it("'/' renders the Home page (isSplash=false)", () => {
-    renderAtRoute("/");
-    expect(screen.getByRole("heading", { level: 1, name: "I build applied AI systems and test whether they work." })).toBeInTheDocument();
+  it("'/' renders the Home page (isSplash=false)", async () => {
+    await renderAtRoute("/");
+    expect(await screen.findByRole("heading", { level: 1, name: "I build applied AI systems and test whether they work." })).toBeInTheDocument();
   });
 
-  it("'/home' renders the Home page", () => {
-    renderAtRoute("/home");
-    expect(screen.getByRole("heading", { level: 1, name: "I build applied AI systems and test whether they work." })).toBeInTheDocument();
+  it("'/home' renders the Home page", async () => {
+    await renderAtRoute("/home");
+    expect(await screen.findByRole("heading", { level: 1, name: "I build applied AI systems and test whether they work." })).toBeInTheDocument();
   });
 
-  it("'/experience' renders the Experience page", () => {
-    renderAtRoute("/experience");
-    expect(screen.getByRole("heading", { level: 1, name: "Building and evaluating applied AI systems." })).toBeInTheDocument();
+  it("'/experience' renders the Experience page", async () => {
+    await renderAtRoute("/experience");
+    expect(await screen.findByRole("heading", { level: 1, name: "Building and evaluating applied AI systems." })).toBeInTheDocument();
   });
 
-  it("'/education' renders the Education page", () => {
-    renderAtRoute("/education");
-    expect(screen.getByRole("heading", {
+  it("'/education' renders the Education page", async () => {
+    await renderAtRoute("/education");
+    expect(await screen.findByRole("heading", {
       level: 1,
       name: "Academic foundations for applied AI.",
     })).toBeInTheDocument();
   });
 
-  it("'/contact' renders the Contact page", () => {
-    renderAtRoute("/contact");
-    expect(screen.getByRole("heading", { level: 1, name: "Let’s build useful AI systems." })).toBeInTheDocument();
+  it("'/contact' renders the Contact page", async () => {
+    await renderAtRoute("/contact");
+    expect(await screen.findByRole("heading", { level: 1, name: "Let’s build useful AI systems." })).toBeInTheDocument();
   });
 
-  it("'/projects' renders the Projects page", () => {
-    renderAtRoute("/projects");
-    expect(screen.getByRole("heading", { level: 2, name: "Recent projects" })).toBeInTheDocument();
+  it("'/projects' renders the Projects page", async () => {
+    await renderAtRoute("/projects");
+    expect(await screen.findByRole("heading", { level: 2, name: "Recent projects" })).toBeInTheDocument();
   });
 
-  it("'/skills' renders the Skills page", () => {
-    renderAtRoute("/skills");
-    expect(screen.getByRole("heading", { level: 1, name: "Skills for reliable AI systems." })).toBeInTheDocument();
+  it("'/skills' renders the Skills page", async () => {
+    await renderAtRoute("/skills");
+    expect(await screen.findByRole("heading", { level: 1, name: "Skills for reliable AI systems." })).toBeInTheDocument();
   });
 });
 
 describe("Navigation — NavLink Click Flow", () => {
   it("clicking 'Experience' NavLink navigates to Experience page", async () => {
     const user = userEvent.setup();
-    renderAtRoute("/home");
+    await renderAtRoute("/home");
 
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const experienceLink = screen.getByText("Experience", { selector: "a" });
     await user.click(experienceLink);
-    expect(screen.getByRole("heading", { level: 1, name: "Building and evaluating applied AI systems." })).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/experience");
+    expect(await screen.findByRole("heading", { level: 1, name: "Building and evaluating applied AI systems." })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Toggle navigation menu" })).toHaveAttribute("aria-expanded", "false");
+    expect(screen.getByRole("main")).toHaveFocus();
   });
 
   it("clicking 'Education and certifications' NavLink navigates to Education page", async () => {
     const user = userEvent.setup();
-    renderAtRoute("/home");
+    await renderAtRoute("/home");
 
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const educationLink = screen.getByText("Education and certifications");
     await user.click(educationLink);
-    expect(screen.getByRole("heading", {
+    expect(window.location.pathname).toBe("/education");
+    expect(await screen.findByRole("heading", {
       level: 1,
       name: "Academic foundations for applied AI.",
     })).toBeInTheDocument();
@@ -119,41 +103,45 @@ describe("Navigation — NavLink Click Flow", () => {
 
   it("clicking 'Contact' NavLink navigates to Contact page", async () => {
     const user = userEvent.setup();
-    renderAtRoute("/home");
+    await renderAtRoute("/home");
 
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const navLink = screen.getByRole("link", { name: "Contact" });
     await user.click(navLink);
-    expect(screen.getByRole("heading", { level: 1, name: "Let’s build useful AI systems." })).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/contact");
+    expect(await screen.findByRole("heading", { level: 1, name: "Let’s build useful AI systems." })).toBeInTheDocument();
   });
 
   it("clicking 'Projects' NavLink navigates to Projects page", async () => {
     const user = userEvent.setup();
-    renderAtRoute("/home");
+    await renderAtRoute("/home");
 
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const projectsLink = screen.getByText("Projects", { selector: "a" });
     await user.click(projectsLink);
-    expect(screen.getByRole("heading", { level: 2, name: "Recent projects" })).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/projects");
+    expect(await screen.findByRole("heading", { level: 2, name: "Recent projects" })).toBeInTheDocument();
   });
 
   it("clicking 'Skills' NavLink navigates to Skills page", async () => {
     const user = userEvent.setup();
-    renderAtRoute("/home");
+    await renderAtRoute("/home");
 
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const skillsLink = screen.getByText("Skills", { selector: "a" });
     await user.click(skillsLink);
-    expect(screen.getByRole("heading", { level: 1, name: "Skills for reliable AI systems." })).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/skills");
+    expect(await screen.findByRole("heading", { level: 1, name: "Skills for reliable AI systems." })).toBeInTheDocument();
   });
 
   it("clicking logo navigates to Home page", async () => {
     const user = userEvent.setup();
-    renderAtRoute("/experience");
+    await renderAtRoute("/experience");
 
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const logo = screen.getByText("ahmad.m()");
     await user.click(logo);
-    expect(screen.getByRole("heading", { level: 1, name: "I build applied AI systems and test whether they work." })).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/home");
+    expect(await screen.findByRole("heading", { level: 1, name: "I build applied AI systems and test whether they work." })).toBeInTheDocument();
   });
 });

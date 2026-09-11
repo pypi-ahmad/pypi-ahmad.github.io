@@ -19,7 +19,7 @@ import { ThemeControllerProvider } from "../themeController";
  * @param {React.ReactElement} ui - The component to render
  * @param {object} options
  * @param {string} options.theme - "light" or "dark" (default: "dark")
- * @param {string} options.accent - "pink" or "blue" (default: DEFAULT_ACCENT)
+ * @param {string} options.accent - "pink", "blue", or "pink-indigo" (default: DEFAULT_ACCENT)
  * @param {boolean} options.useStoredTheme - when true, use localStorage instead of an explicit initial theme
  * @param {string[]} options.initialEntries - MemoryRouter initial entries
  * @param {object} options.renderOptions - Extra RTL render options
@@ -34,6 +34,7 @@ export function renderWithProviders(
     ...renderOptions
   } = {}
 ) {
+  // MemoryRouter isolates navigation fixtures; BrowserRouter tests can exercise the real history API.
   const RouterComponent = initialEntries ? MemoryRouter : BrowserRouter;
   const routerProps = initialEntries ? { initialEntries } : {};
 

@@ -6,6 +6,7 @@ import { ThemeControllerProvider } from "../themeController";
 import { darkTheme } from "../theme";
 
 function renderMainAt(pathname) {
+  // Main owns a BrowserRouter, so seed its URL before mounting rather than nesting routers.
   window.history.pushState({}, "", pathname);
   return render(
     <ThemeControllerProvider
@@ -23,6 +24,7 @@ function getManagedMeta(selector) {
 }
 
 function waitForTitle(title) {
+  // Lazy route loading and head updates may complete after the initial render.
   return waitFor(() => {
     expect(document.title).toBe(title);
   }, { timeout: 10000 });

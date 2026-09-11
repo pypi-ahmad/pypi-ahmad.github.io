@@ -1,12 +1,12 @@
 /**
- * Phase 7 — Frontend Stress Test Script
+ * Frontend performance diagnostics for a local production preview.
  *
  * Uses Playwright + Chrome DevTools Protocol to:
- *  1. Measure baseline Core Web Vitals (LCP, CLS, FID/INP)
+ *  1. Sample LCP, layout shifts and long tasks in Chromium (not FID or INP)
  *  2. Simulate Slow 3G network conditions
  *  3. Stress-test rapid navigation across all routes
  *  4. Detect layout shifts, jank, broken UI, and freezing
- *  5. Analyze large resource loads and re-render overhead
+ *  5. Inspect resource sizes and frame timing; React renders are not directly counted
  *
  * Run: node stress-test.mjs
  * Requires: vite preview running on http://localhost:4173
@@ -115,7 +115,7 @@ async function measureBaseline(page) {
 }
 
 // ═══════════════════════════════════════════════════════════
-// 2. CORE WEB VITALS (LCP, CLS, long tasks for FID proxy)
+// 2. LAB METRICS (LCP, accumulated layout shifts, long-task blocking time)
 // ═══════════════════════════════════════════════════════════
 async function measureCoreWebVitals(page) {
   console.log("\n═══ 2. CORE WEB VITALS ═══");

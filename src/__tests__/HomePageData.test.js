@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { homePageData } from "../data/homePage";
+import { experience } from "../data/experience";
 import { projects } from "../data/projects";
 
 describe("home page contract", () => {
@@ -25,14 +26,24 @@ describe("home page contract", () => {
     expect(homePageData.outcomes.map(outcome => outcome.metric)).toEqual([
       "38% to 80%",
       "~40% lower",
-      "80% to 81%, then above 90%",
+      "80–81% to above 90%",
       "90% to 99%",
       "95%+",
     ]);
   });
 
-  it("uses plain punctuation in authored homepage prose", () => {
-    expect(JSON.stringify(homePageData)).not.toMatch(/[—–“”]/);
+  it("keeps shared Home and Skills metrics consistent with Experience", () => {
+    // This guards internal copy consistency, not independent verification of career claims.
+    const employerOutcomes = experience.sections[0].experiences[0].outcomes;
+    for (const outcome of homePageData.outcomes) {
+      expect(outcome.metric).toBe(
+        employerOutcomes.find(item => item.label === outcome.label)?.metric
+      );
+    }
+  });
+
+  it("uses plain punctuation in homepage prose while allowing numeric ranges", () => {
+    expect(JSON.stringify(homePageData).replace(/\d–\d/g, "")).not.toMatch(/[—–“”]/);
   });
 
   it("ships Applied AI fallback metadata and ProfilePage structured data", () => {

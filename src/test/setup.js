@@ -6,7 +6,7 @@
  */
 import "@testing-library/jest-dom/vitest";
 
-// ── Mock IntersectionObserver (used by framer-motion whileInView) ────
+// No intersections are synthesized: component tests inspect structure, not scroll-triggered visibility.
 class IntersectionObserverMock {
   constructor(callback) {
     this.callback = callback;
@@ -18,7 +18,7 @@ class IntersectionObserverMock {
 }
 globalThis.IntersectionObserver = IntersectionObserverMock;
 
-// ── Mock matchMedia (used by App.jsx for pointer:fine check) ─────────
+// Default to a fine pointer; tests for viewport or motion preferences override this matcher explicitly.
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: vi.fn().mockImplementation((query) => ({

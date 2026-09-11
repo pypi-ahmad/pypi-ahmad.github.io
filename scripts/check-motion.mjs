@@ -7,7 +7,9 @@ import { chromium } from "playwright";
 
 // Run against `npm run preview -- --host 127.0.0.1 --strictPort`.
 // --baseline captures the unchanged site; --compare <report.json> checks it.
-const base = "http://127.0.0.1:4173";
+const baseIndex = process.argv.indexOf("--base-url");
+if (baseIndex >= 0 && !process.argv[baseIndex + 1]) throw new Error("--base-url requires a URL");
+const base = baseIndex < 0 ? "http://127.0.0.1:4173" : process.argv[baseIndex + 1].replace(/\/$/, "");
 const baseline = process.argv.includes("--baseline");
 const interactionsOnly = process.argv.includes("--interactions-only");
 const compareIndex = process.argv.indexOf("--compare");
@@ -18,6 +20,7 @@ const report = { mode: baseline ? "baseline" : "verification", measurements: {},
 const browser = await chromium.launch({ headless: true });
 
 async function measure(width) {
+  // These are controlled Chromium lab samples, not field Core Web Vitals or physical-device measurements.
   const context = await browser.newContext({ viewport: { width, height: 900 } });
   const page = await context.newPage();
   const cdp = await context.newCDPSession(page);

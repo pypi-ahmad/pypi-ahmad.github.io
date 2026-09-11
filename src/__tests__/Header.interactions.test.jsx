@@ -32,6 +32,8 @@ describe("Navigation disclosure", () => {
       name: "Toggle navigation menu",
     });
     await user.tab();
+    expect(screen.getByRole("link", { name: "Skip to content" })).toHaveFocus();
+    await user.tab();
     await user.keyboard("{Enter}");
     const panel = document.getElementById(
       trigger.getAttribute("aria-controls"),
