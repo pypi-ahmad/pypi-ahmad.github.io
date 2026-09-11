@@ -6,7 +6,7 @@ function CertificationCard({ certificate, theme, headingLevel = 4 }) {
 
   return (
     <article
-      className="cert-card layer-card shadow-sm hover-shadow-lg"
+      className={`cert-card${certificate.badgeImagePath ? " cert-card--has-badge" : ""} layer-card shadow-sm hover-shadow-lg`}
       style={{
         background: theme.cardBackgroundAlt,
         border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
@@ -21,38 +21,50 @@ function CertificationCard({ certificate, theme, headingLevel = 4 }) {
           <Title className="cert-card__title" style={{ color: theme.text }}>
             {certificate.title}
           </Title>
+          {certificate.completionDate ? (
+            <p className="cert-card__date" style={{ color: theme.secondaryText }}>
+              {certificate.dateLabel || "Completed"} {certificate.completionDate}
+            </p>
+          ) : null}
+          {certificate.summary ? (
+            <p className="cert-card__summary" style={{ color: theme.secondaryText }}>
+              {certificate.summary}
+            </p>
+          ) : null}
+          {certificate.highlights?.length ? (
+            <ul className="cert-card__highlights" aria-label="Course topics">
+              {certificate.highlights.map(highlight => (
+                <li key={highlight} style={{ color: theme.secondaryText }}>
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          {certificate.skills?.length ? (
+            <>
+              <p className="cert-card__skills-label">Skills</p>
+              <ul className="cert-card__highlights" aria-label="Credential skills">
+                {certificate.skills.map(skill => (
+                  <li key={skill} style={{ color: theme.secondaryText }}>
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : null}
         </div>
         {certificate.badgeImagePath ? (
           <img
             className="cert-card__badge"
             src={certificate.badgeImagePath}
             alt=""
-            width={72}
-            height={72}
+            width={240}
+            height={240}
             loading="lazy"
             decoding="async"
           />
         ) : null}
       </div>
-      {certificate.completionDate ? (
-        <p className="cert-card__date" style={{ color: theme.secondaryText }}>
-          {certificate.dateLabel || "Completed"} {certificate.completionDate}
-        </p>
-      ) : null}
-      {certificate.summary ? (
-        <p className="cert-card__summary" style={{ color: theme.secondaryText }}>
-          {certificate.summary}
-        </p>
-      ) : null}
-      {certificate.highlights?.length ? (
-        <ul className="cert-card__highlights" aria-label="Course topics">
-          {certificate.highlights.map(highlight => (
-            <li key={highlight} style={{ color: theme.secondaryText }}>
-              {highlight}
-            </li>
-          ))}
-        </ul>
-      ) : null}
       <div className="cert-card__actions">
         {certificate.certificateLink ? (
           <a

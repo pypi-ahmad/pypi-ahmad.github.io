@@ -49,7 +49,16 @@ export const certifications = {
       credentialType: "professional",
       category: "Generative AI",
       highlights: [],
-      summary: "Anthropic certification in Claude foundations.",
+      skills: [
+        "Claude Projects",
+        "Knowledge Management",
+        "Model Selection",
+        "Output evaluation",
+        "Prompt Engineering",
+        "Responsible AI",
+        "Troubleshooting",
+        "Workflow Integration",
+      ],
     },
     {
       title: "Claude Code 101",
