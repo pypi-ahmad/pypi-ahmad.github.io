@@ -23,7 +23,7 @@
 .skills-hero h1 {
   max-width: 1000px;
   margin: 0;
-  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  font-size: clamp(2rem, 4vw, 2.5rem);
   line-height: 1.4;
   letter-spacing: -0.025em;
 }
@@ -47,7 +47,7 @@
 
 .skills-section-heading h2,
 .skills-section-heading p { margin: 0; }
-.skills-section-heading h2 { font-size: clamp(2rem, 4vw, 3rem); }
+.skills-section-heading h2 { font-size: clamp(2rem, 4vw, 2.25rem); }
 .skills-section-heading p { max-width: 560px; line-height: 1.6; text-align: end; }
 
 .capability-grid {

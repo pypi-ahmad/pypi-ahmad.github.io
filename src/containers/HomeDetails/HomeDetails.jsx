@@ -16,7 +16,7 @@ const Method = styled(motion.div)`
 
   h2 {
     margin: 0 0 1rem;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 2.25rem);
   }
 
   p {
