@@ -76,21 +76,19 @@ async function inspectPrimaryActions(base) {
     ["not-a-route", ".not-found-link"],
   ];
   for (const mode of ["light", "dark"]) {
-    for (const accent of ["blue", "pink", "pink-indigo"]) {
       for (const width of [390, 1440]) {
         const page = await browser.newPage({ viewport: { width, height: 900 } });
-        await page.addInitScript(({ mode, accent }) => {
+        await page.addInitScript(mode => {
           localStorage.setItem("theme", mode);
-          localStorage.setItem("accent", accent);
           document.addEventListener("click", event => event.preventDefault(), true);
-        }, { mode, accent });
+        }, mode);
         for (const [route, selector] of primaryTargets) {
           await page.goto(`${base}/${route}`);
           const target = page.locator(selector);
           await target.scrollIntoViewIfNeeded();
           await page.evaluate(() => document.fonts.ready);
           await page.waitForTimeout(700);
-          const label = `${base}/${route} ${mode}/${accent}/${width}`;
+          const label = `${base}/${route} ${mode}/${width}`;
           await assertFilledState(target, `${label}: rest`);
           await target.hover();
           await page.waitForTimeout(180);
@@ -127,24 +125,11 @@ async function inspectPrimaryActions(base) {
           primaryChecks++;
         }
         await page.goto(`${base}/home`);
-        await page.locator(".accent-swatch").first().waitFor({ state: "attached" });
-        const theme = resolveTheme(mode, accent);
+        const theme = resolveTheme(mode);
         assert.deepEqual(await page.locator("body").evaluate(node => ["--separator", "--shadow-color"].map(key => getComputedStyle(node).getPropertyValue(key).trim())), [theme.separatorColor, theme.shadowColor]);
-        for (const preset of ["blue", "pink", "pink-indigo"]) {
-          const matches = await page.locator(`.accent-swatch--${preset}`).evaluate((node, gradient) => {
-            const expected = document.createElement("div");
-            expected.style.backgroundImage = gradient;
-            document.body.append(expected);
-            const matches = getComputedStyle(node).backgroundImage === getComputedStyle(expected).backgroundImage;
-            expected.remove();
-            return matches;
-          }, resolveTheme(mode, preset).accentGradient);
-          assert.ok(matches, `Swatch ${mode}/${preset}`);
-        }
         await page.close();
       }
-      console.log(`Primary actions checked: ${base} ${mode}/${accent}.`);
-    }
+      console.log(`Primary actions checked: ${base} ${mode}.`);
   }
 }
 
@@ -161,9 +146,9 @@ try {
     if (!process.argv.includes("--cards-only")) await inspectPrimaryActions(base);
     const scenarios = [
       ...[320, 390, 768, 1440].map(width => ({ width })),
-      ...["dark", "light"].flatMap(theme => ["blue", "pink", "pink-indigo"].flatMap(accent =>
-        [390, 1440].map(width => ({ theme, accent, width }))
-      )),
+      ...["dark", "light"].flatMap(theme =>
+        [390, 1440].map(width => ({ theme, width }))
+      ),
       { reducedMotion: "reduce" }, { forcedColors: "active" }, { print: true }, { coarse: true, width: 390 },
     ];
     for (const scenario of scenarios) {
@@ -173,9 +158,8 @@ try {
         forcedColors: scenario.forcedColors ?? "none",
         hasTouch: scenario.coarse ?? false,
       });
-      await page.addInitScript(({ theme, accent }) => {
+      await page.addInitScript(({ theme }) => {
         localStorage.setItem("theme", theme ?? "dark");
-        localStorage.setItem("accent", accent ?? "blue");
         // Exercise press/release without opening external URLs or mail clients.
         document.addEventListener("click", event => event.preventDefault(), true);
       }, scenario);

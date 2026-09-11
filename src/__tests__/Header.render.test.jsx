@@ -11,7 +11,6 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect } from "vitest";
 import Header from "../components/header/Header";
-import { resolveTheme } from "../theme";
 import { renderWithProviders } from "../test/testUtils";
 
 async function openMenu() {
@@ -27,15 +26,6 @@ describe("Header — UI Rendering", () => {
     const skip = screen.getByRole("link", { name: "Skip to content" });
     expect(skip).toHaveFocus();
     expect(skip).toHaveAttribute("href", "#main-content");
-  });
-  it.each(["light", "dark"])("resolves all swatch backgrounds in %s mode", async mode => {
-    renderWithProviders(<Header />, { theme: mode });
-    await openMenu();
-    for (const preset of ["pink", "blue", "pink-indigo"]) {
-      expect(document.querySelector(`.accent-swatch--${preset}`)).toHaveStyle({
-        background: resolveTheme(mode, preset).accentGradient,
-      });
-    }
   });
   it("renders the logo text 'ahmad.m()' inside the dropdown menu", async () => {
     renderWithProviders(<Header />);
@@ -83,20 +73,11 @@ describe("Header — UI Rendering", () => {
     expect(screen.queryByRole("link", { name: "Theme" })).not.toBeInTheDocument();
   });
 
-  it("renders three accessible accent choices", async () => {
+  it("does not render an accent selector", async () => {
     renderWithProviders(<Header />);
     await openMenu();
 
-    expect(screen.getByRole("group", { name: "Accent color" })).toBeInTheDocument();
-    expect(
-      screen.getByRole("button", { name: "Use crimson and pink accent" })
-    ).toHaveAttribute("aria-pressed", "false");
-    expect(
-      screen.getByRole("button", { name: "Use indigo and navy accent" })
-    ).toHaveAttribute("aria-pressed", "true");
-    expect(
-      screen.getByRole("button", { name: "Use dark pink and indigo accent" })
-    ).toHaveAttribute("aria-pressed", "false");
+    expect(screen.queryByRole("group", { name: "Accent color" })).not.toBeInTheDocument();
   });
 
   it("renders the hamburger menu button", () => {

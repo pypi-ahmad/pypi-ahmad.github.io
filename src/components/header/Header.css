@@ -129,44 +129,7 @@
 
 .menu-theme-toggle-item {
   margin-top: 6px;
-  gap: 12px;
   justify-content: flex-start;
-}
-
-.accent-selector {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.accent-selector__label {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-.accent-swatch {
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  cursor: pointer;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  box-shadow: 0 8px 18px var(--shadow-color);
-  transition: transform 0.2s ease, border-color var(--theme-transition-fast), box-shadow var(--theme-transition-medium);
-}
-
-.accent-swatch:hover {
-  transform: translateY(-1px) scale(1.05);
-}
-
-.accent-swatch[aria-pressed="true"] {
-  border-color: var(--text-primary);
-  box-shadow: 0 0 0 3px var(--surface-card), 0 0 0 5px var(--text-primary);
-}
-
-.accent-swatch:focus-visible {
-  outline: 2px solid var(--text-primary);
-  outline-offset: 3px;
 }
 
 .header .menu-icon {
@@ -350,12 +313,7 @@
 .header .menu.menu--instant {
   transition: none;
 }
-.header .menu-theme-toggle-item,
-.header .accent-selector {
-  flex-wrap: wrap;
-}
-.header .menu-theme-toggle-item { gap: 12px; }
-.header .accent-swatch { flex-shrink: 0; }
+.header .menu-theme-toggle-item { flex-wrap: wrap; }
 .header li a { overflow-wrap: anywhere; }
 .header .change-theme-btn { flex-shrink: 0; }
 [dir="rtl"] .header .menu {
@@ -371,13 +329,11 @@
     forced-color-adjust: none;
     background: ButtonText;
   }
-  /* These controls communicate actual palette choices through their colors. */
-  .header .accent-swatch { forced-color-adjust: none; }
 }
 
 @media (hover: none), (pointer: coarse) {
   .header li a:hover, .header .menu-icon:hover,
-  .header .change-theme-btn:hover, .header .accent-swatch:hover {
+  .header .change-theme-btn:hover {
     transform: none;
   }
 }
@@ -389,7 +345,7 @@
   .header .menu.menu--open { transition-delay: 0s; }
   .header .menu.menu--instant { transition: none; }
   .header li a:hover, .header .menu-icon:hover,
-  .header .change-theme-btn:hover, .header .accent-swatch:hover {
+  .header .change-theme-btn:hover {
     transform: none;
   }
 }

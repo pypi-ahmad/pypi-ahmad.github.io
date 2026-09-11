@@ -2,7 +2,7 @@
  * Root Application Component
  *
  * Provides the global context wrappers that every page needs:
- *  1. ThemeControllerProvider - mode/accent state and styled-components theme
+ *  1. ThemeControllerProvider - light/dark state and styled-components theme
  *  2. MotionConfig   — Framer Motion respects user's "prefers-reduced-motion" setting
  *  3. GlobalStyles   — CSS reset & body theme styles
  *  4. AnimatedCursor — optional fine-pointer cursor (disabled by default)

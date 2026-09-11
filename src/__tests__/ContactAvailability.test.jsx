@@ -17,12 +17,10 @@ describe("Contact availability", () => {
       .toEqual([expect.objectContaining({ key: "github", href: "https://github.com/example" })]);
   });
 
-  it.each(["light", "dark"].flatMap(mode =>
-    ["blue", "pink", "pink-indigo"].map(accent => [mode, accent])
-  ))("offers a themed way home when all channels are blank: %s/%s", (mode, accent) => {
+  it.each(["light", "dark"])("offers a themed way home when all channels are blank: %s", mode => {
     Object.keys(socialMediaLinks).forEach(key => { socialMediaLinks[key] = " \t "; });
-    const theme = resolveTheme(mode, accent);
-    renderWithProviders(<Contact theme={theme} />, { theme: mode, accent });
+    const theme = resolveTheme(mode);
+    renderWithProviders(<Contact theme={theme} />, { theme: mode });
     expect(screen.getByText("Contact links are currently unavailable.")).toBeVisible();
     expect(screen.getByRole("link", { name: "Return home" })).toHaveAttribute("href", "/home");
     expect(screen.getByRole("link", { name: "Return home" })).toHaveStyle({ color: theme.accentSolid });

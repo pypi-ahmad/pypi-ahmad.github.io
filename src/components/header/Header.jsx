@@ -16,7 +16,6 @@ import { greeting, settings } from "../../portfolio.js";
 import { CgSun } from "react-icons/cg";
 import { HiMoon } from "react-icons/hi";
 import { useThemeController } from "../../themeController";
-import { resolveTheme } from "../../theme";
 import {
   buildThemeBackground,
   buildThemeShadow,
@@ -44,8 +43,7 @@ function Header() {
   const triggerRef = useRef(null);
   const menuId = useId();
   const menuTabIndex = isMenuOpen ? undefined : -1;
-  const { accent, resolvedTheme, setAccent, themeMode, toggleMode } =
-    useThemeController();
+  const { resolvedTheme, themeMode, toggleMode } = useThemeController();
   const location = useLocation();
   const theme = resolvedTheme;
 
@@ -215,40 +213,6 @@ function Header() {
             </li>
           ))}
           <li className="menu-theme-toggle-item">
-            <div
-              className="accent-selector"
-              role="group"
-              aria-label="Accent color"
-            >
-              <span className="accent-selector__label">Accent</span>
-              <button
-                className="accent-swatch accent-swatch--pink"
-                type="button"
-                tabIndex={menuTabIndex}
-                aria-label="Use crimson and pink accent"
-                aria-pressed={accent === "pink"}
-                onClick={() => setAccent("pink")}
-                style={{ background: resolveTheme(themeMode, "pink").accentGradient }}
-              />
-              <button
-                className="accent-swatch accent-swatch--blue"
-                type="button"
-                tabIndex={menuTabIndex}
-                aria-label="Use indigo and navy accent"
-                aria-pressed={accent === "blue"}
-                onClick={() => setAccent("blue")}
-                style={{ background: resolveTheme(themeMode, "blue").accentGradient }}
-              />
-              <button
-                className="accent-swatch accent-swatch--pink-indigo"
-                type="button"
-                tabIndex={menuTabIndex}
-                aria-label="Use dark pink and indigo accent"
-                aria-pressed={accent === "pink-indigo"}
-                onClick={() => setAccent("pink-indigo")}
-                style={{ background: resolveTheme(themeMode, "pink-indigo").accentGradient }}
-              />
-            </div>
             <button
               className="change-theme-btn"
               tabIndex={menuTabIndex}

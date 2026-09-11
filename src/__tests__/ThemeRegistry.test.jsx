@@ -60,10 +60,12 @@ describe("Default theme", () => {
     expect(resolveTheme("unknown").name).toBe("dark");
   });
 
-  it("defaults missing or invalid accents to indigo", () => {
+  it("uses indigo and navy as the only accent", () => {
     expect(DEFAULT_ACCENT).toBe("blue");
     expect(resolveTheme("dark", "unknown").accentStart).toBe("#4F46E5");
     expect(resolveTheme("light", "unknown").accentStart).toBe("#4F46E5");
+    expect(resolveTheme("dark", "retired-preset")).toBe(darkTheme);
+    expect(resolveTheme("light", "retired-preset")).toBe(lightTheme);
   });
 
   it("resolves light and dark modes", () => {
@@ -71,25 +73,8 @@ describe("Default theme", () => {
     expect(resolveTheme("dark").name).toBe("dark");
   });
 
-  it("keeps the pink accent available in both modes", () => {
-    expect(resolveTheme("light", "pink")).toBe(lightTheme);
-    expect(resolveTheme("dark", "pink")).toBe(darkTheme);
-  });
-
   it("keeps identical semantic token keys in both modes", () => {
     expect(Object.keys(lightTheme).sort()).toEqual(Object.keys(darkTheme).sort());
-    expect(Object.keys(resolveTheme("light", "blue")).sort()).toEqual(
-      Object.keys(lightTheme).sort()
-    );
-    expect(Object.keys(resolveTheme("dark", "blue")).sort()).toEqual(
-      Object.keys(darkTheme).sort()
-    );
-    expect(Object.keys(resolveTheme("light", "pink-indigo")).sort()).toEqual(
-      Object.keys(lightTheme).sort()
-    );
-    expect(Object.keys(resolveTheme("dark", "pink-indigo")).sort()).toEqual(
-      Object.keys(darkTheme).sort()
-    );
   });
 
   it.each(["light", "dark"])("resolves the blue accent in %s mode", mode => {
@@ -104,25 +89,6 @@ describe("Default theme", () => {
     expect(theme.heroGradient).toContain("rgba(79, 70, 229");
   });
 
-  it.each(["light", "dark"])(
-    "resolves the dark pink and indigo accent in %s mode",
-    mode => {
-      const theme = resolveTheme(mode, "pink-indigo");
-
-      expect(theme.accentStart).toBe("#BE185D");
-      expect(theme.accentEnd).toBe("#312E81");
-      expect(theme.accentGradient).toBe(
-        "linear-gradient(135deg, #BE185D 0%, #312E81 100%)"
-      );
-      expect(theme.accentSolid).toBe(mode === "light" ? "#9D174D" : "#F9A8D4");
-      expect(theme.heroGradient).toContain("rgba(190, 24, 93");
-      expect(theme.heroGradient).toContain("rgba(49, 46, 129");
-      expect(getContrastRatio(theme.accentSolid, theme.body)).toBeGreaterThanOrEqual(4.5);
-      expect(getContrastRatio(theme.accentText, theme.accentStart)).toBeGreaterThanOrEqual(4.5);
-      expect(getContrastRatio(theme.accentText, theme.accentEnd)).toBeGreaterThanOrEqual(4.5);
-    }
-  );
-
   it.each([
     ["light", lightTheme],
     ["dark", darkTheme],
@@ -136,18 +102,16 @@ describe("Default theme", () => {
     expect(theme.heroGradient).toContain("linear-gradient");
     expect(theme.surfaceRadius).toBe("18px");
     expect(theme.panelBorderStyle).toBe("solid");
-    expect(theme.accentFontFamily).toContain("Google Sans");
+    expect(theme.accentFontFamily).toContain("Manrope");
     expect(theme.separatorColor).toBe(theme.name === "light"
       ? "rgba(201, 215, 234, 0.55)" : "rgba(59, 61, 69, 0.78)");
   });
 });
 
 describe("Rendered surface contrast", () => {
-  const appearances = ["light", "dark"].flatMap(mode =>
-    ["blue", "pink", "pink-indigo"].map(accent => [mode, accent])
-  );
-  it.each(appearances)("%s / %s keeps secondary text readable on cards", (mode, accent) => {
-    const theme = resolveTheme(mode, accent);
+  const modes = ["light", "dark"];
+  it.each(modes)("%s mode keeps secondary text readable on cards", mode => {
+    const theme = resolveTheme(mode);
     expect(getContrastRatio(theme.accentSolid, theme.body)).toBeGreaterThanOrEqual(4.5);
     expect(getContrastRatio(theme.secondaryText, theme.cardBackgroundAlt)).toBeGreaterThanOrEqual(4.5);
     expect(getContrastRatio(theme.secondaryText, theme.bodyAlt)).toBeGreaterThanOrEqual(4.5);
@@ -159,8 +123,8 @@ describe("Rendered surface contrast", () => {
     ).join("");
     expect(getContrastRatio(theme.secondaryText, blended)).toBeGreaterThanOrEqual(4.5);
   });
-  it.each(appearances)("%s / %s keeps labels readable throughout gradients", (mode, accent) => {
-    const theme = resolveTheme(mode, accent);
+  it.each(modes)("%s mode keeps labels readable throughout gradients", mode => {
+    const theme = resolveTheme(mode);
     const start = hexToRgb(theme.accentStart);
     const end = hexToRgb(theme.accentEnd);
     for (let step = 0; step <= 100; step++) {

@@ -27,7 +27,6 @@ try {
     const page = await browser.newPage({ reducedMotion: "reduce" });
     await page.addInitScript(() => {
       localStorage.setItem("theme", "dark");
-      localStorage.setItem("accent", "blue");
     });
     for (const width of [320, 390, 768, 1440, 1920]) {
       await page.setViewportSize({ width, height: 900 });

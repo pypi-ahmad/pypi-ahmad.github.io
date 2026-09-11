@@ -82,7 +82,7 @@ export const GlobalStyles = createGlobalStyle`
     --control-radius: ${({ theme }) => theme.controlRadius ?? "16px"};
     --heading-font-family: ${({ theme }) => theme.accentFontFamily};
     --heading-letter-spacing: ${({ theme }) => resolveHeadingLetterSpacing(theme)};
-    --body-font-family: "Google Sans", -apple-system, BlinkMacSystemFont,
+    --body-font-family: "Inter", -apple-system, BlinkMacSystemFont,
       "Segoe UI", sans-serif;
     --page-gutter: clamp(1rem, 4vw, 2.75rem);
     --stack-sm: 0.75rem;
@@ -407,6 +407,5 @@ export const GlobalStyles = createGlobalStyle`
       outline: 2px solid Highlight;
       box-shadow: none;
     }
-    .accent-swatch[aria-pressed="true"] { outline: 2px solid Highlight; }
   }
 `;

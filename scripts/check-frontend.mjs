@@ -171,12 +171,10 @@ try {
   await inspectContentLayout();
   await inspectMenuLayout();
   for (const mode of ["dark", "light"]) {
-    for (const accent of ["blue", "pink", "pink-indigo"]) {
       const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: "reduce" });
-      await context.addInitScript(({ mode, accent }) => {
+      await context.addInitScript(mode => {
         localStorage.setItem("theme", mode);
-        localStorage.setItem("accent", accent);
-      }, { mode, accent });
+      }, mode);
       const page = await context.newPage();
       for (const route of routes) {
         await page.goto(new URL(`/${route}`, base).href);
@@ -188,12 +186,12 @@ try {
           const summarize = entries => entries.map(v => ({ id: v.id, nodes: v.nodes.map(n => ({ target: n.target, summary: n.failureSummary })) }));
           return { violations: summarize(result.violations), incomplete: summarize(result.incomplete) };
         });
-        findings.push({ route, mode, accent, ...result });
-        if (accent === "blue" && ["home", "contact"].includes(route)) {
+        findings.push({ route, mode, ...result });
+        if (["home", "contact"].includes(route)) {
           await page.screenshot({ path: join(output, `${route}-${mode}.png`), fullPage: true });
         }
         await page.getByRole("button", { name: "Toggle navigation menu" }).click();
-        await assertMenuBounds(page, "ltr", `${route}, ${mode}/${accent}`);
+        await assertMenuBounds(page, "ltr", `${route}, ${mode}`);
         await page.keyboard.press("Escape");
       }
       await page.getByRole("button", { name: "Toggle navigation menu" }).click();
@@ -202,10 +200,9 @@ try {
         const summarize = entries => entries.map(v => ({ id: v.id, nodes: v.nodes.map(n => ({ target: n.target, summary: n.failureSummary })) }));
         return { violations: summarize(result.violations), incomplete: summarize(result.incomplete) };
       });
-      findings.push({ route: "open-header", mode, accent, ...menuResult });
+      findings.push({ route: "open-header", mode, ...menuResult });
       await context.close();
-      console.log(`Checked ${mode}/${accent}.`);
-    }
+      console.log(`Checked ${mode}.`);
   }
   const page = await browser.newPage({ viewport: { width: 320, height: 640 } });
   await page.goto(new URL("/contact", base).href);

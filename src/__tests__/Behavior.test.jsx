@@ -98,77 +98,11 @@ describe("Header — Theme Toggle Behavior", () => {
     expect(localStorage.getItem("theme")).toBe("light");
   });
 
-  it("selects and persists the blue accent independently of mode", async () => {
-    const user = userEvent.setup();
-    renderWithProviders(<Header />);
-
-    await openHeaderMenu(user);
-    await user.click(
-      screen.getByRole("button", { name: "Use indigo and navy accent" }),
-    );
-
-    expect(localStorage.getItem("accent")).toBe("blue");
-    expect(localStorage.getItem("theme")).toBe("dark");
-    expect(
-      screen.getByRole("button", { name: "Use indigo and navy accent" }),
-    ).toHaveAttribute("aria-pressed", "true");
-  });
-
-  it("restores a stored accent and falls back from invalid values", async () => {
-    localStorage.setItem("accent", "blue");
-    const { unmount } = renderWithProviders(<Header />, {
-      useStoredTheme: true,
-    });
-    await openHeaderMenu(userEvent.setup());
-
-    expect(
-      screen.getByRole("button", { name: "Use indigo and navy accent" }),
-    ).toHaveAttribute("aria-pressed", "true");
-
-    unmount();
-    localStorage.setItem("accent", "invalid");
+  it("removes a legacy stored accent", () => {
+    localStorage.setItem("accent", "retired-preset");
     renderWithProviders(<Header />, { useStoredTheme: true });
 
-    expect(localStorage.getItem("accent")).toBe("blue");
-  });
-
-  it("preserves an explicitly stored pink accent", async () => {
-    localStorage.setItem("accent", "pink");
-    renderWithProviders(<Header />, { useStoredTheme: true });
-    await openHeaderMenu(userEvent.setup());
-
-    expect(localStorage.getItem("accent")).toBe("pink");
-    expect(
-      screen.getByRole("button", { name: "Use crimson and pink accent" }),
-    ).toHaveAttribute("aria-pressed", "true");
-  });
-
-  it("selects and persists the dark pink and indigo accent", async () => {
-    const user = userEvent.setup();
-    renderWithProviders(<Header />);
-
-    await openHeaderMenu(user);
-    const accentButton = screen.getByRole("button", {
-      name: "Use dark pink and indigo accent",
-    });
-    await user.click(accentButton);
-
-    expect(localStorage.getItem("accent")).toBe("pink-indigo");
-    expect(localStorage.getItem("theme")).toBe("dark");
-    expect(accentButton).toHaveAttribute("aria-pressed", "true");
-  });
-
-  it("restores a stored dark pink and indigo accent", async () => {
-    localStorage.setItem("accent", "pink-indigo");
-    renderWithProviders(<Header />, { useStoredTheme: true });
-    await openHeaderMenu(userEvent.setup());
-
-    expect(localStorage.getItem("accent")).toBe("pink-indigo");
-    expect(
-      screen.getByRole("button", {
-        name: "Use dark pink and indigo accent",
-      }),
-    ).toHaveAttribute("aria-pressed", "true");
+    expect(localStorage.getItem("accent")).toBeNull();
   });
 });
 // ────────────────────────────────────────────────────────

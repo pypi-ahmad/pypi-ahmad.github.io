@@ -188,11 +188,6 @@ async function inspectInteractions() {
   }));
   assert.equal(await page.locator(".hero-atmosphere").evaluate(node => getComputedStyle(node, "::before").animationName), "none");
 
-  const accents = [
-    ["pink", "Use crimson and pink accent"],
-    ["blue", "Use indigo and navy accent"],
-    ["pink-indigo", "Use dark pink and indigo accent"],
-  ];
   for (const mode of ["dark", "light"]) {
     const menu = page.getByRole("button", { name: "Toggle navigation menu" });
     if (await menu.getAttribute("aria-expanded") === "false") await menu.click();
@@ -207,22 +202,17 @@ async function inspectInteractions() {
       return style.outlineStyle !== "none" && parseFloat(style.outlineWidth) >= 2;
     }), "theme toggle has a visible keyboard focus ring");
     assert.equal(await page.locator(".navicon").evaluate(node => getComputedStyle(node, "::before").transitionDuration), "0s", "reduced menu icon switches without animation");
-    for (const [accent, label] of accents) {
-      await page.getByRole("button", { name: label, exact: true }).click();
-      await page.waitForFunction(expected => localStorage.getItem("accent") === expected, accent);
-      assert.equal(await page.locator("#root").evaluate(node => getComputedStyle(node).opacity), "1", "reduced theme switching does not fade");
-      assert.equal(await page.locator("#root").evaluate(node => getComputedStyle(node).transitionDuration), "0s");
-      await menu.click();
-      await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
-      const screenshot = join(output, `theme-${mode}-${accent}.png`);
-      await page.screenshot({ path: screenshot });
-      report.screenshots.push(screenshot);
-      await menu.click();
-    }
+    assert.equal(await page.locator("#root").evaluate(node => getComputedStyle(node).opacity), "1", "reduced theme switching does not fade");
+    assert.equal(await page.locator("#root").evaluate(node => getComputedStyle(node).transitionDuration), "0s");
+    await menu.click();
+    await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
+    const screenshot = join(output, `theme-${mode}.png`);
+    await page.screenshot({ path: screenshot });
+    report.screenshots.push(screenshot);
   }
   await page.reload();
   await page.locator("main h1").waitFor();
-  assert.deepEqual(await page.evaluate(() => [localStorage.getItem("theme"), localStorage.getItem("accent")]), ["light", "pink-indigo"], "theme choice persists");
+  assert.deepEqual(await page.evaluate(() => [localStorage.getItem("theme"), localStorage.getItem("accent")]), ["light", null], "theme choice persists without a legacy accent");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.getByRole("button", { name: "Toggle navigation menu" }).click();
   await page.getByRole("link", { name: "Contact", exact: true }).click();

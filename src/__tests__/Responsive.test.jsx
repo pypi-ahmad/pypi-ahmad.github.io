@@ -80,14 +80,12 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     expect(toggleBtn).toBeInTheDocument();
   });
 
-  it("accent selector is inside the menu and exposes three touch-sized choices", async () => {
+  it("keeps the obsolete accent selector out of the menu", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
-    const choices = screen.getByRole("group", { name: "Accent color" }).querySelectorAll("button");
 
-    expect(choices).toHaveLength(3);
-    choices.forEach(choice => expect(choice).toHaveClass("accent-swatch"));
+    expect(screen.queryByRole("group", { name: "Accent color" })).not.toBeInTheDocument();
   });
 
   it("keeps Contact and mode toggle in the correct final order", async () => {
