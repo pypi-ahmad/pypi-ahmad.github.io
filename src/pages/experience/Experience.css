@@ -7,7 +7,7 @@
 }
 
 .experience-hero { margin-top: 1.5rem; padding: clamp(1.5rem, 5vw, 4rem); }
-.experience-eyebrow { margin: 0 0 1rem; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.experience-eyebrow { margin: 0 0 1rem; font-size: 1.35rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 .experience-hero h1 { max-width: 1000px; margin: 0; font-size: clamp(2rem, 4vw, 2.5rem); line-height: 1.4; letter-spacing: -0.025em; }
 .experience-intro { max-width: 65ch; margin: 1.5rem 0 0; font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.6; }
 .experience-timeline { padding: var(--section-spacing) 0; }
