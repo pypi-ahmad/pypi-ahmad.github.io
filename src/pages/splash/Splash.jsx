@@ -2,7 +2,8 @@
  * Splash — Animated loading screen.
  *
  * Shows a brief loading-mark fade until the page finishes loading,
- * then redirects to /home.  Enabled when `settings.isSplash` is true.
+ * then redirects to /home. Root entry is gated by `settings.isSplash`;
+ * direct visits to /splash always use this component.
  * Falls back to redirect after 3 seconds if the load event doesn't fire.
  */
 import { useState, useEffect } from "react";
@@ -34,8 +35,9 @@ function Splash() {
     let timeoutId;
     
     const handleLoad = () => {
-      // Small delay for smooth transition
-      timeoutId = setTimeout(() => setRedirect(true), 1000); 
+      // Loading readiness wins over the fallback; no minimum display duration is imposed.
+      clearTimeout(timeoutId);
+      setRedirect(true);
     };
 
     if (document.readyState === 'complete') {

@@ -71,7 +71,8 @@ describe("Page Rendering Smoke Tests", () => {
   it("Education page renders the credential positioning", () => {
     renderWithProviders(<Education {...pageProps} />);
     expect(screen.getByText("Education & credentials")).toBeInTheDocument();
-    expect(screen.getByText("Professional certifications")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "Professional certification" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "Course certificates" })).toBeInTheDocument();
   });
 
   it("Contact page renders its contact-first hero", () => {

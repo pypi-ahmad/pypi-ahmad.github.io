@@ -54,6 +54,7 @@ jobs:
           path: ./build
 
   deploy:
+    # Publish only the artifact produced by the successful build-and-test job above.
     needs: build
     runs-on: ubuntu-latest
     environment:

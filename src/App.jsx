@@ -2,7 +2,7 @@
  * Root Application Component
  *
  * Provides the global context wrappers that every page needs:
- *  1. ThemeProvider  — styled-components theme (light/dark), persisted in localStorage
+ *  1. ThemeControllerProvider - mode/accent state and styled-components theme
  *  2. MotionConfig   — Framer Motion respects user's "prefers-reduced-motion" setting
  *  3. GlobalStyles   — CSS reset & body theme styles
  *  4. AnimatedCursor — optional fine-pointer cursor (disabled by default)
@@ -20,7 +20,7 @@ import { MotionConfig } from "framer-motion";
 import { ThemeControllerProvider, useThemeController } from "./themeController";
 
 function AppContent() {
-  // Initialize Google Analytics (only when a tracking ID is configured)
+  // An empty tracking ID keeps local and public browsing free of analytics calls.
   useEffect(() => {
     if (settings.googleTrackingID) {
       ReactGA.initialize(settings.googleTrackingID);

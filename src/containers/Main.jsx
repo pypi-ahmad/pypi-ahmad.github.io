@@ -10,7 +10,7 @@
  *  /home        — Home page
  *  /experience  — Work experience
  *  /education   — Degrees & certifications
- *  /contact     — Contact information & blog
+ *  /contact     - Contact channels and availability
  *  /splash      — Loading splash screen
  *  /projects    — Recent open-source projects
  *  /skills      — Applied AI capabilities, evidence, and toolkit
@@ -19,7 +19,7 @@
  *
  * Props: { theme }
  */
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import {
@@ -103,22 +103,32 @@ function withRouteMeta(meta, element) {
   );
 }
 
+function RouteFallback({ setPending }) {
+  // The status region lives outside Suspense so loading and cancellation share one announcement.
+  useEffect(() => {
+    setPending(true);
+    return () => setPending(false);
+  }, [setPending]);
+
+  return (
+    <main style={routeFallbackStyle} aria-label="Loading page" aria-busy="true">
+      Loading page…
+    </main>
+  );
+}
+
 export default function Main(props) {
+  const [pending, setPending] = useState(false);
+  // Disabling router transitions exposes the fallback instead of retaining the old page under a new URL.
   return (
     <div>
       <HelmetProvider>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename="/" useTransitions={false}>
+          <div className="route-loading-status" role="status" aria-live="polite" aria-atomic="true">
+            {pending ? "Loading page…" : ""}
+          </div>
           <Suspense
-            fallback={(
-              <div
-                style={routeFallbackStyle}
-                role="status"
-                aria-live="polite"
-                aria-busy="true"
-              >
-                Loading page...
-              </div>
-            )}
+            fallback={<RouteFallback setPending={setPending} />}
           >
             <RouteNavigation />
             <Routes>

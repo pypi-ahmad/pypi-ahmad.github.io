@@ -30,7 +30,7 @@ describe("Home hero", () => {
     expect(within(outcomes).getByText("38% to 80%")).toBeInTheDocument();
     expect(within(outcomes).getByText("~40% lower")).toBeInTheDocument();
     expect(
-      within(outcomes).getByText("80% to 81%, then above 90%")
+      within(outcomes).getByText("80–81% to above 90%")
     ).toBeInTheDocument();
     expect(within(outcomes).getByText("90% to 99%")).toBeInTheDocument();
     expect(within(outcomes).getByText("95%+")).toBeInTheDocument();

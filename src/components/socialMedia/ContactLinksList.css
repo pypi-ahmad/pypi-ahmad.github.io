@@ -6,12 +6,14 @@
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* Clamp the preferred card minimum to its container so narrow or enlarged-text layouts still fit. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
   gap: 12px;
   text-align: start;
 }
 
 .contact-links-item {
+  min-inline-size: 0;
   margin: 0;
   height: 100%;
 }
@@ -33,7 +35,7 @@
 
 .contact-links-anchor:hover,
 .contact-links-anchor:focus-visible {
-  background-color: var(--focus-shadow);
+  background-color: var(--accent-hover);
   border-color: var(--border);
   transform: translateY(-1px);
 }
@@ -73,6 +75,8 @@
 }
 
 .contact-links-content {
+  /* A zero flex basis lets long descriptions share the row with the fixed-width icon. */
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -81,6 +85,7 @@
 }
 
 .contact-links-desc {
+  overflow-wrap: anywhere;
   font-size: 0.875rem;
   font-weight: 400;
   opacity: 1;
@@ -88,7 +93,7 @@
 
 @media (max-width: 768px) {
   .contact-links-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .contact-links-anchor {

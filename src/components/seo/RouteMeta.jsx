@@ -12,6 +12,7 @@ function normalizePath(pathname) {
   const withLeadingSlash = pathname.startsWith("/") ? pathname : `/${pathname}`;
   const normalized = withLeadingSlash.replace(/\/+$/, "");
 
+  // Both home routes describe one document; a single canonical path avoids duplicate identities.
   if (normalized === "" || normalized === "/home") {
     return "/";
   }

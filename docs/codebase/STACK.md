@@ -26,12 +26,15 @@
 
 | Tool | Purpose | Evidence |
 | --- | --- | --- |
-| Vite, React plugin, SVGR | Development server, production build, SVG imports | `vite.config.js` |
+| Vite and React plugin | Development server, production build, JSX transform | `vite.config.js` |
 | ESLint | JavaScript and JSX linting | `eslint.config.js` |
 | TypeScript | No-emit compatibility checking | `tsconfig.typecheck.json` |
 | Vitest, Testing Library, jsdom | Component and behavior tests | `vitest.config.js`, `src/__tests__/` |
 | axe-core, jest-axe, Playwright | Accessibility and Chromium browser checks | `scripts/check-frontend.mjs`, `.github/workflows/ci.yml` |
 | Prettier | Available formatter; no formatting script is declared | `package.json` |
+
+Both Vite and Vitest configure only the React plugin. PNG/SVG images are static
+assets served from `public/`; the current code has no SVG-to-React import transform.
 
 ## 4) Key Commands
 

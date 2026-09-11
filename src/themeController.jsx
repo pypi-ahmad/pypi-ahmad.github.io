@@ -26,6 +26,7 @@ function normalizeAccent(accent) {
 }
 
 export function parseStoredThemeMode(rawTheme) {
+  // Accept both plain mode strings and older JSON values without trusting stored object shapes.
   if (rawTheme === "light" || rawTheme === "dark") {
     return rawTheme;
   }
@@ -83,6 +84,7 @@ export function ThemeControllerProvider({
   const resolvedTheme = resolveTheme(themeMode, accent);
 
   const suppressTransitions = useCallback(() => {
+    // Retargeting cancels earlier cleanup frames so rapid changes cannot leave transitions disabled.
     transitionFrames.current.forEach(cancelAnimationFrame);
     transitionFrames.current = [];
     if (!transitionStyle.current) {
@@ -91,7 +93,7 @@ export function ThemeControllerProvider({
       document.head.append(style);
       transitionStyle.current = style;
     }
-    // Commit the override before React applies new theme tokens.
+    // Commit the override before React applies new theme tokens; two frames then restore normal feedback.
     void document.body.offsetHeight;
     transitionFrames.current = [
       requestAnimationFrame(() => {

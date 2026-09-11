@@ -1,22 +1,26 @@
 /**
  * Contact Page (/contact)
  *
- * Contact-first hero and verified channel list.
+ * Contact-first hero and configured channel list.
  *
  * Props: { theme }
  */
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import ContactLinksList from "../../components/socialMedia/ContactLinksList";
+import ContactLinksList, { buildContactItems } from "../../components/socialMedia/ContactLinksList";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./ContactComponent.css";
-import { contactPageData, socialMediaLinks } from "../../portfolio.js";
+import { contactPageData } from "../../portfolio.js";
 import { buildThemeBackground, buildThemeShadow, revealMotion } from "../../themeMotion";
 
 const ContactData = contactPageData.contactSection;
 
 function Contact(props) {
   const theme = props.theme;
+  const items = buildContactItems();
+  // Derive the primary action from the same filtered list to avoid an empty mailto link.
+  const email = items.find(item => item.key === "email");
 
   return (
     <div className="contact-main">
@@ -41,17 +45,17 @@ function Contact(props) {
           <motion.p {...revealMotion(1, true)} className="contact-intro" style={{ color: theme.secondaryText }}>
             {ContactData.description}
           </motion.p>
-          <motion.div {...revealMotion(2, true)} className="contact-actions">
+          {email && <motion.div {...revealMotion(2, true)} className="contact-actions">
             <a
               className="contact-action contact-action--primary"
-              href={`mailto:${socialMediaLinks.gmail}`}
+              href={email.href}
               style={{ background: theme.accentGradient, color: theme.accentText }}
             >
               {ContactData.emailLabel}
             </a>
-          </motion.div>
+          </motion.div>}
         </section>
-        <section
+        {items.length > 0 ? <section
           className="contact-channels"
           aria-labelledby="contact-channels-title"
         >
@@ -60,8 +64,11 @@ function Contact(props) {
               {ContactData.channelsTitle}
             </h2>
           </motion.div>
-          <ContactLinksList theme={theme} />
-        </section>
+          <ContactLinksList theme={theme} items={items} />
+        </section> : <section className="contact-channels" aria-label="Contact availability">
+          <p>Contact links are currently unavailable.</p>
+          <Link to="/home" style={{ color: theme.accentSolid }}>Return home</Link>
+        </section>}
       </main>
       <Footer theme={props.theme} />
     </div>

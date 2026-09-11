@@ -1,6 +1,9 @@
 import "./CertificationCard.css";
 
-function CertificationCard({ certificate, theme }) {
+// Credentials can expose verification, a PDF, or both; missing optional fields must stay absent.
+function CertificationCard({ certificate, theme, headingLevel = 4 }) {
+  const Title = headingLevel === 3 ? "h3" : "h4";
+
   return (
     <article
       className="cert-card layer-card shadow-sm hover-shadow-lg"
@@ -15,7 +18,9 @@ function CertificationCard({ certificate, theme }) {
           <p className="cert-card__issuer" style={{ color: theme.accentSolid }}>
             {certificate.subtitle}
           </p>
-          <h4 style={{ color: theme.text }}>{certificate.title}</h4>
+          <Title className="cert-card__title" style={{ color: theme.text }}>
+            {certificate.title}
+          </Title>
         </div>
         {certificate.badgeImagePath ? (
           <img

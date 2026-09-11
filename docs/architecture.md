@@ -13,8 +13,9 @@ flowchart LR
   visitor[Visitor] --> browser[React application in browser]
   contributor[Contributor] --> source[Repository source and content]
   source --> ci[GitHub Actions CI]
+  source --> deploy[GitHub Pages deployment workflow]
   source --> vercel[Vercel build]
-  ci --> pages[GitHub Pages]
+  deploy --> pages[GitHub Pages]
   pages --> browser
   vercel --> browser
   browser --> github[Public GitHub repositories]
@@ -61,19 +62,61 @@ Project entries keep this shape:
 
 Changing one of the first four entries changes both project-page order and homepage selection. Update contract tests with any deliberate reorder.
 
+Skills resolves its evidence projects by exact name from the same catalog.
+Home and Skills share `homePageData.outcomes`; a contract test compares their
+metrics with Experience. This checks internal consistency, not independent
+verification of career claims. Keep employer scope and contribution qualifiers.
+
 ## Routing, metadata, and static hosting
 
 React Router handles `/`, `/home`, `/experience`, `/education`, `/projects`, `/skills`, `/contact`, `/splash`, and the catch-all page. Each route is paired with `RouteMeta`, which manages its title, description, canonical URL, robots rule, Open Graph tags, and Twitter tags.
 
-Both `/` and `/home` render the homepage. Metadata normalizes `/home` to the canonical root URL. The production build copies `index.html` to `404.html` for GitHub Pages route recovery. It also creates `build/<route>/index.html` for `home`, `experience`, `education`, `contact`, `splash`, `projects`, and `skills` so direct requests for those routes return HTTP 200.
+With the committed `isSplash: false`, both `/` and `/home` render the homepage.
+Setting it to `true` routes `/` through Splash. A direct `/splash` visit always
+uses Splash: document readiness or the `load` event triggers replacement with
+`/home`, with a three-second fallback and no minimum display delay.
+
+Metadata normalizes `/home` to the canonical root URL. The production build copies
+`index.html` to `404.html` for GitHub Pages route recovery. It also creates
+`build/<route>/index.html` for `home`, `experience`, `education`, `contact`, `splash`,
+`projects`, and `skills` so known direct routes have static HTML entry files.
+These are copies of the client shell, not server-rendered route content.
 
 `index.html` supplies fallback metadata before React loads. Its JSON-LD describes a `ProfilePage` whose main entity is Ahmad Mujtaba. When homepage positioning changes, update both fallback metadata and runtime route metadata.
+
+`Main` disables router transitions so a delayed lazy route displays its fallback
+instead of retaining the previous page under the new URL. A polite status region
+outside Suspense announces loading. `RouteNavigation` runs after the destination
+commits and focuses its main landmark on pathname changes. Initial and hash-only
+navigation retain native focus behavior and skip the application's scroll reset.
+POP/history and cross-route fragment navigation also skip that reset, but still
+focus the main landmark when the pathname changes. This does not implement or
+guarantee browser scroll restoration.
+
+Render failures replace the interface with `ErrorBoundary`'s named main landmark.
+The boundary focuses its error heading and provides a Refresh button that reloads
+the document. It does not report errors to a remote service.
+
+Contact filters empty and whitespace-only channel values before rendering.
+The primary email action comes from that filtered list. With no available channels,
+the page displays an unavailable message and Return home; it does not emit a blank
+`mailto:` link or empty channel instructions.
 
 ## Light/dark modes and accents
 
 `src/themeController.jsx` reads mode and accent from separate `localStorage` keys, migrates older family-and-mode objects, and resolves their combined semantic token set. Invalid or missing values fall back to dark mode and the indigo-to-navy accent. `src/theme.js` keeps surface tokens stable while switching accent tokens among crimson-to-pink, indigo-to-navy, and dark-pink-to-indigo variants.
 
 Components should use semantic tokens such as text, secondary text, card background, border, and accent so both modes remain readable. Interactive components also need visible focus states and reduced-motion behavior.
+
+`GlobalStyles` exports `separatorColor` as `--separator` and `shadowColor` as
+`--shadow-color` for header CSS. Swatch gradients come from
+`resolveTheme(themeMode, preset).accentGradient`. Filled primary actions stay
+opaque while pressed; Contact's primary hover does not apply a brightness filter.
+
+Mode/accent changes briefly suppress CSS transitions while applying tokens and
+restore them after two animation frames. Rapid changes cancel earlier cleanup
+frames; unmounting removes the override. Malformed stored values normalize to
+defaults, but storage access exceptions are not caught by the theme controller.
 
 ## Design decisions
 
@@ -107,7 +150,12 @@ Canonical metadata points to `https://pypi-ahmad.github.io/`. Deployment runs fr
 
 The typecheck configuration allows JavaScript but sets `checkJs` to `false`. It verifies module and configuration compatibility, not complete static typing for every JavaScript expression.
 
-CI runs install, lint, typecheck, build, threshold-enforced V8 coverage, and Chromium browser/accessibility checks for pushes and pull requests targeting `main`. The deployment workflow builds and tests before uploading the GitHub Pages artifact. It does not run coverage or browser checks, so CI remains the full quality gate.
+CI runs install, lint, typecheck, build, threshold-enforced V8 coverage, and Chromium
+browser/accessibility checks for pushes and pull requests targeting `main`.
+The separate deployment workflow runs install, lint, typecheck, build, and
+`test:run` before uploading the GitHub Pages artifact. It does not run coverage
+or browser checks and does not wait on CI. Required-check enforcement depends
+on repository settings.
 
 ## Safe change map
 
@@ -116,7 +164,9 @@ CI runs install, lint, typecheck, build, threshold-enforced V8 coverage, and Chr
 | Homepage wording or outcomes | `src/data/homePage.js` | Home rendering and content-contract tests |
 | Project order or copy | `src/data/projects.js` | Projects data test and homepage top four |
 | Route or canonical URL | `src/containers/Main.jsx` | Route metadata, direct build paths, sitemap |
-| Theme tokens or persistence | `src/theme.js`, `src/themeController.jsx` | Mode/accent resolution, persistence, and stored-mode migration |
+| Theme tokens or persistence | `src/theme.js`, `src/themeController.jsx` | All six appearances, header swatches, press contrast, rapid changes, and stored-mode migration |
+| Contact availability | `src/data/socialMedia.js` | Hidden email action, whitespace-only values, and all-empty recovery |
+| Loading or failure recovery | `src/containers/Main.jsx`, `src/components/ErrorBoundary.jsx` | Delayed/rejected route, cancellation, focus, and Refresh |
 | Fallback SEO | `index.html` | Runtime metadata remains consistent |
 
 Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for branch, commit, and pull-request procedure. Keep content claims tied to committed public sources or approved sanitized work notes.
@@ -126,7 +176,8 @@ Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for branch, commit, and pull-reques
 - BrowserRouter depends on generated static fallbacks for direct GitHub Pages requests.
 - Portfolio data has test coverage but no runtime schema validator.
 - JavaScript checking is limited by `checkJs: false`.
-- Visual changes require checks in both light and dark modes.
+- Visual changes require checks in all three accents and both light/dark modes.
+- Browser storage-access exceptions are not handled as recoverable preference defaults.
 - Astro architecture does not exist in the current application.
 
 ## Evidence index

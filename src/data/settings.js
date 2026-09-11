@@ -5,8 +5,10 @@
  * Edit these values to enable/disable features without touching component code.
  */
 export const settings = {
-  isSplash: false, // Change this to true if you want to use the splash screen.
-  useCustomCursor: false, // Use the browser's native cursor.
+  // This controls root entry and the brand link, not direct access to /splash.
+  isSplash: false,
+  // Keep the native cursor unless the optional fine-pointer enhancement is explicitly enabled.
+  useCustomCursor: false,
   // GA4 Measurement ID format: G-XXXXXXXXXX
   googleTrackingID: "",
 };

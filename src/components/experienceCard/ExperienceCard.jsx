@@ -14,9 +14,11 @@ function DetailList({ title, items, theme }) {
 }
 
 export default function ExperienceCard({ experience, theme }) {
+  // Appending alpha bytes is valid only for six-digit hex colors; other forms use the theme border.
   const borderColor = /^#([0-9a-f]{6})$/i.test(experience.color)
     ? `${experience.color}55`
     : theme.borderSoft;
+  // Featured roles separate team context from personal contributions; older roles use descriptions.
   const isFeatured = Boolean(experience.systemContext);
 
   return (

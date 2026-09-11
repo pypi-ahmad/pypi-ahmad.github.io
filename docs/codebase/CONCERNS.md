@@ -8,6 +8,7 @@
 | Medium | No runtime schema validation for portfolio data | `src/data/`, `src/portfolio.js` | Manual content edits can break views late | Keep data-contract tests current; add validation only if editing becomes frequent |
 | Low | JavaScript type checking is limited | `tsconfig.typecheck.json` | Some runtime-shape mistakes evade `tsc` | [ASK USER] decide whether stronger JS checking or TypeScript migration is desired |
 | Low | No application error telemetry | `src/components/ErrorBoundary.jsx` | Production render failures are visible only to visitors | [ASK USER] decide whether privacy-preserving client error reporting is wanted |
+| Low | localStorage access errors are not caught | `src/themeController.jsx` | Blocked storage can interrupt theme initialization or persistence | Add denied-storage tests before deciding on a persistence fallback |
 
 ## 2) Technical Debt
 
@@ -15,7 +16,7 @@
 | --- | --- | --- | --- | --- |
 | Styling has two systems | Co-located CSS and styled-components coexist | `src/**/*.css`, `src/global.js` | Visual rules can drift across theme-aware and legacy areas | Preserve local pattern; plan a migration only with a design-system goal |
 | Manual deployment route remains | `gh-pages` script remains beside Actions deployment | `package.json`, `.github/workflows/deploy.yml` | Publication behavior can diverge | Resolve the architectural [ASK USER] decision in `ARCHITECTURE.md` |
-| Large static asset collection | 88 files total about 11.6 MB | `public/`, scan output | Slow cold loads if many assets are requested | Measure production asset usage before compression/removal work |
+| Static asset collection | Local inventory on 2026-09-12: 55 files, about 8.5 MB | `public/` | Vite copies all public files; browser transfer depends on which assets are requested | Measure actual requests before compression/removal work; preserve published asset URLs |
 
 ## 3) Security and Reliability Gaps
 

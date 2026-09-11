@@ -44,7 +44,7 @@
   margin: 0;
   font-family: var(--heading-font-family);
   font-size: clamp(1.25rem, 2vw, 1.55rem);
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 .degree-card__institution {
@@ -55,7 +55,7 @@
 
 .degree-card__coursework {
   margin: 1.25rem 0;
-  padding-left: 1.2rem;
+  padding-inline-start: 1.2rem;
   line-height: 1.65;
 }
 
@@ -79,7 +79,7 @@
 
 @media (max-width: 640px) {
   .degree-card {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
   }
 

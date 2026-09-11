@@ -13,6 +13,7 @@ function resolveHeadingLetterSpacing(theme) {
     : theme.accentLetterSpacing;
 }
 
+// CSS variables bridge styled-components themes into the plain CSS used by page and card components.
 export const GlobalStyles = createGlobalStyle`
   :root {
     --theme-transition-fast: 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -63,6 +64,8 @@ export const GlobalStyles = createGlobalStyle`
     --text-secondary: ${({ theme }) => theme.secondaryText};
     --card: ${({ theme }) => theme.cardBackgroundAlt ?? theme.projectCard};
     --border: ${({ theme }) => theme.borderSoft ?? theme.borderColor};
+    --separator: ${({ theme }) => theme.separatorColor};
+    --shadow-color: ${({ theme }) => theme.shadowColor};
     --accent: ${({ theme }) => theme.accentGradient};
     --accent-solid: ${({ theme }) => theme.accentSolid};
     --accent-text: ${({ theme }) => theme.accentText};
@@ -118,10 +121,11 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 0 var(--stack-sm);
     color: var(--text-primary);
     font-family: var(--heading-font-family);
-    line-height: 1.08;
+    line-height: 1.4;
     font-weight: 700;
     letter-spacing: var(--heading-letter-spacing);
     text-wrap: balance;
+    overflow-wrap: anywhere;
   }
 
   p {
@@ -323,18 +327,34 @@ export const GlobalStyles = createGlobalStyle`
   @media (max-width: 768px) {
     html,
     body {
-      overflow-x: hidden;
       width: 100%;
     }
   }
 
-  p, li { overflow-wrap: break-word; }
+  .route-loading-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  p, li, main a, main span, main strong { overflow-wrap: anywhere; }
+  main :is(a, button) { max-inline-size: 100%; }
   img { outline: 1px solid var(--image-outline); outline-offset: -1px; }
   a { text-underline-position: from-font; text-decoration-thickness: from-font; }
 
   :is(button, .button, .contact-action, .projects-github-link,
       .education-projects-link, .not-found-link, .skills-cta-actions a, .motion-action):active {
     opacity: 0.88;
+  }
+  :is(.hero-actions .button:not(.button-secondary), .motion-action,
+      .projects-github-link, .education-projects-link,
+      .skills-cta-actions a:first-child, .contact-action--primary,
+      .not-found-link):active {
+    opacity: 1;
   }
   @media (prefers-reduced-motion: no-preference) {
     :is(button, .button, .contact-action, .projects-github-link,
@@ -351,12 +371,12 @@ export const GlobalStyles = createGlobalStyle`
       background-color var(--theme-transition-colors),
       color var(--theme-transition-colors);
   }
-  a:is(.project-card, .contact-links-anchor, .degree-card__link, .cert-card__actions a):active:not(:focus-visible) {
+  a:is(.degree-card__link, .cert-card__actions a):active:not(:focus-visible) {
     opacity: 0.88;
   }
   @media (prefers-reduced-motion: no-preference) {
     a:is(.project-card, .contact-links-anchor, .degree-card__link, .cert-card__actions a):active:not(:focus-visible) {
-      transform: scale(0.97);
+      transform: scale(0.96);
     }
   }
   @media (hover: none), (pointer: coarse) {

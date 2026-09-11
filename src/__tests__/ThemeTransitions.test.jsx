@@ -11,6 +11,7 @@ function RapidThemeToggle() {
   return (
     <button
       onClick={() => {
+        // A batched round trip can leave the mode unchanged while cleanup is still needed.
         toggleMode();
         toggleMode();
       }}
@@ -41,6 +42,7 @@ it("restores transitions even when rapid toggles leave the mode unchanged", () =
   expect(localStorage.getItem("theme")).toBe("dark");
   expect(overrides()).toHaveLength(1);
   for (let frame = 0; frame < 2; frame++) {
+    // Snapshot before invoking: callbacks scheduled here belong to the next frame.
     const callbacks = [...frames.values()];
     frames.clear();
     act(() => callbacks.forEach((callback) => callback(0)));

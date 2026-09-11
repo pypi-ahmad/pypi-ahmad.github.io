@@ -1,9 +1,8 @@
 /**
  * Responsiveness Tests
  *
- * Verifies viewport-dependent rendering: hamburger menu visibility,
- * CSS class presence for responsive layouts, and mobile-specific
- * element behavior.
+ * Verifies disclosure semantics and responsive class hooks. The same
+ * navigation disclosure is used on mobile and desktop.
  *
  * Note: jsdom does not implement layout, so these tests verify DOM structure
  * and CSS class application rather than computed pixel values. True visual

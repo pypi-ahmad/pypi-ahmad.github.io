@@ -1,7 +1,7 @@
 /**
  * Header.css — Always-dropdown navigation styles.
  *
- * The header now shows a single hamburger button in the top-right.
+ * The header uses one hamburger button at every viewport width.
  * All navigation items, including the site label, live inside the
  * dropdown panel opened by that button.
  */
@@ -19,6 +19,30 @@
   border: 1px solid transparent;
   border-radius: 28px;
   box-sizing: border-box;
+}
+
+.header .skip-link {
+  transition: none;
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link:focus-visible {
+  inset-inline-start: 12px;
+  inline-size: auto;
+  block-size: auto;
+  max-inline-size: calc(100% - 24px);
+  padding: 0.5rem;
+  overflow: visible;
+  clip-path: none;
+  white-space: normal;
+  background: var(--surface-card);
+  color: var(--accent-solid);
+  z-index: 1;
 }
 
 .header ul {
@@ -59,7 +83,7 @@
 .header .menu-brand-item {
   margin-bottom: 4px;
   padding-bottom: 6px;
-  border-bottom: 1px solid var(--border-soft, rgba(148, 163, 184, 0.2));
+  border-bottom: 1px solid var(--separator);
 }
 
 .menu {
@@ -127,20 +151,8 @@
   cursor: pointer;
   border: 2px solid transparent;
   border-radius: 50%;
-  box-shadow: 0 8px 18px var(--shadow-color, rgba(0, 0, 0, 0.18));
+  box-shadow: 0 8px 18px var(--shadow-color);
   transition: transform 0.2s ease, border-color var(--theme-transition-fast), box-shadow var(--theme-transition-medium);
-}
-
-.accent-swatch--pink {
-  background: linear-gradient(135deg, #BE123C 0%, #C026D3 100%);
-}
-
-.accent-swatch--blue {
-  background: linear-gradient(135deg, #4F46E5 0%, #1E3A8A 100%);
-}
-
-.accent-swatch--pink-indigo {
-  background: linear-gradient(135deg, #BE185D 0%, #312E81 100%);
 }
 
 .accent-swatch:hover {
@@ -306,8 +318,8 @@
   }
 }
 
-/* Mounted disclosure transitions reverse from the current presentation value.
-   hidden/inert and tabIndex also protect closed links in older browsers. */
+/* Keep the panel mounted to reverse an interrupted transition from its current position.
+   CSS overrides hidden's display rule; inert, aria-hidden and tabIndex guard closed controls. */
 .header .menu,
 .header .menu[hidden] {
   display: flex;

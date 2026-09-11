@@ -11,7 +11,7 @@
 .projects-hero {
   margin-top: 1.5rem;
   padding: clamp(1.5rem, 5vw, 4rem);
-  text-align: left;
+  text-align: start;
 }
 
 .projects-eyebrow {
@@ -25,7 +25,7 @@
 .projects-hero h1 {
   margin: 0;
   font-size: clamp(2.5rem, 6vw, 4.75rem);
-  line-height: 1.1;
+  line-height: 1.4;
   letter-spacing: -0.025em;
 }
 
@@ -82,7 +82,7 @@
 .projects-section-heading p {
   max-width: 460px;
   line-height: 1.6;
-  text-align: right;
+  text-align: end;
 }
 
 .repo-cards-div-main {
@@ -119,12 +119,16 @@
   }
 
   .projects-section-heading p {
-    text-align: left;
+    text-align: start;
   }
 
   .repo-cards-div-main > .project-card-wrap,
   .repo-cards-div-main > .project-card-wrap--priority {
     grid-column: 1 / -1;
+  }
+  .repo-cards-div-main {
+    /* Collapse tracks as well as spans; twelve tracks would retain eleven gaps on mobile. */
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

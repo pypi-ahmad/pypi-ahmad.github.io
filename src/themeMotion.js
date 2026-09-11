@@ -12,6 +12,7 @@ const revealViewport = { once: true, amount: "some" };
 
 /** Shared entrances; CSS also exposes content when motion preferences change. */
 export function revealMotion(index = 0, onMount = false) {
+  // CSS also handles preference changes after mount; this snapshot controls the initial motion props.
   const reduced = typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const mobile = typeof window !== "undefined" &&
@@ -24,6 +25,7 @@ export function revealMotion(index = 0, onMount = false) {
       whileInView: revealTarget,
       viewport: revealViewport,
     }),
+    // Cap stagger so long lists do not make later items wait progressively longer.
     transition: {
       duration: reduced ? 0 : mobile ? 0.25 : 0.4,
       delay: reduced || mobile ? 0 : Math.min(Math.max(index, 0), 3) * 0.06,

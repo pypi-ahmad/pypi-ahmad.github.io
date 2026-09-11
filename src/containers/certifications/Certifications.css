@@ -1,10 +1,17 @@
+.professional-certification-body {
+  display: grid;
+  grid-template-columns: minmax(0, 52rem);
+}
+
 .certification-groups {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 3.5rem);
 }
 
 .certification-group-heading {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
@@ -37,6 +44,6 @@
 
 @media (max-width: 680px) {
   .certs-body-div {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }

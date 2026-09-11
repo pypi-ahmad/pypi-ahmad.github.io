@@ -36,7 +36,7 @@ const WorkGrid = styled.div`
   }
 
   @media (max-width: 560px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 `;
 
@@ -56,6 +56,7 @@ const WorkCard = styled(motion.article)`
 
 const Closing = styled(motion.div)`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
   align-items: center;
@@ -80,7 +81,7 @@ const Closing = styled(motion.div)`
 `;
 
 const ContactLink = styled(Link)`
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   padding: 0.8rem 1.25rem;
   border-radius: ${props => props.theme.controlRadius};
   background: ${props => props.theme.accentGradient};

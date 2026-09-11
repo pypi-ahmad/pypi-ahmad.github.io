@@ -3,9 +3,9 @@
  *
  * Two layers:
  *  1. Structural WCAG checks — semantic HTML, ARIA attributes, roles
- *  2. axe-core automated scan — catches a11y violations (WCAG 2.1 AA)
+ *  2. axe-core automated scan - checks enabled rules on isolated components
  *
- * Sources: All page/component files audited in Phase 4.
+ * These jsdom checks do not measure rendered contrast or certify WCAG conformance.
  */
 import React from "react";
 import { screen } from "@testing-library/react";

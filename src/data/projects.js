@@ -1,6 +1,6 @@
 /**
  * Recent public projects, ordered by portfolio priority.
- * Each entry keeps the compact ProjectCard contract.
+ * Home selects the first four entries; Skills references entries by exact name.
  */
 export const projectsHeader = {
   title: "Projects",

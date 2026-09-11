@@ -8,6 +8,7 @@ const styles = new Map();
 let checks = 0;
 
 async function snapshot(page, route) {
+  // Font loading must settle before comparing computed geometry across development and production CSS.
   await page.locator(route === "home" ? ".greeting-text" : `.${route}-hero h1`).waitFor();
   await page.evaluate(() => document.fonts.ready);
   return page.evaluate(() => {
@@ -36,7 +37,7 @@ try {
         const key = `${width}/${route}`;
         const expectedSize = Math.max(40, Math.min(width * 0.06, route === "home" ? 84 : 76));
         assert.ok(Math.abs(parseFloat(direct[0].fontSize) - expectedSize) < 0.01, `${key}: heading scale`);
-        const leading = width <= 480 && route !== "projects" ? 1.4 : 1.1;
+        const leading = 1.4;
         assert.ok(Math.abs(parseFloat(direct[0].lineHeight) - expectedSize * leading) < 0.01, `${key}: heading leading`);
         if (direct[2]) {
           assert.equal(direct[2].fontSize, "12px", `${key}: category size`);

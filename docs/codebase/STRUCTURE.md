@@ -20,6 +20,10 @@ Generated or local-tool directories such as `build/`, `node_modules/`, `.codegra
 - Main runtime: `index.html` supplies `#root`; `src/index.jsx` mounts `App`.
 - Application composition: `src/App.jsx` installs global providers; `src/containers/Main.jsx` owns the router and lazy page imports.
 - Secondary executable entry points: `scripts/*.mjs` and `stress-test.mjs` require a locally running site; no server, worker, queue consumer, or CLI application was found.
+- Development-only HTML entries under `dev/` mount isolated components through
+  Vite. `dev/break-review/{project,certification,experience,contact}.html` contains
+  synthetic stress fixtures; the pages explicitly mark visual inspection pending.
+  They are not production routes or part of the configured production build input.
 - Script selection: `npm run dev` and `npm run build` invoke Vite through `package.json`.
 
 ## 3) Module Boundaries

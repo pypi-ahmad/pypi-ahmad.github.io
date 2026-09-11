@@ -60,26 +60,32 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 ## Features
 
 **Content pages**
+
 - Professional profile, experience timeline, education, degrees, certifications, skills catalog, and contact page.
 - Homepage with qualified internal outcomes, contribution boundaries, and four selected projects.
-- 13 recent public projects with verified GitHub links.
+- 13 public projects with configured GitHub repository links.
 
 **Theming**
+
 - One visual theme with light and dark modes plus selectable pink, blue, and pink-indigo accents.
 - Mode and accent selections persist independently in `localStorage`; older family-and-mode values migrate automatically.
 
 **UX and accessibility**
-- Responsive navigation, card layouts, accordions, and galleries.
+
+- Responsive navigation disclosure, project and contact grids, experience cards, and credential groups.
 - Brief hero entrance, once-per-mount scroll reveals, and fine-pointer hover feedback.
 - Reduced-motion support, including preference changes while browsing; native browser cursor by default.
-- Lazy-loaded routes with a visible loading state and a catch-all accessible 404 page.
+- Lazy-loaded routes with visible, politely announced loading feedback and a catch-all 404 page.
+- Route focus management, a focused error-recovery heading with Refresh, and a contact empty state.
 
 **SEO and metadata**
+
 - Route-level `<title>`, `<meta description>`, canonical URL, `robots`, Open Graph, and Twitter Card tags via `react-helmet-async`.
 - `ProfilePage` structured data with Ahmad Mujtaba as its main `Person` entity.
 - `public/sitemap.xml` and `public/robots.txt` included.
 
 **Quality**
+
 - Tests cover rendering, navigation, theming, accessibility, content contracts, and route metadata.
 - Automated lint, typecheck, build, and test on every push and pull request to `main`.
 - Optional Google Analytics 4 integration, disabled by default.
@@ -90,14 +96,14 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 | --- | --- |
 | UI | React 19, styled-components v6 |
 | Routing | React Router DOM 7 |
-| Build | Vite 8, `@vitejs/plugin-react`, SVGR |
+| Build | Vite 8, `@vitejs/plugin-react` |
 | Animation | Framer Motion v13 and CSS; optional cursor package disabled by default |
 | Metadata | react-helmet-async |
-| Icons | react-icons v5, local SVG components |
+| Icons and images | react-icons v5 and static PNG/SVG assets in `public/` |
 | Analytics | react-ga4 |
 | Testing | Vitest 5, Testing Library 16, jsdom, jest-axe, axe-core |
 | Browser testing | Playwright, Chrome DevTools Protocol |
-| Quality | ESLint 10, TypeScript 7 (JS-checking mode), Prettier |
+| Quality | ESLint 10, TypeScript 7 (`checkJs: false`), Prettier |
 | Runtime | Node.js `>=24.21.0 <25`, npm `>=12.0.2 <13` |
 | Hosting | GitHub Pages (primary), Vercel (mirror) |
 
@@ -111,10 +117,14 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 │   └── workflows/
 │       ├── ci.yml                 # Lint, typecheck, coverage, and Chromium browser checks on push/PR
 │       └── deploy.yml             # GitHub Pages deployment on push to main
+├── dev/                           # Isolated browser review pages; development-only
 ├── docs/
+│   ├── architecture.md            # Current runtime and safe change map
+│   ├── codebase/                  # Detailed contributor references
 │   └── migration/
 │       └── astro-migration-roadmap.md  # Retired Astro migration planning record
 ├── public/                        # Static assets, favicon, manifest, sitemap, robots
+├── scripts/                       # Browser, recovery, motion, and parity checks
 ├── src/
 │   ├── __tests__/                 # Rendering, a11y, navigation, content contracts
 │   ├── components/                # Reusable cards, navigation, icons, and SEO
@@ -173,8 +183,11 @@ Output goes to `build/`. The build script copies `build/index.html` to `build/40
 
 ```bash
 npm run preview
-# opens http://localhost:4173
+# serves http://localhost:4173
 ```
+
+Open the printed URL in your browser. Use `-- --strictPort` with either server
+command when running browser scripts that expect fixed ports 3000 and 4173.
 
 ## Commands
 
@@ -190,6 +203,7 @@ npm run preview
 | `npm run test:run` | Run the complete test suite once |
 | `npm run test:coverage` | Run tests, generate V8 coverage, and enforce global thresholds |
 
+Browser scripts require Chromium: run `npx playwright install chromium` once.
 To run the browser stress test, build first and start the preview server, then in a second terminal:
 
 ```bash
@@ -228,6 +242,12 @@ index.html
 
 **Routing:** `Main.jsx` defines all routes with `React.lazy`. Each route is paired with a `RouteMeta` component that writes the page-specific `<title>`, canonical URL, Open Graph tags, and robots directive into `<head>` via `react-helmet-async`.
 
+Pending routes show a loading landmark and a separate polite status message.
+After a different pathname commits, `RouteNavigation` focuses its main landmark.
+Initial visits and same-page anchors keep native focus behavior and skip the
+application's scroll-to-top action. History and cross-route fragment navigation
+also skip that scroll action; a changed pathname still focuses the destination.
+
 **Analytics:** `App.jsx` initializes GA4 once when `AppContent` mounts, but only when `settings.googleTrackingID` is non-empty. The current source does not send explicit route pageview events.
 
 ## Routes
@@ -240,8 +260,8 @@ index.html
 | `/education` | Degrees, certifications, and courses |
 | `/projects` | 13 recent public projects |
 | `/skills` | Applied-AI capabilities, project evidence, and curated toolkit |
-| `/contact` | Direct contact actions and verified professional channels |
-| `/splash` | Standalone splash screen (marked `noindex`) |
+| `/contact` | Configured contact channels, or an unavailable message with Return home |
+| `/splash` | Loading screen that replaces itself with `/home` when ready (marked `noindex`) |
 | `*` | Accessible 404 page (marked `noindex`) |
 
 ## Configuration
@@ -261,6 +281,10 @@ export const settings = {
 > [!NOTE]
 > `googleTrackingID` must remain an empty string in the repository. Never commit a real GA4 ID — Vite bundles client code for public delivery.
 
+The splash screen redirects immediately if the document is already loaded, or
+on the `load` event. Its three-second timeout is a fallback, not a minimum wait.
+Direct `/splash` visits use this behavior regardless of `isSplash`.
+
 ### Portfolio content
 
 Update these files to customise the site content without touching any page component:
@@ -275,6 +299,15 @@ Update these files to customise the site content without touching any page compo
 | `src/data/projects.js` | Open-source projects (13 entries) |
 | `src/data/skills.js` | Skills-page capabilities, proof projects, and curated tools |
 | `src/data/contact.js` | Contact-page content |
+
+On Contact, an empty or whitespace-only channel value in `socialMedia.js` hides that channel.
+An empty `gmail` value also hides the primary email action. If all channels are
+empty, Contact shows an unavailable message and Return home instead of an empty
+channel list. These settings control visibility; they do not validate remote URLs.
+
+The first four projects appear on Home. Skills selects evidence projects by exact
+name and shares Home's outcome data; preserve qualifiers and keep metrics consistent
+with Experience when editing those records.
 
 ### Appearance
 
@@ -299,20 +332,44 @@ CI runs on every push and pull request to `main`:
 npm ci → lint → typecheck → build → test:coverage → Chromium browser checks
 ```
 
-All CI gates must pass before a merge.
+Require all CI checks to pass before merging. Whether GitHub enforces that policy
+depends on repository settings, which are not defined by these workflow files.
+The TypeScript check is limited because `checkJs` is disabled; passing it does
+not establish full JavaScript type safety.
+
+See the [testing reference](docs/codebase/TESTING.md) for server setup, focused
+browser commands, dated local results, and accessibility limitations. Automated
+axe `incomplete` results require review and are not passes.
 
 ## Deployment
 
 ### GitHub Pages (primary)
 
-Every push to `main` triggers `.github/workflows/deploy.yml`, which builds and tests the application, then deploys `build/` via `actions/upload-pages-artifact` and `actions/deploy-pages`.
+Every push to `main` triggers `.github/workflows/deploy.yml`, which installs
+dependencies, runs lint, typecheck, build, and `test:run`, then deploys `build/`
+via `actions/upload-pages-artifact` and `actions/deploy-pages`. It can also be
+started manually. The separate CI workflow is not a dependency of deployment;
+coverage and browser checks are not repeated in the deployment workflow.
 
 > [!IMPORTANT]
 > GitHub Pages must be configured to use **GitHub Actions** as the deployment source: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
 ### Vercel (mirror)
 
-`vercel.json` points Vercel at `npm run build` and serves the `build/` directory. Both deployments serve the same build output.
+`vercel.json` points Vercel at `npm run build` and serves the `build/` directory.
+Configure Vercel to build repository source, normally `main`, rather than the
+compiled `gh-pages` branch. Remote project settings and deployed revisions are
+not verified by the checked-in configuration.
+The configured Vercel build command runs only the build, not lint, typecheck,
+unit tests, coverage, or browser checks.
+
+### Manual publication (gh-pages)
+
+The separate `npm run deploy` command runs `predeploy` (a build), then publishes
+`build/` using `gh-pages`. It does not run lint, typecheck, unit tests, coverage,
+or browser checks, and does not configure GitHub Pages to serve that branch.
+Its presence is not approval to publish; confirm the intended hosting path with
+the maintainer before using it.
 
 ## Documentation
 

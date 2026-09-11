@@ -5,7 +5,7 @@
  *  - Logo link (routes to /home or /splash based on settings)
  *  - Six NavLinks with active-state bold styling
  *  - Light/dark theme toggle button (persists choice to localStorage)
- *  - Responsive hamburger menu for mobile viewports
+ *  - Dropdown navigation at every viewport width
  *
  * Theme state comes from the global theme controller.
  */
@@ -16,6 +16,7 @@ import { greeting, settings } from "../../portfolio.js";
 import { CgSun } from "react-icons/cg";
 import { HiMoon } from "react-icons/hi";
 import { useThemeController } from "../../themeController";
+import { resolveTheme } from "../../theme";
 import {
   buildThemeBackground,
   buildThemeShadow,
@@ -75,6 +76,7 @@ function Header() {
   }
 
   function handleBlur(event) {
+    // Moving between panel controls is not dismissal; only focus leaving the header closes it.
     if (!event.currentTarget.contains(event.relatedTarget)) {
       setInstant(true);
       setIsMenuOpen(false);
@@ -95,6 +97,7 @@ function Header() {
   ];
 
   const toggleMenu = (event) => {
+    // Keyboard and programmatic clicks have no pointer click count; keep that path immediate.
     setInstant(event.detail === 0);
     setIsMenuOpen((currentOpen) => !currentOpen);
   };
@@ -132,6 +135,7 @@ function Header() {
         transition: themeElevatedSurfaceTransition,
       }}
     >
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <button
         className={`menu-icon${isMenuOpen ? " is-open" : ""}`}
         ref={triggerRef}
@@ -224,6 +228,7 @@ function Header() {
                 aria-label="Use crimson and pink accent"
                 aria-pressed={accent === "pink"}
                 onClick={() => setAccent("pink")}
+                style={{ background: resolveTheme(themeMode, "pink").accentGradient }}
               />
               <button
                 className="accent-swatch accent-swatch--blue"
@@ -232,6 +237,7 @@ function Header() {
                 aria-label="Use indigo and navy accent"
                 aria-pressed={accent === "blue"}
                 onClick={() => setAccent("blue")}
+                style={{ background: resolveTheme(themeMode, "blue").accentGradient }}
               />
               <button
                 className="accent-swatch accent-swatch--pink-indigo"
@@ -240,6 +246,7 @@ function Header() {
                 aria-label="Use dark pink and indigo accent"
                 aria-pressed={accent === "pink-indigo"}
                 onClick={() => setAccent("pink-indigo")}
+                style={{ background: resolveTheme(themeMode, "pink-indigo").accentGradient }}
               />
             </div>
             <button

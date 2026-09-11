@@ -54,12 +54,25 @@ describe("Education page", () => {
     ]);
   });
 
-  it("renders all fourteen certificates in portfolio order", () => {
+  it("features the professional certification before the thirteen course certificates", () => {
     const { container } = renderWithProviders(<Education theme={darkTheme} />);
-    const certificateNames = Array.from(container.querySelectorAll(".cert-card h4"))
+    const professionalSection = container.querySelector("#professional-certification");
+    const courseSection = container.querySelector("#certs");
+    const certificateNames = Array.from(container.querySelectorAll(".cert-card__title"))
       .map(node => node.textContent);
 
     expect(certificateNames).toEqual(expectedCertificates);
+    expect(professionalSection.querySelectorAll(".cert-card")).toHaveLength(1);
+    expect(within(professionalSection).getByRole("heading", {
+      level: 3,
+      name: "Claude Certified Associate - Foundations",
+    })).toBeInTheDocument();
+    expect(courseSection.querySelectorAll(".cert-card")).toHaveLength(13);
+    expect(within(courseSection).queryByText("Claude Certified Associate - Foundations"))
+      .not.toBeInTheDocument();
+    expect(within(courseSection).getByText(
+      "13 course-completion certificates grouped by focus area for faster review."
+    )).toBeInTheDocument();
   });
 
   it("groups credentials in recruiter-priority order", () => {
@@ -71,15 +84,18 @@ describe("Education page", () => {
     expect(categoryNames).toEqual(expectedCategories);
   });
 
-  it("shows Anthropic completion dates and validation links", () => {
+  it("shows Anthropic credential evidence separately from course certificates", () => {
     const { container } = renderWithProviders(<Education theme={darkTheme} />);
+    const professionalSection = container.querySelector("#professional-certification");
     const anthropicGroup = container.querySelector(".certification-group");
-    const links = within(anthropicGroup).getAllByRole("link");
+    const professionalLinks = within(professionalSection).getAllByRole("link");
+    const courseLinks = within(anthropicGroup).getAllByRole("link");
 
-    expect(links).toHaveLength(10);
-    expect(links.map(link => link.getAttribute("href"))).toEqual([
+    expect(professionalLinks.map(link => link.getAttribute("href"))).toEqual([
       "https://www.credly.com/badges/d9eace76-da4e-447f-b38b-9c39ac6edf6d",
       "/certifications/anthropic-claude-certified-associate-foundations.pdf",
+    ]);
+    expect(courseLinks.map(link => link.getAttribute("href"))).toEqual([
       "https://verify.skilljar.com/c/uubk52krkzap",
       "/certifications/anthropic-claude-code-101.pdf",
       "https://verify.skilljar.com/c/2njdrsdeigc4",
@@ -89,14 +105,14 @@ describe("Education page", () => {
       "https://verify.skilljar.com/c/suzvk58nwng2",
       "/certifications/anthropic-ai-fluency-framework-foundations.pdf",
     ]);
-    for (const link of links) {
+    for (const link of [...professionalLinks, ...courseLinks]) {
       expect(link).toHaveAttribute("target", "_blank");
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
     }
-    expect(within(anthropicGroup).getAllByText("Verify credential")).toHaveLength(5);
-    expect(within(anthropicGroup).getByText("Issued August 31, 2026")).toBeInTheDocument();
-    const certifiedCard = Array.from(anthropicGroup.querySelectorAll(".cert-card"))
-      .find(card => card.querySelector("h4")?.textContent === "Claude Certified Associate - Foundations");
+    expect(within(professionalSection).getByText("Verify credential")).toBeInTheDocument();
+    expect(within(anthropicGroup).getAllByText("Verify credential")).toHaveLength(4);
+    expect(within(professionalSection).getByText("Issued August 31, 2026")).toBeInTheDocument();
+    const certifiedCard = professionalSection.querySelector(".cert-card");
     const badge = certifiedCard?.querySelector(".cert-card__badge");
     expect(badge).toHaveAttribute(
       "src",

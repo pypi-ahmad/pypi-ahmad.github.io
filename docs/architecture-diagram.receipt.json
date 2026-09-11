@@ -1,0 +1,51 @@
+{
+  "diagram_type": "architecture",
+  "output": "architecture-diagram.html",
+  "specification": {
+    "path": "architecture-diagram.archify.json",
+    "sha256": "48079da97b0b02b92b76ee33fabdfdcc7e0ebb34d713612f93fa95b83d6b13c0",
+    "bytes": 4789
+  },
+  "artifact": {
+    "sha256": "5726fb525de13f41fc42672ecb918c4ab2e9ab7173513efaa751183f68c7874f",
+    "bytes": 733075
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  },
+  "repository_evidence": {
+    "verified": true,
+    "repository": "https://github.com/pypi-ahmad/pypi-ahmad.github.io",
+    "revision": "4f2df0451789e5ede3f3940e03f60105d89ed9fd",
+    "references": 18
+  },
+  "visual_review": "passed",
+  "correction_rounds": 1,
+  "visual_evidence": "architecture-diagram.visual-check.json",
+  "inspected_screenshots": [
+    "architecture-diagram.visual-check.1440x900.light.png",
+    "architecture-diagram.visual-check.1440x900.dark.png",
+    "architecture-diagram.visual-check.2048x1320.light.png",
+    "architecture-diagram.visual-check.2048x1320.dark.png"
+  ],
+  "interaction_checks": {
+    "node_search_focus": true,
+    "passport_closure": true,
+    "finder_closure": true,
+    "svg_export": {
+      "diagram_present": true,
+      "viewer_controls_absent": true,
+      "scripts_absent": true
+    }
+  },
+  "limitations": [
+    "Remote hosting state was not checked.",
+    "Raster and motion exports were not exercised.",
+    "Application tests were not rerun for this diagram-only change."
+  ]
+}

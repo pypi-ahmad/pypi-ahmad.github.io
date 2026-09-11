@@ -36,6 +36,7 @@ function getRelativeLuminance(hex) {
 }
 
 function getContrastRatio(foregroundHex, backgroundHex) {
+  // Opaque token pairs are only one layer of coverage; browser checks include gradients and composition.
   const foreground = getRelativeLuminance(foregroundHex);
   const background = getRelativeLuminance(backgroundHex);
   const [lighter, darker] =
@@ -136,6 +137,8 @@ describe("Default theme", () => {
     expect(theme.surfaceRadius).toBe("18px");
     expect(theme.panelBorderStyle).toBe("solid");
     expect(theme.accentFontFamily).toContain("Google Sans");
+    expect(theme.separatorColor).toBe(theme.name === "light"
+      ? "rgba(201, 215, 234, 0.55)" : "rgba(59, 61, 69, 0.78)");
   });
 });
 
@@ -145,6 +148,7 @@ describe("Rendered surface contrast", () => {
   );
   it.each(appearances)("%s / %s keeps secondary text readable on cards", (mode, accent) => {
     const theme = resolveTheme(mode, accent);
+    expect(getContrastRatio(theme.accentSolid, theme.body)).toBeGreaterThanOrEqual(4.5);
     expect(getContrastRatio(theme.secondaryText, theme.cardBackgroundAlt)).toBeGreaterThanOrEqual(4.5);
     expect(getContrastRatio(theme.secondaryText, theme.bodyAlt)).toBeGreaterThanOrEqual(4.5);
     const soft = theme.accentSoft.match(/[\d.]+/g).map(Number);

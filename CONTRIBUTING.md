@@ -20,7 +20,7 @@ Thank you for taking the time to contribute! This project is free, MIT-licensed,
 
 ### Prerequisites
 
-- Node.js `24.19.0` (`.nvmrc` contains the pin — use `nvm use` or install manually)
+- Node.js `24.21.0` (`.nvmrc` contains the pin — use `nvm use` or install manually)
 - npm `12.0.2`
 
 ### Install
@@ -47,10 +47,32 @@ Run all of these locally before pushing:
 npm run lint        # ESLint
 npm run typecheck   # TypeScript static analysis
 npm run build       # production build (catches bundler errors)
-npm run test:run    # full Vitest suite
+npm run test:coverage # full Vitest suite with coverage thresholds
 ```
 
-CI runs the same sequence on every push and pull request to `main`. A failing check blocks merge.
+CI also installs Playwright Chromium and checks the production preview. To run
+that browser check locally, install the browser once with
+`npx playwright install chromium`, then use two terminals after the build:
+
+```bash
+# Terminal 1: leave the production preview running
+npm run preview -- --host 127.0.0.1 --strictPort
+```
+
+```bash
+# Terminal 2: run the CI browser check
+node scripts/check-frontend.mjs
+```
+
+For development/production parity and recovery checks, also start
+`npm run dev -- --strictPort` in another terminal. The
+[testing reference](docs/codebase/TESTING.md) lists the individual scripts,
+required servers, and limitations.
+
+Require these checks to pass before merging. Branch-protection enforcement is
+configured in GitHub, not in the workflow. The deployment workflow runs lint,
+typecheck, build, and `test:run`, but omits CI's coverage and browser checks.
+It runs independently of the separate CI workflow.
 
 ## Pull request workflow
 
@@ -68,6 +90,8 @@ CI runs the same sequence on every push and pull request to `main`. A failing ch
 - **No donations or monetization features.** PRs that add tip jars, sponsor links, paywalled content, or any form of financial collection will not be merged.
 - **Keep content accurate.** All portfolio content (`src/data/`) reflects real work. Do not add fabricated or speculative entries.
 - **Match existing style.** Run `npm run lint` and address all errors before opening a PR.
+- **Keep comments useful.** Explain non-obvious constraints and decisions; avoid
+  restating code or adding numbered notes to meet a line-count target.
 - **One PR, one concern.** A PR that fixes a bug and adds an unrelated feature will be asked to split.
 
 ## Questions?

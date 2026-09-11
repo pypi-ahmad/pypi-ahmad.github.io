@@ -14,6 +14,8 @@
 - Prettier is installed and `.prettierignore` exists, but the manifest has no formatting script or checked-in Prettier configuration.
 - `npm run typecheck` executes `tsc --noEmit`, but `checkJs` is false; it does not provide full JavaScript type checking.
 - Run: `npm run lint`, `npm run typecheck`, `npm run test:run`, and `npm run build` for source changes.
+- Keep comments concise and durable: explain non-obvious constraints, ownership,
+  or reasons. Do not repeat straightforward code or add notes to meet a quota.
 
 ## 3) Import and Module Conventions
 
@@ -23,7 +25,8 @@
 
 ## 4) Error and Logging Conventions
 
-- Render-time failures reach the class-based `ErrorBoundary`, which replaces the UI with a recovery screen and reload action.
+- Render-time failures reach the class-based `ErrorBoundary`, which replaces the
+  UI with a named main landmark, focuses its error heading, and provides Refresh.
 - Route metadata and theme parsing prefer safe defaults rather than throwing for missing/invalid user-controlled values.
 - Browser diagnostic scripts use Node assertions and nonzero failure behavior; the legacy stress script logs caught step failures.
 - No application logging, client error-reporting service, or sensitive-data redaction utility was found.
@@ -33,6 +36,8 @@
 - Tests use `*.test.js` and `*.test.jsx`, primarily under `src/__tests__/`; `src/App.test.jsx` is colocated.
 - `renderWithProviders` is the standard wrapper for router, theme, and reduced-motion context.
 - Browser APIs absent from jsdom are mocked in `src/test/setup.js`.
+- Treat DOM mocks and token contrast tests as limited checks. Real clipping,
+  rendered contrast, and interaction states require browser verification.
 - Coverage is expected in CI through `npm run test:coverage` and configured thresholds.
 
 ## 6) Evidence

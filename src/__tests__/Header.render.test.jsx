@@ -11,6 +11,7 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect } from "vitest";
 import Header from "../components/header/Header";
+import { resolveTheme } from "../theme";
 import { renderWithProviders } from "../test/testUtils";
 
 async function openMenu() {
@@ -19,6 +20,23 @@ async function openMenu() {
 }
 
 describe("Header — UI Rendering", () => {
+  it("offers a skip link before the navigation controls", async () => {
+    renderWithProviders(<Header />);
+    const user = userEvent.setup();
+    await user.tab();
+    const skip = screen.getByRole("link", { name: "Skip to content" });
+    expect(skip).toHaveFocus();
+    expect(skip).toHaveAttribute("href", "#main-content");
+  });
+  it.each(["light", "dark"])("resolves all swatch backgrounds in %s mode", async mode => {
+    renderWithProviders(<Header />, { theme: mode });
+    await openMenu();
+    for (const preset of ["pink", "blue", "pink-indigo"]) {
+      expect(document.querySelector(`.accent-swatch--${preset}`)).toHaveStyle({
+        background: resolveTheme(mode, preset).accentGradient,
+      });
+    }
+  });
   it("renders the logo text 'ahmad.m()' inside the dropdown menu", async () => {
     renderWithProviders(<Header />);
     await openMenu();

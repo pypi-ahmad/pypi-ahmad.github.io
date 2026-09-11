@@ -60,6 +60,7 @@ describe("Route navigation", () => {
   });
 
   it("waits for the lazy destination before moving focus", async () => {
+    // Hold the import promise open to test the loading boundary without a timing race.
     let resolvePage;
     const page = new Promise(resolve => { resolvePage = resolve; });
     const Destination = lazy(() => page);

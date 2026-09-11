@@ -6,21 +6,9 @@
  */
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
-import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    svgr({
-      svgrOptions: {
-        exportType: "named",
-        ref: true,
-        svgo: false,
-        titleProp: true,
-      },
-      include: "**/*.svg",
-    }),
-  ],
+  plugins: [react()],
 
   define: {
     "process.env": {},
@@ -32,9 +20,9 @@ export default defineConfig({
     setupFiles: ["./src/test/setup.js"],
     css: true,
     include: ["src/**/*.{test,spec}.{js,jsx}"],
-    // Silence console noise from component renders
+    // Keep runtime warnings visible so passing assertions cannot hide component errors.
     silent: false,
-    // Increase timeout for accessibility tests
+    // Accessibility tree scans can take longer than ordinary component assertions.
     testTimeout: 15000,
     coverage: {
       provider: "v8",

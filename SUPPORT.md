@@ -8,7 +8,7 @@
 ## Common questions
 
 **The dev server won't start.**
-Make sure you're on Node.js `24.19.0` and npm `12.0.2`. Run `npm ci` (not `npm install`) to install exact dependency versions from the lockfile.
+Make sure you're on Node.js `24.21.0` and npm `12.0.2`. Run `npm ci` (not `npm install`) to install exact dependency versions from the lockfile.
 
 **Changes to `src/data/` don't appear.**
 Vite's hot-reload picks up JavaScript changes automatically. If you don't see the change, force-reload the browser (`Ctrl + Shift + R` / `Cmd + Shift + R`).
