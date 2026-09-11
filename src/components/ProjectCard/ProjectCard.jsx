@@ -3,6 +3,7 @@ import { revealMotion } from "../../themeMotion";
 import "./ProjectCard.css";
 
 export default function ProjectCard({ repo: project, index, priority = false, revealIndex = 0 }) {
+  // Numbered grids use a one-based index; unnumbered placements can stagger with revealIndex alone.
   const cardClassName = [
     "project-card-wrap",
     priority ? "project-card-wrap--priority" : "",

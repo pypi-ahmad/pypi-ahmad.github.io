@@ -50,6 +50,7 @@ const ProjectsLink = styled(Link)`
 `;
 
 export default function FeaturedProjects({ theme }) {
+  // Selection follows the authored project order rather than timestamps or a network response.
   return (
     <Container id="selected-work" aria-labelledby="selected-work-title">
       <Title

@@ -1,8 +1,8 @@
 /**
  * Default portfolio theme.
  *
- * The site exposes one visual identity with light and dark modes. Components
- * consume the same semantic token contract in either mode.
+ * Three accent presets share light/dark base tokens. Keep mode-specific text
+ * colors distinct from filled-action gradients so each role can retain contrast.
  */
 
 export const DEFAULT_THEME_MODE = "dark";
@@ -38,6 +38,7 @@ export const lightTheme = {
   accentSoft: "rgba(236, 58, 114, 0.14)",
   cardBackgroundAlt: "#ECEFF4",
   borderSoft: "rgba(201, 215, 234, 0.55)",
+  separatorColor: "rgba(201, 215, 234, 0.55)",
   buttonText: "#0F172A",
   shadowColor: "rgba(23, 26, 33, 0.04)",
   heroGradient:
@@ -90,6 +91,7 @@ export const darkTheme = {
   accentSoft: "rgba(236, 58, 114, 0.22)",
   cardBackgroundAlt: "#1D2129",
   borderSoft: "rgba(59, 61, 69, 0.78)",
+  separatorColor: "rgba(59, 61, 69, 0.78)",
   buttonText: "#F8FAFC",
   shadowColor: "rgba(0, 0, 0, 0.12)",
   heroGradient:
@@ -169,6 +171,7 @@ const pinkIndigoDarkTheme = {
 };
 
 export function resolveTheme(mode = DEFAULT_THEME_MODE, accent = DEFAULT_ACCENT) {
+  // Return shared preset objects; consumers must not mutate the selected theme.
   const resolvedAccent =
     accent === "pink" || accent === "blue" || accent === "pink-indigo"
       ? accent

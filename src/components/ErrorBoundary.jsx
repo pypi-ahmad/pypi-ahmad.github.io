@@ -1,19 +1,28 @@
 import React from "react";
+import "./ErrorBoundary.css";
 
 export default class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
+    this.headingRef = React.createRef();
   }
 
   static getDerivedStateFromError() {
     return { hasError: true };
   }
 
+  componentDidCatch() {
+    // The failed subtree is gone, so move focus to the recovery heading after it mounts.
+    this.headingRef.current?.focus();
+  }
+
   render() {
     if (this.state.hasError) {
       return (
-        <div
+        <main
+          aria-labelledby="error-title"
+          aria-describedby="error-description"
           style={{
             display: "flex",
             flexDirection: "column",
@@ -26,13 +35,14 @@ export default class ErrorBoundary extends React.Component {
               "BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
           }}
         >
-          <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
+          <h1 id="error-title" ref={this.headingRef} tabIndex={-1} style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
             Something went wrong
           </h1>
-          <p style={{ marginBottom: "1.5rem", color: "inherit", opacity: 0.7 }}>
+          <p id="error-description" style={{ marginBottom: "1.5rem", color: "inherit", opacity: 0.7 }}>
             An unexpected error occurred. Please try refreshing the page.
           </p>
           <button
+            className="error-boundary__refresh"
             onClick={() => window.location.reload()}
             style={{
               padding: "10px 24px",
@@ -46,7 +56,7 @@ export default class ErrorBoundary extends React.Component {
           >
             Refresh
           </button>
-        </div>
+        </main>
       );
     }
 

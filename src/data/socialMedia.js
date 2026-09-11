@@ -4,10 +4,9 @@
  * Provides contact URLs and descriptions for portfolio sections.
  *
  * Set a link to " " (space) to hide it from the UI.
- * Matching *Desc keys provide hover/card descriptions.
+ * Matching *Desc keys provide visible contact-card descriptions.
  */
 export const socialMediaLinks = {
-  /* Your Social Media Link */
   github: "https://github.com/pypi-ahmad",
   githubDesc: "GenAI engineering work and open-source repositories.",
   linkedin: "https://www.linkedin.com/in/ahmad-mle/",

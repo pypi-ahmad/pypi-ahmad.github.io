@@ -4,22 +4,29 @@
  * Builds a list of available contact channels from socialMediaLinks data,
  * each showing an icon, label, and description. Used on the /contact page.
  *
- * Props: { theme }
+ * Props: { theme, items? } — omit items to use configured contact channels.
  */
 import { motion } from "framer-motion";
 import { revealMotion } from "../../themeMotion";
 import "./ContactLinksList.css";
-import { socialMediaLinks } from "../../portfolio";
+import { socialMediaLinks as configuredLinks } from "../../portfolio";
 import {
   FaDiscord,
   FaEnvelope,
 } from "react-icons/fa";
 
 /** Assemble enabled contact items from the social-media data. */
-const buildContactItems = () => {
+export const buildContactItems = (links = configuredLinks) => {
+  // Whitespace-only settings intentionally hide a channel; trim before testing availability.
+  const socialMediaLinks = Object.fromEntries(
+    Object.entries(links).map(([key, value]) => [
+      key,
+      typeof value === "string" ? value.trim() : value,
+    ])
+  );
   const items = [];
 
-  if (socialMediaLinks.gmail && socialMediaLinks.gmail !== " ") {
+  if (socialMediaLinks.gmail) {
     items.push({
       key: "email",
       label: "Email",
@@ -30,7 +37,7 @@ const buildContactItems = () => {
     });
   }
 
-  if (socialMediaLinks.linkedin && socialMediaLinks.linkedin !== " ") {
+  if (socialMediaLinks.linkedin) {
     items.push({
       key: "linkedin",
       label: "LinkedIn",
@@ -41,7 +48,7 @@ const buildContactItems = () => {
     });
   }
 
-  if (socialMediaLinks.github && socialMediaLinks.github !== " ") {
+  if (socialMediaLinks.github) {
     items.push({
       key: "github",
       label: "GitHub",
@@ -53,7 +60,7 @@ const buildContactItems = () => {
     });
   }
 
-  if (socialMediaLinks.portfolio && socialMediaLinks.portfolio !== " ") {
+  if (socialMediaLinks.portfolio) {
     items.push({
       key: "portfolio",
       label: "Portfolio",
@@ -65,7 +72,7 @@ const buildContactItems = () => {
     });
   }
 
-  if (socialMediaLinks.twitter && socialMediaLinks.twitter !== " ") {
+  if (socialMediaLinks.twitter) {
     items.push({
       key: "twitter",
       label: "X (Twitter)",
@@ -76,7 +83,7 @@ const buildContactItems = () => {
     });
   }
 
-  if (socialMediaLinks.whatsapp && socialMediaLinks.whatsapp !== " ") {
+  if (socialMediaLinks.whatsapp) {
     items.push({
       key: "whatsapp",
       label: "WhatsApp",
@@ -87,7 +94,7 @@ const buildContactItems = () => {
     });
   }
 
-  if (socialMediaLinks.telegram && socialMediaLinks.telegram !== " ") {
+  if (socialMediaLinks.telegram) {
     items.push({
       key: "telegram",
       label: "Telegram",
@@ -98,7 +105,7 @@ const buildContactItems = () => {
     });
   }
 
-  if (socialMediaLinks.instagram && socialMediaLinks.instagram !== " ") {
+  if (socialMediaLinks.instagram) {
     items.push({
       key: "instagram",
       label: "Instagram",
@@ -109,7 +116,7 @@ const buildContactItems = () => {
     });
   }
 
-  if (socialMediaLinks.facebook && socialMediaLinks.facebook !== " ") {
+  if (socialMediaLinks.facebook) {
     items.push({
       key: "facebook",
       label: "Facebook",
@@ -120,7 +127,7 @@ const buildContactItems = () => {
     });
   }
 
-  if (socialMediaLinks.discord && socialMediaLinks.discord !== " ") {
+  if (socialMediaLinks.discord) {
     items.push({
       key: "discord",
       label: "Discord",
@@ -134,9 +141,8 @@ const buildContactItems = () => {
   return items;
 };
 
-export default function ContactLinksList({ theme }) {
-  const items = buildContactItems();
-
+export default function ContactLinksList({ theme, items = buildContactItems() }) {
+  // The Contact page owns the empty-state message and recovery link, not this reusable list.
   if (items.length === 0) {
     return null;
   }

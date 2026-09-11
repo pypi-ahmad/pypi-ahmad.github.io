@@ -1,5 +1,5 @@
 /**
- * Educations — "Degrees Received" section.
+ * Academic degrees in the order supplied by the content module.
  *
  * Maps `degrees.degrees` to DegreeCard components.
  * Used inside the Education page.

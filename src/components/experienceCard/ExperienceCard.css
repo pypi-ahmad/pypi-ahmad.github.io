@@ -1,4 +1,5 @@
 .experience-card {
+  min-inline-size: 0;
   box-sizing: border-box;
   width: 100%;
   padding: clamp(1.25rem, 3vw, 2rem);
@@ -6,27 +7,29 @@
   border-radius: var(--surface-radius);
 }
 
-.experience-card-header { display: grid; grid-template-columns: 70px 1fr auto; align-items: center; gap: 1rem; }
+/* Zero track minima allow long role names and dates to wrap beside the fixed-size logo. */
+.experience-card-header { display: grid; grid-template-columns: 70px minmax(0, 1fr) minmax(0, auto); align-items: center; gap: 1rem; }
+.experience-card-header > * { min-inline-size: 0; }
 .experience-card-logo-link { display: block; width: 70px; height: 70px; }
 .experience-card-logo { display: block; width: 100%; height: 100%; object-fit: contain; }
 .experience-card-identity h3 { margin: 0 0 0.35rem; font-size: 1.35rem; }
 .experience-card-identity a { text-decoration: none; }
 .experience-card-identity a:hover { text-decoration: underline; }
 .experience-card-logo-link:focus-visible, .experience-card-identity a:focus-visible { outline: 2px solid var(--accent-solid); outline-offset: 3px; }
-.experience-card-meta { display: flex; flex-direction: column; gap: 0.35rem; text-align: right; }
+.experience-card-meta { display: flex; flex-direction: column; gap: 0.35rem; text-align: end; }
 
 .experience-featured-body { margin-top: 1.75rem; }
-.experience-detail-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 1.5rem; }
+.experience-detail-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 1.5rem; }
 .experience-detail-group { padding-top: 1.25rem; border-top: 1px solid var(--border); }
 .experience-detail-group h4, .experience-outcomes h4 { margin: 0 0 0.9rem; font-size: 1.05rem; }
-.experience-detail-group ul, .experience-description-list { margin: 0; padding-left: 1.2rem; }
+.experience-detail-group ul, .experience-description-list { margin: 0; padding-inline-start: 1.2rem; }
 .experience-detail-group li, .experience-description-list li { margin-bottom: 0.65rem; line-height: 1.6; }
 
 .experience-outcomes { margin-top: 1.5rem; }
 .experience-outcomes > ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.8rem; margin: 0; padding: 0; list-style: none; }
 .experience-outcomes li { display: flex; flex-direction: column; gap: 0.35rem; padding: 1rem; border: 1px solid; border-radius: var(--control-radius); }
 .experience-outcomes strong { font-size: 1.25rem; }
-.experience-outcomes span { font-weight: 700; line-height: 1.35; }
+.experience-outcomes span { font-weight: 700; line-height: 1.4; }
 .experience-outcomes small { line-height: 1.45; }
 
 .experience-disclosure { margin-top: 1.25rem; padding: 1rem 1.1rem; border: 1px solid; border-radius: var(--control-radius); }
@@ -34,13 +37,13 @@
 .experience-description-list { margin-top: 1.5rem; }
 
 @media (max-width: 900px) {
-  .experience-detail-grid { grid-template-columns: 1fr; }
+  .experience-detail-grid { grid-template-columns: minmax(0, 1fr); }
   .experience-outcomes > ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 600px) {
-  .experience-card-header { grid-template-columns: 56px 1fr; align-items: start; }
+  .experience-card-header { grid-template-columns: minmax(0, 1fr); align-items: start; }
   .experience-card-logo-link { width: 56px; height: 56px; }
-  .experience-card-meta { grid-column: 2; text-align: left; }
-  .experience-outcomes > ul { grid-template-columns: 1fr; }
+  .experience-card-meta { grid-column: auto; text-align: start; }
+  .experience-outcomes > ul { grid-template-columns: minmax(0, 1fr); }
 }

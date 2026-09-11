@@ -11,6 +11,7 @@ import {
 import "./Greeting.css";
 
 export default function Greeting({ theme }) {
+  // Keep the main heading outside reveal wrappers so page identity is visible before entrances finish.
   return (
     <section
       id="greeting"

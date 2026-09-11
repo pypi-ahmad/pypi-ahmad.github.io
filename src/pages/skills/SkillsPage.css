@@ -24,7 +24,7 @@
   max-width: 1000px;
   margin: 0;
   font-size: clamp(2.5rem, 6vw, 4.75rem);
-  line-height: 1.1;
+  line-height: 1.4;
   letter-spacing: -0.025em;
 }
 
@@ -48,16 +48,16 @@
 .skills-section-heading h2,
 .skills-section-heading p { margin: 0; }
 .skills-section-heading h2 { font-size: clamp(2rem, 4vw, 3rem); }
-.skills-section-heading p { max-width: 560px; line-height: 1.6; text-align: right; }
+.skills-section-heading p { max-width: 560px; line-height: 1.6; text-align: end; }
 
 .capability-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
-.capability-card { grid-column: span 2; padding: 1.4rem; }
-.capability-card:nth-child(4), .capability-card:nth-child(5) { grid-column: span 3; }
+/* A rem-based basis lets enlarged text trigger wrapping before a viewport breakpoint does. */
+.capability-card { flex: 1 1 18rem; min-inline-size: 0; padding: 1.4rem; }
 .capability-card h3 { line-height: 1.4; margin: 0 0 0.7rem; font-size: 1.15rem; }
 .capability-card p { margin: 0; line-height: 1.6; }
 
@@ -91,6 +91,7 @@
 
 .skills-cta {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
@@ -101,26 +102,25 @@
 
 .skills-cta h2 { margin: 0 0 0.5rem; font-size: clamp(1.5rem, 3vw, 2rem); }
 .skills-cta p { max-width: 660px; margin: 0; line-height: 1.6; }
-.skills-cta-actions { display: flex; flex: 0 0 auto; gap: 0.75rem; }
+.skills-cta > * { min-inline-size: 0; }
+.skills-cta-actions { display: flex; flex: 0 1 auto; flex-wrap: wrap; max-inline-size: 100%; gap: 0.75rem; }
 .skills-cta-actions a { padding: 0.8rem 1.15rem; border: 1px solid transparent; border-radius: var(--control-radius); font-weight: 700; text-decoration: none; }
 
 @media (max-width: 900px) {
-  .capability-card, .capability-card:nth-child(4), .capability-card:nth-child(5) { grid-column: span 3; }
   .skills-outcome-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .toolkit-grid { grid-template-columns: 1fr; }
+  .toolkit-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 700px) {
   .skills-hero { margin-top: 1rem; padding: 1.5rem 1.1rem; }
   .skills-section-heading, .skills-cta { align-items: flex-start; flex-direction: column; }
   .skills-section-heading { gap: 0.75rem; }
-  .skills-section-heading p { text-align: left; }
-  .capability-card, .capability-card:nth-child(4), .capability-card:nth-child(5) { grid-column: 1 / -1; }
-  .skills-proof-grid { grid-template-columns: 1fr; }
+  .skills-section-heading p { text-align: start; }
+  .skills-proof-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 480px) {
-  .skills-outcome-grid { grid-template-columns: 1fr; }
+  .skills-outcome-grid { grid-template-columns: minmax(0, 1fr); }
   .skills-cta-actions, .skills-cta-actions a { width: 100%; }
   .skills-cta-actions { flex-direction: column; }
   .skills-cta-actions a { box-sizing: border-box; text-align: center; }

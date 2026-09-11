@@ -5,7 +5,7 @@
  * Custom fonts are stored in src/assests/fonts/.
  */
 
-/* ── @font-face Declarations ────────────────────────────────────────── */
+/* Swap keeps text readable during font loading; browser checks wait for fonts before comparing geometry. */
 
 @font-face {
   font-family: "Google Sans";
@@ -52,7 +52,6 @@ body {
   font: 1rem / 1.6 "Google Sans", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
 img,
@@ -111,7 +110,6 @@ video {
   body {
     font-size: 15px;
     line-height: 1.4;
-    overflow-x: hidden;
   }
 
   body {

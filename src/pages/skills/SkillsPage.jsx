@@ -8,6 +8,7 @@ import { buildThemeBackground, buildThemeShadow, revealMotion } from "../../them
 import "./SkillsPage.css";
 
 export default function SkillsPage({ theme }) {
+  // These names must match projects.data exactly; content tests guard the cross-file references.
   const featuredProjects = skillsPageData.featuredProjectNames.map(name =>
     projects.data.find(project => project.name === name)
   );

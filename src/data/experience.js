@@ -2,8 +2,8 @@
  * Experience Data
  *
  * Professional work history rendered as a chronological role timeline.
- * Each section (e.g. "Work") contains an array of experience entries
- * with descriptions displayed as bullet lists.
+ * Roles use either description bullets or featured context, contributions,
+ * outcomes and disclosure fields. Keep team results distinct from personal work.
  *
  * Logo SVGs are resolved from public/images/.
  */

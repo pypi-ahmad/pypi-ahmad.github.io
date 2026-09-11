@@ -8,11 +8,13 @@ export default function RouteNavigation() {
   const previousPath = useRef(pathname);
 
   useLayoutEffect(() => {
+    // Initial visits and same-page anchors keep the browser's native focus and scroll behavior.
     if (previousPath.current === pathname) return;
     previousPath.current = pathname;
 
     const main = document.querySelector("main");
     if (main) {
+      // Programmatic focus orients keyboard users without adding main to the normal tab order.
       main.setAttribute("tabindex", "-1");
       main.focus({ preventScroll: true });
     }

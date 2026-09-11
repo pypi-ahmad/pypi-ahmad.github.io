@@ -1,5 +1,6 @@
 import "./DegreeCard.css";
 
+// Coursework keeps older data compatible by stripping its decorative prefix at the display boundary.
 function DegreeCard({ degree, theme }) {
   return (
     <article

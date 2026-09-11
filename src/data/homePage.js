@@ -1,3 +1,4 @@
+// Home and Skills share these outcomes; keep metrics aligned with Experience and retain their scope notes.
 export const homePageData = {
   hero: {
     eyebrow: "Applied AI Engineer · Gurugram, India",
@@ -21,7 +22,7 @@ export const homePageData = {
         "I worked on accessibility-tree snapshots and compressed observations.",
     },
     {
-      metric: "80% to 81%, then above 90%",
+      metric: "80–81% to above 90%",
       label: "Structured-extraction accuracy",
       context: "Measured on the same internal benchmark.",
       contribution:

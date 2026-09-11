@@ -2,7 +2,7 @@
  * Education & Certifications Data
  *
  * `degrees`         — Academic qualifications rendered by DegreeCard.jsx
- * `certifications`  — Professional certifications rendered by CertificationCard.jsx
+ * `certifications` - Professional certifications and course-completion certificates
  *
  * Certification logo images live in public/images/certifications/.
  * PDF files are served from the public/certifications/ directory.
@@ -34,9 +34,7 @@ export const degrees = {
   ],
 };
 
-// ─────────────────────────────────────────────────────────
-// CERTIFICATIONS — signal-optimized: capability > course listing
-// ─────────────────────────────────────────────────────────
+// Preserve issuer wording and date labels: an issued credential is not a completed course.
 export const certifications = {
   certifications: [
     {
@@ -48,6 +46,7 @@ export const certifications = {
       pdfLink: "/certifications/anthropic-claude-certified-associate-foundations.pdf",
       badgeImagePath: "/images/certifications/claude-certified-associate-foundations.png",
       altName: "Anthropic",
+      credentialType: "professional",
       category: "Generative AI",
       highlights: [],
       summary: "Anthropic certification in Claude foundations.",
