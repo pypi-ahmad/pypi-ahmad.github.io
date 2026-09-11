@@ -13,8 +13,8 @@ index.html -> src/index.jsx -> App providers -> Main router -> lazy page -> shar
 ```
 
 1. `index.html` loads `src/index.jsx`, which creates the React root.
-2. `App.jsx` wraps the app with error, theme, motion, and metadata-related runtime providers; analytics/cursor behavior is conditional.
-3. `Main.jsx` creates a BrowserRouter, renders a suspense fallback, and maps route metadata to lazy page components.
+2. `App.jsx` installs the error boundary, theme/motion providers, and global styles; analytics/cursor behavior is conditional.
+3. `Main.jsx` owns HelmetProvider and BrowserRouter, renders a Suspense fallback with separate polite loading status, and maps route metadata to lazy page components.
 4. A page composes reusable header, footer, and cards, then reads committed portfolio objects from `src/portfolio.js`.
 5. `themeController.jsx` validates persisted values, resolves semantic tokens in `theme.js`, and writes valid choices to localStorage.
 6. Vite builds client assets; the build command writes fallback HTML for GitHub Pages direct-route recovery.
@@ -37,6 +37,9 @@ index.html -> src/index.jsx -> App providers -> Main router -> lazy page -> shar
 | Data barrel | `src/portfolio.js` | Gives pages one import boundary for content |
 | Route metadata wrapper | `withRouteMeta` in `src/containers/Main.jsx` | Couples each route to title, canonical, social tags, and robots rule |
 | Lazy route imports | `src/containers/Main.jsx` | Splits route code and exposes a loading state |
+| Post-navigation focus | `src/components/RouteNavigation.jsx` | Focuses changed pathnames; skips its scroll reset on initial, fragment, and history navigation |
+| Error recovery | `src/components/ErrorBoundary.jsx` | Focuses a named error heading and provides a document reload |
+| Filtered contact channels | `src/components/socialMedia/ContactLinksList.jsx`, `src/pages/contact/ContactComponent.jsx` | Hides blank values and shows recovery when all channels are unavailable |
 | Shared motion helper | `src/themeMotion.js` | Applies consistent reduced-motion behavior |
 
 ## 5) Known Architectural Risks
@@ -46,6 +49,10 @@ index.html -> src/index.jsx -> App providers -> Main router -> lazy page -> shar
 - [ASK USER] Decide whether the retained manual `gh-pages` script is still an approved deployment route alongside the GitHub Actions Pages artifact workflow.
 
 ## 6) Evidence
+
+Related references: [Structure](STRUCTURE.md), [Stack](STACK.md),
+[Conventions](CONVENTIONS.md), [Integrations](INTEGRATIONS.md),
+[Concerns](CONCERNS.md), and [Testing](TESTING.md).
 
 - `index.html`, `src/index.jsx`, `src/App.jsx`
 - `src/containers/Main.jsx`, `src/components/RouteNavigation.jsx`, `src/components/seo/RouteMeta.jsx`

@@ -15,7 +15,7 @@ No runtime HTTP client, fetch call, database driver, queue client, API gateway, 
 
 | Store | Role | Access layer | Key risk | Evidence |
 | --- | --- | --- | --- | --- |
-| Browser localStorage | Persists theme mode and accent | `ThemeControllerProvider` | Cleared, unavailable, or malformed browser storage falls back to defaults | `src/themeController.jsx` |
+| Browser localStorage | Persists theme mode and accent | `ThemeControllerProvider` | Missing/malformed values normalize to defaults; storage-access exceptions are not caught | `src/themeController.jsx` |
 | Bundled JavaScript data | Portfolio content at build time | `src/portfolio.js` | Updates require source edit and redeployment | `src/data/`, `src/portfolio.js` |
 
 No server-side database or distributed cache was found.
@@ -31,6 +31,10 @@ No server-side database or distributed cache was found.
 
 - Retry/backoff, timeout, and circuit-breaker policies: none in application source because it has no runtime remote API calls.
 - Missing or invalid local theme preferences normalize to supported values.
+- The controller does not wrap localStorage reads or writes in error handling;
+  blocked storage is not covered by the malformed-value fallback.
+- Contact URLs are configured outbound links. Empty/whitespace-only values hide
+  channels; this is a visibility rule, not URL validation or a reachability check.
 - An uncaught React render error displays the local error boundary fallback; no remote reporting is implemented.
 - Static-host deep-link reliability depends on the generated fallback HTML included by `npm run build`.
 
