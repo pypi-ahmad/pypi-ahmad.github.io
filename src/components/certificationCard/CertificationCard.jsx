@@ -1,4 +1,3 @@
-import React from "react";
 import "./CertificationCard.css";
 
 function CertificationCard({ certificate, theme }) {

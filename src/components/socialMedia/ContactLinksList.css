@@ -38,13 +38,6 @@
   transform: translateY(-1px);
 }
 
-.contact-links-bullet {
-  width: 10px;
-  display: inline-flex;
-  justify-content: center;
-  flex: 0 0 10px;
-}
-
 .contact-links-icon {
   width: 24px;
   height: 24px;
@@ -93,15 +86,6 @@
   opacity: 1;
 }
 
-.contact-links-sep {
-  opacity: 0.8;
-}
-
-.contact-links-url {
-  overflow-wrap: anywhere;
-  white-space: normal;
-}
-
 @media (max-width: 768px) {
   .contact-links-list {
     grid-template-columns: 1fr;
@@ -113,10 +97,5 @@
 
   .contact-links-desc {
     font-size: 0.875rem;
-  }
-
-  .contact-links-url {
-    white-space: normal;
-    word-break: break-word;
   }
 }

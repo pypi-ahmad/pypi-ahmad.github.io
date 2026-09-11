@@ -6,7 +6,6 @@
  *
  * Props: { theme }
  */
-import React from "react";
 import Header from "../../components/header/Header";
 import Greeting from "../../containers/greeting/Greeting";
 import FeaturedProjects from "../../containers/FeaturedProjects/FeaturedProjects";

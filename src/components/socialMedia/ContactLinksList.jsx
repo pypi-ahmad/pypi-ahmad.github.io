@@ -6,7 +6,6 @@
  *
  * Props: { theme }
  */
-import React from "react";
 import { motion } from "framer-motion";
 import { revealMotion } from "../../themeMotion";
 import "./ContactLinksList.css";
@@ -174,7 +173,7 @@ export default function ContactLinksList({ theme }) {
             </span>
             <div className="contact-links-content">
               <span className="contact-links-label" style={{ color: theme.text }}>
-                {item.displayValue ? `${item.label} · ${item.displayValue}` : item.label}
+                {item.label}
               </span>
               {item.description && (
                 <span className="contact-links-desc" style={{ color: theme.secondaryText }}>

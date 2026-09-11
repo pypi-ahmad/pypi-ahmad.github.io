@@ -1,8 +1,7 @@
 /**
  * Social Media Links
  *
- * Consumed by SocialMedia.jsx (icon buttons) and ContactLinksList.jsx
- * (detailed contact cards on the /contact page).
+ * Provides contact URLs and descriptions for portfolio sections.
  *
  * Set a link to " " (space) to hide it from the UI.
  * Matching *Desc keys provide hover/card descriptions.

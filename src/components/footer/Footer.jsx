@@ -3,7 +3,6 @@
  *
  * Props: { theme }
  */
-import React from "react";
 import "./Footer.css";
 import { motion } from "framer-motion";
 import { greeting } from "../../portfolio.js";

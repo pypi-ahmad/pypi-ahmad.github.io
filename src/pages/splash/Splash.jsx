@@ -4,14 +4,12 @@
  * Shows a brief loading-mark fade until the page finishes loading,
  * then redirects to /home.  Enabled when `settings.isSplash` is true.
  * Falls back to redirect after 3 seconds if the load event doesn't fire.
- *
- * Props: { theme }
  */
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Splash.css";
 import { Navigate } from "react-router-dom";
 
-function AnimatedSplash(props) {
+function AnimatedSplash() {
   return (
     <div className="logo_wrapper" role="status" aria-label="Loading portfolio">
       <div className="loading">
@@ -29,7 +27,7 @@ function AnimatedSplash(props) {
   );
 }
 
-function Splash(props) {
+function Splash() {
   const [redirect, setRedirect] = useState(false);
   
   useEffect(() => {
@@ -57,7 +55,7 @@ function Splash(props) {
   return redirect ? (
     <Navigate to="/home" replace />
   ) : (
-    <AnimatedSplash theme={props.theme} />
+    <AnimatedSplash />
   );
 }
 

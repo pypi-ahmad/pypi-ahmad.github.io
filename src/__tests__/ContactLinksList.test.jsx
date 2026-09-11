@@ -20,6 +20,12 @@ describe("ContactLinksList Component", () => {
       "Facebook",
     ]);
 
+    for (const link of screen.getAllByRole("link")) {
+      expect(link.querySelector(".contact-links-label").textContent).toBe(
+        link.getAttribute("aria-label")
+      );
+    }
+
     expect(screen.getByRole("link", { name: "GitHub" })).toHaveAttribute(
       "href",
       "https://github.com/pypi-ahmad"

@@ -1,4 +1,3 @@
-import React from "react";
 import "./DegreeCard.css";
 
 function DegreeCard({ degree, theme }) {
