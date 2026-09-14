@@ -11,7 +11,7 @@ export const contactPageData = {
     title: "Let’s build useful AI systems.",
     description:
       "I’m open to remote-first Applied AI and GenAI engineering roles, plus focused consulting engagements in document AI, RAG, evaluation, and agentic systems.",
-    emailLabel: "Email me",
+    emailLabel: "Discuss a project",
     channelsTitle: "Choose a channel",
   },
 };

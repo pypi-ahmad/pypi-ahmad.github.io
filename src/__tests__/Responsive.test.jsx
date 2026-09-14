@@ -2,7 +2,7 @@
  * Responsiveness Tests
  *
  * Verifies disclosure semantics and responsive class hooks. The same
- * navigation disclosure is used on mobile and desktop.
+ * navigation list is visible on wide screens and disclosed on compact screens.
  *
  * Note: jsdom does not implement layout, so these tests verify DOM structure
  * and CSS class application rather than computed pixel values. True visual
@@ -13,7 +13,7 @@
  *  - src/global.js (mobile breakpoint at 768px)
  */
 import React from "react";
-import { screen } from "@testing-library/react";
+import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import Header from "../components/header/Header";
@@ -62,22 +62,23 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     expect(menu).not.toHaveAttribute("hidden");
   });
 
-  it("all 8 links including the site label are inside the menu <ul>", async () => {
+  it("keeps seven page links in one navigation list", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const menu = document.querySelector("ul.menu");
     const links = menu.querySelectorAll("a");
-    expect(links.length).toBe(8);
+    expect(links.length).toBe(7);
+    expect(menu.contains(screen.getByText("ahmad.m()"))).toBe(false);
   });
 
-  it("theme toggle button is inside the menu <ul>", async () => {
+  it("keeps the theme toggle available outside the dropdown", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const menu = document.querySelector("ul.menu");
-    const toggleBtn = menu.querySelector('button.change-theme-btn');
-    expect(toggleBtn).toBeInTheDocument();
+    const toggleBtn = screen.getByRole("button", { name: /Switch to .* mode/ });
+    expect(menu.contains(toggleBtn)).toBe(false);
   });
 
   it("keeps the obsolete accent selector out of the menu", async () => {
@@ -88,7 +89,7 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     expect(screen.queryByRole("group", { name: "Accent color" })).not.toBeInTheDocument();
   });
 
-  it("keeps Contact and mode toggle in the correct final order", async () => {
+  it("keeps Contact last in page navigation", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
@@ -105,7 +106,32 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
       return item.textContent.trim();
     });
 
-    expect(menuItems.slice(-2)).toEqual(["contact", "toggle"]);
+    expect(menuItems.at(-1)).toBe("contact");
+  });
+
+  it("keeps desktop navigation accessible and moves focus when resizing", () => {
+    let change;
+    const remove = vi.fn();
+    const original = window.matchMedia;
+    window.matchMedia = vi.fn((query) => query !== "(min-width: 80rem)" ? original(query) : ({
+      matches: true,
+      addEventListener: (_event, listener) => { change = listener; },
+      removeEventListener: remove,
+    }));
+    const { unmount } = renderWithProviders(<Header />);
+    const link = screen.getByRole("link", { name: "Experience" });
+    expect(screen.queryByRole("button", { name: "Toggle navigation menu" })).not.toBeInTheDocument();
+    link.focus();
+    act(() => change({ matches: false }));
+    const trigger = screen.getByRole("button", { name: "Toggle navigation menu" });
+    expect(trigger).toHaveFocus();
+    expect(link.closest("ul")).toHaveAttribute("inert");
+    act(() => change({ matches: true }));
+    expect(screen.getByText("ahmad.m()")).toHaveFocus();
+    expect(link.closest("ul")).not.toHaveAttribute("inert");
+    unmount();
+    expect(remove).toHaveBeenCalled();
+    window.matchMedia = original;
   });
 });
 

@@ -111,7 +111,7 @@ describe("Header — Theme Toggle Behavior", () => {
 describe("Home hero CTA behavior", () => {
   it("contact action points to /contact", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByRole("link", { name: "Contact me" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Discuss a project" })).toHaveAttribute(
       "href",
       "/contact",
     );

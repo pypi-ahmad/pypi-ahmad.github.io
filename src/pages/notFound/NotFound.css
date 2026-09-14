@@ -15,7 +15,7 @@
 
 .not-found-code {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-size: var(--page-title-size);
   line-height: 1;
 }
 

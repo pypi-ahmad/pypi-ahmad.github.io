@@ -11,7 +11,7 @@ describe("Home hero", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: "I build applied AI systems and test whether they work.",
+        name: "I build applied AI systems that turn complex information into useful tools.",
       })
     ).toBeInTheDocument();
     expect(
@@ -20,6 +20,9 @@ describe("Home hero", () => {
     expect(
       screen.getByText(/AI and Data Science Engineer at Deloitte/)
     ).toBeInTheDocument();
+    expect(
+      screen.getByText(/document-processing systems, retrieval tools/)
+    ).toHaveTextContent(/healthcare, enterprise automation, and data science/);
   });
 
   it("shows qualified internal outcomes", () => {
@@ -51,10 +54,13 @@ describe("Home hero", () => {
       "href",
       "#selected-work"
     );
-    expect(screen.getByRole("link", { name: "Contact me" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Discuss a project" })).toHaveAttribute(
       "href",
       "/contact"
     );
+    expect(screen.getByRole("link", { name: "Discuss a project" })).not.toHaveClass("button-secondary");
+    expect(screen.getByRole("link", { name: "View GitHub" })).toHaveAttribute("href", "https://github.com/pypi-ahmad");
+    expect(screen.getByRole("link", { name: "View GitHub" })).toHaveClass("button-secondary");
   });
 
   it("does not render retired hero content", () => {

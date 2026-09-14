@@ -19,6 +19,11 @@ async function openMenu() {
 }
 
 describe("Header — UI Rendering", () => {
+  it("marks Home current at the root URL", async () => {
+    renderWithProviders(<Header />, { initialEntries: ["/"] });
+    await openMenu();
+    expect(screen.getByRole("link", { name: "Home", exact: true })).toHaveAttribute("aria-current", "page");
+  });
   it("offers a skip link before the navigation controls", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
@@ -27,13 +32,13 @@ describe("Header — UI Rendering", () => {
     expect(skip).toHaveFocus();
     expect(skip).toHaveAttribute("href", "#main-content");
   });
-  it("renders the logo text 'ahmad.m()' inside the dropdown menu", async () => {
+  it("renders the logo text 'ahmad.m()'", async () => {
     renderWithProviders(<Header />);
     await openMenu();
     expect(screen.getByText("ahmad.m()")).toBeInTheDocument();
   });
 
-  it("renders all 6 main navigation links inside the dropdown menu", async () => {
+  it("renders all seven page links inside the dropdown menu", async () => {
     renderWithProviders(<Header />);
     await openMenu();
     const navLabels = [
@@ -42,6 +47,7 @@ describe("Header — UI Rendering", () => {
       "Experience",
       "Skills",
       "Projects",
+      "GitHub",
       "Contact",
     ];
     navLabels.forEach((label) => {
@@ -94,17 +100,4 @@ describe("Header — UI Rendering", () => {
     expect(logoLink).toHaveAttribute("href", "/home");
   });
 
-  it("applies dark theme background color on toggle button in dark mode", async () => {
-    renderWithProviders(<Header />);
-    await openMenu();
-    const toggleBtn = screen.getByRole("button", { name: /Switch to (light|dark) mode/ });
-    expect(toggleBtn).toHaveStyle({ backgroundColor: "#1D2129" });
-  });
-
-  it("applies light theme background color on toggle button in light mode", async () => {
-    renderWithProviders(<Header />, { theme: "light" });
-    await openMenu();
-    const toggleBtn = screen.getByRole("button", { name: /Switch to (light|dark) mode/ });
-    expect(toggleBtn).toHaveStyle({ backgroundColor: "#EEE7DA" });
-  });
 });

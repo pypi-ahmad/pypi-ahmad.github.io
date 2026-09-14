@@ -37,12 +37,12 @@ async function renderAtRoute(initialPath) {
 describe("Navigation — Route Resolution", () => {
   it("'/' renders the Home page (isSplash=false)", async () => {
     await renderAtRoute("/");
-    expect(await screen.findByRole("heading", { level: 1, name: "I build applied AI systems and test whether they work." })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "I build applied AI systems that turn complex information into useful tools." })).toBeInTheDocument();
   });
 
   it("'/home' renders the Home page", async () => {
     await renderAtRoute("/home");
-    expect(await screen.findByRole("heading", { level: 1, name: "I build applied AI systems and test whether they work." })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "I build applied AI systems that turn complex information into useful tools." })).toBeInTheDocument();
   });
 
   it("'/experience' renders the Experience page", async () => {
@@ -143,6 +143,6 @@ describe("Navigation — NavLink Click Flow", () => {
     const logo = screen.getByText("ahmad.m()");
     await user.click(logo);
     expect(window.location.pathname).toBe("/home");
-    expect(await screen.findByRole("heading", { level: 1, name: "I build applied AI systems and test whether they work." })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "I build applied AI systems that turn complex information into useful tools." })).toBeInTheDocument();
   });
 });

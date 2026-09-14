@@ -8,7 +8,7 @@
   display: grid;
   /* Clamp the preferred card minimum to its container so narrow or enlarged-text layouts still fit. */
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-  gap: 12px;
+  gap: var(--section-gap-tight);
   text-align: start;
 }
 
@@ -26,7 +26,7 @@
   justify-content: flex-start;
   gap: 15px;
   height: 100%;
-  padding: 1.25rem;
+  padding: var(--card-padding);
   border: 1px solid var(--border);
   border-radius: var(--surface-radius);
   background: var(--surface-card);

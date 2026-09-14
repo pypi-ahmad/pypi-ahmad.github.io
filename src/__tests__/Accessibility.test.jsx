@@ -57,7 +57,7 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
     const h1 = screen.getByRole("heading", { level: 1 });
     expect(h1).toBeInTheDocument();
     expect(h1).toHaveTextContent(
-      "I build applied AI systems and test whether they work."
+      "I build applied AI systems that turn complex information into useful tools."
     );
   });
 

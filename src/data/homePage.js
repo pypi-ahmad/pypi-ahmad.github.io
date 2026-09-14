@@ -2,9 +2,9 @@
 export const homePageData = {
   hero: {
     eyebrow: "Applied AI Engineer · Gurugram, India",
-    title: "I build applied AI systems and test whether they work.",
+    title: "I build applied AI systems that turn complex information into useful tools.",
     introduction:
-      "I'm Ahmad, an AI and Data Science Engineer at Deloitte.\nI specialize in AI for healthcare.\nI build GenAI and agentic AI systems across document AI, RAG, agents, evaluation, and model adaptation.",
+      "I'm Ahmad, an AI and Data Science Engineer at Deloitte. I build document-processing systems, retrieval tools, and AI agents across domains, with a focus on evaluation and reliability. My experience spans healthcare, enterprise automation, and data science.",
   },
   outcomes: [
     {

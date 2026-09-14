@@ -14,12 +14,12 @@ const Container = styled.section`
 
 const Title = styled(motion.h2)`
   color: ${props => props.theme.text};
-  font-size: 2.5rem;
+  font-size: var(--section-title-size);
   margin-bottom: 2rem;
   font-weight: bold;
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: var(--section-title-size);
   }
 `;
 

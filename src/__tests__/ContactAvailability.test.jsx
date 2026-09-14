@@ -33,6 +33,7 @@ describe("Contact availability", () => {
     renderWithProviders(<Contact theme={darkTheme} />);
     expect(screen.getByText("Choose a channel")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "GitHub", exact: true })).toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: "Email me" })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "View GitHub" })).toHaveAttribute("href", "https://github.com/pypi-ahmad");
+    expect(screen.queryByRole("link", { name: "Discuss a project" })).not.toBeInTheDocument();
   });
 });

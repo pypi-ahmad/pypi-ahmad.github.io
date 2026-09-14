@@ -16,7 +16,7 @@ const Method = styled(motion.div)`
 
   h2 {
     margin: 0 0 1rem;
-    font-size: clamp(2rem, 4vw, 2.25rem);
+    font-size: var(--section-title-size);
   }
 
   p {
@@ -144,7 +144,7 @@ export default function HomeDetails({ theme }) {
           </p>
         </div>
         <ContactLink className="motion-action" theme={theme} to="/contact">
-          Contact me
+          Discuss a project
         </ContactLink>
       </Closing>
     </Container>

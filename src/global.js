@@ -22,8 +22,12 @@ export const GlobalStyles = createGlobalStyle`
     --theme-transition-slow: 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
     --theme-transition-colors: 300ms ease-in-out;
     --container-max-width: 72rem;
-    --section-spacing: 4rem;
+    --section-spacing: clamp(2.5rem, 5vw, 4rem);
     --section-gap-tight: 1.5rem;
+    --page-title-size: clamp(2rem, 4vw, 2.625rem);
+    --section-title-size: clamp(1.5rem, 3vw, 2.25rem);
+    --hero-padding: clamp(1.5rem, 4vw, 3.5rem);
+    --card-padding: clamp(1.25rem, 2vw, 1.75rem);
   }
 
   *,
@@ -58,6 +62,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     --surface-background: ${({ theme }) => theme.body};
+    --header-surface: ${({ theme }) => theme.headerSurface};
     --surface-card: ${({ theme }) => theme.cardBackgroundAlt ?? theme.projectCard};
     --text: ${({ theme }) => theme.text};
     --text-primary: ${({ theme }) => theme.text};
@@ -95,6 +100,7 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     margin: 0;
     font-family: var(--body-font-family);
+    font-optical-sizing: auto;
     font-size: clamp(1rem, 0.98rem + 0.18vw, 1.0625rem);
     line-height: 1.6;
     letter-spacing: 0;
@@ -128,6 +134,8 @@ export const GlobalStyles = createGlobalStyle`
     text-wrap: balance;
     overflow-wrap: anywhere;
   }
+
+  h1, h2 { line-height: 1.2; }
 
   p {
     margin: 0 0 var(--stack-md);
