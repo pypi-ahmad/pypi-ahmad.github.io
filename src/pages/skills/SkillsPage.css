@@ -9,7 +9,7 @@
 
 .skills-hero {
   margin-top: 1.5rem;
-  padding: clamp(1.5rem, 5vw, 4rem);
+  padding: var(--hero-padding);
 }
 
 .skills-eyebrow {
@@ -23,8 +23,8 @@
 .skills-hero h1 {
   max-width: 1000px;
   margin: 0;
-  font-size: clamp(2rem, 4vw, 2.5rem);
-  line-height: 1.4;
+  font-size: var(--page-title-size);
+  line-height: 1.2;
   letter-spacing: -0.025em;
 }
 
@@ -47,7 +47,7 @@
 
 .skills-section-heading h2,
 .skills-section-heading p { margin: 0; }
-.skills-section-heading h2 { font-size: clamp(2rem, 4vw, 2.25rem); }
+.skills-section-heading h2 { font-size: var(--section-title-size); }
 .skills-section-heading p { max-width: 560px; line-height: 1.6; text-align: end; }
 
 .capability-grid {
@@ -57,7 +57,7 @@
 }
 
 /* A rem-based basis lets enlarged text trigger wrapping before a viewport breakpoint does. */
-.capability-card { flex: 1 1 18rem; min-inline-size: 0; padding: 1.4rem; }
+.capability-card { flex: 1 1 18rem; min-inline-size: 0; padding: var(--card-padding); }
 .capability-card h3 { line-height: 1.4; margin: 0 0 0.7rem; font-size: 1.15rem; }
 .capability-card p { margin: 0; line-height: 1.6; }
 
@@ -84,7 +84,7 @@
 .skills-proof-grid > .project-card-wrap { grid-column: auto; }
 
 .toolkit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-.toolkit-group { padding: 1.4rem; }
+.toolkit-group { padding: var(--card-padding); }
 .toolkit-group h3 { line-height: 1.4; margin: 0 0 1rem; }
 .toolkit-group ul { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
 .toolkit-group li { padding: 0.5rem 0.7rem; border: 1px solid; border-radius: var(--control-radius); font-size: 0.9rem; }

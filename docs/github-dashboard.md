@@ -1,6 +1,8 @@
 # GitHub dashboard
 
-The homepage loads a small GitHub preview near the viewport. `/github` has five focused views: Overview, Projects, Activity, Impact, and Arcade. Each secondary view loads on demand. The overview retains statistics and an advanced-metrics disclosure; selecting Arcade loads the game interface without starting play.
+The homepage loads a small GitHub preview near the viewport. `/github` has six focused views: Overview, Projects, Activity, Impact, Arcade, and Animations. Each secondary view loads on demand. Overview leads with four key metrics, followed by a detailed statistics snapshot and rolling 365-day contribution heatmap. The snapshot uses repository count instead of an unsupported profile grade, calculates all-time and streak ranges from recorded days, and calculates language percentages from all public repository language bytes. The heatmap scrolls within its own labeled region on narrow screens and exposes exact daily counts in a native disclosure. Projects contains the selected work and repository explorer. Activity contains contribution history, comparisons, releases, and an advanced-metrics disclosure; legacy `#advanced-dashboard` links open that disclosure in Activity. Selecting Arcade loads the game interface without starting play.
+
+Animations is separate from the playable arcade. It embeds the seven original animated SVGs from the profile repository's `output` branch, choosing light or dark assets from the site's theme. Each image loads only after Play and is removed on Stop; switching themes resets playback. This opt-in behavior also applies with reduced motion. Failed images offer Retry. These remote animations use their own generated grid, not the selected dashboard year, and remain accessible when dashboard JSON is unavailable.
 
 ## Public data contract
 
@@ -12,6 +14,8 @@ Repository metrics cover public, owned, non-fork, non-archived repositories. Con
 
 Repository language share uses language bytes, not commit counts. Recent language activity is a commit-weighted estimate using the existing collector's sample limits: up to 100 authored commits per repository across up to 100 repositories. Coding timezone and sample coverage are displayed. Release/download totals cover available repositories; traffic covers the available last 14 days. Unavailable metrics are null, not fabricated zeroes. Star history describes current stargazers by receipt date, not historical net star totals.
 
+The Overview's “last 365 days” ends on `summary.streak.asOf`, crosses calendar-year boundaries, and sums only recorded daily counts. Missing dates remain visibly unavailable. The bundled snapshot renders first; each new application load then requests the latest validated daily export. This is a daily snapshot workflow, not real-time GitHub API streaming.
+
 The additive schema-v1 fields `repositories`, `releases`, `externalPullRequests`, and `discoveryCoverage` power discovery. Older snapshots without them remain valid and show unavailable states. `scripts/discovery_export.py` paginates all public owned repositories and authored merged PRs, filters private/own-repository PRs, and reuses already-fetched releases. New discovery collection failures stop publication rather than claim partial history is complete. Both exporter and browser validate public links and record shapes.
 
 Explorer defaults exclude forks and archives; inclusion filters expose them. Search covers name, description, and topics; language filtering uses GitHub's primary language. Featured ordering follows the existing portfolio catalog and never bypasses filters. Pages contain 12 repositories. Release and PR pages contain 10 entries. Creation/release history includes currently public archived originals but excludes forks, drafts, deleted repositories, and private repositories. Prereleases remain explicitly labeled. Notes are short text excerpts, with links to their complete source and optional release assets.
@@ -20,9 +24,9 @@ Explorer defaults exclude forks and archives; inclusion filters expose them. Sea
 
 Year comparisons default to shared month/day records between selected years. Unshared dates, including unmatched leap days and future dates, are excluded. Full recorded-year comparison is an explicit alternative. Missing months are not shown as zero; exact tables distinguish uncovered months. Percentage change is unavailable for missing coverage or a zero baseline.
 
-## Shareable views
+## URL-backed views
 
-The URL query carries `tab`, `year`, `compare`, `period`, `calendar`, `day`, `game`, `mode`, and `challenge`, plus explorer filters and pagination. For example: `/github?tab=activity&year=2025&calendar=3d`. Search edits replace the current history entry; explicit controls and view links create entries. Invalid enumerations and unavailable filters fall back safely. Copy view link includes the effective year; blocked clipboard access exposes a selectable link. Canonical metadata stays `/github`. Existing statistics/history/arcade fragment links resolve to their associated view.
+The URL query carries `tab`, `year`, `compare`, `period`, `calendar`, `day`, `game`, `mode`, and `challenge`, plus explorer filters and pagination. For example: `/github?tab=activity&year=2025&calendar=3d`. Search edits replace the current history entry; explicit controls create entries. Invalid enumerations and unavailable filters fall back safely. Canonical metadata stays `/github`. Existing statistics/history/arcade fragment links resolve to their associated view.
 
 ## Refresh the saved snapshot
 

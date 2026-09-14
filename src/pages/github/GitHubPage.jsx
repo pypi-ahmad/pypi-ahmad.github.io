@@ -1,25 +1,24 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense } from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { useDashboard } from "../../components/github/dashboardStore";
 import { Summary, DataStatus } from "../../components/github/GitHubSummary";
-import AdvancedDashboard, {
-  Bars,
-} from "../../components/github/AdvancedDashboard";
 import { githubWork } from "../../data/githubWork";
 import { githubData } from "../../data/github";
 import { normalizeViewParams } from "../../components/github/viewState";
+import GitHubVisualOverview from "../../components/github/GitHubVisualOverview";
 import "../../components/github/github.css";
 
 const Projects = lazy(() => import("../../components/github/ProjectsView"));
 const Activity = lazy(() => import("../../components/github/ActivityView"));
 const Impact = lazy(() => import("../../components/github/ImpactView"));
 const Arcade = lazy(() => import("../../components/github/arcade/ArcadeView"));
-const tabs = ["overview", "projects", "activity", "impact", "arcade"];
+const Animations = lazy(() => import("../../components/github/AnimationsView"));
+const tabs = ["overview", "projects", "activity", "impact", "arcade", "animations"];
 const legacy = {
   "#statistics": "overview",
-  "#advanced-dashboard": "overview",
+  "#advanced-dashboard": "activity",
   "#contribution-history": "activity",
   "#contribution-arcade": "arcade",
 };
@@ -28,8 +27,6 @@ export default function GitHubPage({ theme }) {
   const [rawParams, setParams] = useSearchParams();
   const params = normalizeViewParams(rawParams, state.data);
   const location = useLocation();
-  const [shared, setShared] = useState("");
-  const [fallback, setFallback] = useState("");
   const tab = tabs.includes(params.get("tab"))
     ? params.get("tab")
     : legacy[location.hash] || "overview";
@@ -51,33 +48,7 @@ export default function GitHubPage({ theme }) {
       { replace, preventScrollReset: true },
     );
   };
-  useEffect(() => {
-    setShared("");
-    setFallback("");
-  }, [location.search]);
-  async function share() {
-    const url = new URL(window.location.href);
-    url.search = params.toString();
-    url.searchParams.set("tab", tab);
-    if (year) url.searchParams.set("year", String(year.year));
-    if (
-      tab === "arcade" &&
-      params.get("mode") === "daily" &&
-      !params.get("challenge")
-    )
-      url.searchParams.set("challenge", new Date().toISOString().slice(0, 10));
-    try {
-      await navigator.clipboard.writeText(url.href);
-      setShared("View link copied.");
-      setFallback("");
-    } catch {
-      setShared("Copy the view link below.");
-      setFallback(url.href);
-    }
-  }
   const props = { data, year, params, update };
-  const languageTotal =
-    data?.summary.languages.reduce((n, r) => n + r.bytes, 0) || 1;
   return (
     <>
       <Header />
@@ -105,30 +76,26 @@ export default function GitHubPage({ theme }) {
             );
           })}
         </nav>
-        <div className="gh-toolbar">
-          <button onClick={share}>Copy view link</button>
-          <span role="status">{shared}</span>
-        </div>
-        {fallback && (
-          <label>
-            View link
-            <input
-              readOnly
-              value={fallback}
-              onFocus={(e) => e.target.select()}
-            />
-          </label>
+        {tab !== "animations" && <DataStatus {...state} />}
+        {tab === "animations" && (
+          <Suspense fallback={<p role="status">Loading animations…</p>}>
+            <Animations />
+          </Suspense>
         )}
-        <DataStatus {...state} />
         {data && (
           <Suspense fallback={<p role="status">Loading {tab}…</p>}>
             {tab === "overview" && (
               <>
                 <section id="statistics" className="gh-section">
                   <h2>At a glance</h2>
-                  <Summary summary={data.summary} />
+                  <Summary summary={data.summary} compact />
                   <p className="gh-hint">{data.scope}</p>
                 </section>
+                <GitHubVisualOverview data={data} />
+              </>
+            )}
+            {tab === "projects" && (
+              <>
                 <section className="gh-section">
                   <h2>What I’m building</h2>
                   <p>
@@ -157,34 +124,9 @@ export default function GitHubPage({ theme }) {
                     ))}
                   </div>
                 </section>
-                <details
-                  id="advanced-dashboard"
-                  className="gh-panel gh-section"
-                  open={location.hash === "#advanced-dashboard" || undefined}
-                >
-                  <summary>Explore advanced GitHub metrics</summary>
-                  <h2>Advanced dashboard</h2>
-                  <Bars
-                    title="Repository language share"
-                    values={data.summary.languages
-                      .slice(0, 8)
-                      .map((r) => [
-                        r.name,
-                        Math.round((r.bytes / languageTotal) * 1000) / 10,
-                      ])}
-                    suffix="%"
-                    note="Top eight languages by bytes; percentages use all language bytes."
-                  />
-                  <AdvancedDashboard data={data} />
-                  <p className="gh-hint">
-                    Streaks follow GitHub calendar dates through{" "}
-                    {data.summary.streak.asOf}; an unfinished current day does
-                    not break yesterday’s streak.
-                  </p>
-                </details>
+                <Projects {...props} />
               </>
             )}
-            {tab === "projects" && <Projects {...props} />}
             {tab === "activity" && <Activity {...props} />}
             {tab === "impact" && <Impact {...props} />}
             {tab === "arcade" && <Arcade {...props} />}

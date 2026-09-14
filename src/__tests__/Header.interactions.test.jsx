@@ -34,13 +34,18 @@ describe("Navigation disclosure", () => {
     await user.tab();
     expect(screen.getByRole("link", { name: "Skip to content" })).toHaveFocus();
     await user.tab();
+    expect(screen.getByRole("link", { name: "ahmad.m()" })).toHaveFocus();
+    await user.tab();
+    expect(screen.getByRole("button", { name: "Switch to light mode" })).toHaveFocus();
+    await user.tab();
+    expect(trigger).toHaveFocus();
     await user.keyboard("{Enter}");
     const panel = document.getElementById(
       trigger.getAttribute("aria-controls"),
     );
     expect(panel).toHaveClass("menu--instant");
     await user.tab();
-    expect(screen.getByRole("link", { name: "ahmad.m()" })).toHaveFocus();
+    expect(screen.getByRole("link", { name: "Home", exact: true })).toHaveFocus();
     await user.keyboard("{Escape}");
     expect(trigger).toHaveFocus();
     expect(trigger).toHaveAttribute("aria-expanded", "false");
@@ -81,7 +86,7 @@ describe("Navigation disclosure", () => {
       name: "Toggle navigation menu",
     });
     await user.click(trigger);
-    screen.getByRole("button", { name: "Switch to light mode" }).focus();
+    screen.getByRole("link", { name: "Contact", exact: true }).focus();
     await user.tab();
     expect(
       screen.getByRole("button", { name: "Outside action" }),

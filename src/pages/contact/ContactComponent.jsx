@@ -21,6 +21,7 @@ function Contact(props) {
   const items = buildContactItems();
   // Derive the primary action from the same filtered list to avoid an empty mailto link.
   const email = items.find(item => item.key === "email");
+  const github = items.find(item => item.key === "github");
 
   return (
     <div className="contact-main">
@@ -45,15 +46,23 @@ function Contact(props) {
           <motion.p {...revealMotion(1, true)} className="contact-intro" style={{ color: theme.secondaryText }}>
             {ContactData.description}
           </motion.p>
-          {email && <motion.div {...revealMotion(2, true)} className="contact-actions">
-            <a
+          {(email || github) && <motion.div {...revealMotion(2, true)} className="contact-actions">
+            {email && <a
               className="contact-action contact-action--primary"
               href={email.href}
               style={{ background: theme.accentGradient, color: theme.accentText }}
             >
               {ContactData.emailLabel}
-            </a>
+            </a>}
+            {github && <a
+              className="contact-action contact-action--secondary"
+              href={github.href}
+              style={{ color: theme.text, borderColor: theme.borderSoft }}
+            >
+              View GitHub
+            </a>}
           </motion.div>}
+          {email && <p className="contact-action-hint" style={{ color: theme.secondaryText }}>“Discuss a project” opens your email app.</p>}
         </section>
         {items.length > 0 ? <section
           className="contact-channels"

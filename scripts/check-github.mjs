@@ -44,6 +44,17 @@ try {
   await page
     .getByRole("heading", { name: "At a glance", exact: true })
     .waitFor();
+  await page
+    .getByRole("heading", { name: "GitHub statistics snapshot", exact: true })
+    .waitFor();
+  await page
+    .getByRole("heading", { name: "Contribution activity", exact: true })
+    .waitFor();
+  assert.equal(
+    (await page.locator(".gh-heatmap-grid > span").count()) % 7,
+    0,
+    "Rolling contribution cells form complete weeks",
+  );
   assert.equal(
     await page.title(),
     "GitHub Statistics & Contribution Arcade | Ahmad Mujtaba",
@@ -268,6 +279,37 @@ try {
   );
   const touch = await touchContext.newPage();
   touch.on("pageerror", (error) => errors.push(error.message));
+  await touch.goto(`${base}/github`);
+  const heatmapScroller = touch.locator(".gh-heatmap-scroll");
+  await heatmapScroller.scrollIntoViewIfNeeded();
+  const heatmapBounds = await heatmapScroller.boundingBox();
+  assert.ok(
+    await heatmapScroller.evaluate((node) => node.scrollWidth > node.clientWidth),
+    "Mobile heatmap exposes internal horizontal scrolling",
+  );
+  const touchSession = await touchContext.newCDPSession(touch);
+  const startX = heatmapBounds.x + heatmapBounds.width - 24;
+  const y = heatmapBounds.y + Math.min(90, heatmapBounds.height / 2);
+  await touchSession.send("Input.dispatchTouchEvent", {
+    type: "touchStart",
+    touchPoints: [{ x: startX, y }],
+  });
+  for (let step = 1; step <= 8; step++) {
+    await touchSession.send("Input.dispatchTouchEvent", {
+      type: "touchMove",
+      touchPoints: [{ x: startX - step * 28, y }],
+    });
+  }
+  await touchSession.send("Input.dispatchTouchEvent", {
+    type: "touchEnd",
+    touchPoints: [],
+  });
+  await touch.waitForTimeout(200);
+  assert.ok(
+    await heatmapScroller.evaluate((node) => node.scrollLeft > 0),
+    "Mobile heatmap responds to an emulated touch swipe",
+  );
+  results.push({ heatmapTouchScroll: "passed" });
   await touch.goto(`${base}/github?tab=arcade`);
   for (const name of [
     "Snake",
@@ -304,13 +346,13 @@ try {
   );
   const offline = await offlineContext.newPage();
   await offline.goto(`${base}/github`);
-  await offline.getByText(/Saved snapshot/).waitFor();
+  await offline.getByRole("heading", { name: "At a glance", exact: true }).waitFor();
   assert.ok(
     await offline
       .getByRole("heading", { name: "At a glance", exact: true })
       .isVisible(),
   );
-  results.push({ savedSnapshotRecovery: "passed" });
+  results.push({ dashboardDataRecovery: "passed" });
   await offlineContext.close();
 
   // Exercise the five focused views and their URL-backed controls.
@@ -463,8 +505,6 @@ try {
   await page.getByRole("button", { name: "Clear filters" }).click();
   await page.getByRole("button", { name: "Next page" }).click();
   await page.getByText(/Page 2 of/).waitFor();
-  await page.getByRole("button", { name: "Copy view link" }).click();
-  await page.getByText(/View link copied|Copy the view link below/).waitFor();
   await page.goto(`${base}/github?tab=arcade&mode=daily&challenge=2026-09-14`);
   await page
     .getByRole("heading", { name: "Daily challenge · 2026-09-14 UTC" })

@@ -108,6 +108,12 @@ the page displays an unavailable message and Return home; it does not emit a bla
 
 Components should use semantic tokens such as text, secondary text, card background, border, and accent so both modes remain readable. Interactive components also need visible focus states and reduced-motion behavior.
 
+The header shows one list of page links at widths of 80rem and above. Smaller
+screens use a dropdown, with the brand and theme switch always available.
+Crossing the breakpoint closes the dropdown and preserves keyboard focus.
+Shared title, section, hero-padding, and card-padding tokens keep the seven pages
+and GitHub views aligned while retaining the current palette and fonts.
+
 `GlobalStyles` exports `separatorColor` as `--separator` and `shadowColor` as
 `--shadow-color` for header CSS. Filled primary actions stay
 opaque while pressed; Contact's primary hover does not apply a brightness filter.

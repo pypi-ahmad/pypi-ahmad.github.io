@@ -47,22 +47,42 @@ beforeEach(() => {
 afterEach(() => vi.restoreAllMocks());
 
 describe("Native dashboard and history", () => {
-  it("renders all metric families, scope, selected year and 3D without a game download", async () => {
+  it("keeps four overview metrics and moves analytics and games into their views", async () => {
     const { container } = renderWithProviders(<GitHubPage theme={darkTheme} />);
     expect(
       screen.getByRole("heading", { level: 1, name: "GitHub statistics" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", {
+      screen.queryByRole("heading", {
         name: "Distribution and repository traffic",
       }),
+    ).not.toBeInTheDocument();
+    const glance = screen
+      .getByRole("heading", { name: "At a glance" })
+      .closest("section");
+    expect(within(glance).getAllByRole("definition")).toHaveLength(4);
+    expect(
+      screen.getByRole("heading", { name: "GitHub statistics snapshot" }),
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Contribution activity" }),
+    ).toBeInTheDocument();
+    expect(screen.queryByText("What I’m building")).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("Explore advanced GitHub metrics"),
+    ).not.toBeInTheDocument();
     expect(
       screen.getByText(/Public repository aggregates/),
     ).toBeInTheDocument();
     expect(container.querySelector("canvas")).toBeNull();
-    fireEvent.click(screen.getByRole("link", { name: "Activity", exact: true }));
+    fireEvent.click(
+      screen.getByRole("link", { name: "Activity", exact: true }),
+    );
     await screen.findByLabelText("Contribution year", {}, { timeout: 10000 });
+    expect(
+      screen.getByText("Explore advanced GitHub metrics"),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Longest streak")).toBeInTheDocument();
     fireEvent.change(screen.getByLabelText("Contribution year"), {
       target: { value: "2023" },
     });
@@ -74,7 +94,11 @@ describe("Native dashboard and history", () => {
     ).toBeInTheDocument();
     fireEvent.click(screen.getByRole("link", { name: "Arcade", exact: true }));
     expect(
-      await screen.findByRole("button", { name: "Snake", exact: true }, { timeout: 10000 }),
+      await screen.findByRole(
+        "button",
+        { name: "Snake", exact: true },
+        { timeout: 10000 },
+      ),
     ).toBeInTheDocument();
     expect(
       await screen.findByText("Ready", { exact: true }),
@@ -92,14 +116,12 @@ describe("Native dashboard and history", () => {
       "Loading GitHub activity",
     );
   });
-  it("formats unavailable metrics, dates and freshness and supports refresh", () => {
+  it("formats unavailable metrics", () => {
     const retry = vi.fn();
     renderWithProviders(
       <DataStatus data={data} status="saved" retry={retry} />,
     );
-    expect(screen.getByText(/Saved snapshot/)).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: "Check for updates" }));
-    expect(retry).toHaveBeenCalled();
+    expect(screen.queryByText(/Saved snapshot/)).not.toBeInTheDocument();
     expect(number(null)).toBe("Unavailable");
     expect(number(1234)).toBe("1,234");
   });

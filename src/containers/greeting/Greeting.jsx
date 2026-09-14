@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { homePageData } from "../../portfolio";
+import { homePageData, socialMediaLinks } from "../../portfolio";
 import {
   buildThemeBackground,
   buildThemeShadow,
@@ -52,9 +52,9 @@ export default function Greeting({ theme }) {
           {homePageData.hero.introduction}
         </motion.p>
         <motion.div {...revealMotion(2, true)} className="hero-actions" aria-label="Portfolio actions">
-          <a
+          <Link
             className="button"
-            href="#selected-work"
+            to="/contact"
             style={{
               background: theme.accentGradient,
               color: theme.accentText,
@@ -63,11 +63,11 @@ export default function Greeting({ theme }) {
               transition: themeSurfaceTransition,
             }}
           >
-            View selected work
-          </a>
-          <Link
+            Discuss a project
+          </Link>
+          <a
             className="button button-secondary"
-            to="/contact"
+            href="#selected-work"
             style={{
               color: theme.text,
               borderColor: theme.borderSoft,
@@ -75,8 +75,14 @@ export default function Greeting({ theme }) {
               transition: themeSurfaceTransition,
             }}
           >
-            Contact me
-          </Link>
+            View selected work
+          </a>
+          {socialMediaLinks.github?.trim() && (
+            <a className="button button-secondary" href={socialMediaLinks.github.trim()}
+              style={{ color: theme.text, borderColor: theme.borderSoft, borderRadius: theme.controlRadius }}>
+              View GitHub
+            </a>
+          )}
         </motion.div>
       </div>
 

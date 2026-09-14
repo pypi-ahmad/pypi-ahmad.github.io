@@ -82,30 +82,5 @@ export function DataStatus({ data, status, retry }) {
         )}
       </div>
     );
-  const delayed = Date.now() - Date.parse(data.generatedAt) > 72 * 3600000;
-  return (
-    <div className="gh-freshness">
-      <p>
-        Updated{" "}
-        <time dateTime={data.generatedAt}>
-          {new Date(data.generatedAt).toLocaleString("en-GB", {
-            timeZone: "UTC",
-            dateStyle: "medium",
-            timeStyle: "short",
-          })}{" "}
-          UTC
-        </time>
-        {status === "saved" ? " · Saved snapshot" : ""}
-      </p>
-      {delayed && (
-        <p>
-          Updates are delayed.{" "}
-          <button className="gh-text-button" onClick={retry}>
-            Check for updates
-          </button>{" "}
-          or <a href={githubData.profile}>view GitHub profile</a>.
-        </p>
-      )}
-    </div>
-  );
+  return null;
 }

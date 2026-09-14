@@ -15,7 +15,7 @@
 
 .education-hero {
   margin-top: 1.5rem;
-  padding: clamp(1.5rem, 5vw, 4rem);
+  padding: var(--hero-padding);
 }
 
 .education-eyebrow,
@@ -31,8 +31,8 @@
   max-width: 900px;
   margin: 0;
   font-family: var(--heading-font-family);
-  font-size: clamp(2rem, 4vw, 2.5rem);
-  line-height: 1.4;
+  font-size: var(--page-title-size);
+  line-height: 1.2;
   letter-spacing: -0.025em;
 }
 
@@ -63,7 +63,7 @@
 .education-section-heading h2 {
   margin: 0;
   font-family: var(--heading-font-family);
-  font-size: clamp(2rem, 4vw, 2.25rem);
+  font-size: var(--section-title-size);
   line-height: 1.4;
 }
 
@@ -89,7 +89,7 @@
 .education-projects-bridge h2 {
   margin: 0;
   font-family: var(--heading-font-family);
-  font-size: clamp(1.8rem, 4vw, 2.25rem);
+  font-size: var(--section-title-size);
   line-height: 1.4;
 }
 

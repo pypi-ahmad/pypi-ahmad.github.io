@@ -1,53 +1,62 @@
-/**
- * Header — Site-wide navigation bar
- *
- * Features:
- *  - Logo link (routes to /home or /splash based on settings)
- *  - Six NavLinks with active-state bold styling
- *  - Light/dark theme toggle button (persists choice to localStorage)
- *  - Dropdown navigation at every viewport width
- *
- * Theme state comes from the global theme controller.
- */
-import { useEffect, useId, useRef, useState } from "react";
-import "./Header.css";
-import { NavLink, useLocation } from "react-router-dom";
-import { greeting, settings } from "../../portfolio.js";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { CgSun } from "react-icons/cg";
 import { HiMoon } from "react-icons/hi";
+import { greeting, settings } from "../../portfolio.js";
 import { useThemeController } from "../../themeController";
-import {
-  buildThemeBackground,
-  buildThemeShadow,
-  themeSurfaceTransition,
-  themeElevatedSurfaceTransition,
-} from "../../themeMotion";
+import "./Header.css";
 
-const navigationLinkStyle =
-  (theme) =>
-  ({ isActive }) => ({
-    fontWeight: isActive ? "bold" : "normal",
-    borderRadius: theme.controlRadius,
-    color: theme.text,
-    backgroundColor: isActive ? theme.accentSoft : "transparent",
-    boxShadow: isActive
-      ? buildThemeShadow(`0 12px 30px ${theme.shadowColor}`, theme.buttonGlow)
-      : "none",
-    transition: themeSurfaceTransition,
-  });
+const desktopQuery = "(min-width: 80rem)";
+const navItems = [
+  ["/home", "Home"],
+  ["/education", "Education and certifications"],
+  ["/experience", "Experience"],
+  ["/skills", "Skills"],
+  ["/projects", "Projects"],
+  ["/github", "GitHub"],
+  ["/contact", "Contact"],
+];
 
-function Header() {
+export default function Header() {
+  const [isDesktop, setIsDesktop] = useState(
+    () => window.matchMedia(desktopQuery).matches,
+  );
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [instant, setInstant] = useState(true);
   const headerRef = useRef(null);
   const triggerRef = useRef(null);
+  const brandRef = useRef(null);
+  const menuRef = useRef(null);
+  const themeRef = useRef(null);
+  const resizeFocus = useRef(null);
   const menuId = useId();
-  const menuTabIndex = isMenuOpen ? undefined : -1;
-  const { resolvedTheme, themeMode, toggleMode } = useThemeController();
+  const { themeMode, toggleMode } = useThemeController();
   const location = useLocation();
-  const theme = resolvedTheme;
+  const visible = isDesktop || isMenuOpen;
 
-  const link = settings.isSplash ? "/splash" : "/home";
+  useEffect(() => {
+    const media = window.matchMedia(desktopQuery);
+    const change = (event) => {
+      if (document.activeElement === themeRef.current)
+        resizeFocus.current = "theme";
+      if (!event.matches && menuRef.current?.contains(document.activeElement))
+        resizeFocus.current = "menu";
+      if (event.matches && document.activeElement === triggerRef.current)
+        resizeFocus.current = "brand";
+      setInstant(true);
+      setIsMenuOpen(false);
+      setIsDesktop(event.matches);
+    };
+    media.addEventListener("change", change);
+    return () => media.removeEventListener("change", change);
+  }, []);
+
+  useLayoutEffect(() => {
+    if (resizeFocus.current === "menu") triggerRef.current?.focus();
+    if (resizeFocus.current === "brand") brandRef.current?.focus();
+    if (resizeFocus.current === "theme") themeRef.current?.focus();
+    resizeFocus.current = null;
+  }, [isDesktop]);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -55,212 +64,108 @@ function Header() {
 
   useEffect(() => {
     if (!isMenuOpen) return;
-    function dismissOutside(event) {
-      if (!headerRef.current?.contains(event.target)) {
-        setIsMenuOpen(false);
-      }
-    }
-    document.addEventListener("pointerdown", dismissOutside);
-    return () => document.removeEventListener("pointerdown", dismissOutside);
+    const dismiss = (event) => {
+      if (!headerRef.current?.contains(event.target)) setIsMenuOpen(false);
+    };
+    document.addEventListener("pointerdown", dismiss);
+    return () => document.removeEventListener("pointerdown", dismiss);
   }, [isMenuOpen]);
 
-  function handleKeyDown(event) {
-    setInstant(true);
-    if (event.key === "Escape" && isMenuOpen) {
-      event.preventDefault();
-      triggerRef.current?.focus();
-      setIsMenuOpen(false);
-    }
-  }
-
-  function handleBlur(event) {
-    // Moving between panel controls is not dismissal; only focus leaving the header closes it.
-    if (!event.currentTarget.contains(event.relatedTarget)) {
-      setInstant(true);
-      setIsMenuOpen(false);
-    }
-  }
-
-  const navItems = [
-    { className: "homei", to: "/home", label: "Home" },
-    {
-      className: "ec",
-      to: "/education",
-      label: "Education and certifications",
-    },
-    { className: "xp", to: "/experience", label: "Experience" },
-    { className: "skills", to: "/skills", label: "Skills" },
-    { className: "projects", to: "/projects", label: "Projects" },
-    { className: "github", to: "/github", label: "GitHub" },
-    { className: "cr", to: "/contact", label: "Contact" },
-  ];
-
-  const toggleMenu = (event) => {
-    // Keyboard and programmatic clicks have no pointer click count; keep that path immediate.
-    setInstant(event.detail === 0);
-    setIsMenuOpen((currentOpen) => !currentOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
-  const icon =
-    themeMode === "dark" ? (
-      <HiMoon strokeWidth={1} size={20} color={theme.secondaryText} />
-    ) : (
-      <CgSun strokeWidth={1} size={20} color={theme.accentSolid} />
-    );
+  const themeButton = (
+    <button
+      key="theme"
+      ref={themeRef}
+      className="change-theme-btn"
+      type="button"
+      aria-label={`Switch to ${themeMode === "dark" ? "light" : "dark"} mode`}
+      onClick={() => {
+        toggleMode();
+        setIsMenuOpen(false);
+      }}
+    >
+      {themeMode === "dark" ? (
+        <HiMoon size={20} aria-hidden="true" />
+      ) : (
+        <CgSun size={20} aria-hidden="true" />
+      )}
+    </button>
+  );
 
   return (
     <header
-      className="header"
+      className={`header${isDesktop ? " header--wide" : ""}`}
       ref={headerRef}
-      onKeyDown={handleKeyDown}
-      onBlur={handleBlur}
-      style={{
-        background: buildThemeBackground(
-          theme.headerSurface,
-          theme.headerPattern,
-        ),
-        borderColor: theme.borderSoft,
-        borderWidth: theme.panelBorderWidth,
-        borderStyle: theme.panelBorderStyle,
-        borderRadius: `calc(${theme.controlRadius} + 12px)`,
-        boxShadow: buildThemeShadow(
-          `0 18px 42px ${theme.shadowColor}`,
-          theme.panelGlow,
-        ),
-        transition: themeElevatedSurfaceTransition,
+      onKeyDown={(event) => {
+        setInstant(true);
+        if (event.key === "Escape" && isMenuOpen) {
+          event.preventDefault();
+          triggerRef.current?.focus();
+          setIsMenuOpen(false);
+        }
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setInstant(true);
+          setIsMenuOpen(false);
+        }
       }}
     >
-      <a className="skip-link" href="#main-content">Skip to content</a>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <NavLink
+        ref={brandRef}
+        className="header-brand"
+        to={settings.isSplash ? "/splash" : "/home"}
+        onClick={() => setIsMenuOpen(false)}
+      >
+        {greeting.logoName}
+      </NavLink>
+      {!isDesktop && themeButton}
       <button
-        className={`menu-icon${isMenuOpen ? " is-open" : ""}`}
         ref={triggerRef}
         type="button"
+        hidden={isDesktop}
+        className={`menu-icon${isMenuOpen ? " is-open" : ""}`}
         aria-label="Toggle navigation menu"
         aria-expanded={isMenuOpen}
         aria-controls={menuId}
-        onClick={toggleMenu}
-        style={{
-          background: buildThemeBackground(
-            theme.buttonColor,
-            theme.buttonPattern,
-          ),
-          color: theme.text,
-          borderColor: theme.borderColor,
-          borderWidth: theme.panelBorderWidth,
-          borderStyle: theme.panelBorderStyle,
-          borderRadius: theme.controlRadius,
-          boxShadow: buildThemeShadow(
-            `0 12px 28px ${theme.shadowColor}`,
-            theme.buttonGlow,
-          ),
-          transition: themeSurfaceTransition,
+        onClick={(event) => {
+          setInstant(event.detail === 0);
+          setIsMenuOpen((open) => !open);
         }}
       >
-        <span className="navicon"></span>
+        <span className="navicon" />
       </button>
       <nav aria-label="Primary">
         <ul
+          ref={menuRef}
           id={menuId}
           className={`menu${isMenuOpen ? " menu--open" : ""}${instant ? " menu--instant" : ""}`}
-          hidden={!isMenuOpen}
-          aria-hidden={!isMenuOpen}
-          inert={!isMenuOpen}
-          style={{
-            background: buildThemeBackground(
-              theme.cardBackgroundAlt,
-              theme.surfacePattern,
-            ),
-            borderColor: theme.borderSoft,
-            borderWidth: theme.panelBorderWidth,
-            borderStyle: theme.panelBorderStyle,
-            borderRadius: `calc(${theme.controlRadius} + 12px)`,
-            boxShadow: buildThemeShadow(
-              `0 18px 42px ${theme.shadowColor}`,
-              theme.panelGlow,
-            ),
-          }}
+          hidden={!visible}
+          aria-hidden={!visible}
+          inert={!visible}
         >
-          <li className="menu-brand-item">
-            <NavLink
-              to={link}
-              className="menu-brand"
-              tabIndex={menuTabIndex}
-              onClick={closeMenu}
-              style={{
-                color: theme.text,
-                fontFamily: theme.accentFontFamily,
-                letterSpacing: theme.accentLetterSpacing,
-                transition: themeSurfaceTransition,
-              }}
-            >
-              {greeting.logoName}
-            </NavLink>
-          </li>
-          {navItems.map((item) => (
-            <li key={item.to}>
-              <NavLink
-                className={item.className}
-                tabIndex={menuTabIndex}
-                to={item.to}
-                style={navigationLinkStyle(theme)}
-                onClick={closeMenu}
+          {navItems.map(([to, label]) => (
+            <li key={to}>
+              <Link
+                to={to}
+                aria-current={
+                  location.pathname === to ||
+                  (to === "/home" && location.pathname === "/")
+                    ? "page"
+                    : undefined
+                }
+                tabIndex={visible ? undefined : -1}
+                onClick={() => setIsMenuOpen(false)}
               >
-                {item.label}
-              </NavLink>
+                {label}
+              </Link>
             </li>
           ))}
-          <li className="menu-theme-toggle-item">
-            <button
-              className="change-theme-btn"
-              tabIndex={menuTabIndex}
-              onClick={() => {
-                triggerRef.current?.focus();
-                toggleMode();
-                closeMenu();
-              }}
-              type="button"
-              style={{
-                cursor: "pointer",
-                height: "45px",
-                width: "45px",
-                margin: 0,
-                paddingTop: "5px",
-                borderRadius: "50%",
-                borderColor: theme.borderColor,
-                borderWidth: theme.panelBorderWidth,
-                borderStyle: theme.panelBorderStyle,
-                alignItems: "center",
-                justifyContent: "center",
-                background: buildThemeBackground(
-                  theme.buttonColor,
-                  theme.buttonPattern,
-                ),
-                color: theme.selectorText,
-                transition: themeSurfaceTransition,
-                boxShadow:
-                  themeMode === "light"
-                    ? buildThemeShadow(
-                        "0 6px 16px rgba(31, 41, 55, 0.08)",
-                        theme.buttonGlow,
-                      )
-                    : buildThemeShadow(
-                        "0 8px 20px rgba(0, 0, 0, 0.28)",
-                        theme.buttonGlow,
-                      ),
-              }}
-              aria-label={`Switch to ${themeMode === "dark" ? "light" : "dark"} mode`}
-            >
-              {icon}
-            </button>
-          </li>
         </ul>
       </nav>
+      {isDesktop && themeButton}
     </header>
   );
 }
-
-export default Header;

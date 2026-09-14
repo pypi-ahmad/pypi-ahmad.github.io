@@ -72,7 +72,7 @@ Software is provided **as is**, without warranty. Full text: [DISCLAIMER.md](DIS
 
 **UX and accessibility**
 
-- Responsive navigation disclosure, project and contact grids, experience cards, and credential groups.
+- Visible navigation links on wide screens, a compact dropdown on smaller screens, project and contact grids, experience cards, and credential groups.
 - Brief hero entrance, once-per-mount scroll reveals, and fine-pointer hover feedback.
 - Reduced-motion support, including preference changes while browsing; native browser cursor by default.
 - Lazy-loaded routes with visible, politely announced loading feedback and a catch-all 404 page.

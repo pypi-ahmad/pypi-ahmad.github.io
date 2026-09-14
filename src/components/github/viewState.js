@@ -1,5 +1,5 @@
 const choices = {
-  tab: ["overview", "projects", "activity", "impact", "arcade"],
+  tab: ["overview", "projects", "activity", "impact", "arcade", "animations"],
   calendar: ["calendar", "3d"],
   period: ["matched", "full"],
   mode: ["free", "daily"],
