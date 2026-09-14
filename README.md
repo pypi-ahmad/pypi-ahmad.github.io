@@ -177,7 +177,7 @@ Vite opens the site at [http://localhost:3000](http://localhost:3000) with hot-m
 npm run build
 ```
 
-Output goes to `build/`. The build script copies `build/index.html` to `build/404.html` for GitHub Pages route recovery and creates `build/<route>/index.html` for `/home`, `/experience`, `/education`, `/contact`, `/splash`, `/projects`, and `/skills`.
+Output goes to `build/`. The build script copies `build/index.html` to `build/404.html` for GitHub Pages route recovery and creates `build/<route>/index.html` for `/home`, `/experience`, `/education`, `/contact`, `/splash`, `/projects`, `/skills`, and `/github`.
 
 ### Preview the production build locally
 
@@ -236,7 +236,7 @@ index.html
                      └── <Lazy page>    renders from src/data/* via portfolio.js
 ```
 
-**Data flow:** All portfolio content lives as plain JavaScript objects in `src/data/`. Every data module is re-exported through `src/portfolio.js` so pages import from a single barrel. No runtime API, CMS, or build-time data fetching is involved.
+**Data flow:** Editorial portfolio content lives as plain JavaScript objects in `src/data/`, re-exported through `src/portfolio.js`. The GitHub dashboard reads a committed JSON snapshot and checks the profile repository's public export for a newer version. No backend, CMS, or browser credentials are needed. See [GitHub dashboard](docs/github-dashboard.md) for data scope, refresh instructions, and arcade behavior.
 
 **Theme flow:** `themeController.jsx` reads the saved light/dark mode, removes obsolete accent preferences, migrates older family-and-mode values, resolves the matching indigo-to-navy token set from `src/theme.js`, and passes it through styled-components' `ThemeProvider`. Dark mode is the fallback when nothing valid is stored.
 
@@ -260,6 +260,7 @@ also skip that scroll action; a changed pathname still focuses the destination.
 | `/education` | Degrees, certifications, and courses |
 | `/projects` | 13 recent public projects |
 | `/skills` | Applied-AI capabilities, project evidence, and curated toolkit |
+| `/github` | GitHub statistics, advanced dashboard, contribution calendar and 3D view, seven playable games |
 | `/contact` | Configured contact channels, or an unavailable message with Return home |
 | `/splash` | Loading screen that replaces itself with `/home` when ready (marked `noindex`) |
 | `*` | Accessible 404 page (marked `noindex`) |
@@ -358,8 +359,10 @@ coverage and browser checks are not repeated in the deployment workflow.
 
 `vercel.json` points Vercel at `npm run build` and serves the `build/` directory.
 Configure Vercel to build repository source, normally `main`, rather than the
-compiled `gh-pages` branch. Remote project settings and deployed revisions are
-not verified by the checked-in configuration.
+compiled `gh-pages` branch. `vercel.json`'s `git.deploymentEnabled.gh-pages: false`
+enforces this at the config level, so pushes to the `gh-pages` branch no longer
+trigger a Vercel build automatically. Remote project settings and deployed
+revisions are not verified by the checked-in configuration.
 The configured Vercel build command runs only the build, not lint, typecheck,
 unit tests, coverage, or browser checks.
 

@@ -1,0 +1,22 @@
+{
+  "direction": "code-to-docs",
+  "completedAt": "2026-09-12T19:38:45+05:30",
+  "scope": [
+    "CHANGELOG.md",
+    "README.md",
+    "docs/architecture.md",
+    "docs/codebase/CONVENTIONS.md",
+    "docs/codebase/TESTING.md",
+    "docs/codebase/INTEGRATIONS.md",
+    "docs/TECHNICAL.md",
+    "docs/RUNBOOK.md"
+  ],
+  "reportPath": ".aiwg/reports/doc-sync-20260912-193844.md",
+  "changedFiles": [
+    "CHANGELOG.md",
+    "README.md",
+    "docs/codebase/INTEGRATIONS.md"
+  ],
+  "validation": "no-code-changed-since-last-validated-run",
+  "remainingHumanReviewItems": 2
+}

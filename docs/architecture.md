@@ -4,7 +4,7 @@
 
 This document explains how the current portfolio works so a new contributor can find the right code, understand its constraints, and make a safe change. It describes the React and Vite single-page application in this repository. The former Astro migration is retained only as [historical planning](migration/astro-migration-roadmap.md).
 
-The deployed application is static. It has no server application, database, authentication layer, or runtime content API. Portfolio content is committed as JavaScript data and bundled with the client.
+The deployed application is static. It has no server application, database, or authentication layer. Editorial content is bundled as JavaScript. The GitHub dashboard loads a committed JSON snapshot and checks a public JSON export from the profile repository; see [the dashboard contract](github-dashboard.md).
 
 ## System context
 
@@ -69,7 +69,7 @@ verification of career claims. Keep employer scope and contribution qualifiers.
 
 ## Routing, metadata, and static hosting
 
-React Router handles `/`, `/home`, `/experience`, `/education`, `/projects`, `/skills`, `/contact`, `/splash`, and the catch-all page. Each route is paired with `RouteMeta`, which manages its title, description, canonical URL, robots rule, Open Graph tags, and Twitter tags.
+React Router handles `/`, `/home`, `/experience`, `/education`, `/projects`, `/skills`, `/github`, `/contact`, `/splash`, and the catch-all page. Each route is paired with `RouteMeta`, which manages its title, description, canonical URL, robots rule, Open Graph tags, and Twitter tags. On mount, it removes only explicitly marked static fallback tags to avoid duplicate canonical URLs with React 19 metadata hoisting.
 
 With the committed `isSplash: false`, both `/` and `/home` render the homepage.
 Setting it to `true` routes `/` through Splash. A direct `/splash` visit always
@@ -79,7 +79,7 @@ uses Splash: document readiness or the `load` event triggers replacement with
 Metadata normalizes `/home` to the canonical root URL. The production build copies
 `index.html` to `404.html` for GitHub Pages route recovery. It also creates
 `build/<route>/index.html` for `home`, `experience`, `education`, `contact`, `splash`,
-`projects`, and `skills` so known direct routes have static HTML entry files.
+`projects`, `skills`, and `github` so known direct routes have static HTML entry files.
 These are copies of the client shell, not server-rendered route content.
 
 `index.html` supplies fallback metadata before React loads. Its JSON-LD describes a `ProfilePage` whose main entity is Ahmad Mujtaba. When homepage positioning changes, update both fallback metadata and runtime route metadata.
@@ -144,7 +144,7 @@ Canonical metadata points to `https://pypi-ahmad.github.io/`. Deployment runs fr
 | Lint | `npm run lint` | ESLint reports no errors |
 | Typecheck | `npm run typecheck` | TypeScript emits no errors |
 | Test | `npm run test:run` | Complete Vitest suite passes |
-| Build | `npm run build` | `build/`, `404.html`, and route-specific `index.html` files for all seven non-root routes exist |
+| Build | `npm run build` | `build/`, `404.html`, and route-specific `index.html` files for all eight non-root routes exist |
 | Preview | `npm run preview` | Production build serves port 4173 |
 
 The typecheck configuration allows JavaScript but sets `checkJs` to `false`. It verifies module and configuration compatibility, not complete static typing for every JavaScript expression.
@@ -163,7 +163,7 @@ on repository settings.
 | Homepage wording or outcomes | `src/data/homePage.js` | Home rendering and content-contract tests |
 | Project order or copy | `src/data/projects.js` | Projects data test and homepage top four |
 | Route or canonical URL | `src/containers/Main.jsx` | Route metadata, direct build paths, sitemap |
-| Theme tokens or persistence | `src/theme.js`, `src/themeController.jsx` | All six appearances, header swatches, press contrast, rapid changes, and stored-mode migration |
+| Theme tokens or persistence | `src/theme.js`, `src/themeController.jsx` | Both light/dark appearances, press contrast, rapid changes, and stored-mode migration |
 | Contact availability | `src/data/socialMedia.js` | Hidden email action, whitespace-only values, and all-empty recovery |
 | Loading or failure recovery | `src/containers/Main.jsx`, `src/components/ErrorBoundary.jsx` | Delayed/rejected route, cancellation, focus, and Refresh |
 | Fallback SEO | `index.html` | Runtime metadata remains consistent |
