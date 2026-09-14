@@ -11,7 +11,7 @@ if (baseIndex >= 0 && !process.argv[baseIndex + 1]) {
   throw new Error("--base-url requires a URL");
 }
 const base = new URL(baseIndex < 0 ? "http://127.0.0.1:4173" : process.argv[baseIndex + 1]);
-const routes = ["home", "contact", "skills", "experience", "education", "projects", "github", "github?tab=projects", "github?tab=activity", "github?tab=impact", "github?tab=arcade"];
+const routes = ["home", "contact", "skills", "experience", "education", "projects", "github", "github?tab=projects", "github?tab=activity", "github?tab=impact", "github?tab=arcade", "github?tab=animations"];
 const browser = await chromium.launch({ headless: true });
 const output = await mkdtemp(join(tmpdir(), "portfolio-frontend-"));
 const findings = [];
@@ -29,7 +29,14 @@ async function assertContentFits(page, label) {
       range.selectNodeContents(text);
       for (const rect of range.getClientRects()) {
         if (!rect.width || !rect.height) continue;
-        let reason = rect.left < -1 || rect.right > innerWidth + 1 ? "viewport" : "";
+        let hasHorizontalScroller = false;
+        for (let parent = text.parentElement; parent && parent !== document.body; parent = parent.parentElement) {
+          if (/auto|scroll/.test(getComputedStyle(parent).overflowX) && parent.scrollWidth > parent.clientWidth + 1) {
+            hasHorizontalScroller = true;
+            break;
+          }
+        }
+        let reason = !hasHorizontalScroller && (rect.left < -1 || rect.right > innerWidth + 1) ? "viewport" : "";
         for (let parent = text.parentElement; parent && parent !== document.body; parent = parent.parentElement) {
           const css = getComputedStyle(parent);
           const bounds = parent.getBoundingClientRect();
@@ -97,9 +104,9 @@ async function inspectContentLayout() {
           document.documentElement.dir = direction;
           document.documentElement.style.fontSize = size;
         }, { direction, size });
-        await page.getByRole("button", { name: "Toggle navigation menu" }).click();
+        await openNavigation(page);
         await assertMenuBounds(page, direction, `Expanded navigation ${width}/${direction}/${size}`);
-        for (const control of await page.locator(".menu--open a, .menu--open button").all()) {
+        for (const control of await page.locator(".menu a").all()) {
           await control.scrollIntoViewIfNeeded();
           await control.focus();
           assert.ok(await control.evaluate(node => {
@@ -115,24 +122,33 @@ async function inspectContentLayout() {
   console.log(`PASS: ${routes.length * 80} content layouts, ${routes.length * 4} localization cases, 8 expanded-navigation cases.`);
 }
 
+async function openNavigation(page) {
+  await page.waitForFunction(() => {
+    const header = document.querySelector(".header");
+    return header && header.classList.contains("header--wide") === matchMedia("(min-width: 80rem)").matches;
+  });
+  const trigger = page.getByRole("button", { name: "Toggle navigation menu" });
+  if (await trigger.isVisible() && await trigger.getAttribute("aria-expanded") === "false") await trigger.click();
+}
+
 async function assertMenuBounds(page, direction, label) {
   await page.waitForFunction(() => {
-    const panel = document.querySelector(".menu--open");
+    const panel = document.querySelector(".menu");
     return panel && getComputedStyle(panel).opacity === "1" && getComputedStyle(panel).transform === "none";
   });
-  const bounds = await page.locator(".menu--open").evaluate(panel => {
+  const bounds = await page.locator(".menu").evaluate(panel => {
     const rect = panel.getBoundingClientRect();
     const header = panel.closest("header").getBoundingClientRect();
     return {
       left: rect.left, right: rect.right, bottom: rect.bottom,
-      headerLeft: header.left, headerRight: header.right,
+      headerLeft: header.left, headerRight: header.right, desktop: panel.closest("header").classList.contains("header--wide"),
       width: document.documentElement.clientWidth, height: innerHeight,
       scrollWidth: panel.scrollWidth, clientWidth: panel.clientWidth,
     };
   });
   assert.ok(bounds.left >= 0 && bounds.right <= bounds.width + 1 && bounds.bottom <= bounds.height + 1, `${label}: panel stays in viewport: ${JSON.stringify(bounds)}`);
   const edgeDifference = direction === "rtl" ? bounds.left - bounds.headerLeft : bounds.headerRight - bounds.right;
-  assert.ok(Math.abs(edgeDifference) <= 2, `${label}: panel aligns with header edge`);
+  assert.ok(bounds.desktop || Math.abs(edgeDifference) <= 2, `${label}: panel aligns with header edge`);
   assert.ok(bounds.scrollWidth <= bounds.clientWidth + 1, `${label}: panel content does not clip horizontally`);
 }
 
@@ -148,10 +164,10 @@ async function inspectMenuLayout() {
           document.documentElement.dir = direction;
           document.documentElement.style.fontSize = textSize;
         }, { direction, textSize });
-        await trigger.click();
+        await openNavigation(page);
         const label = `${base.origin}, ${width}px, ${direction}, ${textSize} text`;
         await assertMenuBounds(page, direction, label);
-        for (const control of await page.locator(".menu--open a, .menu--open button").all()) {
+        for (const control of await page.locator(".menu a").all()) {
           await control.scrollIntoViewIfNeeded();
           await control.focus();
           assert.ok(await control.evaluate(node => {
@@ -160,7 +176,7 @@ async function inspectMenuLayout() {
           }), `${label}: every control can receive focus and pointer input`);
         }
         await page.keyboard.press("Escape");
-        assert.ok(await trigger.evaluate(node => node === document.activeElement), `${label}: Escape restores focus`);
+        assert.ok(await page.locator(".header--wide").count() || await trigger.evaluate(node => node === document.activeElement), `${label}: Escape restores focus`);
       }
     }
   }
@@ -189,14 +205,23 @@ try {
           return { violations: summarize(result.violations), incomplete: summarize(result.incomplete) };
         });
         findings.push({ route, mode, ...result });
-        if (["home", "contact"].includes(route)) {
-          await page.screenshot({ path: join(output, `${route}-${mode}.png`), fullPage: true });
+        for (const width of [1440, 390]) {
+          await page.setViewportSize({ width, height: 900 });
+          if (route === "home") {
+            await page.locator("#github-overview").scrollIntoViewIfNeeded();
+            await page.getByRole("heading", { name: "Building in the open." }).waitFor();
+          }
+          await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
+          await page.screenshot({ path: join(output, `${route.replace(/[?=]/g, "-")}-${mode}-${width}.png`), fullPage: true });
         }
-        await page.getByRole("button", { name: "Toggle navigation menu" }).click();
+        await page.setViewportSize({ width: 1440, height: 900 });
+        await openNavigation(page);
         await assertMenuBounds(page, "ltr", `${route}, ${mode}`);
         await page.keyboard.press("Escape");
       }
-      await page.getByRole("button", { name: "Toggle navigation menu" }).click();
+      await page.setViewportSize({ width: 390, height: 900 });
+      await openNavigation(page);
+      assert.equal(await page.locator(".change-theme-btn").evaluate(node => getComputedStyle(node).backgroundColor), mode === "dark" ? "rgb(29, 33, 41)" : "rgb(238, 231, 218)");
       const menuResult = await page.evaluate(async () => {
         const result = await window.axe.run("header", { runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] } });
         const summarize = entries => entries.map(v => ({ id: v.id, nodes: v.nodes.map(n => ({ target: n.target, summary: n.failureSummary })) }));
@@ -227,7 +252,7 @@ try {
   await page.evaluate(() => { document.documentElement.style.fontSize = ""; document.documentElement.dir = "ltr"; });
   await page.emulateMedia({ forcedColors: "active", reducedMotion: "reduce" });
   await trigger.click();
-  await page.waitForFunction(() => getComputedStyle(document.querySelector(".menu--open")).opacity === "1");
+  await page.waitForFunction(() => getComputedStyle(document.querySelector(".menu")).opacity === "1");
   assert.equal(await page.locator(".navicon").evaluate(el => getComputedStyle(el, "::before").backgroundColor), await trigger.evaluate(el => getComputedStyle(el).color), "Forced colors use system text color for the navigation icon");
   await page.screenshot({ path: join(output, "header-forced-colors-320.png") });
   await page.keyboard.press("Escape");
@@ -236,6 +261,16 @@ try {
   for (let i = 0; i < 6; i++) await trigger.click({ delay: 10 });
   assert.equal(await trigger.getAttribute("aria-expanded"), "false");
   assert.equal(await page.locator(".menu").getAttribute("inert"), "");
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.locator(".header--wide").waitFor();
+  await page.getByRole("navigation", { name: "Primary", exact: true }).getByRole("link", { name: "Experience" }).focus();
+  await page.setViewportSize({ width: 390, height: 900 });
+  await page.waitForFunction(() => document.activeElement === document.querySelector(".menu-icon"));
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.waitForFunction(() => document.activeElement === document.querySelector(".header-brand"));
+  await page.locator(".change-theme-btn").focus();
+  await page.setViewportSize({ width: 390, height: 900 });
+  await page.waitForFunction(() => document.activeElement === document.querySelector(".change-theme-btn"));
   // Incomplete axe results require manual review; only confirmed violations fail this automated gate.
   assert.deepEqual(findings.filter(f => f.violations.length), [], "Rendered accessibility checks");
   console.log(`Automated incomplete results (not passes): ${findings.reduce((count, item) => count + (item.incomplete?.length ?? 0), 0)}; see report.json.`);
