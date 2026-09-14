@@ -81,10 +81,10 @@ node scripts/check-motion.mjs --interactions-only --base-url http://localhost:30
 - Global thresholds: 85% statements and lines; 75% branches and functions.
 - CI runs install, lint, typecheck, build, coverage, Playwright Chromium installation, and `scripts/check-frontend.mjs` on push/PR to `main`.
 - The deployment workflow runs lint, typecheck, build, and `test:run`, but it does not run coverage or the Chromium check; CI is the broader gate.
-- Local verification on 2026-09-12: 191 tests passed across 25 suites. Coverage was
-  89.70% statements, 82.84% branches, 81.69% functions, and 89.41% lines.
-  Lint, typecheck, build, and diff whitespace checks passed. Remote CI and
-  branch-protection status were not checked.
+- Local verification on 2026-09-12: 170 tests passed across 25 suites. Coverage was
+  89.63% statements, 82.47% branches, 81.87% functions, and 89.34% lines.
+  Lint, typecheck, and build passed. Remote CI and branch-protection status
+  were not checked.
 - The same day's production-preview frontend run passed its assertions across
   480 content layouts, 24 localization cases, eight expanded-navigation cases,
   24 navigation layouts, and 42 axe scans. It separately reported 42 `incomplete`
@@ -99,21 +99,22 @@ The parity, press-feedback, and recovery scripts exercise both servers.
   from 320–1920px, LTR/RTL, and 100%/200% root text sizing. Text ranges, clipping
   ancestors, and card bounds supplement document overflow checks. It also checks
   24 pseudo-localized/German cases and eight expanded-navigation cases.
-- `check-press-feedback.mjs` checks eight filled actions across six appearances
-  at 390px and 1440px: 192 scenarios across both servers. It checks rest, hover,
+- `check-press-feedback.mjs` checks eight filled actions across both light/dark
+  appearances at 390px and 1440px: 64 scenarios across both servers. It checks rest, hover,
   press, release, cancellation, keyboard focus, and reduced motion. Rendered
   background pixels beneath label bounds are captured with glyphs temporarily
   hidden and compared with the opaque text color against a 4.5:1 threshold.
   Existing card-link opacity/scale checks remain separate. Header separator and
-  shadow variables and resolver-backed swatch gradients are checked in both modes.
-  A historical 2026-09-11 run passed 192 primary-action and 112 card-link scenarios;
-  the lowest sampled button-label contrast was 4.98:1. These counts describe that
-  run, not proof that the current expanded card suite has been rerun.
+  shadow variables are checked in both modes.
+  A historical 2026-09-11 run passed 192 primary-action and 112 card-link scenarios
+  against the earlier three-accent theme; the lowest sampled button-label contrast
+  was 4.98:1. These counts describe that run, not the current single-accent scenario
+  matrix or proof that the current expanded card suite has been rerun.
 - `node scripts/check-press-feedback.mjs --cards-only` runs the card-link checks
-  without the primary-action sweep: 160 scenarios across development and production.
+  without the primary-action sweep: 96 scenarios across development and production.
   Contact and Project cards stay opaque while pressed; their descriptions are
-  sampled against rendered hover/pressed backgrounds across six appearances at
-  390px and 1440px. Contact hover is also checked with a deliberately different
+  sampled against rendered hover/pressed backgrounds across both light/dark
+  appearances at 390px and 1440px. Contact hover is also checked with a deliberately different
   focus-shadow token. Degree and certificate links retain their opacity feedback.
   Forced-colors and print scenarios check state behavior, not sampled contrast.
 - `check-recovery.mjs` delays or rejects the Contact chunk to check loading
@@ -123,10 +124,10 @@ The parity, press-feedback, and recovery scripts exercise both servers.
 - `check-interface-fixes.mjs` checks enlarged-text leading, Contact/Skills grid
   wrapping in LTR/RTL, skip-link keyboard flows, Contact alignment, and Home metric
   leading. It targets specific regressions and is not run by the CI workflow.
-- Unit tests cover theme token parity, swatch gradients, error landmarks/focus,
+- Unit tests cover theme token parity, error landmarks/focus,
   and populated, partially configured, and whitespace-only contact channels.
-  Empty Contact recovery links must use the resolved accent text color in all
-  six appearances; theme tests enforce 4.5:1 against the page background.
+  Empty Contact recovery links must use the resolved accent text color in both
+  light/dark appearances; theme tests enforce 4.5:1 against the page background.
 - `Splash.test.jsx` covers immediate redirect when loaded, the load event,
   the three-second fallback, and listener/timer cleanup. `ThemeTransitions.test.jsx`
   checks transition cleanup after rapid toggles and unmounting.

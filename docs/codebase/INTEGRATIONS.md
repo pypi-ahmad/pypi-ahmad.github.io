@@ -9,7 +9,11 @@
 | GitHub Pages | Static hosting | Canonical deployment | GitHub Actions token permissions | High | `.github/workflows/deploy.yml` |
 | Vercel | Static-host mirror | Builds and serves `build/` | [TODO] Hosting-account configuration is outside the repository | Low | `vercel.json`, `README.md` |
 
-No runtime HTTP client, fetch call, database driver, queue client, API gateway, or service-mesh configuration was found in application source.
+Vercel's Git integration explicitly disables automatic deployment from the `gh-pages` branch
+(`vercel.json`'s `git.deploymentEnabled.gh-pages: false`); production Vercel deployments are
+triggered manually rather than by every push, unlike the GitHub Actions Pages workflow.
+
+The GitHub dashboard uses native `fetch` for `/data/github.json` and the public profile repository's `profile-stats/dashboard.json` export on `raw.githubusercontent.com`. Requests omit credentials, time out after eight seconds, and retain valid saved data on failure. There is no database, queue, API gateway, or service mesh. Arcade personal bests use guarded browser localStorage; blocked storage does not prevent play. See [GitHub dashboard](../github-dashboard.md).
 
 ## 2) Data Stores
 

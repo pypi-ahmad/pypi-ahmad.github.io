@@ -1,0 +1,459 @@
+
+=== DIRECTORY TREE (max depth 3, source files only) ===
+.aiwg
+.aiwg\reports
+.aiwg\reports\doc-sync-20260911-204520.md
+.aiwg\reports\doc-sync-last-run.json
+.aiwg\working
+.aiwg\working\doc-sync
+.code-review-graph
+.code-review-graph\.gitignore
+.code-review-graph\graph.db
+.codegraph
+.codegraph\.gitignore
+.codegraph\codegraph.db
+.codegraph\codegraph.db-shm
+.codegraph\codegraph.db-wal
+.codegraph\daemon.log
+.codegraph\daemon.pid
+.github
+.github\copilot-instructions.md
+.github\ISSUE_TEMPLATE
+.github\ISSUE_TEMPLATE\bug_report.md
+.github\ISSUE_TEMPLATE\feature_request.md
+.github\PULL_REQUEST_TEMPLATE.md
+.github\workflows
+.github\workflows\ci.yml
+.github\workflows\deploy.yml
+.gitignore
+.nvmrc
+.prettierignore
+.ua
+.ua\.trash-1789139244
+.ua\.trash-1789139244\assemble-review.json
+.ua\.trash-1789139244\assembled-graph.json
+.ua\.trash-1789139244\batch-1.json
+.ua\.trash-1789139244\batch-10.json
+.ua\.trash-1789139244\batch-11.json
+.ua\.trash-1789139244\batch-12.json
+.ua\.trash-1789139244\batch-13.json
+.ua\.trash-1789139244\batch-2.json
+.ua\.trash-1789139244\batch-3.json
+.ua\.trash-1789139244\batch-4.json
+.ua\.trash-1789139244\batch-5.json
+.ua\.trash-1789139244\batch-6.json
+.ua\.trash-1789139244\batch-7.json
+.ua\.trash-1789139244\batch-8.json
+.ua\.trash-1789139244\batch-9.json
+.ua\.trash-1789139244\batches.json
+.ua\.trash-1789139244\fingerprint-input.json
+.ua\.trash-1789139244\layers.json
+.ua\.trash-1789139244\review.json
+.ua\.trash-1789139244\tmp
+.ua\.trash-1789139244\tmp\ua-arch-analyze.js
+.ua\.trash-1789139244\tmp\ua-arch-input.json
+.ua\.trash-1789139244\tmp\ua-arch-results.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-1.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-10.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-11.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-12.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-13.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-2.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-3.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-4.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-5.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-6.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-7.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-8.json
+.ua\.trash-1789139244\tmp\ua-file-analyzer-input-9.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-1.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-10.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-11.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-12.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-13.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-2.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-3.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-4.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-5.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-6.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-7.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-8.json
+.ua\.trash-1789139244\tmp\ua-file-extract-results-9.json
+.ua\.trash-1789139244\tmp\ua-import-map-input.json
+.ua\.trash-1789139244\tmp\ua-import-map-output.json
+.ua\.trash-1789139244\tmp\ua-inline-validate.cjs
+.ua\.trash-1789139244\tmp\ua-scan-files.json
+.ua\.trash-1789139244\tmp\ua-tour-analyze.js
+.ua\.trash-1789139244\tmp\ua-tour-input.json
+.ua\.trash-1789139244\tmp\ua-tour-results.json
+.ua\.trash-1789139244\tour.json
+.ua\.understandignore
+.ua\config.json
+.ua\fingerprints.json
+.ua\intermediate
+.ua\intermediate\scan-result.json
+.ua\knowledge-graph.json
+.ua\meta.json
+browserconfig.xml
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+CODE_REVIEW_REPORT.md
+contacts-icons
+contacts-icons\facebook.png
+contacts-icons\github.png
+contacts-icons\instagram.png
+contacts-icons\linkedin.png
+contacts-icons\portfolio.png
+contacts-icons\telegram.png
+contacts-icons\twitter.png
+contacts-icons\whatsapp.png
+CONTRIBUTING.md
+dev
+dev\header-break.html
+dev\header-break.jsx
+dev\project-card-break.html
+dev\project-card-break.jsx
+DISCLAIMER.md
+docs
+docs\architecture.md
+docs\codebase
+docs\codebase\.codebase-scan.txt
+docs\codebase\ARCHITECTURE.md
+docs\codebase\CONCERNS.md
+docs\codebase\CONVENTIONS.md
+docs\codebase\INTEGRATIONS.md
+docs\codebase\STACK.md
+docs\codebase\STRUCTURE.md
+docs\codebase\TESTING.md
+docs\migration
+docs\migration\astro-migration-roadmap.md
+eslint.config.js
+graphify-out
+graphify-out\.graphify_analysis.json
+graphify-out\.graphify_labels.json
+graphify-out\.graphify_root
+graphify-out\cache
+graphify-out\cache\ast
+graphify-out\cache\ast\v0.9.58-s2
+graphify-out\cache\semantic
+graphify-out\cache\semantic\p5e80268fecd6
+graphify-out\cache\stat-index.json
+graphify-out\cost.json
+graphify-out\graph.html
+graphify-out\graph.json
+graphify-out\GRAPH_REPORT.md
+graphify-out\manifest.json
+home-320.png
+index.html
+knowledge
+knowledge\architecture
+knowledge\architecture\portfolio.md
+knowledge\index.md
+LICENSE
+logo192.png
+logo512.png
+Machine Learning A-Z™ AI, Python & R + ChatGPT Bonus [2023] UC-11aa09b1-e4ec-4cf6-bc0b-10e2b3f34ba1.pdf
+Machine Learning A-Z™ Python  R in Data Science [2023] UC-11aa09b1-e4ec-4cf6-bc0b-10e2b3f34ba1.png
+Machine Learning A-Z™ Python & R in Data Science [2023] UC-11aa09b1-e4ec-4cf6-bc0b-10e2b3f34ba1.pdf
+package-lock.json
+package.json
+public
+public\.nojekyll
+public\apple-touch-icon.png
+public\certifications
+public\certifications\anthropic-ai-fluency-framework-foundations.pdf
+public\certifications\anthropic-claude-101.pdf
+public\certifications\anthropic-claude-api.pdf
+public\certifications\anthropic-claude-certified-associate-foundations.pdf
+public\certifications\anthropic-claude-code-101.pdf
+public\certifications\coursera_adv_learning_algos.pdf
+public\certifications\coursera_adv_learning_algos.png
+public\certifications\coursera_ml_specialization.pdf
+public\certifications\coursera_ml_specialization.png
+public\certifications\coursera_sql_data_science.pdf
+public\certifications\coursera_sql_data_science.png
+public\certifications\coursera_supervised_ml.pdf
+public\certifications\coursera_supervised_ml.png
+public\certifications\coursera_unsupervised_learning.pdf
+public\certifications\coursera_unsupervised_learning.png
+public\certifications\data_science_professionals.pdf
+public\certifications\data_science_professionals.png
+public\certifications\deep_learning_az.pdf
+public\certifications\deep_learning_az.png
+public\certifications\deep_learning_az_hands_on.pdf
+public\certifications\deep_learning_az_hands_on.png
+public\certifications\machine_learning_az.pdf
+public\certifications\machine_learning_az.png
+public\contacts-icons
+public\contacts-icons\facebook.png
+public\contacts-icons\github.png
+public\contacts-icons\instagram.png
+public\contacts-icons\linkedin.png
+public\contacts-icons\portfolio.png
+public\contacts-icons\telegram.png
+public\contacts-icons\twitter.png
+public\contacts-icons\whatsapp.png
+public\Coursera Advanced Learning Algorithms.pdf
+public\Coursera Machine Learning 2T5GNSDSV29S.pdf
+public\Coursera SQL for Data Science 9SC5S8TMRKF3.pdf
+public\Coursera Supervised Machine Learning- Regression and Classification.pdf
+public\Coursera Unsupervised Learning.pdf
+public\Data Science for Professionals UC-fef4ecf7-2b39-44dc-91ab-4bc4eb7e94ae.pdf
+public\Deep Learning A-Z™ 2023 Neural Networks, AI & ChatGPT Bonus UC-35dee0b3-49ec-4fe0-9b75-5768680f7fe6.pdf
+
+=== STACK DETECTION (manifest files) ===
+
+--- package-lock.json ---
+{
+  "name": "ahmad-mujtaba-portfolio",
+  "version": "2.4.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "ahmad-mujtaba-portfolio",
+      "version": "2.4.0",
+      "dependencies": {
+        "framer-motion": "^13.2.0",
+        "react": "^19.3.0",
+        "react-animated-cursor": "^2.11.2",
+        "react-dom": "^19.3.0",
+        "react-ga4": "^3.0.1",
+        "react-helmet-async": "^3.0.0",
+        "react-icons": "^5.7.0",
+        "react-router-dom": "^7.18.3",
+        "styled-components": "^6.5.3"
+      },
+      "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@testing-library/dom": "^10.4.1",
+        "@testing-library/jest-dom": "^7.0.1",
+        "@testing-library/react": "^16.3.3",
+        "@testing-library/user-event": "^14.6.7",
+        "@vitejs/plugin-react": "6.1.1",
+        "@vitest/coverage-v8": "^5.0.0",
+        "axe-core": "^4.13.0",
+        "eslint": "^10.10.0",
+        "gh-pages": "^6.3.0",
+        "globals": "^17.12.0",
+        "jest-axe": "^11.0.0",
+        "jsdom": "^30.0.1",
+        "playwright": "^1.63.0",
+        "prettier": "^3.9.6",
+        "typescript": "^7.0.2",
+        "vite": "^8.3.0",
+        "vite-plugin-svgr": "^5.2.0",
+        "vitest": "^5.0.0"
+      },
+      "engines": {
+        "node": ">=24.21.0 <25",
+        "npm": ">=12.0.2 <13"
+      }
+    },
+    "node_modules/@adobe/css-tools": {
+      "version": "4.5.0",
+      "resolved": "https://registry.npmjs.org/@adobe/css-tools/-/css-tools-4.5.0.tgz",
+      "integrity": "sha512-6OzddxPio9UiWTCemp4N8cYLV2ZN1ncRnV1cVGtve7dhPOtRkleRyx32GQCYSwDYgaHU3USMm84tNsvKzRCa1Q==",
+      "dev": true,
+      "license": "MIT"
+    },
+    "node_modules/@asamuzakjp/css-color": {
+      "version": "6.0.7",
+      "resolved": "https://registry.npmjs.org/@asamuzakjp/css-color/-/css-color-6.0.7.tgz",
+      "integrity": "sha512-vC/bk1Lz7Tn/EfU9/apOTBk80/8dyGyWMowPoV1tJ52muDGsDqt2HPT2klrFUiY60MQmQv9q8yIht15JnBgDGw==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "@csstools/css-calc": "^3.3.0",
+        "@csstools/css-color-parser": "^4.1.10",
+        "@csstools/css-parser-algorithms": "^4.0.0",
+        "@csstools/css-tokenizer": "^4.0.0",
+        "lru-cache": "^11.5.2"
+      },
+      "engines": {
+        "node": "^22.13.0 || >=24.0.0"
+      }
+    },
+    "node_modules/@asamuzakjp/dom-selector": {
+      "version": "8.3.2",
+      "resolved": "https://registry.npmjs.org/@asamuzakjp/dom-selector/-/dom-selector-8.3.2.tgz",
+      "integrity": "sha512-93Z1N+BQNXysodoicpOIyNh2drHfz/CTf9nnT0FEx72GJcIiwgydD7tGAr78j41LsYn3hlRn+LdGPuBLn1Bl8Q==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "bidi-js": "^1.0.3",
+        "css-tree": "^3.2.1",
+        "is-potential-custom-element-name": "^1.0.1",
+
+[TRUNCATED] Showing first 80 of 5629 lines.
+--- package.json ---
+{
+  "private": true,
+  "name": "ahmad-mujtaba-portfolio",
+  "version": "2.4.0",
+  "homepage": "https://pypi-ahmad.github.io",
+  "type": "module",
+  "packageManager": "npm@12.0.2",
+  "engines": {
+    "node": ">=24.21.0 <25",
+    "npm": ">=12.0.2 <13"
+  },
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build && node -e \"const fs=require('fs');fs.copyFileSync('build/index.html','build/404.html');for(const route of ['home','experience','education','contact','splash','projects','skills']){fs.mkdirSync('build/'+route,{recursive:true});fs.copyFileSync('build/index.html','build/'+route+'/index.html')}\"",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .js,.jsx",
+    "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "framer-motion": "^13.2.0",
+    "react": "^19.3.0",
+    "react-animated-cursor": "^2.11.2",
+    "react-dom": "^19.3.0",
+    "react-ga4": "^3.0.1",
+    "react-helmet-async": "^3.0.0",
+    "react-icons": "^5.7.0",
+    "react-router-dom": "^7.18.3",
+    "styled-components": "^6.5.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@vitejs/plugin-react": "6.1.1",
+    "@vitest/coverage-v8": "^5.0.0",
+    "axe-core": "^4.13.0",
+    "eslint": "^10.10.0",
+    "gh-pages": "^6.3.0",
+    "globals": "^17.12.0",
+    "jest-axe": "^11.0.0",
+    "jsdom": "^30.0.1",
+    "playwright": "^1.63.0",
+    "prettier": "^3.9.6",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0",
+    "vite-plugin-svgr": "^5.2.0",
+    "vitest": "^5.0.0"
+  },
+  "overrides": {
+    "react-animated-cursor": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+
+
+=== ENTRY POINTS ===
+No common entry points found. Check 'main' or 'scripts.start' in manifest files above.
+
+=== LINTING AND FORMATTING CONFIG ===
+Found: eslint.config.js
+
+=== ENVIRONMENT VARIABLE TEMPLATES ===
+No .env.example or .env.template found. Identify required environment variables by searching the code and config for environment variable reads.
+
+=== TODO / FIXME / HACK (production code only, test dirs excluded) ===
+None found.
+
+=== GIT RECENT COMMITS (last 20) ===
+7053a82 Merge pull request #5 from pypi-ahmad/feature/frontend-polish-and-motion
+439289c feat: polish portfolio navigation and motion
+d6c6f98 feat: add Anthropic Claude certification
+d192b8c Merge pull request #4 from pypi-ahmad/feat/portfolio-motion
+fee15b9 feat: add accessible portfolio animations
+55b8b8a Merge pull request #3 from pypi-ahmad/feat/add-contact-details
+4c9a60b feat: refresh contact details
+4f581d0 feat: add contact details, social links, and custom icons
+a3d0896 feat: add Claude Code certificate and pink-indigo accent
+f7e80f9 chore: remove local tool artifacts and personal PDF from repo
+16a995a update
+d53a61f feat: expand hero tagline with healthcare and GenAI focus
+fd877fb feat: remove resume download and phone contact options
+eafe675 feat: broaden homepage hero tagline
+bd4e9bb feat: make indigo accent default
+98e99f1 feat: refresh contact skills and experience
+a03986e feat: add selectable accent palette
+1d0b9ad refactor: remove alternate themes and gallery
+64dc0cd fix: add Anthropic certificate validation details
+80e9c9b feat: rewrite portfolio education page
+
+=== HIGH-CHURN FILES (last 90 days, top 20) ===
+  18 README.md
+  11 package.json
+  10 src/__tests__/Behavior.test.jsx
+   9 src/containers/Main.jsx
+   8 package-lock.json
+   8 src/__tests__/Pages.render.test.jsx
+   7 src/__tests__/Navigation.test.jsx
+   7 src/components/header/Header.jsx
+   7 docs/architecture.md
+   7 src/__tests__/RouteMetadata.test.jsx
+   6 src/__tests__/Responsive.test.jsx
+   6 src/pages/projects/Projects.jsx
+   6 src/__tests__/Greeting.render.test.jsx
+   6 src/data/experience.js
+   5 src/__tests__/Accessibility.test.jsx
+   5 src/__tests__/Header.render.test.jsx
+   5 src/__tests__/ThemeRegistry.test.jsx
+   5 src/components/ProjectCard/ProjectCard.css
+   5 src/components/certificationCard/CertificationCard.css
+   5 src/components/certificationCard/CertificationCard.jsx
+
+=== MONOREPO SIGNALS ===
+No monorepo signals detected.
+
+=== CODE METRICS ===
+Total files scanned: 323
+Total lines of code: 81299
+
+Files by language:
+  Other: 252
+  JavaScript/React: 48
+  JavaScript: 23
+
+Top 10 largest files:
+.code-review-graph\graph.db: 5792.0KB
+.codegraph\codegraph.db: 2332.0KB
+graphify-out\graph.json: 459.8KB
+home-320.png: 399.9KB
+public\certifications\coursera_ml_specialization.png: 396.9KB
+public\images\certifications\coursera_ml_specialization.png: 396.9KB
+graphify-out\graph.html: 367.2KB
+public\certifications\coursera_supervised_ml.png: 358.8KB
+public\images\certifications\coursera_supervised_ml.png: 358.8KB
+public\certifications\coursera_unsupervised_learning.png: 353.6KB
+
+=== CI/CD PIPELINES ===
+CI/CD: GitHub Actions
+
+=== CONTAINERS & ORCHESTRATION ===
+No containerization configs detected.
+
+=== SECURITY & COMPLIANCE ===
+Security: SECURITY.md
+
+=== PERFORMANCE & TESTING ===
+No performance testing configs detected.
+
+=== SCAN COMPLETE ===

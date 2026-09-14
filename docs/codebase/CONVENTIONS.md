@@ -2,7 +2,7 @@
 
 ## 1) Naming and File Organization
 
-- Component functions and JSX files use PascalCase (`Header`, `ProjectCard.jsx`); ordinary helpers use camelCase (`buildThemeShadow`, `normalizeAccent`).
+- Component functions and JSX files use PascalCase (`Header`, `ProjectCard.jsx`); ordinary helpers use camelCase (`buildThemeShadow`, `parseStoredThemeMode`).
 - Data module filenames use camelCase. Component folders vary between camelCase and PascalCase, so preserve the local folder style.
 - Page, component, and test CSS commonly live next to their owning source file.
 - Route pages import portfolio data from the `src/portfolio.js` barrel rather than directly duplicating objects.

@@ -30,7 +30,8 @@ async function renderAtRoute(initialPath) {
       </MotionConfig>
     </ThemeControllerProvider>
   );
-  await screen.findByRole("main");
+  // The loading fallback is also a main landmark; wait for the actual lazy page.
+  await screen.findByRole("heading", { level: 1 }, { timeout: 10000 });
 }
 
 describe("Navigation — Route Resolution", () => {

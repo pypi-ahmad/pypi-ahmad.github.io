@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### Changed
+
+- Replaced the three-way accent picker (pink, blue, pink-indigo) with a single indigo-to-navy visual identity; the header no longer shows accent swatches, and light/dark mode is the only remaining preference.
+- Replaced Google Sans with variable Inter and Manrope fonts (Open Font License) and established a consistent site-wide typography scale.
+- Warmed the light theme's color palette and enlarged page section labels, including the homepage eyebrow, for readability.
+- Disabled Vercel's automatic Git-triggered deployment for the `gh-pages` branch (`vercel.json`); Vercel production deployments are now explicit.
+
 ## v3.0.0 - 2026-09-12
 
 ### Added

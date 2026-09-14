@@ -31,6 +31,18 @@ function waitForTitle(title) {
 }
 
 describe("Route metadata", () => {
+  it("replaces the static shell canonical when a route mounts", async () => {
+    const fallback = document.createElement("link");
+    fallback.rel = "canonical";
+    fallback.href = "https://pypi-ahmad.github.io/";
+    fallback.dataset.portfolioFallback = "true";
+    document.head.append(fallback);
+    renderMainAt("/projects");
+    await waitForTitle("Applied AI Projects | Ahmad Mujtaba");
+    expect(fallback.isConnected).toBe(false);
+    expect(document.querySelectorAll('link[rel="canonical"]')).toHaveLength(1);
+  });
+
   it("applies Home route metadata", async () => {
     renderMainAt("/home");
 
