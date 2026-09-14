@@ -70,6 +70,7 @@ export const GlobalStyles = createGlobalStyle`
     --accent-solid: ${({ theme }) => theme.accentSolid};
     --accent-text: ${({ theme }) => theme.accentText};
     --accent-hover: ${({ theme }) => theme.accentSoft};
+    --selection-background: ${({ theme }) => theme.accentSoft};
     --focus-shadow: ${({ theme }) => theme.accentSoft};
     --shadow-sm: ${({ theme }) => `0 10px 24px ${theme.shadowColor}`};
     --shadow-lg: ${({ theme }) => `0 24px 56px ${theme.shadowColor}`};
