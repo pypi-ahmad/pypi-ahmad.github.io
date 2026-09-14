@@ -1,5 +1,7 @@
+import { useLocation } from "react-router-dom";
+import AdvancedDashboard, { Bars } from "./AdvancedDashboard";
 import ContributionCalendar from "./ContributionCalendar";
-import { Metric, number } from "./GitHubSummary";
+import { Metric, number, Summary } from "./GitHubSummary";
 import {
   compareYears,
   pageSlice,
@@ -123,6 +125,9 @@ export function ReleaseTimeline({ data, year, params, update }) {
   );
 }
 export default function ActivityView({ data, year, params, update }) {
+  const location = useLocation();
+  const languageTotal =
+    data.summary.languages.reduce((n, r) => n + r.bytes, 0) || 1;
   const metrics = yearMetrics(year);
   const otherYears = data.years.filter((y) => y.year !== year.year);
   const other =
@@ -307,6 +312,32 @@ export default function ActivityView({ data, year, params, update }) {
           onDateChange={(day) => update({ day }, true)}
         />
       </section>
+      <details
+        id="advanced-dashboard"
+        className="gh-panel gh-section"
+        open={location.hash === "#advanced-dashboard" || undefined}
+      >
+        <summary>Explore advanced GitHub metrics</summary>
+        <h2>Advanced dashboard</h2>
+        <Summary summary={data.summary} />
+        <Bars
+          title="Repository language share"
+          values={data.summary.languages
+            .slice(0, 8)
+            .map((r) => [
+              r.name,
+              Math.round((r.bytes / languageTotal) * 1000) / 10,
+            ])}
+          suffix="%"
+          note="Top eight languages by bytes; percentages use all language bytes."
+        />
+        <AdvancedDashboard data={data} />
+        <p className="gh-hint">
+          Streaks follow GitHub calendar dates through{" "}
+          {data.summary.streak.asOf}; an unfinished current day does not break
+          yesterday’s streak.
+        </p>
+      </details>
       <ReleaseTimeline
         data={data}
         year={year}

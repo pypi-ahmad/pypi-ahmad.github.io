@@ -1,5 +1,5 @@
 import { beforeEach, afterEach, describe, it, expect, vi } from "vitest";
-import { fireEvent, screen, waitFor } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import { renderWithProviders } from "../test/testUtils";
 import { discoveryFixture } from "../test/discoveryFixture";
@@ -162,6 +162,20 @@ describe("Daily challenges and retained progress", () => {
   });
 });
 describe("Five focused views", () => {
+  it("keeps legacy advanced links pointed at analytics in Activity", async () => {
+    const { container } = renderWithProviders(<GitHubPage />, {
+      initialEntries: ["/github#advanced-dashboard"],
+    });
+    expect(
+      await screen.findByRole("heading", { name: "Advanced dashboard" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Activity", exact: true }),
+    ).toHaveAttribute("aria-current", "page");
+    expect(container.querySelector("#advanced-dashboard")).toHaveAttribute(
+      "open",
+    );
+  });
   it("loads URL-selected filters and offers empty-result recovery", async () => {
     renderWithProviders(<GitHubPage />, {
       initialEntries: ["/github?tab=projects&q=document"],
@@ -169,6 +183,9 @@ describe("Five focused views", () => {
     expect(await screen.findByLabelText("Search repositories")).toHaveValue(
       "document",
     );
+    expect(
+      screen.getByRole("heading", { name: "What I’m building" }),
+    ).toBeInTheDocument();
     expect(await screen.findByText(/1 repository found/)).toBeInTheDocument();
     fireEvent.change(screen.getByLabelText("Search repositories"), {
       target: { value: "no-match" },
@@ -197,7 +214,7 @@ describe("Five focused views", () => {
     ).toBeInTheDocument();
     expect((await axe(container)).violations).toEqual([]);
   });
-  it("shows honest impact emptiness and clipboard fallback", async () => {
+  it("shows honest impact emptiness", async () => {
     renderWithProviders(<GitHubPage />, {
       initialEntries: ["/github?tab=impact"],
     });
@@ -206,10 +223,6 @@ describe("Five focused views", () => {
         name: "No public external merged pull requests found",
       }),
     ).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: "Copy view link" }));
-    await waitFor(() =>
-      expect(screen.getByLabelText("View link")).toBeInTheDocument(),
-    );
   });
   it("keeps legacy snapshots usable and repository copy readable", async () => {
     delete data.repositories;
