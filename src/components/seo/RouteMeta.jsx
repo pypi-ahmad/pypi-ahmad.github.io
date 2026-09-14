@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const SITE_URL = "https://pypi-ahmad.github.io";
@@ -30,6 +31,10 @@ export default function RouteMeta({
   const path = normalizePath(canonicalPath ?? location.pathname);
   const canonicalUrl = `${SITE_URL}${path}`;
   const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
+  useEffect(() => {
+    // React 19 hoists route metadata; retire only our non-JS fallback tags.
+    document.head.querySelectorAll("[data-portfolio-fallback]").forEach(node => node.remove());
+  }, []);
 
   return (
     <Helmet prioritizeSeoTags>

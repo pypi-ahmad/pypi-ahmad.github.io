@@ -39,6 +39,7 @@ const Experience = lazy(() => import("../pages/experience/Experience"));
 const Contact = lazy(() => import("../pages/contact/ContactComponent"));
 const Projects = lazy(() => import("../pages/projects/Projects"));
 const SkillsPage = lazy(() => import("../pages/skills/SkillsPage"));
+const GitHubPage = lazy(() => import("../pages/github/GitHubPage"));
 const NotFound = lazy(() => import("../pages/notFound/NotFound"));
 
 const routeFallbackStyle = {
@@ -49,6 +50,11 @@ const routeFallbackStyle = {
 };
 
 const routeMeta = {
+  github: {
+    title: "GitHub Statistics & Contribution Arcade | Ahmad Mujtaba",
+    description: "Explore Ahmad Mujtaba's GitHub statistics, contribution history, and seven playable contribution games.",
+    canonicalPath: "/github",
+  },
   home: {
     title: "Ahmad Mujtaba | Applied AI Engineer",
     description:
@@ -132,6 +138,7 @@ export default function Main(props) {
           >
             <RouteNavigation />
             <Routes>
+              <Route path="/github" element={withRouteMeta(routeMeta.github, <GitHubPage {...props} />)} />
               <Route
                 path="/"
                 element={withRouteMeta(

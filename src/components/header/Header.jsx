@@ -91,6 +91,7 @@ function Header() {
     { className: "xp", to: "/experience", label: "Experience" },
     { className: "skills", to: "/skills", label: "Skills" },
     { className: "projects", to: "/projects", label: "Projects" },
+    { className: "github", to: "/github", label: "GitHub" },
     { className: "cr", to: "/contact", label: "Contact" },
   ];
 

@@ -62,13 +62,13 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     expect(menu).not.toHaveAttribute("hidden");
   });
 
-  it("all 7 links including the site label are inside the menu <ul>", async () => {
+  it("all 8 links including the site label are inside the menu <ul>", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const menu = document.querySelector("ul.menu");
     const links = menu.querySelectorAll("a");
-    expect(links.length).toBe(7);
+    expect(links.length).toBe(8);
   });
 
   it("theme toggle button is inside the menu <ul>", async () => {

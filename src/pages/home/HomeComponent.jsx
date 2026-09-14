@@ -11,6 +11,7 @@ import Greeting from "../../containers/greeting/Greeting";
 import FeaturedProjects from "../../containers/FeaturedProjects/FeaturedProjects";
 import HomeDetails from "../../containers/HomeDetails/HomeDetails";
 import Footer from "../../components/footer/Footer";
+import LazyGitHubPreview from "../../components/github/LazyGitHubPreview";
 
 function Home(props) {
   return (
@@ -19,6 +20,7 @@ function Home(props) {
       <main id="main-content">
         <Greeting theme={props.theme} />
         <FeaturedProjects theme={props.theme} />
+        <LazyGitHubPreview />
         <HomeDetails theme={props.theme} />
       </main>
       <Footer theme={props.theme} />

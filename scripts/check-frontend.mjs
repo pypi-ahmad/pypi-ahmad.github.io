@@ -11,7 +11,7 @@ if (baseIndex >= 0 && !process.argv[baseIndex + 1]) {
   throw new Error("--base-url requires a URL");
 }
 const base = new URL(baseIndex < 0 ? "http://127.0.0.1:4173" : process.argv[baseIndex + 1]);
-const routes = ["home", "contact", "skills", "experience", "education", "projects"];
+const routes = ["home", "contact", "skills", "experience", "education", "projects", "github", "github?tab=projects", "github?tab=activity", "github?tab=impact", "github?tab=arcade"];
 const browser = await chromium.launch({ headless: true });
 const output = await mkdtemp(join(tmpdir(), "portfolio-frontend-"));
 const findings = [];
@@ -56,6 +56,7 @@ async function inspectContentLayout() {
   for (const route of routes) {
     await page.goto(new URL(`/${route}`, base).href);
     await page.locator("main h1").waitFor();
+    if (route.startsWith("github")) await page.locator("main h2").first().waitFor();
     await page.evaluate(() => document.fonts.ready);
     for (const width of widths) {
       await page.setViewportSize({ width, height: 900 });
@@ -111,7 +112,7 @@ async function inspectContentLayout() {
     }
   }
   await page.close();
-  console.log("PASS: 480 content layouts, 24 localization cases, 8 expanded-navigation cases.");
+  console.log(`PASS: ${routes.length * 80} content layouts, ${routes.length * 4} localization cases, 8 expanded-navigation cases.`);
 }
 
 async function assertMenuBounds(page, direction, label) {
@@ -179,6 +180,7 @@ try {
       for (const route of routes) {
         await page.goto(new URL(`/${route}`, base).href);
         await page.locator("main h1").waitFor();
+        if (route.startsWith("github")) await page.locator("main h2").first().waitFor();
         await page.evaluate(() => document.fonts.ready);
         await page.addScriptTag({ content: axe.source });
         const result = await page.evaluate(async () => {
@@ -237,7 +239,7 @@ try {
   // Incomplete axe results require manual review; only confirmed violations fail this automated gate.
   assert.deepEqual(findings.filter(f => f.violations.length), [], "Rendered accessibility checks");
   console.log(`Automated incomplete results (not passes): ${findings.reduce((count, item) => count + (item.incomplete?.length ?? 0), 0)}; see report.json.`);
-  console.log("PASS: 42 accessibility scans, early/rapid menu, Escape, 200% text, RTL, forced colors.");
+  console.log(`PASS: ${findings.length} accessibility scans, early/rapid menu, Escape, 200% text, RTL, forced colors.`);
 } finally {
   await writeFile(join(output, "report.json"), JSON.stringify(findings, null, 2));
   console.log(`Report: ${output}`);
