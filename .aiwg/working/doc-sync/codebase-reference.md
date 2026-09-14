@@ -1,8 +1,8 @@
 # Codebase reference audit
 
-Direction: `code-to-docs`  
+Direction: `code-to-docs`
 Scope: `docs/codebase/ARCHITECTURE.md`, `CONCERNS.md`, `CONVENTIONS.md`,
-`INTEGRATIONS.md`, `STACK.md`, `STRUCTURE.md`, and `TESTING.md`  
+`INTEGRATIONS.md`, `STACK.md`, `STRUCTURE.md`, and `TESTING.md`
 Supporting inventory: `docs/codebase/.codebase-scan.txt`
 
 ## Findings

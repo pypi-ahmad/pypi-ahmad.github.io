@@ -1,5 +1,4 @@
 # Public documentation drift audit
-
 ## Scope
 
 - Direction: `code-to-docs`
@@ -88,4 +87,3 @@
 - Compared CI/deploy prose with both workflow YAML files.
 - Compared routing/provider/theme prose with the scoped source files.
 - Searched source and dependency manifests for Bootstrap usage; none found.
-
