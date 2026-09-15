@@ -29,7 +29,7 @@ describe("projects data", () => {
     expect(projectsHeader).toEqual({
       title: "Projects",
       description:
-        "Thirteen public projects across model training, agents, evaluation, document AI, local-first tools, and developer workflows.",
+        "Five case studies from my independent tools and research, followed by other public AI engineering projects and developer tools.",
     });
   });
 

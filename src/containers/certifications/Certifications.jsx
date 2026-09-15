@@ -38,7 +38,7 @@ function Certifications(props) {
         aria-labelledby="professional-certification-title"
       >
         <motion.div {...revealMotion()} className="education-section-heading">
-          <p className="education-section-label" style={{ color: theme.accentSolid }}>
+          <p className="education-section-label" style={{ color: theme.secondaryText }}>
             Featured achievement
           </p>
           <h2
@@ -66,7 +66,7 @@ function Certifications(props) {
 
       <section className="education-section" id="certs" aria-labelledby="certs-title">
         <motion.div {...revealMotion()} className="education-section-heading">
-          <p className="education-section-label" style={{ color: theme.accentSolid }}>
+          <p className="education-section-label" style={{ color: theme.secondaryText }}>
             Focused learning
           </p>
           <h2 id="certs-title" className="certs-header" style={{ color: theme.text }}>

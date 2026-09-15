@@ -1,16 +1,20 @@
 import assert from "node:assert/strict";
 import { chromium } from "playwright";
 
+const baseIndex = process.argv.indexOf("--base-url");
+if (baseIndex >= 0 && !process.argv[baseIndex + 1]) throw new Error("--base-url requires a URL");
+const bases = baseIndex >= 0 ? [process.argv[baseIndex + 1]] : ["http://localhost:3000", "http://127.0.0.1:4173"];
 const browser = await chromium.launch();
 const contactChunk = /ContactComponent[^/]*\.(?:jsx|js)(?:\?|$)/;
 
 async function navigateToContact(page) {
-  await page.getByRole("button", { name: "Toggle navigation menu" }).click();
+  const trigger = page.getByRole("button", { name: "Toggle navigation menu" });
+  if (await trigger.isVisible()) await trigger.click();
   await page.locator(".menu a[href='/contact']").click();
 }
 
 try {
-  for (const base of ["http://localhost:3000", "http://127.0.0.1:4173"]) {
+  for (const base of bases) {
     for (const cancel of [false, true]) {
       const page = await browser.newPage({ reducedMotion: "reduce" });
       // Hold the lazy route chunk so loading and Back cancellation are exercised without changing app code.
@@ -45,11 +49,11 @@ try {
     await page.goto(`${base}/home`);
     await page.locator("main h1").waitFor();
     await navigateToContact(page);
-    const heading = page.getByRole("heading", { name: "Something went wrong" });
+    const heading = page.getByRole("heading", { name: "Unable to display this page" });
     await heading.waitFor();
     assert.ok(await heading.evaluate(node => node === document.activeElement));
-    assert.equal(await page.getByRole("main", { name: "Something went wrong" }).count(), 1);
-    const refresh = page.getByRole("button", { name: "Refresh" });
+    assert.equal(await page.getByRole("main", { name: "Unable to display this page" }).count(), 1);
+    const refresh = page.getByRole("button", { name: "Refresh page" });
     const cdp = await page.context().newCDPSession(page);
     for (const scenario of ["normal", "reduced", "forced", "contrast", "transparency"]) {
       await cdp.send("Emulation.setEmulatedMedia", { features: [
@@ -62,7 +66,7 @@ try {
       await page.mouse.down();
       await page.waitForTimeout(180);
       const pressed = await refresh.evaluate(node => ({ scale: new DOMMatrixReadOnly(getComputedStyle(node).transform).a, opacity: Number(getComputedStyle(node).opacity) }));
-      assert.equal(pressed.scale, scenario === "normal" ? 0.96 : 1, `${base} ${scenario}: press scale`);
+      assert.equal(pressed.scale, scenario === "normal" ? 0.98 : 1, `${base} ${scenario}: press scale`);
       assert.equal(pressed.opacity, scenario === "reduced" ? 0.88 : 1);
       await page.mouse.move(0, 0);
       await page.mouse.up();
@@ -77,7 +81,7 @@ try {
     await page.mouse.down();
     await page.waitForTimeout(100);
     const slowScale = await refresh.evaluate(node => new DOMMatrixReadOnly(getComputedStyle(node).transform).a);
-    assert.ok(slowScale > 0.96 && slowScale < 1, "Slowed press interpolates rather than jumping");
+    assert.ok(slowScale > 0.98 && slowScale < 1, "Slowed press interpolates rather than jumping");
     await page.mouse.move(0, 0);
     await page.mouse.up();
     await cdp.send("Animation.setPlaybackRate", { playbackRate: 1 });

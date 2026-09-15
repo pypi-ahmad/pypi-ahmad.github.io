@@ -111,7 +111,7 @@ describe("Header — Theme Toggle Behavior", () => {
 describe("Home hero CTA behavior", () => {
   it("contact action points to /contact", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
-    expect(screen.getByRole("link", { name: "Discuss a project" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Contact me" })).toHaveAttribute(
       "href",
       "/contact",
     );
@@ -120,7 +120,7 @@ describe("Home hero CTA behavior", () => {
   it("selected-work action points to the project section", () => {
     renderWithProviders(<Greeting theme={darkTheme} />);
     expect(
-      screen.getByRole("link", { name: "View selected work" }),
-    ).toHaveAttribute("href", "#selected-work");
+      screen.getByRole("link", { name: "View professional work" }),
+    ).toHaveAttribute("href", "#professional-work");
   });
 });

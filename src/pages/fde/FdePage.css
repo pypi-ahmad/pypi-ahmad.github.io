@@ -1,0 +1,20 @@
+.fde-hero,
+.fde-section { width: min(var(--container-max-width), calc(100% - var(--page-gutter) * 2)); margin-inline: auto; overflow-wrap: anywhere; }
+.fde-hero { margin-block-start: var(--page-entry-gap); padding: var(--hero-padding); border: 1px solid; border-radius: var(--hero-radius); }
+.fde-eyebrow { margin: 0 0 1rem; font-weight: 700; }
+.fde-hero h1 { margin: 0; max-width: 22ch; font-size: var(--page-title-size); line-height: var(--heading-leading); letter-spacing: -0.025em; }
+.fde-intro { max-width: 70ch; margin: 1.5rem 0 0; font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.7; }
+.fde-section { padding-block-start: var(--section-spacing); }
+.fde-section h2 { margin: 0; font-size: var(--section-title-size); line-height: var(--heading-leading); }
+.fde-section-intro { max-width: var(--reading-measure); margin: 1rem 0 2rem; line-height: 1.7; }
+.fde-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1rem; }
+.fde-card { min-inline-size: 0; padding: var(--card-padding); border: 1px solid; border-radius: var(--surface-radius); }
+.fde-context { margin: 0 0 1rem; font-size: 0.9rem; font-weight: 700; }
+.fde-card h3 { margin: 0 0 0.75rem; font-size: 1.15rem; line-height: 1.4; }
+.fde-card p { line-height: 1.6; }
+.fde-evidence-links { display: grid; gap: 0.75rem; list-style: none; padding: 0; margin: 1.25rem 0 0; }
+.fde-main main a { color: var(--accent-solid); line-height: 1.6; text-underline-offset: 0.2em; }
+.fde-main main a:focus-visible { outline: 2px solid var(--accent-solid); outline-offset: 4px; border-radius: 2px; }
+.fde-learning-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: 0.75rem 2rem; margin: 0; padding-inline-start: 1.25rem; line-height: 1.6; }
+.fde-actions { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 2rem; }
+@media (max-width: 700px) { .fde-hero { padding: 1.5rem 1.1rem; } }

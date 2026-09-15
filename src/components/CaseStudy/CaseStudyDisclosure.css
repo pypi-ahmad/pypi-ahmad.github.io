@@ -1,0 +1,20 @@
+.case-disclosure { min-inline-size: 0; margin-block-start: var(--stack-lg); }
+.case-disclosure > summary {
+  box-sizing: border-box;
+  min-block-size: 44px;
+  padding: var(--stack-sm) var(--stack-md);
+  border: 1px solid var(--border);
+  border-radius: var(--control-radius);
+  color: var(--text);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.case-disclosure > summary:hover span { text-decoration: underline; }
+.case-disclosure > summary:focus-visible { outline: 2px solid var(--accent-solid); outline-offset: 4px; }
+.case-disclosure__content { padding-block-start: var(--stack-lg); }
+.case-disclosure__content p,
+.case-disclosure__content section > ul {
+  max-inline-size: var(--reading-measure);
+  text-wrap: wrap;
+}
+@media print { .case-disclosure > summary { display: none; } }

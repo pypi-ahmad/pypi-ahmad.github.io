@@ -29,21 +29,20 @@ function Education(props) {
               border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
               borderRadius: theme.heroRadius,
               boxShadow: buildThemeShadow(
-                `0 28px 80px ${theme.shadowColor}`,
+                `0 2px 8px ${theme.shadowColor}`,
                 theme.panelGlow
               ),
             }}
           >
-            <motion.p {...revealMotion(0, true)} className="education-eyebrow" style={{ color: theme.accentSolid }}>
+            <motion.p {...revealMotion(0, true)} className="education-eyebrow" style={{ color: theme.secondaryText }}>
               Education & credentials
             </motion.p>
             <h1 id="education-title" style={{ color: theme.text }}>
-              Academic foundations for applied AI.
+              Academic foundations for AI engineering.
             </h1>
             <motion.p {...revealMotion(1, true)} className="education-intro" style={{ color: theme.secondaryText }}>
-              Formal training in data analytics and computer science, reinforced
-              by focused credentials in generative AI, machine learning, deep
-              learning, and data systems.
+              Degrees in data analytics and computer science, with credentials
+              in generative AI, machine learning, deep learning, and data systems.
             </motion.p>
           </section>
 
@@ -64,11 +63,11 @@ function Education(props) {
             }}
           >
             <div>
-              <p className="education-eyebrow" style={{ color: theme.accentSolid }}>
+              <p className="education-eyebrow" style={{ color: theme.secondaryText }}>
                 Learning put into practice
               </p>
               <h2 id="education-projects-title" style={{ color: theme.text }}>
-                See the work behind the coursework.
+                See how I apply what I learn.
               </h2>
               <p style={{ color: theme.secondaryText }}>
                 Explore open-source work across model training, agents,
@@ -85,7 +84,7 @@ function Education(props) {
                 borderRadius: theme.controlRadius,
               }}
             >
-              Explore projects
+              View projects
             </Link>
           </motion.section>
         </div>

@@ -9,7 +9,7 @@
 import React from "react";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import Header from "../components/header/Header";
 import { renderWithProviders } from "../test/testUtils";
 
@@ -19,6 +19,35 @@ async function openMenu() {
 }
 
 describe("Header — UI Rendering", () => {
+  it("uses the approved work-first navigation order", async () => {
+    const { container } = renderWithProviders(<Header />);
+    await openMenu();
+    expect([...container.querySelectorAll(".menu a")].map(node => node.textContent)).toEqual([
+      "Home", "Experience", "Projects", "Skills", "FDE", "Education and certifications", "GitHub", "Contact",
+    ]);
+  });
+  it("measures the sticky header, updates on resize, and cleans up", () => {
+    let resize;
+    const disconnect = vi.fn();
+    const observer = vi.spyOn(globalThis, "ResizeObserver").mockImplementation(function(callback) {
+      resize = callback;
+      return { observe: vi.fn(), disconnect };
+    });
+    const bounds = vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockReturnValue({ height: 90 });
+    try {
+      const { unmount } = renderWithProviders(<Header />);
+      expect(document.documentElement.style.getPropertyValue("--header-height")).toBe("90px");
+      bounds.mockReturnValue({ height: 140 });
+      resize();
+      expect(document.documentElement.style.getPropertyValue("--header-height")).toBe("140px");
+      unmount();
+      expect(disconnect).toHaveBeenCalled();
+      expect(document.documentElement.style.getPropertyValue("--header-height")).toBe("");
+    } finally {
+      bounds.mockRestore();
+      observer.mockRestore();
+    }
+  });
   it("marks Home current at the root URL", async () => {
     renderWithProviders(<Header />, { initialEntries: ["/"] });
     await openMenu();
@@ -38,13 +67,14 @@ describe("Header — UI Rendering", () => {
     expect(screen.getByText("ahmad.m()")).toBeInTheDocument();
   });
 
-  it("renders all seven page links inside the dropdown menu", async () => {
+  it("renders all eight page links inside the dropdown menu", async () => {
     renderWithProviders(<Header />);
     await openMenu();
     const navLabels = [
       "Home",
       "Education and certifications",
       "Experience",
+      "FDE",
       "Skills",
       "Projects",
       "GitHub",

@@ -6,7 +6,7 @@ function CertificationCard({ certificate, theme, headingLevel = 4 }) {
 
   return (
     <article
-      className={`cert-card${certificate.badgeImagePath ? " cert-card--has-badge" : ""} layer-card shadow-sm hover-shadow-lg`}
+      className={`cert-card${certificate.badgeImagePath ? " cert-card--has-badge" : ""} layer-card shadow-sm`}
       style={{
         background: theme.cardBackgroundAlt,
         border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
@@ -15,7 +15,7 @@ function CertificationCard({ certificate, theme, headingLevel = 4 }) {
     >
       <div className="cert-card__heading">
         <div>
-          <p className="cert-card__issuer" style={{ color: theme.accentSolid }}>
+          <p className="cert-card__issuer" style={{ color: theme.secondaryText }}>
             {certificate.subtitle}
           </p>
           <Title className="cert-card__title" style={{ color: theme.text }}>

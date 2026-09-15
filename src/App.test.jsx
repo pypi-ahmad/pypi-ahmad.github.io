@@ -31,7 +31,7 @@ describe("App — Root Component", () => {
     });
     expect(await screen.findByRole(
       "heading",
-      { level: 1, name: "I build applied AI systems that turn complex information into useful tools." },
+      { level: 1, name: "Production AI Engineer specializing in multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation." },
       { timeout: 10000 }
     )).toBeInTheDocument();
   });

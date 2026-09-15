@@ -11,7 +11,7 @@ if (baseIndex >= 0 && !process.argv[baseIndex + 1]) {
   throw new Error("--base-url requires a URL");
 }
 const base = new URL(baseIndex < 0 ? "http://127.0.0.1:4173" : process.argv[baseIndex + 1]);
-const routes = ["home", "contact", "skills", "experience", "education", "projects", "github", "github?tab=projects", "github?tab=activity", "github?tab=impact", "github?tab=arcade", "github?tab=animations"];
+const routes = ["home", "contact", "skills", "fde", "experience", "education", "projects", "github", "github?tab=projects", "github?tab=activity", "github?tab=impact", "github?tab=arcade", "github?tab=animations"];
 const browser = await chromium.launch({ headless: true });
 const output = await mkdtemp(join(tmpdir(), "portfolio-frontend-"));
 const findings = [];
@@ -221,7 +221,7 @@ try {
       }
       await page.setViewportSize({ width: 390, height: 900 });
       await openNavigation(page);
-      assert.equal(await page.locator(".change-theme-btn").evaluate(node => getComputedStyle(node).backgroundColor), mode === "dark" ? "rgb(29, 33, 41)" : "rgb(238, 231, 218)");
+      assert.equal(await page.locator(".change-theme-btn").evaluate(node => getComputedStyle(node).backgroundColor), mode === "dark" ? "rgb(28, 28, 30)" : "rgb(255, 255, 255)");
       const menuResult = await page.evaluate(async () => {
         const result = await window.axe.run("header", { runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] } });
         const summarize = entries => entries.map(v => ({ id: v.id, nodes: v.nodes.map(n => ({ target: n.target, summary: n.failureSummary })) }));
@@ -273,6 +273,7 @@ try {
   await page.waitForFunction(() => document.activeElement === document.querySelector(".change-theme-btn"));
   // Incomplete axe results require manual review; only confirmed violations fail this automated gate.
   assert.deepEqual(findings.filter(f => f.violations.length), [], "Rendered accessibility checks");
+  assert.deepEqual(findings.filter(f => f.incomplete.some(item => item.id === "aria-prohibited-attr")), [], "No unsupported ARIA container labels");
   console.log(`Automated incomplete results (not passes): ${findings.reduce((count, item) => count + (item.incomplete?.length ?? 0), 0)}; see report.json.`);
   console.log(`PASS: ${findings.length} accessibility scans, early/rapid menu, Escape, 200% text, RTL, forced colors.`);
 } finally {

@@ -20,16 +20,16 @@ export function revealMotion(index = 0, onMount = false) {
 
   return {
     "data-motion": "reveal",
-    initial: reduced ? false : { opacity: 0, y: mobile ? 0 : 14 },
+    initial: reduced ? false : { opacity: 0, y: mobile ? 0 : 8 },
     ...(onMount ? { animate: revealTarget } : {
       whileInView: revealTarget,
       viewport: revealViewport,
     }),
     // Cap stagger so long lists do not make later items wait progressively longer.
     transition: {
-      duration: reduced ? 0 : mobile ? 0.25 : 0.4,
-      delay: reduced || mobile ? 0 : Math.min(Math.max(index, 0), 3) * 0.06,
-      ease: [0.22, 1, 0.36, 1],
+      duration: reduced ? 0 : 0.3,
+      delay: reduced || mobile ? 0 : Math.min(Math.max(index, 0), 3) / 10,
+      ease: "easeOut",
     },
   };
 }

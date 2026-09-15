@@ -2,9 +2,13 @@ import { motion } from "framer-motion";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
-import { projectsHeader, projects, socialMediaLinks } from "../../portfolio.js";
+import CaseStudy from "../../components/CaseStudy/CaseStudy";
+import { projectsHeader, projects, caseStudies, socialMediaLinks } from "../../portfolio.js";
 import { buildThemeBackground, buildThemeShadow, revealMotion } from "../../themeMotion";
 import "./Projects.css";
+
+const coveredRepositories = new Set(caseStudies.flatMap(study => study.repositories.map(repository => repository.url)));
+const moreProjects = projects.data.filter(project => !coveredRepositories.has(project.url));
 
 export default function Projects({ theme }) {
   return (
@@ -19,13 +23,13 @@ export default function Projects({ theme }) {
             border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
             borderRadius: theme.heroRadius,
             boxShadow: buildThemeShadow(
-              `0 28px 80px ${theme.shadowColor}`,
+              `0 2px 8px ${theme.shadowColor}`,
               theme.panelGlow
             ),
           }}
         >
-          <motion.p {...revealMotion(0, true)} className="projects-eyebrow" style={{ color: theme.accentSolid }}>
-            Open-source applied AI
+          <motion.p {...revealMotion(0, true)} className="projects-eyebrow" style={{ color: theme.secondaryText }}>
+            Independent tools and research
           </motion.p>
           <h1 id="projects-title" style={{ color: theme.text }}>
             {projectsHeader.title}
@@ -50,19 +54,21 @@ export default function Projects({ theme }) {
           </motion.div>
         </section>
 
+        <section className="projects-section" aria-label="Project case studies">
+          {caseStudies.map(study => <CaseStudy key={study.id} study={study} />)}
+        </section>
         <section className="projects-section" aria-labelledby="recent-projects-title">
           <motion.div {...revealMotion()} className="projects-section-heading">
             <h2 id="recent-projects-title" style={{ color: theme.text }}>
-              Recent projects
+              More projects
             </h2>
           </motion.div>
           <div className="repo-cards-div-main">
-            {projects.data.map((project, index) => (
+            {moreProjects.map((project, index) => (
               <ProjectCard
                 key={project.url}
                 repo={project}
                 index={index + 1}
-                priority={index < 4}
               />
             ))}
           </div>

@@ -7,6 +7,12 @@
   border-radius: var(--surface-radius);
 }
 
+.experience-card [data-case-study-heading] { scroll-margin-top: 0; }
+.experience-card p,
+.experience-detail-group ul,
+.experience-description-list { max-inline-size: 65ch; }
+.experience-card [data-case-study-heading]:focus-visible { outline: 2px solid var(--accent-solid); outline-offset: 4px; }
+
 /* Zero track minima allow long role names and dates to wrap beside the fixed-size logo. */
 .experience-card-header { display: grid; grid-template-columns: 70px minmax(0, 1fr) minmax(0, auto); align-items: center; gap: 1rem; }
 .experience-card-header > * { min-inline-size: 0; }
@@ -36,6 +42,12 @@
 .experience-disclosure p { margin: 0.4rem 0 0; line-height: 1.55; }
 .experience-description-list { margin-top: 1.5rem; }
 
+.experience-project-group + .experience-project-group { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.experience-project-group > h4 { margin: 0 0 1rem; font-size: 1.25rem; line-height: 1.4; }
+.experience-project-group h5 { margin: 1.25rem 0 0.75rem; font-size: 1.05rem; line-height: 1.4; }
+.experience-project-group p { line-height: 1.7; }
+.experience-project-group .experience-outcomes > ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
 @media (max-width: 900px) {
   .experience-detail-grid { grid-template-columns: minmax(0, 1fr); }
   .experience-outcomes > ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -46,4 +58,5 @@
   .experience-card-logo-link { width: 56px; height: 56px; }
   .experience-card-meta { grid-column: auto; text-align: start; }
   .experience-outcomes > ul { grid-template-columns: minmax(0, 1fr); }
+  .experience-project-group .experience-outcomes > ul { grid-template-columns: minmax(0, 1fr); }
 }

@@ -1,7 +1,7 @@
-import React, { lazy, Suspense } from "react";
-import { act, render, screen } from "@testing-library/react";
+import React, { lazy, Suspense, StrictMode } from "react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { Link, MemoryRouter, Route, Routes, useNavigate } from "react-router-dom";
 import RouteNavigation from "../components/RouteNavigation";
 
@@ -31,6 +31,28 @@ function setup(next = <main>Next page</main>) {
 
 describe("Route navigation", () => {
   beforeEach(() => vi.clearAllMocks());
+  afterEach(() => { delete HTMLElement.prototype.scrollIntoView; });
+
+  it.each(["projects", "experience"])("focuses a %s case-study heading on direct entry", async route => {
+    const scroll = vi.fn();
+    HTMLElement.prototype.scrollIntoView = scroll;
+    render(<StrictMode><MemoryRouter initialEntries={[`/${route}#study`]}>
+      <RouteNavigation />
+      <main><h2 id="study" tabIndex={-1} data-case-study-heading>Study</h2><details data-case-study-for="study"><summary>Read case study</summary>Details</details></main>
+    </MemoryRouter></StrictMode>);
+    await waitFor(() => expect(screen.getByRole("heading")).toHaveFocus());
+    expect(screen.getByText("Read case study").closest("details").open).toBe(true);
+    expect(scroll).toHaveBeenCalledWith({ behavior: "instant", block: "start" });
+    expect(window.scrollTo).not.toHaveBeenCalled();
+  });
+
+  it("leaves unknown case-study fragments alone", () => {
+    render(<MemoryRouter initialEntries={["/projects#unknown"]}>
+      <RouteNavigation /><main>Projects</main>
+    </MemoryRouter>);
+    expect(screen.getByRole("main")).not.toHaveFocus();
+    expect(window.scrollTo).not.toHaveBeenCalled();
+  });
 
   it("preserves initial entry and hash-only navigation", async () => {
     setup();

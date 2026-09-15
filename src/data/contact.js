@@ -8,10 +8,10 @@
 export const contactPageData = {
   contactSection: {
     eyebrow: "Work together",
-    title: "Let’s build useful AI systems.",
+    title: "Discuss a production AI role or project.",
     description:
-      "I’m open to remote-first Applied AI and GenAI engineering roles, plus focused consulting engagements in document AI, RAG, evaluation, and agentic systems.",
-    emailLabel: "Discuss a project",
+      "I’m open to remote-first production AI and GenAI engineering roles and focused consulting projects in multimodal document intelligence, LLM extraction, RAG, agentic workflows, and evaluation.",
+    emailLabel: "Email me",
     channelsTitle: "Choose a channel",
   },
 };

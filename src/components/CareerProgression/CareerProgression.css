@@ -1,0 +1,17 @@
+.career-section {
+  width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
+  margin-inline: auto;
+  padding-block-start: var(--section-spacing);
+  overflow-wrap: anywhere;
+}
+.career-section__label { margin: 0 0 1rem; font-weight: 700; }
+.career-section h2 { margin: 0; font-size: var(--section-title-size); line-height: var(--heading-leading); text-wrap: balance; }
+.career-section__intro { max-width: 75ch; margin: 1.25rem 0 2rem; }
+.career-section p { line-height: 1.7; }
+.career-progression { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 0; margin: 0; gap: 1rem; }
+.career-progression li { min-width: 0; padding: 1.25rem; border: 1px solid; border-radius: var(--surface-radius); }
+.career-progression h3 { font-size: 1.1rem; line-height: 1.4; }
+.career-progression li > p:first-child { margin-top: 0; }
+.career-progression li > p:last-child { margin-bottom: 0; }
+@media (max-width: 1000px) { .career-progression { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .career-progression { grid-template-columns: minmax(0, 1fr); } }

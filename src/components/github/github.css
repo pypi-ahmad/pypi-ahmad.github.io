@@ -15,10 +15,10 @@
   color: var(--text);
 }
 .gh-page {
-  padding-block: 2rem 4rem;
+  padding-block: var(--page-entry-gap) 0;
 }
 .gh-preview {
-  padding-block: var(--section-spacing);
+  padding-block-start: var(--section-spacing);
 }
 .gh h1,
 .gh h2,
@@ -29,12 +29,12 @@
 }
 .gh h1 {
   font-size: var(--page-title-size);
-  line-height: 1.2;
+  line-height: var(--heading-leading);
   margin-block: 0.8rem 1rem;
 }
 .gh h2 {
   font-size: var(--section-title-size);
-  line-height: 1.2;
+  line-height: var(--heading-leading);
   margin-block: 0.5rem 1.5rem;
 }
 .gh h3 {
@@ -48,11 +48,11 @@
 .gh p {
   text-wrap: pretty;
   overflow-wrap: anywhere;
-  max-width: 75ch;
+  max-width: var(--reading-measure);
 }
 .gh-hero {
   padding: var(--hero-padding);
-  background: var(--card);
+  background: var(--surface-feature);
   border-radius: var(--hero-radius);
   box-shadow: var(--shadow-sm);
 }
@@ -62,14 +62,14 @@
 }
 .gh-eyebrow {
   font-weight: 600;
-  font-size: 1.35rem;
+  font-size: 0.875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-secondary);
 }
 .gh-section {
   margin-block-start: var(--section-spacing);
-  scroll-margin-top: 7rem;
+  scroll-margin-top: 0;
 }
 .gh-section-heading,
 .gh-toolbar {
@@ -89,7 +89,7 @@
   font: inherit;
   color: var(--text);
   background: var(--card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--control-border);
   border-radius: var(--control-radius);
   padding: 0.7rem 1rem;
   min-height: 44px;
@@ -117,6 +117,19 @@
 }
 .gh button:disabled {
   cursor: not-allowed;
+  opacity: 0.5;
+}
+.gh :is(button[data-static], input, select, .gh-view-nav a) {
+  transition: color 150ms ease-out, background-color 150ms ease-out,
+    border-color 150ms ease-out, opacity 150ms ease-out;
+}
+.gh :is(button[data-static], button:disabled, button[aria-disabled="true"]):active { transform: none; }
+.gh button[aria-disabled="true"] { cursor: not-allowed; }
+.gh button:disabled:active { opacity: 0.5; }
+.gh button[aria-disabled="true"]:active { opacity: 1; }
+.gh :is(button, input, select, .gh-view-nav a):focus-visible { transition: none; }
+@media (forced-colors: active) {
+  .gh button:disabled { opacity: 1; color: GrayText; border-color: GrayText; }
 }
 .gh :is(button, a, select, summary):focus-visible {
   outline: 2px solid var(--accent-solid);
@@ -180,6 +193,7 @@
   margin-block: 0.4rem 0;
   font-size: 0.8rem;
   font-weight: 400;
+  line-height: 1.6;
 }
 .gh-panel {
   border-radius: var(--surface-radius);
@@ -189,6 +203,13 @@
 }
 .gh-panel .gh-metric {
   background: var(--surface-background);
+}
+.gh-metrics > .gh-metric[data-evidence="true"] {
+  background: var(--surface-evidence);
+  box-shadow: inset 0 0 0 1px var(--border-evidence);
+}
+.gh-metrics > .gh-metric[data-evidence="true"] dd {
+  color: var(--text-evidence);
 }
 .gh-visual-dashboard > h2,
 .gh-rolling-contributions h2 {
@@ -246,7 +267,7 @@
   margin-block-start: 0.5rem;
   color: var(--text-secondary);
   font-size: 0.75rem;
-  line-height: 1.25;
+  line-height: 1.4;
 }
 .gh-language-share h3 {
   margin-block-start: 0;
@@ -356,8 +377,8 @@
 }
 .gh-heatmap-months {
   display: grid;
-  grid-template-columns: repeat(var(--heatmap-weeks), 12px);
-  gap: 3px;
+  grid-template-columns: repeat(var(--heatmap-weeks), 0.75rem);
+  gap: 0.1875rem;
   min-height: 1.5rem;
   margin-inline-start: 2.75rem;
   font-size: 0.75rem;
@@ -372,10 +393,10 @@
 .gh-heatmap-weekdays {
   display: grid;
   flex: 0 0 2.5rem;
-  grid-template-rows: repeat(7, 12px);
-  gap: 3px;
-  font-size: 0.7rem;
-  line-height: 12px;
+  grid-template-rows: repeat(7, 0.75rem);
+  gap: 0.1875rem;
+  font-size: 0.75rem;
+  line-height: 1;
 }
 .gh-heatmap-weekdays span:nth-child(1) {
   grid-row: 2;
@@ -388,10 +409,10 @@
 }
 .gh-heatmap-grid {
   display: grid;
-  grid-template-rows: repeat(7, 12px);
+  grid-template-rows: repeat(7, 0.75rem);
   grid-auto-flow: column;
-  grid-auto-columns: 12px;
-  gap: 3px;
+  grid-auto-columns: 0.75rem;
+  gap: 0.1875rem;
 }
 .gh-heatmap-grid > span,
 .gh-heatmap-legend i {
@@ -418,8 +439,8 @@
 }
 .gh-heatmap-legend i {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  width: 0.75rem;
+  height: 0.75rem;
 }
 .gh-rolling-table table {
   max-width: 36rem;
@@ -627,7 +648,7 @@
 .gh-game-stage {
   position: relative;
   margin-block: 1rem;
-  border-radius: 12px;
+  border-radius: calc(8px + 0.5rem);
   background: var(--gh-game-surface);
   color: var(--gh-game-text);
   padding: 0.5rem;
@@ -690,11 +711,11 @@
   color: #111318;
 }
 @media (hover: hover) {
-  .gh button:not(:disabled):not(.gh-day):not(.gh-mine):hover,
+  .gh button:not(:disabled):not(.gh-day):not(.gh-mine):not(.gh-button):hover,
   .gh select:hover {
     background: var(--accent-hover);
   }
-  .gh .gh-button:hover {
+  .gh .gh-button:not(:disabled):not([aria-disabled="true"]):hover {
     background: var(--accent);
   }
   .gh .gh-day:hover {
@@ -772,8 +793,8 @@
   opacity: 0.88;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .gh .gh-button:active:not(:focus-visible) {
-    transform: scale(0.96);
+  .gh .gh-button:active:not(:focus-visible):not(:disabled):not([aria-disabled="true"]):not([data-static]) {
+    transform: scale(0.98);
   }
 }
 .gh-filter-grid,
@@ -799,7 +820,7 @@
   width: 100%;
   min-width: 0;
   max-width: 100%;
-  border: 1px solid var(--border);
+  border: 1px solid var(--control-border);
   background: var(--card);
   color: var(--text);
   border-radius: var(--control-radius, 12px);
@@ -863,10 +884,11 @@
 .gh-event-list details {
   margin-block: 1rem;
 }
-.gh-source-notes {
+.gh .gh-source-notes {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  max-width: 70ch;
+  max-width: var(--reading-measure);
+  text-wrap: wrap;
 }
 .gh-comparison {
   margin: 1.5rem 0;

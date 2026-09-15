@@ -3,30 +3,45 @@ import { screen } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 import { describe, expect, it } from "vitest";
 import Projects from "../pages/projects/Projects";
+import FeaturedProjects from "../containers/FeaturedProjects/FeaturedProjects";
+import { caseStudies } from "../data/caseStudies";
 import { renderWithProviders, darkTheme } from "../test/testUtils";
 
 expect.extend(toHaveNoViolations);
 
 const expectedNames = [
-  "LoRA Fine-tune Studio",
   "Tool-Using Browser Agent",
-  "Self-Improving Prompt Optimizer",
   "NL2SQL Agent",
   "Autonomous Coding Agent Crew",
   "Multi-Agent Debate Decision System",
   "Multi-Agent Research Assistant",
   "Local-First Knowledge Base Agent",
   "Intelligent Personal Finance Agent",
-  "Document Intelligence Agent",
   "Autonomous Job Application Agent",
   "AutoTabML Studio",
   "Codebase Understanding Agent",
 ];
 
 describe("Projects page", () => {
+  it("connects all five Home previews to accessible full case studies", () => {
+    const { unmount } = renderWithProviders(<FeaturedProjects theme={darkTheme} />);
+    expect(caseStudies).toHaveLength(5);
+    for (const study of caseStudies) {
+      const link = screen.getByRole("link", { name: `Read ${study.name} case study` });
+      expect(link).toHaveAttribute("href", `/projects#${study.id}`);
+      expect(link).not.toHaveAttribute("target");
+    }
+    unmount();
+    renderWithProviders(<Projects theme={darkTheme} />);
+    for (const study of caseStudies) {
+      expect(screen.getByRole("article", { name: study.name })).toBeInTheDocument();
+      expect(screen.getByRole("heading", { name: study.name })).toHaveAttribute("id", study.id);
+    }
+    expect(caseStudies[0].repositories).toHaveLength(8);
+  });
   it("renders the recruiter-focused hero", () => {
     renderWithProviders(<Projects theme={darkTheme} />);
-    expect(screen.getByText("Open-source applied AI")).toBeInTheDocument();
+    expect(screen.getByText("Independent tools and research")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 1, name: "Projects" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "View GitHub profile" })).toHaveAttribute(
       "href",
@@ -34,33 +49,31 @@ describe("Projects page", () => {
     );
   });
 
-  it("renders all 13 projects once and in priority order", () => {
+  it("renders ten additional projects without duplicating case studies", () => {
     const { container } = renderWithProviders(<Projects theme={darkTheme} />);
     const names = Array.from(
       container.querySelectorAll(".projects-section .project-card__name")
     ).map(node => node.textContent);
 
     expect(names).toEqual(expectedNames);
-    expect(container.querySelectorAll(".projects-section .project-card")).toHaveLength(13);
+    expect(container.querySelectorAll(".projects-section .project-card")).toHaveLength(10);
   });
 
-  it("marks only the first four cards as priority work", () => {
+  it("keeps additional repository cards visually secondary", () => {
     const { container } = renderWithProviders(<Projects theme={darkTheme} />);
     const cards = Array.from(container.querySelectorAll(".project-card-wrap"));
 
-    expect(cards.filter(card => card.dataset.priority === "true")).toHaveLength(4);
-    expect(cards.slice(0, 4).every(card => card.dataset.priority === "true")).toBe(true);
-    expect(cards.slice(4).every(card => card.dataset.priority === "false")).toBe(true);
+    expect(cards.every(card => card.dataset.priority === "false")).toBe(true);
   });
 
   it("uses explicit, safe repository links", () => {
     renderWithProviders(<Projects theme={darkTheme} />);
     const links = screen.getAllByRole("link", { name: /repository on GitHub$/ });
 
-    expect(links).toHaveLength(13);
+    expect(links).toHaveLength(10);
     expect(links[0]).toHaveAttribute(
       "href",
-      "https://github.com/pypi-ahmad/lora-qlora-fine-tuning-app"
+      "https://github.com/pypi-ahmad/tool-using-browser-agent"
     );
     for (const link of links) {
       expect(link).toHaveAttribute("target", "_blank");

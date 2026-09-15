@@ -16,6 +16,9 @@ function resolveHeadingLetterSpacing(theme) {
 // CSS variables bridge styled-components themes into the plain CSS used by page and card components.
 export const GlobalStyles = createGlobalStyle`
   :root {
+    --scrollbar-track: ${({ theme }) => theme.scrollbarTrack};
+    --scrollbar-thumb: ${({ theme }) => theme.scrollbarThumb};
+    --scrollbar-thumb-hover: ${({ theme }) => theme.scrollbarThumbHover};
     --theme-transition-fast: 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
     --theme-transition-press: 100ms cubic-bezier(0.23, 1, 0.32, 1);
     --theme-transition-medium: 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -24,7 +27,13 @@ export const GlobalStyles = createGlobalStyle`
     --container-max-width: 72rem;
     --section-spacing: clamp(2.5rem, 5vw, 4rem);
     --section-gap-tight: 1.5rem;
-    --page-title-size: clamp(2rem, 4vw, 2.625rem);
+    --page-entry-gap: clamp(1rem, 2vw, 1.5rem);
+    --page-title-size: clamp(1.5rem, calc(5vw / 1.5), calc(3.5rem / 1.5));
+    --heading-leading: 1.4;
+    --reading-measure: 65ch;
+    --header-height: 6rem;
+    --header-top: calc(0.75rem + env(safe-area-inset-top, 0px));
+    --header-offset: calc(var(--header-height) + var(--header-top) + 0.75rem);
     --section-title-size: clamp(1.5rem, 3vw, 2.25rem);
     --hero-padding: clamp(1.5rem, 4vw, 3.5rem);
     --card-padding: clamp(1.25rem, 2vw, 1.75rem);
@@ -57,11 +66,16 @@ export const GlobalStyles = createGlobalStyle`
 
   html {
     font-size: 100%;
+    scroll-padding-block-start: var(--header-offset);
     scroll-behavior: smooth;
   }
 
   body {
     --surface-background: ${({ theme }) => theme.body};
+    --surface-feature: ${({ theme }) => theme.heroGradient};
+    --surface-evidence: ${({ theme }) => theme.evidenceSurface};
+    --text-evidence: ${({ theme }) => theme.evidenceText};
+    --border-evidence: ${({ theme }) => theme.evidenceBorder};
     --header-surface: ${({ theme }) => theme.headerSurface};
     --surface-card: ${({ theme }) => theme.cardBackgroundAlt ?? theme.projectCard};
     --text: ${({ theme }) => theme.text};
@@ -69,6 +83,7 @@ export const GlobalStyles = createGlobalStyle`
     --text-secondary: ${({ theme }) => theme.secondaryText};
     --card: ${({ theme }) => theme.cardBackgroundAlt ?? theme.projectCard};
     --border: ${({ theme }) => theme.borderSoft ?? theme.borderColor};
+    --control-border: ${({ theme }) => theme.name === "light" ? "#76767C" : "#77777D"};
     --separator: ${({ theme }) => theme.separatorColor};
     --shadow-color: ${({ theme }) => theme.shadowColor};
     --accent: ${({ theme }) => theme.accentGradient};
@@ -77,8 +92,14 @@ export const GlobalStyles = createGlobalStyle`
     --accent-hover: ${({ theme }) => theme.accentSoft};
     --selection-background: ${({ theme }) => theme.accentSoft};
     --focus-shadow: ${({ theme }) => theme.accentSoft};
-    --shadow-sm: ${({ theme }) => `0 10px 24px ${theme.shadowColor}`};
-    --shadow-lg: ${({ theme }) => `0 24px 56px ${theme.shadowColor}`};
+    --shadow-sm: ${({ theme }) => `0 2px 8px ${theme.shadowColor}`};
+    --shadow-lg: ${({ theme }) => `0 12px 32px ${theme.shadowColor}`};
+    --shadow-border: ${({ theme }) => theme.name === "light"
+      ? "0 0 0 1px oklch(0 0 0 / 0.06), 0 1px 2px -1px oklch(0 0 0 / 0.06), 0 2px 4px 0 oklch(0 0 0 / 0.04)"
+      : "0 0 0 1px oklch(1 0 0 / 0.08)"};
+    --shadow-border-hover: ${({ theme }) => theme.name === "light"
+      ? "0 0 0 1px oklch(0 0 0 / 0.08), 0 1px 2px -1px oklch(0 0 0 / 0.08), 0 2px 4px 0 oklch(0 0 0 / 0.06)"
+      : "0 0 0 1px oklch(1 0 0 / 0.13)"};
     --layer-background: 0;
     --layer-card: 1;
     --layer-overlay: 40;
@@ -88,7 +109,7 @@ export const GlobalStyles = createGlobalStyle`
     --control-radius: ${({ theme }) => theme.controlRadius ?? "16px"};
     --heading-font-family: ${({ theme }) => theme.accentFontFamily};
     --heading-letter-spacing: ${({ theme }) => resolveHeadingLetterSpacing(theme)};
-    --body-font-family: "Inter", -apple-system, BlinkMacSystemFont,
+    --body-font-family: system-ui, -apple-system, BlinkMacSystemFont,
       "Segoe UI", sans-serif;
     --page-gutter: clamp(1rem, 4vw, 2.75rem);
     --stack-sm: 0.75rem;
@@ -128,14 +149,15 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 0 var(--stack-sm);
     color: var(--text-primary);
     font-family: var(--heading-font-family);
-    line-height: 1.4;
+    line-height: var(--heading-leading);
     font-weight: 700;
-    letter-spacing: var(--heading-letter-spacing);
+    letter-spacing: -0.01em;
     text-wrap: balance;
     overflow-wrap: anywhere;
   }
 
-  h1, h2 { line-height: 1.2; }
+  h1 { letter-spacing: -0.03em; }
+  h2 { letter-spacing: -0.02em; }
 
   p {
     margin: 0 0 var(--stack-md);
@@ -150,7 +172,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     color: var(--text);
     background-color: var(--card);
-    border: 1px solid var(--border);
+    border: 1px solid var(--control-border);
     border-radius: var(--control-radius);
     font: inherit;
     line-height: 1.5;
@@ -215,6 +237,33 @@ export const GlobalStyles = createGlobalStyle`
     box-shadow: var(--shadow-sm);
   }
 
+  /* Elevated presentation surfaces keep their border footprint, not a second depth ring. */
+  :is(.greet-main, .projects-hero, .experience-hero, .education-hero,
+      .skills-hero, .contact-hero, .fde-hero, .gh-hero, .project-card, .contact-links-anchor) {
+    border: 1px solid transparent !important;
+    box-shadow: var(--shadow-border) !important;
+  }
+  :is(.project-card, .contact-links-anchor) {
+    transition: box-shadow 150ms ease-out, background-color 150ms ease-out,
+      color 150ms ease-out, transform var(--theme-transition-press), opacity var(--theme-transition-press);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    :is(.project-card, .contact-links-anchor):hover {
+      box-shadow: var(--shadow-border-hover) !important;
+      border-color: var(--accent-solid) !important;
+    }
+  }
+  :is(.project-card, .contact-links-anchor):focus-visible {
+    box-shadow: var(--shadow-border-hover), 0 0 0 4px var(--focus-shadow) !important;
+  }
+  @media (forced-colors: active), print {
+    :is(.greet-main, .projects-hero, .experience-hero, .education-hero,
+        .skills-hero, .contact-hero, .fde-hero, .gh-hero, .project-card, .contact-links-anchor) {
+      border-color: currentColor !important;
+      box-shadow: none !important;
+    }
+  }
+
   .hover-shadow-lg:hover,
   .hover-shadow-lg:focus-within,
   .hover-shadow-lg:focus-visible {
@@ -228,13 +277,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .basic-contact {
     width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .basic-contact {
-    padding-top: var(--section-spacing);
-    padding-bottom: var(--section-spacing);
+    margin-inline: auto;
   }
 
   .button {
@@ -272,7 +315,7 @@ export const GlobalStyles = createGlobalStyle`
     :is(.button, .project-card, .contact-links-anchor, .contact-action,
         .projects-github-link, .education-projects-link, .not-found-link,
         .skills-cta-actions a, .motion-action):hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
   }
 
@@ -356,7 +399,7 @@ export const GlobalStyles = createGlobalStyle`
   a { text-underline-position: from-font; text-decoration-thickness: from-font; }
 
   :is(button, .button, .contact-action, .projects-github-link,
-      .education-projects-link, .not-found-link, .skills-cta-actions a, .motion-action):active {
+      .education-projects-link, .not-found-link, .skills-cta-actions a, .motion-action):active:where(:not(:disabled):not([aria-disabled="true"])) {
     opacity: 0.88;
   }
   :is(.hero-actions .button:not(.button-secondary), .motion-action,
@@ -367,25 +410,25 @@ export const GlobalStyles = createGlobalStyle`
   }
   @media (prefers-reduced-motion: no-preference) {
     :is(button, .button, .contact-action, .projects-github-link,
-        .education-projects-link, .not-found-link, .skills-cta-actions a, .motion-action):active:not(:focus-visible):not([data-static]) {
-      transform: scale(0.96);
+        .education-projects-link, .not-found-link, .skills-cta-actions a, .motion-action):active:not(:focus-visible):not([data-static]):not(:disabled):not([aria-disabled="true"]) {
+      transform: scale(0.98);
       transition: transform 100ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 100ms ease;
     }
   }
   /* Native link press feedback. Keep geometry on the link, not its reveal parent. */
   a:is(.project-card, .contact-links-anchor, .degree-card__link, .cert-card__actions a) {
-    transition: transform var(--theme-transition-press),
+    transition: box-shadow 150ms ease-out, transform var(--theme-transition-press),
       opacity var(--theme-transition-press),
       border-color var(--theme-transition-colors),
       background-color var(--theme-transition-colors),
       color var(--theme-transition-colors);
   }
   a:is(.degree-card__link, .cert-card__actions a):active:not(:focus-visible) {
-    opacity: 0.88;
+    opacity: 0.90;
   }
   @media (prefers-reduced-motion: no-preference) {
     a:is(.project-card, .contact-links-anchor, .degree-card__link, .cert-card__actions a):active:not(:focus-visible) {
-      transform: scale(0.96);
+      transform: scale(0.98);
     }
   }
   @media (hover: none), (pointer: coarse) {

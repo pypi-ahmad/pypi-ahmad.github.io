@@ -36,10 +36,10 @@ export default class ErrorBoundary extends React.Component {
           }}
         >
           <h1 id="error-title" ref={this.headingRef} tabIndex={-1} style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
-            Something went wrong
+            Unable to display this page
           </h1>
           <p id="error-description" style={{ marginBottom: "1.5rem", color: "inherit", opacity: 0.7 }}>
-            An unexpected error occurred. Please try refreshing the page.
+            Refresh the page to try again.
           </p>
           <button
             className="error-boundary__refresh"
@@ -54,7 +54,7 @@ export default class ErrorBoundary extends React.Component {
               color: "inherit",
             }}
           >
-            Refresh
+            Refresh page
           </button>
         </main>
       );

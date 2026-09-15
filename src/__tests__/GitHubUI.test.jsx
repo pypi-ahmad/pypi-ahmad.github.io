@@ -108,7 +108,7 @@ describe("Native dashboard and history", () => {
     const retry = vi.fn();
     useDashboard.mockReturnValue({ data: null, status: "error", retry });
     const { rerender } = renderWithProviders(<GitHubPage theme={darkTheme} />);
-    fireEvent.click(screen.getByRole("button", { name: "Try again" }));
+    fireEvent.click(screen.getByRole("button", { name: "Retry GitHub data" }));
     expect(retry).toHaveBeenCalled();
     expect(screen.queryByText("Current streak")).not.toBeInTheDocument();
     rerender(<DataStatus data={null} status="loading" />);
@@ -196,7 +196,7 @@ describe("Native dashboard and history", () => {
     rerender(<ContributionCalendar status="loading" />);
     expect(screen.getByRole("status")).toHaveTextContent("Loading");
     rerender(<ContributionCalendar status="error" onRetry={retry} />);
-    fireEvent.click(screen.getByRole("button", { name: "Try again" }));
+    fireEvent.click(screen.getByRole("button", { name: "Retry contribution history" }));
     expect(retry).toHaveBeenCalled();
     rerender(
       <ContributionCalendar
@@ -320,7 +320,7 @@ describe("Arcade controls", () => {
       />,
     );
     fireEvent.click(
-      await screen.findByRole("button", { name: "Try loading game again" }),
+      await screen.findByRole("button", { name: "Retry game" }),
     );
     expect(
       await screen.findByText("Ready", { exact: true }),

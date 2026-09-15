@@ -220,18 +220,24 @@ describe("Five focused views", () => {
     });
     expect(
       await screen.findByRole("heading", {
-        name: "No public external merged pull requests found",
+        name: "No merged pull requests to other public repositories",
       }),
     ).toBeInTheDocument();
   });
-  it("keeps legacy snapshots usable and repository copy readable", async () => {
-    delete data.repositories;
+  it.each([
+    ["projects", "repositories", "Project explorer"],
+    ["activity", "releases", "Release timeline"],
+    ["impact", "externalPullRequests", "External contribution history"],
+  ])("offers valid recovery for legacy %s snapshots", async (tab, field, name) => {
+    delete data[field];
     renderWithProviders(<GitHubPage />, {
-      initialEntries: ["/github?tab=projects"],
+      initialEntries: [`/github?tab=${tab}`],
     });
-    expect(
-      await screen.findByText(/Project explorer is not available/),
-    ).toBeInTheDocument();
+    const message = await screen.findByText(`${name} is not available in this snapshot.`, { exact: false });
+    expect(message).toHaveAttribute("role", "status");
+    expect(message).toHaveTextContent(`${name} is not available in this snapshot. View the GitHub profile.`);
+    expect(message.querySelector("a")).toHaveAttribute("href", "https://github.com/pypi-ahmad");
+    expect(screen.queryByText(/refreshing the data above/)).not.toBeInTheDocument();
   });
   it("renders missing metadata and does not turn unsafe data into a link", () => {
     const repo = {

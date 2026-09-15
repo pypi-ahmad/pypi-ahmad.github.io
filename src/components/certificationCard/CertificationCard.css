@@ -7,9 +7,6 @@
   transition: transform var(--theme-transition-fast), box-shadow var(--theme-transition-fast);
 }
 
-.cert-card:hover {
-  transform: translateY(-3px);
-}
 
 .cert-card--has-badge {
   display: grid;
@@ -110,7 +107,7 @@
   border-radius: 999px;
   background: var(--surface-card);
   font-size: 0.78rem;
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 .cert-card__actions {

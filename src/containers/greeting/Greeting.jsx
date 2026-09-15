@@ -22,14 +22,14 @@ export default function Greeting({ theme }) {
         border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
         borderRadius: theme.heroRadius,
         boxShadow: buildThemeShadow(
-          `0 28px 80px ${theme.shadowColor}`,
+          `0 2px 8px ${theme.shadowColor}`,
           theme.panelGlow
         ),
       }}
     >
       <div className="hero-copy">
         <div className="hero-atmosphere" aria-hidden="true" />
-        <motion.p {...revealMotion(0, true)} className="hero-eyebrow" style={{ color: theme.accentSolid }}>
+        <motion.p {...revealMotion(0, true)} className="hero-eyebrow" style={{ color: theme.secondaryText }}>
           {homePageData.hero.eyebrow}
         </motion.p>
         <h1
@@ -51,7 +51,7 @@ export default function Greeting({ theme }) {
         >
           {homePageData.hero.introduction}
         </motion.p>
-        <motion.div {...revealMotion(2, true)} className="hero-actions" aria-label="Portfolio actions">
+        <motion.div {...revealMotion(2, true)} className="hero-actions">
           <Link
             className="button"
             to="/contact"
@@ -63,11 +63,11 @@ export default function Greeting({ theme }) {
               transition: themeSurfaceTransition,
             }}
           >
-            Discuss a project
+            Contact me
           </Link>
           <a
             className="button button-secondary"
-            href="#selected-work"
+            href="#professional-work"
             style={{
               color: theme.text,
               borderColor: theme.borderSoft,
@@ -75,59 +75,17 @@ export default function Greeting({ theme }) {
               transition: themeSurfaceTransition,
             }}
           >
-            View selected work
+            View professional work
           </a>
           {socialMediaLinks.github?.trim() && (
             <a className="button button-secondary" href={socialMediaLinks.github.trim()}
               style={{ color: theme.text, borderColor: theme.borderSoft, borderRadius: theme.controlRadius }}>
-              View GitHub
+              View GitHub profile
             </a>
           )}
         </motion.div>
       </div>
 
-      <div className="outcomes" aria-labelledby="outcomes-title">
-        <motion.div {...revealMotion()} className="section-heading-row">
-          <h2 id="outcomes-title" style={{ color: theme.text }}>
-            Evidence from internal work
-          </h2>
-          <p style={{ color: theme.secondaryText }}>
-            These are team and system results from internal evaluations.
-            Contribution notes identify the parts I worked on.
-          </p>
-        </motion.div>
-        <ul className="outcome-grid">
-          {homePageData.outcomes.map((outcome, index) => (
-            <motion.li
-              {...revealMotion(index)}
-              key={outcome.label}
-              className="outcome-card"
-              style={{
-                background: buildThemeBackground(
-                  theme.cardBackgroundAlt,
-                  theme.surfacePattern
-                ),
-                border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-                borderRadius: theme.surfaceRadius,
-                boxShadow: buildThemeShadow(
-                  `0 18px 40px ${theme.shadowColor}`,
-                  theme.panelGlow
-                ),
-                transition: themeTextTransition,
-              }}
-            >
-              <strong style={{ color: theme.text }}>
-                {outcome.metric}
-              </strong>
-              <h3 style={{ color: theme.text }}>{outcome.label}</h3>
-              <p style={{ color: theme.secondaryText }}>{outcome.context}</p>
-              <p className="contribution" style={{ color: theme.secondaryText }}>
-                {outcome.contribution}
-              </p>
-            </motion.li>
-          ))}
-        </ul>
-      </div>
     </section>
   );
 }

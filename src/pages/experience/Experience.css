@@ -6,11 +6,11 @@
   margin-inline: auto;
 }
 
-.experience-hero { margin-top: 1.5rem; padding: var(--hero-padding); }
-.experience-eyebrow { margin: 0 0 1rem; font-size: 1.35rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-.experience-hero h1 { max-width: 1000px; margin: 0; font-size: var(--page-title-size); line-height: 1.2; letter-spacing: -0.025em; }
+.experience-hero { margin-block-start: var(--page-entry-gap); padding: var(--hero-padding); }
+.experience-eyebrow { margin: 0 0 1rem; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.experience-hero h1 { max-width: 1000px; margin: 0; font-size: var(--page-title-size); line-height: var(--heading-leading); letter-spacing: -0.025em; }
 .experience-intro { max-width: 65ch; margin: 1.5rem 0 0; font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.6; }
-.experience-timeline { padding: var(--section-spacing) 0; }
+.experience-timeline { padding-block-start: var(--section-spacing); }
 
 .experience-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }
 .experience-section-heading h2, .experience-section-heading p { margin: 0; }
@@ -19,11 +19,11 @@
 .experience-role-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
 
 @media (max-width: 768px) {
-  .experience-hero { margin-top: 1rem; padding: 1.5rem 1.1rem; }
+  .experience-hero { margin-block-start: var(--page-entry-gap); padding: 1.5rem 1.1rem; }
   .experience-section-heading { align-items: flex-start; flex-direction: column; gap: 0.75rem; }
   .experience-section-heading p { text-align: start; }
 }
 
-@media (max-width: 480px) {
-  .experience-hero h1 { line-height: 1.2; }
-}
+.experience-story p { line-height: 1.7; }
+.experience-story { margin-bottom: 2rem; }
+.experience-story h4 { font-size: 1.15rem; line-height: 1.4; margin-bottom: 0.65rem; }

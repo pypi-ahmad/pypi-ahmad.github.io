@@ -82,10 +82,11 @@ describe("Live GitHub visual overview", () => {
     expect(
       screen.getByRole("heading", { name: "GitHub statistics snapshot" }),
     ).toBeInTheDocument();
-    expect(screen.getByText("Most used languages")).toBeInTheDocument();
-    expect(
-      screen.getByLabelText("8 active original public repositories"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Repository languages")).toBeInTheDocument();
+    const repositorySummary = screen.getByText("Public repositories").parentElement;
+    expect(within(repositorySummary).getByText("8")).toBeInTheDocument();
+    expect(repositorySummary).not.toHaveAttribute("aria-label");
+    expect(container.querySelector(".gh-heatmap-legend")).not.toHaveAttribute("aria-label");
     expect(screen.getByText("75%")).toBeInTheDocument();
     expect(screen.getByText("25%")).toBeInTheDocument();
     expect(
@@ -95,11 +96,11 @@ describe("Live GitHub visual overview", () => {
       screen.getByRole("link", { name: "Explore contribution history" }),
     ).toHaveAttribute("href", "/github?tab=activity");
     const details = screen
-      .getByText("View exact rolling daily counts")
+      .getByText("View daily counts for the past year")
       .closest("details");
     expect(within(details).getByText("2024-02-29")).toBeInTheDocument();
     expect(
-      within(details).getAllByText("Not available").length,
+      within(details).getAllByText("Unavailable").length,
     ).toBeGreaterThan(0);
     expect((await axe(container)).violations).toEqual([]);
   });

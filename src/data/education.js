@@ -16,7 +16,7 @@ export const degrees = {
       altName: "IIIT Kurnool",
       duration: "Oct 2020 - Jun 2022",
       descriptions: [
-        "⚡ Coursework: Machine Learning, Deep Learning, NLP, Computer Vision, Statistics",
+        "Coursework: Machine Learning, Deep Learning, NLP, Computer Vision, Statistics",
       ],
       websiteLink: "http://iiitk.ac.in/",
     },
@@ -27,7 +27,7 @@ export const degrees = {
       altName: "MANUU",
       duration: "Aug 2015 - Jun 2019",
       descriptions: [
-        "⚡ Coursework: Data Structures & Algorithms, Engineering Mathematics, Web Development",
+        "Coursework: Data Structures & Algorithms, Engineering Mathematics, Web Development",
       ],
       websiteLink: "https://manuu.edu.in/",
     },
@@ -114,7 +114,7 @@ export const certifications = {
       colorCode: "#8C151599",
       category: "Machine Learning",
       highlights: ["Supervised & Unsupervised Learning", "Neural Networks", "Reinforcement Learning"],
-      summary: "Full ML pipeline: regression → deep networks → RL — applied implementation with evaluation."
+      summary: "Implementation and evaluation across the ML pipeline, from regression and deep networks to reinforcement learning."
     },
     {
       title: "Advanced Learning Algorithms",
@@ -174,7 +174,7 @@ export const certifications = {
       colorCode: "#A435F099",
       category: "Deep Learning",
       highlights: ["Artificial Neural Networks", "Hands-on Projects", "TensorFlow"],
-      summary: "Practical deep learning application with hands-on projects and neural network implementation."
+      summary: "Deep learning projects with hands-on neural network implementation."
     },
     {
       title: "Machine Learning A-Z™",
@@ -198,7 +198,7 @@ export const certifications = {
       colorCode: "#A435F099",
       category: "Data Science",
       highlights: ["Statistical Analysis", "Data Visualization", "End-to-End Workflows"],
-      summary: "Analytical thinking and data-driven decision-making across the full data lifecycle."
+      summary: "Analytical thinking and using data to make decisions across the full data lifecycle."
     },
     {
       title: "SQL for Data Science",

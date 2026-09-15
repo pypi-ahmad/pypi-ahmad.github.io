@@ -359,10 +359,11 @@ coverage and browser checks are not repeated in the deployment workflow.
 
 `vercel.json` points Vercel at `npm run build` and serves the `build/` directory.
 Configure Vercel to build repository source, normally `main`, rather than the
-compiled `gh-pages` branch. `vercel.json`'s `git.deploymentEnabled.gh-pages: false`
-enforces this at the config level, so pushes to the `gh-pages` branch no longer
-trigger a Vercel build automatically. Remote project settings and deployed
-revisions are not verified by the checked-in configuration.
+compiled `gh-pages` branch. In the Vercel project's **Settings → Git → Ignored
+Build Step**, use `if [ "$VERCEL_GIT_COMMIT_REF" = "gh-pages" ]; then exit 0; else
+exit 1; fi`. This project-level rule is required because the compiled branch has
+no `vercel.json` or `package.json` for Vercel to read. The checked-in
+`git.deploymentEnabled.gh-pages: false` remains a defense for source branches.
 The configured Vercel build command runs only the build, not lint, typecheck,
 unit tests, coverage, or browser checks.
 
@@ -370,7 +371,8 @@ unit tests, coverage, or browser checks.
 
 The separate `npm run deploy` command runs `predeploy` (a build), then publishes
 `build/` using `gh-pages`. It does not run lint, typecheck, unit tests, coverage,
-or browser checks, and does not configure GitHub Pages to serve that branch.
+or browser checks, and does not configure GitHub Pages to serve that branch. The
+Vercel Ignored Build Step above must be configured before using this command.
 Its presence is not approval to publish; confirm the intended hosting path with
 the maintainer before using it.
 

@@ -11,12 +11,12 @@ it("focuses the named error heading and leaves Refresh reachable", async () => {
   const error = vi.spyOn(console, "error").mockImplementation(() => {});
   try {
     render(<ErrorBoundary><BrokenPage /></ErrorBoundary>);
-    expect(screen.getByRole("main", { name: "Something went wrong" })).toHaveAccessibleDescription(
-      "An unexpected error occurred. Please try refreshing the page."
+    expect(screen.getByRole("main", { name: "Unable to display this page" })).toHaveAccessibleDescription(
+      "Refresh the page to try again."
     );
-    expect(screen.getByRole("heading", { name: "Something went wrong" })).toHaveFocus();
+    expect(screen.getByRole("heading", { name: "Unable to display this page" })).toHaveFocus();
     await userEvent.setup().tab();
-    expect(screen.getByRole("button", { name: "Refresh" })).toHaveFocus();
+    expect(screen.getByRole("button", { name: "Refresh page" })).toHaveFocus();
   } finally {
     error.mockRestore();
   }

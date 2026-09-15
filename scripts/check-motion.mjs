@@ -118,7 +118,7 @@ async function inspectInteractions() {
   page.on("pageerror", error => errors.push(error.message));
   await page.goto(base);
   await page.locator(".hero-atmosphere").waitFor({ state: "attached" });
-  assert.equal(await page.locator(".hero-atmosphere").evaluate(node => getComputedStyle(node, "::before").animationIterationCount), "1", "hero plays once");
+  assert.equal(await page.locator(".hero-atmosphere").evaluate(node => getComputedStyle(node).display), "none", "decorative hero atmosphere is disabled");
   await page.waitForFunction(() => document.getAnimations().every(animation => animation.playState !== "running"));
   assert.ok(await page.locator(".hero-atmosphere").evaluate(node => ["::before", "::after"].every(pseudo => {
     const transform = getComputedStyle(node, pseudo).transform;
@@ -165,16 +165,16 @@ async function inspectInteractions() {
   await page.setViewportSize({ width: 1440, height: 900 });
   report.checks.push("Unscrolled printing and very short viewport reveals");
   await page.goto(base);
-  await page.getByRole("link", { name: "View selected work", exact: true }).click();
-  await page.waitForFunction(() => location.hash === "#selected-work" && Math.abs(document.getElementById("selected-work").getBoundingClientRect().top) < 100);
-  await page.getByRole("link", { name: "See all projects", exact: true }).click();
-  await page.waitForURL("**/projects");
-  await page.getByRole("heading", { name: "Recent projects", exact: true }).waitFor();
+  await page.getByRole("link", { name: "View professional work", exact: true }).click();
+  await page.waitForFunction(() => location.hash === "#professional-work" && Math.abs(document.getElementById("professional-work").getBoundingClientRect().top) < 100);
+  await page.getByRole("link", { name: "View all professional work", exact: true }).click();
+  await page.waitForURL("**/experience");
+  await page.getByRole("heading", { name: "Roles", exact: true }).waitFor();
   await page.goBack();
-  await page.waitForURL("**/#selected-work");
-  await page.getByRole("heading", { name: "Selected work", exact: true }).waitFor();
+  await page.waitForURL("**/#professional-work");
+  await page.getByRole("heading", { name: "Featured professional projects", exact: true }).waitFor();
   await page.goForward();
-  await page.waitForURL("**/projects");
+  await page.waitForURL("**/experience");
   await page.locator("main h1").waitFor();
   report.checks.push("Hero settles, keyboard focus, anchor, navigation and history");
 

@@ -24,11 +24,11 @@ import SkillsPage from "../pages/skills/SkillsPage.jsx";
 const pageProps = { theme: darkTheme, setTheme: vi.fn() };
 
 describe("Page Rendering Smoke Tests", () => {
-  it("Home page renders the applied AI hero", () => {
+  it("Home page renders the AI engineering hero", () => {
     renderWithProviders(<Home {...pageProps} />);
     expect(screen.getByRole("heading", {
       level: 1,
-      name: "I build applied AI systems that turn complex information into useful tools.",
+      name: "Production AI Engineer specializing in multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation.",
     })).toBeInTheDocument();
   });
 
@@ -41,29 +41,29 @@ describe("Page Rendering Smoke Tests", () => {
     renderWithProviders(<Experience {...pageProps} />);
     // "Experience" appears in both nav link and h1 — use heading role
     expect(
-      screen.getByRole("heading", { level: 1, name: "Building and evaluating applied AI systems." })
+      screen.getByRole("heading", { level: 1, name: "LLM architectures and event-driven cloud systems." })
     ).toBeInTheDocument();
   });
 
   it("Experience page renders grouped Deloitte context and outcomes", () => {
     renderWithProviders(<Experience {...pageProps} />);
-    expect(screen.getByRole("heading", { name: "Team system context" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "My contributions" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Qualified outcomes" })).toBeInTheDocument();
+    expect(screen.getAllByRole("heading", { name: "Project context" })).toHaveLength(1);
+    expect(screen.getAllByRole("heading", { name: "My contributions" })).toHaveLength(4);
+    expect(screen.getAllByRole("heading", { name: "Reported results" })).toHaveLength(4);
   });
 
   it("Experience page uses the current Deloitte role and scope note", () => {
     renderWithProviders(<Experience {...pageProps} />);
-    expect(screen.getByText("AI and Data Science Engineer")).toBeInTheDocument();
-    expect(screen.getByText(/team and system results from internal employer evaluations/i)).toBeInTheDocument();
+    expect(screen.getByText("AI & Data Science Engineer")).toBeInTheDocument();
+    expect(screen.getAllByText(/team and system results from internal employer evaluations/i)).toHaveLength(2);
   });
 
-  it("Education page renders the applied-AI education heading", () => {
+  it("Education page renders the AI engineering education heading", () => {
     renderWithProviders(<Education {...pageProps} />);
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: "Academic foundations for applied AI.",
+        name: "Academic foundations for AI engineering.",
       })
     ).toBeInTheDocument();
   });
@@ -78,12 +78,12 @@ describe("Page Rendering Smoke Tests", () => {
   it("Contact page renders its contact-first hero", () => {
     renderWithProviders(<Contact {...pageProps} />);
     // The contact section title from contact.js data
-    expect(screen.getByRole("heading", { level: 1, name: "Let’s build useful AI systems." })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "Discuss a production AI role or project." })).toBeInTheDocument();
   });
 
   it("Contact page renders the email action", () => {
     renderWithProviders(<Contact {...pageProps} />);
-    expect(screen.getByRole("link", { name: "Discuss a project" })).toHaveAttribute("href", "mailto:ahmad.iiitk@gmail.com");
+    expect(screen.getByRole("link", { name: "Email me" })).toHaveAttribute("href", "mailto:ahmad.iiitk@gmail.com");
   });
 
   it("Contact page omits the channel introduction", () => {
@@ -112,21 +112,21 @@ describe("Page Rendering Smoke Tests", () => {
 
   it("Projects page renders the recent-projects section", () => {
     renderWithProviders(<Projects {...pageProps} />);
-    expect(screen.getByRole("heading", { level: 2, name: "Recent projects" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "More projects" })).toBeInTheDocument();
   });
 
   it("Home page renders the top four featured projects", () => {
     renderWithProviders(<Home {...pageProps} />);
-    expect(screen.getByRole("heading", { level: 2, name: "Selected work" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "Personal projects & experiments" })).toBeInTheDocument();
     expect(screen.getByText("LoRA Fine-tune Studio")).toBeInTheDocument();
-    expect(screen.getByText("NL2SQL Agent")).toBeInTheDocument();
+    expect(screen.getByText("Document AI Engineering Lab")).toBeInTheDocument();
     expect(screen.queryByText("Autonomous Coding Agent Crew")).not.toBeInTheDocument();
   });
 
-  it("Skills page renders the reliable-systems heading", () => {
+  it("Skills page renders the contextual-skills heading", () => {
     renderWithProviders(<SkillsPage {...pageProps} />);
     expect(
-      screen.getByRole("heading", { level: 1, name: "Skills for reliable AI systems." })
+      screen.getByRole("heading", { level: 1, name: "Skills, with context." })
     ).toBeInTheDocument();
   });
 

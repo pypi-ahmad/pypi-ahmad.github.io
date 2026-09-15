@@ -50,7 +50,7 @@ describe("Education page", () => {
     expect(screen.getByText("Education & credentials")).toBeInTheDocument();
     expect(screen.getByRole("heading", {
       level: 1,
-      name: "Academic foundations for applied AI.",
+      name: "Academic foundations for AI engineering.",
     })).toBeInTheDocument();
   });
 
@@ -143,7 +143,7 @@ describe("Education page", () => {
 
   it("links education to applied project work", () => {
     renderWithProviders(<Education theme={darkTheme} />);
-    expect(screen.getByRole("link", { name: "Explore projects" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "View projects" })).toHaveAttribute(
       "href",
       "/projects"
     );

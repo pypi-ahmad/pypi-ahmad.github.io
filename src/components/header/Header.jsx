@@ -1,7 +1,7 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { CgSun } from "react-icons/cg";
-import { HiMoon } from "react-icons/hi";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { FiSun, FiMoon } from "react-icons/fi";
 import { greeting, settings } from "../../portfolio.js";
 import { useThemeController } from "../../themeController";
 import "./Header.css";
@@ -9,10 +9,11 @@ import "./Header.css";
 const desktopQuery = "(min-width: 80rem)";
 const navItems = [
   ["/home", "Home"],
-  ["/education", "Education and certifications"],
   ["/experience", "Experience"],
-  ["/skills", "Skills"],
   ["/projects", "Projects"],
+  ["/skills", "Skills"],
+  ["/fde", "FDE"],
+  ["/education", "Education and certifications"],
   ["/github", "GitHub"],
   ["/contact", "Contact"],
 ];
@@ -33,6 +34,21 @@ export default function Header() {
   const { themeMode, toggleMode } = useThemeController();
   const location = useLocation();
   const visible = isDesktop || isMenuOpen;
+  const reducedMotion = useReducedMotion();
+
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    const measure = () => {
+      root.style.setProperty("--header-height", `${headerRef.current.getBoundingClientRect().height}px`);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(headerRef.current);
+    return () => {
+      observer.disconnect();
+      root.style.removeProperty("--header-height");
+    };
+  }, []);
 
   useEffect(() => {
     const media = window.matchMedia(desktopQuery);
@@ -83,11 +99,20 @@ export default function Header() {
         setIsMenuOpen(false);
       }}
     >
-      {themeMode === "dark" ? (
-        <HiMoon size={20} aria-hidden="true" />
-      ) : (
-        <CgSun size={20} aria-hidden="true" />
-      )}
+      <span className="theme-icon" data-theme-mode={themeMode} aria-hidden="true">
+        <AnimatePresence initial={false} mode="sync">
+          <motion.span
+            key={themeMode}
+            data-icon-mode={themeMode}
+            initial={reducedMotion ? false : { opacity: 0, scale: 0.25, filter: "blur(4px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            exit={{ opacity: 0, scale: reducedMotion ? 1 : 0.25, filter: reducedMotion ? "blur(0px)" : "blur(4px)" }}
+            transition={reducedMotion ? { duration: 0 } : { type: "spring", duration: 0.3, bounce: 0 }}
+          >
+            {themeMode === "dark" ? <FiMoon size={20} strokeWidth={2} /> : <FiSun size={20} strokeWidth={2} />}
+          </motion.span>
+        </AnimatePresence>
+      </span>
     </button>
   );
 

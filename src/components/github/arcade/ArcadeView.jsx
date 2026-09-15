@@ -64,7 +64,7 @@ export default function ArcadeView({ data, year, params, update }) {
     setMessage(
       newIds.length
         ? `Achievement unlocked: ${newIds.map((id) => achievementLabels[id]).join("; ")}.`
-        : "Run added to local history.",
+        : "Run completed.",
     );
   }
   function reset() {
@@ -86,7 +86,8 @@ export default function ArcadeView({ data, year, params, update }) {
     <section id="contribution-arcade">
       <h2>Contribution arcade</h2>
       <p>
-        Seven playable mini-games. Scores and achievements stay on this browser.
+        Seven playable mini-games. Scores and achievements stay in this browser
+        when local storage is available.
       </p>
       <div className="gh-filter-grid">
         <label>
@@ -158,13 +159,13 @@ export default function ArcadeView({ data, year, params, update }) {
             </li>
           ))}
         </ul>
-        <h3>Personal-best history</h3>
+        <h3>Recent game history</h3>
         <p>
           Latest 100 completed runs. Free-play scores are comparable only within
           the same contribution snapshot; daily scores use fixed scoring.
         </p>
         {!progress.runs.length ? (
-          <p>No completed runs yet. Finish a game to start your history.</p>
+          <p>No completed runs yet. Select Play and finish a game to start your history.</p>
         ) : (
           <details>
             <summary>View completed runs ({progress.runs.length})</summary>

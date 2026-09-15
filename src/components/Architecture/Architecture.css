@@ -1,0 +1,31 @@
+.architecture-section { width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2))); margin-inline: auto; padding-block-start: var(--section-spacing); overflow-wrap: anywhere; }
+.architecture-eyebrow { font-weight: 700; margin: 0 0 1rem; }
+.architecture-section h2 { font-size: var(--section-title-size); line-height: var(--heading-leading); margin: 0; text-wrap: balance; }
+.architecture-section p, .architecture-section li { line-height: 1.65; }
+.architecture-intro { max-width: 75ch; margin: 1.25rem 0 2rem; }
+.architecture-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.architecture-card { min-width: 0; padding: var(--card-padding); border: 1px solid; border-radius: var(--surface-radius); }
+.architecture-card:first-child { grid-column: 1 / -1; }
+.architecture-card h3 { margin: 0; font-size: 1.25rem; line-height: 1.4; }
+.architecture-card h4, .architecture-card h5 { font-size: 1rem; line-height: 1.5; margin: 1rem 0 0.6rem; }
+.architecture-system { font-weight: 600; }
+.architecture-paths { display: grid; gap: 1rem; }
+.architecture-steps { list-style: none; padding: 0; margin: 0; }
+.architecture-steps li { display: flex; flex-direction: column; align-items: stretch; min-width: 0; }
+.architecture-arrow { align-self: center; flex-shrink: 0; }
+.architecture-node { display: block; padding: 0.65rem 0.85rem; border: 1px solid var(--border); border-radius: var(--control-radius); color: var(--text); }
+.architecture-branch { margin-inline-start: 1rem; padding-inline-start: 1rem; border-inline-start: 2px solid var(--border); }
+.architecture-convergence { padding: 0.8rem; border: 1px solid var(--border); border-radius: var(--control-radius); }
+.architecture-notes { padding-inline-start: 1.2rem; }
+.architecture-notes li + li { margin-top: 0.65rem; }
+.architecture-link { display: inline-block; padding-block: 0.5rem; color: var(--accent-solid); text-underline-offset: 0.2em; }
+.architecture-link:focus-visible { outline: 2px solid var(--accent-solid); outline-offset: 4px; }
+.architecture-scope { font-size: 0.9rem; }
+@media (min-width: 1201px) {
+  .architecture-card:first-child .architecture-steps { display: flex; align-items: stretch; }
+  .architecture-card:first-child .architecture-steps li { flex: 1; flex-direction: row; align-items: center; gap: 0.3rem; }
+  .architecture-card:first-child .architecture-steps li:nth-child(4) { flex: 1.5; }
+  .architecture-card:first-child .architecture-arrow { transform: rotate(-90deg); }
+  .architecture-card:first-child .architecture-node { flex: 1; padding: 0.6rem; }
+}
+@media (max-width: 900px) { .architecture-grid { grid-template-columns: minmax(0, 1fr); } }

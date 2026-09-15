@@ -1,3 +1,4 @@
+import { MetricsStrip } from "../components/ProfessionalWork/ProfessionalWork";
 /**
  * Responsiveness Tests
  *
@@ -62,13 +63,13 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     expect(menu).not.toHaveAttribute("hidden");
   });
 
-  it("keeps seven page links in one navigation list", async () => {
+  it("keeps eight page links in one navigation list", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const menu = document.querySelector("ul.menu");
     const links = menu.querySelectorAll("a");
-    expect(links.length).toBe(7);
+    expect(links.length).toBe(8);
     expect(menu.contains(screen.getByText("ahmad.m()"))).toBe(false);
   });
 
@@ -170,8 +171,8 @@ describe("Responsiveness — Layout Structure Assertions", () => {
   });
 
   it("Outcome list has no default list style", () => {
-    renderWithProviders(<Greeting theme={darkTheme} />);
-    const bulletList = document.querySelector(".outcome-grid");
+    renderWithProviders(<MetricsStrip theme={darkTheme} />);
+    const bulletList = document.querySelector(".metrics-strip");
     expect(bulletList).toBeInTheDocument();
     expect(bulletList).toHaveStyle({ listStyle: "none" });
   });

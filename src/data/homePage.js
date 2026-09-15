@@ -1,16 +1,16 @@
-// Home and Skills share these outcomes; keep metrics aligned with Experience and retain their scope notes.
+// Skills retains its existing evidence selection; Home uses the compact metrics below.
 export const homePageData = {
   hero: {
-    eyebrow: "Applied AI Engineer · Gurugram, India",
-    title: "I build applied AI systems that turn complex information into useful tools.",
+    eyebrow: "AI & Data Science Engineer · Gurugram, India",
+    title: "Production AI Engineer specializing in multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation.",
     introduction:
-      "I'm Ahmad, an AI and Data Science Engineer at Deloitte. I build document-processing systems, retrieval tools, and AI agents across domains, with a focus on evaluation and reliability. My experience spans healthcare, enterprise automation, and data science.",
+      "At Deloitte, I designed extraction for 117 fields across seven related groups, with confidence-aware four-pass extraction and validation. At Cognizant, I improved an existing warranty system through model retraining, NLP migration, and event-driven Azure processing.",
   },
   outcomes: [
     {
       metric: "38% to 80%",
       label: "Browser task completion",
-      context: "Measured across the same 200-task internal evaluation.",
+      context: "Deloitte: measured across the same 200-task internal evaluation.",
       contribution:
         "I worked on Milvus retrieval, reranking, and failure-aware routing.",
     },
@@ -22,9 +22,9 @@ export const homePageData = {
         "I worked on accessibility-tree snapshots and compressed observations.",
     },
     {
-      metric: "80–81% to above 90%",
+      metric: "80–81% to 92%+",
       label: "Structured-extraction accuracy",
-      context: "Measured on the same internal benchmark.",
+      context: "Deloitte: improved extraction accuracy from 80–81% to 92%+ in internal evaluation.",
       contribution:
         "I worked on multi-pass extraction, confidence-aware retries, and routing.",
     },
@@ -44,7 +44,7 @@ export const homePageData = {
     },
   ],
   method:
-    "I start with a baseline, ground the system in source data, constrain outputs, verify results, and add observability.",
+    "I start by researching existing solutions and comparing model quality and cost. I review early results manually and regression-test changes, grounding outputs in source evidence and monitoring the system in use.",
   workAreas: [
     {
       title: "Agentic systems",
@@ -68,8 +68,33 @@ export const homePageData = {
     },
   ],
   closing: {
-    title: "Looking for an Applied AI engineer?",
+    title: "Discuss a production AI role or project.",
     description:
-      "I'm selective about new roles and interested in remote-first Applied AI and GenAI work.",
+      "I’m selective about new roles and prefer remote-first production AI engineering work. I’m also open to focused consulting projects.",
   },
 };
+
+export const homeMetrics = [
+  { value: "92%+", label: "Extraction accuracy", context: "Prior authorization · improved from 80–81%", sourceLabel: "Structured-extraction accuracy", href: "/experience#prior-authorization" },
+  { value: "95%+", label: "Fax classification", context: "Evaluated in 500-file batches", sourceLabel: "Fax-classification accuracy", href: "/experience#prior-authorization" },
+  { value: "80%", label: "Browser task completion", context: "200-task evaluation · improved from 38%", sourceLabel: "Browser task completion", href: "/experience#computer-use" },
+  { value: "88%", label: "Warranty-classifier recall", context: "Improved from 79%", sourceLabel: "Warranty-classifier recall", href: "/experience#warranty-processing" },
+];
+
+export const featuredProfessionalProjects = [
+  {
+    id: "prior-authorization", company: "Deloitte", title: "Prior-authorization document processing",
+    summary: "A production pipeline on Azure Databricks: classify healthcare faxes, generate Markdown with Azure Content Understanding, then extract and validate structured fields with Azure OpenAI.",
+    contribution: "I split related fields across seven extraction calls. I also designed confidence-aware four-pass extraction, retries, and validation. Grouping fields and running multiple passes are separate parts of the approach.",
+  },
+  {
+    id: "computer-use", company: "Deloitte", title: "Computer-use and multi-agent reasoning",
+    summary: "Combine Milvus retrieval and reranking with Playwright MCP browser observations to support multi-agent reasoning.",
+    contribution: "I contributed retrieval and failure-aware routing, and built accessibility-tree and compressed-vision context. Task completion and prompt-token use were evaluated as separate outcomes.",
+  },
+  {
+    id: "warranty-processing", company: "Cognizant", title: "Warranty classification and NLP processing",
+    summary: "Improve an existing warranty system connecting Random Forest classification, NLP processing, and operational dashboards, with recall guiding model evaluation.",
+    contribution: "I retrained and tuned Random Forest, compared XGBoost, and built dashboards. CLU calls remained in FastAPI; separate processing was offloaded through Blob Storage to Azure Functions.",
+  },
+];
