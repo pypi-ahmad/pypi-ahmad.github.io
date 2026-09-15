@@ -56,7 +56,7 @@ export default function GitHubPage({ theme }) {
         <section className="gh-hero">
           <p className="gh-eyebrow">Open-source activity</p>
           <h1>GitHub statistics</h1>
-          <p>A closer look at what I build, share, and contribute.</p>
+          <p>My public repositories, releases, and contributions.</p>
           <a className="gh-button" href={githubData.profile}>
             View GitHub profile <span aria-hidden="true">↗</span>
           </a>
@@ -116,9 +116,9 @@ export default function GitHubPage({ theme }) {
                         <p>
                           <a href={work.evidence}>{work.milestone}</a>
                         </p>
-                        <p>Next step: Not announced yet</p>
+                        <p>Next step: not announced yet</p>
                         <p className="gh-hint">
-                          Editorial update reviewed {work.reviewedAt}
+                          Last reviewed {work.reviewedAt}
                         </p>
                       </article>
                     ))}

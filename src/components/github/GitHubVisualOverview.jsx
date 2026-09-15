@@ -164,7 +164,7 @@ function StatisticsSnapshot({ data }) {
       <div className="gh-snapshot-main">
         <dl className="gh-snapshot-list">
           <div>
-            <dt>Total stars earned</dt>
+            <dt>Repository stars</dt>
             <dd>{number(data.summary.stars)}</dd>
           </div>
           <div>
@@ -195,13 +195,12 @@ function StatisticsSnapshot({ data }) {
         </dl>
         <div
           className="gh-repository-ring"
-          aria-label={`${number(data.summary.repositories)} active original public repositories`}
         >
           <strong>{number(data.summary.repositories)}</strong>
           <span>Public repositories</span>
         </div>
         <div className="gh-language-share">
-          <h3>Most used languages</h3>
+          <h3>Repository languages</h3>
           {languages.length ? (
             <>
               <div
@@ -345,7 +344,6 @@ function ContributionHeatmap({ data }) {
           </div>
           <div
             className="gh-heatmap-legend"
-            aria-label="Contribution intensity from less to more"
           >
             <span>Less</span>
             {[0, 1, 2, 3, 4].map((level) => (
@@ -360,7 +358,7 @@ function ContributionHeatmap({ data }) {
         </div>
       </div>
       <details className="gh-data-table gh-rolling-table">
-        <summary>View exact rolling daily counts</summary>
+        <summary>View daily counts for the past year</summary>
         <table>
           <caption>
             {readableDate(window.start)} to {readableDate(window.end)}
@@ -376,7 +374,7 @@ function ContributionHeatmap({ data }) {
               <tr key={day.date}>
                 <th scope="row">{day.date}</th>
                 <td>
-                  {day.count === null ? "Not available" : number(day.count)}
+                  {day.count === null ? "Unavailable" : number(day.count)}
                 </td>
               </tr>
             ))}

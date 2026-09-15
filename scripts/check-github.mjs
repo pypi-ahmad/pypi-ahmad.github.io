@@ -57,7 +57,7 @@ try {
   );
   assert.equal(
     await page.title(),
-    "GitHub Statistics & Contribution Arcade | Ahmad Mujtaba",
+    "GitHub statistics & contribution arcade | Ahmad Mujtaba",
   );
   assert.equal(
     await page.locator('link[rel="canonical"]').getAttribute("href"),

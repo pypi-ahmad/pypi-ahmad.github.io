@@ -25,8 +25,7 @@ function AnimationCard({ animation, themeMode }) {
           type="button"
           onClick={() => setStatus(active ? "stopped" : "loading")}
         >
-          {active ? "Stop" : status === "error" ? "Retry" : "Play"}{" "}
-          {animation.name} animation
+          {active ? `Stop ${animation.name} animation` : status === "error" ? `Retry ${animation.name} animation` : `Play ${animation.name} animation`}
         </button>
       </div>
       {active && (
@@ -42,7 +41,7 @@ function AnimationCard({ animation, themeMode }) {
         {status === "loading"
           ? "Loading animation…"
           : status === "error"
-            ? "Animation unavailable. Retry when your connection is restored."
+            ? "Unable to load this animation. Retry loading it."
             : status === "playing"
               ? "Playing. Stop the animation at any time."
               : "Stopped. Play to load this animation from GitHub."}
@@ -57,9 +56,8 @@ export default function AnimationsView() {
     <section id="contribution-animations" className="gh-section">
       <h2>Contribution animations</h2>
       <p>
-        Seven animated SVGs from my GitHub profile. These are watch-only
-        animations; the playable games remain in Arcade. Nothing plays
-        automatically.
+        Seven animations from my GitHub profile. Select Play to watch one,
+        or visit Arcade for playable games. Nothing plays automatically.
       </p>
       <p className="gh-hint">
         These animations use the profile’s generated contribution grid, not the

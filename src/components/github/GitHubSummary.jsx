@@ -8,7 +8,7 @@ export const number = (value) =>
 
 export function Metric({ label, value, note }) {
   return (
-    <div className="gh-metric">
+    <div className="gh-metric" data-evidence={Number.isFinite(value) ? "true" : undefined}>
       <dt>{label}</dt>
       <dd>
         {number(value)}
@@ -23,12 +23,12 @@ export function Summary({ summary, compact = false }) {
       <Metric
         label="Stars"
         value={summary.stars}
-        note="Public owned repositories"
+        note="Public repositories I own"
       />
       <Metric
         label="Repositories"
         value={summary.repositories}
-        note="Active, original public repositories"
+        note="Public repositories, excluding forks and archives"
       />
       <Metric
         label="Contributions"
@@ -50,12 +50,12 @@ export function Summary({ summary, compact = false }) {
           <Metric
             label="Pull requests"
             value={summary.pullRequests}
-            note="Lifetime authored"
+            note="Authored to date"
           />
           <Metric
             label="Issues"
             value={summary.issues}
-            note="Lifetime authored"
+            note="Authored to date"
           />
           <Metric
             label="Longest streak"
@@ -73,8 +73,8 @@ export function DataStatus({ data, status, retry }) {
       <div className="gh-status" role="status">
         {status === "error" ? (
           <>
-            <p>GitHub data is unavailable. Try again or view the profile.</p>
-            <button onClick={retry}>Try again</button>{" "}
+            <p>Unable to load GitHub data. Retry loading it or view my GitHub profile.</p>
+            <button onClick={retry}>Retry GitHub data</button>{" "}
             <a href={githubData.profile}>View GitHub profile</a>
           </>
         ) : (

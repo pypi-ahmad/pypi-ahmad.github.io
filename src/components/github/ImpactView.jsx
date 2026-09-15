@@ -23,10 +23,9 @@ export default function ImpactView({ data, params, update }) {
         <Unavailable name="External contribution history" />
       ) : !records.length ? (
         <div className="gh-panel">
-          <h3>No public external merged pull requests found</h3>
+          <h3>No merged pull requests to other public repositories</h3>
           <p>
-            Verified contributions will appear here after they are merged and
-            included in a new snapshot.
+            This snapshot has no matching contributions. Check GitHub for the latest merged pull requests.
           </p>
           <a href="https://github.com/search?q=is%3Apr+is%3Amerged+is%3Apublic+author%3Apypi-ahmad+-user%3Apypi-ahmad&type=pullrequests">
             View external merged pull requests on GitHub
@@ -49,7 +48,7 @@ export default function ImpactView({ data, params, update }) {
                 {sourceExcerpt(r.description) ||
                   "Open the pull request to read the change and review discussion."}
               </p>
-              <a href={r.url}>Read pull request #{r.number}</a>
+              <a href={r.url}>Read pull request {r.repository}#{r.number}</a>
             </li>
           ))}
         </ol>

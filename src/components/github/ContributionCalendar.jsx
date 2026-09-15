@@ -55,8 +55,8 @@ export default function ContributionCalendar({
   if (status === "error")
     return (
       <div role="status">
-        <p>Contribution history is unavailable.</p>
-        <button onClick={onRetry}>Try again</button>
+        <p>Unable to load contribution history. Retry loading it.</p>
+        <button onClick={onRetry}>Retry contribution history</button>
       </div>
     );
   if (!days.length)
@@ -73,16 +73,19 @@ export default function ContributionCalendar({
     <div className="gh-calendar">
       <div className="gh-toolbar">
         <p>
-          <strong>{number(year.total)}</strong> contributions in {year.year}
+          {year.total === 1
+            ? <><strong>{number(year.total)}</strong> contribution in {year.year}</>
+            : <><strong>{number(year.total)}</strong> contributions in {year.year}</>}
         </p>
-        <div className="gh-segments" aria-label="History view">
+        <div className="gh-segments">
           <button
+            data-static
             aria-pressed={view === "calendar"}
             onClick={() => setView("calendar")}
           >
             Calendar
           </button>
-          <button aria-pressed={view === "3d"} onClick={() => setView("3d")}>
+          <button data-static aria-pressed={view === "3d"} onClick={() => setView("3d")}>
             3D view
           </button>
         </div>
@@ -145,6 +148,7 @@ export default function ContributionCalendar({
             <div className="gh-days">
               {group.days.map((day, monthIndex) => (
                 <button
+                  data-static
                   key={day.date}
                   id={`${id}-${day.date}`}
                   type="button"

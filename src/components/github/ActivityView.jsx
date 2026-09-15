@@ -63,8 +63,7 @@ export function ReleaseTimeline({ data, year, params, update }) {
         </label>
       </div>
       <p role="status">
-        {matches.length} published{" "}
-        {matches.length === 1 ? "release" : "releases"}.
+        {matches.length === 1 ? "1 published release." : `${matches.length} published releases.`}
       </p>
       {!matches.length && (
         <p>
@@ -90,9 +89,9 @@ export function ReleaseTimeline({ data, year, params, update }) {
             </p>
             <p className="gh-source-notes" dir="auto">
               {sourceExcerpt(r.notes) ||
-                "No prose release notes provided. Open the release for full details."}
+                "No release notes provided. Open the release for details."}
             </p>
-            <a href={r.url}>Read full release notes for {r.tag}</a>
+            <a href={r.url}>Read release notes: {r.repository} {r.tag}</a>
             {r.assets.length ? (
               <details>
                 <summary>Download assets ({r.assets.length})</summary>
@@ -167,12 +166,12 @@ export default function ActivityView({ data, year, params, update }) {
         <Metric
           label="Repositories created"
           value={created}
-          note="Currently public originals, including archives"
+          note="Public repositories that aren’t forks, including archived repositories"
         />
         <Metric
           label="Published releases"
           value={released}
-          note="Public originals, including archives and prereleases"
+          note="Public repositories that aren’t forks, including archives and prereleases"
         />
       </dl>
       <p>

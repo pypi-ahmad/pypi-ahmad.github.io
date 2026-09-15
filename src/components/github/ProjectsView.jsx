@@ -34,8 +34,7 @@ export default function ProjectsView({ data, params, update }) {
     <section>
       <h2>Project explorer</h2>
       <p>
-        Explore public repositories. Featured projects follow the portfolio’s
-        editorial order.
+        Explore public repositories. Featured projects appear in the same order as on the portfolio.
       </p>
       <div className="gh-panel gh-filter-grid">
         <label>
@@ -114,19 +113,19 @@ export default function ProjectsView({ data, params, update }) {
                 filter("archived", e.target.checked ? "1" : null)
               }
             />{" "}
-            Include archives
+            Include archived repositories
           </label>
         </div>
-        <button onClick={clear}>Clear filters</button>
+        <button data-static onClick={clear}>Clear filters</button>
       </div>
       <p role="status">
-        {results.length} {results.length === 1 ? "repository" : "repositories"}{" "}
-        found{params.get("q") ? ` for “${params.get("q")}”` : ""}.
+        {params.get("q")
+          ? results.length === 1 ? `1 repository found for “${params.get("q")}”.` : `${results.length} repositories found for “${params.get("q")}”.`
+          : results.length === 1 ? "1 repository found." : `${results.length} repositories found.`}
       </p>
       {!results.length && (
         <p>
-          No repositories match these filters. Clear filters to explore all
-          public originals.
+          No repositories match these filters. Clear filters to explore public repositories that aren’t forks or archived.
         </p>
       )}
       <div className="gh-repository-grid">

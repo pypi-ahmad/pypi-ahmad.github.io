@@ -314,11 +314,12 @@ export default function Arcade({
         if (!event.currentTarget.contains(event.relatedTarget)) pause();
       }}
     >
-      <div className="gh-game-picker" aria-label="Choose a game">
+      <div className="gh-game-picker">
         {games
           .filter((item) => !lockedGame || item.id === id)
           .map((item) => (
             <button
+              data-static
               key={item.id}
               aria-pressed={id === item.id}
               onClick={() => chooseGame(item.id)}
@@ -337,9 +338,9 @@ export default function Arcade({
       )}
       {error ? (
         <p role="status">
-          This game could not load.{" "}
+          Unable to load this game. Retry loading it.{" "}
           <button onClick={() => setAttempt((value) => value + 1)}>
-            Try loading game again
+            Retry game
           </button>
         </p>
       ) : (
@@ -404,6 +405,7 @@ export default function Arcade({
                         : "Hidden";
                     return (
                       <button
+                        data-static
                         key={index}
                         className={`gh-mine${revealed ? " is-open" : ""}`}
                         data-cell={index}
@@ -452,24 +454,26 @@ export default function Arcade({
             </div>
           )}
           {id === "minesweeper" ? (
-            <div className="gh-segments" aria-label="Cell action">
+            <div className="gh-segments">
               <button
+                data-static
                 aria-pressed={!flagging}
                 onClick={() => setFlagging(false)}
               >
                 Reveal
               </button>
-              <button aria-pressed={flagging} onClick={() => setFlagging(true)}>
+              <button data-static aria-pressed={flagging} onClick={() => setFlagging(true)}>
                 Flag
               </button>
             </div>
           ) : (
             <div className="gh-game-touch">
-              <div className="gh-dpad" aria-label="Direction controls">
+              <div className="gh-dpad">
                 {[null, "up", null, "left", "down", "right"].map(
                   (direction, i) =>
                     direction ? (
                       <button
+                        data-static
                         key={direction}
                         aria-label={`Move ${direction}`}
                         disabled={status !== "playing"}
@@ -501,6 +505,7 @@ export default function Arcade({
               </div>
               {game.action && (
                 <button
+                  data-static
                   disabled={status !== "playing"}
                   onPointerDown={(event) => {
                     event.currentTarget.setPointerCapture(event.pointerId);

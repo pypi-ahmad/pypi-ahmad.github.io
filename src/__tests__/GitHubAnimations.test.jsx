@@ -56,7 +56,7 @@ describe("Separate contribution animations", () => {
     );
     fireEvent.error(screen.getByRole("img"));
     expect(screen.queryByRole("img")).not.toBeInTheDocument();
-    expect(screen.getByText(/Animation unavailable/)).toBeInTheDocument();
+    expect(screen.getByText(/Unable to load this animation/)).toBeInTheDocument();
     fireEvent.click(
       screen.getByRole("button", { name: "Retry Snake animation" }),
     );
@@ -76,7 +76,7 @@ describe("Separate contribution animations", () => {
       screen.getByRole("link", { name: "Arcade", exact: true }),
     ).toHaveAttribute("href", "/github?tab=arcade");
     expect(
-      screen.queryByText(/GitHub data is unavailable/),
+      screen.queryByText(/Unable to load GitHub data/),
     ).not.toBeInTheDocument();
   });
 });
