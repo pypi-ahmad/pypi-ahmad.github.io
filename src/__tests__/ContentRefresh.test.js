@@ -7,32 +7,35 @@ import { skillsPageData } from "../data/skills";
 describe("refreshed contact, skills, and experience content", () => {
   it("keeps Contact focused on direct channels without featured work", () => {
     expect(contactPageData).not.toHaveProperty("featuredSection");
-    expect(contactPageData.contactSection.title).toBe("Let’s build useful AI systems.");
+    expect(contactPageData.contactSection.title).toBe("Discuss a production AI role or project.");
   });
 
   it("keeps the exact capability order", () => {
     expect(skillsPageData.capabilities.map(item => item.title)).toEqual([
-      "Agentic systems & automation",
+      "LLM architectures & agentic workflows",
       "Retrieval & knowledge systems",
-      "Document intelligence",
-      "Evaluation & model adaptation",
-      "AI product engineering",
+      "Multimodal document intelligence",
+      "Evaluation & production ML",
+      "Event-driven cloud & backend systems",
     ]);
   });
 
-  it("publishes the curated 24-tool toolkit", () => {
+  it("expands confirmed professional tools while retaining personal-project tools", () => {
     expect(skillsPageData.toolGroups.map(group => group.title)).toEqual([
-      "Agents & models",
-      "Training & retrieval",
-      "Engineering & delivery",
+      "Professional delivery",
+      "Personal projects",
     ]);
-    expect(skillsPageData.toolGroups.flatMap(group => group.tools)).toEqual([
+    const tools = skillsPageData.toolGroups.flatMap(group => group.examples.flatMap(example => example.tools));
+    expect(tools).toHaveLength(32);
+    expect(new Set(tools).size).toBe(32);
+    expect(tools.toSorted()).toEqual([
       "LangGraph", "LangChain", "Playwright", "Model Context Protocol",
-      "OpenAI", "Anthropic Claude", "Google Gemini", "Ollama",
+      "Azure OpenAI", "Azure Content Understanding", "Azure Databricks", "Anthropic Claude", "Google Gemini", "Ollama",
       "PyTorch", "Transformers", "PEFT", "Milvus", "Chroma", "ArcadeDB",
       "Python", "FastAPI", "Streamlit", "Pydantic", "SQLite", "PostgreSQL",
-      "Docker", "Azure", "AWS", "GitHub Actions",
-    ]);
+      "Docker", "AWS", "GitHub Actions", "Azure App Service", "Azure Blob Storage",
+      "Azure Functions", "Azure CLU", "Random Forest", "XGBoost", "Power BI",
+    ].toSorted());
   });
 
   it("ties Skills proof to four existing public projects", () => {
@@ -49,14 +52,17 @@ describe("refreshed contact, skills, and experience content", () => {
   it("separates Deloitte context, contributions, outcomes, and disclosure scope", () => {
     const deloitte = experience.sections[0].experiences[0];
 
-    expect(deloitte.systemContext).toHaveLength(3);
-    expect(deloitte.contributions).toHaveLength(6);
-    expect(deloitte.outcomes.map(outcome => outcome.metric)).toEqual([
+    expect(deloitte.projectGroups).toHaveLength(4);
+    expect(deloitte.projectGroups[1].subprojects).toHaveLength(3);
+    expect(deloitte).not.toHaveProperty("systemContext");
+    expect(deloitte).not.toHaveProperty("contributions");
+    expect(deloitte).not.toHaveProperty("outcomes");
+    expect(deloitte.projectGroups.flatMap(group => group.outcomes || []).map(outcome => outcome.metric)).toEqual([
+      "95%+",
+      "80–81% to 92%+",
       "38% to 80%",
       "~40% lower",
-      "80–81% to above 90%",
       "90% to 99%",
-      "95%+",
     ]);
     expect(deloitte.disclosureNote).toMatch(/team and system results/i);
   });
