@@ -7,7 +7,7 @@ const greeting = {
   title2: "Ahmad",
   logoName: "ahmad.m()",
   subTitle:
-    "Applied AI Engineer working on document AI, RAG, agents, and evaluation.",
+    "Production AI Engineer focused on multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation.",
 };
 
 export { greeting };

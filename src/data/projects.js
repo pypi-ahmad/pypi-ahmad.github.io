@@ -1,11 +1,11 @@
 /**
  * Recent public projects, ordered by portfolio priority.
- * Home selects the first four entries; Skills references entries by exact name.
+ * Skills references entries by exact name; Home uses the separate case-study collection.
  */
 export const projectsHeader = {
   title: "Projects",
   description:
-    "Thirteen public projects across model training, agents, evaluation, document AI, local-first tools, and developer workflows.",
+    "Five case studies from my independent tools and research, followed by other public AI engineering projects and developer tools.",
 };
 
 export const projects = {
@@ -14,21 +14,21 @@ export const projects = {
       name: "LoRA Fine-tune Studio",
       url: "https://github.com/pypi-ahmad/lora-qlora-fine-tuning-app",
       description:
-        "Local guided Streamlit application for preparing datasets, running parameter-efficient LLM post-training on NVIDIA GPUs, monitoring jobs, and comparing adapters with base models.",
+        "A local Streamlit workspace to prepare datasets, train LLM adapters on NVIDIA GPUs, monitor jobs, and compare adapters with base models.",
       category: "Model Training · Fine-Tuning",
     },
     {
       name: "Tool-Using Browser Agent",
       url: "https://github.com/pypi-ahmad/tool-using-browser-agent",
       description:
-        "LangGraph, Playwright, and Streamlit browser agent that plans, acts, observes, and remembers, with human approval before sensitive actions.",
+        "A browser agent built with LangGraph, Playwright, and Streamlit. It plans actions, observes results, and keeps memory, with human approval before sensitive actions.",
       category: "Agentic AI · Browser Automation",
     },
     {
       name: "Self-Improving Prompt Optimizer",
       url: "https://github.com/pypi-ahmad/self-improving-prompt-optimizer",
       description:
-        "Agentic prompt-optimization system that mutates, evaluates, and selects candidates with multi-objective LLM-as-judge scoring against a fixed benchmark.",
+        "A prompt-optimization workflow that generates, evaluates, and selects candidates using multi-objective LLM-as-judge scoring against a fixed benchmark.",
       category: "Evaluation · Prompt Optimization",
     },
     {
