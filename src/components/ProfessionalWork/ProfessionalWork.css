@@ -1,0 +1,30 @@
+.metrics-section, .professional-section { width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2))); margin-inline: auto; overflow-wrap: anywhere; }
+.metrics-section { padding-block-start: var(--section-spacing); }
+.metrics-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); list-style: none; padding: 0; margin: 0; border: 1px solid; border-radius: var(--surface-radius); }
+.metrics-strip li { min-width: 0; }
+.metrics-strip li + li { border-inline-start: 1px solid var(--border); }
+.metrics-strip a { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem; text-decoration: none; height: 100%; box-sizing: border-box; border-radius: var(--control-radius); }
+.metrics-strip a:hover .metric-label { text-decoration: underline; }
+.metrics-strip strong { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.3; }
+.metric-label { font-weight: 600; line-height: 1.5; text-decoration: underline; text-underline-offset: 0.2em; }
+.metric-context, .metrics-disclosure { font-size: 0.9rem; line-height: 1.6; }
+.professional-section { padding-block-start: var(--section-spacing); scroll-margin-top: 0; }
+.professional-eyebrow, .professional-company { font-weight: 600; }
+.professional-section h2 { margin: 0; font-size: var(--section-title-size); line-height: var(--heading-leading); }
+.professional-section p { line-height: 1.65; }
+.professional-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+.professional-grid article { min-width: 0; padding: var(--card-padding); border: 1px solid; border-radius: var(--surface-radius); }
+.professional-company { margin-top: 0; }
+.professional-grid h3 { font-size: 1.25rem; line-height: 1.4; }
+.professional-grid h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+.professional-link { color: var(--accent-solid); display: inline-block; padding-block: 0.5rem; text-underline-offset: 0.2em; }
+.professional-link:focus-visible, .metrics-strip a:focus-visible { outline: 2px solid var(--accent-solid); outline-offset: 4px; }
+@media (max-width: 1000px) {
+  .metrics-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .metrics-strip li:nth-child(3) { border-inline-start: 0; }
+  .metrics-strip li:nth-child(n+3) { border-top: 1px solid var(--border); }
+}
+@media (max-width: 600px) {
+  .metrics-strip { grid-template-columns: minmax(0, 1fr); }
+  .metrics-strip li + li { border-inline-start: 0; border-top: 1px solid var(--border); }
+}

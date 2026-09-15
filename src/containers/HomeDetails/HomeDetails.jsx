@@ -7,7 +7,7 @@ import { buildThemeBackground, buildThemeShadow, revealMotion } from "../../them
 const Container = styled.section`
   width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
   margin: 0 auto;
-  padding: var(--section-spacing) 0;
+  padding-block-start: var(--section-spacing);
 `;
 
 const Method = styled(motion.div)`
@@ -105,7 +105,7 @@ export default function HomeDetails({ theme }) {
         <p style={{ color: theme.secondaryText }}>{homePageData.method}</p>
       </Method>
 
-      <WorkGrid aria-label="Applied AI work areas">
+      <WorkGrid>
         {homePageData.workAreas.map((area, index) => (
           <WorkCard
             {...revealMotion(index)}
@@ -118,7 +118,7 @@ export default function HomeDetails({ theme }) {
               border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
               borderRadius: theme.surfaceRadius,
               boxShadow: buildThemeShadow(
-                `0 16px 32px ${theme.shadowColor}`,
+                `0 2px 8px ${theme.shadowColor}`,
                 theme.panelGlow
               ),
             }}
@@ -144,7 +144,7 @@ export default function HomeDetails({ theme }) {
           </p>
         </div>
         <ContactLink className="motion-action" theme={theme} to="/contact">
-          Discuss a project
+          Contact me
         </ContactLink>
       </Closing>
     </Container>
