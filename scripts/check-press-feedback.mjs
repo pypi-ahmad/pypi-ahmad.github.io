@@ -2,6 +2,9 @@ import assert from "node:assert/strict";
 import { chromium } from "playwright";
 import { resolveTheme } from "../src/theme.js";
 
+const baseIndex = process.argv.indexOf("--base-url");
+if (baseIndex >= 0 && !process.argv[baseIndex + 1]) throw new Error("--base-url requires a URL");
+const bases = baseIndex >= 0 ? [process.argv[baseIndex + 1]] : ["http://localhost:3000", "http://127.0.0.1:4173"];
 const browser = await chromium.launch();
 const targets = [
   ["projects", ".project-card"],
@@ -13,7 +16,7 @@ let checks = 0;
 let primaryChecks = 0;
 let minimumContrast = Infinity;
 
-async function assertFilledState(target, label) {
+async function assertFilledState(target, label, translucentText = false) {
   // Sample rendered backgrounds because token-only contrast checks omit gradients and ancestor compositing.
   const evidence = await target.evaluate(node => {
     const css = getComputedStyle(node);
@@ -26,9 +29,11 @@ async function assertFilledState(target, label) {
       const style = getComputedStyle(parent);
       ancestors.push({ opacity: Number(style.opacity), filter: style.filter });
     }
-    return { color: css.color, textRects, ancestors };
+    return { color: css.color, background: css.backgroundColor, textRects, ancestors };
   });
-  assert.ok(evidence.ancestors.every(style => style.opacity === 1 && style.filter === "none"), `${label}: opaque/unfiltered composition`);
+  assert.ok(evidence.ancestors.every((style, index) => (style.opacity === 1 || (translucentText && index === 0)) && style.filter === "none"), `${label}: supported opacity/unfiltered composition: ${JSON.stringify(evidence.ancestors)}`);
+  const opacity = evidence.ancestors[0].opacity;
+  if (opacity !== 1) assert.equal(evidence.background, "rgba(0, 0, 0, 0)", `${label}: translucent text has no independent painted background`);
   // Hide glyphs only in the test capture, preserving the actual gradient and composited surface.
   const originalStyle = await target.getAttribute("style");
   let capture;
@@ -38,7 +43,7 @@ async function assertFilledState(target, label) {
   } finally {
     await target.evaluate((node, style) => style === null ? node.removeAttribute("style") : node.setAttribute("style", style), originalStyle);
   }
-  const contrast = await target.page().evaluate(async ({ image, color, textRects }) => {
+  const contrast = await target.page().evaluate(async ({ image, color, textRects, opacity }) => {
     const bitmap = await createImageBitmap(await (await fetch(`data:image/png;base64,${image}`)).blob());
     const canvas = document.createElement("canvas");
     canvas.width = bitmap.width;
@@ -48,20 +53,22 @@ async function assertFilledState(target, label) {
     const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
     const luminance = rgb => rgb.map(value => value / 255).map(value => value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4)
       .reduce((sum, value, index) => sum + value * [0.2126, 0.7152, 0.0722][index], 0);
-    const foreground = luminance(color.match(/[\d.]+/g).slice(0, 3).map(Number));
+    const textColor = color.match(/[\d.]+/g).slice(0, 3).map(Number);
     let minimum = Infinity;
     for (const rect of textRects) {
       for (let y = Math.max(0, Math.ceil(rect.y)); y < Math.min(canvas.height, Math.floor(rect.y + rect.height)); y++) {
         for (let x = Math.max(0, Math.ceil(rect.x)); x < Math.min(canvas.width, Math.floor(rect.x + rect.width)); x++) {
           const offset = (y * canvas.width + x) * 4;
-          const background = luminance([...pixels.slice(offset, offset + 3)]);
+          const backgroundRgb = [...pixels.slice(offset, offset + 3)];
+          const background = luminance(backgroundRgb);
+          const foreground = luminance(textColor.map((value, channel) => value * opacity + backgroundRgb[channel] * (1 - opacity)));
           minimum = Math.min(minimum, (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05));
         }
       }
     }
     bitmap.close();
     return minimum;
-  }, { image: capture.toString("base64"), ...evidence });
+  }, { image: capture.toString("base64"), ...evidence, opacity });
   assert.ok(Number.isFinite(contrast) && contrast >= 4.5, `${label}: rendered contrast ${contrast}`);
   minimumContrast = Math.min(minimumContrast, contrast);
 }
@@ -95,8 +102,8 @@ async function inspectPrimaryActions(base) {
           const hovering = await state(target);
           await assertFilledState(target, `${label}: hover`);
           await page.mouse.down();
-          await page.waitForFunction(node => Math.abs(new DOMMatrixReadOnly(getComputedStyle(node).transform).a - 0.96) < 0.000001, await target.elementHandle());
-          assert.equal((await state(target)).scale, 0.96, `${label}: press scale`);
+          await page.waitForFunction(node => Math.abs(new DOMMatrixReadOnly(getComputedStyle(node).transform).a - 0.98) < 0.000001, await target.elementHandle());
+          assert.equal((await state(target)).scale, 0.98, `${label}: press scale`);
           await assertFilledState(target, `${label}: press`);
           await page.mouse.up();
           await page.waitForTimeout(180);
@@ -141,8 +148,38 @@ async function state(target) {
   });
 }
 
+async function inspectGitHubActions(base) {
+  for (const mode of ["light", "dark"]) {
+    const page = await browser.newPage({ reducedMotion: "reduce" });
+    await page.addInitScript(mode => {
+      localStorage.setItem("theme", mode);
+      document.addEventListener("click", event => event.preventDefault(), true);
+    }, mode);
+    for (const [route, selector] of [["github", ".gh-hero .gh-button"], ["github?tab=arcade", ".gh-game-controls .gh-button"]]) {
+      await page.goto(`${base}/${route}`);
+      const target = page.locator(selector).first();
+      await target.scrollIntoViewIfNeeded();
+      await page.evaluate(() => document.fonts.ready);
+      const background = await target.evaluate(node => getComputedStyle(node).backgroundImage);
+      await assertFilledState(target, `${mode}/${route}: rest`, true);
+      await target.hover();
+      await page.waitForTimeout(200);
+      assert.equal(await target.evaluate(node => getComputedStyle(node).backgroundImage), background, "Filled GitHub buttons preserve their gradient on hover");
+      await assertFilledState(target, `${mode}/${route}: hover`, true);
+      await page.mouse.down();
+      await page.waitForTimeout(200);
+      await assertFilledState(target, `${mode}/${route}: press`, true);
+      await page.mouse.up();
+    }
+    await page.close();
+  }
+  console.log("PASS: 12 GitHub filled-action states across both themes.");
+}
+
 try {
-  for (const base of ["http://localhost:3000", "http://127.0.0.1:4173"]) {
+  for (const base of bases) {
+    if (!process.argv.includes("--cards-only")) await inspectGitHubActions(base);
+    if (process.argv.includes("--github-only")) continue;
     if (!process.argv.includes("--cards-only")) await inspectPrimaryActions(base);
     const scenarios = [
       ...[320, 390, 768, 1440].map(width => ({ width })),
@@ -190,16 +227,18 @@ try {
           }
         }
         const resting = await state(target);
+        if (!cardText && !scenario.forcedColors && !scenario.print) await assertFilledState(target, `${selector}: hover label`, true);
         for (let repeat = 0; repeat < 2; repeat++) {
           await page.mouse.down();
           await page.waitForTimeout(120);
           const pressed = await state(target);
           const staticFeedback = scenario.print || scenario.forcedColors;
-          assert.equal(pressed.scale, staticFeedback || scenario.reducedMotion ? 1 : 0.96, `${base} ${selector}: scale ${JSON.stringify(scenario)}`);
-          assert.equal(pressed.opacity, staticFeedback || cardText ? 1 : 0.88, `${selector}: opacity`);
+          assert.equal(pressed.scale, staticFeedback || scenario.reducedMotion ? 1 : 0.98, `${base} ${selector}: scale ${JSON.stringify(scenario)}`);
+          assert.equal(pressed.opacity, staticFeedback || cardText ? 1 : 0.90, `${selector}: opacity`);
           if (cardText && !staticFeedback) {
             await assertFilledState(cardText, `${base} ${selector}: pressed description`);
           }
+          if (!cardText && !staticFeedback) await assertFilledState(target, `${base} ${selector}: pressed label`, true);
           await page.mouse.up();
           await page.waitForTimeout(120);
           assert.deepEqual(await state(target), resting, `${selector}: release restores hover/rest`);
@@ -219,13 +258,14 @@ try {
         assert.equal((await state(target)).scale, 1);
         assert.equal((await state(target)).opacity, 1);
         assert.equal((await state(target)).duration, "0s");
+        if (!cardText && !scenario.forcedColors && !scenario.print) await assertFilledState(target, `${selector}: focus label`, true);
         await page.keyboard.up("Enter");
         checks++;
       }
       await page.close();
     }
   }
-  console.log(`PASS: ${checks} link scenarios in dev/build; press, release, cancellation, keyboard, themes, widths, reduced motion, forced colors and print.`);
+  if (checks) console.log(`PASS: ${checks} link scenarios in dev/build; press, release, cancellation, keyboard, themes, widths, reduced motion, forced colors and print.`);
   console.log(`Minimum sampled label/description contrast: ${minimumContrast.toFixed(2)}:1.`);
   if (primaryChecks) console.log(`PASS: ${primaryChecks} primary-action scenarios. Header tokens and swatch gradients match the registry.`);
   console.log("Coarse-pointer checks use mouse input in a touch-enabled context; real-device touch feel remains unverified.");
