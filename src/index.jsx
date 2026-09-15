@@ -5,7 +5,7 @@
  * the #root DOM node declared in index.html.
  *
  * Side-effect imports:
- *  - index.css    — global @font-face declarations, scrollbar styles, responsive rules
+ *  - index.css    — system typography, scrollbar styles, and base layout
  */
 import { createRoot } from "react-dom/client";
 

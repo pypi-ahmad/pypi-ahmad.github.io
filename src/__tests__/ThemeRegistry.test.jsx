@@ -60,10 +60,10 @@ describe("Default theme", () => {
     expect(resolveTheme("unknown").name).toBe("dark");
   });
 
-  it("uses indigo and navy as the only accent", () => {
-    expect(DEFAULT_ACCENT).toBe("blue");
-    expect(resolveTheme("dark", "unknown").accentStart).toBe("#4F46E5");
-    expect(resolveTheme("light", "unknown").accentStart).toBe("#4F46E5");
+  it("uses navy and indigo as the shared accent", () => {
+    expect(DEFAULT_ACCENT).toBe("navy-indigo");
+    expect(resolveTheme("dark", "unknown").accentStart).toBe("#172554");
+    expect(resolveTheme("light", "unknown").accentStart).toBe("#172554");
     expect(resolveTheme("dark", "retired-preset")).toBe(darkTheme);
     expect(resolveTheme("light", "retired-preset")).toBe(lightTheme);
   });
@@ -77,16 +77,16 @@ describe("Default theme", () => {
     expect(Object.keys(lightTheme).sort()).toEqual(Object.keys(darkTheme).sort());
   });
 
-  it.each(["light", "dark"])("resolves the blue accent in %s mode", mode => {
-    const theme = resolveTheme(mode, "blue");
+  it.each(["light", "dark"])("resolves the navy-indigo accent in %s mode", mode => {
+    const theme = resolveTheme(mode, "navy-indigo");
 
-    expect(theme.accentStart).toBe("#4F46E5");
-    expect(theme.accentEnd).toBe("#1E3A8A");
+    expect(theme.accentStart).toBe("#172554");
+    expect(theme.accentEnd).toBe("#312E81");
     expect(theme.accentGradient).toBe(
-      "linear-gradient(135deg, #4F46E5 0%, #1E3A8A 100%)"
+      "linear-gradient(135deg, #172554 0%, #312E81 100%)"
     );
-    expect(theme.accentSolid).toBe(mode === "light" ? "#4338CA" : "#A5B4FC");
-    expect(theme.heroGradient).toContain("rgba(79, 70, 229");
+    expect(theme.accentSolid).toBe(mode === "light" ? "#312E81" : "#B4B0EB");
+    expect(theme.heroGradient).toBe(mode === "light" ? "#F2F5FD" : "#1B1D28");
   });
 
   it.each([
@@ -98,18 +98,39 @@ describe("Default theme", () => {
   });
 
   it.each([lightTheme, darkTheme])("retains the component token contract", theme => {
-    expect(theme.accentGradient).toContain("linear-gradient");
-    expect(theme.heroGradient).toContain("linear-gradient");
+    expect(theme.accentGradient).toBe("linear-gradient(135deg, #172554 0%, #312E81 100%)");
+    expect(theme.heroGradient).not.toBe(theme.bodyAlt);
     expect(theme.surfaceRadius).toBe("18px");
     expect(theme.panelBorderStyle).toBe("solid");
-    expect(theme.accentFontFamily).toContain("Manrope");
+    expect(theme.accentFontFamily).toContain("system-ui");
     expect(theme.separatorColor).toBe(theme.name === "light"
-      ? "rgba(190, 174, 151, 0.55)" : "rgba(59, 61, 69, 0.78)");
+      ? "rgba(0, 0, 0, 0.10)" : "rgba(255, 255, 255, 0.12)");
+  });
+});
+
+describe("Scrollbar contrast", () => {
+  it.each([lightTheme, darkTheme])("keeps $name scrollbar handles distinguishable in both states", theme => {
+    for (const foreground of [theme.scrollbarThumb, theme.scrollbarThumbHover]) {
+      expect(getContrastRatio(foreground, theme.scrollbarTrack)).toBeGreaterThanOrEqual(3);
+    }
   });
 });
 
 describe("Rendered surface contrast", () => {
   const modes = ["light", "dark"];
+  it.each(modes)("%s mode separates evidence from interactive accents", mode => {
+    const theme = resolveTheme(mode);
+    expect([theme.evidenceSurface, theme.evidenceText, theme.evidenceBorder]).toEqual(
+      mode === "light" ? ["#EDF8F5", "#246157", "#B9D1CB"] : ["#142622", "#A2CFC5", "#34544E"]
+    );
+    expect(theme.evidenceText).not.toBe(theme.accentSolid);
+    for (const background of [theme.heroGradient, theme.evidenceSurface]) {
+      for (const foreground of [theme.text, theme.secondaryText, theme.accentSolid]) {
+        expect(getContrastRatio(foreground, background)).toBeGreaterThanOrEqual(4.5);
+      }
+    }
+    expect(getContrastRatio(theme.evidenceText, theme.evidenceSurface)).toBeGreaterThanOrEqual(4.5);
+  });
   it.each(modes)("%s mode keeps secondary text readable on cards", mode => {
     const theme = resolveTheme(mode);
     expect(getContrastRatio(theme.accentSolid, theme.body)).toBeGreaterThanOrEqual(4.5);
@@ -123,7 +144,7 @@ describe("Rendered surface contrast", () => {
     ).join("");
     expect(getContrastRatio(theme.secondaryText, blended)).toBeGreaterThanOrEqual(4.5);
   });
-  it.each(modes)("%s mode keeps labels readable throughout gradients", mode => {
+  it.each(modes)("%s mode keeps filled action labels readable", mode => {
     const theme = resolveTheme(mode);
     const start = hexToRgb(theme.accentStart);
     const end = hexToRgb(theme.accentEnd);
