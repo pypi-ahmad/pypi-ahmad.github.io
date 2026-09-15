@@ -35,42 +35,48 @@ async function renderAtRoute(initialPath) {
 }
 
 describe("Navigation — Route Resolution", () => {
+  it("resolves /fde with its current navigation item", async () => {
+    await renderAtRoute("/fde");
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("My path toward forward-deployed AI engineering.");
+    await userEvent.setup().click(screen.getByRole("button", { name: "Toggle navigation menu" }));
+    expect(screen.getByRole("link", { name: "FDE", exact: true })).toHaveAttribute("aria-current", "page");
+  });
   it("'/' renders the Home page (isSplash=false)", async () => {
     await renderAtRoute("/");
-    expect(await screen.findByRole("heading", { level: 1, name: "I build applied AI systems that turn complex information into useful tools." })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "Production AI Engineer specializing in multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation." })).toBeInTheDocument();
   });
 
   it("'/home' renders the Home page", async () => {
     await renderAtRoute("/home");
-    expect(await screen.findByRole("heading", { level: 1, name: "I build applied AI systems that turn complex information into useful tools." })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "Production AI Engineer specializing in multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation." })).toBeInTheDocument();
   });
 
   it("'/experience' renders the Experience page", async () => {
     await renderAtRoute("/experience");
-    expect(await screen.findByRole("heading", { level: 1, name: "Building and evaluating applied AI systems." })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "LLM architectures and event-driven cloud systems." })).toBeInTheDocument();
   });
 
   it("'/education' renders the Education page", async () => {
     await renderAtRoute("/education");
     expect(await screen.findByRole("heading", {
       level: 1,
-      name: "Academic foundations for applied AI.",
+      name: "Academic foundations for AI engineering.",
     })).toBeInTheDocument();
   });
 
   it("'/contact' renders the Contact page", async () => {
     await renderAtRoute("/contact");
-    expect(await screen.findByRole("heading", { level: 1, name: "Let’s build useful AI systems." })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "Discuss a production AI role or project." })).toBeInTheDocument();
   });
 
   it("'/projects' renders the Projects page", async () => {
     await renderAtRoute("/projects");
-    expect(await screen.findByRole("heading", { level: 2, name: "Recent projects" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 2, name: "More projects" })).toBeInTheDocument();
   });
 
   it("'/skills' renders the Skills page", async () => {
     await renderAtRoute("/skills");
-    expect(await screen.findByRole("heading", { level: 1, name: "Skills for reliable AI systems." })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "Skills, with context." })).toBeInTheDocument();
   });
 });
 
@@ -83,7 +89,7 @@ describe("Navigation — NavLink Click Flow", () => {
     const experienceLink = screen.getByText("Experience", { selector: "a" });
     await user.click(experienceLink);
     expect(window.location.pathname).toBe("/experience");
-    expect(await screen.findByRole("heading", { level: 1, name: "Building and evaluating applied AI systems." })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "LLM architectures and event-driven cloud systems." })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Toggle navigation menu" })).toHaveAttribute("aria-expanded", "false");
     expect(screen.getByRole("main")).toHaveFocus();
   });
@@ -98,7 +104,7 @@ describe("Navigation — NavLink Click Flow", () => {
     expect(window.location.pathname).toBe("/education");
     expect(await screen.findByRole("heading", {
       level: 1,
-      name: "Academic foundations for applied AI.",
+      name: "Academic foundations for AI engineering.",
     })).toBeInTheDocument();
   });
 
@@ -110,7 +116,7 @@ describe("Navigation — NavLink Click Flow", () => {
     const navLink = screen.getByRole("link", { name: "Contact" });
     await user.click(navLink);
     expect(window.location.pathname).toBe("/contact");
-    expect(await screen.findByRole("heading", { level: 1, name: "Let’s build useful AI systems." })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "Discuss a production AI role or project." })).toBeInTheDocument();
   });
 
   it("clicking 'Projects' NavLink navigates to Projects page", async () => {
@@ -121,7 +127,7 @@ describe("Navigation — NavLink Click Flow", () => {
     const projectsLink = screen.getByText("Projects", { selector: "a" });
     await user.click(projectsLink);
     expect(window.location.pathname).toBe("/projects");
-    expect(await screen.findByRole("heading", { level: 2, name: "Recent projects" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 2, name: "More projects" })).toBeInTheDocument();
   });
 
   it("clicking 'Skills' NavLink navigates to Skills page", async () => {
@@ -132,7 +138,7 @@ describe("Navigation — NavLink Click Flow", () => {
     const skillsLink = screen.getByText("Skills", { selector: "a" });
     await user.click(skillsLink);
     expect(window.location.pathname).toBe("/skills");
-    expect(await screen.findByRole("heading", { level: 1, name: "Skills for reliable AI systems." })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "Skills, with context." })).toBeInTheDocument();
   });
 
   it("clicking logo navigates to Home page", async () => {
@@ -143,6 +149,6 @@ describe("Navigation — NavLink Click Flow", () => {
     const logo = screen.getByText("ahmad.m()");
     await user.click(logo);
     expect(window.location.pathname).toBe("/home");
-    expect(await screen.findByRole("heading", { level: 1, name: "I build applied AI systems that turn complex information into useful tools." })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "Production AI Engineer specializing in multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation." })).toBeInTheDocument();
   });
 });

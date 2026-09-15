@@ -14,6 +14,7 @@
  *  /splash      — Loading splash screen
  *  /projects    — Recent open-source projects
  *  /skills      — Applied AI capabilities, evidence, and toolkit
+ *  /fde         — Forward-deployed engineering foundations and learning
  *
  * Pages are lazy-loaded so Vite can code-split them into separate chunks.
  *
@@ -28,6 +29,7 @@ import {
   projectsHeader,
   contactPageData,
   skillsPageData,
+  fdePageData,
 } from "../portfolio.js";
 import RouteMeta from "../components/seo/RouteMeta";
 import RouteNavigation from "../components/RouteNavigation";
@@ -39,6 +41,7 @@ const Experience = lazy(() => import("../pages/experience/Experience"));
 const Contact = lazy(() => import("../pages/contact/ContactComponent"));
 const Projects = lazy(() => import("../pages/projects/Projects"));
 const SkillsPage = lazy(() => import("../pages/skills/SkillsPage"));
+const FdePage = lazy(() => import("../pages/fde/FdePage"));
 const GitHubPage = lazy(() => import("../pages/github/GitHubPage"));
 const NotFound = lazy(() => import("../pages/notFound/NotFound"));
 
@@ -50,15 +53,20 @@ const routeFallbackStyle = {
 };
 
 const routeMeta = {
+  fde: {
+    title: "FDE learning journey | Ahmad Mujtaba",
+    description: fdePageData.description,
+    canonicalPath: "/fde",
+  },
   github: {
-    title: "GitHub Statistics & Contribution Arcade | Ahmad Mujtaba",
+    title: "GitHub statistics & contribution arcade | Ahmad Mujtaba",
     description: "Explore Ahmad Mujtaba's GitHub statistics, contribution history, and seven playable contribution games.",
     canonicalPath: "/github",
   },
   home: {
-    title: "Ahmad Mujtaba | Applied AI Engineer",
+    title: "Ahmad Mujtaba | Production AI Engineer",
     description:
-      "Applied AI Engineer working on document AI, RAG, agents, and evaluation.",
+      "Production AI Engineer focused on multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation.",
     canonicalPath: "/",
   },
   experience: {
@@ -67,13 +75,13 @@ const routeMeta = {
     canonicalPath: "/experience",
   },
   education: {
-    title: "Education & Certifications | Ahmad Mujtaba",
+    title: "Education & certifications | Ahmad Mujtaba",
     description:
-      "Academic foundations in computer science and data analytics, with focused credentials in generative AI, machine learning, deep learning, and data systems.",
+      "Degrees in computer science and data analytics, with credentials in generative AI, machine learning, deep learning, and data systems.",
     canonicalPath: "/education",
   },
   projects: {
-    title: "Applied AI Projects | Ahmad Mujtaba",
+    title: "AI engineering projects | Ahmad Mujtaba",
     description: projectsHeader.description,
     canonicalPath: "/projects",
   },
@@ -89,13 +97,13 @@ const routeMeta = {
   },
   splash: {
     title: "Loading | Ahmad Mujtaba",
-    description: "Loading Ahmad Mujtaba portfolio.",
+    description: "Loading Ahmad Mujtaba’s portfolio.",
     canonicalPath: "/",
     noindex: true,
   },
   notFound: {
-    title: "Page Not Found | Ahmad Mujtaba",
-    description: "The requested page could not be found on Ahmad Mujtaba portfolio.",
+    title: "Page not found | Ahmad Mujtaba",
+    description: "This page could not be found on Ahmad Mujtaba’s portfolio.",
     noindex: true,
   },
 };
@@ -138,6 +146,7 @@ export default function Main(props) {
           >
             <RouteNavigation />
             <Routes>
+              <Route path="/fde" element={withRouteMeta(routeMeta.fde, <FdePage theme={props.theme} />)} />
               <Route path="/github" element={withRouteMeta(routeMeta.github, <GitHubPage {...props} />)} />
               <Route
                 path="/"

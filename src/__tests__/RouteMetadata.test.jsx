@@ -31,6 +31,12 @@ function waitForTitle(title) {
 }
 
 describe("Route metadata", () => {
+  it("applies FDE learning metadata without implying an employment title", async () => {
+    renderMainAt("/fde");
+    await waitForTitle("FDE learning journey | Ahmad Mujtaba");
+    expect(getManagedMeta('link[rel="canonical"]')?.getAttribute("href")).toBe("https://pypi-ahmad.github.io/fde");
+    expect(getManagedMeta('meta[name="description"]')?.getAttribute("content")).toContain("to learn forward-deployed AI engineering");
+  });
   it("replaces the static shell canonical when a route mounts", async () => {
     const fallback = document.createElement("link");
     fallback.rel = "canonical";
@@ -38,7 +44,7 @@ describe("Route metadata", () => {
     fallback.dataset.portfolioFallback = "true";
     document.head.append(fallback);
     renderMainAt("/projects");
-    await waitForTitle("Applied AI Projects | Ahmad Mujtaba");
+    await waitForTitle("AI engineering projects | Ahmad Mujtaba");
     expect(fallback.isConnected).toBe(false);
     expect(document.querySelectorAll('link[rel="canonical"]')).toHaveLength(1);
   });
@@ -46,10 +52,10 @@ describe("Route metadata", () => {
   it("applies Home route metadata", async () => {
     renderMainAt("/home");
 
-    await waitForTitle("Ahmad Mujtaba | Applied AI Engineer");
+    await waitForTitle("Ahmad Mujtaba | Production AI Engineer");
     expect(
       getManagedMeta('meta[name="description"]')?.getAttribute("content")
-    ).toContain("Applied AI Engineer");
+    ).toContain("Production AI Engineer");
     expect(
       getManagedMeta('link[rel="canonical"]')?.getAttribute("href")
     ).toBe("https://pypi-ahmad.github.io/");
@@ -67,7 +73,7 @@ describe("Route metadata", () => {
   it("applies Education route metadata", async () => {
     renderMainAt("/education");
 
-    await waitForTitle("Education & Certifications | Ahmad Mujtaba");
+    await waitForTitle("Education & certifications | Ahmad Mujtaba");
     expect(
       getManagedMeta('meta[name="description"]')?.getAttribute("content")
     ).toContain("generative AI");
@@ -79,10 +85,10 @@ describe("Route metadata", () => {
   it("applies Projects route metadata", async () => {
     renderMainAt("/projects");
 
-    await waitForTitle("Applied AI Projects | Ahmad Mujtaba");
+    await waitForTitle("AI engineering projects | Ahmad Mujtaba");
     expect(
       getManagedMeta('meta[name="twitter:title"]')?.getAttribute("content")
-    ).toBe("Applied AI Projects | Ahmad Mujtaba");
+    ).toBe("AI engineering projects | Ahmad Mujtaba");
     expect(
       getManagedMeta('link[rel="canonical"]')?.getAttribute("href")
     ).toBe("https://pypi-ahmad.github.io/projects");
@@ -100,7 +106,7 @@ describe("Route metadata", () => {
   it("treats removed /theme route as not found", async () => {
     renderMainAt("/theme");
 
-    await waitForTitle("Page Not Found | Ahmad Mujtaba");
+    await waitForTitle("Page not found | Ahmad Mujtaba");
     expect(
       getManagedMeta('meta[name="robots"]')?.getAttribute("content")
     ).toBe("noindex, nofollow");
@@ -112,7 +118,7 @@ describe("Route metadata", () => {
   it("marks unknown routes as noindex with a path-specific canonical", async () => {
     renderMainAt("/missing-page");
 
-    await waitForTitle("Page Not Found | Ahmad Mujtaba");
+    await waitForTitle("Page not found | Ahmad Mujtaba");
     expect(
       getManagedMeta('meta[name="robots"]')?.getAttribute("content")
     ).toBe("noindex, nofollow");

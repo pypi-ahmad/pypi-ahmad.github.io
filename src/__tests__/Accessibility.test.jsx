@@ -1,3 +1,4 @@
+import { MetricsStrip } from "../components/ProfessionalWork/ProfessionalWork";
 /**
  * Accessibility Tests
  *
@@ -57,16 +58,16 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
     const h1 = screen.getByRole("heading", { level: 1 });
     expect(h1).toBeInTheDocument();
     expect(h1).toHaveTextContent(
-      "I build applied AI systems that turn complex information into useful tools."
+      "Production AI Engineer specializing in multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation."
     );
   });
 
   it("Home outcomes render as a list", () => {
-    renderWithProviders(<Greeting theme={darkTheme} />);
-    const list = document.querySelector("ul.outcome-grid");
+    renderWithProviders(<MetricsStrip theme={darkTheme} />);
+    const list = document.querySelector("ul.metrics-strip");
     expect(list).toBeInTheDocument();
     const items = list.querySelectorAll("li");
-    expect(items.length).toBe(5);
+    expect(items.length).toBe(4);
   });
 
   it("ExperienceCard company link has proper href", () => {
