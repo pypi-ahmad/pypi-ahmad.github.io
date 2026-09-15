@@ -1,8 +1,10 @@
+#error-title { line-height: var(--heading-leading, 1.4); }
+
 .error-boundary__refresh {
   transition: transform var(--theme-transition-press, 100ms cubic-bezier(0.23, 1, 0.32, 1)), opacity 100ms ease;
 }
 
-.error-boundary__refresh:active:not(:focus-visible) { transform: scale(0.96); }
+.error-boundary__refresh:active:not(:focus-visible) { transform: scale(0.98); }
 .error-boundary__refresh:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; transition: none; }
 
 @media (prefers-reduced-motion: reduce) {
