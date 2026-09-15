@@ -20,8 +20,10 @@ browser-check script runs against them from a third terminal).
 Deployment has no manual "start" step: pushing to `main` triggers `.github/workflows/deploy.yml`,
 which builds, tests, and uploads the GitHub Pages artifact automatically. `npm run deploy` is a
 separate, manual path (`gh-pages -d build`) that publishes directly from a local build; Vercel builds
-from its own Git integration with `deploymentEnabled.gh-pages: false` in `vercel.json`, so it does not
-trigger from GitHub Actions.
+from its own Git integration. Because the generated `gh-pages` branch contains neither source nor
+`vercel.json`, Vercel must have the project-level **Settings → Git → Ignored Build Step** configured
+to exit `0` for `VERCEL_GIT_COMMIT_REF=gh-pages` and `1` otherwise. The source-controlled
+`deploymentEnabled.gh-pages: false` setting remains a secondary safeguard.
 
 ## Logs location
 
