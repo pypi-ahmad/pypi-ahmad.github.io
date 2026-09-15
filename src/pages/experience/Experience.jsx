@@ -3,6 +3,7 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import ExperienceCard from "../../components/experienceCard/ExperienceCard";
 import { experience } from "../../portfolio.js";
+import CareerProgression from "../../components/CareerProgression/CareerProgression";
 import { buildThemeBackground, buildThemeShadow, revealMotion } from "../../themeMotion";
 import "./Experience.css";
 
@@ -20,10 +21,10 @@ export default function Experience({ theme }) {
             background: buildThemeBackground(theme.heroGradient, theme.heroPattern),
             border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
             borderRadius: theme.heroRadius,
-            boxShadow: buildThemeShadow(`0 28px 80px ${theme.shadowColor}`, theme.panelGlow),
+            boxShadow: buildThemeShadow(`0 2px 8px ${theme.shadowColor}`, theme.panelGlow),
           }}
         >
-          <motion.p {...revealMotion(0, true)} className="experience-eyebrow" style={{ color: theme.accentSolid }}>
+          <motion.p {...revealMotion(0, true)} className="experience-eyebrow" style={{ color: theme.secondaryText }}>
             {experience.eyebrow}
           </motion.p>
           <h1 id="experience-title" style={{ color: theme.text }}>{experience.title}</h1>
@@ -45,6 +46,7 @@ export default function Experience({ theme }) {
             ))}
           </div>
         </section>
+        <CareerProgression theme={theme} />
       </main>
       <Footer theme={theme} />
     </div>

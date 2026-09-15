@@ -2,20 +2,20 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
-import { projects } from "../../portfolio";
+import { caseStudies } from "../../portfolio";
 import { revealMotion } from "../../themeMotion";
 
 const Container = styled.section`
   width: min(var(--container-max-width), calc(100% - (var(--page-gutter) * 2)));
   margin: 0 auto;
-  padding: var(--section-spacing) 0;
-  text-align: center;
+  padding-block-start: var(--section-spacing);
+  text-align: start;
 `;
 
 const Title = styled(motion.h2)`
   color: ${props => props.theme.text};
   font-size: var(--section-title-size);
-  margin-bottom: 2rem;
+  margin: 0 0 var(--stack-lg);
   font-weight: bold;
 
   @media (max-width: 768px) {
@@ -25,12 +25,11 @@ const Title = styled(motion.h2)`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
   gap: var(--section-gap-tight);
 
-  @media (max-width: 768px) {
-    grid-template-columns: minmax(0, 1fr);
-  }
+  > :first-child { grid-column: 1 / -1; }
+
 `;
 
 const ProjectsLink = styled(Link)`
@@ -58,15 +57,15 @@ export default function FeaturedProjects({ theme }) {
         theme={theme}
         {...revealMotion()}
       >
-        Selected work
+        Personal projects & experiments
       </Title>
       <Grid>
-        {projects.data.slice(0, 4).map((project, index) => (
-          <ProjectCard key={project.url} repo={project} theme={theme} revealIndex={index} />
+        {caseStudies.map((project, index) => (
+          <ProjectCard key={project.id} repo={project} caseStudy revealIndex={index} />
         ))}
       </Grid>
       <ProjectsLink className="motion-action" theme={theme} to="/projects">
-        See all projects
+        View projects
       </ProjectsLink>
     </Container>
   );

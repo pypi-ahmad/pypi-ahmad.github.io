@@ -9,14 +9,14 @@
 }
 
 .projects-hero {
-  margin-top: 1.5rem;
+  margin-block-start: var(--page-entry-gap);
   padding: var(--hero-padding);
   text-align: start;
 }
 
 .projects-eyebrow {
   margin: 0 0 1rem;
-  font-size: 1.35rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -25,7 +25,7 @@
 .projects-hero h1 {
   margin: 0;
   font-size: var(--page-title-size);
-  line-height: 1.2;
+  line-height: var(--heading-leading);
   letter-spacing: -0.025em;
 }
 
@@ -58,8 +58,8 @@
 }
 
 .projects-section {
-  margin-bottom: var(--section-spacing);
-  padding: var(--section-spacing) 0;
+
+  padding-block-start: var(--section-spacing);
 }
 
 .projects-section-heading {
@@ -108,7 +108,7 @@
 
 @media (max-width: 768px) {
   .projects-hero {
-    margin-top: 1rem;
+    margin-block-start: var(--page-entry-gap);
     padding: 1.5rem 1.1rem;
   }
 
