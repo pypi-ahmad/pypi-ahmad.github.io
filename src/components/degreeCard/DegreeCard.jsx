@@ -4,7 +4,7 @@ import "./DegreeCard.css";
 function DegreeCard({ degree, theme }) {
   return (
     <article
-      className="degree-card layer-card shadow-sm hover-shadow-lg"
+      className="degree-card layer-card shadow-sm"
       style={{
         background: theme.cardBackgroundAlt,
         border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
@@ -22,7 +22,7 @@ function DegreeCard({ degree, theme }) {
         />
       </div>
       <div className="degree-card__content">
-        <p className="degree-card__duration" style={{ color: theme.accentSolid }}>
+        <p className="degree-card__duration" style={{ color: theme.secondaryText }}>
           {degree.duration}
         </p>
         <h3 style={{ color: theme.text }}>{degree.subtitle}</h3>

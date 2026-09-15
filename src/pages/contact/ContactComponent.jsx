@@ -34,10 +34,10 @@ function Contact(props) {
             background: buildThemeBackground(theme.heroGradient, theme.heroPattern),
             border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
             borderRadius: theme.heroRadius,
-            boxShadow: buildThemeShadow(`0 28px 80px ${theme.shadowColor}`, theme.panelGlow),
+            boxShadow: buildThemeShadow(`0 2px 8px ${theme.shadowColor}`, theme.panelGlow),
           }}
         >
-          <motion.p {...revealMotion(0, true)} className="contact-eyebrow" style={{ color: theme.accentSolid }}>
+          <motion.p {...revealMotion(0, true)} className="contact-eyebrow" style={{ color: theme.secondaryText }}>
             {ContactData.eyebrow}
           </motion.p>
           <h1 id="contact-title" style={{ color: theme.text }}>
@@ -59,10 +59,9 @@ function Contact(props) {
               href={github.href}
               style={{ color: theme.text, borderColor: theme.borderSoft }}
             >
-              View GitHub
+              View GitHub profile
             </a>}
           </motion.div>}
-          {email && <p className="contact-action-hint" style={{ color: theme.secondaryText }}>“Discuss a project” opens your email app.</p>}
         </section>
         {items.length > 0 ? <section
           className="contact-channels"

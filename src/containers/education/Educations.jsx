@@ -18,7 +18,7 @@ function Educations(props) {
   return (
     <section className="education-section" id="educations" aria-labelledby="degrees-title">
       <motion.div {...revealMotion()} className="education-section-heading">
-        <p className="education-section-label" style={{ color: theme.accentSolid }}>
+        <p className="education-section-label" style={{ color: theme.secondaryText }}>
           Academic foundation
         </p>
         <h2 id="degrees-title" className="educations-header" style={{ color: theme.text }}>

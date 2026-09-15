@@ -20,7 +20,7 @@ function NotFound(props) {
           style={{
             background: buildThemeBackground(theme.bodyAlt, theme.surfacePattern),
             border: `${theme.panelBorderWidth} ${theme.panelBorderStyle} ${theme.borderSoft}`,
-            boxShadow: buildThemeShadow(`0 18px 40px ${theme.shadowColor}`, theme.panelGlow),
+            boxShadow: buildThemeShadow(`0 2px 8px ${theme.shadowColor}`, theme.panelGlow),
             transition: themeElevatedSurfaceTransition,
           }}
           aria-labelledby="not-found-title"
@@ -32,8 +32,7 @@ function NotFound(props) {
             Page not found
           </h1>
           <p className="not-found-description" style={{ color: theme.secondaryText }}>
-            The page you requested does not exist or has moved. Use the button
-            below to return to the portfolio homepage.
+            This page does not exist or has moved. Return home to explore the portfolio.
           </p>
           <div className="not-found-actions motion-fade" data-motion="fade">
             <Link

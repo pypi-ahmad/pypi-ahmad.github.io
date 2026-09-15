@@ -23,7 +23,7 @@ export default function Footer(props) {
       style={{
         borderTop: `1px solid ${theme.borderSoft}`,
         backgroundColor: theme.bodyAlt,
-        boxShadow: `0 -10px 30px ${theme.shadowColor}`,
+        boxShadow: "none",
         transition: themeElevatedSurfaceTransition,
       }}
     >
