@@ -28,7 +28,7 @@ export const GlobalStyles = createGlobalStyle`
     --section-spacing: clamp(2.5rem, 5vw, 4rem);
     --section-gap-tight: 1.5rem;
     --page-entry-gap: clamp(1rem, 2vw, 1.5rem);
-    --page-title-size: clamp(2rem, 5vw, 3.5rem);
+    --page-title-size: clamp(1.5rem, calc(5vw / 1.5), calc(3.5rem / 1.5));
     --heading-leading: 1.4;
     --reading-measure: 65ch;
     --header-height: 6rem;
