@@ -60,36 +60,13 @@ export const buildContactItems = (links = configuredLinks) => {
     });
   }
 
-  if (socialMediaLinks.portfolio) {
+  if (socialMediaLinks.signal) {
     items.push({
-      key: "portfolio",
-      label: "Portfolio",
-      href: socialMediaLinks.portfolio,
-      description: socialMediaLinks.portfolioDesc || "",
-      iconSrc: "/contacts-icons/portfolio.png",
-      invertOnDark: true,
-      openInNewTab: true,
-    });
-  }
-
-  if (socialMediaLinks.twitter) {
-    items.push({
-      key: "twitter",
-      label: "X (Twitter)",
-      href: socialMediaLinks.twitter,
-      description: socialMediaLinks.twitterDesc || "",
-      iconSrc: "/contacts-icons/twitter.png",
-      openInNewTab: true,
-    });
-  }
-
-  if (socialMediaLinks.whatsapp) {
-    items.push({
-      key: "whatsapp",
-      label: "WhatsApp",
-      href: socialMediaLinks.whatsapp,
-      description: socialMediaLinks.whatsappDesc || "",
-      iconSrc: "/contacts-icons/whatsapp.png",
+      key: "signal",
+      label: "Signal",
+      href: socialMediaLinks.signal,
+      description: socialMediaLinks.signalDesc || "",
+      iconSrc: "/contacts-icons/signal.png",
       openInNewTab: true,
     });
   }
@@ -101,6 +78,17 @@ export const buildContactItems = (links = configuredLinks) => {
       href: socialMediaLinks.telegram,
       description: socialMediaLinks.telegramDesc || "",
       iconSrc: "/contacts-icons/telegram.png",
+      openInNewTab: true,
+    });
+  }
+
+  if (socialMediaLinks.twitter) {
+    items.push({
+      key: "twitter",
+      label: "X (Twitter)",
+      href: socialMediaLinks.twitter,
+      description: socialMediaLinks.twitterDesc || "",
+      iconSrc: "/contacts-icons/twitter.png",
       openInNewTab: true,
     });
   }

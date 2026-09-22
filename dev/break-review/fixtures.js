@@ -53,10 +53,9 @@ const channels = [
   ["Email", null],
   ["LinkedIn", "linkedin"],
   ["GitHub", "github"],
-  ["Portfolio", "portfolio"],
-  ["X (Twitter)", "twitter"],
-  ["WhatsApp", "whatsapp"],
+  ["Signal", "signal"],
   ["Telegram", "telegram"],
+  ["X (Twitter)", "twitter"],
   ["Instagram", "instagram"],
   ["Facebook", "facebook"],
   ["Discord", null],
@@ -69,7 +68,7 @@ export const contactItems = channels.map(([label, image], index) => ({
   description: sentence,
   openInNewTab: index !== 0,
   ...(image ? { iconSrc: `/contacts-icons/${image}.png` } : {}),
-  invertOnDark: image === "github" || image === "portfolio",
+  invertOnDark: image === "github",
 }));
 
 const containerCases = props => [
