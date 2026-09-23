@@ -59,17 +59,17 @@ describe("Case-study disclosures", () => {
     expect(container.querySelectorAll(".case-study__diagram img")).toHaveLength(overview ? 1 : 0);
     if (overview) {
       const image = screen.getByAltText(overview.alt);
-      expect(image).toHaveAttribute("src", overview.src);
+      expect(image).toHaveAttribute("src", overview.previewSrc || overview.src);
       expect(image).toHaveAttribute("loading", "lazy");
       expect(image.closest("a")).toHaveAttribute("href", overview.src);
-      expect(image.closest("a")).toHaveAccessibleName(`Open ${study.name}: ${overview.title} at full size`);
+      expect(image.closest("a")).toHaveAccessibleName(`Open ${study.name}: ${overview.title}${overview.previewSrc ? " (interactive)" : " at full size"}`);
     }
     for (const diagram of otherDiagrams) {
       const link = container.querySelector(`a[href="${diagram.src}"]`);
-      expect(link).toHaveAccessibleName(diagram.title);
+      expect(link).toHaveAccessibleName(`${diagram.title}${diagram.src.endsWith(".html") ? " (interactive)" : ""}`);
       expect(link).toHaveAttribute("target", "_blank");
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
-      expect(screen.queryByAltText(diagram.alt)).not.toBeInTheDocument();
+      if (diagram.alt) expect(screen.queryByAltText(diagram.alt)).not.toBeInTheDocument();
     }
     expect(container.querySelector("h2")).toHaveAttribute("id", study.id);
   });

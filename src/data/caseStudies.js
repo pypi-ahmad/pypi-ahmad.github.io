@@ -82,6 +82,7 @@ export const caseStudies = [
       ],
       diagramWidth: 4320,
       diagramHeight: 3040,
+      diagramCollectionLabel: "Explore DocLayout diagrams",
     },
     name: "DocLayout",
     category: "Document AI · Extraction",
@@ -99,6 +100,11 @@ export const caseStudies = [
     repositories: [{ name: "DocLayout", url: "https://github.com/pypi-ahmad/DocLayout", approach: "View the code and installation guide." }],
     diagrams: [
       { src: "/images/projects/doclayout/doclayout-data-flow.png", title: "DocLayout data flow", alt: "DocLayout renders source pages for extraction, validates blocks, and builds a document model for exports and chat with quotation and answer checks." },
+      { src: "/diagrams/projects/doclayout/doclayout-architecture.html", title: "System architecture" },
+      { src: "/diagrams/projects/doclayout/doclayout-workflow.html", title: "Extraction workflow" },
+      { src: "/diagrams/projects/doclayout/doclayout-sequence.html", title: "Extraction sequence" },
+      { src: "/diagrams/projects/doclayout/doclayout-dataflow.html", title: "Data flow" },
+      { src: "/diagrams/projects/doclayout/doclayout-lifecycle.html", title: "Document lifecycle" },
     ],
   },
   {
@@ -117,6 +123,11 @@ export const caseStudies = [
     limitations: "The app is for single-user local experiments, with no hosted or distributed training. The separate showcase performs no training.",
     technologies: ["Python", "Streamlit", "PyTorch", "Transformers", "PEFT", "TRL"],
     repositories: [{ name: "LoRA Fine-tune Studio", url: "https://github.com/pypi-ahmad/lora-qlora-fine-tuning-app" }],
+    diagrams: [
+      { src: "/diagrams/projects/lora-fine-tune-studio/system-architecture.html", previewSrc: "/images/projects/lora-fine-tune-studio/system-architecture.png", title: "System architecture", alt: "LoRA Studio connects its Streamlit interface to dataset validation, training jobs, and saved model artifacts." },
+      { src: "/diagrams/projects/lora-fine-tune-studio/dataset-pipeline.html", title: "Dataset pipeline" },
+      { src: "/diagrams/projects/lora-fine-tune-studio/job-lifecycle.html", title: "Training job lifecycle" },
+    ],
   },
   {
     id: "self-improving-prompt-optimizer",
@@ -134,6 +145,10 @@ export const caseStudies = [
     limitations: "Evaluation is sequential, run state is in memory, and the repository has no automated test suite. Judge quality and benchmark coverage constrain the conclusions.",
     technologies: ["Python", "LangGraph", "LangChain", "Streamlit", "LLM-as-judge"],
     repositories: [{ name: "Self-Improving Prompt Optimizer", url: "https://github.com/pypi-ahmad/self-improving-prompt-optimizer" }],
+    diagrams: [
+      { src: "/images/projects/self-improving-prompt-optimizer/system-architecture-runtime-boundaries.png", title: "System architecture and runtime boundaries", alt: "The prompt optimizer connects its Streamlit interface to a LangGraph optimization loop, evaluation, and OpenAI generation and judging." },
+      { src: "/images/projects/self-improving-prompt-optimizer/prompt-optimization-workflow.png", title: "Prompt optimization workflow" },
+    ],
   },
   {
     id: "video-summarizer",
@@ -168,6 +183,12 @@ export const caseStudies = [
     limitations: "The dataset lacks verified Hinglish/code-switch labels and speaker IDs. Much of the local training audio is synthetic; these results are not a speaker-disjoint benchmark of real human Hinglish conversations.",
     technologies: ["Python", "PyTorch", "Whisper-tiny", "Gradio", "Hugging Face"],
     repositories: [{ name: "Hinglish Turn Detection", url: "https://github.com/pypi-ahmad/hinglish-turn-detection" }],
+    diagrams: [
+      { src: "/diagrams/projects/hinglish-turn-detection/system-architecture.html", previewSrc: "/images/projects/hinglish-turn-detection/system-architecture.png", title: "System architecture", alt: "Overview of the Hinglish Turn Detection system, with its data, training, and inference components." },
+      { src: "/diagrams/projects/hinglish-turn-detection/inference-sequence.html", title: "Inference sequence" },
+      { src: "/diagrams/projects/hinglish-turn-detection/data-lifecycle.html", title: "Data lifecycle" },
+      { src: "/diagrams/projects/hinglish-turn-detection/module-dependencies.html", title: "Module dependencies" },
+    ],
     demoUrl: "https://huggingface.co/spaces/pypi-ahmad/hinglish-turn-detection",
   },
 ];
