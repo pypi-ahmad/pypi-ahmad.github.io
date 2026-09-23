@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Portfolio Runtime Structure",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "animation": "none",
+    "viewBox": [1220, 720]
+  },
+  "layout": {
+    "mode": "grid",
+    "origin": [60, 80],
+    "cols": 4,
+    "cellW": 200,
+    "cellH": 70,
+    "gapX": 100,
+    "gapY": 150
+  },
+  "components": [
+    { "id": "html", "type": "frontend", "label": "index.html", "sublabel": "Static HTML shell", "row": 0, "col": 0 },
+    { "id": "entry", "type": "frontend", "label": "src/index.jsx", "sublabel": "createRoot bootstrap", "row": 0, "col": 1 },
+    { "id": "app", "type": "frontend", "label": "src/App.jsx", "sublabel": "Root container", "row": 0, "col": 2 },
+    { "id": "setup", "type": "frontend", "label": "App providers", "sublabel": "Theme, motion & error", "row": 0, "col": 3 },
+    { "id": "metadata", "type": "frontend", "label": "RouteMeta", "sublabel": "SEO & OpenGraph", "row": 1, "col": 0 },
+    { "id": "main", "type": "frontend", "label": "Main router", "sublabel": "Suspense & routes", "row": 1, "col": 1 },
+    { "id": "themes", "type": "frontend", "label": "Theme registry", "sublabel": "Tokens & styling", "row": 1, "col": 2 },
+    { "id": "analytics", "type": "external", "label": "GA4 init", "sublabel": "Optional telemetry", "row": 1, "col": 3 },
+    { "id": "components", "type": "frontend", "label": "Shared UI", "sublabel": "Header, cards, footer", "row": 2, "col": 0 },
+    { "id": "pages", "type": "frontend", "label": "Lazy pages", "sublabel": "Suspense route views", "row": 2, "col": 1 },
+    { "id": "portfolio", "type": "frontend", "label": "src/portfolio.js", "sublabel": "Content barrel", "row": 2, "col": 2 },
+    { "id": "data", "type": "frontend", "label": "src/data modules", "sublabel": "Static content", "row": 2, "col": 3 }
+  ],
+  "connections": [
+    { "id": "html-to-entry", "from": "html", "to": "entry", "label": "loads script" },
+    { "id": "entry-to-app", "from": "entry", "to": "app", "label": "mounts root" },
+    { "id": "app-to-setup", "from": "app", "to": "setup", "label": "wraps providers" },
+    { "id": "setup-to-main", "from": "setup", "to": "main", "label": "app layout", "fromSide": "left", "toSide": "top" },
+    { "id": "setup-to-themes", "from": "setup", "to": "themes", "label": "theme tokens", "fromSide": "bottom", "toSide": "top" },
+    { "id": "setup-to-ga", "from": "setup", "to": "analytics", "label": "opt-in GA4", "fromSide": "right", "toSide": "top", "variant": "dashed" },
+    { "id": "main-to-meta", "from": "main", "to": "metadata", "label": "syncs head" },
+    { "id": "main-to-pages", "from": "main", "to": "pages", "label": "lazy routes", "fromSide": "bottom", "toSide": "top", "labelAt": [420, 374], "variant": "emphasis" },
+    { "id": "pages-to-ui", "from": "pages", "to": "components", "label": "assembles UI" },
+    { "id": "pages-to-content", "from": "pages", "to": "portfolio", "label": "reads content" },
+    { "id": "portfolio-to-data", "from": "portfolio", "to": "data", "label": "imports specs" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Application Bootstrap", "items": ["index.html mounts the React DOM via createRoot in src/index.jsx.", "src/App.jsx establishes top-level error boundaries, theme providers, and motion defaults."] },
+    { "dot": "cyan", "title": "Routing & Suspense", "items": ["src/containers/Main.jsx manages browser routing with lazy code-split pages.", "RouteMeta dynamically updates document head titles and social cards per route."] },
+    { "dot": "violet", "title": "Content Decoupling", "items": ["src/portfolio.js re-exports data for many pages; some components import data modules directly.", "Domain facts, architecture models, and project registries live in src/data modules."] }
+  ]
+}
