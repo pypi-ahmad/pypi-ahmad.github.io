@@ -61,7 +61,10 @@ export default function FeaturedTools() {
           <a href={diagram.src} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.name} diagram at full size`}>
             <img src={diagram.src} alt={diagram.alt} width={feature.diagramWidth} height={feature.diagramHeight} loading="lazy" decoding="async" />
           </a>
-          <figcaption>{diagram.title}. Select the diagram to view it at full size.</figcaption>
+          <figcaption>
+            {diagram.title}. Select the diagram to view it at full size.
+            {feature.diagramCollectionLabel ? <Link to={`/projects#${project.id}`}>{feature.diagramCollectionLabel}</Link> : null}
+          </figcaption>
         </figure>
       </motion.article>;
     })}

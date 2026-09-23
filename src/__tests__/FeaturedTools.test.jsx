@@ -27,6 +27,8 @@ describe("Featured document tools", () => {
       expect(feature.getByRole("link", { name: `Open ${name} diagram at full size` })).toHaveAttribute("href", diagram.getAttribute("src"));
       expect(feature.getByText("Install and try")).toBeVisible();
     }
+    expect(screen.getByRole("link", { name: "Explore DocLayout diagrams" })).toHaveAttribute("href", "/projects#doclayout");
+    expect(screen.queryByRole("link", { name: "Explore GroundMark diagrams" })).not.toBeInTheDocument();
     expect((await axe(container)).violations).toEqual([]);
   });
 
