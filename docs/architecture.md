@@ -22,6 +22,8 @@ flowchart LR
   browser --> analytics[Optional Google Analytics 4]
 ```
 
+Explore the [interactive system context diagram](system-context-diagram.html).
+
 GitHub Pages is the canonical host. Vercel provides a mirror. The application links to public project repositories. `App.jsx` initializes GA4 once when `AppContent` mounts and only when `googleTrackingID` is configured; the committed value is empty, and no explicit route pageview calls exist in the current source.
 
 ## Runtime structure
@@ -41,7 +43,9 @@ flowchart TD
   setup --> analytics[Optional GA4 initialization]
 ```
 
-`src/index.jsx` mounts React. `src/App.jsx` installs global providers and styles. `src/containers/Main.jsx` owns the browser router, lazy page imports, loading fallback, and route metadata. Pages compose shared components and read content through `src/portfolio.js`, which re-exports the data modules.
+Explore the [interactive runtime structure diagram](runtime-structure-diagram.html).
+
+`src/index.jsx` mounts React. `src/App.jsx` installs global providers and styles. `src/containers/Main.jsx` owns the browser router, lazy page imports, loading fallback, and route metadata. Most pages read content through `src/portfolio.js`, which re-exports the data modules; some pages and components import data modules directly.
 
 This separation keeps content edits out of page components. It is a convention rather than an enforced schema. Tests protect important contracts such as project order, required project fields, homepage outcomes, and the first four featured projects.
 
