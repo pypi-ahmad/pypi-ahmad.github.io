@@ -26,7 +26,7 @@ const expectedNames = [
 describe("Projects page", () => {
   it("keeps the seven Home previews while listing all case studies on Projects", () => {
     const { unmount } = renderWithProviders(<><FeaturedTools /><FeaturedProjects theme={darkTheme} /></>);
-    expect(caseStudies).toHaveLength(14);
+    expect(caseStudies).toHaveLength(20);
     for (const study of caseStudies.filter(study => !study.projectsPageOnly)) {
       const link = screen.getByRole("link", { name: `Read ${study.name} case study` });
       expect(link).toHaveAttribute("href", `/projects#${study.id}`);
