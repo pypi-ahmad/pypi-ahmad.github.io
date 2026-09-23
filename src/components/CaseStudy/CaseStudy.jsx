@@ -2,6 +2,7 @@ import "./CaseStudy.css";
 import CaseStudyDisclosure from "./CaseStudyDisclosure";
 
 export default function CaseStudy({ study }) {
+  const [overview, ...otherDiagrams] = study.diagrams || [];
   return (
     <article className="case-study layer-card" aria-labelledby={study.id}>
       <header>
@@ -25,6 +26,20 @@ export default function CaseStudy({ study }) {
       <ul className="case-study__stack" aria-label={`${study.name} technologies`}>
         {study.technologies.map(technology => <li key={technology}>{technology}</li>)}
       </ul>
+      {overview ? <section aria-label={`${study.name} diagrams`}>
+        <h3>How it works</h3>
+        <figure className="case-study__diagram">
+          <a href={overview.src} target="_blank" rel="noopener noreferrer" aria-label={`Open ${study.name}: ${overview.title} at full size`}>
+            <img src={overview.src} alt={overview.alt} loading="lazy" decoding="async" />
+          </a>
+          <figcaption>{overview.title}. Open the image to view it at full size.</figcaption>
+        </figure>
+        {otherDiagrams.length > 0 ? <ul aria-label={`${study.name} additional diagrams`}>
+          {otherDiagrams.map(diagram => <li key={diagram.src}>
+            <a href={diagram.src} target="_blank" rel="noopener noreferrer">{diagram.title}</a>
+          </li>)}
+        </ul> : null}
+      </section> : null}
       <section>
         <h3>{study.repositories.length > 1 ? "Explore the implementations" : "Explore the project"}</h3>
         <ul className="case-study__repositories">

@@ -16,7 +16,7 @@ try {
       await page.goto(`${base}/${route}`);
       const disclosures = page.locator("details[data-case-study-for]");
       await disclosures.first().waitFor();
-      assert.equal(await disclosures.count(), 5);
+      assert.equal(await disclosures.count(), route === "projects" ? 7 : 5);
       assert.equal(await page.locator("details[data-case-study-for][open]").count(), 0);
       const first = disclosures.first();
       await first.locator("summary").focus();
@@ -45,7 +45,7 @@ try {
       assert.deepEqual(result.violations, [], `${route}/${theme}: expanded accessibility`);
       await disclosures.evaluateAll(nodes => nodes.forEach((node, index) => { node.open = index === 1; }));
       await page.pdf({ path: join(output, `${route}-${theme}.pdf`), tagged: true });
-      assert.deepEqual(await disclosures.evaluateAll(nodes => nodes.map(node => node.open)), [false, true, false, false, false]);
+      assert.deepEqual(await disclosures.evaluateAll(nodes => nodes.map(node => node.open)), Array.from({ length: route === "projects" ? 7 : 5 }, (_, index) => index === 1));
       for (const width of [390, 1440]) {
         await page.setViewportSize({ width, height: 900 });
         await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));

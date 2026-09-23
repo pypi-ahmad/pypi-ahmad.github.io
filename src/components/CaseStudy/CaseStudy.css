@@ -22,6 +22,10 @@
 .case-study__stack { display: flex; flex-wrap: wrap; gap: 0.6rem; list-style: none; padding: 0; margin: 1.5rem 0; }
 .case-study__stack li { margin: 0; padding: 0.25rem 0.6rem; border: 1px solid var(--border); border-radius: 6px; }
 .case-study__repositories { padding-inline-start: 1.3rem; }
+.case-study__diagram { margin: 1.5rem 0; }
+.case-study__diagram a { display: block; }
+.case-study__diagram img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 6px; }
+.case-study__diagram figcaption { margin-top: 0.5rem; font-size: 0.9rem; line-height: 1.6; }
 @media (max-width: 768px) {
   .case-study { padding: 1.25rem; }
   .case-study__grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
