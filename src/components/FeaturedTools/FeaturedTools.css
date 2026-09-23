@@ -27,8 +27,6 @@
 .featured-tool__copy-status:not(:empty) { margin-top: 0.5rem; }
 .featured-tool__diagram { margin: 0; padding: 0 var(--card-padding) var(--card-padding); }
 .featured-tool__diagram a { display: block; border-radius: 8px; }
-.featured-tool__diagram img { display: block; width: 100%; height: auto; border-radius: 8px; }
-.featured-tool__diagram figcaption { font-size: 0.85rem; line-height: 1.6; margin-top: 0.75rem; }
 .featured-tools a:focus-visible, .featured-tools button:focus-visible { outline: 2px solid var(--accent-solid); outline-offset: 4px; }
 @media (max-width: 900px) {
   .featured-tool__body { grid-template-columns: minmax(0, 1fr); }

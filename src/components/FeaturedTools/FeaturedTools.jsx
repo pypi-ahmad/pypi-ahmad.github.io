@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { caseStudies } from "../../data/caseStudies";
 import { revealMotion } from "../../themeMotion";
+import ProjectDiagrams from "../CaseStudy/ProjectDiagrams";
 import "./FeaturedTools.css";
 
 function Command({ project, label, code }) {
@@ -34,7 +35,6 @@ export default function FeaturedTools() {
     </header>
     {caseStudies.filter(project => project.homeFeature).map((project, index) => {
       const feature = project.homeFeature;
-      const diagram = project.diagrams[0];
       return <motion.article {...revealMotion(index)} className="featured-tool" key={project.id} aria-labelledby={`home-${project.id}`}>
         <div className="featured-tool__body">
           <div className="featured-tool__overview">
@@ -57,15 +57,10 @@ export default function FeaturedTools() {
             {feature.commands.map(command => <Command key={command.label} project={project.name} {...command} />)}
           </section>
         </div>
-        <figure className="featured-tool__diagram">
-          <a href={diagram.src} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.name} diagram at full size`}>
-            <img src={diagram.src} alt={diagram.alt} width={feature.diagramWidth} height={feature.diagramHeight} loading="lazy" decoding="async" />
-          </a>
-          <figcaption>
-            {diagram.title}. Select the diagram to view it at full size.
-            {feature.diagramCollectionLabel ? <Link to={`/projects#${project.id}`}>{feature.diagramCollectionLabel}</Link> : null}
-          </figcaption>
-        </figure>
+        <div className="featured-tool__diagram">
+          <ProjectDiagrams project={project} />
+          {feature.diagramCollectionLabel ? <Link to={`/projects#${project.id}`}>{feature.diagramCollectionLabel}</Link> : null}
+        </div>
       </motion.article>;
     })}
   </section>;

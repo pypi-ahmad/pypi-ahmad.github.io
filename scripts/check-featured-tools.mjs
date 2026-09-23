@@ -30,15 +30,14 @@ try {
         const copied = await page.evaluate(() => navigator.clipboard.readText());
         assert.equal(copied.replace(/\r\n/g, "\n"), expected);
       }
-      const img = feature.locator("img");
-      await img.scrollIntoViewIfNeeded();
-      await img.evaluate(image => image.decode());
-      assert.ok(await img.evaluate(image => image.naturalWidth > 0));
+      const diagram = feature.locator("iframe");
+      await diagram.scrollIntoViewIfNeeded();
+      await diagram.contentFrame().locator("#btn-theme").waitFor();
       const popupWait = page.waitForEvent("popup");
-      await img.locator("..").click();
+      await feature.getByRole("link", { name: "Open System architecture in a new tab" }).click();
       const popup = await popupWait;
       await popup.waitForLoadState();
-      assert.equal(popup.url(), new URL(await img.getAttribute("src"), base).href);
+      assert.equal(popup.url(), new URL(await diagram.getAttribute("src"), base).href);
       await popup.close();
       await feature.screenshot({ path: join(output, `${name}-${width}-${theme}.png`) });
     }

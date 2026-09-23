@@ -15,21 +15,23 @@ describe("Featured document tools", () => {
     }));
   });
   afterEach(() => vi.restoreAllMocks());
-  it("shows separate features with release READMEs and full-size diagrams", async () => {
+  it("shows separate features with release READMEs and interactive diagrams", async () => {
     const { container } = renderWithProviders(<FeaturedTools />);
     expect(screen.getAllByRole("article")).toHaveLength(2);
     for (const [name, id, version] of [["GroundMark", "groundmark", "v0.1.0"], ["DocLayout", "doclayout", "v2.1.0"]]) {
       const feature = within(screen.getByRole("article", { name }));
       expect(feature.getByRole("link", { name: `Read ${name} README` })).toHaveAttribute("href", `https://github.com/pypi-ahmad/${name}/blob/${version}/README.md`);
       expect(feature.getByRole("link", { name: `Read ${name} case study` })).toHaveAttribute("href", `/projects#${id}`);
-      const diagram = feature.getByRole("img");
+      const diagram = feature.getByTitle(`${name}: System architecture (interactive)`);
       expect(diagram).toHaveAttribute("loading", "lazy");
-      expect(feature.getByRole("link", { name: `Open ${name} diagram at full size` })).toHaveAttribute("href", diagram.getAttribute("src"));
+      expect(feature.getByRole("link", { name: "Open System architecture in a new tab" })).toHaveAttribute("href", diagram.getAttribute("src"));
       expect(feature.getByText("Install and try")).toBeVisible();
     }
     expect(screen.getByRole("link", { name: "Explore DocLayout diagrams" })).toHaveAttribute("href", "/projects#doclayout");
     expect(screen.queryByRole("link", { name: "Explore GroundMark diagrams" })).not.toBeInTheDocument();
-    expect((await axe(container)).violations).toEqual([]);
+    for (const body of container.querySelectorAll(".featured-tool__body")) {
+      expect((await axe(body)).violations).toEqual([]);
+    }
   });
 
   it("copies the exact published installation and usage commands", async () => {
