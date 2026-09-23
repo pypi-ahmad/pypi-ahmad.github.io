@@ -102,11 +102,12 @@ try {
       const cards = page.locator('#selected-work a[aria-label$="case study"]');
       await cards.first().waitFor();
       assert.equal(await cards.count(), 5);
+      assert.equal(await page.locator('#featured-tools a[aria-label$="case study"]').count(), 2);
       await cards.first().scrollIntoViewIfNeeded();
       await page.screenshot({ path: join(output, `home-${width}-${colorScheme}.png`) });
       await cards.first().click();
       await page.waitForFunction(() => document.activeElement?.id === "document-ai-engineering-lab");
-      assert.equal(await page.locator(".case-study").count(), 5);
+      assert.equal(await page.locator(".case-study").count(), 7);
       const heading = page.locator("#document-ai-engineering-lab");
       assert.ok((await heading.boundingBox()).y >= 70, "Anchor clears header");
       await page.screenshot({ path: join(output, `projects-${width}-${colorScheme}.png`) });

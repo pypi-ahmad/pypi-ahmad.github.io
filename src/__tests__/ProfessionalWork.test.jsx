@@ -33,11 +33,12 @@ describe("Home professional evidence", () => {
   it("orders professional evidence before architecture and keeps all personal previews", () => {
     const { container } = renderWithProviders(<Home theme={darkTheme} />);
     const main = container.querySelector("main");
-    expect(Array.from(main.children).slice(0, 6).map(node => node.id || node.className)).toEqual([
-      "greeting", "professional-work", "selected-work", "metrics-section", "architecture", "career-section",
+    expect(Array.from(main.children).slice(0, 7).map(node => node.id || node.className)).toEqual([
+      "greeting", "professional-work", "featured-tools", "selected-work", "metrics-section", "architecture", "career-section",
     ]);
     expect(container.querySelectorAll("#greeting .outcome-card")).toHaveLength(0);
     expect(container.querySelectorAll("#selected-work .project-card")).toHaveLength(5);
+    expect(container.querySelectorAll("#featured-tools article")).toHaveLength(2);
     expect(screen.getByRole("heading", { name: "Personal projects & experiments" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "View projects" })).toHaveAttribute("href", "/projects");
   });

@@ -4,6 +4,7 @@ import { axe, toHaveNoViolations } from "jest-axe";
 import { describe, expect, it } from "vitest";
 import Projects from "../pages/projects/Projects";
 import FeaturedProjects from "../containers/FeaturedProjects/FeaturedProjects";
+import FeaturedTools from "../components/FeaturedTools/FeaturedTools";
 import { caseStudies } from "../data/caseStudies";
 import { renderWithProviders, darkTheme } from "../test/testUtils";
 
@@ -23,9 +24,9 @@ const expectedNames = [
 ];
 
 describe("Projects page", () => {
-  it("connects all five Home previews to accessible full case studies", () => {
-    const { unmount } = renderWithProviders(<FeaturedProjects theme={darkTheme} />);
-    expect(caseStudies).toHaveLength(5);
+  it("connects all seven Home previews to accessible full case studies", () => {
+    const { unmount } = renderWithProviders(<><FeaturedTools /><FeaturedProjects theme={darkTheme} /></>);
+    expect(caseStudies).toHaveLength(7);
     for (const study of caseStudies) {
       const link = screen.getByRole("link", { name: `Read ${study.name} case study` });
       expect(link).toHaveAttribute("href", `/projects#${study.id}`);

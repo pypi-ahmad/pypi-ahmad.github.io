@@ -60,7 +60,7 @@ export default function FeaturedProjects({ theme }) {
         Personal projects & experiments
       </Title>
       <Grid>
-        {caseStudies.map((project, index) => (
+        {caseStudies.filter(project => !project.homeFeature).map((project, index) => (
           <ProjectCard key={project.id} repo={project} caseStudy revealIndex={index} />
         ))}
       </Grid>
