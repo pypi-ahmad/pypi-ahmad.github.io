@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Portfolio System Context",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "animation": "none",
+    "viewBox": [1220, 720]
+  },
+  "layout": {
+    "mode": "grid",
+    "origin": [60, 80],
+    "cols": 4,
+    "cellW": 200,
+    "cellH": 70,
+    "gapX": 100,
+    "gapY": 150
+  },
+  "components": [
+    { "id": "contributor", "type": "external", "label": "Contributor", "sublabel": "Authors changes", "row": 0, "col": 0 },
+    { "id": "source", "type": "frontend", "label": "Source repository", "sublabel": "GitHub main", "row": 0, "col": 1 },
+    { "id": "deploy", "type": "cloud", "label": "Pages deployment", "sublabel": "Artifact workflow", "row": 0, "col": 2 },
+    { "id": "pages", "type": "cloud", "label": "GitHub Pages", "sublabel": "Canonical host", "row": 0, "col": 3 },
+    { "id": "ci", "type": "cloud", "label": "GitHub Actions CI", "sublabel": "Test & coverage", "row": 1, "col": 0 },
+    { "id": "vercel", "type": "cloud", "label": "Vercel mirror", "sublabel": "Preview build", "row": 1, "col": 1 },
+    { "id": "browser", "type": "frontend", "label": "React SPA", "sublabel": "Browser client", "row": 1, "col": 2 },
+    { "id": "visitor", "type": "external", "label": "Site visitor", "sublabel": "Browses portfolio", "row": 1, "col": 3 },
+    { "id": "analytics", "type": "external", "label": "Google Analytics 4", "sublabel": "Optional metrics", "row": 2, "col": 1 },
+    { "id": "github", "type": "external", "label": "GitHub projects", "sublabel": "Public repos", "row": 2, "col": 2 }
+  ],
+  "connections": [
+    { "id": "push-code", "from": "contributor", "to": "source", "label": "push commit" },
+    { "id": "trigger-deploy", "from": "source", "to": "deploy", "label": "trigger release" },
+    { "id": "publish-pages", "from": "deploy", "to": "pages", "label": "publish build" },
+    { "id": "trigger-ci", "from": "source", "to": "ci", "label": "verify PR", "fromSide": "left", "toSide": "top" },
+    { "id": "trigger-vercel", "from": "source", "to": "vercel", "label": "mirror build", "fromSide": "bottom", "toSide": "top", "labelAt": [460, 210] },
+    { "id": "serve-pages", "from": "pages", "to": "browser", "label": "serve static HTML", "fromSide": "bottom", "toSide": "top", "variant": "emphasis" },
+    { "id": "serve-vercel", "from": "vercel", "to": "browser", "label": "mirror traffic" },
+    { "id": "visitor-request", "from": "visitor", "to": "browser", "label": "browse site", "variant": "emphasis" },
+    { "id": "record-analytics", "from": "browser", "to": "analytics", "label": "pageview beacon", "fromSide": "left", "toSide": "top", "variant": "dashed" },
+    { "id": "outbound-repos", "from": "browser", "to": "github", "label": "explore repos", "fromSide": "bottom", "toSide": "top", "labelAt": [760, 445] }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Static Hosting Architecture", "items": ["GitHub Pages serves as the canonical host with Vercel as a production mirror.", "All application code is statically built into HTML, JS, and CSS bundles."] },
+    { "dot": "cyan", "title": "Automated Quality Gates", "items": ["GitHub Actions CI executes linting, typecheck, coverage thresholds, and browser assertions.", "The deploy workflow runs tests and builds before publishing to Pages."] },
+    { "dot": "slate", "title": "Client-Only Integrations", "items": ["No server API or database; visitor interaction is handled purely in the browser.", "Public GitHub repositories and optional GA4 telemetry link outward."] }
+  ]
+}
