@@ -17,7 +17,7 @@ export default function ProjectDiagrams({ project }) {
       </a>
     </div>
     <p>Use the diagram controls to zoom, pan, and change views. On narrow screens, scroll sideways to reach all controls.</p>
-    <div className="project-diagrams__frame" tabIndex={0} aria-label="Scroll interactive diagram">
+    <div className="project-diagrams__frame" role="region" tabIndex={0} aria-label="Scroll interactive diagram">
       <iframe
         key={diagram.src}
         src={diagram.src}
