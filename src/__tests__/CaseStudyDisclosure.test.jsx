@@ -55,21 +55,18 @@ describe("Case-study disclosures", () => {
       expect(container.querySelector(`a[href="${repository.url}"]`)).toHaveTextContent(repository.name);
       if (repository.approach) expect(container).toHaveTextContent(repository.approach);
     }
-    const [overview, ...otherDiagrams] = study.diagrams || [];
-    expect(container.querySelectorAll(".case-study__diagram img")).toHaveLength(overview ? 1 : 0);
+    const [overview] = study.diagrams || [];
+    expect(container.querySelectorAll(".project-diagrams iframe")).toHaveLength(overview ? 1 : 0);
     if (overview) {
-      const image = screen.getByAltText(overview.alt);
-      expect(image).toHaveAttribute("src", overview.previewSrc || overview.src);
-      expect(image).toHaveAttribute("loading", "lazy");
-      expect(image.closest("a")).toHaveAttribute("href", overview.src);
-      expect(image.closest("a")).toHaveAccessibleName(`Open ${study.name}: ${overview.title}${overview.previewSrc ? " (interactive)" : " at full size"}`);
-    }
-    for (const diagram of otherDiagrams) {
-      const link = container.querySelector(`a[href="${diagram.src}"]`);
-      expect(link).toHaveAccessibleName(`${diagram.title}${diagram.src.endsWith(".html") ? " (interactive)" : ""}`);
+      const frame = screen.getByTitle(`${study.name}: ${overview.title} (interactive)`);
+      expect(frame).toHaveAttribute("src", overview.src);
+      expect(frame).toHaveAttribute("loading", "lazy");
+      const link = container.querySelector(`a[href="${overview.src}"]`);
+      expect(link).toHaveAccessibleName(`Open ${overview.title} in a new tab`);
       expect(link).toHaveAttribute("target", "_blank");
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
-      if (diagram.alt) expect(screen.queryByAltText(diagram.alt)).not.toBeInTheDocument();
+      const select = screen.getByLabelText(`${study.name} diagram`);
+      expect([...select.options].map(option => option.value)).toEqual(study.diagrams.map(diagram => diagram.src));
     }
     expect(container.querySelector("h2")).toHaveAttribute("id", study.id);
   });

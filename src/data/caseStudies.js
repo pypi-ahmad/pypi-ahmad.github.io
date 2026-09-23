@@ -39,8 +39,6 @@ export const caseStudies = [
         { label: "Open the browser app", code: "groundmark" },
         { label: "Or extract from the terminal", code: "groundmark input.pdf output --all" },
       ],
-      diagramWidth: 5320,
-      diagramHeight: 2152,
     },
     name: "GroundMark",
     category: "Document AI · Extraction",
@@ -57,11 +55,11 @@ export const caseStudies = [
     technologies: ["Python", "Streamlit", "LangGraph", "GPT-6 Sol", "GPT-6 Luna"],
     repositories: [{ name: "GroundMark", url: "https://github.com/pypi-ahmad/GroundMark" }],
     diagrams: [
-      { src: "/images/projects/groundmark/groundmark.png", title: "GroundMark architecture", alt: "GroundMark connects its Streamlit interface to page parsing, layout data, export rendering, run storage, and document chat." },
-      { src: "/images/projects/groundmark/groundmark-document-extraction-data-flow.png", title: "Document extraction data flow", alt: "GroundMark document extraction data flow." },
-      { src: "/images/projects/groundmark/groundmark-document-parsing-workflow.png", title: "Document parsing workflow", alt: "GroundMark document parsing workflow." },
-      { src: "/images/projects/groundmark/groundmark-document-execution-lifecycle.png", title: "Document execution lifecycle", alt: "GroundMark document execution lifecycle." },
-      { src: "/images/projects/groundmark/groundmark-parse-chat-sequence.png", title: "Parsing and chat sequence", alt: "GroundMark parsing and document chat sequence." },
+      { src: "/diagrams/projects/groundmark/groundmark-architecture.html", title: "System architecture" },
+      { src: "/diagrams/projects/groundmark/groundmark-workflow.html", title: "Document parsing workflow" },
+      { src: "/diagrams/projects/groundmark/groundmark-sequence.html", title: "Parsing and chat sequence" },
+      { src: "/diagrams/projects/groundmark/groundmark-dataflow.html", title: "Document extraction data flow" },
+      { src: "/diagrams/projects/groundmark/groundmark-lifecycle.html", title: "Document execution lifecycle" },
     ],
   },
   {
@@ -80,8 +78,6 @@ export const caseStudies = [
         { label: "Use the CLI: export all formats", code: "doclayout input.pdf output --all" },
         { label: "Launch the browser app (requires the browser installation)", code: "doclayout_gui" },
       ],
-      diagramWidth: 4320,
-      diagramHeight: 3040,
       diagramCollectionLabel: "Explore DocLayout diagrams",
     },
     name: "DocLayout",
@@ -99,7 +95,6 @@ export const caseStudies = [
     technologies: ["Python", "Streamlit", "Marker", "GPT-6 Sol", "GPT-6 Luna"],
     repositories: [{ name: "DocLayout", url: "https://github.com/pypi-ahmad/DocLayout", approach: "View the code and installation guide." }],
     diagrams: [
-      { src: "/images/projects/doclayout/doclayout-data-flow.png", title: "DocLayout data flow", alt: "DocLayout renders source pages for extraction, validates blocks, and builds a document model for exports and chat with quotation and answer checks." },
       { src: "/diagrams/projects/doclayout/doclayout-architecture.html", title: "System architecture" },
       { src: "/diagrams/projects/doclayout/doclayout-workflow.html", title: "Extraction workflow" },
       { src: "/diagrams/projects/doclayout/doclayout-sequence.html", title: "Extraction sequence" },
@@ -124,7 +119,7 @@ export const caseStudies = [
     technologies: ["Python", "Streamlit", "PyTorch", "Transformers", "PEFT", "TRL"],
     repositories: [{ name: "LoRA Fine-tune Studio", url: "https://github.com/pypi-ahmad/lora-qlora-fine-tuning-app" }],
     diagrams: [
-      { src: "/diagrams/projects/lora-fine-tune-studio/system-architecture.html", previewSrc: "/images/projects/lora-fine-tune-studio/system-architecture.png", title: "System architecture", alt: "LoRA Studio connects its Streamlit interface to dataset validation, training jobs, and saved model artifacts." },
+      { src: "/diagrams/projects/lora-fine-tune-studio/system-architecture.html", title: "System architecture" },
       { src: "/diagrams/projects/lora-fine-tune-studio/dataset-pipeline.html", title: "Dataset pipeline" },
       { src: "/diagrams/projects/lora-fine-tune-studio/job-lifecycle.html", title: "Training job lifecycle" },
     ],
@@ -146,8 +141,8 @@ export const caseStudies = [
     technologies: ["Python", "LangGraph", "LangChain", "Streamlit", "LLM-as-judge"],
     repositories: [{ name: "Self-Improving Prompt Optimizer", url: "https://github.com/pypi-ahmad/self-improving-prompt-optimizer" }],
     diagrams: [
-      { src: "/images/projects/self-improving-prompt-optimizer/system-architecture-runtime-boundaries.png", title: "System architecture and runtime boundaries", alt: "The prompt optimizer connects its Streamlit interface to a LangGraph optimization loop, evaluation, and OpenAI generation and judging." },
-      { src: "/images/projects/self-improving-prompt-optimizer/prompt-optimization-workflow.png", title: "Prompt optimization workflow" },
+      { src: "/diagrams/projects/self-improving-prompt-optimizer/system-architecture.html", title: "System architecture" },
+      { src: "/diagrams/projects/self-improving-prompt-optimizer/optimization-workflow.html", title: "Prompt optimization workflow" },
     ],
   },
   {
@@ -184,7 +179,7 @@ export const caseStudies = [
     technologies: ["Python", "PyTorch", "Whisper-tiny", "Gradio", "Hugging Face"],
     repositories: [{ name: "Hinglish Turn Detection", url: "https://github.com/pypi-ahmad/hinglish-turn-detection" }],
     diagrams: [
-      { src: "/diagrams/projects/hinglish-turn-detection/system-architecture.html", previewSrc: "/images/projects/hinglish-turn-detection/system-architecture.png", title: "System architecture", alt: "Overview of the Hinglish Turn Detection system, with its data, training, and inference components." },
+      { src: "/diagrams/projects/hinglish-turn-detection/system-architecture.html", title: "System architecture" },
       { src: "/diagrams/projects/hinglish-turn-detection/inference-sequence.html", title: "Inference sequence" },
       { src: "/diagrams/projects/hinglish-turn-detection/data-lifecycle.html", title: "Data lifecycle" },
       { src: "/diagrams/projects/hinglish-turn-detection/module-dependencies.html", title: "Module dependencies" },

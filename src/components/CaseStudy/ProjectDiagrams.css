@@ -1,0 +1,12 @@
+.project-diagrams { min-width: 0; margin-block: 1.5rem; }
+.project-diagrams__controls { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem 1rem; }
+.project-diagrams__controls label { font-weight: 600; color: var(--text); }
+.project-diagrams__controls select { max-width: 100%; min-height: 44px; padding: 0.5rem; border: 1px solid var(--border); border-radius: 6px; background: var(--card); color: var(--text); font: inherit; }
+.project-diagrams__controls a { color: var(--accent-solid); text-underline-offset: 0.2em; }
+.project-diagrams__controls select:focus-visible, .project-diagrams__controls a:focus-visible { outline: 2px solid var(--accent-solid); outline-offset: 4px; }
+.project-diagrams > p { font-size: 0.9rem; line-height: 1.6; }
+.project-diagrams__frame { max-width: 100%; overflow-x: auto; }
+.project-diagrams__frame:focus-visible { outline: 2px solid var(--accent-solid); outline-offset: 4px; }
+.project-diagrams iframe { display: block; width: 100%; height: clamp(520px, 75vh, 900px); box-sizing: border-box; border: 1px solid var(--border); border-radius: 8px; background: var(--card); }
+@media (max-width: 600px) { .project-diagrams iframe { width: 820px; } }
+@media print { .project-diagrams iframe, .project-diagrams select, .project-diagrams label, .project-diagrams > p { display: none; } }
