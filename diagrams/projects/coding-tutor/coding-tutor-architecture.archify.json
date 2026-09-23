@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Coding Tutor: practice and review",
+    "quality_profile": "showcase",
+    "viewBox": [1120, 700]
+  },
+  "components": [
+    { "id": "learner", "type": "external", "label": "Learner", "sublabel": "Answers and interview", "pos": [50, 310], "size": [150, 72] },
+    { "id": "streamlit", "type": "frontend", "label": "Streamlit app", "sublabel": "Practice modes", "pos": [270, 310], "size": [165, 72] },
+    { "id": "session", "type": "backend", "label": "Session services", "sublabel": "Questions and interviews", "pos": [505, 310], "size": [175, 72] },
+    { "id": "feedback", "type": "backend", "label": "Feedback services", "sublabel": "AI review and corrections", "pos": [750, 310], "size": [180, 72] },
+    { "id": "catalogs", "type": "database", "label": "DuckDB catalogs", "sublabel": "Questions and attempts", "pos": [505, 500], "size": [175, 72] },
+    { "id": "provider", "type": "external", "label": "AI provider", "sublabel": "Optional generation and review", "pos": [750, 120], "size": [180, 72] }
+  ],
+  "connections": [
+    { "from": "learner", "to": "streamlit" },
+    { "from": "streamlit", "to": "session" },
+    { "from": "session", "to": "feedback", "label": "submitted answer", "labelAt": [715, 396] },
+    { "from": "session", "to": "catalogs", "label": "read and save", "fromSide": "bottom", "toSide": "top", "labelAt": [593, 396] },
+    { "from": "feedback", "to": "provider", "label": "review request", "fromSide": "top", "toSide": "bottom" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Local practice", "items": ["DuckDB catalogs store questions, attempts, and progress.", "Practice includes coding, quizzes, AI questions, and interviews."] },
+    { "dot": "amber", "title": "Review boundary", "items": ["Feedback comes from a selected AI provider.", "Learner code and stored test cases are not executed."] }
+  ]
+}
