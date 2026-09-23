@@ -24,13 +24,16 @@ const expectedNames = [
 ];
 
 describe("Projects page", () => {
-  it("connects all seven Home previews to accessible full case studies", () => {
+  it("keeps the seven Home previews while listing all case studies on Projects", () => {
     const { unmount } = renderWithProviders(<><FeaturedTools /><FeaturedProjects theme={darkTheme} /></>);
-    expect(caseStudies).toHaveLength(7);
-    for (const study of caseStudies) {
+    expect(caseStudies).toHaveLength(14);
+    for (const study of caseStudies.filter(study => !study.projectsPageOnly)) {
       const link = screen.getByRole("link", { name: `Read ${study.name} case study` });
       expect(link).toHaveAttribute("href", `/projects#${study.id}`);
       expect(link).not.toHaveAttribute("target");
+    }
+    for (const study of caseStudies.filter(study => study.projectsPageOnly)) {
+      expect(screen.queryByRole("link", { name: `Read ${study.name} case study` })).not.toBeInTheDocument();
     }
     unmount();
     renderWithProviders(<Projects theme={darkTheme} />);
@@ -42,7 +45,7 @@ describe("Projects page", () => {
   });
   it("renders the recruiter-focused hero", () => {
     renderWithProviders(<Projects theme={darkTheme} />);
-    expect(screen.getByText("Independent tools and research")).toBeInTheDocument();
+    expect(screen.getByText(/Each case study explains the problem/)).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 1, name: "Projects" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "View GitHub profile" })).toHaveAttribute(
       "href",

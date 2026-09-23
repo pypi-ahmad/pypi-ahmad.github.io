@@ -5,7 +5,7 @@
 export const projectsHeader = {
   title: "Projects",
   description:
-    "Seven case studies from my independent tools and research, followed by other public AI engineering projects and developer tools.",
+    "Explore the AI tools, experiments, and engineering projects I’ve built. Each case study explains the problem, my approach, the results, and what I learned. You’ll also find source code, diagrams, and implementation notes for my AI and machine learning projects.",
 };
 
 export const projects = {

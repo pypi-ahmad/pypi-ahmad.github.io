@@ -28,9 +28,6 @@ export default function Projects({ theme }) {
             ),
           }}
         >
-          <motion.p {...revealMotion(0, true)} className="projects-eyebrow" style={{ color: theme.secondaryText }}>
-            Independent tools and research
-          </motion.p>
           <h1 id="projects-title" style={{ color: theme.text }}>
             {projectsHeader.title}
           </h1>
