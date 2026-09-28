@@ -58,6 +58,7 @@ describe("Case-study disclosures", () => {
     const [overview] = study.diagrams || [];
     expect(container.querySelectorAll(".project-diagrams iframe")).toHaveLength(overview ? 1 : 0);
     if (overview) {
+      expect(container.querySelector(".project-diagrams__frame")).toHaveAttribute("aria-label", `Scroll ${study.name} interactive diagram`);
       const frame = screen.getByTitle(`${study.name}: ${overview.title} (interactive)`);
       expect(frame).toHaveAttribute("src", overview.src);
       expect(frame).toHaveAttribute("loading", "lazy");

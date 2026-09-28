@@ -18,7 +18,7 @@ describe("Featured document tools", () => {
   it("shows separate features with release READMEs and interactive diagrams", async () => {
     const { container } = renderWithProviders(<FeaturedTools />);
     expect(screen.getAllByRole("article")).toHaveLength(2);
-    for (const [name, id, version] of [["GroundMark", "groundmark", "v0.1.0"], ["DocLayout", "doclayout", "v2.1.0"]]) {
+    for (const [name, id, version] of [["GroundMark", "groundmark", "v1.1.0"], ["DocLayout", "doclayout", "v3.1.0"]]) {
       const feature = within(screen.getByRole("article", { name }));
       expect(feature.getByRole("link", { name: `Read ${name} README` })).toHaveAttribute("href", `https://github.com/pypi-ahmad/${name}/blob/${version}/README.md`);
       expect(feature.getByRole("link", { name: `Read ${name} case study` })).toHaveAttribute("href", `/projects#${id}`);
@@ -39,11 +39,11 @@ describe("Featured document tools", () => {
     const write = vi.spyOn(navigator.clipboard, "writeText").mockResolvedValue();
     renderWithProviders(<FeaturedTools />);
     const commands = [
-      ["GroundMark: Install with uv", 'uv tool install --python 3.14 "https://github.com/pypi-ahmad/GroundMark/releases/download/v0.1.0/groundmark-0.1.0-py3-none-any.whl"'],
+      ["GroundMark: Install with uv", 'uv tool install --python 3.14 "groundmark[layout] @ https://github.com/pypi-ahmad/GroundMark/releases/download/v1.1.0/groundmark-1.1.0-py3-none-any.whl"'],
       ["GroundMark: Open the browser app", "groundmark"],
       ["GroundMark: Or extract from the terminal", "groundmark input.pdf output --all"],
-      ["DocLayout: Install the CLI with uv", 'uv tool install "git+https://github.com/pypi-ahmad/DocLayout.git@v2.1.0"'],
-      ["DocLayout: Or install the CLI and browser app with uv", 'uv tool install "doclayout[gui] @ git+https://github.com/pypi-ahmad/DocLayout.git@v2.1.0"'],
+      ["DocLayout: Install the CLI with uv", 'uv tool install "git+https://github.com/pypi-ahmad/DocLayout.git@v3.1.0"'],
+      ["DocLayout: Or install the CLI and browser app with uv", 'uv tool install "doclayout[gui] @ git+https://github.com/pypi-ahmad/DocLayout.git@v3.1.0"'],
       ["DocLayout: Use the CLI: export all formats", "doclayout input.pdf output --all"],
       ["DocLayout: Launch the browser app (requires the browser installation)", "doclayout_gui"],
     ];
