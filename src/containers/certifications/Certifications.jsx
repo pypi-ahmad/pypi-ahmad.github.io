@@ -39,17 +39,17 @@ function Certifications(props) {
       >
         <motion.div {...revealMotion()} className="education-section-heading">
           <p className="education-section-label" style={{ color: theme.secondaryText }}>
-            Featured achievement
+            Featured achievements
           </p>
           <h2
             id="professional-certification-title"
             className="certs-header"
             style={{ color: theme.text }}
           >
-            Professional certification
+            Professional certifications
           </h2>
           <p style={{ color: theme.secondaryText }}>
-            Anthropic certification in Claude foundations, issued August 31, 2026.
+            Anthropic certifications in Claude architecture and foundations.
           </p>
         </motion.div>
         <motion.div {...revealMotion()} className="professional-certification-body">

@@ -38,6 +38,19 @@ export const degrees = {
 export const certifications = {
   certifications: [
     {
+      title: "Claude Certified Architect - Foundations",
+      subtitle: "Anthropic",
+      completionDate: "September 30, 2026",
+      dateLabel: "Issued",
+      certificateLink: "https://www.credly.com/badges/d524da8d-1bb9-46b0-8844-c6f162a52dbd",
+      pdfLink: "/certifications/anthropic-claude-certified-architect-foundations.pdf",
+      badgeImagePath: "/images/certifications/claude-certified-architect-foundations.png",
+      altName: "Anthropic",
+      credentialType: "professional",
+      category: "Generative AI",
+      summary: "Expires September 30, 2027.",
+    },
+    {
       title: "Claude Certified Associate - Foundations",
       subtitle: "Anthropic",
       completionDate: "August 31, 2026",

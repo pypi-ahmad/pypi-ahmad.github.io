@@ -8,6 +8,7 @@ import { renderWithProviders, darkTheme } from "../test/testUtils";
 expect.extend(toHaveNoViolations);
 
 const expectedCertificates = [
+  "Claude Certified Architect - Foundations",
   "Claude Certified Associate - Foundations",
   "Claude Code 101",
   "Building with the Claude API",
@@ -65,7 +66,7 @@ describe("Education page", () => {
     ]);
   });
 
-  it("features the professional certification before the thirteen course certificates", () => {
+  it("features both professional certifications before the thirteen course certificates", () => {
     const { container } = renderWithProviders(<Education theme={darkTheme} />);
     const professionalSection = container.querySelector("#professional-certification");
     const courseSection = container.querySelector("#certs");
@@ -73,12 +74,18 @@ describe("Education page", () => {
       .map(node => node.textContent);
 
     expect(certificateNames).toEqual(expectedCertificates);
-    expect(professionalSection.querySelectorAll(".cert-card")).toHaveLength(1);
+    expect(professionalSection.querySelectorAll(".cert-card")).toHaveLength(2);
+    expect(within(professionalSection).getByRole("heading", {
+      level: 3,
+      name: "Claude Certified Architect - Foundations",
+    })).toBeInTheDocument();
     expect(within(professionalSection).getByRole("heading", {
       level: 3,
       name: "Claude Certified Associate - Foundations",
     })).toBeInTheDocument();
     expect(courseSection.querySelectorAll(".cert-card")).toHaveLength(13);
+    expect(within(courseSection).queryByText("Claude Certified Architect - Foundations"))
+      .not.toBeInTheDocument();
     expect(within(courseSection).queryByText("Claude Certified Associate - Foundations"))
       .not.toBeInTheDocument();
     expect(within(courseSection).getByText(
@@ -103,6 +110,8 @@ describe("Education page", () => {
     const courseLinks = within(anthropicGroup).getAllByRole("link");
 
     expect(professionalLinks.map(link => link.getAttribute("href"))).toEqual([
+      "https://www.credly.com/badges/d524da8d-1bb9-46b0-8844-c6f162a52dbd",
+      "/certifications/anthropic-claude-certified-architect-foundations.pdf",
       "https://www.credly.com/badges/d9eace76-da4e-447f-b38b-9c39ac6edf6d",
       "/certifications/anthropic-claude-certified-associate-foundations.pdf",
     ]);
@@ -120,16 +129,29 @@ describe("Education page", () => {
       expect(link).toHaveAttribute("target", "_blank");
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
     }
-    expect(within(professionalSection).getByText("Verify credential")).toBeInTheDocument();
+    expect(within(professionalSection).getAllByText("Verify credential")).toHaveLength(2);
     expect(within(anthropicGroup).getAllByText("Verify credential")).toHaveLength(4);
-    expect(within(professionalSection).getByText("Issued August 31, 2026")).toBeInTheDocument();
-    const skills = within(professionalSection).getByRole("list", {
+    const architectCard = within(professionalSection).getByRole("heading", {
+      name: "Claude Certified Architect - Foundations",
+    }).closest("article");
+    const associateCard = within(professionalSection).getByRole("heading", {
+      name: "Claude Certified Associate - Foundations",
+    }).closest("article");
+    expect(within(architectCard).getByText("Issued September 30, 2026")).toBeInTheDocument();
+    expect(within(architectCard).getByText("Expires September 30, 2027.")).toBeInTheDocument();
+    const architectBadge = architectCard.querySelector(".cert-card__badge");
+    expect(architectBadge).toHaveAttribute(
+      "src",
+      "/images/certifications/claude-certified-architect-foundations.png"
+    );
+    expect(architectBadge).toHaveAttribute("alt", "");
+    expect(within(associateCard).getByText("Issued August 31, 2026")).toBeInTheDocument();
+    const skills = within(associateCard).getByRole("list", {
       name: "Credential skills",
     });
     expect(within(skills).getAllByRole("listitem").map(item => item.textContent))
       .toEqual(expectedProfessionalSkills);
-    const certifiedCard = professionalSection.querySelector(".cert-card");
-    const badge = certifiedCard?.querySelector(".cert-card__badge");
+    const badge = associateCard.querySelector(".cert-card__badge");
     expect(badge).toHaveAttribute(
       "src",
       "/images/certifications/claude-certified-associate-foundations.png"

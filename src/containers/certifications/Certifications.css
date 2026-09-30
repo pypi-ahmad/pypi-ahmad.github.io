@@ -1,6 +1,7 @@
 .professional-certification-body {
   display: grid;
   grid-template-columns: minmax(0, 52rem);
+  gap: var(--section-gap-tight);
 }
 
 .certification-groups {
