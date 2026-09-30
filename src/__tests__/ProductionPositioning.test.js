@@ -15,7 +15,7 @@ describe("Evidence-led production positioning", () => {
     const html = fs.readFileSync("index.html", "utf8");
     const structuredData = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
     expect(homePageData.hero.title).toMatch(/^Production AI Engineer/);
-    for (const focus of ["multimodal document intelligence", "LLM extraction architectures", "agentic workflows", "LLM evaluation"]) {
+    for (const focus of ["healthcare AI", "multimodal document intelligence", "LLM extraction architectures", "agentic workflows", "LLM evaluation"]) {
       expect(homePageData.hero.title).toContain(focus);
       expect(greeting.subTitle).toContain(focus);
     }

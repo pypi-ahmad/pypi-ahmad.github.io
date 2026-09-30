@@ -58,7 +58,7 @@ describe("Accessibility — Semantic HTML & ARIA", () => {
     const h1 = screen.getByRole("heading", { level: 1 });
     expect(h1).toBeInTheDocument();
     expect(h1).toHaveTextContent(
-      "Production AI Engineer specializing in multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation."
+      "Production AI Engineer specializing in healthcare AI, multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation."
     );
   });
 

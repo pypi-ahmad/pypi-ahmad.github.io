@@ -11,7 +11,7 @@ describe("Home hero", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: "Production AI Engineer specializing in multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation.",
+        name: "Production AI Engineer specializing in healthcare AI, multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation.",
       })
     ).toBeInTheDocument();
     expect(

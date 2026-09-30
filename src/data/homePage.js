@@ -2,7 +2,7 @@
 export const homePageData = {
   hero: {
     eyebrow: "AI & Data Science Engineer · Gurugram, India",
-    title: "Production AI Engineer specializing in multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation.",
+    title: "Production AI Engineer specializing in healthcare AI, multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation.",
     introduction:
       "At Deloitte, I took healthcare and insurance AI pipelines from design through production deployment, including prior authorization. At Cognizant, I modernized automotive warranty systems using machine learning, NLP, and cloud automation.",
   },
