@@ -18,11 +18,11 @@ describe("Home hero", () => {
       screen.getByText("AI & Data Science Engineer · Gurugram, India")
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/At Deloitte, I designed extraction for 117 fields across seven related groups/)
+      screen.getByText(/At Deloitte, I took healthcare and insurance AI pipelines from design through production deployment, including prior authorization/)
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/confidence-aware four-pass extraction and validation/)
-    ).toHaveTextContent(/At Cognizant, I improved an existing warranty system/);
+      screen.getByText(/At Deloitte, I took healthcare and insurance AI pipelines/)
+    ).toHaveTextContent(/At Cognizant, I modernized automotive warranty systems using machine learning, NLP, and cloud automation/);
   });
 
   it("renders selected work and contact actions", () => {

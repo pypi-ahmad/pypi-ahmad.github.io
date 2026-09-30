@@ -27,8 +27,8 @@ describe("Evidence-led production positioning", () => {
   });
 
   it("keeps seven field groups separate from four passes and names the confirmed deployment", () => {
-    expect(homePageData.hero.introduction).toContain("117 fields across seven related groups");
-    for (const copy of [homePageData.hero.introduction, featuredProfessionalProjects[0].contribution, priorAuth.story.decisions.join(" "), architectures[0].notes.join(" ")]) {
+    expect(homePageData.hero.introduction).toContain("healthcare and insurance AI pipelines from design through production deployment, including prior authorization");
+    for (const copy of [featuredProfessionalProjects[0].contribution, priorAuth.story.decisions.join(" "), architectures[0].notes.join(" ")]) {
       expect(copy).toContain("four-pass");
       expect(copy).toContain("seven");
       expect(copy).not.toMatch(/two-pass|seven-pass/);
@@ -43,7 +43,7 @@ describe("Evidence-led production positioning", () => {
   });
 
   it("retains existing-system ownership and does not introduce stronger metric claims", () => {
-    expect(homePageData.hero.introduction).toContain("improved an existing warranty system");
+    expect(homePageData.hero.introduction).toContain("modernized automotive warranty systems using machine learning, NLP, and cloud automation");
     expect(cognizant.story.finding).toContain("already in production");
     expect(cognizant.story.finding).toContain("tuned hyperparameters");
     expect(cognizant.outcomes[0]).toMatchObject({ metric: "79% to 88%", label: "Warranty-classifier recall" });
