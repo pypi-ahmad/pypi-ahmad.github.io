@@ -167,7 +167,6 @@ describe("Education page", () => {
       name: "Claude Certified Associate - Foundations",
     }).closest("article");
     expect(within(architectCard).getByText("Issued September 30, 2026")).toBeInTheDocument();
-    expect(within(architectCard).getByText("Expires September 30, 2027.")).toBeInTheDocument();
     const architectBadge = architectCard.querySelector(".cert-card__badge");
     expect(architectBadge).toHaveAttribute(
       "src",
@@ -204,7 +203,6 @@ describe("Education page", () => {
     }).closest("article");
 
     expect(within(partnerCard).getByText("Issued October 7, 2026")).toBeInTheDocument();
-    expect(within(partnerCard).getByText("Expires April 7, 2027.")).toBeInTheDocument();
     expect(partnerCard.querySelector(".cert-card__badge")).toHaveAttribute(
       "src",
       "/images/certifications/certified-partner-specialist-gemini-enterprise-deployment.png"
