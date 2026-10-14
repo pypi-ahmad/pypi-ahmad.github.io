@@ -48,7 +48,6 @@ export const certifications = {
       altName: "Anthropic",
       credentialType: "professional",
       category: "Generative AI",
-      summary: "Expires October 14, 2027.",
     },
     {
       title: "Claude Certified Developer - Foundations",
@@ -61,7 +60,6 @@ export const certifications = {
       altName: "Anthropic",
       credentialType: "professional",
       category: "Generative AI",
-      summary: "Expires October 14, 2027.",
     },
     {
       title: "Claude Certified Architect - Foundations",
@@ -74,7 +72,6 @@ export const certifications = {
       altName: "Anthropic",
       credentialType: "professional",
       category: "Generative AI",
-      summary: "Expires September 30, 2027.",
     },
     {
       title: "Claude Certified Associate - Foundations",
@@ -110,7 +107,6 @@ export const certifications = {
       altName: "Google Cloud",
       credentialType: "professional",
       category: "Google Cloud",
-      summary: "Expires April 7, 2027.",
     },
     {
       title: "Accelerate Development with Antigravity",
