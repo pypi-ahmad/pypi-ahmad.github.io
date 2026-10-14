@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Added
+
+- Added the Claude Certified Architect - Professional and Claude Certified Developer - Foundations credentials.
+- Added the Google Cloud Certified Partner Specialist credential and four Gemini Enterprise and Antigravity skill badges.
+
 ### Changed
 
 - Replaced the three-way accent picker (pink, blue, pink-indigo) with a single indigo-to-navy visual identity; the header no longer shows accent swatches, and light/dark mode is the only remaining preference.

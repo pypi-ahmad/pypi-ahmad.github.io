@@ -24,8 +24,11 @@ const categoryOrder = [
 const professionalCredentials = certifications.certifications.filter(
   certificate => certificate.credentialType === "professional"
 );
+const skillBadges = certifications.certifications.filter(
+  certificate => certificate.credentialType === "skill-badge"
+);
 const courseCertificates = certifications.certifications.filter(
-  certificate => certificate.credentialType !== "professional"
+  certificate => certificate.credentialType !== "professional" && certificate.credentialType !== "skill-badge"
 );
 
 function Certifications(props) {
@@ -49,11 +52,43 @@ function Certifications(props) {
             Professional certifications
           </h2>
           <p style={{ color: theme.secondaryText }}>
-            Anthropic certifications in Claude architecture and foundations.
+            Anthropic certifications in Claude architecture and foundations, and a Google Cloud partner specialist credential.
           </p>
         </motion.div>
         <motion.div {...revealMotion()} className="professional-certification-body">
           {professionalCredentials.map(certificate => (
+            <CertificationCard
+              key={certificate.title}
+              certificate={certificate}
+              theme={theme}
+              headingLevel={3}
+            />
+          ))}
+        </motion.div>
+      </section>
+
+      <section
+        className="education-section"
+        id="google-cloud-skill-badges"
+        aria-labelledby="google-cloud-skill-badges-title"
+      >
+        <motion.div {...revealMotion()} className="education-section-heading">
+          <p className="education-section-label" style={{ color: theme.secondaryText }}>
+            Google Cloud
+          </p>
+          <h2
+            id="google-cloud-skill-badges-title"
+            className="certs-header"
+            style={{ color: theme.text }}
+          >
+            Skill badges
+          </h2>
+          <p style={{ color: theme.secondaryText }}>
+            Issued Google Cloud skill badges for Gemini Enterprise and Antigravity.
+          </p>
+        </motion.div>
+        <motion.div {...revealMotion()} className="professional-certification-body">
+          {skillBadges.map(certificate => (
             <CertificationCard
               key={certificate.title}
               certificate={certificate}

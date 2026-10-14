@@ -77,7 +77,7 @@ const routeMeta = {
   education: {
     title: "Education & certifications | Ahmad Mujtaba",
     description:
-      "Degrees in computer science and data analytics, with credentials in generative AI, machine learning, deep learning, and data systems.",
+      "Degrees in computer science and data analytics, with credentials in generative AI, Google Cloud, machine learning, deep learning, and data systems.",
     canonicalPath: "/education",
   },
   projects: {

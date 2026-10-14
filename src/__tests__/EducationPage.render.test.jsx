@@ -8,8 +8,15 @@ import { renderWithProviders, darkTheme } from "../test/testUtils";
 expect.extend(toHaveNoViolations);
 
 const expectedCertificates = [
+  "Claude Certified Architect - Professional",
+  "Claude Certified Developer - Foundations",
   "Claude Certified Architect - Foundations",
   "Claude Certified Associate - Foundations",
+  "Certified Partner Specialist Gemini Enterprise Deployment",
+  "Accelerate Development with Antigravity",
+  "Add Agents to Gemini Enterprise",
+  "Deploy Gemini Enterprise with Workspace Data Sources and Model Armor",
+  "Govern Agent Access with Gemini Enterprise Agent Platform",
   "Claude Code 101",
   "Building with the Claude API",
   "Claude 101",
@@ -66,15 +73,24 @@ describe("Education page", () => {
     ]);
   });
 
-  it("features both professional certifications before the thirteen course certificates", () => {
+  it("features professional certifications and Google Cloud skill badges before the thirteen course certificates", () => {
     const { container } = renderWithProviders(<Education theme={darkTheme} />);
     const professionalSection = container.querySelector("#professional-certification");
+    const skillBadgeSection = container.querySelector("#google-cloud-skill-badges");
     const courseSection = container.querySelector("#certs");
     const certificateNames = Array.from(container.querySelectorAll(".cert-card__title"))
       .map(node => node.textContent);
 
     expect(certificateNames).toEqual(expectedCertificates);
-    expect(professionalSection.querySelectorAll(".cert-card")).toHaveLength(2);
+    expect(professionalSection.querySelectorAll(".cert-card")).toHaveLength(5);
+    expect(within(professionalSection).getByRole("heading", {
+      level: 3,
+      name: "Claude Certified Architect - Professional",
+    })).toBeInTheDocument();
+    expect(within(professionalSection).getByRole("heading", {
+      level: 3,
+      name: "Claude Certified Developer - Foundations",
+    })).toBeInTheDocument();
     expect(within(professionalSection).getByRole("heading", {
       level: 3,
       name: "Claude Certified Architect - Foundations",
@@ -83,10 +99,17 @@ describe("Education page", () => {
       level: 3,
       name: "Claude Certified Associate - Foundations",
     })).toBeInTheDocument();
+    expect(within(professionalSection).getByRole("heading", {
+      level: 3,
+      name: "Certified Partner Specialist Gemini Enterprise Deployment",
+    })).toBeInTheDocument();
+    expect(skillBadgeSection.querySelectorAll(".cert-card")).toHaveLength(4);
     expect(courseSection.querySelectorAll(".cert-card")).toHaveLength(13);
     expect(within(courseSection).queryByText("Claude Certified Architect - Foundations"))
       .not.toBeInTheDocument();
-    expect(within(courseSection).queryByText("Claude Certified Associate - Foundations"))
+    expect(within(courseSection).queryByText("Certified Partner Specialist Gemini Enterprise Deployment"))
+      .not.toBeInTheDocument();
+    expect(within(courseSection).queryByText("Add Agents to Gemini Enterprise"))
       .not.toBeInTheDocument();
     expect(within(courseSection).getByText(
       "13 course-completion certificates grouped by focus area for faster review."
@@ -110,10 +133,16 @@ describe("Education page", () => {
     const courseLinks = within(anthropicGroup).getAllByRole("link");
 
     expect(professionalLinks.map(link => link.getAttribute("href"))).toEqual([
+      "https://www.credly.com/badges/1066c045-512c-4a32-b868-dfa7ac33ee6d",
+      "/certifications/anthropic-claude-certified-architect-professional.pdf",
+      "https://www.credly.com/badges/073148fd-db6b-40ac-9895-00de4e291cb3",
+      "/certifications/anthropic-claude-certified-developer-foundations.pdf",
       "https://www.credly.com/badges/d524da8d-1bb9-46b0-8844-c6f162a52dbd",
       "/certifications/anthropic-claude-certified-architect-foundations.pdf",
       "https://www.credly.com/badges/d9eace76-da4e-447f-b38b-9c39ac6edf6d",
       "/certifications/anthropic-claude-certified-associate-foundations.pdf",
+      "https://www.credly.com/go/M2oOGTmo",
+      "/certifications/google-cloud-certified-partner-specialist-gemini-enterprise-deployment.pdf",
     ]);
     expect(courseLinks.map(link => link.getAttribute("href"))).toEqual([
       "https://verify.skilljar.com/c/uubk52krkzap",
@@ -129,7 +158,7 @@ describe("Education page", () => {
       expect(link).toHaveAttribute("target", "_blank");
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
     }
-    expect(within(professionalSection).getAllByText("Verify credential")).toHaveLength(2);
+    expect(within(professionalSection).getAllByText("Verify credential")).toHaveLength(5);
     expect(within(anthropicGroup).getAllByText("Verify credential")).toHaveLength(4);
     const architectCard = within(professionalSection).getByRole("heading", {
       name: "Claude Certified Architect - Foundations",
@@ -161,6 +190,48 @@ describe("Education page", () => {
     expect(within(anthropicGroup).getByText("Completed July 6, 2026")).toBeInTheDocument();
     expect(within(anthropicGroup).getByText("Completed March 10, 2026")).toBeInTheDocument();
     expect(within(anthropicGroup).getByText("Completed March 11, 2026")).toBeInTheDocument();
+  });
+
+  it("shows Google Cloud credential evidence separately from course certificates", () => {
+    const { container } = renderWithProviders(<Education theme={darkTheme} />);
+    const professionalSection = container.querySelector("#professional-certification");
+    const skillBadgeSection = container.querySelector("#google-cloud-skill-badges");
+    const partnerCard = within(professionalSection).getByRole("heading", {
+      name: "Certified Partner Specialist Gemini Enterprise Deployment",
+    }).closest("article");
+    const antigravityCard = within(skillBadgeSection).getByRole("heading", {
+      name: "Accelerate Development with Antigravity",
+    }).closest("article");
+
+    expect(within(partnerCard).getByText("Issued October 7, 2026")).toBeInTheDocument();
+    expect(within(partnerCard).getByText("Expires April 7, 2027.")).toBeInTheDocument();
+    expect(partnerCard.querySelector(".cert-card__badge")).toHaveAttribute(
+      "src",
+      "/images/certifications/certified-partner-specialist-gemini-enterprise-deployment.png"
+    );
+    expect(within(partnerCard).getByRole("link", { name: /Verify credential/ })).toHaveAttribute(
+      "href",
+      "https://www.credly.com/go/M2oOGTmo"
+    );
+    expect(within(partnerCard).getByRole("link", { name: /View certificate PDF/ })).toHaveAttribute(
+      "href",
+      "/certifications/google-cloud-certified-partner-specialist-gemini-enterprise-deployment.pdf"
+    );
+    expect(within(skillBadgeSection).getAllByText("Issued October 7, 2026")).toHaveLength(4);
+    expect(within(antigravityCard).getByRole("link", { name: /Verify credential/ })).toHaveAttribute(
+      "href",
+      "https://www.credly.com/go/YJPt5FVS"
+    );
+    expect(within(skillBadgeSection).getAllByRole("link").map(link => link.getAttribute("href"))).toEqual([
+      "https://www.credly.com/go/YJPt5FVS",
+      "/certifications/google-cloud-accelerate-development-with-antigravity.pdf",
+      "https://www.credly.com/go/YXb6QduW",
+      "/certifications/google-cloud-add-agents-to-gemini-enterprise.pdf",
+      "https://www.credly.com/go/5gmsHXlG",
+      "/certifications/google-cloud-deploy-gemini-enterprise-with-workspace-data-sources-and-model-armor.pdf",
+      "https://www.credly.com/go/5pRqk9Wk",
+      "/certifications/google-cloud-govern-agent-access-with-gemini-enterprise-agent-platform.pdf",
+    ]);
   });
 
   it("links education to applied project work", () => {

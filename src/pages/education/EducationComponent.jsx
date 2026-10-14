@@ -42,7 +42,7 @@ function Education(props) {
             </h1>
             <motion.p {...revealMotion(1, true)} className="education-intro" style={{ color: theme.secondaryText }}>
               Degrees in data analytics and computer science, with credentials
-              in generative AI, machine learning, deep learning, and data systems.
+              in generative AI, Google Cloud, machine learning, deep learning, and data systems.
             </motion.p>
           </section>
 
