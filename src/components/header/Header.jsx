@@ -14,7 +14,7 @@ const navItems = [
   ["/skills", "Skills"],
   ["/fde", "FDE"],
   ["/education", "Education and certifications"],
-  ["/study-resources", "Study resources"],
+  ["/study-resources", "Exam prep"],
   ["/github", "GitHub"],
   ["/contact", "Contact"],
 ];

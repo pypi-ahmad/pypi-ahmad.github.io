@@ -62,7 +62,7 @@ const routeMeta = {
     canonicalPath: "/fde",
   },
   studyResources: {
-    title: "Claude certification study resources | Ahmad Mujtaba",
+    title: "Claude certification exam prep | Ahmad Mujtaba",
     description: studyResourcesPageData.description,
     canonicalPath: "/study-resources",
   },

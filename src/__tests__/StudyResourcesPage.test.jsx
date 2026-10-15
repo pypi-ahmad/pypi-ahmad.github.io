@@ -18,9 +18,16 @@ describe("Study resources page", () => {
     for (const exam of studyResourcesPageData.exams) {
       const card = within(screen.getByRole("article", { name: exam.name }));
       expect(card.getByText(exam.code)).toBeInTheDocument();
-      expect(card.getByText(`${exam.guidePages}-page study guide`)).toBeInTheDocument();
+      expect(card.getByText(exam.audience)).toBeInTheDocument();
+      expect(card.getAllByRole("term").map(term => term.textContent)).toEqual([
+        "Practice tests", "Questions per test", "Total questions", "Study guide",
+      ]);
+      expect(card.getAllByRole("definition").map(value => value.textContent)).toEqual([
+        String(studyResourcesPageData.testsPerExam), String(exam.questionsPerTest),
+        String(studyResourcesPageData.testsPerExam * exam.questionsPerTest), `${exam.guidePages} pages`,
+      ]);
       const udemy = card.getByRole("link", { name: `Practice tests on Udemy for ${exam.code}` });
-      const topmate = card.getByRole("link", { name: `Guide and PDFs bundle on Topmate for ${exam.code}` });
+      const topmate = card.getByRole("link", { name: `Guide + PDFs on Topmate for ${exam.code}` });
       expect(udemy).toHaveAttribute("href", exam.udemyUrl);
       expect(topmate).toHaveAttribute("href", exam.topmateUrl);
       for (const link of [udemy, topmate]) {
@@ -28,6 +35,26 @@ describe("Study resources page", () => {
         expect(link).toHaveAttribute("rel", "noopener noreferrer");
       }
     }
+  });
+
+  it("helps visitors choose an exam and compare the two formats", () => {
+    renderWithProviders(<StudyResourcesPage theme={darkTheme} />);
+    expect(screen.getAllByRole("article").map(card => within(card).getByRole("heading").textContent)).toEqual([
+      "Claude Certified Associate - Foundations", "Claude Certified Developer - Foundations",
+      "Claude Certified Architect - Foundations", "Claude Certified Architect - Professional",
+    ]);
+    for (const [name, id] of [["Choose your exam", "exam-options"], ["Compare formats", "study-formats"]]) {
+      expect(screen.getByRole("link", { name, exact: true })).toHaveAttribute("href", `#${id}`);
+      expect(document.getElementById(id)).toHaveAttribute("aria-labelledby");
+    }
+    const formats = within(screen.getByRole("region", { name: "Choose your format" }));
+    expect(formats.getByRole("heading", { name: "Practice on Udemy" })).toBeInTheDocument();
+    expect(formats.getByRole("heading", { name: "Download from Topmate" })).toBeInTheDocument();
+    expect(formats.getByText("An explanation for every question")).toBeInTheDocument();
+    expect(formats.getByText("Five practice-test PDFs with answer keys")).toBeInTheDocument();
+    expect(formats.getByText(/Both formats contain the same practice questions/)).toBeInTheDocument();
+    expect(screen.getByRole("region", { name: "Created by Ahmad Mujtaba" })).toHaveTextContent("I hold all four Claude credentials");
+    expect(screen.queryByRole("heading", { name: "How the material is built" })).not.toBeInTheDocument();
   });
 
   it("derives the totals from the exam data", () => {
@@ -40,7 +67,7 @@ describe("Study resources page", () => {
 
   it("states independence, AI assistance, and the practice-target caveat", () => {
     renderWithProviders(<StudyResourcesPage theme={darkTheme} />);
-    expect(screen.getByText(/prepared with AI assistance that I directed and reviewed/)).toBeInTheDocument();
+    expect(screen.getByText(/used AI to help prepare these questions, directing the work and reviewing the results/)).toBeInTheDocument();
     expect(screen.getByText(/not affiliated with or endorsed by Anthropic/)).toBeInTheDocument();
     expect(screen.getByText(/practice target/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "See the credentials" })).toHaveAttribute("href", "/education");
@@ -63,9 +90,9 @@ describe("Study resources page", () => {
       </ThemeControllerProvider>
     );
     expect(await screen.findByRole("heading", { level: 1, name: studyResourcesPageData.title }, { timeout: 10000 })).toBeInTheDocument();
-    await waitFor(() => expect(document.title).toBe("Claude certification study resources | Ahmad Mujtaba"), { timeout: 10000 });
+    await waitFor(() => expect(document.title).toBe("Claude certification exam prep | Ahmad Mujtaba"), { timeout: 10000 });
     expect(document.head.querySelector('link[rel="canonical"]')?.getAttribute("href")).toBe("https://pypi-ahmad.github.io/study-resources");
     await userEvent.setup().click(screen.getByRole("button", { name: "Toggle navigation menu" }));
-    expect(screen.getByRole("link", { name: "Study resources", exact: true })).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("link", { name: "Exam prep", exact: true })).toHaveAttribute("aria-current", "page");
   });
 });
