@@ -63,13 +63,13 @@ describe("Responsiveness — Hamburger Menu Structure", () => {
     expect(menu).not.toHaveAttribute("hidden");
   });
 
-  it("keeps eight page links in one navigation list", async () => {
+  it("keeps nine page links in one navigation list", async () => {
     renderWithProviders(<Header />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
     const menu = document.querySelector("ul.menu");
     const links = menu.querySelectorAll("a");
-    expect(links.length).toBe(8);
+    expect(links.length).toBe(9);
     expect(menu.contains(screen.getByText("ahmad.m()"))).toBe(false);
   });
 

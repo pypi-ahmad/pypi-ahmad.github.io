@@ -23,7 +23,7 @@ describe("Header — UI Rendering", () => {
     const { container } = renderWithProviders(<Header />);
     await openMenu();
     expect([...container.querySelectorAll(".menu a")].map(node => node.textContent)).toEqual([
-      "Home", "Experience", "Projects", "Skills", "FDE", "Education and certifications", "GitHub", "Contact",
+      "Home", "Experience", "Projects", "Skills", "FDE", "Education and certifications", "Study resources", "GitHub", "Contact",
     ]);
   });
   it("measures the sticky header, updates on resize, and cleans up", () => {

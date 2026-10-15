@@ -15,6 +15,7 @@
  *  /projects    — Recent open-source projects
  *  /skills      — Applied AI capabilities, evidence, and toolkit
  *  /fde         — Forward-deployed engineering foundations and learning
+ *  /study-resources — Claude certification practice tests, guides, and PDFs
  *
  * Pages are lazy-loaded so Vite can code-split them into separate chunks.
  *
@@ -30,6 +31,7 @@ import {
   contactPageData,
   skillsPageData,
   fdePageData,
+  studyResourcesPageData,
 } from "../portfolio.js";
 import RouteMeta from "../components/seo/RouteMeta";
 import RouteNavigation from "../components/RouteNavigation";
@@ -42,6 +44,7 @@ const Contact = lazy(() => import("../pages/contact/ContactComponent"));
 const Projects = lazy(() => import("../pages/projects/Projects"));
 const SkillsPage = lazy(() => import("../pages/skills/SkillsPage"));
 const FdePage = lazy(() => import("../pages/fde/FdePage"));
+const StudyResourcesPage = lazy(() => import("../pages/studyResources/StudyResourcesPage"));
 const GitHubPage = lazy(() => import("../pages/github/GitHubPage"));
 const NotFound = lazy(() => import("../pages/notFound/NotFound"));
 
@@ -57,6 +60,11 @@ const routeMeta = {
     title: "FDE learning journey | Ahmad Mujtaba",
     description: fdePageData.description,
     canonicalPath: "/fde",
+  },
+  studyResources: {
+    title: "Claude certification study resources | Ahmad Mujtaba",
+    description: studyResourcesPageData.description,
+    canonicalPath: "/study-resources",
   },
   github: {
     title: "GitHub statistics & contribution arcade | Ahmad Mujtaba",
@@ -147,6 +155,7 @@ export default function Main(props) {
             <RouteNavigation />
             <Routes>
               <Route path="/fde" element={withRouteMeta(routeMeta.fde, <FdePage theme={props.theme} />)} />
+              <Route path="/study-resources" element={withRouteMeta(routeMeta.studyResources, <StudyResourcesPage theme={props.theme} />)} />
               <Route path="/github" element={withRouteMeta(routeMeta.github, <GitHubPage {...props} />)} />
               <Route
                 path="/"

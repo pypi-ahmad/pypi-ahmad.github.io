@@ -4,6 +4,7 @@
 
 ### Added
 
+- Added a Study resources page (`/study-resources`) for the Claude certification practice tests, study guides, and PDFs, with Udemy and Topmate links, a navigation item, a sitemap entry, and a static-hosting route.
 - Added the Claude Certified Architect - Professional and Claude Certified Developer - Foundations credentials.
 - Added the Google Cloud Certified Partner Specialist credential and four Gemini Enterprise and Antigravity skill badges.
 

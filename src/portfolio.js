@@ -14,6 +14,7 @@ export * from "./data/homePage";
 export * from "./data/socialMedia";
 export * from "./data/skills";
 export * from "./data/fde";
+export * from "./data/studyResources";
 export * from "./data/education";
 export * from "./data/experience";
 export * from "./data/projects";
