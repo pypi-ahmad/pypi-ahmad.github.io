@@ -11,7 +11,7 @@ if (baseIndex >= 0 && !process.argv[baseIndex + 1]) {
   throw new Error("--base-url requires a URL");
 }
 const base = new URL(baseIndex < 0 ? "http://127.0.0.1:4173" : process.argv[baseIndex + 1]);
-const routes = ["home", "contact", "skills", "fde", "experience", "education", "projects", "github", "github?tab=projects", "github?tab=activity", "github?tab=impact", "github?tab=arcade", "github?tab=animations"];
+const routes = ["home", "contact", "skills", "fde", "experience", "education", "projects", "study-resources", "github", "github?tab=projects", "github?tab=activity", "github?tab=impact", "github?tab=arcade", "github?tab=animations"];
 const browser = await chromium.launch({ headless: true });
 const output = await mkdtemp(join(tmpdir(), "portfolio-frontend-"));
 const findings = [];
