@@ -9,12 +9,8 @@
 import Header from "../../components/header/Header";
 import Greeting from "../../containers/greeting/Greeting";
 import FeaturedProjects from "../../containers/FeaturedProjects/FeaturedProjects";
-import FeaturedTools from "../../components/FeaturedTools/FeaturedTools";
 import HomeDetails from "../../containers/HomeDetails/HomeDetails";
 import Footer from "../../components/footer/Footer";
-import LazyGitHubPreview from "../../components/github/LazyGitHubPreview";
-import CareerProgression from "../../components/CareerProgression/CareerProgression";
-import Architecture from "../../components/Architecture/Architecture";
 import ProfessionalWork, { MetricsStrip } from "../../components/ProfessionalWork/ProfessionalWork";
 
 function Home(props) {
@@ -23,13 +19,9 @@ function Home(props) {
       <Header />
       <main id="main-content">
         <Greeting theme={props.theme} />
-        <ProfessionalWork theme={props.theme} />
-        <FeaturedTools />
         <FeaturedProjects theme={props.theme} />
+        <ProfessionalWork theme={props.theme} />
         <MetricsStrip theme={props.theme} />
-        <Architecture theme={props.theme} />
-        <CareerProgression theme={props.theme} />
-        <LazyGitHubPreview />
         <HomeDetails theme={props.theme} />
       </main>
       <Footer theme={props.theme} />

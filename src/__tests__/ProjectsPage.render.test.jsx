@@ -4,15 +4,14 @@ import { axe, toHaveNoViolations } from "jest-axe";
 import { describe, expect, it } from "vitest";
 import Projects from "../pages/projects/Projects";
 import FeaturedProjects from "../containers/FeaturedProjects/FeaturedProjects";
-import FeaturedTools from "../components/FeaturedTools/FeaturedTools";
-import { caseStudies } from "../data/caseStudies";
+
+import { caseStudies, featuredCaseStudies } from "../data/caseStudies";
 import { renderWithProviders, darkTheme } from "../test/testUtils";
 
 expect.extend(toHaveNoViolations);
 
 const expectedNames = [
   "Tool-Using Browser Agent",
-  "NL2SQL Agent",
   "Autonomous Coding Agent Crew",
   "Multi-Agent Debate Decision System",
   "Multi-Agent Research Assistant",
@@ -24,15 +23,15 @@ const expectedNames = [
 ];
 
 describe("Projects page", () => {
-  it("keeps the seven Home previews while listing all case studies on Projects", () => {
-    const { unmount } = renderWithProviders(<><FeaturedTools /><FeaturedProjects theme={darkTheme} /></>);
-    expect(caseStudies).toHaveLength(20);
-    for (const study of caseStudies.filter(study => !study.projectsPageOnly)) {
+  it("keeps the four resume project previews while listing all case studies on Projects", () => {
+    const { unmount } = renderWithProviders(<FeaturedProjects theme={darkTheme} />);
+    expect(caseStudies).toHaveLength(21);
+    for (const study of featuredCaseStudies) {
       const link = screen.getByRole("link", { name: `Read ${study.name} case study` });
       expect(link).toHaveAttribute("href", `/projects#${study.id}`);
       expect(link).not.toHaveAttribute("target");
     }
-    for (const study of caseStudies.filter(study => study.projectsPageOnly)) {
+    for (const study of caseStudies.filter(study => !featuredCaseStudies.includes(study))) {
       expect(screen.queryByRole("link", { name: `Read ${study.name} case study` })).not.toBeInTheDocument();
     }
     unmount();
@@ -41,7 +40,7 @@ describe("Projects page", () => {
       expect(screen.getByRole("article", { name: study.name })).toBeInTheDocument();
       expect(screen.getByRole("heading", { name: study.name })).toHaveAttribute("id", study.id);
     }
-    expect(caseStudies[0].repositories).toHaveLength(8);
+    expect(caseStudies.find(study => study.repositories.length === 8).repositories).toHaveLength(8);
   });
   it("renders the recruiter-focused hero", () => {
     renderWithProviders(<Projects theme={darkTheme} />);
@@ -53,14 +52,14 @@ describe("Projects page", () => {
     );
   });
 
-  it("renders ten additional projects without duplicating case studies", () => {
+  it("renders nine additional projects without duplicating case studies", () => {
     const { container } = renderWithProviders(<Projects theme={darkTheme} />);
     const names = Array.from(
       container.querySelectorAll(".projects-section .project-card__name")
     ).map(node => node.textContent);
 
     expect(names).toEqual(expectedNames);
-    expect(container.querySelectorAll(".projects-section .project-card")).toHaveLength(10);
+    expect(container.querySelectorAll(".projects-section .project-card")).toHaveLength(9);
   });
 
   it("keeps additional repository cards visually secondary", () => {
@@ -74,7 +73,7 @@ describe("Projects page", () => {
     renderWithProviders(<Projects theme={darkTheme} />);
     const links = screen.getAllByRole("link", { name: /repository on GitHub$/ });
 
-    expect(links).toHaveLength(10);
+    expect(links).toHaveLength(9);
     expect(links[0]).toHaveAttribute(
       "href",
       "https://github.com/pypi-ahmad/tool-using-browser-agent"

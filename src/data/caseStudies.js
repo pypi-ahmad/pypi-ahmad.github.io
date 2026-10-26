@@ -1,5 +1,22 @@
 export const caseStudies = [
   {
+    id: "natural-language-to-sql-agent",
+    name: "Natural Language to SQL Agent",
+    category: "Agentic AI · Data Systems",
+    description: "A LangGraph agent that clarifies questions, prepares SQL, and runs approved read-only queries on SQLite and PostgreSQL.",
+    problem: "Natural-language database access needs a way to handle ambiguous requests and inspect SQL before it runs.",
+    built: "I built a local LangGraph and Streamlit application with SQL generation, clarification, query review, and read-only execution. SQLGlot validates the query structure, permitted tables, functions, and complexity before execution.",
+    decisions: [
+      "Ask for clarification or return an unanswerable result when a request cannot be translated safely.",
+      "Bind approval to the database and policy context, then revalidate edited SQL immediately before execution.",
+      "Evaluate returned rows and require successful, complete execution instead of scoring SQL text alone.",
+    ],
+    evidence: "The repository includes the workflow, query validation, execution-result evaluation, and SQLite/PostgreSQL test coverage. The README explains setup and the database permissions required.",
+    limitations: "Model-generated SQL still requires review. Synthetic and BIRD development runs are bounded evaluations, not production accuracy or leaderboard results. Hosted model configuration can send schema and question context to a provider.",
+    technologies: ["Python", "LangGraph", "SQLGlot", "SQLite", "PostgreSQL", "Streamlit"],
+    repositories: [{ name: "Natural Language to SQL Agent", url: "https://github.com/pypi-ahmad/natural-language-to-sql-agent" }],
+  },
+  {
     id: "document-ai-engineering-lab",
     name: "Document AI Engineering Lab",
     category: "Document AI · Extraction · GraphRAG",
@@ -482,3 +499,7 @@ export const caseStudies = [
     ],
   },
 ];
+
+// The four selected projects in Ahmad's supplied concise resume, in resume order.
+export const featuredCaseStudies = ["doclayout", "natural-language-to-sql-agent", "lora-fine-tune-studio", "hinglish-turn-detection"]
+  .map(id => caseStudies.find(study => study.id === id));

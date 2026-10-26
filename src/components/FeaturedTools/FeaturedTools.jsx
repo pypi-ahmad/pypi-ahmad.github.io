@@ -26,6 +26,16 @@ function Command({ project, label, code }) {
   </div>;
 }
 
+export function Installation({ project }) {
+  const feature = project.homeFeature;
+  return <section className="featured-tool__setup" aria-label={`${project.name} installation and usage`}>
+    <div className="featured-tool__setup-heading"><h4>Install and try</h4><span>{feature.version}</span></div>
+    <p>{feature.requirements} <a href="https://docs.astral.sh/uv/getting-started/installation/" target="_blank" rel="noopener noreferrer">Install uv</a>.</p>
+    {feature.installationNote ? <p>{feature.installationNote}</p> : null}
+    {feature.commands.map(command => <Command key={command.label} project={project.name} {...command} />)}
+  </section>;
+}
+
 export default function FeaturedTools() {
   return <section id="featured-tools" className="featured-tools" aria-labelledby="featured-tools-title">
     <header className="featured-tools__heading">
@@ -50,12 +60,7 @@ export default function FeaturedTools() {
               <Link to={`/projects#${project.id}`} aria-label={`Read ${project.name} case study`}>Read case study</Link>
             </div>
           </div>
-          <section className="featured-tool__setup" aria-label={`${project.name} installation and usage`}>
-            <div className="featured-tool__setup-heading"><h4>Install and try</h4><span>{feature.version}</span></div>
-            <p>{feature.requirements} <a href="https://docs.astral.sh/uv/getting-started/installation/" target="_blank" rel="noopener noreferrer">Install uv</a>.</p>
-            {feature.installationNote ? <p>{feature.installationNote}</p> : null}
-            {feature.commands.map(command => <Command key={command.label} project={project.name} {...command} />)}
-          </section>
+          <Installation project={project} />
         </div>
         <div className="featured-tool__diagram">
           <ProjectDiagrams project={project} />

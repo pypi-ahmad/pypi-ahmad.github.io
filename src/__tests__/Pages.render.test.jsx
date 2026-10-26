@@ -28,7 +28,7 @@ describe("Page Rendering Smoke Tests", () => {
     renderWithProviders(<Home {...pageProps} />);
     expect(screen.getByRole("heading", {
       level: 1,
-      name: "Production AI Engineer specializing in healthcare AI, multimodal document intelligence, LLM extraction architectures, agentic workflows, and LLM evaluation.",
+      name: "Production AI Engineer building healthcare and document AI systems.",
     })).toBeInTheDocument();
   });
 
@@ -117,9 +117,9 @@ describe("Page Rendering Smoke Tests", () => {
 
   it("Home page renders the top four featured projects", () => {
     renderWithProviders(<Home {...pageProps} />);
-    expect(screen.getByRole("heading", { level: 2, name: "Personal projects & experiments" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "Selected projects" })).toBeInTheDocument();
     expect(screen.getByText("LoRA Fine-tune Studio")).toBeInTheDocument();
-    expect(screen.getByText("Document AI Engineering Lab")).toBeInTheDocument();
+    expect(screen.getByText("Natural Language to SQL Agent")).toBeInTheDocument();
     expect(screen.queryByText("Autonomous Coding Agent Crew")).not.toBeInTheDocument();
   });
 

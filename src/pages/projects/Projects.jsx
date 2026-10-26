@@ -3,7 +3,7 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import CaseStudy from "../../components/CaseStudy/CaseStudy";
-import { projectsHeader, projects, caseStudies, socialMediaLinks } from "../../portfolio.js";
+import { projectsHeader, projects, caseStudies, featuredCaseStudies, socialMediaLinks } from "../../portfolio.js";
 import { buildThemeBackground, buildThemeShadow, revealMotion } from "../../themeMotion";
 import "./Projects.css";
 
@@ -52,7 +52,11 @@ export default function Projects({ theme }) {
         </section>
 
         <section className="projects-section" aria-label="Project case studies">
-          {caseStudies.map(study => <CaseStudy key={study.id} study={study} />)}
+          <h2>Selected projects</h2>
+          {featuredCaseStudies.map(study => <CaseStudy key={study.id} study={study} />)}
+          <h2>More case studies</h2>
+          <p>For document work: choose DocLayout for batch conversion and saved field review, GroundMark for page parsing and cited chat, or Paperplane to compare explicit local and cloud parsing engines.</p>
+          {caseStudies.filter(study => !featuredCaseStudies.includes(study)).map(study => <CaseStudy key={study.id} study={study} />)}
         </section>
         <section className="projects-section" aria-labelledby="recent-projects-title">
           <motion.div {...revealMotion()} className="projects-section-heading">

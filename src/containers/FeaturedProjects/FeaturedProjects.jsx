@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
-import { caseStudies } from "../../portfolio";
+import { featuredCaseStudies } from "../../portfolio";
 import { revealMotion } from "../../themeMotion";
 
 const Container = styled.section`
@@ -28,7 +28,6 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
   gap: var(--section-gap-tight);
 
-  > :first-child { grid-column: 1 / -1; }
 
 `;
 
@@ -57,10 +56,10 @@ export default function FeaturedProjects({ theme }) {
         theme={theme}
         {...revealMotion()}
       >
-        Personal projects & experiments
+        Selected projects
       </Title>
       <Grid>
-        {caseStudies.filter(project => !project.homeFeature && !project.projectsPageOnly).map((project, index) => (
+        {featuredCaseStudies.map((project, index) => (
           <ProjectCard key={project.id} repo={project} caseStudy revealIndex={index} />
         ))}
       </Grid>

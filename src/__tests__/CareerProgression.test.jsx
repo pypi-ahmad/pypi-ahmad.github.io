@@ -15,7 +15,7 @@ describe("Career progression", () => {
     ]);
   });
 
-  it.each([["Home", Home], ["Experience", Experience]])("renders the same accessible progression on %s", (_, Page) => {
+  it.each([["Experience", Experience]])("renders the same accessible progression on %s", (_, Page) => {
     renderWithProviders(<Page theme={darkTheme} />);
     const section = screen.getByRole("region", { name: careerProgression.title });
     const scope = within(section);
@@ -29,14 +29,11 @@ describe("Career progression", () => {
     expect(screen.queryByText("How my work developed")).not.toBeInTheDocument();
   });
 
-  it("places Home architecture after both work sections and metrics", () => {
+  it("keeps the Home overview focused and the detailed progression on Experience", () => {
     const { container } = renderWithProviders(<Home theme={darkTheme} />);
-    expect(container.querySelector(".metrics-section").nextElementSibling).toBe(container.querySelector("#architecture"));
-    expect(container.querySelector("#architecture").nextElementSibling).toBe(
-      screen.getByRole("region", { name: careerProgression.title })
-    );
+    expect(container.querySelector("#architecture")).not.toBeInTheDocument();
+    expect(screen.queryByRole("region", { name: careerProgression.title })).not.toBeInTheDocument();
   });
-
   it("places Experience progression after the unchanged roles", () => {
     renderWithProviders(<Experience theme={darkTheme} />);
     const section = screen.getByRole("region", { name: careerProgression.title });

@@ -1,6 +1,7 @@
 import "./CaseStudy.css";
 import CaseStudyDisclosure from "./CaseStudyDisclosure";
 import ProjectDiagrams from "./ProjectDiagrams";
+import { Installation } from "../FeaturedTools/FeaturedTools";
 
 export default function CaseStudy({ study }) {
   return (
@@ -26,6 +27,7 @@ export default function CaseStudy({ study }) {
       <ul className="case-study__stack" aria-label={`${study.name} technologies`}>
         {study.technologies.map(technology => <li key={technology}>{technology}</li>)}
       </ul>
+      {study.homeFeature ? <Installation project={study} /> : null}
       {study.diagrams?.length ? <section aria-label={`${study.name} diagrams`}>
         <h3>How it works</h3>
         <ProjectDiagrams project={study} />
