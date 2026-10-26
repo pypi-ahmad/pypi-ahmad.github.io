@@ -208,8 +208,8 @@ try {
         for (const width of [1440, 390]) {
           await page.setViewportSize({ width, height: 900 });
           if (route === "home") {
-            await page.locator("#github-overview").scrollIntoViewIfNeeded();
-            await page.getByRole("heading", { name: "Building in the open." }).waitFor();
+            await page.locator("#selected-work").scrollIntoViewIfNeeded();
+            assert.equal(await page.locator("#selected-work .project-card").count(), 4);
           }
           await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
           await page.screenshot({ path: join(output, `${route.replace(/[?=]/g, "-")}-${mode}-${width}.png`), fullPage: true });

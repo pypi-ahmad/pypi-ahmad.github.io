@@ -39,8 +39,8 @@ try {
     ),
     "Homepage does not download games",
   );
-  await page.locator("#github-overview").scrollIntoViewIfNeeded();
-  await page.getByRole("link", { name: /View GitHub dashboard/ }).click();
+  await page.getByRole("button", { name: "Toggle navigation menu" }).click();
+  await page.getByRole("link", { name: "GitHub", exact: true }).click();
   await page
     .getByRole("heading", { name: "At a glance", exact: true })
     .waitFor();
