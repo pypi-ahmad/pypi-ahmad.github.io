@@ -39,7 +39,6 @@ try {
     ),
     "Homepage does not download games",
   );
-  await page.getByRole("button", { name: "Toggle navigation menu" }).click();
   await page.getByRole("link", { name: "GitHub", exact: true }).click();
   await page
     .getByRole("heading", { name: "At a glance", exact: true })
